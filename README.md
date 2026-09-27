@@ -1,1 +1,1 @@
-# hiking-app-backend
+# Hiking Planner App
