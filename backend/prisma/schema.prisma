@@ -25,6 +25,43 @@ enum StatusRBAC{
   ARCHIVED
 }
 
+enum AttachmentType { // TODO: edit this
+  EVIDENCE  //verification, supporting documents
+  SOURCE_DOCUMENT // official documents, records, files, guide, policy document, etc.
+  SUPPORTING_MATERIAL // supporting materials in general
+  SCREENSHOT
+  PHOTO
+  GPX
+  MAP
+  RECEIPT
+  BOOKING_CONFIRMATION
+  FEEDBACK
+  OTHER
+}
+
+enum TargetType { //TODO: fill here after init all the schema models
+  USER
+  ROLE
+  PERMISSION
+}
+
+enum Category { //TODO: fill here after init all the schema models
+  UNSPECIFIED
+  WEIGHT
+  LENGTH
+  AREA
+  VOLUME
+  TEMPERATURE
+  DURATION
+  POWER
+  ENERGY
+  LUMINOUS_FLUX
+}
+
+
+
+//  Models
+// 1. Access Control: User, Role, Permission, UserRole, RolePermission
 model User {
   id  Int @id @default(autoincrement())
   name String
@@ -93,4 +130,72 @@ model RolePermission {
   revoked_at DateTime?
   granted_by_id Int
   revoked_by_id Int?
+
+  @@unique([role_id, permission_id])
+}
+
+// 2. Common: Alias, Attachment, Unit, Media
+model Alias{
+  id Int @id@default(autoincrement())
+  target_type TargetType
+  target_id Int
+  alias String
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  @@unique([target_type, target_id, alias])
+}
+
+model Attachment{
+  id Int @id@default(autoincrement())
+  attach_to_type TargetType
+  attach_to_id Int
+  media_id Int?
+  attachment_type AttachmentType
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  uploaded_at DateTime @default(now())
+  uploaded_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model Media {
+  id Int @id@default(autoincrement())
+  media_key String @unique
+
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model Unit{
+  id Int @id@default(autoincrement())
+  name String
+  display_name String
+  symbol String?
+  category Category
+  
+  is_base Boolean @default(false)
+  scale_to_base Float?
+  offset_to_base Float?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
 }
