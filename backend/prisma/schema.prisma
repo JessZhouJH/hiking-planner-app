@@ -13,14 +13,15 @@ datasource db {
 }
 
 // Enums and constants
-enum Status{
+enum Status {
+  UNSPECIFIED
   ACTIVE
   PENDING
   INACTIVE
   ARCHIVED
 }
 
-enum StatusRBAC{
+enum StatusRBAC {
   ACTIVE
   ARCHIVED
 }
@@ -45,7 +46,7 @@ enum TargetType { //TODO: fill here after init all the schema models
   PERMISSION
 }
 
-enum Category { //TODO: fill here after init all the schema models
+enum UnitCategory { //TODO: fill here after init all the schema models
   UNSPECIFIED
   WEIGHT
   LENGTH
@@ -58,7 +59,45 @@ enum Category { //TODO: fill here after init all the schema models
   LUMINOUS_FLUX
 }
 
+enum Visibility {
+  UNSPECIFIED
+  PRIVATE
+  RESTRICTED
+  PUBLIC
+}
 
+enum ValueType {  // TODO: revisit here and modify the enum.md 
+  UNSPECIFIED
+  WEIGHT
+  LENGTH
+  VOLUME
+  TEMPERATURE
+  R_VALUE
+  CAPACITY
+  FIT
+  SIZE
+  MATERIAL
+  COUNT
+  DURATION
+  POWER
+  ENERGY
+}
+
+enum Operator {
+  EQUAL
+  GREATER_THAN
+  GREATER_THAN_OR_EQUAL
+  LESS_THAN
+  LESS_THAN_OR_EQUAL
+  RANGE
+}
+
+enum Frequency {  // TODO revisit here and modify the enum.md
+  UNSPECIFIED
+  PER_DAY
+  PER_WEEK
+  PER_HIKE
+}
 
 //  Models
 // 1. Access Control: User, Role, Permission, UserRole, RolePermission
@@ -185,7 +224,7 @@ model Unit{
   name String
   display_name String
   symbol String?
-  category Category
+  category UnitCategory
   
   is_base Boolean @default(false)
   scale_to_base Float?
@@ -198,4 +237,187 @@ model Unit{
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+}
+
+// 3. Gear Module
+model Brand {
+  id Int @id@default(autoincrement())
+  name String @unique
+
+  status Status @default(ACTIVE)
+  notes String?
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model GearType{
+  id Int @id@default(autoincrement())
+  name String @unique
+
+  status Status @default(ACTIVE)
+  notes String?
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model Gear{
+  id Int @id@default(autoincrement())
+  name String
+  brand_id Int?
+  gear_type_id Int
+  preview_img_key String?
+
+  owner_id Int?
+  visibility Visibility @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model GearSpecsDefinition {
+  id Int @id @default(autoincrement())
+  name String
+  gear_type_id Int
+  value_type ValueType
+  default_unit_id Int?
+
+  is_critical Boolean @default(false)
+  is_variant_sensitive Boolean @default(false)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  @@unique([gear_type_id, name])
+}
+
+model GearSpecs {
+  id Int @id @default(autoincrement())
+  gear_id Int
+  gear_variant_id Int?
+  gear_specs_definition_id Int
+
+  source_unit_id Int?
+  value_boolean Boolean?
+  value_text String?
+  value_numeric_1 Float?
+  value_numeric_2 Float?
+  operator Operator?
+
+  notes String?
+  status Status @default(ACTIVE)
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  @@unique([gear_id, gear_variant_id, gear_specs_definition_id])
+}
+
+model GearFeature {
+  id Int @id @default(autoincrement())
+  gear_id Int
+  gear_variant_id Int?
+  name String?
+  description String?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  // TODO: add constraint check in Postgres migration to ensure that either name or description is not null
+}
+
+model GearVariant {
+  id Int @id @default(autoincrement())
+  gear_id Int
+  gear_variant_name String
+  is_technical_variant Boolean @default(false)
+  variant_preview_img_key String?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model GearPack {
+  id Int @id @default(autoincrement())
+  name String
+  is_universal Boolean?
+  derived_from_gear_pack_id Int?
+
+  owner_id Int?
+  visibility Visibility @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model GearPackTemplate {
+  id Int @id @default(autoincrement())
+  gear_pack_id Int @unique
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model GearPackComponent {
+  id Int @id @default(autoincrement())
+  gear_pack_template_id  Int
+  gear_type_id Int?
+  gear_description String?
+  
+  require_gear_detail Boolean @default(true)
+  default_frequency Frequency?
+  default_qty Int?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  // TODO: add constraint check in Postgres migration to ensure that either gear_type_id or gear_description is not null
 }
