@@ -12,7 +12,7 @@ datasource db {
   provider = "postgresql"
 }
 
-// Enums and constants
+/** Enums, Constants **/
 enum Status {
   UNSPECIFIED
   ACTIVE
@@ -84,6 +84,7 @@ enum ValueType {  // TODO: revisit here and modify the enum.md
 }
 
 enum Operator {
+  UNSPECIFIED
   EQUAL
   GREATER_THAN
   GREATER_THAN_OR_EQUAL
@@ -99,7 +100,138 @@ enum Frequency {  // TODO revisit here and modify the enum.md
   PER_HIKE
 }
 
-//  Models
+enum RequirementLevel {
+  UNSPECIFIED
+  MANDATORY
+  RECOMMENDED
+  OPTIONAL
+}
+
+enum ConditionType {  // TODO revisit here and modify the enum.md
+  UNSPECIFIED
+  NONE
+  MONTH
+  SEASON
+  ALTITUDE
+  TEMPERATURE
+  TIDE
+}
+
+enum TrailType {
+  UNSPECIFIED
+  LOOP
+  OUT_AND_BACK
+  POINT_TO_POINT
+}
+
+enum AuthenticityLevel {
+  UNSPECIFIED
+  HIGH
+  MEDIUM
+  LOW
+}
+
+enum DataOrigin {
+  UNSPEFICIED
+  MANUAL
+  IMPORTED
+  CACULATED
+  DERIVED
+}
+
+enum EditPolicyOverride {
+  UNSPECIFIED
+  ALLOWED
+  RESTRICTED
+  FORBIDDEN
+}
+
+enum NormalizedDifficulty {
+  UNSPECIFIED
+  EASY
+  MODERATE
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+enum Accessibility {  // TODO: revisit here afterwards and complete the accessibility + .md
+  UNSPECIFIED
+}
+
+enum DifficultyOrigin {
+  UNSPECIFIED
+  SINGLE_CONVERTED
+  MULTI_CONVERTED
+  NO_CONVERSION
+  OTHER
+}
+
+enum SeverityLevel {
+  UNSPECIFIED
+  CRITICAL
+  EXTREME
+  HIGH
+  MODERATE
+  LOW
+}
+
+enum FacilityType { // TODO: TODO: revisit here afterwards and fill in more facility types
+  UNSPECIFIED
+  HUT
+  CAMPSITE
+  SHELTER
+  REFUGE
+  VISITOR_OFFICE
+  RANGER_HOUSE
+}
+
+enum SourceAuthority {
+  UNSPECIFIED
+  OFFICIAL
+  DIRECT_PROVIDER
+  PROFESSION
+  COMMUNITY
+  PERSONAL
+  UNKNOWN
+}
+
+enum SourceConfidence {
+  UNSPECIFIED
+  HIGH
+  MEDIUM
+  LOW
+}
+
+enum FeasibilityTag {
+  UNSPEDICIFED
+  RECOMMENDED
+  WORKABLE
+  RESTRICGTED
+  PROHIBITED
+}
+
+enum SeasonalityStatus {
+  UNSPECIFIED
+  UNKNOWN
+  NON_SEASONAL
+  SEASONAL
+}
+
+enum AccessPointRole {
+  UNSPECIFIED
+  START
+  END
+  WAYPOINT
+  ACCESS
+  TRANSPORT_HUB
+  RESUPPLY
+  FACILITY
+  OTHER
+}
+
+/** Model Definition **/
+
 // 1. Access Control: User, Role, Permission, UserRole, RolePermission
 model User {
   id  Int @id @default(autoincrement())
@@ -420,4 +552,390 @@ model GearPackComponent {
   updated_by_id Int
 
   // TODO: add constraint check in Postgres migration to ensure that either gear_type_id or gear_description is not null
+}
+
+
+// 4. Trail Module
+model Challenge {
+  id Int @id @default(autoincrement())
+  name String
+  is_time_dependent Boolean?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by Int
+}
+
+model ChallengeGearRequirement {
+  id Int @id @default(autoincrement())
+  challenge_id Int
+  gear_type_id Int
+  gear_specs_def_id Int?
+  
+  requirement_level RequirementLevel @default(UNSPECIFIED)
+  requirement_value String?
+  requirement_operator Operator?
+
+  condition_type ConditionType @default(UNSPECIFIED)
+  condition_value String?
+  condition_operator Operator?
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model DifficultySystem {
+  id Int @id @default(autoincrement())
+  name String
+  src String?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updaetd_by_id Int
+}
+
+model DifficultyMapping {
+  id Int @id @default(autoincrement())
+  difficulty_system_id Int
+  raw_difficulty String?
+  normalized_difficulty NormalizedDifficulty @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+}
+
+model Trail {
+  id Int @id @default(autoincrement())
+  name String
+  primary_profile_id Int?
+  region String?
+  country String?
+  // start_point_name String?
+  // end_point_name String?
+  
+  is_trail_root Boolean @default(false)
+  trail_origin DataOrigin
+  authenticity_level AuthenticityLevel @default(UNSPECIFIED)
+  derived_from_id Int?
+
+  owner_id Int?
+  visibility Visibility @default(UNSPECIFIED)
+  is_official Boolean @default(false)
+  edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model TrailSource {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  trail_difficulty_system Int?  // refer to DifficultySystem.id
+
+  is_trail_primary_src Boolean @default(false)
+  source_name String?
+  source_url String?
+  source_media_id Int?
+  source_autority SourceAuthority @default(UNSPECIFIED)
+  source_confidence SourceConfidence @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+}
+
+model TrailChallenge {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  challenge_id Int
+  severity_level SeverityLevel @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model TrailDifficulty {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  trail_source_id Int?
+
+  difficulty_raw String?
+  difficulty_normalized NormalizedDifficulty
+  difficulty_converted NormalizedDifficulty
+  difficulty_origin DifficultyOrigin @default(UNSPECIFIED)
+
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+  verifier_notes String?
+}
+
+model TrailFacility {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  facility_type FacilityType?
+  trail_source_id Int?
+  media_id Int?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?  
+}
+
+model TrailCalendar {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  month Int
+  trail_feasibility FeasibilityTag @default(UNSPEDICIFED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model TrailUse {
+  id Int @id @default(autoincrement())
+  name String
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int  
+}
+
+model TrailProfile {
+  id Int @id @default(autoincrement())
+  trail_type TrailType?
+  trail_id Int
+  trail_primary_geometry_id Int?
+
+  distance Float?
+  elevation_gain Float?
+  elevation_loss Float?
+  duration_hr Float?
+  duration_hr_calculated Float?
+  duration_day Int?
+  trail_difficulty_converted_id Int?
+
+  
+  accessibility Accessibility @default(UNSPECIFIED)
+  accessibility_notes String?
+
+  profile_origin DataOrigin
+  authenticity_level AuthenticityLevel @default(UNSPECIFIED)
+  owner_id Int?
+  visibility Visibility @default(UNSPECIFIED)
+  is_official Boolean @default(false)
+  edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model TrailProfileUse {
+  id Int @id @default(autoincrement())
+  trail_profile_id Int
+  trail_use_id Int
+
+  condition_type ConditionType?
+  condition_operator Operator?
+  condition_value String?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model TrailGearRequirement {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  gear_type_id Int
+  gear_specs_definition_id Int?
+
+  requirement_level RequirementLevel @default(UNSPECIFIED)
+  requirement_operator Operator @default(UNSPECIFIED)
+  requirement_value String
+
+  condition_type ConditionType?
+  condition_operator Operator?
+  condition_value String?
+
+  requirement_source_id Int?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?  
+}
+
+model AccessPoint {
+  id Int @id @default(autoincrement())
+  name String
+  facility_id Int?
+  seasonality_status SeasonalityStatus?
+
+  point_lat Float?
+  point_lng Float?
+  merged_into_ap_id Int?
+
+  owner_id Int?
+  visibility Visibility @default(UNSPECIFIED)
+
+  is_official Boolean @default(false)
+  is_canonical Boolean @default(false)
+  canonicalized_at DateTime?
+  canonicalized_by_id Int?
+  canonicalization_consent_at DateTime?
+  canonicalization_consent_id Int?
+
+  edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model AccessPointCalendar {
+  id Int @id @default(autoincrement())
+  access_point_id Int
+  month Int
+  ap_feasibility FeasibilityTag @default(UNSPEDICIFED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+
+model TrailAccessPointRelation {
+  id Int @id @default(autoincrement())
+  ap_id Int
+  trail_id Int
+  ap_role AccessPointRole?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+}
+
+model TrailGeometry {
+  id Int @id @default(autoincrement())
+  name String
+  trail_id Int
+
+  start_ap_id Int
+  end_ap_id Int
+
+  gpx_fpath_key String?
+  gpx_fname String?
+  gpx_src_url String?
+
+  geometry_origin DataOrigin
+  derived_from_id Int?
+  authenticity_level AuthenticityLevel @default(UNSPECIFIED)
+
+  owner_id Int?
+  visibility Visibility @default(UNSPECIFIED)
+  is_official Boolean @default(false)
+  edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
+  
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+  last_calculated_at DateTime?
 }
