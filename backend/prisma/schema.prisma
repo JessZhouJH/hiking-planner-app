@@ -1096,3 +1096,62 @@ model TransportServiceCalendar {
   verified_at DateTime?
   verified_by_id Int?
 }
+
+// 5. Meal Module
+model MealPack {
+  id Int @id @default(autoincrement())
+  name String
+  derived_from_meal_pack_id Int?
+
+  consumption_frequency Frequency
+  qty_per_consumption Int
+
+  owner_id Int?
+  visibility Visibility @default(PRIVATE)
+  is_universal Boolean @default(false)
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+}
+
+model MealItem {
+  id Int @id @default(autoincrement())
+  name String
+  owner_id Int?
+  visibility Visibility
+  is_universal Boolean @default(false)
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model MealPackItem {
+  id Int @id @default(autoincrement())
+  user_id Int
+  meal_pack_id Int
+  meal_pack_nickname String?
+
+  meal_item_id Int
+  meal_item_frequency Frequency?
+  meal_item_qty Int?
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+}
