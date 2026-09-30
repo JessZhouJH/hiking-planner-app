@@ -287,6 +287,90 @@ enum AvailabilityStatus {
   UNKNOWN
 }
 
+enum TripStatus {
+  UNSPECIFIED
+  COMPLETED
+  ONGOING
+  NOT_STARTED
+}
+
+enum UserTrailStatus {
+  UNSPECIFIED
+  COMPLETED
+  ONGOING
+  NOT_STARTED
+}
+
+enum OwnershipStatus {
+  UNSPECIFIED
+  OWNED
+  AWAITING_DELIVERY
+  WANT_TO_OWN
+}
+
+enum LifecycleStatus {
+  UNSPECIFIED
+  AVAILABLE
+  TEMP_UNAVAILABLE
+  RETIRED
+  UNAVAILABLE
+}
+
+enum TargetTypeAll {  // TODO: complete this enum
+  GEAR
+  TRAIL
+  TRIP
+}
+
+enum TargetTypeSelected { // TODO: complete this enum
+  GEAR
+  TRAIL
+  TRIP
+}
+
+enum ReminderStatus {
+  UNSPECIFIED
+  OPEN
+  COMPLETED
+  CANCELLED
+}
+
+enum Priority {
+  UNSPECIFIED
+  HIGH
+  MEDIUM
+  LOW
+}
+
+enum InspirationType {  // TODO: complete this enum
+  UNSPECIFIED
+  GENERAL
+  TRAIL
+  GEAR
+}
+
+enum ArchiveType {
+  FILE
+  MEDIA
+  URL
+  OTHER
+}
+
+enum SourceType { // TODO: complete this enum
+  UNSPECIFIED
+  ALLTRAILS
+  OFFICIAL_WEBSITE
+}
+
+enum ProposedAction {
+  MERGE
+  CANONICALIZE
+  REQUEST_REVIEW
+  PUBLISH_NEW
+  UPDATE
+}
+
+
 /** Model Definition **/
 
 // 1. Access Control: User, Role, Permission, UserRole, RolePermission
@@ -1149,6 +1233,232 @@ model MealPackItem {
 
   notes String?
   status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+}
+
+
+// 6. Personal Module
+model UserTrail {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  user_id Int
+
+  positive_attitude Boolean?
+  completion_status UserTrailStatus @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int  
+}
+
+model UserTrailCompletion {  // TODO: 
+  id Int @id @default(autoincrement())
+  user_trail_id Int
+
+  completed_at DateTime
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int  
+
+  @@unique([user_trail_id,completed_at])
+}
+
+model UserGear {
+  id Int @id @default(autoincrement())
+  user_id Int
+  gear_id Int
+
+  positive_attitude Boolean?
+  ownership_status OwnershipStatus @default(UNSPECIFIED)
+  lifecycle_status LifecycleStatus @default(UNSPECIFIED)
+
+  nickname String?
+  purchased_date DateTime @db.Date
+  retired_date DateTime @db.Date
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+}
+
+model UserGearPack {
+  id Int @id @default(autoincrement())
+  gear_pack_id Int
+  user_id Int
+  name String @default("default")
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+}
+
+model UserGearPackItem {
+  id Int @id @default(autoincrement())
+  user_gear_pack_id Int
+  gear_pack_component_id Int?
+  user_gear_id Int?
+  gear_description String?
+
+  alt_frequency Frequency?
+  alt_qty Int?
+  is_ready Boolean @default(false)
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+}
+
+model UserPersonalArchive {
+  id Int @id @default(autoincrement())
+  user_id Int
+
+  archive_type ArchiveType
+  archive_ref String
+  source_type SourceType
+
+  target_type TargetType?
+  target_id Int?
+
+  status Status @default(ACTIVE)
+  notes String?
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+}
+
+model UserReminder {
+  id Int @id @default(autoincrement())
+  user_id Int
+
+  title String?
+  description String?
+  reminder_status ReminderStatus @default(UNSPECIFIED)
+  priority Priority @default(UNSPECIFIED)
+  due_at DateTime
+  completed_at DateTime?
+
+  target_type TargetTypeSelected
+  target_id Int?
+  critical_event_id Int?
+  notes String?
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+}
+
+model UserFeedback {
+  id Int @id @default(autoincrement())
+  user_id Int
+  target_type TargetTypeSelected
+  target_id Int?
+
+  title String?
+  content String
+  feedback_status RecordOperationStatus?
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+  last_reviewed_at DateTime?
+  last_reviewed_by Int?
+}
+
+model UserNotes {
+  id Int @id @default(autoincrement())
+  user_id Int
+  target_type TargetTypeSelected
+  target_id Int?
+
+  title String?
+  content String
+  pinned Boolean?
+  status Status @default(ACTIVE)
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+}
+
+model UserInspiration {
+  id Int @id @default(autoincrement())
+  user_id Int
+  inspiration_type InspirationType @default(UNSPECIFIED)
+  target_type TargetTypeSelected
+  target_id Int?
+
+  title String?
+  content String
+
+  status Status @default(ACTIVE)
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+}
+model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
+  id Int @id @default(autoincrement())
+  user_id Int
+
+  name String?
+  description String
+
+  target_type TargetTypeSelected
+  target_id Int?
+  proposed_action ProposedAction
+  proposal_support_url String?
+  proposal_status RecordOperationStatus
+
+  notes String?
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int 
+  last_reviewed_at DateTime?
+  last_reviewed_by Int?
+}
+// 7. Trip Module
+
+model Trip {
+  id Int @id @default(autoincrement())
+  user_id Int
+  name String
+
+  start_date DateTime? @db.Date
+  end_date DateTime? @db.Date
+  trip_status TripStatus @default(UNSPECIFIED)
+
+  notes String?
 
   created_at DateTime @default(now())
   created_by_id Int
