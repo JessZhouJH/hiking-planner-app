@@ -230,6 +230,63 @@ enum AccessPointRole {
   OTHER
 }
 
+enum MergeReasons {
+  DUPLICATE
+  TYPE
+  ABBRIVIATION
+  CASE_OR_SYMBOL_VARIANT
+  COVERAGE_OVERLAP
+  REPLACED_BY_CANONICAL_RECORD
+  OTHER
+}
+
+enum RecordOperationStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  WITHDRAWN
+}
+
+enum TransportMode {
+  UNSPECIFIED
+  TRAIN
+  BUS
+  COACH
+  FERRY
+  SHUTTLE_LAND
+  SHUTTLE_WATER
+  WATER_TAXI
+  PRIVATE_TRANSFER
+  DRIVE
+}
+
+enum TransferType {
+  UNSPECIFIED
+  TRIP_TO_TRAIL_DEP
+  TRIP_FROM_TRAIL_DEP
+  TRIP_TO_TRAIL_ARR
+  TRIP_FROM_TRAIL_ARR
+  TRANSIT
+  LOCAL
+}
+
+enum BookingRequirement {
+  UNSPECIFIED
+  REQUIRED
+  RECOMMENDED
+  OPTIONAL
+  NOT_REQUIRED
+  UNKNOWN
+}
+
+enum AvailabilityStatus {
+  UNSPECIFIED
+  AVAILABLE
+  RESTRICTED
+  UNAVAILABLE
+  UNKNOWN
+}
+
 /** Model Definition **/
 
 // 1. Access Control: User, Role, Permission, UserRole, RolePermission
@@ -854,14 +911,27 @@ model AccessPoint {
   owner_id Int?
   visibility Visibility @default(UNSPECIFIED)
 
+  // Merge actions
+  merged_at DateTime?
+  merged_by_id Int?
+  merge_reason MergeReasons
+  merge_notes String?
+  merge_status RecordOperationStatus?
+  merged_into_id Int?
+
   is_official Boolean @default(false)
   is_canonical Boolean @default(false)
-  canonicalized_at DateTime?
-  canonicalized_by_id Int?
-  canonicalization_consent_at DateTime?
-  canonicalization_consent_id Int?
-
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
+
+  // Canonicalization actions
+  canonical_proposed_by_id Int?
+  canonical_proposed_at DateTime?
+  canonical_proposal_notes String?
+  canonical_proposal_status RecordOperationStatus?
+  canonical_proposal_consent_by_id Int?
+  canonical_proposal_consent_at DateTime?
+  canonical_proposal_resolved_by_id Int?
+  canonical_proposal_resolved_at DateTime?
 
   notes String?
   status Status @default(ACTIVE)
@@ -890,7 +960,6 @@ model AccessPointCalendar {
   verified_at DateTime?
   verified_by_id Int?
 }
-
 
 model TrailAccessPointRelation {
   id Int @id @default(autoincrement())
@@ -938,4 +1007,92 @@ model TrailGeometry {
   verified_at DateTime?
   verified_by_id Int?
   last_calculated_at DateTime?
+}
+
+model TrailSegmentation {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  derived_from_segmentation_id Int?
+  name String
+  
+  owner_id Int
+  visibility Visibility @default(UNSPECIFIED)
+
+  is_official Boolean @default(false)
+  edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model TrailSegmentRelation {
+  id Int @id @default(autoincrement())
+  name String?
+  trail_segmentation_id Int
+
+  child_trail_id Int
+  child_trail_start_ap_id Int?
+  child_sequence Int
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+
+  @@unique([trail_segmentation_id, child_trail_id], name:"uniqueTrailSegmentationChild")
+  @@unique([trail_segmentation_id, child_sequence], name:"uniqueTrailSegmentationChildSequence")
+}
+
+model TransportService {
+  id Int @id @default(autoincrement())
+  transprot_mode TransportMode
+  provider_name String?
+  service_name String?
+
+  start_ap_id Int?
+  start_ap_name String?
+  end_ap_id Int?
+  end_ap_name String?
+  transfer_type TransferType
+
+  booking_requirement BookingRequirement @default(UNSPECIFIED)
+  service_url String?
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model TransportServiceCalendar {
+  id Int @id @default(autoincrement())
+  transport_service_id Int
+  month Int
+  availability_status AvailabilityStatus
+  src_url String?
+
+  notes String?
+  status Status @default(UNSPECIFIED)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt()
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
 }
