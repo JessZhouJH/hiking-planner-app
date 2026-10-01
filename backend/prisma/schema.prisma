@@ -528,7 +528,7 @@ model RolePermission {
   @@unique([role_id, permission_id])
 }
 
-// 2. Common: Alias, MediaArchive, Attachment, Unit, Media
+// 2. Common: Alias, MediaArchive, Attachment, Unit
 model Alias {
   id Int @id @default(autoincrement())
   target_object_type TargetType
@@ -1798,4 +1798,21 @@ model CommunityPublicationItem {
   updated_by_id Int
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+}
+
+model CommunityPublicationAttachment {
+  id Int @id @default(autoincrement())
+  personal_archive_id Int
+
+  attachment_usage AttachmentUsage
+  community_publication_id Int?
+  community_publication_item_id Int?  // community_publication_id is not null or community_publication_item_id is not null
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
 }
