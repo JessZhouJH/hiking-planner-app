@@ -1484,28 +1484,7 @@ model UserInspiration {
   updated_at DateTime @updatedAt
   updated_by_id Int 
 }
-model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
-  id Int @id @default(autoincrement())
-  user_id Int
 
-  name String?
-  description String
-
-  target_type TargetTypeSelected
-  target_id Int?
-  proposed_action ProposedAction
-  proposal_support_url String?
-  proposal_status RecordOperationStatus
-
-  notes String?
-  
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int 
-  last_reviewed_at DateTime?
-  last_reviewed_by_id Int?
-}
 // 7. Trip Module
 
 model Trip {
@@ -1677,4 +1656,28 @@ model CriticalEvent {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int  
+}
+
+// 8. Community Contribution
+model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
+  id Int @id @default(autoincrement())
+  user_id Int
+
+  name String?
+  description String
+
+  target_type TargetTypeSelected
+  target_id Int?
+  proposed_action ProposedAction
+  proposal_support_url String?
+  proposal_status RecordOperationStatus
+
+  notes String?
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int 
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 }
