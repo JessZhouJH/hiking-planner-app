@@ -566,6 +566,8 @@ model MediaArchive {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
 }
 
 model Attachment {
@@ -582,6 +584,8 @@ model Attachment {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
 
   @@unique([target_object_type, target_object_id, attachment_usage, media_archive_id])
 }
@@ -633,6 +637,27 @@ model GearType {
   updated_by_id Int
 }
 
+model GearSpecsDefinition {
+  id Int @id @default(autoincrement())
+  name String
+  gear_type_id Int
+  value_type ValueType
+  default_unit_id Int?
+
+  is_critical Boolean @default(false)
+  is_variant_sensitive Boolean @default(false)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  @@unique([gear_type_id, name])
+}
+
 model Gear {
   id Int @id @default(autoincrement())
   name String
@@ -653,27 +678,6 @@ model Gear {
 
   verified_at DateTime?
   verified_by_id Int?
-}
-
-model GearSpecsDefinition {
-  id Int @id @default(autoincrement())
-  name String
-  gear_type_id Int
-  value_type ValueType
-  default_unit_id Int?
-
-  is_critical Boolean @default(false)
-  is_variant_sensitive Boolean @default(false)
-
-  notes String?
-  status Status @default(ACTIVE)
-
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int
-
-  @@unique([gear_type_id, name])
 }
 
 model GearSpecs {
@@ -803,6 +807,9 @@ model Challenge {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  verified_at DateTime?
+  verified_by_id Int?
 }
 
 model ChallengeGearRequirement {
@@ -823,8 +830,6 @@ model ChallengeGearRequirement {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
 }
 
 model DifficultySystem {
@@ -862,8 +867,8 @@ model Trail {
   primary_profile_id Int?
   region String?
   country String?
-  // start_point_name String?
-  // end_point_name String?
+  start_point_name String?
+  end_point_name String?
   
   is_trail_root Boolean @default(false)
   trail_origin DataOrigin
@@ -884,6 +889,49 @@ model Trail {
   updated_by_id Int
   verified_at DateTime?
   verified_by_id Int?
+}
+
+model TrailChallenge {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  challenge_id Int
+  severity_level SeverityLevel @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model TrailCalendar {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  month Int
+  trail_feasibility FeasibilityTag @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model TrailUse {
+  id Int @id @default(autoincrement())
+  name String
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int  
 }
 
 model TrailSource {
@@ -907,11 +955,21 @@ model TrailSource {
   updated_by_id Int
 }
 
-model TrailChallenge {
+model TrailGearRequirement {
   id Int @id @default(autoincrement())
   trail_id Int
-  challenge_id Int
-  severity_level SeverityLevel @default(UNSPECIFIED)
+  gear_type_id Int
+  gear_specs_definition_id Int?
+
+  requirement_level RequirementLevel @default(UNSPECIFIED)
+  requirement_operator Operator @default(UNSPECIFIED)
+  requirement_value String
+
+  condition_type ConditionType?
+  condition_operator Operator?
+  condition_value String?
+
+  requirement_source_id Int?
 
   notes String?
   status Status @default(ACTIVE)
@@ -921,7 +979,7 @@ model TrailChallenge {
   updated_at DateTime @updatedAt
   updated_by_id Int
   verified_at DateTime?
-  verified_by_id Int?
+  verified_by_id Int?  
 }
 
 model TrailDifficulty {
@@ -962,35 +1020,9 @@ model TrailFacility {
   verified_by_id Int?  
 }
 
-model TrailCalendar {
-  id Int @id @default(autoincrement())
-  trail_id Int
-  month Int
-  trail_feasibility FeasibilityTag @default(UNSPECIFIED)
 
-  notes String?
-  status Status @default(ACTIVE)
 
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
-}
 
-model TrailUse {
-  id Int @id @default(autoincrement())
-  name String
-
-  notes String?
-  status Status @default(ACTIVE)
-
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int  
-}
 
 model TrailProfile {
   id Int @id @default(autoincrement())
@@ -1043,35 +1075,6 @@ model TrailProfileUse {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
-}
-
-model TrailGearRequirement {
-  id Int @id @default(autoincrement())
-  trail_id Int
-  gear_type_id Int
-  gear_specs_definition_id Int?
-
-  requirement_level RequirementLevel @default(UNSPECIFIED)
-  requirement_operator Operator @default(UNSPECIFIED)
-  requirement_value String
-
-  condition_type ConditionType?
-  condition_operator Operator?
-  condition_value String?
-
-  requirement_source_id Int?
-
-  notes String?
-  status Status @default(ACTIVE)
-
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?  
 }
 
 model AccessPoint {
@@ -1149,6 +1152,8 @@ model TrailAccessPointRelation {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
 }
 
 model TrailGeometry {
@@ -1268,8 +1273,6 @@ model TransportServiceCalendar {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
 }
 
 // 5. Meal Module
@@ -1293,6 +1296,8 @@ model MealPack {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
 }
 
 model MealItem {
@@ -1309,8 +1314,6 @@ model MealItem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
 }
 
 model MealPackItem {
