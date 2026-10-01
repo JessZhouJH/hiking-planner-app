@@ -26,18 +26,44 @@ enum RBACStatus {
   ARCHIVED
 }
 
-enum AttachmentType { // TODO: edit this
+enum AttachmentUsage { // TODO: edit this
   EVIDENCE  //verification, supporting documents
   SOURCE_DOCUMENT // official documents, records, files, guide, policy document, etc.
   SUPPORTING_MATERIAL // supporting materials in general
-  SCREENSHOT
-  PHOTO
-  GPX
-  MAP
+
   RECEIPT
   BOOKING_CONFIRMATION
   FEEDBACK
   OTHER
+}
+
+enum MediaArchiveType { // TODO: edit this
+  UNSPECIFIED
+  FILE
+  IMAGE
+  AUDIO
+  VIDEO
+  GPX
+  MAP
+  OTHER
+}
+
+enum DataOrigin {
+  UNSPECIFIED
+  MANUAL
+  IMPORTED
+  CALCULATED
+  DERIVED
+  PUBLISHED_FROM_COMMUNITY
+}
+
+enum SourceType { // TODO: complete this enum
+  UNSPECIFIED
+  ALLTRAILS
+  OFFICIAL_WEBSITE
+  WEB_ARTICLE
+  BOOK
+  YOUTUBE
 }
 
 enum TargetType { //TODO: fill here after init all the schema models
@@ -129,14 +155,6 @@ enum AuthenticityLevel {
   HIGH
   MEDIUM
   LOW
-}
-
-enum DataOrigin {
-  UNSPEFICIED
-  MANUAL
-  IMPORTED
-  CACULATED
-  DERIVED
 }
 
 enum EditPolicyOverride {
@@ -238,13 +256,6 @@ enum MergeReasons {
   COVERAGE_OVERLAP
   REPLACED_BY_CANONICAL_RECORD
   OTHER
-}
-
-enum RecordOperationStatus {
-  PENDING
-  ACCEPTED
-  DECLINED
-  WITHDRAWN
 }
 
 enum TransportMode {
@@ -366,12 +377,6 @@ enum ArchiveType {
   OTHER
 }
 
-enum SourceType { // TODO: complete this enum
-  UNSPECIFIED
-  ALLTRAILS
-  OFFICIAL_WEBSITE
-}
-
 enum ProposedAction {
   MERGE
   CANONICALIZE
@@ -428,6 +433,23 @@ enum EventStatus {  // TODO: come back and complete this enum
   ONGOING
   COMPLETED
   CANCELLED
+}
+
+enum CollectionType {
+  UNSPECIFIED
+  GEAR
+  TRAIL
+  OTHER
+}
+
+enum UserProposalStatus {
+  UNSPECIFIED
+  PENDING
+  ACCEPTED
+  DECLINED
+  WITHDRAWN
+  SUPPORTING_MATERIAL_REQUESTED
+  READY_FOR_REVIEW
 }
 
 
@@ -506,11 +528,11 @@ model RolePermission {
   @@unique([role_id, permission_id])
 }
 
-// 2. Common: Alias, Attachment, Unit, Media
+// 2. Common: Alias, MediaArchive, Attachment, Unit, Media
 model Alias {
   id Int @id @default(autoincrement())
-  target_type TargetType
-  target_id Int
+  target_object_type TargetType
+  target_object_id Int
   alias String
 
   notes String?
@@ -521,35 +543,47 @@ model Alias {
   updated_at DateTime @updatedAt
   updated_by_id Int
 
-  @@unique([target_type, target_id, alias])
+  @@unique([target_object_type, target_object_id, alias])
 }
 
-model Attachment {
+model MediaArchive {
   id Int @id @default(autoincrement())
-  attach_to_type TargetType
-  attach_to_id Int
-  media_id Int?
-  attachment_type AttachmentType
+
+  media_archive_key String @unique
+  media_archive_type MediaArchiveType
+
+  source_type SourceType
+  source_origin DataOrigin
+  source_url String? 
+
+  contributor_id Int?
+  visibility Visibility @default(UNSPECIFIED)
 
   notes String?
-  status Status @default(ACTIVE)
-
-  uploaded_at DateTime @default(now())
-  uploaded_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int
-}
-
-model Media {
-  id Int @id @default(autoincrement())
-  media_key String @unique
-
   status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+}
+
+model Attachment {
+  id Int @id @default(autoincrement())
+  target_object_type TargetType
+  target_object_id Int
+  attachment_usage AttachmentUsage
+  media_archive_id Int
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  @@unique([target_object_type, target_object_id, attachment_usage, media_archive_id])
 }
 
 model Unit {
@@ -860,7 +894,7 @@ model TrailSource {
   is_trail_primary_src Boolean @default(false)
   source_name String?
   source_url String?
-  source_media_id Int?
+
   source_authority SourceAuthority @default(UNSPECIFIED)
   source_confidence SourceConfidence @default(UNSPECIFIED)
 
@@ -916,7 +950,6 @@ model TrailFacility {
   trail_id Int
   facility_type FacilityType?
   trail_source_id Int?
-  media_id Int?
 
   notes String?
   status Status @default(ACTIVE)
@@ -1058,7 +1091,7 @@ model AccessPoint {
   merged_by_id Int?
   merge_reason MergeReasons
   merge_notes String?
-  merge_status RecordOperationStatus?
+  merge_status UserProposalStatus?
   merged_into_id Int?
 
   is_official Boolean @default(false)
@@ -1069,7 +1102,7 @@ model AccessPoint {
   canonical_proposed_by_id Int?
   canonical_proposed_at DateTime?
   canonical_proposal_notes String?
-  canonical_proposal_status RecordOperationStatus?
+  canonical_proposal_status UserProposalStatus?
   canonical_proposal_consent_by_id Int?
   canonical_proposal_consent_at DateTime?
   canonical_proposal_resolved_by_id Int?
@@ -1394,12 +1427,14 @@ model UserPersonalArchive {
   id Int @id @default(autoincrement())
   user_id Int
 
+  archive_key String @unique
   archive_type ArchiveType
-  archive_ref String
-  source_type SourceType
 
-  target_type TargetType?
-  target_id Int?
+  source_type SourceType
+  archive_source_url String? 
+
+  target_object_type TargetType?
+  target_object_id Int?
 
   status Status @default(ACTIVE)
   notes String?
@@ -1421,8 +1456,8 @@ model UserReminder {
   due_at DateTime
   completed_at DateTime?
 
-  target_type TargetTypeSelected
-  target_id Int?
+  target_object_type TargetTypeSelected
+  target_object_id Int?
   critical_event_id Int?
   notes String?
 
@@ -1435,12 +1470,12 @@ model UserReminder {
 model UserFeedback {
   id Int @id @default(autoincrement())
   user_id Int
-  target_type TargetTypeSelected
-  target_id Int?
+  target_object_type TargetTypeSelected
+  target_object_id Int?
 
   title String?
   content String
-  feedback_status RecordOperationStatus?
+  feedback_status UserProposalStatus?
   
   created_at DateTime @default(now())
   created_by_id Int
@@ -1453,8 +1488,8 @@ model UserFeedback {
 model UserNotes {
   id Int @id @default(autoincrement())
   user_id Int
-  target_type TargetTypeSelected
-  target_id Int?
+  target_object_type TargetTypeSelected
+  target_object_id Int?
 
   title String?
   content String
@@ -1471,8 +1506,8 @@ model UserInspiration {
   id Int @id @default(autoincrement())
   user_id Int
   inspiration_type InspirationType @default(UNSPECIFIED)
-  target_type TargetTypeSelected
-  target_id Int?
+  target_object_type TargetTypeSelected
+  target_object_id Int?
 
   title String?
   content String
@@ -1658,7 +1693,42 @@ model CriticalEvent {
   updated_by_id Int  
 }
 
-// 8. Community Contribution
+// 8. Publication and Community Contribution
+
+model Collection {
+  id Int @id @default(autoincrement())
+  name String
+
+  collection_type CollectionType @default(UNSPECIFIED)
+  collection_summary String?
+  owner_id Int?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+  verified_at DateTime?
+  verified_by_id Int?
+}
+
+model CollectionItem {
+  id Int @id @default(autoincrement())
+  collection_id Int
+  target_object_type TargetTypeSelected
+  target_object_id Int
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
 model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
   id Int @id @default(autoincrement())
   user_id Int
@@ -1666,11 +1736,11 @@ model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
   name String?
   description String
 
-  target_type TargetTypeSelected
-  target_id Int?
+  target_object_type TargetTypeSelected
+  target_object_id Int?
   proposed_action ProposedAction
   proposal_support_url String?
-  proposal_status RecordOperationStatus
+  proposal_status UserProposalStatus
 
   notes String?
   
@@ -1678,6 +1748,54 @@ model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int 
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
+}
+
+model CommunityPublication {
+  id Int @id @default(autoincrement())
+  name String
+  contributor_id Int
+
+  target_object_type TargetTypeSelected
+  target_root_id Int?
+
+  submitted_at DateTime @default(now())
+  submitted_by_id Int
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
+
+  submission_status UserProposalStatus @default(UNSPECIFIED)
+  applicant_notes String?
+  reviewer_notes String?
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int 
+
+}
+
+model CommunityPublicationItem {
+  id Int @id @default(autoincrement())
+  community_publication_id Int
+  contributor_id Int
+
+  target_object_type TargetTypeSelected
+  target_object_id Int
+  snapshot_object_id Int?
+  published_object_id Int?
+
+  item_status UserProposalStatus @default(UNSPECIFIED)
+  authenticity_level AuthenticityLevel @default(UNSPECIFIED)
+
+  applicant_notes String?
+  reviewer_notes String?
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
 }
