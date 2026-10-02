@@ -30,15 +30,15 @@ enum AttachmentUsage { // TODO: edit this
   EVIDENCE  //verification, supporting documents
   SOURCE_DOCUMENT // official documents, records, files, guide, policy document, etc.
   SUPPORTING_MATERIAL // supporting materials in general
-
+  REFERENCE
   RECEIPT
   BOOKING_CONFIRMATION
-  FEEDBACK
   OTHER
 }
 
 enum MediaArchiveType { // TODO: edit this
   UNSPECIFIED
+  DOCUMENT
   FILE
   IMAGE
   AUDIO
@@ -55,6 +55,8 @@ enum DataOrigin {
   CALCULATED
   DERIVED
   PUBLISHED_FROM_COMMUNITY
+  SYSTEM_GENERATED
+  EXTRACTED
 }
 
 enum SourceType { // TODO: complete this enum
@@ -64,6 +66,10 @@ enum SourceType { // TODO: complete this enum
   WEB_ARTICLE
   BOOK
   YOUTUBE
+  OFFICIAL_DOCUMENT
+  API
+  USER_UPLOAD
+  OTHER
 }
 
 enum TargetType { //TODO: fill here after init all the schema models
@@ -83,6 +89,10 @@ enum UnitCategory { //TODO: fill here after init all the schema models
   POWER
   ENERGY
   LUMINOUS_FLUX
+  COUNT
+  SPEED
+  PRESSURE
+  PERCENTAGE
 }
 
 enum Visibility {
@@ -92,26 +102,38 @@ enum Visibility {
   PUBLIC
 }
 
-enum ValueType {  // TODO: revisit here and modify the enum.md 
+enum ValueType {
   UNSPECIFIED
+
   WEIGHT
   LENGTH
+  AREA
   VOLUME
   TEMPERATURE
+  DURATION
+  SPEED
+  POWER
+  ENERGY
+  LUMINOUS_FLUX
+  PRESSURE
+
   R_VALUE
   CAPACITY
+  COUNT
+  PERCENTAGE
+  RATING
+
+  BOOLEAN
+  TEXT
   FIT
   SIZE
   MATERIAL
-  COUNT
-  DURATION
-  POWER
-  ENERGY
 }
 
 enum Operator {
   UNSPECIFIED
   EQUAL
+  APPROX
   GREATER_THAN
   GREATER_THAN_OR_EQUAL
   LESS_THAN
@@ -123,7 +145,8 @@ enum Frequency {  // TODO revisit here and modify the enum.md
   UNSPECIFIED
   PER_DAY
   PER_WEEK
-  PER_HIKE
+  PER_TRIP
+  PER_NIGHT
 }
 
 enum RequirementLevel {
@@ -179,8 +202,9 @@ enum Accessibility {  // TODO: revisit here afterwards and complete the accessib
 
 enum DifficultyOrigin {
   UNSPECIFIED
-  SINGLE_CONVERTED
-  MULTI_CONVERTED
+  SINGLE_SOURCE_CONVERTED
+  MULTI_SOURCE_CONVERTED
+  MANUAL
   NO_CONVERSION
   OTHER
 }
@@ -202,13 +226,19 @@ enum FacilityType { // TODO: TODO: revisit here afterwards and fill in more faci
   REFUGE
   VISITOR_OFFICE
   RANGER_HOUSE
+  TOILET
+  WATER_SOURCE
+  PICNIC_AREA
+  COOKING_SHELTER
+  PARKING
+  OTHER
 }
 
 enum SourceAuthority {
   UNSPECIFIED
   OFFICIAL
   DIRECT_PROVIDER
-  PROFESSION
+  PROFESSIONAL
   COMMUNITY
   PERSONAL
   UNKNOWN
@@ -225,7 +255,7 @@ enum FeasibilityTag {
   UNSPECIFIED
   RECOMMENDED
   WORKABLE
-  RESTRICGTED
+  RESTRICTED
   PROHIBITED
 }
 
@@ -251,7 +281,7 @@ enum AccessPointRole {
 enum MergeReasons {
   DUPLICATE
   TYPE
-  ABBRIVIATION
+  ABBREVIATION
   CASE_OR_SYMBOL_VARIANT
   COVERAGE_OVERLAP
   REPLACED_BY_CANONICAL_RECORD
@@ -566,8 +596,8 @@ model MediaArchive {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 }
 
 model Attachment {
@@ -584,8 +614,8 @@ model Attachment {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 
   @@unique([target_object_type, target_object_id, attachment_usage, media_archive_id])
 }
@@ -614,6 +644,7 @@ model Unit {
 model Brand {
   id Int @id @default(autoincrement())
   name String @unique
+  logo_img_key String?
 
   status Status @default(ACTIVE)
   notes String?
@@ -676,8 +707,8 @@ model Gear {
   updated_at DateTime @updatedAt
   updated_by_id Int
 
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
 }
 
 model GearSpecs {
@@ -755,8 +786,8 @@ model GearPack {
   updated_at DateTime @updatedAt
   updated_by_id Int
 
-  verified_at DateTime?
-  verified_by_id Int?
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 }
 
 model GearPackTemplate {
@@ -808,8 +839,8 @@ model Challenge {
   updated_at DateTime @updatedAt
   updated_by_id Int
 
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
 }
 
 model ChallengeGearRequirement {
@@ -887,8 +918,8 @@ model Trail {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
 }
 
 model TrailChallenge {
@@ -978,8 +1009,8 @@ model TrailGearRequirement {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?  
+  last_verified_at DateTime?
+  last_verified_by_id Int?  
 }
 
 model TrailDifficulty {
@@ -998,8 +1029,8 @@ model TrailDifficulty {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
   verifier_notes String?
 }
 
@@ -1016,13 +1047,9 @@ model TrailFacility {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?  
+  last_verified_at DateTime?
+  last_verified_by_id Int?  
 }
-
-
-
-
 
 model TrailProfile {
   id Int @id @default(autoincrement())
@@ -1055,8 +1082,8 @@ model TrailProfile {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
 }
 
 model TrailProfileUse {
@@ -1118,8 +1145,8 @@ model AccessPoint {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
 }
 
 model AccessPointCalendar {
@@ -1135,8 +1162,6 @@ model AccessPointCalendar {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
 }
 
 model TrailAccessPointRelation {
@@ -1152,8 +1177,8 @@ model TrailAccessPointRelation {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
 }
 
 model TrailGeometry {
@@ -1184,8 +1209,8 @@ model TrailGeometry {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
   last_calculated_at DateTime?
 }
 
@@ -1208,8 +1233,8 @@ model TrailSegmentation {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 }
 
 model TrailSegmentRelation {
@@ -1228,6 +1253,8 @@ model TrailSegmentRelation {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 
   @@unique([trail_segmentation_id, child_trail_id], name:"uniqueTrailSegmentationChild")
   @@unique([trail_segmentation_id, child_sequence], name:"uniqueTrailSegmentationChildSequence")
@@ -1255,8 +1282,8 @@ model TransportService {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_verified_at DateTime?
+  last_verified_by_id Int?
 }
 
 model TransportServiceCalendar {
@@ -1296,8 +1323,8 @@ model MealPack {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 }
 
 model MealItem {
@@ -1488,7 +1515,8 @@ model UserFeedback {
   last_reviewed_by_id Int?
 }
 
-model UserNotes {
+
+model UserStickyNotes {
   id Int @id @default(autoincrement())
   user_id Int
   target_object_type TargetTypeSelected
@@ -1505,15 +1533,9 @@ model UserNotes {
   updated_by_id Int 
 }
 
-model UserInspiration {
+model UserIdeaCapture { // TODO: leave to Post MVP P3
   id Int @id @default(autoincrement())
   user_id Int
-  inspiration_type InspirationType @default(UNSPECIFIED)
-  target_object_type TargetTypeSelected
-  target_object_id Int?
-
-  title String?
-  content String
 
   status Status @default(ACTIVE)
   
@@ -1713,8 +1735,8 @@ model Collection {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  verified_at DateTime?
-  verified_by_id Int?
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 }
 
 model CollectionItem {
@@ -1730,6 +1752,8 @@ model CollectionItem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 }
 
 model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
@@ -1765,8 +1789,6 @@ model CommunityPublication {
 
   submitted_at DateTime @default(now())
   submitted_by_id Int
-  last_reviewed_at DateTime?
-  last_reviewed_by_id Int?
 
   submission_status UserProposalStatus @default(UNSPECIFIED)
   applicant_notes String?
@@ -1777,6 +1799,8 @@ model CommunityPublication {
   updated_at DateTime @updatedAt
   updated_by_id Int 
 
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
 }
 
 model CommunityPublicationItem {
