@@ -166,6 +166,12 @@ enum ConditionType {  // TODO revisit here and modify the enum.md
   TIDE
 }
 
+enum ProductionStatus {
+  UNSPECIFIED
+  ACTIVE 
+  DISCONTINUED
+}
+
 enum TrailType {
   UNSPECIFIED
   LOOP
@@ -558,6 +564,7 @@ model RolePermission {
   @@unique([role_id, permission_id])
 }
 
+
 // 2. Common: Alias, MediaArchive, Attachment, Unit
 model Alias {
   id Int @id @default(autoincrement())
@@ -640,6 +647,7 @@ model Unit {
   updated_by_id Int
 }
 
+
 // 3. Gear Module
 model Brand {
   id Int @id @default(autoincrement())
@@ -675,7 +683,7 @@ model GearSpecsDefinition {
   value_type ValueType
   default_unit_id Int?
 
-  is_critical Boolean @default(false)
+  is_key_spec Boolean @default(false)
   is_variant_sensitive Boolean @default(false)
 
   notes String?
@@ -686,7 +694,7 @@ model GearSpecsDefinition {
   updated_at DateTime @updatedAt
   updated_by_id Int
 
-  @@unique([gear_type_id, name])
+  @@index([gear_type_id, name])
 }
 
 model Gear {
@@ -701,6 +709,7 @@ model Gear {
 
   notes String?
   status Status @default(ACTIVE)
+  production_status ProductionStatus @default(UNSPECIFIED)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -772,7 +781,7 @@ model GearVariant {
 model GearPack {
   id Int @id @default(autoincrement())
   name String
-  is_universal Boolean?
+  is_universal Boolean @default(false)
   derived_from_gear_pack_id Int?
 
   owner_id Int?
@@ -810,8 +819,8 @@ model GearPackComponent {
   gear_description String?
   
   requires_gear_detail Boolean @default(true)
-  default_frequency Frequency?
-  default_qty Int?
+  default_frequency Frequency @default(PER_TRIP)
+  default_qty Int @default(1)
 
   notes String?
   status Status @default(ACTIVE)
@@ -829,7 +838,7 @@ model GearPackComponent {
 model Challenge {
   id Int @id @default(autoincrement())
   name String
-  is_time_dependent Boolean?
+  is_time_dependent Boolean @default(false)
 
   notes String?
   status Status @default(ACTIVE)
@@ -847,7 +856,7 @@ model ChallengeGearRequirement {
   id Int @id @default(autoincrement())
   challenge_id Int
   gear_type_id Int
-  gear_specs_def_id Int?
+  gear_specs_definition_id Int?
   
   requirement_level RequirementLevel @default(UNSPECIFIED)
   requirement_value String?
@@ -856,6 +865,9 @@ model ChallengeGearRequirement {
   condition_type ConditionType @default(UNSPECIFIED)
   condition_value String?
   condition_operator Operator?
+
+  notes String?
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -866,7 +878,7 @@ model ChallengeGearRequirement {
 model DifficultySystem {
   id Int @id @default(autoincrement())
   name String
-  src String?
+  source_url String?
 
   notes String?
   status Status @default(ACTIVE)
@@ -880,7 +892,7 @@ model DifficultySystem {
 model DifficultyMapping {
   id Int @id @default(autoincrement())
   difficulty_system_id Int
-  raw_difficulty String?
+  raw_difficulty String
   normalized_difficulty NormalizedDifficulty @default(UNSPECIFIED)
 
   notes String?
@@ -902,9 +914,9 @@ model Trail {
   end_point_name String?
   
   is_trail_root Boolean @default(false)
-  trail_origin DataOrigin
+  trail_origin DataOrigin @default(UNSPECIFIED)
   authenticity_level AuthenticityLevel @default(UNSPECIFIED)
-  derived_from_id Int?
+  derived_from_trail_id Int?
 
   owner_id Int?
   visibility Visibility @default(UNSPECIFIED)
@@ -968,9 +980,9 @@ model TrailUse {
 model TrailSource {
   id Int @id @default(autoincrement())
   trail_id Int
-  trail_difficulty_system_id Int?  // refer to DifficultySystem.id
+  difficulty_system_id Int?  // refer to DifficultySystem.id
 
-  is_trail_primary_src Boolean @default(false)
+  is_primary_src Boolean @default(false)
   source_name String?
   source_url String?
 
@@ -993,14 +1005,14 @@ model TrailGearRequirement {
   gear_specs_definition_id Int?
 
   requirement_level RequirementLevel @default(UNSPECIFIED)
-  requirement_operator Operator @default(UNSPECIFIED)
-  requirement_value String
+  requirement_operator Operator? @default(UNSPECIFIED)
+  requirement_value String?
 
-  condition_type ConditionType?
+  condition_type ConditionType @default(UNSPECIFIED)
   condition_operator Operator?
   condition_value String?
 
-  requirement_source_id Int?
+  trail_source_id Int?
 
   notes String?
   status Status @default(ACTIVE)
@@ -1009,8 +1021,6 @@ model TrailGearRequirement {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
-  last_verified_at DateTime?
-  last_verified_by_id Int?  
 }
 
 model TrailDifficulty {
@@ -1108,7 +1118,7 @@ model AccessPoint {
   id Int @id @default(autoincrement())
   name String
   facility_id Int?
-  seasonality_status SeasonalityStatus?
+  seasonality_status SeasonalityStatus @default(UNSPECIFIED)
 
   point_lat Float?
   point_lng Float?
@@ -1119,7 +1129,7 @@ model AccessPoint {
   // Merge actions
   merged_at DateTime?
   merged_by_id Int?
-  merge_reason MergeReasons
+  merge_reason MergeReasons?
   merge_notes String?
   merge_status UserProposalStatus?
   merged_into_id Int?
@@ -1153,7 +1163,7 @@ model AccessPointCalendar {
   id Int @id @default(autoincrement())
   access_point_id Int
   month Int
-  ap_feasibility FeasibilityTag @default(UNSPECIFIED)
+  access_pointfeasibility FeasibilityTag @default(UNSPECIFIED)
 
   notes String?
   status Status @default(ACTIVE)
@@ -1166,9 +1176,9 @@ model AccessPointCalendar {
 
 model TrailAccessPointRelation {
   id Int @id @default(autoincrement())
-  ap_id Int
+  access_pointid Int
   trail_id Int
-  ap_role AccessPointRole?
+  access_pointrole AccessPointRole @default(UNSPECIFIED)
 
   notes String?
   status Status @default(ACTIVE)
@@ -1186,14 +1196,14 @@ model TrailGeometry {
   name String
   trail_id Int
 
-  start_ap_id Int
-  end_ap_id Int
+  start_access_pointid Int
+  end_access_pointid Int
 
-  gpx_fpath_key String?
-  gpx_fname String?
+  gpx_file_key String?
+  gpx_file_name String?
   gpx_src_url String?
 
-  geometry_origin DataOrigin
+  geometry_origin DataOrigin @default(UNSPECIFIED)
   derived_from_id Int?
   authenticity_level AuthenticityLevel @default(UNSPECIFIED)
 
@@ -1203,7 +1213,7 @@ model TrailGeometry {
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
   
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1227,7 +1237,7 @@ model TrailSegmentation {
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1243,7 +1253,7 @@ model TrailSegmentRelation {
   trail_segmentation_id Int
 
   child_trail_id Int
-  child_trail_start_ap_id Int?
+  child_start_access_pointid Int?
   child_sequence Int
 
   notes String?
@@ -1262,21 +1272,21 @@ model TrailSegmentRelation {
 
 model TransportService {
   id Int @id @default(autoincrement())
-  transport_mode TransportMode
+  transport_mode TransportMode @default(UNSPECIFIED)
   provider_name String?
   service_name String?
 
-  start_ap_id Int?
-  start_ap_name String?
-  end_ap_id Int?
-  end_ap_name String?
+  start_access_pointid Int?
+  start_access_pointname String?
+  end_access_pointid Int?
+  end_access_pointname String?
   // transfer_type TransferType
 
   booking_requirement BookingRequirement @default(UNSPECIFIED)
   service_url String?
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1294,7 +1304,7 @@ model TransportServiceCalendar {
   src_url String?
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1317,7 +1327,7 @@ model MealPack {
   is_universal Boolean @default(false)
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1335,7 +1345,7 @@ model MealItem {
   is_universal Boolean @default(false)
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1354,7 +1364,7 @@ model MealPackItem {
   meal_item_qty Int?
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1373,7 +1383,7 @@ model UserTrail {
   completion_status UserTrailStatus @default(UNSPECIFIED)
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1410,7 +1420,7 @@ model UserGear {
   retired_date DateTime? @db.Date
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1425,7 +1435,7 @@ model UserGearPack {
   name String @default("default")
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1445,7 +1455,7 @@ model UserGearPackItem {
   is_ready Boolean @default(false)
 
   notes String?
-  status Status @default(UNSPECIFIED)
+  status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
   created_by_id Int
@@ -1675,12 +1685,12 @@ model TripTransport {
   // TODO: remove transport_sequence from ERD
   transport_date DateTime? @db.Date
 
-  dep_ap_name String?
-  dep_ap_id Int?
+  dep_access_pointname String?
+  dep_access_pointid Int?
   dep_time DateTime?
 
-  arr_ap_name String?
-  arr_ap_id Int?
+  arr_access_pointname String?
+  arr_access_pointid Int?
   arr_time DateTime?
 
   booking_status UserActionStatus @default(UNSPECIFIED)
@@ -1707,7 +1717,7 @@ model CriticalEvent {
   event_end_time DateTime?
 
   event_loc_name String?
-  event_loc_ap_id Int?
+  event_loc_access_pointid Int?
 
   status Status @default(ACTIVE)
   notes String?
