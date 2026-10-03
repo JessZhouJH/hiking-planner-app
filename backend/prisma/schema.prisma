@@ -524,6 +524,277 @@ model User {
   updated_at DateTime @updatedAt
   created_by_id Int
   updated_by_id Int
+
+  // Self-referencing relations for created_by and updated_by
+  created_by User @relation("UserCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserUpdatedBy", fields: [updated_by_id], references: [id])
+
+  users_created_by User[] @relation("UserCreatedBy")
+  users_updated_by User[] @relation("UserUpdatedBy")
+
+  /** Foreign key relations for:
+        - created/updated/granted/revoked/verified/reviewed_by_id
+        - requested/resolved_by_id
+        - owner/user/contributor_id 
+      in other models
+  **/
+  // Access Control Module
+  roles_created_by Role[] @relation("RoleCreatedBy")
+  roles_updated_by Role[] @relation("RoleUpdatedBy")
+
+  permissions_created_by Permission[] @relation("PermissionCreatedBy")
+  permissions_updated_by Permission[] @relation("PermissionUpdatedBy")
+
+  user_roles_granted_by UserRole[] @relation("UserRoleGrantedBy")
+  user_roles_revoked_by UserRole[] @relation("UserRoleRevokedBy")
+  user_role_user UserRole[] @relation("UserRoleUser")
+
+  role_permission_granted_by RolePermission[] @relation("RolePermissionGrantedBy")
+  role_permission_revoked_by RolePermission[] @relation("RolePermissionRevokedBy")
+
+  // Common Module
+  alias_created_by Alias[] @relation("AliasCreatedBy")
+  alias_updated_by Alias[] @relation("AliasUpdatedBy")
+
+  media_archive_created_by MediaArchive[] @relation("MediaArchiveCreatedBy")
+  media_archive_updated_by MediaArchive[] @relation("MediaArchiveUpdatedBy")
+  media_archive_reviewed_by MediaArchive[] @relation("MediaArchiveReviewedBy")
+  media_archive_contributor MediaArchive[] @relation("MediaArchiveContributor")
+
+  attachement_created_by Attachment[] @relation("AttachmentCreatedBy")
+  attachement_updated_by Attachment[] @relation("AttachmentUpdatedBy")
+  attachement_reviewed_by Attachment[] @relation("AttachmentReviewedBy")
+
+  unit_created_by Unit[] @relation("UnitCreatedBy")
+  unit_updated_by Unit[] @relation("UnitUpdatedBy")
+
+  // Gear Module
+  brand_created_by Brand[] @relation("BrandCreatedBy")
+  brand_updated_by Brand[] @relation("BrandUpdatedBy")
+
+  gear_type_created_by GearType[] @relation("GearTypeCreatedBy")
+  gear_type_updated_by GearType[] @relation("GearTypeUpdatedBy")
+
+  gear_specs_def_created_by GearSpecsDefinition[] @relation("GearSpecsDefinitionCreatedBy")
+  gear_specs_def_updated_by GearSpecsDefinition[] @relation("GearSpecsDefinitionUpdatedBy")
+
+  gear_created_by Gear[] @relation("GearCreatedBy")
+  gear_updated_by Gear[] @relation("GearUpdatedBy")
+  gear_verified_by Gear[] @relation("GearVerifiedBy")
+  gear_owner Gear[] @relation("GearOwner")
+
+  gear_specs_created_by GearSpecs[] @relation("GearSpecsCreatedBy")
+  gear_specs_updated_by GearSpecs[] @relation("GearSpecsUpdatedBy")
+
+  gear_feature_created_by GearFeature[] @relation("GearFeatureCreatedBy")
+  gear_feature_updated_by GearFeature[] @relation("GearFeatureUpdatedBy")
+
+  gear_variant_created_by GearVariant[] @relation("GearVariantCreatedBy")
+  gear_variant_updated_by GearVariant[] @relation("GearVariantUpdatedBy")
+  
+  gear_pack_created_by GearPack[] @relation("GearPackCreatedBy")
+  gear_pack_updated_by GearPack[] @relation("GearPackUpdatedBy")
+  gear_pack_reviewed_by GearPack[] @relation("GearPackReviewedBy")
+  gear_pack_owner GearPack[] @relation("GearPackOwner")
+
+  gear_pack_template_created_by GearPackTemplate[] @relation("GearPackTemplateCreatedBy")
+  gear_pack_template_updated_by GearPackTemplate[] @relation("GearPackTemplateUpdatedBy")
+  
+  gear_pack_component_created_by GearPackComponent[] @relation("GearPackComponentCreatedBy")
+  gear_pack_component_updated_by GearPackComponent[] @relation("GearPackComponentUpdatedBy")
+  
+  // Trail Module
+  challenge_created_by Challenge[] @relation("ChallengeCreatedBy")
+  challenge_updated_by Challenge[] @relation("ChallengeUpdatedBy")
+  challenge_verified_by Challenge[] @relation("ChallengeVerifiedBy")
+  
+  challenge_gear_requirement_created_by ChallengeGearRequirement[] @relation("ChallengeGearRequirementCreatedBy")
+  challenge_gear_requirement_updated_by ChallengeGearRequirement[] @relation("ChallengeGearRequirementUpdatedBy")
+  
+  difficulty_system_created_by DifficultySystem[] @relation("DifficultySystemCreatedBy")
+  difficulty_system_updated_by DifficultySystem[] @relation("DifficultySystemUpdatedBy")
+  
+  difficulty_mapping_created_by DifficultyMapping[] @relation("DifficultyMappingCreatedBy")
+  difficulty_mapping_updated_by DifficultyMapping[] @relation("DifficultyMappingUpdatedBy")
+  
+  trail_created_by Trail[] @relation("TrailCreatedBy")
+  trail_updated_by Trail[] @relation("TrailUpdatedBy")
+  trail_verified_by Trail[] @relation("TrailVerifiedBy")
+  trail_owner Trail[] @relation("TrailOwner")
+
+  trail_challenge_created_by TrailChallenge[] @relation("TrailChallengeCreatedBy")
+  trail_challenge_updated_by TrailChallenge[] @relation("TrailChallengeUpdatedBy")
+  
+  trail_calendar_created_by TrailCalendar[] @relation("TrailCalendarCreatedBy")
+  trail_calendar_updated_by TrailCalendar[] @relation("TrailCalendarUpdatedBy")
+  
+  trail_use_created_by TrailUse[] @relation("TrailUseCreatedBy")
+  trail_use_updated_by TrailUse[] @relation("TrailUseUpdatedBy")
+
+  trail_source_created_by TrailSource[] @relation("TrailSourceCreatedBy")
+  trail_source_updated_by TrailSource[] @relation("TrailSourceUpdatedBy")
+
+  trail_gear_requirement_created_by TrailGearRequirement[] @relation("TrailGearRequirementCreatedBy")
+  trail_gear_requirement_updated_by TrailGearRequirement[] @relation("TrailGearRequirementUpdatedBy")
+
+  trail_difficulty_created_by TrailDifficulty[] @relation("TrailDifficultyCreatedBy")
+  trail_difficulty_updated_by TrailDifficulty[] @relation("TrailDifficultyUpdatedBy")
+  trail_difficulty_verified_by TrailDifficulty[] @relation("TrailDifficultyVerifiedBy")
+  
+  trail_facility_created_by TrailFacility[] @relation("TrailFacilityCreatedBy")
+  trail_facility_updated_by TrailFacility[] @relation("TrailFacilityUpdatedBy")
+  trail_facility_verified_by TrailFacility[] @relation("TrailFacilityVerifiedBy")
+
+  trail_profile_created_by TrailProfile[] @relation("TrailProfileCreatedBy")
+  trail_profile_updated_by TrailProfile[] @relation("TrailProfileUpdatedBy")
+  trail_profile_verified_by TrailProfile[] @relation("TrailProfileVerifiedBy")
+  trail_profile_owner TrailProfile[] @relation("TrailProfileOwner")
+
+  trail_profile_use_created_by TrailProfileUse[] @relation("TrailProfileUseCreatedBy")
+  trail_profile_use_updated_by TrailProfileUse[] @relation("TrailProfileUseUpdatedBy")
+  
+  access_point_created_by AccessPoint[] @relation("AccessPointCreatedBy")
+  access_point_updated_by AccessPoint[] @relation("AccessPointUpdatedBy")
+  access_point_verified_by AccessPoint[] @relation("AccessPointVerifiedBy")
+  access_point_owner AccessPoint[] @relation("AccessPointOwner")
+
+  access_point_calendar_created_by AccessPointCalendar[] @relation("AccessPointCalendarCreatedBy")
+  access_point_calendar_updated_by AccessPointCalendar[] @relation("AccessPointCalendarUpdatedBy")
+
+  trail_access_point_relation_created_by TrailAccessPointRelation[] @relation("TrailAccessPointRelationCreatedBy")
+  trail_access_point_relation_updated_by TrailAccessPointRelation[] @relation("TrailAccessPointRelationUpdatedBy")
+  trail_access_point_relation_verified_by TrailAccessPointRelation[] @relation("TrailAccessPointRelationVerifiedBy")
+
+  trail_geometry_created_by TrailGeometry[] @relation("TrailGeometryCreatedBy")
+  trail_geometry_updated_by TrailGeometry[] @relation("TrailGeometryUpdatedBy")
+  trail_geometry_verified_by TrailGeometry[] @relation("TrailGeometryVerifiedBy")
+  trail_geometry_owner TrailGeometry[] @relation("TrailGeometryOwner")
+
+  trail_segmentation_created_by TrailSegmentation[] @relation("TrailSegmentationCreatedBy")
+  trail_segmentation_updated_by TrailSegmentation[] @relation("TrailSegmentationUpdatedBy")
+  trail_segmentation_reviewed_by TrailSegmentation[] @relation("TrailSegmentationReviewedBy")
+
+  trail_segment_relation_created_by TrailSegmentRelation[] @relation("TrailSegmentRelationCreatedBy")
+  trail_segment_relation_updated_by TrailSegmentRelation[] @relation("TrailSegmentRelationUpdatedBy")
+  trail_segment_relation_reviewed_by TrailSegmentRelation[] @relation("TrailSegmentRelationReviewedBy")
+  trail_segmentation_owner TrailSegmentation[] @relation("TrailSegmentationOwner")
+
+  transport_service_created_by TransportService[] @relation("TransportServiceCreatedBy")
+  transport_service_updated_by TransportService[] @relation("TransportServiceUpdatedBy")
+  transport_service_verified_by TransportService[] @relation("TransportServiceVerifiedBy")
+
+  transport_service_calendar_created_by TransportServiceCalendar[] @relation("TransportServiceCalendarCreatedBy")
+  transport_service_calendar_updated_by TransportServiceCalendar[] @relation("TransportServiceCalendarUpdatedBy")
+
+  // Meal Module
+  meal_pack_created_by MealPack[] @relation("MealPackCreatedBy")
+  meal_pack_updated_by MealPack[] @relation("MealPackUpdatedBy")
+  meal_pack_reviewed_by MealPack[] @relation("MealPackReviewedBy")
+  meal_pack_owner MealPack[] @relation("MealPackOwner")
+
+  meal_item_created_by MealItem[] @relation("MealItemCreatedBy")
+  meal_item_updated_by MealItem[] @relation("MealItemUpdatedBy")
+  meal_item_owner MealItem[] @relation("MealItemOwner")
+
+  meal_pack_item_created_by MealPackItem[] @relation("MealPackItemCreatedBy")
+  meal_pack_item_updated_by MealPackItem[] @relation("MealPackItemUpdatedBy")
+  meal_pack_item_user MealPackItem[] @relation("MealPackItemUser")
+
+  // Personal Module
+  user_trail_created_by UserTrail[] @relation("UserTrailCreatedBy")
+  user_trail_updated_by UserTrail[] @relation("UserTrailUpdatedBy")
+  user_trail_user UserTrail[] @relation("UserTrailUser")
+
+  user_trail_completion_created_by UserTrailCompletion[] @relation("UserTrailCompletionCreatedBy")
+  user_trail_completion_updated_by UserTrailCompletion[] @relation("UserTrailCompletionUpdatedBy")
+
+  user_gear_created_by UserGear[] @relation("UserGearCreatedBy")
+  user_gear_updated_by UserGear[] @relation("UserGearUpdatedBy")
+  user_gear_user UserGear[] @relation("UserGearUser")
+
+  user_gear_pack_created_by UserGearPack[] @relation("UserGearPackCreatedBy")
+  user_gear_pack_updated_by UserGearPack[] @relation("UserGearPackUpdatedBy")
+  user_gear_pack_user UserGearPack[] @relation("UserGearPackUser")
+
+  user_gear_pack_item_created_by UserGearPackItem[] @relation("UserGearPackItemCreatedBy")
+  user_gear_pack_item_updated_by UserGearPackItem[] @relation("UserGearPackItemUpdatedBy")
+
+  user_personal_archive_created_by UserPersonalArchive[] @relation("UserPersonalArchiveCreatedBy")
+  user_personal_archive_updated_by UserPersonalArchive[] @relation("UserPersonalArchiveUpdatedBy")
+  user_personal_archive_user UserPersonalArchive[] @relation("UserPersonalArchiveUser")
+
+  user_feedback_created_by UserFeedback[] @relation("UserFeedbackCreatedBy")
+  user_feedback_updated_by UserFeedback[] @relation("UserFeedbackUpdatedBy")
+  user_feedback_user UserFeedback[] @relation("UserFeedbackUser")
+
+  user_sticky_notes_created_by UserStickyNotes[] @relation("UserStickyNotesCreatedBy")
+  user_sticky_notes_updated_by UserStickyNotes[] @relation("UserStickyNotesUpdatedBy")
+  user_sticky_notes_user UserStickyNotes[] @relation("UserStickyNotesUser")
+
+  user_idea_capture_created_by UserIdeaCapture[] @relation("UserIdeaCaptureCreatedBy")
+  user_idea_capture_updated_by UserIdeaCapture[] @relation("UserIdeaCaptureUpdatedBy")
+  user_idea_capture_user UserIdeaCapture[] @relation("UserIdeaCaptureUser")
+
+  // Trip Module
+  trip_created_by Trip[] @relation("TripCreatedBy")
+  trip_updated_by Trip[] @relation("TripUpdatedBy")
+  trip_user Trip[] @relation("TripUser")
+
+  trip_accommodation_created_by TripAccommodation[] @relation("TripAccommodationCreatedBy")
+  trip_accommodation_updated_by TripAccommodation[] @relation("TripAccommodationUpdatedBy")
+
+  trip_gear_list_created_by TripGearList[] @relation("TripGearListCreatedBy")
+  trip_gear_list_updated_by TripGearList[] @relation("TripGearListUpdatedBy")
+
+  trip_meal_pack_created_by TripMealPack[] @relation("TripMealPackCreatedBy")
+  trip_meal_pack_updated_by TripMealPack[] @relation("TripMealPackUpdatedBy")
+
+  trip_meal_pack_item_created_by TripMealPackItem[] @relation("TripMealPackItemCreatedBy")
+  trip_meal_pack_item_updated_by TripMealPackItem[] @relation("TripMealPackItemUpdatedBy")
+
+  trip_trail_created_by TripTrail[] @relation("TripTrailCreatedBy")
+  trip_trail_updated_by TripTrail[] @relation("TripTrailUpdatedBy")
+
+  trip_transport_created_by TripTransport[] @relation("TripTransportCreatedBy")
+  trip_transport_updated_by TripTransport[] @relation("TripTransportUpdatedBy")
+
+  critical_event_created_by CriticalEvent[] @relation("CriticalEventCreatedBy")
+  critical_event_updated_by CriticalEvent[] @relation("CriticalEventUpdatedBy")
+
+  trip_checklist_created_by TripChecklist[] @relation("TripChecklistCreatedBy")
+  trip_checklist_updated_by TripChecklist[] @relation("TripChecklistUpdatedBy")
+
+  trip_checklist_item_created_by TripChecklistItem[] @relation("TripChecklistItemCreatedBy")
+  trip_checklist_item_updated_by TripChecklistItem[] @relation("TripChecklistItemUpdatedBy")
+
+  // Publication and Community Contribution Module
+  colleciton_created_by Collection[] @relation("CollectionCreatedBy")
+  collection_updated_by Collection[] @relation("CollectionUpdatedBy")
+  collection_reviewed_by Collection[] @relation("CollectionReviewedBy")
+  colleciton_owner Collection[] @relation("CollectionOwner")
+
+  collection_item_created_by CollectionItem[] @relation("CollectionItemCreatedBy")
+  collection_item_updated_by CollectionItem[] @relation("CollectionItemUpdatedBy")
+  collection_item_reviewed_by CollectionItem[] @relation("CollectionItemReviewedBy")
+
+  user_proposal_created_by UserProposal[] @relation("UserProposalCreatedBy")
+  user_proposal_updated_by UserProposal[] @relation("UserProposalUpdatedBy")
+  user_proposal_reviewed_by UserProposal[] @relation("UserProposalReviewedBy")
+  user_proposal_user UserProposal[] @relation("UserProposalUser")
+  
+  community_publication_created_by CommunityPublication[] @relation("CommunityPublicationCreatedBy")
+  community_publication_updated_by CommunityPublication[] @relation("CommunityPublicationUpdatedBy")
+  community_publication_reviewed_by CommunityPublication[] @relation("CommunityPublicationReviewedBy")
+  community_publication_contributor CommunityPublication[] @relation("CommunityPublicationContributor")
+
+  community_publication_item_created_by CommunityPublicationItem[] @relation("CommunityPublicationItemCreatedBy")
+  community_publication_item_updated_by CommunityPublicationItem[] @relation("CommunityPublicationItemUpdatedBy")
+  community_publication_item_reviewed_by CommunityPublicationItem[] @relation("CommunityPublicationItemReviewedBy")
+  community_publication_item_contributor CommunityPublicationItem[] @relation("CommunityPublicationItemContributor")
+
+  community_publication_attachment_created_by CommunityPublicationAttachment[] @relation("CommunityPublicationAttachmentCreatedBy")
+  community_publication_attachment_updated_by CommunityPublicationAttachment[] @relation("CommunityPublicationAttachmentUpdatedBy")
+
 }
 
 model Role {
@@ -537,6 +808,9 @@ model Role {
   updated_at DateTime @updatedAt
   created_by_id Int
   updated_by_id Int
+
+  created_by User @relation("RoleCreatedBy",fields: [created_by_id], references: [id])
+  updated_by User @relation("RoleUpdatedBy",fields: [updated_by_id], references: [id])
 }
 
 model Permission {
@@ -550,6 +824,9 @@ model Permission {
   updated_at DateTime @updatedAt
   created_by_id Int
   updated_by_id Int
+
+  created_by User @relation("PermissionCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("PermissionUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model UserRole {
@@ -564,6 +841,10 @@ model UserRole {
   revoked_at DateTime?
   granted_by_id Int
   revoked_by_id Int?
+
+  granted_by User @relation("UserRoleGrantedBy", fields: [granted_by_id], references: [id])
+  revoked_by User? @relation("UserRoleRevokedBy", fields: [revoked_by_id], references: [id])
+  user User @relation("UserRoleUser", fields: [user_id], references: [id])
 }
 
 model RolePermission {
@@ -579,7 +860,8 @@ model RolePermission {
   granted_by_id Int
   revoked_by_id Int?
 
-  @@unique([role_id, permission_id])
+  granted_by User @relation("RolePermissionGrantedBy", fields: [granted_by_id], references: [id])
+  revoked_by User? @relation("RolePermissionRevokedBy", fields: [revoked_by_id], references: [id])
 }
 
 
@@ -597,6 +879,9 @@ model Alias {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("AliasCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("AliasUpdatedBy", fields: [updated_by_id], references: [id])
 
   @@unique([target_object_type, target_object_id, alias])
 }
@@ -623,6 +908,12 @@ model MediaArchive {
   updated_by_id Int
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  contributor User? @relation("MediaArchiveContributor", fields: [contributor_id], references: [id])
+
+  created_by User @relation("MediaArchiveCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("MediaArchiveUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("MediaArchiveReviewedBy", fields: [last_reviewed_by_id], references: [id])
 }
 
 model Attachment {
@@ -641,6 +932,10 @@ model Attachment {
   updated_by_id Int
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  created_by User @relation("AttachmentCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("AttachmentUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("AttachmentReviewedBy", fields: [last_reviewed_by_id], references: [id])
 
   @@unique([target_object_type, target_object_id, attachment_usage, media_archive_id])
 }
@@ -663,6 +958,9 @@ model Unit {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("UnitCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UnitUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 
@@ -679,6 +977,9 @@ model Brand {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("BrandCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("BrandUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model GearType {
@@ -692,6 +993,9 @@ model GearType {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("GearTypeCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearTypeUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model GearSpecsDefinition {
@@ -712,6 +1016,8 @@ model GearSpecsDefinition {
   updated_at DateTime @updatedAt
   updated_by_id Int
 
+  created_by User @relation("GearSpecsDefinitionCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearSpecsDefinitionUpdatedBy", fields: [updated_by_id], references: [id])
   @@index([gear_type_id, name])
 }
 
@@ -736,6 +1042,11 @@ model Gear {
 
   last_verified_at DateTime?
   last_verified_by_id Int?
+
+  created_by User @relation("GearCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("GearVerifiedBy", fields: [last_verified_by_id], references: [id])
+  owner User? @relation("GearOwner", fields: [owner_id], references: [id])
 }
 
 model GearSpecs {
@@ -759,6 +1070,9 @@ model GearSpecs {
   updated_at DateTime @updatedAt
   updated_by_id Int
 
+  created_by User @relation("GearSpecsCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearSpecsUpdatedBy", fields: [updated_by_id], references: [id])
+
   @@unique([gear_id, gear_variant_id, gear_specs_definition_id])
 }
 
@@ -777,6 +1091,9 @@ model GearFeature {
   updated_at DateTime @updatedAt
   updated_by_id Int
 
+  created_by User @relation("GearFeatureCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearFeatureUpdatedBy", fields: [updated_by_id], references: [id])
+  
   // TODO: add constraint check in Postgres migration to ensure that either name or description is not null
 }
 
@@ -794,6 +1111,10 @@ model GearVariant {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("GearVariantCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearVariantUpdatedBy", fields: [updated_by_id], references: [id])
+  
 }
 
 model GearPack {
@@ -815,6 +1136,12 @@ model GearPack {
 
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  owner User? @relation("GearPackOwner", fields: [owner_id], references: [id])
+  created_by User @relation("GearPackCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearPackUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("GearPackReviewedBy", fields: [last_reviewed_by_id], references: [id])
+  
 }
 
 model GearPackTemplate {
@@ -828,6 +1155,10 @@ model GearPackTemplate {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("GearPackTemplateCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearPackTemplateUpdatedBy", fields: [updated_by_id], references: [id])
+  
 }
 
 model GearPackComponent {
@@ -847,6 +1178,10 @@ model GearPackComponent {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("GearPackComponentCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearPackComponentUpdatedBy", fields: [updated_by_id], references: [id])
+  
 
   // TODO: add constraint check in Postgres migration to ensure that either gear_type_id or gear_description is not null
 }
@@ -868,6 +1203,11 @@ model Challenge {
 
   last_verified_at DateTime?
   last_verified_by_id Int?
+
+  created_by User @relation("ChallengeCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("ChallengeUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("ChallengeVerifiedBy", fields: [last_verified_by_id], references: [id])
+  
 }
 
 model ChallengeGearRequirement {
@@ -891,6 +1231,10 @@ model ChallengeGearRequirement {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("ChallengeGearRequirementCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("ChallengeGearRequirementUpdatedBy", fields: [updated_by_id], references: [id])
+  
 }
 
 model DifficultySystem {
@@ -905,6 +1249,10 @@ model DifficultySystem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("DifficultySystemCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("DifficultySystemUpdatedBy", fields: [updated_by_id], references: [id])
+  
 }
 
 model DifficultyMapping {
@@ -920,6 +1268,10 @@ model DifficultyMapping {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("DifficultyMappingCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("DifficultyMappingUpdatedBy", fields: [updated_by_id], references: [id])
+  
 }
 
 model Trail {
@@ -950,6 +1302,13 @@ model Trail {
   updated_by_id Int
   last_verified_at DateTime?
   last_verified_by_id Int?
+
+  created_by User @relation("TrailCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("TrailVerifiedBy", fields: [last_verified_by_id], references: [id])
+  
+  owner User? @relation("TrailOwner", fields: [owner_id], references: [id])
+  
 }
 
 model TrailChallenge {
@@ -965,6 +1324,10 @@ model TrailChallenge {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TrailChallengeCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailChallengeUpdatedBy", fields: [updated_by_id], references: [id])
+  
 }
 
 model TrailCalendar {
@@ -980,6 +1343,10 @@ model TrailCalendar {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TrailCalendarCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailCalendarUpdatedBy", fields: [updated_by_id], references: [id])
+  
 }
 
 model TrailUse {
@@ -993,6 +1360,9 @@ model TrailUse {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int  
+  
+  created_by User @relation("TrailUseCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailUseUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model TrailSource {
@@ -1014,6 +1384,10 @@ model TrailSource {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  
+  created_by User @relation("TrailSourceCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailSourceUpdatedBy", fields: [updated_by_id], references: [id])
+
 }
 
 model TrailGearRequirement {
@@ -1039,6 +1413,10 @@ model TrailGearRequirement {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  
+  created_by User @relation("TrailGearRequirementCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailGearRequirementUpdatedBy", fields: [updated_by_id], references: [id])
+
 }
 
 model TrailDifficulty {
@@ -1060,6 +1438,11 @@ model TrailDifficulty {
   last_verified_at DateTime?
   last_verified_by_id Int?
   verifier_notes String?
+
+  created_by User @relation("TrailDifficultyCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailDifficultyUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("TrailDifficultyVerifiedBy", fields: [last_verified_by_id], references: [id])
+  
 }
 
 model TrailFacility {
@@ -1077,6 +1460,11 @@ model TrailFacility {
   updated_by_id Int
   last_verified_at DateTime?
   last_verified_by_id Int?  
+  
+  created_by User @relation("TrailFacilityCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailFacilityUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("TrailFacilityVerifiedBy", fields: [last_verified_by_id], references: [id])
+  
 }
 
 model TrailProfile {
@@ -1112,6 +1500,12 @@ model TrailProfile {
   updated_by_id Int
   last_verified_at DateTime?
   last_verified_by_id Int?
+
+  owner User? @relation("TrailProfileOwner", fields: [owner_id], references: [id])
+  created_by User @relation("TrailProfileCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailProfileUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("TrailProfileVerifiedBy", fields: [last_verified_by_id], references: [id])
+  
 }
 
 model TrailProfileUse {
@@ -1130,6 +1524,10 @@ model TrailProfileUse {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TrailProfileUseCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailProfileUseUpdatedBy", fields: [updated_by_id], references: [id])
+
 }
 
 model AccessPoint {
@@ -1175,6 +1573,12 @@ model AccessPoint {
   updated_by_id Int
   last_verified_at DateTime?
   last_verified_by_id Int?
+
+  created_by User @relation("AccessPointCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("AccessPointUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("AccessPointVerifiedBy", fields: [last_verified_by_id], references: [id])
+
+  owner User? @relation("AccessPointOwner", fields: [owner_id], references: [id])
 }
 
 model AccessPointCalendar {
@@ -1190,6 +1594,10 @@ model AccessPointCalendar {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("AccessPointCalendarCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("AccessPointCalendarUpdatedBy", fields: [updated_by_id], references: [id])
+
 }
 
 model TrailAccessPointRelation {
@@ -1207,6 +1615,10 @@ model TrailAccessPointRelation {
   updated_by_id Int
   last_verified_at DateTime?
   last_verified_by_id Int?
+
+  created_by User @relation("TrailAccessPointRelationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailAccessPointRelationUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("TrailAccessPointRelationVerifiedBy", fields: [last_verified_by_id], references: [id])
 }
 
 model TrailGeometry {
@@ -1214,8 +1626,8 @@ model TrailGeometry {
   name String
   trail_id Int
 
-  start_access_pointid Int
-  end_access_pointid Int
+  start_access_point_id Int
+  end_access_point_id Int
 
   gpx_file_key String?
   gpx_file_name String?
@@ -1240,6 +1652,12 @@ model TrailGeometry {
   last_verified_at DateTime?
   last_verified_by_id Int?
   last_calculated_at DateTime?
+
+  created_by User @relation("TrailGeometryCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailGeometryUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("TrailGeometryVerifiedBy", fields: [last_verified_by_id], references: [id])
+  
+  owner User? @relation("TrailGeometryOwner", fields: [owner_id], references: [id])
 }
 
 model TrailSegmentation {
@@ -1248,7 +1666,7 @@ model TrailSegmentation {
   derived_from_segmentation_id Int?
   name String
   
-  owner_id Int
+  owner_id Int?
   visibility Visibility @default(UNSPECIFIED)
 
   is_official Boolean @default(false)
@@ -1263,6 +1681,12 @@ model TrailSegmentation {
   updated_by_id Int
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  created_by User @relation("TrailSegmentationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailSegmentationUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("TrailSegmentationReviewedBy", fields: [last_reviewed_by_id], references: [id])
+  
+  owner User? @relation("TrailSegmentationOwner", fields: [owner_id], references: [id])
 }
 
 model TrailSegmentRelation {
@@ -1284,6 +1708,10 @@ model TrailSegmentRelation {
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
 
+  created_by User @relation("TrailSegmentRelationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailSegmentRelationUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("TrailSegmentRelationReviewedBy", fields: [last_reviewed_by_id], references: [id])
+
   @@unique([trail_segmentation_id, child_trail_id], name:"uniqueTrailSegmentationChild")
   @@unique([trail_segmentation_id, child_sequence], name:"uniqueTrailSegmentationChildSequence")
 }
@@ -1298,7 +1726,6 @@ model TransportService {
   start_access_pointname String?
   end_access_pointid Int?
   end_access_pointname String?
-  // transfer_type TransferType
 
   booking_requirement BookingRequirement @default(UNSPECIFIED)
   service_url String?
@@ -1312,6 +1739,10 @@ model TransportService {
   updated_by_id Int
   last_verified_at DateTime?
   last_verified_by_id Int?
+
+  created_by User @relation("TransportServiceCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TransportServiceUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("TransportServiceVerifiedBy", fields: [last_verified_by_id], references: [id])
 }
 
 model TransportServiceCalendar {
@@ -1328,6 +1759,8 @@ model TransportServiceCalendar {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+  created_by User @relation("TransportServiceCalendarCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TransportServiceCalendarUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 // 5. Meal Module
@@ -1353,6 +1786,12 @@ model MealPack {
   updated_by_id Int
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  created_by User @relation("MealPackCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("MealPackUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("MealPackReviewedBy", fields: [last_reviewed_by_id], references: [id])
+  
+  owner User? @relation("MealPackOwner", fields: [owner_id], references: [id])
 }
 
 model MealItem {
@@ -1369,6 +1808,11 @@ model MealItem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("MealItemCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("MealItemUpdatedBy", fields: [updated_by_id], references: [id])
+  
+  owner User? @relation("MealItemOwner", fields: [owner_id], references: [id])
 }
 
 model MealPackItem {
@@ -1388,6 +1832,11 @@ model MealPackItem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("MealPackItemCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("MealPackItemUpdatedBy", fields: [updated_by_id], references: [id])
+
+  user User? @relation("MealPackItemUser", fields: [user_id], references: [id])
 }
 
 
@@ -1407,6 +1856,10 @@ model UserTrail {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int  
+
+  created_by User @relation("UserTrailCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserTrailUpdatedBy", fields: [updated_by_id], references: [id])
+  user User? @relation("UserTrailUser", fields: [user_id], references: [id])
 }
 
 model UserTrailCompletion {  // TODO: 
@@ -1420,6 +1873,9 @@ model UserTrailCompletion {  // TODO:
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int  
+
+  created_by User @relation("UserTrailCompletionCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserTrailCompletionUpdatedBy", fields: [updated_by_id], references: [id])
 
   @@unique([user_trail_id, completed_at])
 }
@@ -1444,6 +1900,10 @@ model UserGear {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int 
+
+  created_by User @relation("UserGearCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserGearUpdatedBy", fields: [updated_by_id], references: [id])
+  user User? @relation("UserGearUser", fields: [user_id], references: [id])
 }
 
 model UserGearPack {
@@ -1459,6 +1919,10 @@ model UserGearPack {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int 
+
+  created_by User @relation("UserGearPackCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserGearPackUpdatedBy", fields: [updated_by_id], references: [id])
+  user User? @relation("UserGearPackUser", fields: [user_id], references: [id])
 }
 
 model UserGearPackItem {
@@ -1478,6 +1942,9 @@ model UserGearPackItem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int 
+
+  created_by User @relation("UserGearPackItemCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserGearPackItemUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model UserPersonalArchive {
@@ -1500,6 +1967,10 @@ model UserPersonalArchive {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int 
+
+  created_by User @relation("UserPersonalArchiveCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserPersonalArchiveUpdatedBy", fields: [updated_by_id], references: [id])
+  user User? @relation("UserPersonalArchiveUser", fields: [user_id], references: [id])
 }
 
 model UserFeedback {
@@ -1518,8 +1989,12 @@ model UserFeedback {
   updated_by_id Int 
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
-}
 
+  created_by User @relation("UserFeedbackCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserFeedbackUpdatedBy", fields: [updated_by_id], references: [id])
+  user User? @relation("UserFeedbackUser", fields: [user_id], references: [id])
+
+}
 
 model UserStickyNotes {
   id Int @id @default(autoincrement())
@@ -1536,6 +2011,10 @@ model UserStickyNotes {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int 
+
+  created_by User @relation("UserStickyNotesCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserStickyNotesUpdatedBy", fields: [updated_by_id], references: [id])
+  user User? @relation("UserStickyNotesUser", fields: [user_id], references: [id])
 }
 
 model UserIdeaCapture { // TODO: leave to Post MVP P3
@@ -1548,6 +2027,11 @@ model UserIdeaCapture { // TODO: leave to Post MVP P3
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int 
+
+  created_by User @relation("UserIdeaCaptureCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserIdeaCaptureUpdatedBy", fields: [updated_by_id], references: [id])
+  user User? @relation("UserIdeaCaptureUser", fields: [user_id], references: [id])
+
 }
 
 // 7. Trip Module
@@ -1567,6 +2051,10 @@ model Trip {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TripCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripUpdatedBy", fields: [updated_by_id], references: [id])
+  user User? @relation("TripUser", fields: [user_id], references: [id])
 }
 
 model TripAccommodation {
@@ -1596,6 +2084,9 @@ model TripAccommodation {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TripAccommodationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripAccommodationUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model TripGearList {
@@ -1615,6 +2106,9 @@ model TripGearList {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TripGearListCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripGearListUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model TripMealPack {
@@ -1632,6 +2126,10 @@ model TripMealPack {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TripMealPackCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripMealPackUpdatedBy", fields: [updated_by_id], references: [id])
+
 }
 
 model TripMealPackItem {
@@ -1649,6 +2147,9 @@ model TripMealPackItem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TripMealPackItemCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripMealPackItemUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model TripTrail {
@@ -1669,6 +2170,9 @@ model TripTrail {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int  
+
+  created_by User @relation("TripTrailCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripTrailUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model TripTransport {
@@ -1700,7 +2204,10 @@ model TripTransport {
   created_at DateTime @default(now())
   created_by_id Int
   updated_at DateTime @updatedAt
-  updated_by_id Int    
+  updated_by_id Int 
+  
+  created_by User @relation("TripTransportCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripTransportUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model CriticalEvent {
@@ -1724,6 +2231,9 @@ model CriticalEvent {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int  
+
+  created_by User @relation("CriticalEventCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("CriticalEventUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model TripChecklist {
@@ -1738,6 +2248,9 @@ model TripChecklist {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TripChecklistCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripChecklistUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 model TripChecklistItem {
@@ -1755,6 +2268,9 @@ model TripChecklistItem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("TripChecklistItemCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TripChecklistItemUpdatedBy", fields: [updated_by_id], references: [id])
 }
 
 // 8. Publication and Community Contribution
@@ -1779,6 +2295,11 @@ model Collection {
   review_status UserProposalStatus @default(UNSPECIFIED)
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  created_by User @relation("CollectionCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("CollectionUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("CollectionReviewedBy", fields: [last_reviewed_by_id], references: [id])
+  owner User? @relation("CollectionOwner", fields: [owner_id], references: [id])
 }
 
 model CollectionItem {
@@ -1798,6 +2319,10 @@ model CollectionItem {
   item_review_status UserProposalStatus @default(UNSPECIFIED)
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  created_by User @relation("CollectionItemCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("CollectionItemUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("CollectionItemReviewedBy", fields: [last_reviewed_by_id], references: [id])
 }
 
 model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
@@ -1821,6 +2346,11 @@ model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
   updated_by_id Int 
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  created_by User @relation("UserProposalCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserProposalUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("UserProposalReviewedBy", fields: [last_reviewed_by_id], references: [id])
+  user User? @relation("UserProposalUser", fields: [user_id], references: [id])
 }
 
 model CommunityPublication {
@@ -1844,6 +2374,11 @@ model CommunityPublication {
 
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+
+  created_by User @relation("CommunityPublicationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("CommunityPublicationUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("CommunityPublicationReviewedBy", fields: [last_reviewed_by_id], references: [id])
+  contriutor User? @relation("CommunityPublicationContributor", fields: [contributor_id], references: [id])
 }
 
 model CommunityPublicationItem {
@@ -1868,6 +2403,11 @@ model CommunityPublicationItem {
   updated_by_id Int
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
+  
+  created_by User @relation("CommunityPublicationItemCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("CommunityPublicationItemUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("CommunityPublicationItemReviewedBy", fields: [last_reviewed_by_id], references: [id])
+  contriutor User? @relation("CommunityPublicationItemContributor", fields: [contributor_id], references: [id])
 }
 
 model CommunityPublicationAttachment {
@@ -1885,4 +2425,37 @@ model CommunityPublicationAttachment {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  created_by User @relation("CommunityPublicationAttachmentCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("CommunityPublicationAttachmentUpdatedBy", fields: [updated_by_id], references: [id])
+}
+
+
+model temporary {
+  id Int @id @default(autoincrement())
+  /**
+
+  _created_by [] @relation("CreatedBy")
+  _updated_by [] @relation("UpdatedBy")
+  _reviewed_by [] @relation("ReviewedBy")
+  _contributor [] @relation("Contributor")
+  _owner [] @relation("Owner")
+
+  _verified_by [] @relation("VerifiedBy")
+  _user [] @relation("User")
+
+  created_by User @relation("CreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("ReviewedBy", fields: [last_reviewed_by_id], references: [id])
+  contriutor User? @relation("Contributor", fields: [contributor_id], references: [id])
+
+  owner User? @relation("Owner", fields: [owner_id], references: [id])
+  last_verified_by User? @relation("VerifiedBy", fields: [last_verified_by_id], references: [id])
+
+  user User? @relation("User", fields: [user_id], references: [id])
+  
+  contriutor User? @relation("Contributor", fields: [contributor_id], references: [id])
+
+
+  **/
 }
