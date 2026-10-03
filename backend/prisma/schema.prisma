@@ -488,6 +488,24 @@ enum UserProposalStatus {
   READY_FOR_REVIEW
 }
 
+enum ChecklistStatus {
+  UNSPECIFIED
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum ChecklistItemType {
+  UNSPECIFIED
+  GEAR
+  MEAL
+  BOOKING_TRANSPORT
+  BOOKING_ACCOMMODATION
+  BOOKING_PERMITS
+  DOCUMENTS
+}
+
 
 /** Model Definition **/
 
@@ -1395,7 +1413,7 @@ model UserTrailCompletion {  // TODO:
   id Int @id @default(autoincrement())
   user_trail_id Int
 
-  completed_at DateTime
+  completed_at DateTime @db.Date
   status Status @default(ACTIVE)
 
   created_at DateTime @default(now())
@@ -1432,7 +1450,7 @@ model UserGearPack {
   id Int @id @default(autoincrement())
   gear_pack_id Int
   user_id Int
-  name String @default("default")
+  gear_pack_suffix String @default("general")
 
   notes String?
   status Status @default(ACTIVE)
@@ -1452,7 +1470,6 @@ model UserGearPackItem {
 
   alt_frequency Frequency?
   alt_qty Int?
-  is_ready Boolean @default(false)
 
   notes String?
   status Status @default(ACTIVE)
@@ -1470,35 +1487,13 @@ model UserPersonalArchive {
   archive_key String @unique
   archive_type ArchiveType
 
-  source_type SourceType
+  source_type SourceType @default(UNSPECIFIED)
   archive_source_url String? 
 
-  target_object_type TargetType?
-  target_object_id Int?
+  target_object_type TargetType
+  target_object_id Int
 
   status Status @default(ACTIVE)
-  notes String?
-
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int 
-}
-
-model UserReminder {
-  id Int @id @default(autoincrement())
-  user_id Int
-
-  title String?
-  description String?
-  reminder_status ReminderStatus @default(UNSPECIFIED)
-  priority Priority @default(UNSPECIFIED)
-  due_at DateTime
-  completed_at DateTime?
-
-  target_object_type TargetTypeSelected
-  target_object_id Int?
-  critical_event_id Int?
   notes String?
 
   created_at DateTime @default(now())
@@ -1576,7 +1571,7 @@ model Trip {
 
 model TripAccommodation {
   id Int @id @default(autoincrement())
-  trip_id Int?
+  trip_id Int
   trip_trail_id Int?
 
   accom_name String
@@ -1609,6 +1604,7 @@ model TripGearList {
 
   gear_type_id Int?
   user_gear_id Int?
+  user_gear_qty Int @default(1)
   gear_description String?
   prep_status PreparationStatus @default(UNSPECIFIED)
 
@@ -1623,7 +1619,7 @@ model TripGearList {
 
 model TripMealPack {
   id Int @id @default(autoincrement())
-  name String
+  name String?
   trip_id Int
 
   meal_pack_id Int
@@ -1641,7 +1637,8 @@ model TripMealPack {
 model TripMealPackItem {
   id Int @id @default(autoincrement())
   trip_meal_pack_id Int
-  meal_item_id Int
+  meal_item_id Int?
+  meal_item_description String?
   meal_item_qty Int @default(1)
   prep_status PreparationStatus @default(UNSPECIFIED)
 
@@ -1685,14 +1682,15 @@ model TripTransport {
   // TODO: remove transport_sequence from ERD
   transport_date DateTime? @db.Date
 
-  dep_access_pointname String?
-  dep_access_pointid Int?
+  dep_access_point_name String?
+  dep_access_point_id Int?
   dep_time DateTime?
 
-  arr_access_pointname String?
-  arr_access_pointid Int?
+  arr_access_point_name String?
+  arr_access_point_id Int?
   arr_time DateTime?
 
+  booking_requirement BookingRequirement @default(UNSPECIFIED)
   booking_status UserActionStatus @default(UNSPECIFIED)
   booking_ref String?
 
@@ -1710,14 +1708,14 @@ model CriticalEvent {
   trip_id Int
   name String
   event_type EventType
-  event_status EventStatus
+  event_status EventStatus @default(UNSPECIFIED)
 
   event_exact_time DateTime?
   event_start_time DateTime?
   event_end_time DateTime?
 
   event_loc_name String?
-  event_loc_access_pointid Int?
+  event_loc_access_point_id Int?
 
   status Status @default(ACTIVE)
   notes String?
@@ -1726,6 +1724,37 @@ model CriticalEvent {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int  
+}
+
+model TripChecklist {
+  id Int @id @default(autoincrement())
+  trip_id Int
+
+  checklist_status ChecklistStatus @default(UNSPECIFIED)
+
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+}
+
+model TripChecklistItem {
+  id Int @id @default(autoincrement())
+  trip_checklist_id Int
+  checklist_item_type ChecklistItemType @default(UNSPECIFIED)
+  checklist_item_id Int?
+  checklist_item_description String?
+  checklist_item_status ChecklistStatus @default(UNSPECIFIED)
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
 }
 
 // 8. Publication and Community Contribution
@@ -1737,6 +1766,7 @@ model Collection {
   collection_type CollectionType @default(UNSPECIFIED)
   collection_summary String?
   owner_id Int?
+  visibility Visibility @default(UNSPECIFIED)
 
   notes String?
   status Status @default(ACTIVE)
@@ -1745,6 +1775,8 @@ model Collection {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  review_status UserProposalStatus @default(UNSPECIFIED)
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
 }
@@ -1762,6 +1794,8 @@ model CollectionItem {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
+  item_review_status UserProposalStatus @default(UNSPECIFIED)
   last_reviewed_at DateTime?
   last_reviewed_by_id Int?
 }
@@ -1780,7 +1814,7 @@ model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed
   proposal_status UserProposalStatus
 
   notes String?
-  
+  review_status UserProposalStatus @default(UNSPECIFIED)
   created_at DateTime @default(now())
   created_by_id Int
   updated_at DateTime @updatedAt
@@ -1795,7 +1829,7 @@ model CommunityPublication {
   contributor_id Int
 
   target_object_type TargetTypeSelected
-  target_root_id Int?
+  source_root_object_id Int?
 
   submitted_at DateTime @default(now())
   submitted_by_id Int
@@ -1803,7 +1837,6 @@ model CommunityPublication {
   submission_status UserProposalStatus @default(UNSPECIFIED)
   applicant_notes String?
   reviewer_notes String?
-  
   created_at DateTime @default(now())
   created_by_id Int
   updated_at DateTime @updatedAt
@@ -1819,7 +1852,7 @@ model CommunityPublicationItem {
   contributor_id Int
 
   target_object_type TargetTypeSelected
-  target_object_id Int
+  source_object_id Int
   snapshot_object_id Int?
   published_object_id Int?
 
