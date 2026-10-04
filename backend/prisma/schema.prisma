@@ -657,6 +657,10 @@ model User {
   access_point__updated_by AccessPoint[] @relation("AccessPointUpdatedBy")
   access_point__verified_by AccessPoint[] @relation("AccessPointVerifiedBy")
   access_point__owner AccessPoint[] @relation("AccessPointOwner")
+  access_point__merged_by AccessPoint[] @relation("AccessPointMergedBy")
+  access_point__canonical_proposed_by AccessPoint[] @relation("AccessPointCanonicalProposedBy")
+  access_point__canonical_proposal_consent_by AccessPoint[] @relation("AccessPointCanonicalProposalConsentBy")
+  access_point__canonical_proposal_resolved_by AccessPoint[] @relation("AccessPointCanonicalProposalResolvedBy")  
 
   access_point_calendar__created_by AccessPointCalendar[] @relation("AccessPointCalendarCreatedBy")
   access_point_calendar__updated_by AccessPointCalendar[] @relation("AccessPointCalendarUpdatedBy")
@@ -685,6 +689,13 @@ model User {
 
   transport_service_calendar__created_by TransportServiceCalendar[] @relation("TransportServiceCalendarCreatedBy")
   transport_service_calendar__updated_by TransportServiceCalendar[] @relation("TransportServiceCalendarUpdatedBy")
+
+  transport_service_stop__created_by TransportServiceStop[] @relation("TransportServiceStopCreatedBy")
+  transport_service_stop__updated_by TransportServiceStop[] @relation("TransportServiceStopUpdatedBy")
+
+  trail_transport_service_created_by TrailTransportService[] @relation("TrailTransportServiceCreatedBy")
+  trail_transport_service_updated_by TrailTransportService[] @relation("TrailTransportServiceUpdatedBy")
+  trail_transport_service_verified_by TrailTransportService[] @relation("TrailTransportServiceVerifiedBy")
 
   // Meal Module
   meal_pack__created_by MealPack[] @relation("MealPackCreatedBy")
@@ -1390,6 +1401,11 @@ model Trail {
   trail_difficulty__trail TrailDifficulty[] @relation("TrailDifficultyTrail")
   trail_facility__trail TrailFacility[] @relation("TrailFacilityTrail")
   trail_profile__trail TrailProfile[] @relation("TrailProfileTrail")
+  trail_access_point_relation__trail TrailAccessPointRelation[] @relation("TrailAccessPointRelationTrail")
+  trail_geometry__trail TrailGeometry[] @relation("TrailGeometryTrail")
+  trail_segmentation__trail TrailSegmentation[] @relation("TrailSegmentationTrail")
+  trail_segment_relation__child_trail TrailSegmentRelation[] @relation("TrailSegmentRelationChildTrail")
+  trail_transport_service__trail TrailTransportService[] @relation("TrailTransportServiceTrail")
 }
 
 model TrailChallenge {
@@ -1528,9 +1544,10 @@ model TrailDifficulty {
 
 model TrailFacility {
   id Int @id @default(autoincrement())
-  trail_id Int  //TODO
+  trail_id Int
   facility_type FacilityType?
-  trail_source_id Int?  //TODO
+  trail_source_id Int?
+  access_point_id Int?
 
   notes String?
   status Status @default(ACTIVE)
@@ -1547,6 +1564,8 @@ model TrailFacility {
   last_verified_by User? @relation("TrailFacilityVerifiedBy", fields: [last_verified_by_id], references: [id])
   trail Trail @relation("TrailFacilityTrail", fields: [trail_id], references: [id])
   trail_source TrailSource? @relation("TrailFacilityTrailSource", fields: [trail_source_id], references: [id])
+  access_point AccessPoint? @relation("TrailFacilityAccessPoint", fields: [access_point_id], references: [id])
+
 }
 
 model TrailUse {
@@ -1613,6 +1632,7 @@ model TrailProfile {
 
   trail__primary_profile Trail[] @relation("TrailPrimaryProfile")
   trail_profile_use__trail_profile TrailProfileUse[] @relation("TrailProfileUseTrailProfile")
+  trail_geometry__trail_profile TrailSegmentation[] @relation("TrailSegmentationTrailProfile")
 }
 
 model TrailProfileUse {
@@ -1642,7 +1662,6 @@ model TrailProfileUse {
 model AccessPoint {
   id Int @id @default(autoincrement())
   name String
-  facility_id Int?
   seasonality_status SeasonalityStatus @default(UNSPECIFIED)
 
   point_lat Float?
@@ -1651,7 +1670,7 @@ model AccessPoint {
   owner_id Int?
   visibility Visibility @default(UNSPECIFIED)
 
-  // Merge actions
+  // Merge actions -- TODO: remove after implementing RecordAction
   merged_at DateTime?
   merged_by_id Int?
   merge_reason MergeReasons?
@@ -1663,7 +1682,7 @@ model AccessPoint {
   is_canonical Boolean @default(false)
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
 
-  // Canonicalization actions
+  // Canonicalization actions  -- TODO: remove after implementing RecordAction
   canonical_proposed_by_id Int?
   canonical_proposed_at DateTime?
   canonical_proposal_notes String?
@@ -1688,13 +1707,31 @@ model AccessPoint {
   last_verified_by User? @relation("AccessPointVerifiedBy", fields: [last_verified_by_id], references: [id])
 
   owner User? @relation("AccessPointOwner", fields: [owner_id], references: [id])
+
+  merged_by User? @relation("AccessPointMergedBy", fields: [merged_by_id], references: [id])
+  canonical_proposed_by User? @relation("AccessPointCanonicalProposedBy", fields: [canonical_proposed_by_id], references: [id])
+  canonical_proposal_consent_by User? @relation("AccessPointCanonicalProposalConsentBy", fields: [canonical_proposal_consent_by_id], references: [id])
+  canonical_proposal_resolved_by User? @relation("AccessPointCanonicalProposalResolvedBy", fields: [canonical_proposal_resolved_by_id], references: [id])
+
+  merged_into AccessPoint? @relation("AccessPointMergedInto", fields: [merged_into_id], references: [id])
+  
+  trail_facility__access_point TrailFacility[] @relation("TrailFacilityAccessPoint")
+  access_point__merged_into AccessPoint[] @relation("AccessPointMergedInto")
+  access_point_calendar__access_point AccessPointCalendar[] @relation("AccessPointCalendarAccessPoint")
+  trail_access_point_relation__access_point TrailAccessPointRelation[] @relation("TrailAccessPointRelationAccessPoint")
+  trail_geometry__start_access_point TrailGeometry[] @relation("TrailGeometryStartAccessPoint")
+  trail_geometry__end_access_point TrailGeometry[] @relation("TrailGeometryEndAccessPoint")
+  trail_segment_relation__child_start_access_point TrailSegmentRelation[] @relation("TrailSegmentRelationChildStartAccessPoint")
+  transport_service__start_access_point TransportService[] @relation("TransportServiceStartAccessPoint")
+  transport_service__end_access_point TransportService[] @relation("TransportServiceEndAccessPoint")
+  transport_service_stop__stop_access_point TransportServiceStop[] @relation("TransportServiceStopAccessPoint")
 }
 
 model AccessPointCalendar {
   id Int @id @default(autoincrement())
   access_point_id Int
   month Int
-  access_pointfeasibility FeasibilityTag @default(UNSPECIFIED)
+  access_point_feasibility FeasibilityTag @default(UNSPECIFIED)
 
   notes String?
   status Status @default(ACTIVE)
@@ -1707,13 +1744,14 @@ model AccessPointCalendar {
   created_by User @relation("AccessPointCalendarCreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("AccessPointCalendarUpdatedBy", fields: [updated_by_id], references: [id])
 
+  access_point AccessPoint @relation("AccessPointCalendarAccessPoint", fields: [access_point_id], references: [id])
 }
 
 model TrailAccessPointRelation {
   id Int @id @default(autoincrement())
-  access_pointid Int
+  access_point_id Int
   trail_id Int
-  access_pointrole AccessPointRole @default(UNSPECIFIED)
+  access_point_role AccessPointRole @default(UNSPECIFIED)
 
   notes String?
   status Status @default(ACTIVE)
@@ -1728,6 +1766,9 @@ model TrailAccessPointRelation {
   created_by User @relation("TrailAccessPointRelationCreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("TrailAccessPointRelationUpdatedBy", fields: [updated_by_id], references: [id])
   last_verified_by User? @relation("TrailAccessPointRelationVerifiedBy", fields: [last_verified_by_id], references: [id])
+
+  access_point AccessPoint @relation("TrailAccessPointRelationAccessPoint", fields: [access_point_id], references: [id])
+  trail Trail @relation("TrailAccessPointRelationTrail", fields: [trail_id], references: [id])
 }
 
 model TrailGeometry {
@@ -1740,7 +1781,7 @@ model TrailGeometry {
 
   gpx_file_key String?
   gpx_file_name String?
-  gpx_src_url String?
+  gpx_source_url String?
 
   geometry_origin DataOrigin @default(UNSPECIFIED)
   derived_from_id Int?
@@ -1768,14 +1809,24 @@ model TrailGeometry {
   
   owner User? @relation("TrailGeometryOwner", fields: [owner_id], references: [id])
 
+  trail Trail @relation("TrailGeometryTrail", fields:[trail_id], references: [id])
+  start_access_point AccessPoint @relation("TrailGeometryStartAccessPoint", fields: [start_access_point_id], references: [id])
+  end_access_point AccessPoint @relation("TrailGeometryEndAccessPoint", fields: [end_access_point_id], references: [id])
+  derived_from TrailGeometry? @relation("TrailGeometryDerivedFrom", fields: [derived_from_id], references: [id])
+  
   trail_profile_primary_geometry TrailProfile[] @relation("TrailProfilePrimaryGeometry")
+  trail_geometry__derived_from TrailGeometry[] @relation("TrailGeometryDerivedFrom")
+  trail_segmentation__trail_geometry TrailSegmentation[] @relation("TrailSegmentationTrailGeometry")
 }
 
 model TrailSegmentation {
   id Int @id @default(autoincrement())
-  trail_id Int
-  derived_from_segmentation_id Int?
   name String
+  derived_from_segmentation_id Int?
+
+  trail_id Int
+  trail_profile_id Int?
+  trail_geometry_id Int?
   
   owner_id Int?
   visibility Visibility @default(UNSPECIFIED)
@@ -1798,6 +1849,15 @@ model TrailSegmentation {
   last_reviewed_by User? @relation("TrailSegmentationReviewedBy", fields: [last_reviewed_by_id], references: [id])
   
   owner User? @relation("TrailSegmentationOwner", fields: [owner_id], references: [id])
+
+  trail Trail @relation("TrailSegmentationTrail", fields: [trail_id], references: [id])
+  trail_profile TrailProfile? @relation("TrailSegmentationTrailProfile", fields: [trail_profile_id], references: [id])
+  trail_geometry TrailGeometry? @relation("TrailSegmentationTrailGeometry", fields: [trail_geometry_id], references: [id])
+  derived_from TrailSegmentation? @relation("TrailSegmentationDerivedFrom", fields: [derived_from_segmentation_id], references: [id])
+  
+  trail_segmentation__derived_from TrailSegmentation[] @relation("TrailSegmentationDerivedFrom")
+  trail_segment_relation__trail_segmentation TrailSegmentRelation[] @relation("TrailSegmentRelationTrailSegmentation")
+
 }
 
 model TrailSegmentRelation {
@@ -1806,7 +1866,7 @@ model TrailSegmentRelation {
   trail_segmentation_id Int
 
   child_trail_id Int
-  child_start_access_pointid Int?
+  child_start_access_point_id Int?
   child_sequence Int
 
   notes String?
@@ -1823,6 +1883,9 @@ model TrailSegmentRelation {
   updated_by User @relation("TrailSegmentRelationUpdatedBy", fields: [updated_by_id], references: [id])
   last_reviewed_by User? @relation("TrailSegmentRelationReviewedBy", fields: [last_reviewed_by_id], references: [id])
 
+  trail_segmentation TrailSegmentation @relation("TrailSegmentRelationTrailSegmentation", fields: [trail_segmentation_id], references: [id])
+  child_trail Trail @relation("TrailSegmentRelationChildTrail", fields: [child_trail_id], references: [id])
+  child_start_access_point AccessPoint? @relation("TrailSegmentRelationChildStartAccessPoint", fields: [child_start_access_point_id], references: [id])
   @@unique([trail_segmentation_id, child_trail_id], name:"uniqueTrailSegmentationChild")
   @@unique([trail_segmentation_id, child_sequence], name:"uniqueTrailSegmentationChildSequence")
 }
@@ -1833,10 +1896,13 @@ model TransportService {
   provider_name String?
   service_name String?
 
-  start_access_pointid Int?
-  start_access_pointname String?
-  end_access_pointid Int?
-  end_access_pointname String?
+  start_access_point_id Int?
+  start_access_point_name String?
+  end_access_point_id Int?
+  end_access_point_name String?
+
+  supports_reverse_direction Boolean @default(false)
+  reverse_direction_service_id Int?
 
   booking_requirement BookingRequirement @default(UNSPECIFIED)
   service_url String?
@@ -1854,6 +1920,15 @@ model TransportService {
   created_by User @relation("TransportServiceCreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("TransportServiceUpdatedBy", fields: [updated_by_id], references: [id])
   last_verified_by User? @relation("TransportServiceVerifiedBy", fields: [last_verified_by_id], references: [id])
+
+  start_access_point AccessPoint? @relation("TransportServiceStartAccessPoint", fields: [start_access_point_id], references: [id])
+  end_access_point AccessPoint? @relation("TransportServiceEndAccessPoint", fields: [end_access_point_id], references: [id])
+  reverse_direction_service TransportService? @relation("TransportServiceReverseDirectionService", fields: [reverse_direction_service_id], references:[id])
+  
+  transport_service__reverse_direction_service TransportService[] @relation("TransportServiceReverseDirectionService")
+  transport_service_calendar__transport_service TransportServiceCalendar[] @relation("TransportServiceCalendarTransportService")
+  transport_service_stop__transport_service TransportServiceStop[] @relation("TransportServiceStopTransportService")
+  trail_transport_service__transport_service TrailTransportService[] @relation("TrailTransportServiceTransportService")
 }
 
 model TransportServiceCalendar {
@@ -1870,8 +1945,58 @@ model TransportServiceCalendar {
   created_by_id Int
   updated_at DateTime @updatedAt
   updated_by_id Int
+
   created_by User @relation("TransportServiceCalendarCreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("TransportServiceCalendarUpdatedBy", fields: [updated_by_id], references: [id])
+
+  transport_service TransportService @relation("TransportServiceCalendarTransportService", fields: [transport_service_id], references: [id])
+}
+
+model TransportServiceStop {
+  id Int @id @default(autoincrement())
+  transport_service_id Int
+  stop_name String?
+  stop_access_point_id Int?
+
+  stop_sequence Int?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  created_by User @relation("TransportServiceStopCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TransportServiceStopUpdatedBy", fields: [updated_by_id], references: [id])
+
+  transerport_service TransportService @relation("TransportServiceStopTransportService", fields: [transport_service_id], references: [id])
+  stop_access_point AccessPoint? @relation("TransportServiceStopAccessPoint", fields: [stop_access_point_id], references: [id])
+}
+
+model TrailTransportService {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  transport_service_id Int
+  transfer_type TransferType
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+  last_verified_at DateTime?
+  last_verified_by_id Int?
+
+  created_by User @relation("TrailTransportServiceCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailTransportServiceUpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("TrailTransportServiceVerifiedBy", fields: [last_verified_by_id], references: [id])
+
+  trail Trail @relation("TrailTransportServiceTrail", fields: [trail_id], references: [id])
+  transport_service TransportService @relation("TrailTransportServiceTransportService", fields: [transport_service_id], references: [id])
 }
 
 // 5. Meal Module
@@ -1903,6 +2028,11 @@ model MealPack {
   last_reviewed_by User? @relation("MealPackReviewedBy", fields: [last_reviewed_by_id], references: [id])
   
   owner User? @relation("MealPackOwner", fields: [owner_id], references: [id])
+
+  derived_from MealPack? @relation("MealPackDerivedFrom", fields: [derived_from_meal_pack_id], references: [id])
+
+  meal_pack__derived_from MealPack[] @relation("MealPackDerivedFrom")
+  meal_pack_item__meal_pack MealPackItem[] @relation("MealPackItemMealPack")
 }
 
 model MealItem {
@@ -1924,6 +2054,8 @@ model MealItem {
   updated_by User @relation("MealItemUpdatedBy", fields: [updated_by_id], references: [id])
   
   owner User? @relation("MealItemOwner", fields: [owner_id], references: [id])
+
+  meal_pack_item__meal_item MealPackItem[] @relation("MealPackItemMealItem")
 }
 
 model MealPackItem {
@@ -1948,13 +2080,16 @@ model MealPackItem {
   updated_by User @relation("MealPackItemUpdatedBy", fields: [updated_by_id], references: [id])
 
   user User? @relation("MealPackItemUser", fields: [user_id], references: [id])
+
+  meal_pack MealPack @relation("MealPackItemMealPack", fields: [meal_pack_id], references: [id])
+  meal_item MealItem @relation("MealPackItemMealItem", fields: [meal_item_id], references: [id])
 }
 
 
 // 6. Personal Module
 model UserTrail {
   id Int @id @default(autoincrement())
-  trail_id Int
+  trail_id Int //TODO
   user_id Int
 
   positive_attitude Boolean?
@@ -2548,20 +2683,21 @@ model temporary {
 
   _created_by [] @relation("CreatedBy")
   _updated_by [] @relation("UpdatedBy")
+  _verified_by [] @relation("VerifiedBy")
   _reviewed_by [] @relation("ReviewedBy")
   _contributor [] @relation("Contributor")
   _owner [] @relation("Owner")
 
-  _verified_by [] @relation("VerifiedBy")
   _user [] @relation("User")
 
   created_by User @relation("CreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("UpdatedBy", fields: [updated_by_id], references: [id])
+  last_verified_by User? @relation("VerifiedBy", fields: [last_verified_by_id], references: [id])
   last_reviewed_by User? @relation("ReviewedBy", fields: [last_reviewed_by_id], references: [id])
+
   contriutor User? @relation("Contributor", fields: [contributor_id], references: [id])
 
   owner User? @relation("Owner", fields: [owner_id], references: [id])
-  last_verified_by User? @relation("VerifiedBy", fields: [last_verified_by_id], references: [id])
 
   user User? @relation("User", fields: [user_id], references: [id])
   
