@@ -9,7 +9,693 @@
 * 🟢 You can import this file directly.
 */
 
+export const Status = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  ACTIVE: 'ACTIVE',
+  PENDING: 'PENDING',
+  INACTIVE: 'INACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type Status = (typeof Status)[keyof typeof Status]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const RBACStatus = {
+  ACTIVE: 'ACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type RBACStatus = (typeof RBACStatus)[keyof typeof RBACStatus]
+
+
+export const AttachmentUsage = {
+  EVIDENCE: 'EVIDENCE',
+  SOURCE_DOCUMENT: 'SOURCE_DOCUMENT',
+  SUPPORTING_MATERIAL: 'SUPPORTING_MATERIAL',
+  REFERENCE: 'REFERENCE',
+  RECEIPT: 'RECEIPT',
+  BOOKING_CONFIRMATION: 'BOOKING_CONFIRMATION',
+  OTHER: 'OTHER'
+} as const
+
+export type AttachmentUsage = (typeof AttachmentUsage)[keyof typeof AttachmentUsage]
+
+
+export const MediaArchiveType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  DOCUMENT: 'DOCUMENT',
+  FILE: 'FILE',
+  IMAGE: 'IMAGE',
+  AUDIO: 'AUDIO',
+  VIDEO: 'VIDEO',
+  GPX: 'GPX',
+  MAP: 'MAP',
+  OTHER: 'OTHER'
+} as const
+
+export type MediaArchiveType = (typeof MediaArchiveType)[keyof typeof MediaArchiveType]
+
+
+export const DataOrigin = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  MANUAL: 'MANUAL',
+  IMPORTED: 'IMPORTED',
+  CALCULATED: 'CALCULATED',
+  DERIVED: 'DERIVED',
+  PUBLISHED_FROM_COMMUNITY: 'PUBLISHED_FROM_COMMUNITY',
+  SYSTEM_GENERATED: 'SYSTEM_GENERATED',
+  EXTRACTED: 'EXTRACTED'
+} as const
+
+export type DataOrigin = (typeof DataOrigin)[keyof typeof DataOrigin]
+
+
+export const SourceType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  ALLTRAILS: 'ALLTRAILS',
+  OFFICIAL_WEBSITE: 'OFFICIAL_WEBSITE',
+  WEB_ARTICLE: 'WEB_ARTICLE',
+  BOOK: 'BOOK',
+  YOUTUBE: 'YOUTUBE',
+  OFFICIAL_DOCUMENT: 'OFFICIAL_DOCUMENT',
+  API: 'API',
+  USER_UPLOAD: 'USER_UPLOAD',
+  OTHER: 'OTHER'
+} as const
+
+export type SourceType = (typeof SourceType)[keyof typeof SourceType]
+
+
+export const TargetType = {
+  USER: 'USER',
+  ROLE: 'ROLE',
+  PERMISSION: 'PERMISSION'
+} as const
+
+export type TargetType = (typeof TargetType)[keyof typeof TargetType]
+
+
+export const UnitCategory = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  WEIGHT: 'WEIGHT',
+  LENGTH: 'LENGTH',
+  AREA: 'AREA',
+  VOLUME: 'VOLUME',
+  TEMPERATURE: 'TEMPERATURE',
+  DURATION: 'DURATION',
+  POWER: 'POWER',
+  ENERGY: 'ENERGY',
+  LUMINOUS_FLUX: 'LUMINOUS_FLUX',
+  COUNT: 'COUNT',
+  SPEED: 'SPEED',
+  PRESSURE: 'PRESSURE',
+  PERCENTAGE: 'PERCENTAGE'
+} as const
+
+export type UnitCategory = (typeof UnitCategory)[keyof typeof UnitCategory]
+
+
+export const Visibility = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  PRIVATE: 'PRIVATE',
+  RESTRICTED: 'RESTRICTED',
+  PUBLIC: 'PUBLIC'
+} as const
+
+export type Visibility = (typeof Visibility)[keyof typeof Visibility]
+
+
+export const ValueType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  WEIGHT: 'WEIGHT',
+  LENGTH: 'LENGTH',
+  AREA: 'AREA',
+  VOLUME: 'VOLUME',
+  TEMPERATURE: 'TEMPERATURE',
+  DURATION: 'DURATION',
+  SPEED: 'SPEED',
+  POWER: 'POWER',
+  ENERGY: 'ENERGY',
+  LUMINOUS_FLUX: 'LUMINOUS_FLUX',
+  PRESSURE: 'PRESSURE',
+  R_VALUE: 'R_VALUE',
+  CAPACITY: 'CAPACITY',
+  COUNT: 'COUNT',
+  PERCENTAGE: 'PERCENTAGE',
+  RATING: 'RATING',
+  BOOLEAN: 'BOOLEAN',
+  TEXT: 'TEXT',
+  FIT: 'FIT',
+  SIZE: 'SIZE',
+  MATERIAL: 'MATERIAL'
+} as const
+
+export type ValueType = (typeof ValueType)[keyof typeof ValueType]
+
+
+export const Operator = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  EQUAL: 'EQUAL',
+  APPROX: 'APPROX',
+  GREATER_THAN: 'GREATER_THAN',
+  GREATER_THAN_OR_EQUAL: 'GREATER_THAN_OR_EQUAL',
+  LESS_THAN: 'LESS_THAN',
+  LESS_THAN_OR_EQUAL: 'LESS_THAN_OR_EQUAL',
+  RANGE: 'RANGE'
+} as const
+
+export type Operator = (typeof Operator)[keyof typeof Operator]
+
+
+export const Frequency = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  PER_DAY: 'PER_DAY',
+  PER_WEEK: 'PER_WEEK',
+  PER_TRIP: 'PER_TRIP',
+  PER_NIGHT: 'PER_NIGHT'
+} as const
+
+export type Frequency = (typeof Frequency)[keyof typeof Frequency]
+
+
+export const RequirementLevel = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  MANDATORY: 'MANDATORY',
+  RECOMMENDED: 'RECOMMENDED',
+  OPTIONAL: 'OPTIONAL'
+} as const
+
+export type RequirementLevel = (typeof RequirementLevel)[keyof typeof RequirementLevel]
+
+
+export const ConditionType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  NONE: 'NONE',
+  MONTH: 'MONTH',
+  SEASON: 'SEASON',
+  ALTITUDE: 'ALTITUDE',
+  TEMPERATURE: 'TEMPERATURE',
+  TIDE: 'TIDE'
+} as const
+
+export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType]
+
+
+export const ProductionStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  ACTIVE: 'ACTIVE',
+  DISCONTINUED: 'DISCONTINUED'
+} as const
+
+export type ProductionStatus = (typeof ProductionStatus)[keyof typeof ProductionStatus]
+
+
+export const TrailType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  LOOP: 'LOOP',
+  OUT_AND_BACK: 'OUT_AND_BACK',
+  POINT_TO_POINT: 'POINT_TO_POINT'
+} as const
+
+export type TrailType = (typeof TrailType)[keyof typeof TrailType]
+
+
+export const AuthenticityLevel = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  HIGH: 'HIGH',
+  MEDIUM: 'MEDIUM',
+  LOW: 'LOW'
+} as const
+
+export type AuthenticityLevel = (typeof AuthenticityLevel)[keyof typeof AuthenticityLevel]
+
+
+export const EditPolicyOverride = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  ALLOWED: 'ALLOWED',
+  RESTRICTED: 'RESTRICTED',
+  FORBIDDEN: 'FORBIDDEN'
+} as const
+
+export type EditPolicyOverride = (typeof EditPolicyOverride)[keyof typeof EditPolicyOverride]
+
+
+export const NormalizedDifficulty = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  EASY: 'EASY',
+  MODERATE: 'MODERATE',
+  INTERMEDIATE: 'INTERMEDIATE',
+  ADVANCED: 'ADVANCED',
+  EXPERT: 'EXPERT'
+} as const
+
+export type NormalizedDifficulty = (typeof NormalizedDifficulty)[keyof typeof NormalizedDifficulty]
+
+
+export const Accessibility = {
+  UNSPECIFIED: 'UNSPECIFIED'
+} as const
+
+export type Accessibility = (typeof Accessibility)[keyof typeof Accessibility]
+
+
+export const DifficultyOrigin = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  SINGLE_SOURCE_CONVERTED: 'SINGLE_SOURCE_CONVERTED',
+  MULTI_SOURCE_CONVERTED: 'MULTI_SOURCE_CONVERTED',
+  MANUAL: 'MANUAL',
+  NO_CONVERSION: 'NO_CONVERSION',
+  OTHER: 'OTHER'
+} as const
+
+export type DifficultyOrigin = (typeof DifficultyOrigin)[keyof typeof DifficultyOrigin]
+
+
+export const SeverityLevel = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  CRITICAL: 'CRITICAL',
+  EXTREME: 'EXTREME',
+  HIGH: 'HIGH',
+  MODERATE: 'MODERATE',
+  LOW: 'LOW'
+} as const
+
+export type SeverityLevel = (typeof SeverityLevel)[keyof typeof SeverityLevel]
+
+
+export const FacilityType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  HUT: 'HUT',
+  CAMPSITE: 'CAMPSITE',
+  SHELTER: 'SHELTER',
+  REFUGE: 'REFUGE',
+  VISITOR_OFFICE: 'VISITOR_OFFICE',
+  RANGER_HOUSE: 'RANGER_HOUSE',
+  TOILET: 'TOILET',
+  WATER_SOURCE: 'WATER_SOURCE',
+  PICNIC_AREA: 'PICNIC_AREA',
+  COOKING_SHELTER: 'COOKING_SHELTER',
+  PARKING: 'PARKING',
+  OTHER: 'OTHER'
+} as const
+
+export type FacilityType = (typeof FacilityType)[keyof typeof FacilityType]
+
+
+export const SourceAuthority = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  OFFICIAL: 'OFFICIAL',
+  DIRECT_PROVIDER: 'DIRECT_PROVIDER',
+  PROFESSIONAL: 'PROFESSIONAL',
+  COMMUNITY: 'COMMUNITY',
+  PERSONAL: 'PERSONAL',
+  UNKNOWN: 'UNKNOWN'
+} as const
+
+export type SourceAuthority = (typeof SourceAuthority)[keyof typeof SourceAuthority]
+
+
+export const SourceConfidence = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  HIGH: 'HIGH',
+  MEDIUM: 'MEDIUM',
+  LOW: 'LOW'
+} as const
+
+export type SourceConfidence = (typeof SourceConfidence)[keyof typeof SourceConfidence]
+
+
+export const FeasibilityTag = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  RECOMMENDED: 'RECOMMENDED',
+  WORKABLE: 'WORKABLE',
+  RESTRICTED: 'RESTRICTED',
+  PROHIBITED: 'PROHIBITED'
+} as const
+
+export type FeasibilityTag = (typeof FeasibilityTag)[keyof typeof FeasibilityTag]
+
+
+export const SeasonalityStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  UNKNOWN: 'UNKNOWN',
+  NON_SEASONAL: 'NON_SEASONAL',
+  SEASONAL: 'SEASONAL'
+} as const
+
+export type SeasonalityStatus = (typeof SeasonalityStatus)[keyof typeof SeasonalityStatus]
+
+
+export const AccessPointRole = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  START: 'START',
+  END: 'END',
+  WAYPOINT: 'WAYPOINT',
+  ACCESS: 'ACCESS',
+  TRANSPORT_HUB: 'TRANSPORT_HUB',
+  RESUPPLY: 'RESUPPLY',
+  FACILITY: 'FACILITY',
+  OTHER: 'OTHER'
+} as const
+
+export type AccessPointRole = (typeof AccessPointRole)[keyof typeof AccessPointRole]
+
+
+export const MergeReasons = {
+  DUPLICATE: 'DUPLICATE',
+  TYPE: 'TYPE',
+  ABBREVIATION: 'ABBREVIATION',
+  CASE_OR_SYMBOL_VARIANT: 'CASE_OR_SYMBOL_VARIANT',
+  COVERAGE_OVERLAP: 'COVERAGE_OVERLAP',
+  REPLACED_BY_CANONICAL_RECORD: 'REPLACED_BY_CANONICAL_RECORD',
+  OTHER: 'OTHER'
+} as const
+
+export type MergeReasons = (typeof MergeReasons)[keyof typeof MergeReasons]
+
+
+export const TransportMode = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  TRAIN: 'TRAIN',
+  BUS: 'BUS',
+  COACH: 'COACH',
+  FERRY: 'FERRY',
+  SHUTTLE_LAND: 'SHUTTLE_LAND',
+  SHUTTLE_WATER: 'SHUTTLE_WATER',
+  WATER_TAXI: 'WATER_TAXI',
+  PRIVATE_TRANSFER: 'PRIVATE_TRANSFER',
+  DRIVE: 'DRIVE'
+} as const
+
+export type TransportMode = (typeof TransportMode)[keyof typeof TransportMode]
+
+
+export const TransferType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  TRIP_TO_TRAIL_DEP: 'TRIP_TO_TRAIL_DEP',
+  TRIP_FROM_TRAIL_DEP: 'TRIP_FROM_TRAIL_DEP',
+  TRIP_TO_TRAIL_ARR: 'TRIP_TO_TRAIL_ARR',
+  TRIP_FROM_TRAIL_ARR: 'TRIP_FROM_TRAIL_ARR',
+  TRANSIT: 'TRANSIT',
+  LOCAL: 'LOCAL'
+} as const
+
+export type TransferType = (typeof TransferType)[keyof typeof TransferType]
+
+
+export const BookingRequirement = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  REQUIRED: 'REQUIRED',
+  RECOMMENDED: 'RECOMMENDED',
+  OPTIONAL: 'OPTIONAL',
+  NOT_REQUIRED: 'NOT_REQUIRED',
+  UNKNOWN: 'UNKNOWN'
+} as const
+
+export type BookingRequirement = (typeof BookingRequirement)[keyof typeof BookingRequirement]
+
+
+export const AvailabilityStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  AVAILABLE: 'AVAILABLE',
+  RESTRICTED: 'RESTRICTED',
+  UNAVAILABLE: 'UNAVAILABLE',
+  UNKNOWN: 'UNKNOWN'
+} as const
+
+export type AvailabilityStatus = (typeof AvailabilityStatus)[keyof typeof AvailabilityStatus]
+
+
+export const MealPackCategory = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  BREAKFAST: 'BREAKFAST',
+  LUNCH: 'LUNCH',
+  DINNER: 'DINNER',
+  SNACK: 'SNACK',
+  EMERGENCY: 'EMERGENCY',
+  OTHER: 'OTHER'
+} as const
+
+export type MealPackCategory = (typeof MealPackCategory)[keyof typeof MealPackCategory]
+
+
+export const TripStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  COMPLETED: 'COMPLETED',
+  ONGOING: 'ONGOING',
+  NOT_STARTED: 'NOT_STARTED'
+} as const
+
+export type TripStatus = (typeof TripStatus)[keyof typeof TripStatus]
+
+
+export const UserTrailStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  COMPLETED: 'COMPLETED',
+  ONGOING: 'ONGOING',
+  NOT_STARTED: 'NOT_STARTED'
+} as const
+
+export type UserTrailStatus = (typeof UserTrailStatus)[keyof typeof UserTrailStatus]
+
+
+export const OwnershipStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  OWNED: 'OWNED',
+  AWAITING_DELIVERY: 'AWAITING_DELIVERY',
+  WANT_TO_OWN: 'WANT_TO_OWN'
+} as const
+
+export type OwnershipStatus = (typeof OwnershipStatus)[keyof typeof OwnershipStatus]
+
+
+export const LifecycleStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  AVAILABLE: 'AVAILABLE',
+  TEMP_UNAVAILABLE: 'TEMP_UNAVAILABLE',
+  RETIRED: 'RETIRED',
+  UNAVAILABLE: 'UNAVAILABLE'
+} as const
+
+export type LifecycleStatus = (typeof LifecycleStatus)[keyof typeof LifecycleStatus]
+
+
+export const TargetTypeAll = {
+  GEAR: 'GEAR',
+  TRAIL: 'TRAIL',
+  TRIP: 'TRIP'
+} as const
+
+export type TargetTypeAll = (typeof TargetTypeAll)[keyof typeof TargetTypeAll]
+
+
+export const TargetTypeSelected = {
+  GEAR: 'GEAR',
+  TRAIL: 'TRAIL',
+  TRIP: 'TRIP'
+} as const
+
+export type TargetTypeSelected = (typeof TargetTypeSelected)[keyof typeof TargetTypeSelected]
+
+
+export const ReminderStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  OPEN: 'OPEN',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ReminderStatus = (typeof ReminderStatus)[keyof typeof ReminderStatus]
+
+
+export const Priority = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  HIGH: 'HIGH',
+  MEDIUM: 'MEDIUM',
+  LOW: 'LOW'
+} as const
+
+export type Priority = (typeof Priority)[keyof typeof Priority]
+
+
+export const InspirationType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  GENERAL: 'GENERAL',
+  TRAIL: 'TRAIL',
+  GEAR: 'GEAR'
+} as const
+
+export type InspirationType = (typeof InspirationType)[keyof typeof InspirationType]
+
+
+export const ArchiveType = {
+  FILE: 'FILE',
+  MEDIA: 'MEDIA',
+  URL: 'URL',
+  OTHER: 'OTHER'
+} as const
+
+export type ArchiveType = (typeof ArchiveType)[keyof typeof ArchiveType]
+
+
+export const ProposedAction = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  MERGE: 'MERGE',
+  CANONICALIZE: 'CANONICALIZE',
+  REQUEST_REVIEW: 'REQUEST_REVIEW',
+  PUBLISH_NEW: 'PUBLISH_NEW',
+  UPDATE: 'UPDATE'
+} as const
+
+export type ProposedAction = (typeof ProposedAction)[keyof typeof ProposedAction]
+
+
+export const ActionReason = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  DUPLICATE: 'DUPLICATE',
+  TYPE: 'TYPE',
+  ABBREVIATION: 'ABBREVIATION',
+  CASE_OR_SYMBOL_VARIANT: 'CASE_OR_SYMBOL_VARIANT',
+  COVERAGE_OVERLAP: 'COVERAGE_OVERLAP',
+  REPLACED_BY_CANONICAL_RECORD: 'REPLACED_BY_CANONICAL_RECORD',
+  OTHER: 'OTHER'
+} as const
+
+export type ActionReason = (typeof ActionReason)[keyof typeof ActionReason]
+
+
+export const RecordActionStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  DECLINED: 'DECLINED',
+  WITHDRAWN: 'WITHDRAWN',
+  SUPPORTING_MATERIAL_REQUESTED: 'SUPPORTING_MATERIAL_REQUESTED',
+  READY_FOR_REVIEW: 'READY_FOR_REVIEW'
+} as const
+
+export type RecordActionStatus = (typeof RecordActionStatus)[keyof typeof RecordActionStatus]
+
+
+export const ContentReviewType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  VERIFY: 'VERIFY',
+  REVIEW: 'REVIEW'
+} as const
+
+export type ContentReviewType = (typeof ContentReviewType)[keyof typeof ContentReviewType]
+
+
+export const AccommodationType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  HUT: 'HUT',
+  CAMPSITE: 'CAMPSITE',
+  SHELTER: 'SHELTER',
+  REFUGE: 'REFUGE',
+  HOTEL: 'HOTEL',
+  AIRBNB: 'AIRBNB',
+  PRIVATE_STAY: 'PRIVATE_STAY',
+  OTHER: 'OTHER'
+} as const
+
+export type AccommodationType = (typeof AccommodationType)[keyof typeof AccommodationType]
+
+
+export const UserActionStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  COMPLETED: 'COMPLETED',
+  NEED_TO_DO: 'NEED_TO_DO',
+  NO_ACTION: 'NO_ACTION'
+} as const
+
+export type UserActionStatus = (typeof UserActionStatus)[keyof typeof UserActionStatus]
+
+
+export const StayStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  COMPLETED: 'COMPLETED',
+  ONGOING: 'ONGOING',
+  NOT_STARTED: 'NOT_STARTED',
+  CANCELLED: 'CANCELLED',
+  OTHER: 'OTHER'
+} as const
+
+export type StayStatus = (typeof StayStatus)[keyof typeof StayStatus]
+
+
+export const PreparationStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  READY: 'READY',
+  AWAITING_DELIVERY: 'AWAITING_DELIVERY',
+  NEED_TO_PREP: 'NEED_TO_PREP'
+} as const
+
+export type PreparationStatus = (typeof PreparationStatus)[keyof typeof PreparationStatus]
+
+
+export const EventType = {
+  TIDE: 'TIDE',
+  SUNRISE: 'SUNRISE',
+  SUNSET: 'SUNSET',
+  UNSPECIFIED: 'UNSPECIFIED'
+} as const
+
+export type EventType = (typeof EventType)[keyof typeof EventType]
+
+
+export const EventStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  UPCOMING: 'UPCOMING',
+  ONGOING: 'ONGOING',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type EventStatus = (typeof EventStatus)[keyof typeof EventStatus]
+
+
+export const CollectionType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  GEAR: 'GEAR',
+  TRAIL: 'TRAIL',
+  OTHER: 'OTHER'
+} as const
+
+export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType]
+
+
+export const UserProposalStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  DECLINED: 'DECLINED',
+  WITHDRAWN: 'WITHDRAWN',
+  SUPPORTING_MATERIAL_REQUESTED: 'SUPPORTING_MATERIAL_REQUESTED',
+  READY_FOR_REVIEW: 'READY_FOR_REVIEW'
+} as const
+
+export type UserProposalStatus = (typeof UserProposalStatus)[keyof typeof UserProposalStatus]
+
+
+export const ChecklistStatus = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  NOT_STARTED: 'NOT_STARTED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ChecklistStatus = (typeof ChecklistStatus)[keyof typeof ChecklistStatus]
+
+
+export const ChecklistItemType = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  GEAR: 'GEAR',
+  MEAL: 'MEAL',
+  BOOKING_TRANSPORT: 'BOOKING_TRANSPORT',
+  BOOKING_ACCOMMODATION: 'BOOKING_ACCOMMODATION',
+  BOOKING_PERMITS: 'BOOKING_PERMITS',
+  DOCUMENTS: 'DOCUMENTS'
+} as const
+
+export type ChecklistItemType = (typeof ChecklistItemType)[keyof typeof ChecklistItemType]

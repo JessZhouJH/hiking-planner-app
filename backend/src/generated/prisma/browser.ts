@@ -22,3 +22,363 @@ export * from './enums.js';
  * 
  */
 export type User = Prisma.UserModel
+/**
+ * Model Role
+ * 
+ */
+export type Role = Prisma.RoleModel
+/**
+ * Model Permission
+ * 
+ */
+export type Permission = Prisma.PermissionModel
+/**
+ * Model UserRole
+ * 
+ */
+export type UserRole = Prisma.UserRoleModel
+/**
+ * Model RolePermission
+ * 
+ */
+export type RolePermission = Prisma.RolePermissionModel
+/**
+ * Model Alias
+ * 
+ */
+export type Alias = Prisma.AliasModel
+/**
+ * Model MediaArchive
+ * 
+ */
+export type MediaArchive = Prisma.MediaArchiveModel
+/**
+ * Model Attachment
+ * 
+ */
+export type Attachment = Prisma.AttachmentModel
+/**
+ * Model Unit
+ * 
+ */
+export type Unit = Prisma.UnitModel
+/**
+ * Model Brand
+ * 
+ */
+export type Brand = Prisma.BrandModel
+/**
+ * Model GearType
+ * 
+ */
+export type GearType = Prisma.GearTypeModel
+/**
+ * Model GearSpecsDefinition
+ * 
+ */
+export type GearSpecsDefinition = Prisma.GearSpecsDefinitionModel
+/**
+ * Model Gear
+ * 
+ */
+export type Gear = Prisma.GearModel
+/**
+ * Model GearSpecs
+ * 
+ */
+export type GearSpecs = Prisma.GearSpecsModel
+/**
+ * Model GearFeature
+ * 
+ */
+export type GearFeature = Prisma.GearFeatureModel
+/**
+ * Model GearVariant
+ * 
+ */
+export type GearVariant = Prisma.GearVariantModel
+/**
+ * Model GearPack
+ * 
+ */
+export type GearPack = Prisma.GearPackModel
+/**
+ * Model GearPackTemplate
+ * 
+ */
+export type GearPackTemplate = Prisma.GearPackTemplateModel
+/**
+ * Model GearPackComponent
+ * 
+ */
+export type GearPackComponent = Prisma.GearPackComponentModel
+/**
+ * Model Challenge
+ * 
+ */
+export type Challenge = Prisma.ChallengeModel
+/**
+ * Model ChallengeGearRequirement
+ * 
+ */
+export type ChallengeGearRequirement = Prisma.ChallengeGearRequirementModel
+/**
+ * Model DifficultySystem
+ * 
+ */
+export type DifficultySystem = Prisma.DifficultySystemModel
+/**
+ * Model DifficultyMapping
+ * 
+ */
+export type DifficultyMapping = Prisma.DifficultyMappingModel
+/**
+ * Model Trail
+ * 
+ */
+export type Trail = Prisma.TrailModel
+/**
+ * Model TrailChallenge
+ * 
+ */
+export type TrailChallenge = Prisma.TrailChallengeModel
+/**
+ * Model TrailCalendar
+ * 
+ */
+export type TrailCalendar = Prisma.TrailCalendarModel
+/**
+ * Model TrailSource
+ * 
+ */
+export type TrailSource = Prisma.TrailSourceModel
+/**
+ * Model TrailGearRequirement
+ * 
+ */
+export type TrailGearRequirement = Prisma.TrailGearRequirementModel
+/**
+ * Model TrailDifficulty
+ * 
+ */
+export type TrailDifficulty = Prisma.TrailDifficultyModel
+/**
+ * Model TrailFacility
+ * 
+ */
+export type TrailFacility = Prisma.TrailFacilityModel
+/**
+ * Model TrailUse
+ * 
+ */
+export type TrailUse = Prisma.TrailUseModel
+/**
+ * Model TrailProfile
+ * 
+ */
+export type TrailProfile = Prisma.TrailProfileModel
+/**
+ * Model TrailProfileUse
+ * 
+ */
+export type TrailProfileUse = Prisma.TrailProfileUseModel
+/**
+ * Model AccessPoint
+ * 
+ */
+export type AccessPoint = Prisma.AccessPointModel
+/**
+ * Model AccessPointCalendar
+ * 
+ */
+export type AccessPointCalendar = Prisma.AccessPointCalendarModel
+/**
+ * Model TrailAccessPointRelation
+ * 
+ */
+export type TrailAccessPointRelation = Prisma.TrailAccessPointRelationModel
+/**
+ * Model TrailGeometry
+ * 
+ */
+export type TrailGeometry = Prisma.TrailGeometryModel
+/**
+ * Model TrailSegmentation
+ * 
+ */
+export type TrailSegmentation = Prisma.TrailSegmentationModel
+/**
+ * Model TrailSegmentRelation
+ * 
+ */
+export type TrailSegmentRelation = Prisma.TrailSegmentRelationModel
+/**
+ * Model TransportService
+ * 
+ */
+export type TransportService = Prisma.TransportServiceModel
+/**
+ * Model TransportServiceCalendar
+ * 
+ */
+export type TransportServiceCalendar = Prisma.TransportServiceCalendarModel
+/**
+ * Model TransportServiceStop
+ * 
+ */
+export type TransportServiceStop = Prisma.TransportServiceStopModel
+/**
+ * Model TrailTransportService
+ * 
+ */
+export type TrailTransportService = Prisma.TrailTransportServiceModel
+/**
+ * Model MealPack
+ * 
+ */
+export type MealPack = Prisma.MealPackModel
+/**
+ * Model MealItem
+ * 
+ */
+export type MealItem = Prisma.MealItemModel
+/**
+ * Model MealPackItem
+ * 
+ */
+export type MealPackItem = Prisma.MealPackItemModel
+/**
+ * Model UserTrail
+ * 
+ */
+export type UserTrail = Prisma.UserTrailModel
+/**
+ * Model UserTrailCompletion
+ * 
+ */
+export type UserTrailCompletion = Prisma.UserTrailCompletionModel
+/**
+ * Model UserGear
+ * 
+ */
+export type UserGear = Prisma.UserGearModel
+/**
+ * Model UserGearPack
+ * 
+ */
+export type UserGearPack = Prisma.UserGearPackModel
+/**
+ * Model UserGearPackItem
+ * 
+ */
+export type UserGearPackItem = Prisma.UserGearPackItemModel
+/**
+ * Model UserPersonalArchive
+ * 
+ */
+export type UserPersonalArchive = Prisma.UserPersonalArchiveModel
+/**
+ * Model UserFeedback
+ * 
+ */
+export type UserFeedback = Prisma.UserFeedbackModel
+/**
+ * Model UserStickyNotes
+ * 
+ */
+export type UserStickyNotes = Prisma.UserStickyNotesModel
+/**
+ * Model UserIdeaCapture
+ * 
+ */
+export type UserIdeaCapture = Prisma.UserIdeaCaptureModel
+/**
+ * Model Trip
+ * 
+ */
+export type Trip = Prisma.TripModel
+/**
+ * Model TripAccommodation
+ * 
+ */
+export type TripAccommodation = Prisma.TripAccommodationModel
+/**
+ * Model TripGearList
+ * 
+ */
+export type TripGearList = Prisma.TripGearListModel
+/**
+ * Model TripMealPack
+ * 
+ */
+export type TripMealPack = Prisma.TripMealPackModel
+/**
+ * Model TripMealPackItem
+ * 
+ */
+export type TripMealPackItem = Prisma.TripMealPackItemModel
+/**
+ * Model TripTrail
+ * 
+ */
+export type TripTrail = Prisma.TripTrailModel
+/**
+ * Model TripTransport
+ * 
+ */
+export type TripTransport = Prisma.TripTransportModel
+/**
+ * Model CriticalEvent
+ * 
+ */
+export type CriticalEvent = Prisma.CriticalEventModel
+/**
+ * Model TripChecklist
+ * 
+ */
+export type TripChecklist = Prisma.TripChecklistModel
+/**
+ * Model TripChecklistItem
+ * 
+ */
+export type TripChecklistItem = Prisma.TripChecklistItemModel
+/**
+ * Model Collection
+ * 
+ */
+export type Collection = Prisma.CollectionModel
+/**
+ * Model CollectionItem
+ * 
+ */
+export type CollectionItem = Prisma.CollectionItemModel
+/**
+ * Model UserProposal
+ * 
+ */
+export type UserProposal = Prisma.UserProposalModel
+/**
+ * Model CommunityPublication
+ * 
+ */
+export type CommunityPublication = Prisma.CommunityPublicationModel
+/**
+ * Model CommunityPublicationItem
+ * 
+ */
+export type CommunityPublicationItem = Prisma.CommunityPublicationItemModel
+/**
+ * Model CommunityPublicationAttachment
+ * 
+ */
+export type CommunityPublicationAttachment = Prisma.CommunityPublicationAttachmentModel
+/**
+ * Model RecordAction
+ * 
+ */
+export type RecordAction = Prisma.RecordActionModel
+/**
+ * Model ContentReviewHistory
+ * 
+ */
+export type ContentReviewHistory = Prisma.ContentReviewHistoryModel

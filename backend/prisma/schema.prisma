@@ -551,12 +551,12 @@ model User {
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  created_by_id Int
-  updated_by_id Int
+  created_by_id Int?
+  updated_by_id Int?
 
   // Self-referencing relations for created_by and updated_by
-  created_by User @relation("UserCreatedBy", fields: [created_by_id], references: [id])
-  updated_by User @relation("UserUpdatedBy", fields: [updated_by_id], references: [id])
+  created_by User? @relation("UserCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User? @relation("UserUpdatedBy", fields: [updated_by_id], references: [id])
 
   users__created_by User[] @relation("UserCreatedBy")
   users__updated_by User[] @relation("UserUpdatedBy")
@@ -2884,33 +2884,3 @@ model ContentReviewHistory {  // TODO: Leave to Post MVP P3
   content_review_history__predecessor_review ContentReviewHistory[] @relation("ContentReviewHistoryPredecessorReview")
 }
 
-
-model temporary {
-  id Int @id @default(autoincrement())
-  /**
-
-  _created_by [] @relation("CreatedBy")
-  _updated_by [] @relation("UpdatedBy")
-  _verified_by [] @relation("VerifiedBy")
-  _reviewed_by [] @relation("ReviewedBy")
-  _contributor [] @relation("Contributor")
-  _owner [] @relation("Owner")
-
-  _user [] @relation("User")
-
-  created_by User @relation("CreatedBy", fields: [created_by_id], references: [id])
-  updated_by User @relation("UpdatedBy", fields: [updated_by_id], references: [id])
-  last_verified_by User? @relation("VerifiedBy", fields: [last_verified_by_id], references: [id])
-  last_reviewed_by User? @relation("ReviewedBy", fields: [last_reviewed_by_id], references: [id])
-
-  contriutor User? @relation("Contributor", fields: [contributor_id], references: [id])
-
-  owner User? @relation("Owner", fields: [owner_id], references: [id])
-
-  user User @relation("User", fields: [user_id], references: [id])
-  
-  contriutor User? @relation("Contributor", fields: [contributor_id], references: [id])
-
-
-  **/
-}

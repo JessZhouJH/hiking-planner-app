@@ -51,7 +51,79 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  User: 'User'
+  User: 'User',
+  Role: 'Role',
+  Permission: 'Permission',
+  UserRole: 'UserRole',
+  RolePermission: 'RolePermission',
+  Alias: 'Alias',
+  MediaArchive: 'MediaArchive',
+  Attachment: 'Attachment',
+  Unit: 'Unit',
+  Brand: 'Brand',
+  GearType: 'GearType',
+  GearSpecsDefinition: 'GearSpecsDefinition',
+  Gear: 'Gear',
+  GearSpecs: 'GearSpecs',
+  GearFeature: 'GearFeature',
+  GearVariant: 'GearVariant',
+  GearPack: 'GearPack',
+  GearPackTemplate: 'GearPackTemplate',
+  GearPackComponent: 'GearPackComponent',
+  Challenge: 'Challenge',
+  ChallengeGearRequirement: 'ChallengeGearRequirement',
+  DifficultySystem: 'DifficultySystem',
+  DifficultyMapping: 'DifficultyMapping',
+  Trail: 'Trail',
+  TrailChallenge: 'TrailChallenge',
+  TrailCalendar: 'TrailCalendar',
+  TrailSource: 'TrailSource',
+  TrailGearRequirement: 'TrailGearRequirement',
+  TrailDifficulty: 'TrailDifficulty',
+  TrailFacility: 'TrailFacility',
+  TrailUse: 'TrailUse',
+  TrailProfile: 'TrailProfile',
+  TrailProfileUse: 'TrailProfileUse',
+  AccessPoint: 'AccessPoint',
+  AccessPointCalendar: 'AccessPointCalendar',
+  TrailAccessPointRelation: 'TrailAccessPointRelation',
+  TrailGeometry: 'TrailGeometry',
+  TrailSegmentation: 'TrailSegmentation',
+  TrailSegmentRelation: 'TrailSegmentRelation',
+  TransportService: 'TransportService',
+  TransportServiceCalendar: 'TransportServiceCalendar',
+  TransportServiceStop: 'TransportServiceStop',
+  TrailTransportService: 'TrailTransportService',
+  MealPack: 'MealPack',
+  MealItem: 'MealItem',
+  MealPackItem: 'MealPackItem',
+  UserTrail: 'UserTrail',
+  UserTrailCompletion: 'UserTrailCompletion',
+  UserGear: 'UserGear',
+  UserGearPack: 'UserGearPack',
+  UserGearPackItem: 'UserGearPackItem',
+  UserPersonalArchive: 'UserPersonalArchive',
+  UserFeedback: 'UserFeedback',
+  UserStickyNotes: 'UserStickyNotes',
+  UserIdeaCapture: 'UserIdeaCapture',
+  Trip: 'Trip',
+  TripAccommodation: 'TripAccommodation',
+  TripGearList: 'TripGearList',
+  TripMealPack: 'TripMealPack',
+  TripMealPackItem: 'TripMealPackItem',
+  TripTrail: 'TripTrail',
+  TripTransport: 'TripTransport',
+  CriticalEvent: 'CriticalEvent',
+  TripChecklist: 'TripChecklist',
+  TripChecklistItem: 'TripChecklistItem',
+  Collection: 'Collection',
+  CollectionItem: 'CollectionItem',
+  UserProposal: 'UserProposal',
+  CommunityPublication: 'CommunityPublication',
+  CommunityPublicationItem: 'CommunityPublicationItem',
+  CommunityPublicationAttachment: 'CommunityPublicationAttachment',
+  RecordAction: 'RecordAction',
+  ContentReviewHistory: 'ContentReviewHistory'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -74,12 +146,1424 @@ export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
-  password: 'password',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  password_hash: 'password_hash',
+  avatar_key: 'avatar_key',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const RoleScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type RoleScalarFieldEnum = (typeof RoleScalarFieldEnum)[keyof typeof RoleScalarFieldEnum]
+
+
+export const PermissionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  created_by_id: 'created_by_id',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type PermissionScalarFieldEnum = (typeof PermissionScalarFieldEnum)[keyof typeof PermissionScalarFieldEnum]
+
+
+export const UserRoleScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  role_id: 'role_id',
+  notes: 'notes',
+  status: 'status',
+  granted_at: 'granted_at',
+  revoked_at: 'revoked_at',
+  granted_by_id: 'granted_by_id',
+  revoked_by_id: 'revoked_by_id'
+} as const
+
+export type UserRoleScalarFieldEnum = (typeof UserRoleScalarFieldEnum)[keyof typeof UserRoleScalarFieldEnum]
+
+
+export const RolePermissionScalarFieldEnum = {
+  id: 'id',
+  role_id: 'role_id',
+  permission_id: 'permission_id',
+  notes: 'notes',
+  status: 'status',
+  granted_at: 'granted_at',
+  revoked_at: 'revoked_at',
+  granted_by_id: 'granted_by_id',
+  revoked_by_id: 'revoked_by_id'
+} as const
+
+export type RolePermissionScalarFieldEnum = (typeof RolePermissionScalarFieldEnum)[keyof typeof RolePermissionScalarFieldEnum]
+
+
+export const AliasScalarFieldEnum = {
+  id: 'id',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  alias: 'alias',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type AliasScalarFieldEnum = (typeof AliasScalarFieldEnum)[keyof typeof AliasScalarFieldEnum]
+
+
+export const MediaArchiveScalarFieldEnum = {
+  id: 'id',
+  media_archive_key: 'media_archive_key',
+  media_archive_type: 'media_archive_type',
+  source_type: 'source_type',
+  source_origin: 'source_origin',
+  source_url: 'source_url',
+  contributor_id: 'contributor_id',
+  visibility: 'visibility',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type MediaArchiveScalarFieldEnum = (typeof MediaArchiveScalarFieldEnum)[keyof typeof MediaArchiveScalarFieldEnum]
+
+
+export const AttachmentScalarFieldEnum = {
+  id: 'id',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  attachment_usage: 'attachment_usage',
+  media_archive_id: 'media_archive_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type AttachmentScalarFieldEnum = (typeof AttachmentScalarFieldEnum)[keyof typeof AttachmentScalarFieldEnum]
+
+
+export const UnitScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  display_name: 'display_name',
+  symbol: 'symbol',
+  category: 'category',
+  is_base: 'is_base',
+  scale_to_base: 'scale_to_base',
+  offset_to_base: 'offset_to_base',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UnitScalarFieldEnum = (typeof UnitScalarFieldEnum)[keyof typeof UnitScalarFieldEnum]
+
+
+export const BrandScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  logo_img_key: 'logo_img_key',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type BrandScalarFieldEnum = (typeof BrandScalarFieldEnum)[keyof typeof BrandScalarFieldEnum]
+
+
+export const GearTypeScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearTypeScalarFieldEnum = (typeof GearTypeScalarFieldEnum)[keyof typeof GearTypeScalarFieldEnum]
+
+
+export const GearSpecsDefinitionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  gear_type_id: 'gear_type_id',
+  value_type: 'value_type',
+  default_unit_id: 'default_unit_id',
+  is_key_spec: 'is_key_spec',
+  is_variant_sensitive: 'is_variant_sensitive',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearSpecsDefinitionScalarFieldEnum = (typeof GearSpecsDefinitionScalarFieldEnum)[keyof typeof GearSpecsDefinitionScalarFieldEnum]
+
+
+export const GearScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  brand_id: 'brand_id',
+  gear_type_id: 'gear_type_id',
+  preview_img_key: 'preview_img_key',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  notes: 'notes',
+  status: 'status',
+  production_status: 'production_status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type GearScalarFieldEnum = (typeof GearScalarFieldEnum)[keyof typeof GearScalarFieldEnum]
+
+
+export const GearSpecsScalarFieldEnum = {
+  id: 'id',
+  gear_id: 'gear_id',
+  gear_variant_id: 'gear_variant_id',
+  gear_specs_definition_id: 'gear_specs_definition_id',
+  source_unit_id: 'source_unit_id',
+  value_boolean: 'value_boolean',
+  value_text: 'value_text',
+  value_numeric_1: 'value_numeric_1',
+  value_numeric_2: 'value_numeric_2',
+  operator: 'operator',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearSpecsScalarFieldEnum = (typeof GearSpecsScalarFieldEnum)[keyof typeof GearSpecsScalarFieldEnum]
+
+
+export const GearFeatureScalarFieldEnum = {
+  id: 'id',
+  gear_id: 'gear_id',
+  gear_variant_id: 'gear_variant_id',
+  name: 'name',
+  description: 'description',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearFeatureScalarFieldEnum = (typeof GearFeatureScalarFieldEnum)[keyof typeof GearFeatureScalarFieldEnum]
+
+
+export const GearVariantScalarFieldEnum = {
+  id: 'id',
+  gear_id: 'gear_id',
+  gear_variant_name: 'gear_variant_name',
+  is_technical_variant: 'is_technical_variant',
+  variant_preview_img_key: 'variant_preview_img_key',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearVariantScalarFieldEnum = (typeof GearVariantScalarFieldEnum)[keyof typeof GearVariantScalarFieldEnum]
+
+
+export const GearPackScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  is_universal: 'is_universal',
+  derived_from_gear_pack_id: 'derived_from_gear_pack_id',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type GearPackScalarFieldEnum = (typeof GearPackScalarFieldEnum)[keyof typeof GearPackScalarFieldEnum]
+
+
+export const GearPackTemplateScalarFieldEnum = {
+  id: 'id',
+  gear_pack_id: 'gear_pack_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearPackTemplateScalarFieldEnum = (typeof GearPackTemplateScalarFieldEnum)[keyof typeof GearPackTemplateScalarFieldEnum]
+
+
+export const GearPackComponentScalarFieldEnum = {
+  id: 'id',
+  gear_pack_template_id: 'gear_pack_template_id',
+  gear_type_id: 'gear_type_id',
+  gear_description: 'gear_description',
+  requires_gear_detail: 'requires_gear_detail',
+  default_frequency: 'default_frequency',
+  default_qty: 'default_qty',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearPackComponentScalarFieldEnum = (typeof GearPackComponentScalarFieldEnum)[keyof typeof GearPackComponentScalarFieldEnum]
+
+
+export const ChallengeScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  is_time_dependent: 'is_time_dependent',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type ChallengeScalarFieldEnum = (typeof ChallengeScalarFieldEnum)[keyof typeof ChallengeScalarFieldEnum]
+
+
+export const ChallengeGearRequirementScalarFieldEnum = {
+  id: 'id',
+  challenge_id: 'challenge_id',
+  gear_type_id: 'gear_type_id',
+  gear_specs_definition_id: 'gear_specs_definition_id',
+  gear_requirement_description: 'gear_requirement_description',
+  requirement_level: 'requirement_level',
+  requirement_value: 'requirement_value',
+  requirement_operator: 'requirement_operator',
+  condition_type: 'condition_type',
+  condition_value: 'condition_value',
+  condition_operator: 'condition_operator',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type ChallengeGearRequirementScalarFieldEnum = (typeof ChallengeGearRequirementScalarFieldEnum)[keyof typeof ChallengeGearRequirementScalarFieldEnum]
+
+
+export const DifficultySystemScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  source_url: 'source_url',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type DifficultySystemScalarFieldEnum = (typeof DifficultySystemScalarFieldEnum)[keyof typeof DifficultySystemScalarFieldEnum]
+
+
+export const DifficultyMappingScalarFieldEnum = {
+  id: 'id',
+  difficulty_system_id: 'difficulty_system_id',
+  raw_difficulty: 'raw_difficulty',
+  normalized_difficulty: 'normalized_difficulty',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type DifficultyMappingScalarFieldEnum = (typeof DifficultyMappingScalarFieldEnum)[keyof typeof DifficultyMappingScalarFieldEnum]
+
+
+export const TrailScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  primary_profile_id: 'primary_profile_id',
+  region: 'region',
+  country: 'country',
+  start_point_name: 'start_point_name',
+  end_point_name: 'end_point_name',
+  preview_img_media_id: 'preview_img_media_id',
+  is_trail_root: 'is_trail_root',
+  trail_origin: 'trail_origin',
+  authenticity_level: 'authenticity_level',
+  derived_from_trail_id: 'derived_from_trail_id',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  is_official: 'is_official',
+  edit_policy_override: 'edit_policy_override',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type TrailScalarFieldEnum = (typeof TrailScalarFieldEnum)[keyof typeof TrailScalarFieldEnum]
+
+
+export const TrailChallengeScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  challenge_id: 'challenge_id',
+  severity_level: 'severity_level',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TrailChallengeScalarFieldEnum = (typeof TrailChallengeScalarFieldEnum)[keyof typeof TrailChallengeScalarFieldEnum]
+
+
+export const TrailCalendarScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  month: 'month',
+  trail_feasibility: 'trail_feasibility',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TrailCalendarScalarFieldEnum = (typeof TrailCalendarScalarFieldEnum)[keyof typeof TrailCalendarScalarFieldEnum]
+
+
+export const TrailSourceScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  difficulty_system_id: 'difficulty_system_id',
+  is_primary_src: 'is_primary_src',
+  source_name: 'source_name',
+  source_url: 'source_url',
+  source_authority: 'source_authority',
+  source_confidence: 'source_confidence',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TrailSourceScalarFieldEnum = (typeof TrailSourceScalarFieldEnum)[keyof typeof TrailSourceScalarFieldEnum]
+
+
+export const TrailGearRequirementScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  gear_type_id: 'gear_type_id',
+  gear_specs_definition_id: 'gear_specs_definition_id',
+  requirement_level: 'requirement_level',
+  requirement_operator: 'requirement_operator',
+  requirement_value: 'requirement_value',
+  condition_type: 'condition_type',
+  condition_operator: 'condition_operator',
+  condition_value: 'condition_value',
+  trail_source_id: 'trail_source_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TrailGearRequirementScalarFieldEnum = (typeof TrailGearRequirementScalarFieldEnum)[keyof typeof TrailGearRequirementScalarFieldEnum]
+
+
+export const TrailDifficultyScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  trail_source_id: 'trail_source_id',
+  difficulty_raw: 'difficulty_raw',
+  difficulty_normalized: 'difficulty_normalized',
+  difficulty_converted: 'difficulty_converted',
+  difficulty_origin: 'difficulty_origin',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id',
+  verifier_notes: 'verifier_notes'
+} as const
+
+export type TrailDifficultyScalarFieldEnum = (typeof TrailDifficultyScalarFieldEnum)[keyof typeof TrailDifficultyScalarFieldEnum]
+
+
+export const TrailFacilityScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  facility_type: 'facility_type',
+  trail_source_id: 'trail_source_id',
+  access_point_id: 'access_point_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type TrailFacilityScalarFieldEnum = (typeof TrailFacilityScalarFieldEnum)[keyof typeof TrailFacilityScalarFieldEnum]
+
+
+export const TrailUseScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TrailUseScalarFieldEnum = (typeof TrailUseScalarFieldEnum)[keyof typeof TrailUseScalarFieldEnum]
+
+
+export const TrailProfileScalarFieldEnum = {
+  id: 'id',
+  trail_type: 'trail_type',
+  trail_id: 'trail_id',
+  primary_geometry_id: 'primary_geometry_id',
+  distance: 'distance',
+  elevation_gain: 'elevation_gain',
+  elevation_loss: 'elevation_loss',
+  duration_hr: 'duration_hr',
+  duration_hr_calculated: 'duration_hr_calculated',
+  duration_day: 'duration_day',
+  trail_difficulty_converted: 'trail_difficulty_converted',
+  accessibility: 'accessibility',
+  accessibility_notes: 'accessibility_notes',
+  profile_origin: 'profile_origin',
+  trail_source_id: 'trail_source_id',
+  authenticity_level: 'authenticity_level',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  is_official: 'is_official',
+  edit_policy_override: 'edit_policy_override',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type TrailProfileScalarFieldEnum = (typeof TrailProfileScalarFieldEnum)[keyof typeof TrailProfileScalarFieldEnum]
+
+
+export const TrailProfileUseScalarFieldEnum = {
+  id: 'id',
+  trail_profile_id: 'trail_profile_id',
+  trail_use_id: 'trail_use_id',
+  condition_type: 'condition_type',
+  condition_operator: 'condition_operator',
+  condition_value: 'condition_value',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TrailProfileUseScalarFieldEnum = (typeof TrailProfileUseScalarFieldEnum)[keyof typeof TrailProfileUseScalarFieldEnum]
+
+
+export const AccessPointScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  seasonality_status: 'seasonality_status',
+  point_lat: 'point_lat',
+  point_lng: 'point_lng',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  merged_at: 'merged_at',
+  merged_by_id: 'merged_by_id',
+  merge_reason: 'merge_reason',
+  merge_notes: 'merge_notes',
+  merge_status: 'merge_status',
+  merged_into_id: 'merged_into_id',
+  is_official: 'is_official',
+  is_canonical: 'is_canonical',
+  edit_policy_override: 'edit_policy_override',
+  canonical_proposed_by_id: 'canonical_proposed_by_id',
+  canonical_proposed_at: 'canonical_proposed_at',
+  canonical_proposal_notes: 'canonical_proposal_notes',
+  canonical_proposal_status: 'canonical_proposal_status',
+  canonical_proposal_consent_by_id: 'canonical_proposal_consent_by_id',
+  canonical_proposal_consent_at: 'canonical_proposal_consent_at',
+  canonical_proposal_resolved_by_id: 'canonical_proposal_resolved_by_id',
+  canonical_proposal_resolved_at: 'canonical_proposal_resolved_at',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type AccessPointScalarFieldEnum = (typeof AccessPointScalarFieldEnum)[keyof typeof AccessPointScalarFieldEnum]
+
+
+export const AccessPointCalendarScalarFieldEnum = {
+  id: 'id',
+  access_point_id: 'access_point_id',
+  month: 'month',
+  access_point_feasibility: 'access_point_feasibility',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type AccessPointCalendarScalarFieldEnum = (typeof AccessPointCalendarScalarFieldEnum)[keyof typeof AccessPointCalendarScalarFieldEnum]
+
+
+export const TrailAccessPointRelationScalarFieldEnum = {
+  id: 'id',
+  access_point_id: 'access_point_id',
+  trail_id: 'trail_id',
+  access_point_role: 'access_point_role',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type TrailAccessPointRelationScalarFieldEnum = (typeof TrailAccessPointRelationScalarFieldEnum)[keyof typeof TrailAccessPointRelationScalarFieldEnum]
+
+
+export const TrailGeometryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  trail_id: 'trail_id',
+  start_access_point_id: 'start_access_point_id',
+  end_access_point_id: 'end_access_point_id',
+  gpx_file_key: 'gpx_file_key',
+  gpx_file_name: 'gpx_file_name',
+  gpx_source_url: 'gpx_source_url',
+  geometry_origin: 'geometry_origin',
+  derived_from_id: 'derived_from_id',
+  authenticity_level: 'authenticity_level',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  is_official: 'is_official',
+  edit_policy_override: 'edit_policy_override',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id',
+  last_calculated_at: 'last_calculated_at'
+} as const
+
+export type TrailGeometryScalarFieldEnum = (typeof TrailGeometryScalarFieldEnum)[keyof typeof TrailGeometryScalarFieldEnum]
+
+
+export const TrailSegmentationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  derived_from_segmentation_id: 'derived_from_segmentation_id',
+  trail_id: 'trail_id',
+  trail_profile_id: 'trail_profile_id',
+  trail_geometry_id: 'trail_geometry_id',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  is_official: 'is_official',
+  edit_policy_override: 'edit_policy_override',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type TrailSegmentationScalarFieldEnum = (typeof TrailSegmentationScalarFieldEnum)[keyof typeof TrailSegmentationScalarFieldEnum]
+
+
+export const TrailSegmentRelationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  trail_segmentation_id: 'trail_segmentation_id',
+  child_trail_id: 'child_trail_id',
+  child_start_access_point_id: 'child_start_access_point_id',
+  child_sequence: 'child_sequence',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type TrailSegmentRelationScalarFieldEnum = (typeof TrailSegmentRelationScalarFieldEnum)[keyof typeof TrailSegmentRelationScalarFieldEnum]
+
+
+export const TransportServiceScalarFieldEnum = {
+  id: 'id',
+  transport_mode: 'transport_mode',
+  provider_name: 'provider_name',
+  service_name: 'service_name',
+  start_access_point_id: 'start_access_point_id',
+  start_access_point_name: 'start_access_point_name',
+  end_access_point_id: 'end_access_point_id',
+  end_access_point_name: 'end_access_point_name',
+  supports_reverse_direction: 'supports_reverse_direction',
+  reverse_direction_service_id: 'reverse_direction_service_id',
+  booking_requirement: 'booking_requirement',
+  service_url: 'service_url',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type TransportServiceScalarFieldEnum = (typeof TransportServiceScalarFieldEnum)[keyof typeof TransportServiceScalarFieldEnum]
+
+
+export const TransportServiceCalendarScalarFieldEnum = {
+  id: 'id',
+  transport_service_id: 'transport_service_id',
+  month: 'month',
+  availability_status: 'availability_status',
+  src_url: 'src_url',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TransportServiceCalendarScalarFieldEnum = (typeof TransportServiceCalendarScalarFieldEnum)[keyof typeof TransportServiceCalendarScalarFieldEnum]
+
+
+export const TransportServiceStopScalarFieldEnum = {
+  id: 'id',
+  transport_service_id: 'transport_service_id',
+  stop_name: 'stop_name',
+  stop_access_point_id: 'stop_access_point_id',
+  stop_sequence: 'stop_sequence',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TransportServiceStopScalarFieldEnum = (typeof TransportServiceStopScalarFieldEnum)[keyof typeof TransportServiceStopScalarFieldEnum]
+
+
+export const TrailTransportServiceScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  transport_service_id: 'transport_service_id',
+  transfer_type: 'transfer_type',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_verified_at: 'last_verified_at',
+  last_verified_by_id: 'last_verified_by_id'
+} as const
+
+export type TrailTransportServiceScalarFieldEnum = (typeof TrailTransportServiceScalarFieldEnum)[keyof typeof TrailTransportServiceScalarFieldEnum]
+
+
+export const MealPackScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  derived_from_meal_pack_id: 'derived_from_meal_pack_id',
+  meal_pack_category: 'meal_pack_category',
+  consumption_frequency: 'consumption_frequency',
+  qty_per_consumption: 'qty_per_consumption',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  is_universal: 'is_universal',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type MealPackScalarFieldEnum = (typeof MealPackScalarFieldEnum)[keyof typeof MealPackScalarFieldEnum]
+
+
+export const MealItemScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  is_universal: 'is_universal',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type MealItemScalarFieldEnum = (typeof MealItemScalarFieldEnum)[keyof typeof MealItemScalarFieldEnum]
+
+
+export const MealPackItemScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  meal_pack_id: 'meal_pack_id',
+  meal_pack_nickname: 'meal_pack_nickname',
+  meal_item_id: 'meal_item_id',
+  meal_item_frequency: 'meal_item_frequency',
+  meal_item_qty: 'meal_item_qty',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type MealPackItemScalarFieldEnum = (typeof MealPackItemScalarFieldEnum)[keyof typeof MealPackItemScalarFieldEnum]
+
+
+export const UserTrailScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  user_id: 'user_id',
+  positive_attitude: 'positive_attitude',
+  completion_status: 'completion_status',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UserTrailScalarFieldEnum = (typeof UserTrailScalarFieldEnum)[keyof typeof UserTrailScalarFieldEnum]
+
+
+export const UserTrailCompletionScalarFieldEnum = {
+  id: 'id',
+  user_trail_id: 'user_trail_id',
+  completed_at: 'completed_at',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UserTrailCompletionScalarFieldEnum = (typeof UserTrailCompletionScalarFieldEnum)[keyof typeof UserTrailCompletionScalarFieldEnum]
+
+
+export const UserGearScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  gear_id: 'gear_id',
+  positive_attitude: 'positive_attitude',
+  ownership_status: 'ownership_status',
+  lifecycle_status: 'lifecycle_status',
+  nickname: 'nickname',
+  purchased_date: 'purchased_date',
+  retired_date: 'retired_date',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UserGearScalarFieldEnum = (typeof UserGearScalarFieldEnum)[keyof typeof UserGearScalarFieldEnum]
+
+
+export const UserGearPackScalarFieldEnum = {
+  id: 'id',
+  gear_pack_id: 'gear_pack_id',
+  user_id: 'user_id',
+  gear_pack_suffix: 'gear_pack_suffix',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UserGearPackScalarFieldEnum = (typeof UserGearPackScalarFieldEnum)[keyof typeof UserGearPackScalarFieldEnum]
+
+
+export const UserGearPackItemScalarFieldEnum = {
+  id: 'id',
+  user_gear_pack_id: 'user_gear_pack_id',
+  gear_pack_component_id: 'gear_pack_component_id',
+  user_gear_id: 'user_gear_id',
+  gear_description: 'gear_description',
+  alt_frequency: 'alt_frequency',
+  alt_qty: 'alt_qty',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UserGearPackItemScalarFieldEnum = (typeof UserGearPackItemScalarFieldEnum)[keyof typeof UserGearPackItemScalarFieldEnum]
+
+
+export const UserPersonalArchiveScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  archive_key: 'archive_key',
+  archive_type: 'archive_type',
+  source_type: 'source_type',
+  archive_source_url: 'archive_source_url',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UserPersonalArchiveScalarFieldEnum = (typeof UserPersonalArchiveScalarFieldEnum)[keyof typeof UserPersonalArchiveScalarFieldEnum]
+
+
+export const UserFeedbackScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  title: 'title',
+  content: 'content',
+  feedback_status: 'feedback_status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type UserFeedbackScalarFieldEnum = (typeof UserFeedbackScalarFieldEnum)[keyof typeof UserFeedbackScalarFieldEnum]
+
+
+export const UserStickyNotesScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  title: 'title',
+  content: 'content',
+  pinned: 'pinned',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UserStickyNotesScalarFieldEnum = (typeof UserStickyNotesScalarFieldEnum)[keyof typeof UserStickyNotesScalarFieldEnum]
+
+
+export const UserIdeaCaptureScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type UserIdeaCaptureScalarFieldEnum = (typeof UserIdeaCaptureScalarFieldEnum)[keyof typeof UserIdeaCaptureScalarFieldEnum]
+
+
+export const TripScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  name: 'name',
+  start_date: 'start_date',
+  end_date: 'end_date',
+  trip_status: 'trip_status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripScalarFieldEnum = (typeof TripScalarFieldEnum)[keyof typeof TripScalarFieldEnum]
+
+
+export const TripAccommodationScalarFieldEnum = {
+  id: 'id',
+  trip_id: 'trip_id',
+  trip_trail_id: 'trip_trail_id',
+  accom_name: 'accom_name',
+  accom_type: 'accom_type',
+  trail_facility_id: 'trail_facility_id',
+  access_point_id: 'access_point_id',
+  stay_date: 'stay_date',
+  stay_nights: 'stay_nights',
+  booking_requirement: 'booking_requirement',
+  booking_status: 'booking_status',
+  need_sleeping_system: 'need_sleeping_system',
+  need_tent: 'need_tent',
+  need_cookware: 'need_cookware',
+  need_dineware: 'need_dineware',
+  stay_status: 'stay_status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripAccommodationScalarFieldEnum = (typeof TripAccommodationScalarFieldEnum)[keyof typeof TripAccommodationScalarFieldEnum]
+
+
+export const TripGearListScalarFieldEnum = {
+  id: 'id',
+  trip_id: 'trip_id',
+  gear_type_id: 'gear_type_id',
+  user_gear_id: 'user_gear_id',
+  user_gear_qty: 'user_gear_qty',
+  gear_description: 'gear_description',
+  prep_status: 'prep_status',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripGearListScalarFieldEnum = (typeof TripGearListScalarFieldEnum)[keyof typeof TripGearListScalarFieldEnum]
+
+
+export const TripMealPackScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  trip_id: 'trip_id',
+  meal_pack_id: 'meal_pack_id',
+  meal_pack_qty: 'meal_pack_qty',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripMealPackScalarFieldEnum = (typeof TripMealPackScalarFieldEnum)[keyof typeof TripMealPackScalarFieldEnum]
+
+
+export const TripMealPackItemScalarFieldEnum = {
+  id: 'id',
+  trip_meal_pack_id: 'trip_meal_pack_id',
+  meal_item_id: 'meal_item_id',
+  meal_item_description: 'meal_item_description',
+  meal_item_qty: 'meal_item_qty',
+  prep_status: 'prep_status',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripMealPackItemScalarFieldEnum = (typeof TripMealPackItemScalarFieldEnum)[keyof typeof TripMealPackItemScalarFieldEnum]
+
+
+export const TripTrailScalarFieldEnum = {
+  id: 'id',
+  trip_id: 'trip_id',
+  trail_id: 'trail_id',
+  trail_sequence: 'trail_sequence',
+  trail_start_date: 'trail_start_date',
+  trail_end_date: 'trail_end_date',
+  trail_profile_id: 'trail_profile_id',
+  trail_geometry_id: 'trail_geometry_id',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripTrailScalarFieldEnum = (typeof TripTrailScalarFieldEnum)[keyof typeof TripTrailScalarFieldEnum]
+
+
+export const TripTransportScalarFieldEnum = {
+  id: 'id',
+  trip_id: 'trip_id',
+  trip_trail_id: 'trip_trail_id',
+  transport_service_id: 'transport_service_id',
+  transport_mode: 'transport_mode',
+  transfer_type: 'transfer_type',
+  transport_date: 'transport_date',
+  dep_access_point_name: 'dep_access_point_name',
+  dep_access_point_id: 'dep_access_point_id',
+  dep_time: 'dep_time',
+  arr_access_point_name: 'arr_access_point_name',
+  arr_access_point_id: 'arr_access_point_id',
+  arr_time: 'arr_time',
+  booking_requirement: 'booking_requirement',
+  booking_status: 'booking_status',
+  booking_ref: 'booking_ref',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripTransportScalarFieldEnum = (typeof TripTransportScalarFieldEnum)[keyof typeof TripTransportScalarFieldEnum]
+
+
+export const CriticalEventScalarFieldEnum = {
+  id: 'id',
+  trip_id: 'trip_id',
+  name: 'name',
+  event_type: 'event_type',
+  event_status: 'event_status',
+  event_exact_time: 'event_exact_time',
+  event_start_time: 'event_start_time',
+  event_end_time: 'event_end_time',
+  event_loc_name: 'event_loc_name',
+  event_loc_access_point_id: 'event_loc_access_point_id',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type CriticalEventScalarFieldEnum = (typeof CriticalEventScalarFieldEnum)[keyof typeof CriticalEventScalarFieldEnum]
+
+
+export const TripChecklistScalarFieldEnum = {
+  id: 'id',
+  trip_id: 'trip_id',
+  checklist_status: 'checklist_status',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripChecklistScalarFieldEnum = (typeof TripChecklistScalarFieldEnum)[keyof typeof TripChecklistScalarFieldEnum]
+
+
+export const TripChecklistItemScalarFieldEnum = {
+  id: 'id',
+  trip_checklist_id: 'trip_checklist_id',
+  checklist_item_type: 'checklist_item_type',
+  checklist_item_id: 'checklist_item_id',
+  checklist_item_description: 'checklist_item_description',
+  checklist_item_status: 'checklist_item_status',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TripChecklistItemScalarFieldEnum = (typeof TripChecklistItemScalarFieldEnum)[keyof typeof TripChecklistItemScalarFieldEnum]
+
+
+export const CollectionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  collection_type: 'collection_type',
+  collection_summary: 'collection_summary',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  review_status: 'review_status',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type CollectionScalarFieldEnum = (typeof CollectionScalarFieldEnum)[keyof typeof CollectionScalarFieldEnum]
+
+
+export const CollectionItemScalarFieldEnum = {
+  id: 'id',
+  collection_id: 'collection_id',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  item_review_status: 'item_review_status',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type CollectionItemScalarFieldEnum = (typeof CollectionItemScalarFieldEnum)[keyof typeof CollectionItemScalarFieldEnum]
+
+
+export const UserProposalScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  name: 'name',
+  description: 'description',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  proposed_action: 'proposed_action',
+  proposal_support_url: 'proposal_support_url',
+  proposal_status: 'proposal_status',
+  notes: 'notes',
+  review_status: 'review_status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type UserProposalScalarFieldEnum = (typeof UserProposalScalarFieldEnum)[keyof typeof UserProposalScalarFieldEnum]
+
+
+export const CommunityPublicationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  contributor_id: 'contributor_id',
+  target_object_type: 'target_object_type',
+  source_root_object_id: 'source_root_object_id',
+  submitted_at: 'submitted_at',
+  submitted_by_id: 'submitted_by_id',
+  submission_status: 'submission_status',
+  applicant_notes: 'applicant_notes',
+  reviewer_notes: 'reviewer_notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type CommunityPublicationScalarFieldEnum = (typeof CommunityPublicationScalarFieldEnum)[keyof typeof CommunityPublicationScalarFieldEnum]
+
+
+export const CommunityPublicationItemScalarFieldEnum = {
+  id: 'id',
+  community_publication_id: 'community_publication_id',
+  contributor_id: 'contributor_id',
+  target_object_type: 'target_object_type',
+  source_object_id: 'source_object_id',
+  snapshot_object_id: 'snapshot_object_id',
+  published_object_id: 'published_object_id',
+  item_status: 'item_status',
+  authenticity_level: 'authenticity_level',
+  applicant_notes: 'applicant_notes',
+  reviewer_notes: 'reviewer_notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type CommunityPublicationItemScalarFieldEnum = (typeof CommunityPublicationItemScalarFieldEnum)[keyof typeof CommunityPublicationItemScalarFieldEnum]
+
+
+export const CommunityPublicationAttachmentScalarFieldEnum = {
+  id: 'id',
+  personal_archive_id: 'personal_archive_id',
+  attachment_usage: 'attachment_usage',
+  community_publication_id: 'community_publication_id',
+  community_publication_item_id: 'community_publication_item_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type CommunityPublicationAttachmentScalarFieldEnum = (typeof CommunityPublicationAttachmentScalarFieldEnum)[keyof typeof CommunityPublicationAttachmentScalarFieldEnum]
+
+
+export const RecordActionScalarFieldEnum = {
+  id: 'id',
+  target_type: 'target_type',
+  target_id: 'target_id',
+  parent_record_action_id: 'parent_record_action_id',
+  action_type: 'action_type',
+  action_reason: 'action_reason',
+  action_status: 'action_status',
+  requested_at: 'requested_at',
+  requested_by_id: 'requested_by_id',
+  requester_notes: 'requester_notes',
+  consent_at: 'consent_at',
+  consent_by_id: 'consent_by_id',
+  performed_at: 'performed_at',
+  performed_by_id: 'performed_by_id',
+  performer_notes: 'performer_notes',
+  action_result_object_type: 'action_result_object_type',
+  action_result_object_id: 'action_result_object_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type RecordActionScalarFieldEnum = (typeof RecordActionScalarFieldEnum)[keyof typeof RecordActionScalarFieldEnum]
+
+
+export const ContentReviewHistoryScalarFieldEnum = {
+  id: 'id',
+  target_type: 'target_type',
+  target_id: 'target_id',
+  predecessor_review_id: 'predecessor_review_id',
+  linked_record_action_id: 'linked_record_action_id',
+  requested_at: 'requested_at',
+  requested_by_id: 'requested_by_id',
+  requester_notes: 'requester_notes',
+  review_type: 'review_type',
+  reivewed_at: 'reivewed_at',
+  reviewed_by_id: 'reviewed_by_id',
+  reviewer_notes: 'reviewer_notes',
+  reivew_status: 'reivew_status'
+} as const
+
+export type ContentReviewHistoryScalarFieldEnum = (typeof ContentReviewHistoryScalarFieldEnum)[keyof typeof ContentReviewHistoryScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -96,4 +1580,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
