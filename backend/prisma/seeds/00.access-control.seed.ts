@@ -1,6 +1,5 @@
 import { prisma } from './seed-client'
 import { Status } from '../../src/generated/prisma/enums'
-import { Model } from 'mongoose'
 import {
     MODEL_INFO,
     ACCESS_CONTROL_MODULE_MODELS,
@@ -134,7 +133,7 @@ export async function seedAccessControl() {
 
     // RolePermission -- only AccessControl Module is used for seeding
 
-    async function createRolePermission(role_id, permission_id, granted_by_id) {
+    async function createRolePermission(role_id: number, permission_id: number, granted_by_id: number) {
         const existing_role_permission = await prisma.rolePermission.findFirst({
             where: {
                 role_id: role_id,
@@ -160,9 +159,8 @@ export async function seedAccessControl() {
             let permissionItem = await prisma.permission.findFirst({
                 where: { name: p, status: Status.ACTIVE },
             })
-            let permissionId = permissionItem?.id
             if (permissionItem) {
-                await createRolePermission(roleId, permissionId, 1)
+                await createRolePermission(roleId, permissionItem?.id, 1)
             }
         }
     }

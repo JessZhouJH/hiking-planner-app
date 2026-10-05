@@ -73,6 +73,11 @@ export type Brand = Prisma.BrandModel
  */
 export type GearType = Prisma.GearTypeModel
 /**
+ * Model GearTag
+ * 
+ */
+export type GearTag = Prisma.GearTagModel
+/**
  * Model GearSpecsDefinition
  * 
  */
@@ -97,6 +102,11 @@ export type GearFeature = Prisma.GearFeatureModel
  * 
  */
 export type GearVariant = Prisma.GearVariantModel
+/**
+ * Model GearTagRelation
+ * 
+ */
+export type GearTagRelation = Prisma.GearTagRelationModel
 /**
  * Model GearPack
  * 

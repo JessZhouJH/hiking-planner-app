@@ -1,9 +1,5 @@
-import "dotenv/config";
-import { Pool } from "pg";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { PrismaClient } from "../../src/generated/prisma/client";
+import { prisma } from "./seed-client"
 
-const connectionString = `${process.env.DATABASE_URL}`;
-const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
+import { seedGearPrep } from "./21.gear-prep.seed"
+import { seedGearPack } from "./22.gear-pack.seed"
+import { seedGearDetails } from "./23.gear-details.seed"

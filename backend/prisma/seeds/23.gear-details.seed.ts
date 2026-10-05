@@ -1,5 +1,5 @@
 import { prisma } from "./seed-client"
 
-export async function seedGearPack() {
+export async function seedGearDetails() {
     
 }

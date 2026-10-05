@@ -62,11 +62,13 @@ export const ModelName = {
   Unit: 'Unit',
   Brand: 'Brand',
   GearType: 'GearType',
+  GearTag: 'GearTag',
   GearSpecsDefinition: 'GearSpecsDefinition',
   Gear: 'Gear',
   GearSpecs: 'GearSpecs',
   GearFeature: 'GearFeature',
   GearVariant: 'GearVariant',
+  GearTagRelation: 'GearTagRelation',
   GearPack: 'GearPack',
   GearPackTemplate: 'GearPackTemplate',
   GearPackComponent: 'GearPackComponent',
@@ -278,7 +280,6 @@ export const UnitScalarFieldEnum = {
   id: 'id',
   name: 'name',
   display_name: 'display_name',
-  symbol: 'symbol',
   category: 'category',
   is_base: 'is_base',
   scale_to_base: 'scale_to_base',
@@ -312,6 +313,7 @@ export type BrandScalarFieldEnum = (typeof BrandScalarFieldEnum)[keyof typeof Br
 export const GearTypeScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  parent_gear_type_id: 'parent_gear_type_id',
   status: 'status',
   notes: 'notes',
   created_at: 'created_at',
@@ -321,6 +323,20 @@ export const GearTypeScalarFieldEnum = {
 } as const
 
 export type GearTypeScalarFieldEnum = (typeof GearTypeScalarFieldEnum)[keyof typeof GearTypeScalarFieldEnum]
+
+
+export const GearTagScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearTagScalarFieldEnum = (typeof GearTagScalarFieldEnum)[keyof typeof GearTagScalarFieldEnum]
 
 
 export const GearSpecsDefinitionScalarFieldEnum = {
@@ -418,6 +434,21 @@ export const GearVariantScalarFieldEnum = {
 } as const
 
 export type GearVariantScalarFieldEnum = (typeof GearVariantScalarFieldEnum)[keyof typeof GearVariantScalarFieldEnum]
+
+
+export const GearTagRelationScalarFieldEnum = {
+  id: 'id',
+  gear_id: 'gear_id',
+  gear_tag_id: 'gear_tag_id',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearTagRelationScalarFieldEnum = (typeof GearTagRelationScalarFieldEnum)[keyof typeof GearTagRelationScalarFieldEnum]
 
 
 export const GearPackScalarFieldEnum = {

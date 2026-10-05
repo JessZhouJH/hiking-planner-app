@@ -337,6 +337,7 @@ export type GearWhereInput = {
   gear_variant__gear?: Prisma.GearVariantListRelationFilter
   gear_specs__gear?: Prisma.GearSpecsListRelationFilter
   gear_feature__gear?: Prisma.GearFeatureListRelationFilter
+  gear_tag_relation__gear?: Prisma.GearTagRelationListRelationFilter
   user_gear__gear?: Prisma.UserGearListRelationFilter
 }
 
@@ -366,6 +367,7 @@ export type GearOrderByWithRelationInput = {
   gear_variant__gear?: Prisma.GearVariantOrderByRelationAggregateInput
   gear_specs__gear?: Prisma.GearSpecsOrderByRelationAggregateInput
   gear_feature__gear?: Prisma.GearFeatureOrderByRelationAggregateInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationOrderByRelationAggregateInput
   user_gear__gear?: Prisma.UserGearOrderByRelationAggregateInput
 }
 
@@ -398,6 +400,7 @@ export type GearWhereUniqueInput = Prisma.AtLeast<{
   gear_variant__gear?: Prisma.GearVariantListRelationFilter
   gear_specs__gear?: Prisma.GearSpecsListRelationFilter
   gear_feature__gear?: Prisma.GearFeatureListRelationFilter
+  gear_tag_relation__gear?: Prisma.GearTagRelationListRelationFilter
   user_gear__gear?: Prisma.UserGearListRelationFilter
 }, "id">
 
@@ -466,6 +469,7 @@ export type GearCreateInput = {
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -489,6 +493,7 @@ export type GearUncheckedCreateInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -511,6 +516,7 @@ export type GearUpdateInput = {
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -534,6 +540,7 @@ export type GearUncheckedUpdateInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -977,6 +984,20 @@ export type GearUpdateOneRequiredWithoutGear_variant__gearNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.GearUpdateToOneWithWhereWithoutGear_variant__gearInput, Prisma.GearUpdateWithoutGear_variant__gearInput>, Prisma.GearUncheckedUpdateWithoutGear_variant__gearInput>
 }
 
+export type GearCreateNestedOneWithoutGear_tag_relation__gearInput = {
+  create?: Prisma.XOR<Prisma.GearCreateWithoutGear_tag_relation__gearInput, Prisma.GearUncheckedCreateWithoutGear_tag_relation__gearInput>
+  connectOrCreate?: Prisma.GearCreateOrConnectWithoutGear_tag_relation__gearInput
+  connect?: Prisma.GearWhereUniqueInput
+}
+
+export type GearUpdateOneRequiredWithoutGear_tag_relation__gearNestedInput = {
+  create?: Prisma.XOR<Prisma.GearCreateWithoutGear_tag_relation__gearInput, Prisma.GearUncheckedCreateWithoutGear_tag_relation__gearInput>
+  connectOrCreate?: Prisma.GearCreateOrConnectWithoutGear_tag_relation__gearInput
+  upsert?: Prisma.GearUpsertWithoutGear_tag_relation__gearInput
+  connect?: Prisma.GearWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GearUpdateToOneWithWhereWithoutGear_tag_relation__gearInput, Prisma.GearUpdateWithoutGear_tag_relation__gearInput>, Prisma.GearUncheckedUpdateWithoutGear_tag_relation__gearInput>
+}
+
 export type GearCreateNestedOneWithoutUser_gear__gearInput = {
   create?: Prisma.XOR<Prisma.GearCreateWithoutUser_gear__gearInput, Prisma.GearUncheckedCreateWithoutUser_gear__gearInput>
   connectOrCreate?: Prisma.GearCreateOrConnectWithoutUser_gear__gearInput
@@ -1009,6 +1030,7 @@ export type GearCreateWithoutCreated_byInput = {
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1031,6 +1053,7 @@ export type GearUncheckedCreateWithoutCreated_byInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1062,6 +1085,7 @@ export type GearCreateWithoutUpdated_byInput = {
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1084,6 +1108,7 @@ export type GearUncheckedCreateWithoutUpdated_byInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1115,6 +1140,7 @@ export type GearCreateWithoutLast_verified_byInput = {
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1137,6 +1163,7 @@ export type GearUncheckedCreateWithoutLast_verified_byInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1168,6 +1195,7 @@ export type GearCreateWithoutOwnerInput = {
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1190,6 +1218,7 @@ export type GearUncheckedCreateWithoutOwnerInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1307,6 +1336,7 @@ export type GearCreateWithoutBrandInput = {
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1329,6 +1359,7 @@ export type GearUncheckedCreateWithoutBrandInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1376,6 +1407,7 @@ export type GearCreateWithoutGear_typeInput = {
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1398,6 +1430,7 @@ export type GearUncheckedCreateWithoutGear_typeInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1445,6 +1478,7 @@ export type GearCreateWithoutGear_specs__gearInput = {
   gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear__gear_typeInput
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1467,6 +1501,7 @@ export type GearUncheckedCreateWithoutGear_specs__gearInput = {
   last_verified_by_id?: number | null
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1504,6 +1539,7 @@ export type GearUpdateWithoutGear_specs__gearInput = {
   gear_type?: Prisma.GearTypeUpdateOneWithoutGear__gear_typeNestedInput
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -1526,6 +1562,7 @@ export type GearUncheckedUpdateWithoutGear_specs__gearInput = {
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -1547,6 +1584,7 @@ export type GearCreateWithoutGear_feature__gearInput = {
   gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear__gear_typeInput
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1569,6 +1607,7 @@ export type GearUncheckedCreateWithoutGear_feature__gearInput = {
   last_verified_by_id?: number | null
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1606,6 +1645,7 @@ export type GearUpdateWithoutGear_feature__gearInput = {
   gear_type?: Prisma.GearTypeUpdateOneWithoutGear__gear_typeNestedInput
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -1628,6 +1668,7 @@ export type GearUncheckedUpdateWithoutGear_feature__gearInput = {
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -1649,6 +1690,7 @@ export type GearCreateWithoutGear_variant__gearInput = {
   gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear__gear_typeInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
 }
 
@@ -1671,6 +1713,7 @@ export type GearUncheckedCreateWithoutGear_variant__gearInput = {
   last_verified_by_id?: number | null
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
   user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
 }
 
@@ -1708,6 +1751,7 @@ export type GearUpdateWithoutGear_variant__gearInput = {
   gear_type?: Prisma.GearTypeUpdateOneWithoutGear__gear_typeNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -1728,6 +1772,113 @@ export type GearUncheckedUpdateWithoutGear_variant__gearInput = {
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
+  gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
+  user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
+}
+
+export type GearCreateWithoutGear_tag_relation__gearInput = {
+  name: string
+  preview_img_key?: string | null
+  visibility?: $Enums.Visibility
+  notes?: string | null
+  status?: $Enums.Status
+  production_status?: $Enums.ProductionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
+  last_verified_at?: Date | string | null
+  created_by: Prisma.UserCreateNestedOneWithoutGear__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutGear__updated_byInput
+  last_verified_by?: Prisma.UserCreateNestedOneWithoutGear__verified_byInput
+  owner?: Prisma.UserCreateNestedOneWithoutGear__ownerInput
+  brand?: Prisma.BrandCreateNestedOneWithoutGear__brandInput
+  gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear__gear_typeInput
+  gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
+  gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
+  gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  user_gear__gear?: Prisma.UserGearCreateNestedManyWithoutGearInput
+}
+
+export type GearUncheckedCreateWithoutGear_tag_relation__gearInput = {
+  id?: number
+  name: string
+  brand_id?: number | null
+  gear_type_id: number
+  preview_img_key?: string | null
+  owner_id?: number | null
+  visibility?: $Enums.Visibility
+  notes?: string | null
+  status?: $Enums.Status
+  production_status?: $Enums.ProductionStatus
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+  last_verified_at?: Date | string | null
+  last_verified_by_id?: number | null
+  gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
+  gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
+  gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  user_gear__gear?: Prisma.UserGearUncheckedCreateNestedManyWithoutGearInput
+}
+
+export type GearCreateOrConnectWithoutGear_tag_relation__gearInput = {
+  where: Prisma.GearWhereUniqueInput
+  create: Prisma.XOR<Prisma.GearCreateWithoutGear_tag_relation__gearInput, Prisma.GearUncheckedCreateWithoutGear_tag_relation__gearInput>
+}
+
+export type GearUpsertWithoutGear_tag_relation__gearInput = {
+  update: Prisma.XOR<Prisma.GearUpdateWithoutGear_tag_relation__gearInput, Prisma.GearUncheckedUpdateWithoutGear_tag_relation__gearInput>
+  create: Prisma.XOR<Prisma.GearCreateWithoutGear_tag_relation__gearInput, Prisma.GearUncheckedCreateWithoutGear_tag_relation__gearInput>
+  where?: Prisma.GearWhereInput
+}
+
+export type GearUpdateToOneWithWhereWithoutGear_tag_relation__gearInput = {
+  where?: Prisma.GearWhereInput
+  data: Prisma.XOR<Prisma.GearUpdateWithoutGear_tag_relation__gearInput, Prisma.GearUncheckedUpdateWithoutGear_tag_relation__gearInput>
+}
+
+export type GearUpdateWithoutGear_tag_relation__gearInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  production_status?: Prisma.EnumProductionStatusFieldUpdateOperationsInput | $Enums.ProductionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_by?: Prisma.UserUpdateOneRequiredWithoutGear__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutGear__updated_byNestedInput
+  last_verified_by?: Prisma.UserUpdateOneWithoutGear__verified_byNestedInput
+  owner?: Prisma.UserUpdateOneWithoutGear__ownerNestedInput
+  brand?: Prisma.BrandUpdateOneWithoutGear__brandNestedInput
+  gear_type?: Prisma.GearTypeUpdateOneWithoutGear__gear_typeNestedInput
+  gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
+  gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
+  gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
+}
+
+export type GearUncheckedUpdateWithoutGear_tag_relation__gearInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  production_status?: Prisma.EnumProductionStatusFieldUpdateOperationsInput | $Enums.ProductionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
@@ -1752,6 +1903,7 @@ export type GearCreateWithoutUser_gear__gearInput = {
   gear_variant__gear?: Prisma.GearVariantCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationCreateNestedManyWithoutGearInput
 }
 
 export type GearUncheckedCreateWithoutUser_gear__gearInput = {
@@ -1774,6 +1926,7 @@ export type GearUncheckedCreateWithoutUser_gear__gearInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedCreateNestedManyWithoutGearInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutGearInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutGearInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutGearInput
 }
 
 export type GearCreateOrConnectWithoutUser_gear__gearInput = {
@@ -1811,6 +1964,7 @@ export type GearUpdateWithoutUser_gear__gearInput = {
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
 }
 
 export type GearUncheckedUpdateWithoutUser_gear__gearInput = {
@@ -1833,6 +1987,7 @@ export type GearUncheckedUpdateWithoutUser_gear__gearInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
 }
 
 export type GearCreateManyCreated_byInput = {
@@ -1925,6 +2080,7 @@ export type GearUpdateWithoutCreated_byInput = {
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -1947,6 +2103,7 @@ export type GearUncheckedUpdateWithoutCreated_byInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -1986,6 +2143,7 @@ export type GearUpdateWithoutUpdated_byInput = {
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -2008,6 +2166,7 @@ export type GearUncheckedUpdateWithoutUpdated_byInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -2047,6 +2206,7 @@ export type GearUpdateWithoutLast_verified_byInput = {
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -2069,6 +2229,7 @@ export type GearUncheckedUpdateWithoutLast_verified_byInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -2108,6 +2269,7 @@ export type GearUpdateWithoutOwnerInput = {
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -2130,6 +2292,7 @@ export type GearUncheckedUpdateWithoutOwnerInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -2187,6 +2350,7 @@ export type GearUpdateWithoutBrandInput = {
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -2209,6 +2373,7 @@ export type GearUncheckedUpdateWithoutBrandInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -2266,6 +2431,7 @@ export type GearUpdateWithoutGear_typeInput = {
   gear_variant__gear?: Prisma.GearVariantUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUpdateManyWithoutGearNestedInput
 }
 
@@ -2288,6 +2454,7 @@ export type GearUncheckedUpdateWithoutGear_typeInput = {
   gear_variant__gear?: Prisma.GearVariantUncheckedUpdateManyWithoutGearNestedInput
   gear_specs__gear?: Prisma.GearSpecsUncheckedUpdateManyWithoutGearNestedInput
   gear_feature__gear?: Prisma.GearFeatureUncheckedUpdateManyWithoutGearNestedInput
+  gear_tag_relation__gear?: Prisma.GearTagRelationUncheckedUpdateManyWithoutGearNestedInput
   user_gear__gear?: Prisma.UserGearUncheckedUpdateManyWithoutGearNestedInput
 }
 
@@ -2318,6 +2485,7 @@ export type GearCountOutputType = {
   gear_variant__gear: number
   gear_specs__gear: number
   gear_feature__gear: number
+  gear_tag_relation__gear: number
   user_gear__gear: number
 }
 
@@ -2325,6 +2493,7 @@ export type GearCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   gear_variant__gear?: boolean | GearCountOutputTypeCountGear_variant__gearArgs
   gear_specs__gear?: boolean | GearCountOutputTypeCountGear_specs__gearArgs
   gear_feature__gear?: boolean | GearCountOutputTypeCountGear_feature__gearArgs
+  gear_tag_relation__gear?: boolean | GearCountOutputTypeCountGear_tag_relation__gearArgs
   user_gear__gear?: boolean | GearCountOutputTypeCountUser_gear__gearArgs
 }
 
@@ -2362,6 +2531,13 @@ export type GearCountOutputTypeCountGear_feature__gearArgs<ExtArgs extends runti
 /**
  * GearCountOutputType without action
  */
+export type GearCountOutputTypeCountGear_tag_relation__gearArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GearTagRelationWhereInput
+}
+
+/**
+ * GearCountOutputType without action
+ */
 export type GearCountOutputTypeCountUser_gear__gearArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.UserGearWhereInput
 }
@@ -2393,6 +2569,7 @@ export type GearSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   gear_variant__gear?: boolean | Prisma.Gear$gear_variant__gearArgs<ExtArgs>
   gear_specs__gear?: boolean | Prisma.Gear$gear_specs__gearArgs<ExtArgs>
   gear_feature__gear?: boolean | Prisma.Gear$gear_feature__gearArgs<ExtArgs>
+  gear_tag_relation__gear?: boolean | Prisma.Gear$gear_tag_relation__gearArgs<ExtArgs>
   user_gear__gear?: boolean | Prisma.Gear$user_gear__gearArgs<ExtArgs>
   _count?: boolean | Prisma.GearCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gear"]>
@@ -2477,6 +2654,7 @@ export type GearInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   gear_variant__gear?: boolean | Prisma.Gear$gear_variant__gearArgs<ExtArgs>
   gear_specs__gear?: boolean | Prisma.Gear$gear_specs__gearArgs<ExtArgs>
   gear_feature__gear?: boolean | Prisma.Gear$gear_feature__gearArgs<ExtArgs>
+  gear_tag_relation__gear?: boolean | Prisma.Gear$gear_tag_relation__gearArgs<ExtArgs>
   user_gear__gear?: boolean | Prisma.Gear$user_gear__gearArgs<ExtArgs>
   _count?: boolean | Prisma.GearCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -2509,6 +2687,7 @@ export type $GearPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     gear_variant__gear: Prisma.$GearVariantPayload<ExtArgs>[]
     gear_specs__gear: Prisma.$GearSpecsPayload<ExtArgs>[]
     gear_feature__gear: Prisma.$GearFeaturePayload<ExtArgs>[]
+    gear_tag_relation__gear: Prisma.$GearTagRelationPayload<ExtArgs>[]
     user_gear__gear: Prisma.$UserGearPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -2931,6 +3110,7 @@ export interface Prisma__GearClient<T, Null = never, ExtArgs extends runtime.Typ
   gear_variant__gear<T extends Prisma.Gear$gear_variant__gearArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gear$gear_variant__gearArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearVariantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gear_specs__gear<T extends Prisma.Gear$gear_specs__gearArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gear$gear_specs__gearArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearSpecsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gear_feature__gear<T extends Prisma.Gear$gear_feature__gearArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gear$gear_feature__gearArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearFeaturePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  gear_tag_relation__gear<T extends Prisma.Gear$gear_tag_relation__gearArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gear$gear_tag_relation__gearArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearTagRelationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   user_gear__gear<T extends Prisma.Gear$user_gear__gearArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gear$user_gear__gearArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserGearPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3523,6 +3703,30 @@ export type Gear$gear_feature__gearArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.GearFeatureScalarFieldEnum | Prisma.GearFeatureScalarFieldEnum[]
+}
+
+/**
+ * Gear.gear_tag_relation__gear
+ */
+export type Gear$gear_tag_relation__gearArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GearTagRelation
+   */
+  select?: Prisma.GearTagRelationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GearTagRelation
+   */
+  omit?: Prisma.GearTagRelationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GearTagRelationInclude<ExtArgs> | null
+  where?: Prisma.GearTagRelationWhereInput
+  orderBy?: Prisma.GearTagRelationOrderByWithRelationInput | Prisma.GearTagRelationOrderByWithRelationInput[]
+  cursor?: Prisma.GearTagRelationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GearTagRelationScalarFieldEnum | Prisma.GearTagRelationScalarFieldEnum[]
 }
 
 /**

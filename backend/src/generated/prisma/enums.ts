@@ -20,6 +20,15 @@ export const Status = {
 export type Status = (typeof Status)[keyof typeof Status]
 
 
+export const Roles = {
+  ADMIN: 'ADMIN',
+  MODERATOR: 'MODERATOR',
+  USER: 'USER'
+} as const
+
+export type Roles = (typeof Roles)[keyof typeof Roles]
+
+
 export const RBACStatus = {
   ACTIVE: 'ACTIVE',
   ARCHIVED: 'ARCHIVED'

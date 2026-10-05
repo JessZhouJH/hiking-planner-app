@@ -46,7 +46,6 @@ export type UnitMinAggregateOutputType = {
   id: number | null
   name: string | null
   display_name: string | null
-  symbol: string | null
   category: $Enums.UnitCategory | null
   is_base: boolean | null
   scale_to_base: number | null
@@ -63,7 +62,6 @@ export type UnitMaxAggregateOutputType = {
   id: number | null
   name: string | null
   display_name: string | null
-  symbol: string | null
   category: $Enums.UnitCategory | null
   is_base: boolean | null
   scale_to_base: number | null
@@ -80,7 +78,6 @@ export type UnitCountAggregateOutputType = {
   id: number
   name: number
   display_name: number
-  symbol: number
   category: number
   is_base: number
   scale_to_base: number
@@ -115,7 +112,6 @@ export type UnitMinAggregateInputType = {
   id?: true
   name?: true
   display_name?: true
-  symbol?: true
   category?: true
   is_base?: true
   scale_to_base?: true
@@ -132,7 +128,6 @@ export type UnitMaxAggregateInputType = {
   id?: true
   name?: true
   display_name?: true
-  symbol?: true
   category?: true
   is_base?: true
   scale_to_base?: true
@@ -149,7 +144,6 @@ export type UnitCountAggregateInputType = {
   id?: true
   name?: true
   display_name?: true
-  symbol?: true
   category?: true
   is_base?: true
   scale_to_base?: true
@@ -252,8 +246,7 @@ export type UnitGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type UnitGroupByOutputType = {
   id: number
   name: string
-  display_name: string
-  symbol: string | null
+  display_name: string | null
   category: $Enums.UnitCategory
   is_base: boolean
   scale_to_base: number | null
@@ -292,8 +285,7 @@ export type UnitWhereInput = {
   NOT?: Prisma.UnitWhereInput | Prisma.UnitWhereInput[]
   id?: Prisma.IntFilter<"Unit"> | number
   name?: Prisma.StringFilter<"Unit"> | string
-  display_name?: Prisma.StringFilter<"Unit"> | string
-  symbol?: Prisma.StringNullableFilter<"Unit"> | string | null
+  display_name?: Prisma.StringNullableFilter<"Unit"> | string | null
   category?: Prisma.EnumUnitCategoryFilter<"Unit"> | $Enums.UnitCategory
   is_base?: Prisma.BoolFilter<"Unit"> | boolean
   scale_to_base?: Prisma.FloatNullableFilter<"Unit"> | number | null
@@ -313,8 +305,7 @@ export type UnitWhereInput = {
 export type UnitOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  display_name?: Prisma.SortOrder
-  symbol?: Prisma.SortOrderInput | Prisma.SortOrder
+  display_name?: Prisma.SortOrderInput | Prisma.SortOrder
   category?: Prisma.SortOrder
   is_base?: Prisma.SortOrder
   scale_to_base?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -337,8 +328,7 @@ export type UnitWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UnitWhereInput[]
   NOT?: Prisma.UnitWhereInput | Prisma.UnitWhereInput[]
   name?: Prisma.StringFilter<"Unit"> | string
-  display_name?: Prisma.StringFilter<"Unit"> | string
-  symbol?: Prisma.StringNullableFilter<"Unit"> | string | null
+  display_name?: Prisma.StringNullableFilter<"Unit"> | string | null
   category?: Prisma.EnumUnitCategoryFilter<"Unit"> | $Enums.UnitCategory
   is_base?: Prisma.BoolFilter<"Unit"> | boolean
   scale_to_base?: Prisma.FloatNullableFilter<"Unit"> | number | null
@@ -358,8 +348,7 @@ export type UnitWhereUniqueInput = Prisma.AtLeast<{
 export type UnitOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  display_name?: Prisma.SortOrder
-  symbol?: Prisma.SortOrderInput | Prisma.SortOrder
+  display_name?: Prisma.SortOrderInput | Prisma.SortOrder
   category?: Prisma.SortOrder
   is_base?: Prisma.SortOrder
   scale_to_base?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -383,8 +372,7 @@ export type UnitScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UnitScalarWhereWithAggregatesInput | Prisma.UnitScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Unit"> | number
   name?: Prisma.StringWithAggregatesFilter<"Unit"> | string
-  display_name?: Prisma.StringWithAggregatesFilter<"Unit"> | string
-  symbol?: Prisma.StringNullableWithAggregatesFilter<"Unit"> | string | null
+  display_name?: Prisma.StringNullableWithAggregatesFilter<"Unit"> | string | null
   category?: Prisma.EnumUnitCategoryWithAggregatesFilter<"Unit"> | $Enums.UnitCategory
   is_base?: Prisma.BoolWithAggregatesFilter<"Unit"> | boolean
   scale_to_base?: Prisma.FloatNullableWithAggregatesFilter<"Unit"> | number | null
@@ -399,8 +387,7 @@ export type UnitScalarWhereWithAggregatesInput = {
 
 export type UnitCreateInput = {
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -418,8 +405,7 @@ export type UnitCreateInput = {
 export type UnitUncheckedCreateInput = {
   id?: number
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -436,8 +422,7 @@ export type UnitUncheckedCreateInput = {
 
 export type UnitUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -455,8 +440,7 @@ export type UnitUpdateInput = {
 export type UnitUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -474,8 +458,7 @@ export type UnitUncheckedUpdateInput = {
 export type UnitCreateManyInput = {
   id?: number
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -490,8 +473,7 @@ export type UnitCreateManyInput = {
 
 export type UnitUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -505,8 +487,7 @@ export type UnitUpdateManyMutationInput = {
 export type UnitUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -533,7 +514,6 @@ export type UnitCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   display_name?: Prisma.SortOrder
-  symbol?: Prisma.SortOrder
   category?: Prisma.SortOrder
   is_base?: Prisma.SortOrder
   scale_to_base?: Prisma.SortOrder
@@ -558,7 +538,6 @@ export type UnitMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   display_name?: Prisma.SortOrder
-  symbol?: Prisma.SortOrder
   category?: Prisma.SortOrder
   is_base?: Prisma.SortOrder
   scale_to_base?: Prisma.SortOrder
@@ -575,7 +554,6 @@ export type UnitMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   display_name?: Prisma.SortOrder
-  symbol?: Prisma.SortOrder
   category?: Prisma.SortOrder
   is_base?: Prisma.SortOrder
   scale_to_base?: Prisma.SortOrder
@@ -735,8 +713,7 @@ export type UnitUpdateOneWithoutGear_specs__source_unitNestedInput = {
 
 export type UnitCreateWithoutCreated_byInput = {
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -753,8 +730,7 @@ export type UnitCreateWithoutCreated_byInput = {
 export type UnitUncheckedCreateWithoutCreated_byInput = {
   id?: number
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -780,8 +756,7 @@ export type UnitCreateManyCreated_byInputEnvelope = {
 
 export type UnitCreateWithoutUpdated_byInput = {
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -798,8 +773,7 @@ export type UnitCreateWithoutUpdated_byInput = {
 export type UnitUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -845,8 +819,7 @@ export type UnitScalarWhereInput = {
   NOT?: Prisma.UnitScalarWhereInput | Prisma.UnitScalarWhereInput[]
   id?: Prisma.IntFilter<"Unit"> | number
   name?: Prisma.StringFilter<"Unit"> | string
-  display_name?: Prisma.StringFilter<"Unit"> | string
-  symbol?: Prisma.StringNullableFilter<"Unit"> | string | null
+  display_name?: Prisma.StringNullableFilter<"Unit"> | string | null
   category?: Prisma.EnumUnitCategoryFilter<"Unit"> | $Enums.UnitCategory
   is_base?: Prisma.BoolFilter<"Unit"> | boolean
   scale_to_base?: Prisma.FloatNullableFilter<"Unit"> | number | null
@@ -877,8 +850,7 @@ export type UnitUpdateManyWithWhereWithoutUpdated_byInput = {
 
 export type UnitCreateWithoutGear_specs_definition__default_unitInput = {
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -895,8 +867,7 @@ export type UnitCreateWithoutGear_specs_definition__default_unitInput = {
 export type UnitUncheckedCreateWithoutGear_specs_definition__default_unitInput = {
   id?: number
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -928,8 +899,7 @@ export type UnitUpdateToOneWithWhereWithoutGear_specs_definition__default_unitIn
 
 export type UnitUpdateWithoutGear_specs_definition__default_unitInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -946,8 +916,7 @@ export type UnitUpdateWithoutGear_specs_definition__default_unitInput = {
 export type UnitUncheckedUpdateWithoutGear_specs_definition__default_unitInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -963,8 +932,7 @@ export type UnitUncheckedUpdateWithoutGear_specs_definition__default_unitInput =
 
 export type UnitCreateWithoutGear_specs__source_unitInput = {
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -981,8 +949,7 @@ export type UnitCreateWithoutGear_specs__source_unitInput = {
 export type UnitUncheckedCreateWithoutGear_specs__source_unitInput = {
   id?: number
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -1014,8 +981,7 @@ export type UnitUpdateToOneWithWhereWithoutGear_specs__source_unitInput = {
 
 export type UnitUpdateWithoutGear_specs__source_unitInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1032,8 +998,7 @@ export type UnitUpdateWithoutGear_specs__source_unitInput = {
 export type UnitUncheckedUpdateWithoutGear_specs__source_unitInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1050,8 +1015,7 @@ export type UnitUncheckedUpdateWithoutGear_specs__source_unitInput = {
 export type UnitCreateManyCreated_byInput = {
   id?: number
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -1066,8 +1030,7 @@ export type UnitCreateManyCreated_byInput = {
 export type UnitCreateManyUpdated_byInput = {
   id?: number
   name: string
-  display_name: string
-  symbol?: string | null
+  display_name?: string | null
   category: $Enums.UnitCategory
   is_base?: boolean
   scale_to_base?: number | null
@@ -1081,8 +1044,7 @@ export type UnitCreateManyUpdated_byInput = {
 
 export type UnitUpdateWithoutCreated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1099,8 +1061,7 @@ export type UnitUpdateWithoutCreated_byInput = {
 export type UnitUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1117,8 +1078,7 @@ export type UnitUncheckedUpdateWithoutCreated_byInput = {
 export type UnitUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1132,8 +1092,7 @@ export type UnitUncheckedUpdateManyWithoutCreated_byInput = {
 
 export type UnitUpdateWithoutUpdated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1150,8 +1109,7 @@ export type UnitUpdateWithoutUpdated_byInput = {
 export type UnitUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1168,8 +1126,7 @@ export type UnitUncheckedUpdateWithoutUpdated_byInput = {
 export type UnitUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  display_name?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  display_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   category?: Prisma.EnumUnitCategoryFieldUpdateOperationsInput | $Enums.UnitCategory
   is_base?: Prisma.BoolFieldUpdateOperationsInput | boolean
   scale_to_base?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1225,7 +1182,6 @@ export type UnitSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   id?: boolean
   name?: boolean
   display_name?: boolean
-  symbol?: boolean
   category?: boolean
   is_base?: boolean
   scale_to_base?: boolean
@@ -1247,7 +1203,6 @@ export type UnitSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   name?: boolean
   display_name?: boolean
-  symbol?: boolean
   category?: boolean
   is_base?: boolean
   scale_to_base?: boolean
@@ -1266,7 +1221,6 @@ export type UnitSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   name?: boolean
   display_name?: boolean
-  symbol?: boolean
   category?: boolean
   is_base?: boolean
   scale_to_base?: boolean
@@ -1285,7 +1239,6 @@ export type UnitSelectScalar = {
   id?: boolean
   name?: boolean
   display_name?: boolean
-  symbol?: boolean
   category?: boolean
   is_base?: boolean
   scale_to_base?: boolean
@@ -1298,7 +1251,7 @@ export type UnitSelectScalar = {
   updated_by_id?: boolean
 }
 
-export type UnitOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "display_name" | "symbol" | "category" | "is_base" | "scale_to_base" | "offset_to_base" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["unit"]>
+export type UnitOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "display_name" | "category" | "is_base" | "scale_to_base" | "offset_to_base" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["unit"]>
 export type UnitInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1326,8 +1279,7 @@ export type $UnitPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
-    display_name: string
-    symbol: string | null
+    display_name: string | null
     category: $Enums.UnitCategory
     is_base: boolean
     scale_to_base: number | null
@@ -1768,7 +1720,6 @@ export interface UnitFieldRefs {
   readonly id: Prisma.FieldRef<"Unit", 'Int'>
   readonly name: Prisma.FieldRef<"Unit", 'String'>
   readonly display_name: Prisma.FieldRef<"Unit", 'String'>
-  readonly symbol: Prisma.FieldRef<"Unit", 'String'>
   readonly category: Prisma.FieldRef<"Unit", 'UnitCategory'>
   readonly is_base: Prisma.FieldRef<"Unit", 'Boolean'>
   readonly scale_to_base: Prisma.FieldRef<"Unit", 'Float'>

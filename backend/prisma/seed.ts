@@ -4,6 +4,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../src/generated/prisma/client"
 
 import { seedAccessControl } from "./seeds/00.access-control.seed";
+import { seedCommon } from "./seeds/10.common.seed";
 
 const connectionString = `${process.env.DATABASE_URL}`;
 const pool = new Pool({ connectionString });
@@ -11,6 +12,7 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 async function main() {
     await seedAccessControl()
+    await seedCommon()
 }
 main()
   .then(async () => {

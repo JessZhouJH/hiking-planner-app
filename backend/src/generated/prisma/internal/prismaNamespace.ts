@@ -408,11 +408,13 @@ export const ModelName = {
   Unit: 'Unit',
   Brand: 'Brand',
   GearType: 'GearType',
+  GearTag: 'GearTag',
   GearSpecsDefinition: 'GearSpecsDefinition',
   Gear: 'Gear',
   GearSpecs: 'GearSpecs',
   GearFeature: 'GearFeature',
   GearVariant: 'GearVariant',
+  GearTagRelation: 'GearTagRelation',
   GearPack: 'GearPack',
   GearPackTemplate: 'GearPackTemplate',
   GearPackComponent: 'GearPackComponent',
@@ -485,7 +487,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "role" | "permission" | "userRole" | "rolePermission" | "alias" | "mediaArchive" | "attachment" | "unit" | "brand" | "gearType" | "gearSpecsDefinition" | "gear" | "gearSpecs" | "gearFeature" | "gearVariant" | "gearPack" | "gearPackTemplate" | "gearPackComponent" | "challenge" | "challengeGearRequirement" | "difficultySystem" | "difficultyMapping" | "trail" | "trailChallenge" | "trailCalendar" | "trailSource" | "trailGearRequirement" | "trailDifficulty" | "trailFacility" | "trailUse" | "trailProfile" | "trailProfileUse" | "accessPoint" | "accessPointCalendar" | "trailAccessPointRelation" | "trailGeometry" | "trailSegmentation" | "trailSegmentRelation" | "transportService" | "transportServiceCalendar" | "transportServiceStop" | "trailTransportService" | "mealPack" | "mealItem" | "mealPackItem" | "userTrail" | "userTrailCompletion" | "userGear" | "userGearPack" | "userGearPackItem" | "userPersonalArchive" | "userFeedback" | "userStickyNotes" | "userIdeaCapture" | "trip" | "tripAccommodation" | "tripGearList" | "tripMealPack" | "tripMealPackItem" | "tripTrail" | "tripTransport" | "criticalEvent" | "tripChecklist" | "tripChecklistItem" | "collection" | "collectionItem" | "userProposal" | "communityPublication" | "communityPublicationItem" | "communityPublicationAttachment" | "recordAction" | "contentReviewHistory"
+    modelProps: "user" | "role" | "permission" | "userRole" | "rolePermission" | "alias" | "mediaArchive" | "attachment" | "unit" | "brand" | "gearType" | "gearTag" | "gearSpecsDefinition" | "gear" | "gearSpecs" | "gearFeature" | "gearVariant" | "gearTagRelation" | "gearPack" | "gearPackTemplate" | "gearPackComponent" | "challenge" | "challengeGearRequirement" | "difficultySystem" | "difficultyMapping" | "trail" | "trailChallenge" | "trailCalendar" | "trailSource" | "trailGearRequirement" | "trailDifficulty" | "trailFacility" | "trailUse" | "trailProfile" | "trailProfileUse" | "accessPoint" | "accessPointCalendar" | "trailAccessPointRelation" | "trailGeometry" | "trailSegmentation" | "trailSegmentRelation" | "transportService" | "transportServiceCalendar" | "transportServiceStop" | "trailTransportService" | "mealPack" | "mealItem" | "mealPackItem" | "userTrail" | "userTrailCompletion" | "userGear" | "userGearPack" | "userGearPackItem" | "userPersonalArchive" | "userFeedback" | "userStickyNotes" | "userIdeaCapture" | "trip" | "tripAccommodation" | "tripGearList" | "tripMealPack" | "tripMealPackItem" | "tripTrail" | "tripTransport" | "criticalEvent" | "tripChecklist" | "tripChecklistItem" | "collection" | "collectionItem" | "userProposal" | "communityPublication" | "communityPublicationItem" | "communityPublicationAttachment" | "recordAction" | "contentReviewHistory"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1303,6 +1305,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    GearTag: {
+      payload: Prisma.$GearTagPayload<ExtArgs>
+      fields: Prisma.GearTagFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GearTagFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GearTagFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+        }
+        findFirst: {
+          args: Prisma.GearTagFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GearTagFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+        }
+        findMany: {
+          args: Prisma.GearTagFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>[]
+        }
+        create: {
+          args: Prisma.GearTagCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+        }
+        createMany: {
+          args: Prisma.GearTagCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GearTagCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>[]
+        }
+        delete: {
+          args: Prisma.GearTagDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+        }
+        update: {
+          args: Prisma.GearTagUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+        }
+        deleteMany: {
+          args: Prisma.GearTagDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GearTagUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GearTagUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>[]
+        }
+        upsert: {
+          args: Prisma.GearTagUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+        }
+        aggregate: {
+          args: Prisma.GearTagAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGearTag>
+        }
+        groupBy: {
+          args: Prisma.GearTagGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GearTagGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GearTagCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GearTagCountAggregateOutputType> | number
+        }
+      }
+    }
     GearSpecsDefinition: {
       payload: Prisma.$GearSpecsDefinitionPayload<ExtArgs>
       fields: Prisma.GearSpecsDefinitionFieldRefs
@@ -1670,6 +1746,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.GearVariantCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.GearVariantCountAggregateOutputType> | number
+        }
+      }
+    }
+    GearTagRelation: {
+      payload: Prisma.$GearTagRelationPayload<ExtArgs>
+      fields: Prisma.GearTagRelationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GearTagRelationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GearTagRelationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>
+        }
+        findFirst: {
+          args: Prisma.GearTagRelationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GearTagRelationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>
+        }
+        findMany: {
+          args: Prisma.GearTagRelationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>[]
+        }
+        create: {
+          args: Prisma.GearTagRelationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>
+        }
+        createMany: {
+          args: Prisma.GearTagRelationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GearTagRelationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>[]
+        }
+        delete: {
+          args: Prisma.GearTagRelationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>
+        }
+        update: {
+          args: Prisma.GearTagRelationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>
+        }
+        deleteMany: {
+          args: Prisma.GearTagRelationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GearTagRelationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GearTagRelationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>[]
+        }
+        upsert: {
+          args: Prisma.GearTagRelationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagRelationPayload>
+        }
+        aggregate: {
+          args: Prisma.GearTagRelationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGearTagRelation>
+        }
+        groupBy: {
+          args: Prisma.GearTagRelationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GearTagRelationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GearTagRelationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GearTagRelationCountAggregateOutputType> | number
         }
       }
     }
@@ -6066,7 +6216,6 @@ export const UnitScalarFieldEnum = {
   id: 'id',
   name: 'name',
   display_name: 'display_name',
-  symbol: 'symbol',
   category: 'category',
   is_base: 'is_base',
   scale_to_base: 'scale_to_base',
@@ -6100,6 +6249,7 @@ export type BrandScalarFieldEnum = (typeof BrandScalarFieldEnum)[keyof typeof Br
 export const GearTypeScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  parent_gear_type_id: 'parent_gear_type_id',
   status: 'status',
   notes: 'notes',
   created_at: 'created_at',
@@ -6109,6 +6259,20 @@ export const GearTypeScalarFieldEnum = {
 } as const
 
 export type GearTypeScalarFieldEnum = (typeof GearTypeScalarFieldEnum)[keyof typeof GearTypeScalarFieldEnum]
+
+
+export const GearTagScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearTagScalarFieldEnum = (typeof GearTagScalarFieldEnum)[keyof typeof GearTagScalarFieldEnum]
 
 
 export const GearSpecsDefinitionScalarFieldEnum = {
@@ -6206,6 +6370,21 @@ export const GearVariantScalarFieldEnum = {
 } as const
 
 export type GearVariantScalarFieldEnum = (typeof GearVariantScalarFieldEnum)[keyof typeof GearVariantScalarFieldEnum]
+
+
+export const GearTagRelationScalarFieldEnum = {
+  id: 'id',
+  gear_id: 'gear_id',
+  gear_tag_id: 'gear_tag_id',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type GearTagRelationScalarFieldEnum = (typeof GearTagRelationScalarFieldEnum)[keyof typeof GearTagRelationScalarFieldEnum]
 
 
 export const GearPackScalarFieldEnum = {
@@ -8364,11 +8543,13 @@ export type GlobalOmitConfig = {
   unit?: Prisma.UnitOmit
   brand?: Prisma.BrandOmit
   gearType?: Prisma.GearTypeOmit
+  gearTag?: Prisma.GearTagOmit
   gearSpecsDefinition?: Prisma.GearSpecsDefinitionOmit
   gear?: Prisma.GearOmit
   gearSpecs?: Prisma.GearSpecsOmit
   gearFeature?: Prisma.GearFeatureOmit
   gearVariant?: Prisma.GearVariantOmit
+  gearTagRelation?: Prisma.GearTagRelationOmit
   gearPack?: Prisma.GearPackOmit
   gearPackTemplate?: Prisma.GearPackTemplateOmit
   gearPackComponent?: Prisma.GearPackComponentOmit
