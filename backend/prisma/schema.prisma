@@ -21,6 +21,12 @@ enum Status {
   ARCHIVED
 }
 
+enum Roles {
+  ADMIN
+  MODERATOR
+  USER
+}
+
 enum RBACStatus {
   ACTIVE
   ARCHIVED
@@ -1270,7 +1276,7 @@ model GearPackTemplate {
 
 model GearPackComponent {
   id Int @id @default(autoincrement())
-  gear_pack_template_id  Int
+  gear_pack_template_id Int
   gear_type_id Int?
   gear_description String?
   
