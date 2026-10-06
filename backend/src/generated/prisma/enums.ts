@@ -708,3 +708,12 @@ export const ChecklistItemType = {
 } as const
 
 export type ChecklistItemType = (typeof ChecklistItemType)[keyof typeof ChecklistItemType]
+
+
+export const DescribingTargetType = {
+  GEAR: 'GEAR',
+  TRAIL: 'TRAIL',
+  GEAR_AND_TRAIL: 'GEAR_AND_TRAIL'
+} as const
+
+export type DescribingTargetType = (typeof DescribingTargetType)[keyof typeof DescribingTargetType]

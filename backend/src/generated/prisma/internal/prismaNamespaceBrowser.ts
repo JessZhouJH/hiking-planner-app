@@ -60,11 +60,16 @@ export const ModelName = {
   MediaArchive: 'MediaArchive',
   Attachment: 'Attachment',
   Unit: 'Unit',
+  Tag: 'Tag',
+  TagGroup: 'TagGroup',
+  TagRelation: 'TagRelation',
+  TagGroupRelation: 'TagGroupRelation',
   Brand: 'Brand',
   GearType: 'GearType',
-  GearTag: 'GearTag',
+  GearTypeRelation: 'GearTypeRelation',
   GearSpecsDefinition: 'GearSpecsDefinition',
   Gear: 'Gear',
+  DescriptiveGear: 'DescriptiveGear',
   GearSpecs: 'GearSpecs',
   GearFeature: 'GearFeature',
   GearVariant: 'GearVariant',
@@ -77,6 +82,7 @@ export const ModelName = {
   DifficultySystem: 'DifficultySystem',
   DifficultyMapping: 'DifficultyMapping',
   Trail: 'Trail',
+  TrailTagRelation: 'TrailTagRelation',
   TrailChallenge: 'TrailChallenge',
   TrailCalendar: 'TrailCalendar',
   TrailSource: 'TrailSource',
@@ -295,6 +301,67 @@ export const UnitScalarFieldEnum = {
 export type UnitScalarFieldEnum = (typeof UnitScalarFieldEnum)[keyof typeof UnitScalarFieldEnum]
 
 
+export const TagScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  describe_target_type: 'describe_target_type',
+  merged_into_tag_id: 'merged_into_tag_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
+
+
+export const TagGroupScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  merged_into_tag_group_id: 'merged_into_tag_group_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TagGroupScalarFieldEnum = (typeof TagGroupScalarFieldEnum)[keyof typeof TagGroupScalarFieldEnum]
+
+
+export const TagRelationScalarFieldEnum = {
+  id: 'id',
+  parent_tag_id: 'parent_tag_id',
+  child_tag_id: 'child_tag_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TagRelationScalarFieldEnum = (typeof TagRelationScalarFieldEnum)[keyof typeof TagRelationScalarFieldEnum]
+
+
+export const TagGroupRelationScalarFieldEnum = {
+  id: 'id',
+  tag_id: 'tag_id',
+  tag_group_id: 'tag_group_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TagGroupRelationScalarFieldEnum = (typeof TagGroupRelationScalarFieldEnum)[keyof typeof TagGroupRelationScalarFieldEnum]
+
+
 export const BrandScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -325,9 +392,10 @@ export const GearTypeScalarFieldEnum = {
 export type GearTypeScalarFieldEnum = (typeof GearTypeScalarFieldEnum)[keyof typeof GearTypeScalarFieldEnum]
 
 
-export const GearTagScalarFieldEnum = {
+export const GearTypeRelationScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  parent_gear_type_id: 'parent_gear_type_id',
+  child_gear_type_id: 'child_gear_type_id',
   status: 'status',
   notes: 'notes',
   created_at: 'created_at',
@@ -336,7 +404,7 @@ export const GearTagScalarFieldEnum = {
   updated_by_id: 'updated_by_id'
 } as const
 
-export type GearTagScalarFieldEnum = (typeof GearTagScalarFieldEnum)[keyof typeof GearTagScalarFieldEnum]
+export type GearTypeRelationScalarFieldEnum = (typeof GearTypeRelationScalarFieldEnum)[keyof typeof GearTypeRelationScalarFieldEnum]
 
 
 export const GearSpecsDefinitionScalarFieldEnum = {
@@ -378,6 +446,22 @@ export const GearScalarFieldEnum = {
 } as const
 
 export type GearScalarFieldEnum = (typeof GearScalarFieldEnum)[keyof typeof GearScalarFieldEnum]
+
+
+export const DescriptiveGearScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type DescriptiveGearScalarFieldEnum = (typeof DescriptiveGearScalarFieldEnum)[keyof typeof DescriptiveGearScalarFieldEnum]
 
 
 export const GearSpecsScalarFieldEnum = {
@@ -439,9 +523,9 @@ export type GearVariantScalarFieldEnum = (typeof GearVariantScalarFieldEnum)[key
 export const GearTagRelationScalarFieldEnum = {
   id: 'id',
   gear_id: 'gear_id',
-  gear_tag_id: 'gear_tag_id',
-  status: 'status',
+  tag_id: 'tag_id',
   notes: 'notes',
+  status: 'status',
   created_at: 'created_at',
   created_by_id: 'created_by_id',
   updated_at: 'updated_at',
@@ -603,6 +687,21 @@ export const TrailScalarFieldEnum = {
 } as const
 
 export type TrailScalarFieldEnum = (typeof TrailScalarFieldEnum)[keyof typeof TrailScalarFieldEnum]
+
+
+export const TrailTagRelationScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  tag_id: 'tag_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TrailTagRelationScalarFieldEnum = (typeof TrailTagRelationScalarFieldEnum)[keyof typeof TrailTagRelationScalarFieldEnum]
 
 
 export const TrailChallengeScalarFieldEnum = {

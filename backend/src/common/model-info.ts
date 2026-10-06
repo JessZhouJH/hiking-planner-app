@@ -21,6 +21,7 @@ export const VERIFY_MODEL_NAMES: string[] = [
 
     'Gear',
     'GearPack',
+    'DescriptiveGear',
 
     'Challenge',
     'Trail',
@@ -61,12 +62,19 @@ export const COMMON_MODULE_MODELS = [
     'MediaArchive',
     'Attachment',
     'Unit',
+    'Tag',
+    'TagRelation',
+    'TagGroup',
+    'TagGroupRelation',
 ]
 export const GEAR_MODULE_MODELS = [
     'Brand',
     'GearType',
+    'GearTypeRelation',
     'GearSpecsDefinition',
     'Gear',
+    'DescriptiveGear',
+    'GearTagRelation',
     'GearSpecs',
     'GearFeature',
     'GearVariant',
@@ -80,6 +88,7 @@ export const TRAIL_MODULE_MODELS = [
     'DifficultySystem',
     'DifficultyMapping',
     'Trail',
+    'TrailTagRelation',
     'TrailChallenge',
     'TrailCalendar',
     'TrailSource',

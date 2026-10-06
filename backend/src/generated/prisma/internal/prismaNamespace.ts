@@ -406,11 +406,16 @@ export const ModelName = {
   MediaArchive: 'MediaArchive',
   Attachment: 'Attachment',
   Unit: 'Unit',
+  Tag: 'Tag',
+  TagGroup: 'TagGroup',
+  TagRelation: 'TagRelation',
+  TagGroupRelation: 'TagGroupRelation',
   Brand: 'Brand',
   GearType: 'GearType',
-  GearTag: 'GearTag',
+  GearTypeRelation: 'GearTypeRelation',
   GearSpecsDefinition: 'GearSpecsDefinition',
   Gear: 'Gear',
+  DescriptiveGear: 'DescriptiveGear',
   GearSpecs: 'GearSpecs',
   GearFeature: 'GearFeature',
   GearVariant: 'GearVariant',
@@ -423,6 +428,7 @@ export const ModelName = {
   DifficultySystem: 'DifficultySystem',
   DifficultyMapping: 'DifficultyMapping',
   Trail: 'Trail',
+  TrailTagRelation: 'TrailTagRelation',
   TrailChallenge: 'TrailChallenge',
   TrailCalendar: 'TrailCalendar',
   TrailSource: 'TrailSource',
@@ -487,7 +493,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "role" | "permission" | "userRole" | "rolePermission" | "alias" | "mediaArchive" | "attachment" | "unit" | "brand" | "gearType" | "gearTag" | "gearSpecsDefinition" | "gear" | "gearSpecs" | "gearFeature" | "gearVariant" | "gearTagRelation" | "gearPack" | "gearPackTemplate" | "gearPackComponent" | "challenge" | "challengeGearRequirement" | "difficultySystem" | "difficultyMapping" | "trail" | "trailChallenge" | "trailCalendar" | "trailSource" | "trailGearRequirement" | "trailDifficulty" | "trailFacility" | "trailUse" | "trailProfile" | "trailProfileUse" | "accessPoint" | "accessPointCalendar" | "trailAccessPointRelation" | "trailGeometry" | "trailSegmentation" | "trailSegmentRelation" | "transportService" | "transportServiceCalendar" | "transportServiceStop" | "trailTransportService" | "mealPack" | "mealItem" | "mealPackItem" | "userTrail" | "userTrailCompletion" | "userGear" | "userGearPack" | "userGearPackItem" | "userPersonalArchive" | "userFeedback" | "userStickyNotes" | "userIdeaCapture" | "trip" | "tripAccommodation" | "tripGearList" | "tripMealPack" | "tripMealPackItem" | "tripTrail" | "tripTransport" | "criticalEvent" | "tripChecklist" | "tripChecklistItem" | "collection" | "collectionItem" | "userProposal" | "communityPublication" | "communityPublicationItem" | "communityPublicationAttachment" | "recordAction" | "contentReviewHistory"
+    modelProps: "user" | "role" | "permission" | "userRole" | "rolePermission" | "alias" | "mediaArchive" | "attachment" | "unit" | "tag" | "tagGroup" | "tagRelation" | "tagGroupRelation" | "brand" | "gearType" | "gearTypeRelation" | "gearSpecsDefinition" | "gear" | "descriptiveGear" | "gearSpecs" | "gearFeature" | "gearVariant" | "gearTagRelation" | "gearPack" | "gearPackTemplate" | "gearPackComponent" | "challenge" | "challengeGearRequirement" | "difficultySystem" | "difficultyMapping" | "trail" | "trailTagRelation" | "trailChallenge" | "trailCalendar" | "trailSource" | "trailGearRequirement" | "trailDifficulty" | "trailFacility" | "trailUse" | "trailProfile" | "trailProfileUse" | "accessPoint" | "accessPointCalendar" | "trailAccessPointRelation" | "trailGeometry" | "trailSegmentation" | "trailSegmentRelation" | "transportService" | "transportServiceCalendar" | "transportServiceStop" | "trailTransportService" | "mealPack" | "mealItem" | "mealPackItem" | "userTrail" | "userTrailCompletion" | "userGear" | "userGearPack" | "userGearPackItem" | "userPersonalArchive" | "userFeedback" | "userStickyNotes" | "userIdeaCapture" | "trip" | "tripAccommodation" | "tripGearList" | "tripMealPack" | "tripMealPackItem" | "tripTrail" | "tripTransport" | "criticalEvent" | "tripChecklist" | "tripChecklistItem" | "collection" | "collectionItem" | "userProposal" | "communityPublication" | "communityPublicationItem" | "communityPublicationAttachment" | "recordAction" | "contentReviewHistory"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1157,6 +1163,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Tag: {
+      payload: Prisma.$TagPayload<ExtArgs>
+      fields: Prisma.TagFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TagFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TagFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
+        }
+        findFirst: {
+          args: Prisma.TagFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TagFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
+        }
+        findMany: {
+          args: Prisma.TagFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>[]
+        }
+        create: {
+          args: Prisma.TagCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
+        }
+        createMany: {
+          args: Prisma.TagCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TagCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>[]
+        }
+        delete: {
+          args: Prisma.TagDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
+        }
+        update: {
+          args: Prisma.TagUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
+        }
+        deleteMany: {
+          args: Prisma.TagDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TagUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TagUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>[]
+        }
+        upsert: {
+          args: Prisma.TagUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
+        }
+        aggregate: {
+          args: Prisma.TagAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTag>
+        }
+        groupBy: {
+          args: Prisma.TagGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TagCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagCountAggregateOutputType> | number
+        }
+      }
+    }
+    TagGroup: {
+      payload: Prisma.$TagGroupPayload<ExtArgs>
+      fields: Prisma.TagGroupFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TagGroupFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TagGroupFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>
+        }
+        findFirst: {
+          args: Prisma.TagGroupFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TagGroupFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>
+        }
+        findMany: {
+          args: Prisma.TagGroupFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>[]
+        }
+        create: {
+          args: Prisma.TagGroupCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>
+        }
+        createMany: {
+          args: Prisma.TagGroupCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TagGroupCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>[]
+        }
+        delete: {
+          args: Prisma.TagGroupDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>
+        }
+        update: {
+          args: Prisma.TagGroupUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>
+        }
+        deleteMany: {
+          args: Prisma.TagGroupDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TagGroupUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TagGroupUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>[]
+        }
+        upsert: {
+          args: Prisma.TagGroupUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupPayload>
+        }
+        aggregate: {
+          args: Prisma.TagGroupAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTagGroup>
+        }
+        groupBy: {
+          args: Prisma.TagGroupGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagGroupGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TagGroupCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagGroupCountAggregateOutputType> | number
+        }
+      }
+    }
+    TagRelation: {
+      payload: Prisma.$TagRelationPayload<ExtArgs>
+      fields: Prisma.TagRelationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TagRelationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TagRelationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>
+        }
+        findFirst: {
+          args: Prisma.TagRelationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TagRelationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>
+        }
+        findMany: {
+          args: Prisma.TagRelationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>[]
+        }
+        create: {
+          args: Prisma.TagRelationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>
+        }
+        createMany: {
+          args: Prisma.TagRelationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TagRelationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>[]
+        }
+        delete: {
+          args: Prisma.TagRelationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>
+        }
+        update: {
+          args: Prisma.TagRelationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>
+        }
+        deleteMany: {
+          args: Prisma.TagRelationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TagRelationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TagRelationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>[]
+        }
+        upsert: {
+          args: Prisma.TagRelationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagRelationPayload>
+        }
+        aggregate: {
+          args: Prisma.TagRelationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTagRelation>
+        }
+        groupBy: {
+          args: Prisma.TagRelationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagRelationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TagRelationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagRelationCountAggregateOutputType> | number
+        }
+      }
+    }
+    TagGroupRelation: {
+      payload: Prisma.$TagGroupRelationPayload<ExtArgs>
+      fields: Prisma.TagGroupRelationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TagGroupRelationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TagGroupRelationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>
+        }
+        findFirst: {
+          args: Prisma.TagGroupRelationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TagGroupRelationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>
+        }
+        findMany: {
+          args: Prisma.TagGroupRelationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>[]
+        }
+        create: {
+          args: Prisma.TagGroupRelationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>
+        }
+        createMany: {
+          args: Prisma.TagGroupRelationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TagGroupRelationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>[]
+        }
+        delete: {
+          args: Prisma.TagGroupRelationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>
+        }
+        update: {
+          args: Prisma.TagGroupRelationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>
+        }
+        deleteMany: {
+          args: Prisma.TagGroupRelationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TagGroupRelationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TagGroupRelationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>[]
+        }
+        upsert: {
+          args: Prisma.TagGroupRelationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagGroupRelationPayload>
+        }
+        aggregate: {
+          args: Prisma.TagGroupRelationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTagGroupRelation>
+        }
+        groupBy: {
+          args: Prisma.TagGroupRelationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagGroupRelationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TagGroupRelationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagGroupRelationCountAggregateOutputType> | number
+        }
+      }
+    }
     Brand: {
       payload: Prisma.$BrandPayload<ExtArgs>
       fields: Prisma.BrandFieldRefs
@@ -1305,77 +1607,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    GearTag: {
-      payload: Prisma.$GearTagPayload<ExtArgs>
-      fields: Prisma.GearTagFieldRefs
+    GearTypeRelation: {
+      payload: Prisma.$GearTypeRelationPayload<ExtArgs>
+      fields: Prisma.GearTypeRelationFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.GearTagFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload> | null
+          args: Prisma.GearTypeRelationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.GearTagFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+          args: Prisma.GearTypeRelationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>
         }
         findFirst: {
-          args: Prisma.GearTagFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload> | null
+          args: Prisma.GearTypeRelationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.GearTagFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+          args: Prisma.GearTypeRelationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>
         }
         findMany: {
-          args: Prisma.GearTagFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>[]
+          args: Prisma.GearTypeRelationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>[]
         }
         create: {
-          args: Prisma.GearTagCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+          args: Prisma.GearTypeRelationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>
         }
         createMany: {
-          args: Prisma.GearTagCreateManyArgs<ExtArgs>
+          args: Prisma.GearTypeRelationCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.GearTagCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>[]
+          args: Prisma.GearTypeRelationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>[]
         }
         delete: {
-          args: Prisma.GearTagDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+          args: Prisma.GearTypeRelationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>
         }
         update: {
-          args: Prisma.GearTagUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+          args: Prisma.GearTypeRelationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>
         }
         deleteMany: {
-          args: Prisma.GearTagDeleteManyArgs<ExtArgs>
+          args: Prisma.GearTypeRelationDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.GearTagUpdateManyArgs<ExtArgs>
+          args: Prisma.GearTypeRelationUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.GearTagUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>[]
+          args: Prisma.GearTypeRelationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>[]
         }
         upsert: {
-          args: Prisma.GearTagUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTagPayload>
+          args: Prisma.GearTypeRelationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearTypeRelationPayload>
         }
         aggregate: {
-          args: Prisma.GearTagAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateGearTag>
+          args: Prisma.GearTypeRelationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGearTypeRelation>
         }
         groupBy: {
-          args: Prisma.GearTagGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.GearTagGroupByOutputType>[]
+          args: Prisma.GearTypeRelationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GearTypeRelationGroupByOutputType>[]
         }
         count: {
-          args: Prisma.GearTagCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.GearTagCountAggregateOutputType> | number
+          args: Prisma.GearTypeRelationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GearTypeRelationCountAggregateOutputType> | number
         }
       }
     }
@@ -1524,6 +1826,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.GearCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.GearCountAggregateOutputType> | number
+        }
+      }
+    }
+    DescriptiveGear: {
+      payload: Prisma.$DescriptiveGearPayload<ExtArgs>
+      fields: Prisma.DescriptiveGearFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DescriptiveGearFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DescriptiveGearFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>
+        }
+        findFirst: {
+          args: Prisma.DescriptiveGearFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DescriptiveGearFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>
+        }
+        findMany: {
+          args: Prisma.DescriptiveGearFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>[]
+        }
+        create: {
+          args: Prisma.DescriptiveGearCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>
+        }
+        createMany: {
+          args: Prisma.DescriptiveGearCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DescriptiveGearCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>[]
+        }
+        delete: {
+          args: Prisma.DescriptiveGearDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>
+        }
+        update: {
+          args: Prisma.DescriptiveGearUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>
+        }
+        deleteMany: {
+          args: Prisma.DescriptiveGearDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DescriptiveGearUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DescriptiveGearUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>[]
+        }
+        upsert: {
+          args: Prisma.DescriptiveGearUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DescriptiveGearPayload>
+        }
+        aggregate: {
+          args: Prisma.DescriptiveGearAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDescriptiveGear>
+        }
+        groupBy: {
+          args: Prisma.DescriptiveGearGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DescriptiveGearGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DescriptiveGearCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DescriptiveGearCountAggregateOutputType> | number
         }
       }
     }
@@ -2412,6 +2788,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.TrailCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.TrailCountAggregateOutputType> | number
+        }
+      }
+    }
+    TrailTagRelation: {
+      payload: Prisma.$TrailTagRelationPayload<ExtArgs>
+      fields: Prisma.TrailTagRelationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TrailTagRelationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TrailTagRelationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>
+        }
+        findFirst: {
+          args: Prisma.TrailTagRelationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TrailTagRelationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>
+        }
+        findMany: {
+          args: Prisma.TrailTagRelationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>[]
+        }
+        create: {
+          args: Prisma.TrailTagRelationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>
+        }
+        createMany: {
+          args: Prisma.TrailTagRelationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TrailTagRelationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>[]
+        }
+        delete: {
+          args: Prisma.TrailTagRelationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>
+        }
+        update: {
+          args: Prisma.TrailTagRelationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>
+        }
+        deleteMany: {
+          args: Prisma.TrailTagRelationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TrailTagRelationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TrailTagRelationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>[]
+        }
+        upsert: {
+          args: Prisma.TrailTagRelationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailTagRelationPayload>
+        }
+        aggregate: {
+          args: Prisma.TrailTagRelationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTrailTagRelation>
+        }
+        groupBy: {
+          args: Prisma.TrailTagRelationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrailTagRelationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TrailTagRelationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrailTagRelationCountAggregateOutputType> | number
         }
       }
     }
@@ -6231,6 +6681,67 @@ export const UnitScalarFieldEnum = {
 export type UnitScalarFieldEnum = (typeof UnitScalarFieldEnum)[keyof typeof UnitScalarFieldEnum]
 
 
+export const TagScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  describe_target_type: 'describe_target_type',
+  merged_into_tag_id: 'merged_into_tag_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
+
+
+export const TagGroupScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  merged_into_tag_group_id: 'merged_into_tag_group_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TagGroupScalarFieldEnum = (typeof TagGroupScalarFieldEnum)[keyof typeof TagGroupScalarFieldEnum]
+
+
+export const TagRelationScalarFieldEnum = {
+  id: 'id',
+  parent_tag_id: 'parent_tag_id',
+  child_tag_id: 'child_tag_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TagRelationScalarFieldEnum = (typeof TagRelationScalarFieldEnum)[keyof typeof TagRelationScalarFieldEnum]
+
+
+export const TagGroupRelationScalarFieldEnum = {
+  id: 'id',
+  tag_id: 'tag_id',
+  tag_group_id: 'tag_group_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TagGroupRelationScalarFieldEnum = (typeof TagGroupRelationScalarFieldEnum)[keyof typeof TagGroupRelationScalarFieldEnum]
+
+
 export const BrandScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -6261,9 +6772,10 @@ export const GearTypeScalarFieldEnum = {
 export type GearTypeScalarFieldEnum = (typeof GearTypeScalarFieldEnum)[keyof typeof GearTypeScalarFieldEnum]
 
 
-export const GearTagScalarFieldEnum = {
+export const GearTypeRelationScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  parent_gear_type_id: 'parent_gear_type_id',
+  child_gear_type_id: 'child_gear_type_id',
   status: 'status',
   notes: 'notes',
   created_at: 'created_at',
@@ -6272,7 +6784,7 @@ export const GearTagScalarFieldEnum = {
   updated_by_id: 'updated_by_id'
 } as const
 
-export type GearTagScalarFieldEnum = (typeof GearTagScalarFieldEnum)[keyof typeof GearTagScalarFieldEnum]
+export type GearTypeRelationScalarFieldEnum = (typeof GearTypeRelationScalarFieldEnum)[keyof typeof GearTypeRelationScalarFieldEnum]
 
 
 export const GearSpecsDefinitionScalarFieldEnum = {
@@ -6314,6 +6826,22 @@ export const GearScalarFieldEnum = {
 } as const
 
 export type GearScalarFieldEnum = (typeof GearScalarFieldEnum)[keyof typeof GearScalarFieldEnum]
+
+
+export const DescriptiveGearScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
+  status: 'status',
+  notes: 'notes',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type DescriptiveGearScalarFieldEnum = (typeof DescriptiveGearScalarFieldEnum)[keyof typeof DescriptiveGearScalarFieldEnum]
 
 
 export const GearSpecsScalarFieldEnum = {
@@ -6375,9 +6903,9 @@ export type GearVariantScalarFieldEnum = (typeof GearVariantScalarFieldEnum)[key
 export const GearTagRelationScalarFieldEnum = {
   id: 'id',
   gear_id: 'gear_id',
-  gear_tag_id: 'gear_tag_id',
-  status: 'status',
+  tag_id: 'tag_id',
   notes: 'notes',
+  status: 'status',
   created_at: 'created_at',
   created_by_id: 'created_by_id',
   updated_at: 'updated_at',
@@ -6539,6 +7067,21 @@ export const TrailScalarFieldEnum = {
 } as const
 
 export type TrailScalarFieldEnum = (typeof TrailScalarFieldEnum)[keyof typeof TrailScalarFieldEnum]
+
+
+export const TrailTagRelationScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  tag_id: 'tag_id',
+  notes: 'notes',
+  status: 'status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id'
+} as const
+
+export type TrailTagRelationScalarFieldEnum = (typeof TrailTagRelationScalarFieldEnum)[keyof typeof TrailTagRelationScalarFieldEnum]
 
 
 export const TrailChallengeScalarFieldEnum = {
@@ -7753,6 +8296,20 @@ export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMode
 
 
 /**
+ * Reference to a field of type 'DescribingTargetType'
+ */
+export type EnumDescribingTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DescribingTargetType'>
+    
+
+
+/**
+ * Reference to a field of type 'DescribingTargetType[]'
+ */
+export type ListEnumDescribingTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DescribingTargetType[]'>
+    
+
+
+/**
  * Reference to a field of type 'ValueType'
  */
 export type EnumValueTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ValueType'>
@@ -8541,11 +9098,16 @@ export type GlobalOmitConfig = {
   mediaArchive?: Prisma.MediaArchiveOmit
   attachment?: Prisma.AttachmentOmit
   unit?: Prisma.UnitOmit
+  tag?: Prisma.TagOmit
+  tagGroup?: Prisma.TagGroupOmit
+  tagRelation?: Prisma.TagRelationOmit
+  tagGroupRelation?: Prisma.TagGroupRelationOmit
   brand?: Prisma.BrandOmit
   gearType?: Prisma.GearTypeOmit
-  gearTag?: Prisma.GearTagOmit
+  gearTypeRelation?: Prisma.GearTypeRelationOmit
   gearSpecsDefinition?: Prisma.GearSpecsDefinitionOmit
   gear?: Prisma.GearOmit
+  descriptiveGear?: Prisma.DescriptiveGearOmit
   gearSpecs?: Prisma.GearSpecsOmit
   gearFeature?: Prisma.GearFeatureOmit
   gearVariant?: Prisma.GearVariantOmit
@@ -8558,6 +9120,7 @@ export type GlobalOmitConfig = {
   difficultySystem?: Prisma.DifficultySystemOmit
   difficultyMapping?: Prisma.DifficultyMappingOmit
   trail?: Prisma.TrailOmit
+  trailTagRelation?: Prisma.TrailTagRelationOmit
   trailChallenge?: Prisma.TrailChallengeOmit
   trailCalendar?: Prisma.TrailCalendarOmit
   trailSource?: Prisma.TrailSourceOmit

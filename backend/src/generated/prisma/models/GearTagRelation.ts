@@ -29,7 +29,7 @@ export type AggregateGearTagRelation = {
 export type GearTagRelationAvgAggregateOutputType = {
   id: number | null
   gear_id: number | null
-  gear_tag_id: number | null
+  tag_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
 }
@@ -37,7 +37,7 @@ export type GearTagRelationAvgAggregateOutputType = {
 export type GearTagRelationSumAggregateOutputType = {
   id: number | null
   gear_id: number | null
-  gear_tag_id: number | null
+  tag_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
 }
@@ -45,9 +45,9 @@ export type GearTagRelationSumAggregateOutputType = {
 export type GearTagRelationMinAggregateOutputType = {
   id: number | null
   gear_id: number | null
-  gear_tag_id: number | null
-  status: $Enums.Status | null
+  tag_id: number | null
   notes: string | null
+  status: $Enums.Status | null
   created_at: Date | null
   created_by_id: number | null
   updated_at: Date | null
@@ -57,9 +57,9 @@ export type GearTagRelationMinAggregateOutputType = {
 export type GearTagRelationMaxAggregateOutputType = {
   id: number | null
   gear_id: number | null
-  gear_tag_id: number | null
-  status: $Enums.Status | null
+  tag_id: number | null
   notes: string | null
+  status: $Enums.Status | null
   created_at: Date | null
   created_by_id: number | null
   updated_at: Date | null
@@ -69,9 +69,9 @@ export type GearTagRelationMaxAggregateOutputType = {
 export type GearTagRelationCountAggregateOutputType = {
   id: number
   gear_id: number
-  gear_tag_id: number
-  status: number
+  tag_id: number
   notes: number
+  status: number
   created_at: number
   created_by_id: number
   updated_at: number
@@ -83,7 +83,7 @@ export type GearTagRelationCountAggregateOutputType = {
 export type GearTagRelationAvgAggregateInputType = {
   id?: true
   gear_id?: true
-  gear_tag_id?: true
+  tag_id?: true
   created_by_id?: true
   updated_by_id?: true
 }
@@ -91,7 +91,7 @@ export type GearTagRelationAvgAggregateInputType = {
 export type GearTagRelationSumAggregateInputType = {
   id?: true
   gear_id?: true
-  gear_tag_id?: true
+  tag_id?: true
   created_by_id?: true
   updated_by_id?: true
 }
@@ -99,9 +99,9 @@ export type GearTagRelationSumAggregateInputType = {
 export type GearTagRelationMinAggregateInputType = {
   id?: true
   gear_id?: true
-  gear_tag_id?: true
-  status?: true
+  tag_id?: true
   notes?: true
+  status?: true
   created_at?: true
   created_by_id?: true
   updated_at?: true
@@ -111,9 +111,9 @@ export type GearTagRelationMinAggregateInputType = {
 export type GearTagRelationMaxAggregateInputType = {
   id?: true
   gear_id?: true
-  gear_tag_id?: true
-  status?: true
+  tag_id?: true
   notes?: true
+  status?: true
   created_at?: true
   created_by_id?: true
   updated_at?: true
@@ -123,9 +123,9 @@ export type GearTagRelationMaxAggregateInputType = {
 export type GearTagRelationCountAggregateInputType = {
   id?: true
   gear_id?: true
-  gear_tag_id?: true
-  status?: true
+  tag_id?: true
   notes?: true
+  status?: true
   created_at?: true
   created_by_id?: true
   updated_at?: true
@@ -222,9 +222,9 @@ export type GearTagRelationGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 export type GearTagRelationGroupByOutputType = {
   id: number
   gear_id: number
-  gear_tag_id: number
-  status: $Enums.Status
+  tag_id: number
   notes: string | null
+  status: $Enums.Status
   created_at: Date
   created_by_id: number
   updated_at: Date
@@ -257,33 +257,33 @@ export type GearTagRelationWhereInput = {
   NOT?: Prisma.GearTagRelationWhereInput | Prisma.GearTagRelationWhereInput[]
   id?: Prisma.IntFilter<"GearTagRelation"> | number
   gear_id?: Prisma.IntFilter<"GearTagRelation"> | number
-  gear_tag_id?: Prisma.IntFilter<"GearTagRelation"> | number
-  status?: Prisma.EnumStatusFilter<"GearTagRelation"> | $Enums.Status
+  tag_id?: Prisma.IntFilter<"GearTagRelation"> | number
   notes?: Prisma.StringNullableFilter<"GearTagRelation"> | string | null
+  status?: Prisma.EnumStatusFilter<"GearTagRelation"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"GearTagRelation"> | Date | string
   created_by_id?: Prisma.IntFilter<"GearTagRelation"> | number
   updated_at?: Prisma.DateTimeFilter<"GearTagRelation"> | Date | string
   updated_by_id?: Prisma.IntFilter<"GearTagRelation"> | number
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  gear_tag?: Prisma.XOR<Prisma.GearTagScalarRelationFilter, Prisma.GearTagWhereInput>
   gear?: Prisma.XOR<Prisma.GearScalarRelationFilter, Prisma.GearWhereInput>
+  tag?: Prisma.XOR<Prisma.TagScalarRelationFilter, Prisma.TagWhereInput>
 }
 
 export type GearTagRelationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   gear_id?: Prisma.SortOrder
-  gear_tag_id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   created_by?: Prisma.UserOrderByWithRelationInput
   updated_by?: Prisma.UserOrderByWithRelationInput
-  gear_tag?: Prisma.GearTagOrderByWithRelationInput
   gear?: Prisma.GearOrderByWithRelationInput
+  tag?: Prisma.TagOrderByWithRelationInput
 }
 
 export type GearTagRelationWhereUniqueInput = Prisma.AtLeast<{
@@ -292,25 +292,25 @@ export type GearTagRelationWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.GearTagRelationWhereInput[]
   NOT?: Prisma.GearTagRelationWhereInput | Prisma.GearTagRelationWhereInput[]
   gear_id?: Prisma.IntFilter<"GearTagRelation"> | number
-  gear_tag_id?: Prisma.IntFilter<"GearTagRelation"> | number
-  status?: Prisma.EnumStatusFilter<"GearTagRelation"> | $Enums.Status
+  tag_id?: Prisma.IntFilter<"GearTagRelation"> | number
   notes?: Prisma.StringNullableFilter<"GearTagRelation"> | string | null
+  status?: Prisma.EnumStatusFilter<"GearTagRelation"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"GearTagRelation"> | Date | string
   created_by_id?: Prisma.IntFilter<"GearTagRelation"> | number
   updated_at?: Prisma.DateTimeFilter<"GearTagRelation"> | Date | string
   updated_by_id?: Prisma.IntFilter<"GearTagRelation"> | number
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  gear_tag?: Prisma.XOR<Prisma.GearTagScalarRelationFilter, Prisma.GearTagWhereInput>
   gear?: Prisma.XOR<Prisma.GearScalarRelationFilter, Prisma.GearWhereInput>
+  tag?: Prisma.XOR<Prisma.TagScalarRelationFilter, Prisma.TagWhereInput>
 }, "id">
 
 export type GearTagRelationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   gear_id?: Prisma.SortOrder
-  gear_tag_id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -328,9 +328,9 @@ export type GearTagRelationScalarWhereWithAggregatesInput = {
   NOT?: Prisma.GearTagRelationScalarWhereWithAggregatesInput | Prisma.GearTagRelationScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"GearTagRelation"> | number
   gear_id?: Prisma.IntWithAggregatesFilter<"GearTagRelation"> | number
-  gear_tag_id?: Prisma.IntWithAggregatesFilter<"GearTagRelation"> | number
-  status?: Prisma.EnumStatusWithAggregatesFilter<"GearTagRelation"> | $Enums.Status
+  tag_id?: Prisma.IntWithAggregatesFilter<"GearTagRelation"> | number
   notes?: Prisma.StringNullableWithAggregatesFilter<"GearTagRelation"> | string | null
+  status?: Prisma.EnumStatusWithAggregatesFilter<"GearTagRelation"> | $Enums.Status
   created_at?: Prisma.DateTimeWithAggregatesFilter<"GearTagRelation"> | Date | string
   created_by_id?: Prisma.IntWithAggregatesFilter<"GearTagRelation"> | number
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"GearTagRelation"> | Date | string
@@ -338,22 +338,22 @@ export type GearTagRelationScalarWhereWithAggregatesInput = {
 }
 
 export type GearTagRelationCreateInput = {
-  status?: $Enums.Status
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_tag_relation__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutGear_tag_relation__updated_byInput
-  gear_tag: Prisma.GearTagCreateNestedOneWithoutGear_tag_relation__gear_tagInput
   gear: Prisma.GearCreateNestedOneWithoutGear_tag_relation__gearInput
+  tag: Prisma.TagCreateNestedOneWithoutGear_tag_relation__tagInput
 }
 
 export type GearTagRelationUncheckedCreateInput = {
   id?: number
   gear_id: number
-  gear_tag_id: number
-  status?: $Enums.Status
+  tag_id: number
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
@@ -361,22 +361,22 @@ export type GearTagRelationUncheckedCreateInput = {
 }
 
 export type GearTagRelationUpdateInput = {
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_tag_relation__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_tag_relation__updated_byNestedInput
-  gear_tag?: Prisma.GearTagUpdateOneRequiredWithoutGear_tag_relation__gear_tagNestedInput
   gear?: Prisma.GearUpdateOneRequiredWithoutGear_tag_relation__gearNestedInput
+  tag?: Prisma.TagUpdateOneRequiredWithoutGear_tag_relation__tagNestedInput
 }
 
 export type GearTagRelationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_tag_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -386,9 +386,9 @@ export type GearTagRelationUncheckedUpdateInput = {
 export type GearTagRelationCreateManyInput = {
   id?: number
   gear_id: number
-  gear_tag_id: number
-  status?: $Enums.Status
+  tag_id: number
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
@@ -396,8 +396,8 @@ export type GearTagRelationCreateManyInput = {
 }
 
 export type GearTagRelationUpdateManyMutationInput = {
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -405,9 +405,9 @@ export type GearTagRelationUpdateManyMutationInput = {
 export type GearTagRelationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_tag_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -427,9 +427,9 @@ export type GearTagRelationOrderByRelationAggregateInput = {
 export type GearTagRelationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   gear_id?: Prisma.SortOrder
-  gear_tag_id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -439,7 +439,7 @@ export type GearTagRelationCountOrderByAggregateInput = {
 export type GearTagRelationAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   gear_id?: Prisma.SortOrder
-  gear_tag_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
 }
@@ -447,9 +447,9 @@ export type GearTagRelationAvgOrderByAggregateInput = {
 export type GearTagRelationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   gear_id?: Prisma.SortOrder
-  gear_tag_id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -459,9 +459,9 @@ export type GearTagRelationMaxOrderByAggregateInput = {
 export type GearTagRelationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   gear_id?: Prisma.SortOrder
-  gear_tag_id?: Prisma.SortOrder
-  status?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -471,7 +471,7 @@ export type GearTagRelationMinOrderByAggregateInput = {
 export type GearTagRelationSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   gear_id?: Prisma.SortOrder
-  gear_tag_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
 }
@@ -560,45 +560,45 @@ export type GearTagRelationUncheckedUpdateManyWithoutUpdated_byNestedInput = {
   deleteMany?: Prisma.GearTagRelationScalarWhereInput | Prisma.GearTagRelationScalarWhereInput[]
 }
 
-export type GearTagRelationCreateNestedManyWithoutGear_tagInput = {
-  create?: Prisma.XOR<Prisma.GearTagRelationCreateWithoutGear_tagInput, Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput> | Prisma.GearTagRelationCreateWithoutGear_tagInput[] | Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput[]
-  connectOrCreate?: Prisma.GearTagRelationCreateOrConnectWithoutGear_tagInput | Prisma.GearTagRelationCreateOrConnectWithoutGear_tagInput[]
-  createMany?: Prisma.GearTagRelationCreateManyGear_tagInputEnvelope
+export type GearTagRelationCreateNestedManyWithoutTagInput = {
+  create?: Prisma.XOR<Prisma.GearTagRelationCreateWithoutTagInput, Prisma.GearTagRelationUncheckedCreateWithoutTagInput> | Prisma.GearTagRelationCreateWithoutTagInput[] | Prisma.GearTagRelationUncheckedCreateWithoutTagInput[]
+  connectOrCreate?: Prisma.GearTagRelationCreateOrConnectWithoutTagInput | Prisma.GearTagRelationCreateOrConnectWithoutTagInput[]
+  createMany?: Prisma.GearTagRelationCreateManyTagInputEnvelope
   connect?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
 }
 
-export type GearTagRelationUncheckedCreateNestedManyWithoutGear_tagInput = {
-  create?: Prisma.XOR<Prisma.GearTagRelationCreateWithoutGear_tagInput, Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput> | Prisma.GearTagRelationCreateWithoutGear_tagInput[] | Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput[]
-  connectOrCreate?: Prisma.GearTagRelationCreateOrConnectWithoutGear_tagInput | Prisma.GearTagRelationCreateOrConnectWithoutGear_tagInput[]
-  createMany?: Prisma.GearTagRelationCreateManyGear_tagInputEnvelope
+export type GearTagRelationUncheckedCreateNestedManyWithoutTagInput = {
+  create?: Prisma.XOR<Prisma.GearTagRelationCreateWithoutTagInput, Prisma.GearTagRelationUncheckedCreateWithoutTagInput> | Prisma.GearTagRelationCreateWithoutTagInput[] | Prisma.GearTagRelationUncheckedCreateWithoutTagInput[]
+  connectOrCreate?: Prisma.GearTagRelationCreateOrConnectWithoutTagInput | Prisma.GearTagRelationCreateOrConnectWithoutTagInput[]
+  createMany?: Prisma.GearTagRelationCreateManyTagInputEnvelope
   connect?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
 }
 
-export type GearTagRelationUpdateManyWithoutGear_tagNestedInput = {
-  create?: Prisma.XOR<Prisma.GearTagRelationCreateWithoutGear_tagInput, Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput> | Prisma.GearTagRelationCreateWithoutGear_tagInput[] | Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput[]
-  connectOrCreate?: Prisma.GearTagRelationCreateOrConnectWithoutGear_tagInput | Prisma.GearTagRelationCreateOrConnectWithoutGear_tagInput[]
-  upsert?: Prisma.GearTagRelationUpsertWithWhereUniqueWithoutGear_tagInput | Prisma.GearTagRelationUpsertWithWhereUniqueWithoutGear_tagInput[]
-  createMany?: Prisma.GearTagRelationCreateManyGear_tagInputEnvelope
+export type GearTagRelationUpdateManyWithoutTagNestedInput = {
+  create?: Prisma.XOR<Prisma.GearTagRelationCreateWithoutTagInput, Prisma.GearTagRelationUncheckedCreateWithoutTagInput> | Prisma.GearTagRelationCreateWithoutTagInput[] | Prisma.GearTagRelationUncheckedCreateWithoutTagInput[]
+  connectOrCreate?: Prisma.GearTagRelationCreateOrConnectWithoutTagInput | Prisma.GearTagRelationCreateOrConnectWithoutTagInput[]
+  upsert?: Prisma.GearTagRelationUpsertWithWhereUniqueWithoutTagInput | Prisma.GearTagRelationUpsertWithWhereUniqueWithoutTagInput[]
+  createMany?: Prisma.GearTagRelationCreateManyTagInputEnvelope
   set?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
   disconnect?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
   delete?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
   connect?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
-  update?: Prisma.GearTagRelationUpdateWithWhereUniqueWithoutGear_tagInput | Prisma.GearTagRelationUpdateWithWhereUniqueWithoutGear_tagInput[]
-  updateMany?: Prisma.GearTagRelationUpdateManyWithWhereWithoutGear_tagInput | Prisma.GearTagRelationUpdateManyWithWhereWithoutGear_tagInput[]
+  update?: Prisma.GearTagRelationUpdateWithWhereUniqueWithoutTagInput | Prisma.GearTagRelationUpdateWithWhereUniqueWithoutTagInput[]
+  updateMany?: Prisma.GearTagRelationUpdateManyWithWhereWithoutTagInput | Prisma.GearTagRelationUpdateManyWithWhereWithoutTagInput[]
   deleteMany?: Prisma.GearTagRelationScalarWhereInput | Prisma.GearTagRelationScalarWhereInput[]
 }
 
-export type GearTagRelationUncheckedUpdateManyWithoutGear_tagNestedInput = {
-  create?: Prisma.XOR<Prisma.GearTagRelationCreateWithoutGear_tagInput, Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput> | Prisma.GearTagRelationCreateWithoutGear_tagInput[] | Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput[]
-  connectOrCreate?: Prisma.GearTagRelationCreateOrConnectWithoutGear_tagInput | Prisma.GearTagRelationCreateOrConnectWithoutGear_tagInput[]
-  upsert?: Prisma.GearTagRelationUpsertWithWhereUniqueWithoutGear_tagInput | Prisma.GearTagRelationUpsertWithWhereUniqueWithoutGear_tagInput[]
-  createMany?: Prisma.GearTagRelationCreateManyGear_tagInputEnvelope
+export type GearTagRelationUncheckedUpdateManyWithoutTagNestedInput = {
+  create?: Prisma.XOR<Prisma.GearTagRelationCreateWithoutTagInput, Prisma.GearTagRelationUncheckedCreateWithoutTagInput> | Prisma.GearTagRelationCreateWithoutTagInput[] | Prisma.GearTagRelationUncheckedCreateWithoutTagInput[]
+  connectOrCreate?: Prisma.GearTagRelationCreateOrConnectWithoutTagInput | Prisma.GearTagRelationCreateOrConnectWithoutTagInput[]
+  upsert?: Prisma.GearTagRelationUpsertWithWhereUniqueWithoutTagInput | Prisma.GearTagRelationUpsertWithWhereUniqueWithoutTagInput[]
+  createMany?: Prisma.GearTagRelationCreateManyTagInputEnvelope
   set?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
   disconnect?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
   delete?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
   connect?: Prisma.GearTagRelationWhereUniqueInput | Prisma.GearTagRelationWhereUniqueInput[]
-  update?: Prisma.GearTagRelationUpdateWithWhereUniqueWithoutGear_tagInput | Prisma.GearTagRelationUpdateWithWhereUniqueWithoutGear_tagInput[]
-  updateMany?: Prisma.GearTagRelationUpdateManyWithWhereWithoutGear_tagInput | Prisma.GearTagRelationUpdateManyWithWhereWithoutGear_tagInput[]
+  update?: Prisma.GearTagRelationUpdateWithWhereUniqueWithoutTagInput | Prisma.GearTagRelationUpdateWithWhereUniqueWithoutTagInput[]
+  updateMany?: Prisma.GearTagRelationUpdateManyWithWhereWithoutTagInput | Prisma.GearTagRelationUpdateManyWithWhereWithoutTagInput[]
   deleteMany?: Prisma.GearTagRelationScalarWhereInput | Prisma.GearTagRelationScalarWhereInput[]
 }
 
@@ -645,21 +645,21 @@ export type GearTagRelationUncheckedUpdateManyWithoutGearNestedInput = {
 }
 
 export type GearTagRelationCreateWithoutCreated_byInput = {
-  status?: $Enums.Status
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   updated_by: Prisma.UserCreateNestedOneWithoutGear_tag_relation__updated_byInput
-  gear_tag: Prisma.GearTagCreateNestedOneWithoutGear_tag_relation__gear_tagInput
   gear: Prisma.GearCreateNestedOneWithoutGear_tag_relation__gearInput
+  tag: Prisma.TagCreateNestedOneWithoutGear_tag_relation__tagInput
 }
 
 export type GearTagRelationUncheckedCreateWithoutCreated_byInput = {
   id?: number
   gear_id: number
-  gear_tag_id: number
-  status?: $Enums.Status
+  tag_id: number
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   updated_by_id: number
@@ -676,21 +676,21 @@ export type GearTagRelationCreateManyCreated_byInputEnvelope = {
 }
 
 export type GearTagRelationCreateWithoutUpdated_byInput = {
-  status?: $Enums.Status
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_tag_relation__created_byInput
-  gear_tag: Prisma.GearTagCreateNestedOneWithoutGear_tag_relation__gear_tagInput
   gear: Prisma.GearCreateNestedOneWithoutGear_tag_relation__gearInput
+  tag: Prisma.TagCreateNestedOneWithoutGear_tag_relation__tagInput
 }
 
 export type GearTagRelationUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   gear_id: number
-  gear_tag_id: number
-  status?: $Enums.Status
+  tag_id: number
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
@@ -728,9 +728,9 @@ export type GearTagRelationScalarWhereInput = {
   NOT?: Prisma.GearTagRelationScalarWhereInput | Prisma.GearTagRelationScalarWhereInput[]
   id?: Prisma.IntFilter<"GearTagRelation"> | number
   gear_id?: Prisma.IntFilter<"GearTagRelation"> | number
-  gear_tag_id?: Prisma.IntFilter<"GearTagRelation"> | number
-  status?: Prisma.EnumStatusFilter<"GearTagRelation"> | $Enums.Status
+  tag_id?: Prisma.IntFilter<"GearTagRelation"> | number
   notes?: Prisma.StringNullableFilter<"GearTagRelation"> | string | null
+  status?: Prisma.EnumStatusFilter<"GearTagRelation"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"GearTagRelation"> | Date | string
   created_by_id?: Prisma.IntFilter<"GearTagRelation"> | number
   updated_at?: Prisma.DateTimeFilter<"GearTagRelation"> | Date | string
@@ -753,9 +753,9 @@ export type GearTagRelationUpdateManyWithWhereWithoutUpdated_byInput = {
   data: Prisma.XOR<Prisma.GearTagRelationUpdateManyMutationInput, Prisma.GearTagRelationUncheckedUpdateManyWithoutUpdated_byInput>
 }
 
-export type GearTagRelationCreateWithoutGear_tagInput = {
-  status?: $Enums.Status
+export type GearTagRelationCreateWithoutTagInput = {
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_tag_relation__created_byInput
@@ -763,58 +763,58 @@ export type GearTagRelationCreateWithoutGear_tagInput = {
   gear: Prisma.GearCreateNestedOneWithoutGear_tag_relation__gearInput
 }
 
-export type GearTagRelationUncheckedCreateWithoutGear_tagInput = {
+export type GearTagRelationUncheckedCreateWithoutTagInput = {
   id?: number
   gear_id: number
-  status?: $Enums.Status
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
   updated_by_id: number
 }
 
-export type GearTagRelationCreateOrConnectWithoutGear_tagInput = {
+export type GearTagRelationCreateOrConnectWithoutTagInput = {
   where: Prisma.GearTagRelationWhereUniqueInput
-  create: Prisma.XOR<Prisma.GearTagRelationCreateWithoutGear_tagInput, Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput>
+  create: Prisma.XOR<Prisma.GearTagRelationCreateWithoutTagInput, Prisma.GearTagRelationUncheckedCreateWithoutTagInput>
 }
 
-export type GearTagRelationCreateManyGear_tagInputEnvelope = {
-  data: Prisma.GearTagRelationCreateManyGear_tagInput | Prisma.GearTagRelationCreateManyGear_tagInput[]
+export type GearTagRelationCreateManyTagInputEnvelope = {
+  data: Prisma.GearTagRelationCreateManyTagInput | Prisma.GearTagRelationCreateManyTagInput[]
   skipDuplicates?: boolean
 }
 
-export type GearTagRelationUpsertWithWhereUniqueWithoutGear_tagInput = {
+export type GearTagRelationUpsertWithWhereUniqueWithoutTagInput = {
   where: Prisma.GearTagRelationWhereUniqueInput
-  update: Prisma.XOR<Prisma.GearTagRelationUpdateWithoutGear_tagInput, Prisma.GearTagRelationUncheckedUpdateWithoutGear_tagInput>
-  create: Prisma.XOR<Prisma.GearTagRelationCreateWithoutGear_tagInput, Prisma.GearTagRelationUncheckedCreateWithoutGear_tagInput>
+  update: Prisma.XOR<Prisma.GearTagRelationUpdateWithoutTagInput, Prisma.GearTagRelationUncheckedUpdateWithoutTagInput>
+  create: Prisma.XOR<Prisma.GearTagRelationCreateWithoutTagInput, Prisma.GearTagRelationUncheckedCreateWithoutTagInput>
 }
 
-export type GearTagRelationUpdateWithWhereUniqueWithoutGear_tagInput = {
+export type GearTagRelationUpdateWithWhereUniqueWithoutTagInput = {
   where: Prisma.GearTagRelationWhereUniqueInput
-  data: Prisma.XOR<Prisma.GearTagRelationUpdateWithoutGear_tagInput, Prisma.GearTagRelationUncheckedUpdateWithoutGear_tagInput>
+  data: Prisma.XOR<Prisma.GearTagRelationUpdateWithoutTagInput, Prisma.GearTagRelationUncheckedUpdateWithoutTagInput>
 }
 
-export type GearTagRelationUpdateManyWithWhereWithoutGear_tagInput = {
+export type GearTagRelationUpdateManyWithWhereWithoutTagInput = {
   where: Prisma.GearTagRelationScalarWhereInput
-  data: Prisma.XOR<Prisma.GearTagRelationUpdateManyMutationInput, Prisma.GearTagRelationUncheckedUpdateManyWithoutGear_tagInput>
+  data: Prisma.XOR<Prisma.GearTagRelationUpdateManyMutationInput, Prisma.GearTagRelationUncheckedUpdateManyWithoutTagInput>
 }
 
 export type GearTagRelationCreateWithoutGearInput = {
-  status?: $Enums.Status
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_tag_relation__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutGear_tag_relation__updated_byInput
-  gear_tag: Prisma.GearTagCreateNestedOneWithoutGear_tag_relation__gear_tagInput
+  tag: Prisma.TagCreateNestedOneWithoutGear_tag_relation__tagInput
 }
 
 export type GearTagRelationUncheckedCreateWithoutGearInput = {
   id?: number
-  gear_tag_id: number
-  status?: $Enums.Status
+  tag_id: number
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
@@ -850,9 +850,9 @@ export type GearTagRelationUpdateManyWithWhereWithoutGearInput = {
 export type GearTagRelationCreateManyCreated_byInput = {
   id?: number
   gear_id: number
-  gear_tag_id: number
-  status?: $Enums.Status
+  tag_id: number
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   updated_by_id: number
@@ -861,30 +861,30 @@ export type GearTagRelationCreateManyCreated_byInput = {
 export type GearTagRelationCreateManyUpdated_byInput = {
   id?: number
   gear_id: number
-  gear_tag_id: number
-  status?: $Enums.Status
+  tag_id: number
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
 }
 
 export type GearTagRelationUpdateWithoutCreated_byInput = {
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_tag_relation__updated_byNestedInput
-  gear_tag?: Prisma.GearTagUpdateOneRequiredWithoutGear_tag_relation__gear_tagNestedInput
   gear?: Prisma.GearUpdateOneRequiredWithoutGear_tag_relation__gearNestedInput
+  tag?: Prisma.TagUpdateOneRequiredWithoutGear_tag_relation__tagNestedInput
 }
 
 export type GearTagRelationUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_tag_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -893,30 +893,30 @@ export type GearTagRelationUncheckedUpdateWithoutCreated_byInput = {
 export type GearTagRelationUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_tag_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type GearTagRelationUpdateWithoutUpdated_byInput = {
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_tag_relation__created_byNestedInput
-  gear_tag?: Prisma.GearTagUpdateOneRequiredWithoutGear_tag_relation__gear_tagNestedInput
   gear?: Prisma.GearUpdateOneRequiredWithoutGear_tag_relation__gearNestedInput
+  tag?: Prisma.TagUpdateOneRequiredWithoutGear_tag_relation__tagNestedInput
 }
 
 export type GearTagRelationUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_tag_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -925,28 +925,28 @@ export type GearTagRelationUncheckedUpdateWithoutUpdated_byInput = {
 export type GearTagRelationUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_tag_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type GearTagRelationCreateManyGear_tagInput = {
+export type GearTagRelationCreateManyTagInput = {
   id?: number
   gear_id: number
-  status?: $Enums.Status
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
   updated_by_id: number
 }
 
-export type GearTagRelationUpdateWithoutGear_tagInput = {
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+export type GearTagRelationUpdateWithoutTagInput = {
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_tag_relation__created_byNestedInput
@@ -954,22 +954,22 @@ export type GearTagRelationUpdateWithoutGear_tagInput = {
   gear?: Prisma.GearUpdateOneRequiredWithoutGear_tag_relation__gearNestedInput
 }
 
-export type GearTagRelationUncheckedUpdateWithoutGear_tagInput = {
+export type GearTagRelationUncheckedUpdateWithoutTagInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type GearTagRelationUncheckedUpdateManyWithoutGear_tagInput = {
+export type GearTagRelationUncheckedUpdateManyWithoutTagInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -978,9 +978,9 @@ export type GearTagRelationUncheckedUpdateManyWithoutGear_tagInput = {
 
 export type GearTagRelationCreateManyGearInput = {
   id?: number
-  gear_tag_id: number
-  status?: $Enums.Status
+  tag_id: number
   notes?: string | null
+  status?: $Enums.Status
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
@@ -988,20 +988,20 @@ export type GearTagRelationCreateManyGearInput = {
 }
 
 export type GearTagRelationUpdateWithoutGearInput = {
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_tag_relation__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_tag_relation__updated_byNestedInput
-  gear_tag?: Prisma.GearTagUpdateOneRequiredWithoutGear_tag_relation__gear_tagNestedInput
+  tag?: Prisma.TagUpdateOneRequiredWithoutGear_tag_relation__tagNestedInput
 }
 
 export type GearTagRelationUncheckedUpdateWithoutGearInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_tag_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1010,9 +1010,9 @@ export type GearTagRelationUncheckedUpdateWithoutGearInput = {
 
 export type GearTagRelationUncheckedUpdateManyWithoutGearInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_tag_id?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1024,81 +1024,81 @@ export type GearTagRelationUncheckedUpdateManyWithoutGearInput = {
 export type GearTagRelationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   gear_id?: boolean
-  gear_tag_id?: boolean
-  status?: boolean
+  tag_id?: boolean
   notes?: boolean
+  status?: boolean
   created_at?: boolean
   created_by_id?: boolean
   updated_at?: boolean
   updated_by_id?: boolean
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_tag?: boolean | Prisma.GearTagDefaultArgs<ExtArgs>
   gear?: boolean | Prisma.GearDefaultArgs<ExtArgs>
+  tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gearTagRelation"]>
 
 export type GearTagRelationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   gear_id?: boolean
-  gear_tag_id?: boolean
-  status?: boolean
+  tag_id?: boolean
   notes?: boolean
+  status?: boolean
   created_at?: boolean
   created_by_id?: boolean
   updated_at?: boolean
   updated_by_id?: boolean
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_tag?: boolean | Prisma.GearTagDefaultArgs<ExtArgs>
   gear?: boolean | Prisma.GearDefaultArgs<ExtArgs>
+  tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gearTagRelation"]>
 
 export type GearTagRelationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   gear_id?: boolean
-  gear_tag_id?: boolean
-  status?: boolean
+  tag_id?: boolean
   notes?: boolean
+  status?: boolean
   created_at?: boolean
   created_by_id?: boolean
   updated_at?: boolean
   updated_by_id?: boolean
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_tag?: boolean | Prisma.GearTagDefaultArgs<ExtArgs>
   gear?: boolean | Prisma.GearDefaultArgs<ExtArgs>
+  tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gearTagRelation"]>
 
 export type GearTagRelationSelectScalar = {
   id?: boolean
   gear_id?: boolean
-  gear_tag_id?: boolean
-  status?: boolean
+  tag_id?: boolean
   notes?: boolean
+  status?: boolean
   created_at?: boolean
   created_by_id?: boolean
   updated_at?: boolean
   updated_by_id?: boolean
 }
 
-export type GearTagRelationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "gear_id" | "gear_tag_id" | "status" | "notes" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["gearTagRelation"]>
+export type GearTagRelationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "gear_id" | "tag_id" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["gearTagRelation"]>
 export type GearTagRelationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_tag?: boolean | Prisma.GearTagDefaultArgs<ExtArgs>
   gear?: boolean | Prisma.GearDefaultArgs<ExtArgs>
+  tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
 }
 export type GearTagRelationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_tag?: boolean | Prisma.GearTagDefaultArgs<ExtArgs>
   gear?: boolean | Prisma.GearDefaultArgs<ExtArgs>
+  tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
 }
 export type GearTagRelationIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_tag?: boolean | Prisma.GearTagDefaultArgs<ExtArgs>
   gear?: boolean | Prisma.GearDefaultArgs<ExtArgs>
+  tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
 }
 
 export type $GearTagRelationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1106,15 +1106,15 @@ export type $GearTagRelationPayload<ExtArgs extends runtime.Types.Extensions.Int
   objects: {
     created_by: Prisma.$UserPayload<ExtArgs>
     updated_by: Prisma.$UserPayload<ExtArgs>
-    gear_tag: Prisma.$GearTagPayload<ExtArgs>
     gear: Prisma.$GearPayload<ExtArgs>
+    tag: Prisma.$TagPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     gear_id: number
-    gear_tag_id: number
-    status: $Enums.Status
+    tag_id: number
     notes: string | null
+    status: $Enums.Status
     created_at: Date
     created_by_id: number
     updated_at: Date
@@ -1515,8 +1515,8 @@ export interface Prisma__GearTagRelationClient<T, Null = never, ExtArgs extends 
   readonly [Symbol.toStringTag]: "PrismaPromise"
   created_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   updated_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  gear_tag<T extends Prisma.GearTagDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearTagDefaultArgs<ExtArgs>>): Prisma.Prisma__GearTagClient<runtime.Types.Result.GetResult<Prisma.$GearTagPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   gear<T extends Prisma.GearDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearDefaultArgs<ExtArgs>>): Prisma.Prisma__GearClient<runtime.Types.Result.GetResult<Prisma.$GearPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  tag<T extends Prisma.TagDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TagDefaultArgs<ExtArgs>>): Prisma.Prisma__TagClient<runtime.Types.Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1548,9 +1548,9 @@ export interface Prisma__GearTagRelationClient<T, Null = never, ExtArgs extends 
 export interface GearTagRelationFieldRefs {
   readonly id: Prisma.FieldRef<"GearTagRelation", 'Int'>
   readonly gear_id: Prisma.FieldRef<"GearTagRelation", 'Int'>
-  readonly gear_tag_id: Prisma.FieldRef<"GearTagRelation", 'Int'>
-  readonly status: Prisma.FieldRef<"GearTagRelation", 'Status'>
+  readonly tag_id: Prisma.FieldRef<"GearTagRelation", 'Int'>
   readonly notes: Prisma.FieldRef<"GearTagRelation", 'String'>
+  readonly status: Prisma.FieldRef<"GearTagRelation", 'Status'>
   readonly created_at: Prisma.FieldRef<"GearTagRelation", 'DateTime'>
   readonly created_by_id: Prisma.FieldRef<"GearTagRelation", 'Int'>
   readonly updated_at: Prisma.FieldRef<"GearTagRelation", 'DateTime'>

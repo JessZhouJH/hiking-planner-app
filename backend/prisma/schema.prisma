@@ -609,12 +609,33 @@ model User {
   unit__created_by Unit[] @relation("UnitCreatedBy")
   unit__updated_by Unit[] @relation("UnitUpdatedBy")
 
+  tag__created_by Tag[] @relation("TagCreatedBy")
+  tag__updated_by Tag[] @relation("TagUpdatedBy")
+
+  tag_group__created_by TagGroup[] @relation("TagGroupCreatedBy")
+  tag_group__updated_by TagGroup[] @relation("TagGroupUpdatedBy")
+
+  tag_relation__created_by TagRelation[] @relation("TagRelationCreatedBy")
+  tag_relation__updated_by TagRelation[] @relation("TagRelationUpdatedBy")
+
+  tag_group_relation__created_by TagGroupRelation[] @relation("TagGroupRelationCreatedBy")
+  tag_group_relation__updated_by TagGroupRelation[] @relation("TagGroupRelationUpdatedBy")
+
+  gear_tag_relation__created_by GearTagRelation[] @relation("GearTagRelationCreatedBy")
+  gear_tag_relation__updated_by GearTagRelation[] @relation("GearTagRelationUpdatedBy")
+
+  trail_tag_relation__created_by TrailTagRelation[] @relation("TrailTagRelationCreatedBy")
+  trail_tag_relation__updated_by TrailTagRelation[] @relation("TrailTagRelationUpdatedBy")
+
   // Gear Module
   brand__created_by Brand[] @relation("BrandCreatedBy")
   brand__updated_by Brand[] @relation("BrandUpdatedBy")
 
   gear_type__created_by GearType[] @relation("GearTypeCreatedBy")
   gear_type__updated_by GearType[] @relation("GearTypeUpdatedBy")
+
+  gear_type_relation__created_by GearTypeRelation[] @relation("GearTypeRelationCreatedBy")
+  gear_type_relation__updated_by GearTypeRelation[] @relation("GearTypeRelationUpdatedBy")
 
   gear_specs_def__created_by GearSpecsDefinition[] @relation("GearSpecsDefinitionCreatedBy")
   gear_specs_def__updated_by GearSpecsDefinition[] @relation("GearSpecsDefinitionUpdatedBy")
@@ -623,6 +644,10 @@ model User {
   gear__updated_by Gear[] @relation("GearUpdatedBy")
   gear__verified_by Gear[] @relation("GearVerifiedBy")
   gear__owner Gear[] @relation("GearOwner")
+
+  descriptive_gear__created_by DescriptiveGear[] @relation("DescriptiveGearCreatedBy")
+  descriptive_gear__updated_by DescriptiveGear[] @relation("DescriptiveGearUpdatedBy")
+  descriptive_gear__owner DescriptiveGear[] @relation("DescriptiveGearOwner")
 
   gear_specs__created_by GearSpecs[] @relation("GearSpecsCreatedBy")
   gear_specs__updated_by GearSpecs[] @relation("GearSpecsUpdatedBy")
@@ -1036,6 +1061,95 @@ model Unit {
   gear_specs__source_unit GearSpecs[] @relation("GearSpecsSourceUnit")
 }
 
+model Tag {
+  id Int @id @default(autoincrement())
+  name String @unique
+  describe_target_type DescribingTargetType @default(GEAR_AND_TRAIL)
+  merged_into_tag_id Int?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  created_by User @relation("TagCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TagUpdatedBy", fields: [updated_by_id], references: [id])
+
+  merged_into_tag Tag? @relation("TagMergedIntoTag", fields: [merged_into_tag_id], references: [id])
+
+  tag__merged_into_tag Tag[] @relation("TagMergedIntoTag")
+  tag_relation__parent_tag TagRelation[] @relation("TagRelationParentTag")
+  tag_relation__child_tag TagRelation[] @relation("TagRelationChildTag")
+  tag_group_relation__tag TagGroupRelation[] @relation("TagGroupRelationTag")
+  gear_tag_relation__tag GearTagRelation[] @relation("GearTagRelationTag")
+  trail_tag_relation__tag TrailTagRelation[] @relation("TrailTagRelationTag")
+}
+
+model TagGroup {
+  id Int @id @default(autoincrement())
+  name String @unique
+  merged_into_tag_group_id Int?
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  created_by User @relation("TagGroupCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TagGroupUpdatedBy", fields: [updated_by_id], references: [id])
+
+  merged_into_tag_group TagGroup? @relation("TagGroupMergedIntoTagGroup", fields: [merged_into_tag_group_id], references: [id])
+
+  tag_group__merged_into_tag_group TagGroup[] @relation("TagGroupMergedIntoTagGroup")
+  tag_group_relation__tag_group TagGroupRelation[] @relation("TagGroupRelationTagGroup")
+}
+
+model TagRelation {
+  id Int @id @default(autoincrement())
+  parent_tag_id Int
+  child_tag_id Int
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  created_by User @relation("TagRelationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TagRelationUpdatedBy", fields: [updated_by_id], references: [id])
+
+  parent_tag Tag @relation("TagRelationParentTag", fields: [parent_tag_id], references: [id])
+  child_tag Tag @relation("TagRelationChildTag", fields: [child_tag_id], references: [id])
+
+}
+
+model TagGroupRelation {
+  id Int @id @default(autoincrement())
+  tag_id Int
+  tag_group_id Int
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  created_by User @relation("TagGroupRelationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TagGroupRelationUpdatedBy", fields: [updated_by_id], references: [id])
+
+  tag Tag @relation("TagGroupRelationTag", fields: [tag_id], references: [id])
+  tag_group TagGroup @relation("TagGroupRelationTagGroup", fields: [tag_group_id], references: [id])
+}
 
 // 3. Gear Module
 model Brand {
@@ -1081,7 +1195,31 @@ model GearType {
   challnege_gear_reuqirement__gear_type ChallengeGearRequirement[] @relation("ChallengeGearRequirementGearType")
   trail_gear_requirement__gear_type TrailGearRequirement[] @relation("TrailGearRequirementGearType")
   trip_gear_list__gear_type TripGearList[] @relation("TripGearListGearType")
+  
   gear_type__parent_gear_type GearType[] @relation("GearTypeParentGearType")
+  gear_type_relation__parent_gear_type GearTypeRelation[] @relation("GearTypeRelationParentGearType")
+  gear_type_relation__child_gear_type GearTypeRelation[] @relation("GearTypeRelationChildGearType")
+
+}
+
+model GearTypeRelation {
+  id Int @id @default(autoincrement())
+  parent_gear_type_id Int
+  child_gear_type_id Int
+
+  status Status @default(ACTIVE)
+  notes String?
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  created_by User @relation("GearTypeRelationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearTypeRelationUpdatedBy", fields: [updated_by_id], references: [id])
+
+  parent_gear_type GearType @relation("GearTypeRelationParentGearType", fields: [parent_gear_type_id], references: [id])
+  child_gear_type GearType @relation("GearTypeRelationChildGearType", fields: [child_gear_type_id], references: [id])
 }
 
 model GearSpecsDefinition {
@@ -1147,8 +1285,30 @@ model Gear {
   gear_variant__gear GearVariant[] @relation("GearGearVariant")
   gear_specs__gear GearSpecs[] @relation("GearGearSpecs")
   gear_feature__gear GearFeature[] @relation("GearFeatureGear")
+  gear_tag_relation__gear GearTagRelation[] @relation("GearTagRelationGear")
 
   user_gear__gear UserGear[] @relation("UserGearGear")
+}
+
+model DescriptiveGear {
+  id Int @id @default(autoincrement())
+  name String @unique
+
+  owner_id Int?
+  visibility Visibility @default(UNSPECIFIED)
+
+  status Status @default(ACTIVE)
+  notes String?
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int 
+
+  created_by User @relation("DescriptiveGearCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("DescriptiveGearUpdatedBy", fields: [updated_by_id], references: [id])
+
+  owner User? @relation("DescriptiveGearOwner", fields: [owner_id], references: [id])
 }
 
 model GearSpecs {
@@ -1229,6 +1389,26 @@ model GearVariant {
 
   gear_specs__gear_variant GearSpecs[] @relation("GearSpecsGearVariant")
   gear_feature__gear_variant GearFeature[] @relation("GearFeatureGearVariant")
+}
+
+model GearTagRelation {
+  id Int @id @default(autoincrement())
+  gear_id Int
+  tag_id Int 
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  created_by User @relation("GearTagRelationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("GearTagRelationUpdatedBy", fields: [updated_by_id], references: [id])
+
+  gear Gear @relation("GearTagRelationGear", fields: [gear_id], references: [id])
+  tag Tag @relation("GearTagRelationTag",fields: [tag_id], references: [id])
 }
 
 model GearPack {
@@ -1452,6 +1632,7 @@ model Trail {
   derived_from_trail Trail? @relation("TrailDerivedFromTrail", fields: [derived_from_trail_id], references: [id])
 
   trail__derived_from_trail Trail[] @relation("TrailDerivedFromTrail")
+  trail_tag_relation__trail TrailTagRelation[] @relation("TrailTagRelationTrail")
   trail_challenge__trail TrailChallenge[] @relation("TrailChallengeTrail")
   trail_calendar__trail TrailCalendar[] @relation("TrailCalendarTrail")
   trail_source__trail TrailSource[] @relation("TrailSourceTrail")
@@ -1467,6 +1648,26 @@ model Trail {
 
   user_trail__trail UserTrail[] @relation("UserTrailTrail")
   trip_trail__trail TripTrail[] @relation("TripTrailTrail")
+}
+
+model TrailTagRelation {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  tag_id Int 
+
+  notes String?
+  status Status @default(ACTIVE)
+
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int
+
+  created_by User @relation("TrailTagRelationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailTagRelationUpdatedBy", fields: [updated_by_id], references: [id])
+
+  trail Trail @relation("TrailTagRelationTrail", fields: [trail_id], references: [id])
+  tag Tag @relation("TrailTagRelationTag", fields: [tag_id], references: [id])
 }
 
 model TrailChallenge {

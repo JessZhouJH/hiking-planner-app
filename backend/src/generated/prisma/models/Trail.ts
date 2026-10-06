@@ -404,6 +404,7 @@ export type TrailWhereInput = {
   preview_img_media?: Prisma.XOR<Prisma.MediaArchiveNullableScalarRelationFilter, Prisma.MediaArchiveWhereInput> | null
   derived_from_trail?: Prisma.XOR<Prisma.TrailNullableScalarRelationFilter, Prisma.TrailWhereInput> | null
   trail__derived_from_trail?: Prisma.TrailListRelationFilter
+  trail_tag_relation__trail?: Prisma.TrailTagRelationListRelationFilter
   trail_challenge__trail?: Prisma.TrailChallengeListRelationFilter
   trail_calendar__trail?: Prisma.TrailCalendarListRelationFilter
   trail_source__trail?: Prisma.TrailSourceListRelationFilter
@@ -453,6 +454,7 @@ export type TrailOrderByWithRelationInput = {
   preview_img_media?: Prisma.MediaArchiveOrderByWithRelationInput
   derived_from_trail?: Prisma.TrailOrderByWithRelationInput
   trail__derived_from_trail?: Prisma.TrailOrderByRelationAggregateInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationOrderByRelationAggregateInput
   trail_challenge__trail?: Prisma.TrailChallengeOrderByRelationAggregateInput
   trail_calendar__trail?: Prisma.TrailCalendarOrderByRelationAggregateInput
   trail_source__trail?: Prisma.TrailSourceOrderByRelationAggregateInput
@@ -505,6 +507,7 @@ export type TrailWhereUniqueInput = Prisma.AtLeast<{
   preview_img_media?: Prisma.XOR<Prisma.MediaArchiveNullableScalarRelationFilter, Prisma.MediaArchiveWhereInput> | null
   derived_from_trail?: Prisma.XOR<Prisma.TrailNullableScalarRelationFilter, Prisma.TrailWhereInput> | null
   trail__derived_from_trail?: Prisma.TrailListRelationFilter
+  trail_tag_relation__trail?: Prisma.TrailTagRelationListRelationFilter
   trail_challenge__trail?: Prisma.TrailChallengeListRelationFilter
   trail_calendar__trail?: Prisma.TrailCalendarListRelationFilter
   trail_source__trail?: Prisma.TrailSourceListRelationFilter
@@ -608,6 +611,7 @@ export type TrailCreateInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -650,6 +654,7 @@ export type TrailUncheckedCreateInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -691,6 +696,7 @@ export type TrailUpdateInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -733,6 +739,7 @@ export type TrailUncheckedUpdateInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -1221,6 +1228,20 @@ export type TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput = {
   deleteMany?: Prisma.TrailScalarWhereInput | Prisma.TrailScalarWhereInput[]
 }
 
+export type TrailCreateNestedOneWithoutTrail_tag_relation__trailInput = {
+  create?: Prisma.XOR<Prisma.TrailCreateWithoutTrail_tag_relation__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_tag_relation__trailInput>
+  connectOrCreate?: Prisma.TrailCreateOrConnectWithoutTrail_tag_relation__trailInput
+  connect?: Prisma.TrailWhereUniqueInput
+}
+
+export type TrailUpdateOneRequiredWithoutTrail_tag_relation__trailNestedInput = {
+  create?: Prisma.XOR<Prisma.TrailCreateWithoutTrail_tag_relation__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_tag_relation__trailInput>
+  connectOrCreate?: Prisma.TrailCreateOrConnectWithoutTrail_tag_relation__trailInput
+  upsert?: Prisma.TrailUpsertWithoutTrail_tag_relation__trailInput
+  connect?: Prisma.TrailWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TrailUpdateToOneWithWhereWithoutTrail_tag_relation__trailInput, Prisma.TrailUpdateWithoutTrail_tag_relation__trailInput>, Prisma.TrailUncheckedUpdateWithoutTrail_tag_relation__trailInput>
+}
+
 export type TrailCreateNestedOneWithoutTrail_challenge__trailInput = {
   create?: Prisma.XOR<Prisma.TrailCreateWithoutTrail_challenge__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_challenge__trailInput>
   connectOrCreate?: Prisma.TrailCreateOrConnectWithoutTrail_challenge__trailInput
@@ -1483,6 +1504,7 @@ export type TrailCreateWithoutCreated_byInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -1524,6 +1546,7 @@ export type TrailUncheckedCreateWithoutCreated_byInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -1574,6 +1597,7 @@ export type TrailCreateWithoutUpdated_byInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -1615,6 +1639,7 @@ export type TrailUncheckedCreateWithoutUpdated_byInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -1665,6 +1690,7 @@ export type TrailCreateWithoutLast_verified_byInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -1706,6 +1732,7 @@ export type TrailUncheckedCreateWithoutLast_verified_byInput = {
   updated_by_id: number
   last_verified_at?: Date | string | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -1756,6 +1783,7 @@ export type TrailCreateWithoutOwnerInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -1797,6 +1825,7 @@ export type TrailUncheckedCreateWithoutOwnerInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -1941,6 +1970,7 @@ export type TrailCreateWithoutPreview_img_mediaInput = {
   primary_profile?: Prisma.TrailProfileCreateNestedOneWithoutTrail__primary_profileInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -1982,6 +2012,7 @@ export type TrailUncheckedCreateWithoutPreview_img_mediaInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -2048,6 +2079,7 @@ export type TrailCreateWithoutTrail__derived_from_trailInput = {
   primary_profile?: Prisma.TrailProfileCreateNestedOneWithoutTrail__primary_profileInput
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -2089,6 +2121,7 @@ export type TrailUncheckedCreateWithoutTrail__derived_from_trailInput = {
   updated_by_id: number
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -2134,6 +2167,7 @@ export type TrailCreateWithoutDerived_from_trailInput = {
   primary_profile?: Prisma.TrailProfileCreateNestedOneWithoutTrail__primary_profileInput
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -2175,6 +2209,7 @@ export type TrailUncheckedCreateWithoutDerived_from_trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -2236,6 +2271,7 @@ export type TrailUpdateWithoutTrail__derived_from_trailInput = {
   primary_profile?: Prisma.TrailProfileUpdateOneWithoutTrail__primary_profileNestedInput
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -2277,6 +2313,7 @@ export type TrailUncheckedUpdateWithoutTrail__derived_from_trailInput = {
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -2309,6 +2346,188 @@ export type TrailUpdateManyWithWhereWithoutDerived_from_trailInput = {
   data: Prisma.XOR<Prisma.TrailUpdateManyMutationInput, Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailInput>
 }
 
+export type TrailCreateWithoutTrail_tag_relation__trailInput = {
+  name: string
+  region?: string | null
+  country?: string | null
+  start_point_name?: string | null
+  end_point_name?: string | null
+  is_trail_root?: boolean
+  trail_origin?: $Enums.DataOrigin
+  authenticity_level?: $Enums.AuthenticityLevel
+  visibility?: $Enums.Visibility
+  is_official?: boolean
+  edit_policy_override?: $Enums.EditPolicyOverride
+  notes?: string | null
+  status?: $Enums.Status
+  created_at?: Date | string
+  updated_at?: Date | string
+  last_verified_at?: Date | string | null
+  created_by: Prisma.UserCreateNestedOneWithoutTrail__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutTrail__updated_byInput
+  last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail__verified_byInput
+  owner?: Prisma.UserCreateNestedOneWithoutTrail__ownerInput
+  primary_profile?: Prisma.TrailProfileCreateNestedOneWithoutTrail__primary_profileInput
+  preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
+  derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
+  trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
+  trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
+  trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
+  trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
+  trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
+  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
+  trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
+  trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
+  trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
+  trail_segmentation__trail?: Prisma.TrailSegmentationCreateNestedManyWithoutTrailInput
+  trail_segment_relation__child_trail?: Prisma.TrailSegmentRelationCreateNestedManyWithoutChild_trailInput
+  trail_transport_service__trail?: Prisma.TrailTransportServiceCreateNestedManyWithoutTrailInput
+  user_trail__trail?: Prisma.UserTrailCreateNestedManyWithoutTrailInput
+  trip_trail__trail?: Prisma.TripTrailCreateNestedManyWithoutTrailInput
+}
+
+export type TrailUncheckedCreateWithoutTrail_tag_relation__trailInput = {
+  id?: number
+  name: string
+  primary_profile_id?: number | null
+  region?: string | null
+  country?: string | null
+  start_point_name?: string | null
+  end_point_name?: string | null
+  preview_img_media_id?: number | null
+  is_trail_root?: boolean
+  trail_origin?: $Enums.DataOrigin
+  authenticity_level?: $Enums.AuthenticityLevel
+  derived_from_trail_id?: number | null
+  owner_id?: number | null
+  visibility?: $Enums.Visibility
+  is_official?: boolean
+  edit_policy_override?: $Enums.EditPolicyOverride
+  notes?: string | null
+  status?: $Enums.Status
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+  last_verified_at?: Date | string | null
+  last_verified_by_id?: number | null
+  trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
+  trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
+  trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
+  trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
+  trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
+  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
+  trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
+  trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
+  trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
+  trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutTrailInput
+  trail_segment_relation__child_trail?: Prisma.TrailSegmentRelationUncheckedCreateNestedManyWithoutChild_trailInput
+  trail_transport_service__trail?: Prisma.TrailTransportServiceUncheckedCreateNestedManyWithoutTrailInput
+  user_trail__trail?: Prisma.UserTrailUncheckedCreateNestedManyWithoutTrailInput
+  trip_trail__trail?: Prisma.TripTrailUncheckedCreateNestedManyWithoutTrailInput
+}
+
+export type TrailCreateOrConnectWithoutTrail_tag_relation__trailInput = {
+  where: Prisma.TrailWhereUniqueInput
+  create: Prisma.XOR<Prisma.TrailCreateWithoutTrail_tag_relation__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_tag_relation__trailInput>
+}
+
+export type TrailUpsertWithoutTrail_tag_relation__trailInput = {
+  update: Prisma.XOR<Prisma.TrailUpdateWithoutTrail_tag_relation__trailInput, Prisma.TrailUncheckedUpdateWithoutTrail_tag_relation__trailInput>
+  create: Prisma.XOR<Prisma.TrailCreateWithoutTrail_tag_relation__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_tag_relation__trailInput>
+  where?: Prisma.TrailWhereInput
+}
+
+export type TrailUpdateToOneWithWhereWithoutTrail_tag_relation__trailInput = {
+  where?: Prisma.TrailWhereInput
+  data: Prisma.XOR<Prisma.TrailUpdateWithoutTrail_tag_relation__trailInput, Prisma.TrailUncheckedUpdateWithoutTrail_tag_relation__trailInput>
+}
+
+export type TrailUpdateWithoutTrail_tag_relation__trailInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  start_point_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  end_point_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_trail_root?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
+  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  created_by?: Prisma.UserUpdateOneRequiredWithoutTrail__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutTrail__updated_byNestedInput
+  last_verified_by?: Prisma.UserUpdateOneWithoutTrail__verified_byNestedInput
+  owner?: Prisma.UserUpdateOneWithoutTrail__ownerNestedInput
+  primary_profile?: Prisma.TrailProfileUpdateOneWithoutTrail__primary_profileNestedInput
+  preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
+  derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
+  trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
+  trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
+  trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
+  trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
+  trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
+  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
+  trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
+  trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
+  trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
+  trail_segmentation__trail?: Prisma.TrailSegmentationUpdateManyWithoutTrailNestedInput
+  trail_segment_relation__child_trail?: Prisma.TrailSegmentRelationUpdateManyWithoutChild_trailNestedInput
+  trail_transport_service__trail?: Prisma.TrailTransportServiceUpdateManyWithoutTrailNestedInput
+  user_trail__trail?: Prisma.UserTrailUpdateManyWithoutTrailNestedInput
+  trip_trail__trail?: Prisma.TripTrailUpdateManyWithoutTrailNestedInput
+}
+
+export type TrailUncheckedUpdateWithoutTrail_tag_relation__trailInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  primary_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  start_point_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  end_point_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preview_img_media_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  is_trail_root?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
+  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
+  derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
+  trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
+  trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
+  trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
+  trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
+  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
+  trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
+  trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
+  trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
+  trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutTrailNestedInput
+  trail_segment_relation__child_trail?: Prisma.TrailSegmentRelationUncheckedUpdateManyWithoutChild_trailNestedInput
+  trail_transport_service__trail?: Prisma.TrailTransportServiceUncheckedUpdateManyWithoutTrailNestedInput
+  user_trail__trail?: Prisma.UserTrailUncheckedUpdateManyWithoutTrailNestedInput
+  trip_trail__trail?: Prisma.TripTrailUncheckedUpdateManyWithoutTrailNestedInput
+}
+
 export type TrailCreateWithoutTrail_challenge__trailInput = {
   name: string
   region?: string | null
@@ -2334,6 +2553,7 @@ export type TrailCreateWithoutTrail_challenge__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
@@ -2375,6 +2595,7 @@ export type TrailUncheckedCreateWithoutTrail_challenge__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
@@ -2431,6 +2652,7 @@ export type TrailUpdateWithoutTrail_challenge__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
@@ -2472,6 +2694,7 @@ export type TrailUncheckedUpdateWithoutTrail_challenge__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
@@ -2512,6 +2735,7 @@ export type TrailCreateWithoutTrail_calendar__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
@@ -2553,6 +2777,7 @@ export type TrailUncheckedCreateWithoutTrail_calendar__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
@@ -2609,6 +2834,7 @@ export type TrailUpdateWithoutTrail_calendar__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
@@ -2650,6 +2876,7 @@ export type TrailUncheckedUpdateWithoutTrail_calendar__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
@@ -2690,6 +2917,7 @@ export type TrailCreateWithoutTrail_source__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
@@ -2731,6 +2959,7 @@ export type TrailUncheckedCreateWithoutTrail_source__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
@@ -2787,6 +3016,7 @@ export type TrailUpdateWithoutTrail_source__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
@@ -2828,6 +3058,7 @@ export type TrailUncheckedUpdateWithoutTrail_source__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
@@ -2868,6 +3099,7 @@ export type TrailCreateWithoutTrail_gear_requirement__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -2909,6 +3141,7 @@ export type TrailUncheckedCreateWithoutTrail_gear_requirement__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -2965,6 +3198,7 @@ export type TrailUpdateWithoutTrail_gear_requirement__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -3006,6 +3240,7 @@ export type TrailUncheckedUpdateWithoutTrail_gear_requirement__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -3046,6 +3281,7 @@ export type TrailCreateWithoutTrail_difficulty__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -3087,6 +3323,7 @@ export type TrailUncheckedCreateWithoutTrail_difficulty__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -3143,6 +3380,7 @@ export type TrailUpdateWithoutTrail_difficulty__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -3184,6 +3422,7 @@ export type TrailUncheckedUpdateWithoutTrail_difficulty__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -3224,6 +3463,7 @@ export type TrailCreateWithoutTrail_facility__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -3265,6 +3505,7 @@ export type TrailUncheckedCreateWithoutTrail_facility__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -3321,6 +3562,7 @@ export type TrailUpdateWithoutTrail_facility__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -3362,6 +3604,7 @@ export type TrailUncheckedUpdateWithoutTrail_facility__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -3402,6 +3645,7 @@ export type TrailCreateWithoutTrail_profile__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -3443,6 +3687,7 @@ export type TrailUncheckedCreateWithoutTrail_profile__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -3487,6 +3732,7 @@ export type TrailCreateWithoutPrimary_profileInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -3528,6 +3774,7 @@ export type TrailUncheckedCreateWithoutPrimary_profileInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -3590,6 +3837,7 @@ export type TrailUpdateWithoutTrail_profile__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -3631,6 +3879,7 @@ export type TrailUncheckedUpdateWithoutTrail_profile__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -3687,6 +3936,7 @@ export type TrailCreateWithoutTrail_access_point_relation__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -3728,6 +3978,7 @@ export type TrailUncheckedCreateWithoutTrail_access_point_relation__trailInput =
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -3784,6 +4035,7 @@ export type TrailUpdateWithoutTrail_access_point_relation__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -3825,6 +4077,7 @@ export type TrailUncheckedUpdateWithoutTrail_access_point_relation__trailInput =
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -3865,6 +4118,7 @@ export type TrailCreateWithoutTrail_geometry__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -3906,6 +4160,7 @@ export type TrailUncheckedCreateWithoutTrail_geometry__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -3962,6 +4217,7 @@ export type TrailUpdateWithoutTrail_geometry__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -4003,6 +4259,7 @@ export type TrailUncheckedUpdateWithoutTrail_geometry__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -4043,6 +4300,7 @@ export type TrailCreateWithoutTrail_segmentation__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -4084,6 +4342,7 @@ export type TrailUncheckedCreateWithoutTrail_segmentation__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -4140,6 +4399,7 @@ export type TrailUpdateWithoutTrail_segmentation__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -4181,6 +4441,7 @@ export type TrailUncheckedUpdateWithoutTrail_segmentation__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -4221,6 +4482,7 @@ export type TrailCreateWithoutTrail_segment_relation__child_trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -4262,6 +4524,7 @@ export type TrailUncheckedCreateWithoutTrail_segment_relation__child_trailInput 
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -4318,6 +4581,7 @@ export type TrailUpdateWithoutTrail_segment_relation__child_trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -4359,6 +4623,7 @@ export type TrailUncheckedUpdateWithoutTrail_segment_relation__child_trailInput 
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -4399,6 +4664,7 @@ export type TrailCreateWithoutTrail_transport_service__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -4440,6 +4706,7 @@ export type TrailUncheckedCreateWithoutTrail_transport_service__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -4496,6 +4763,7 @@ export type TrailUpdateWithoutTrail_transport_service__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -4537,6 +4805,7 @@ export type TrailUncheckedUpdateWithoutTrail_transport_service__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -4577,6 +4846,7 @@ export type TrailCreateWithoutUser_trail__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -4618,6 +4888,7 @@ export type TrailUncheckedCreateWithoutUser_trail__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -4674,6 +4945,7 @@ export type TrailUpdateWithoutUser_trail__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -4715,6 +4987,7 @@ export type TrailUncheckedUpdateWithoutUser_trail__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -4755,6 +5028,7 @@ export type TrailCreateWithoutTrip_trail__trailInput = {
   preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
   derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
   trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
@@ -4796,6 +5070,7 @@ export type TrailUncheckedCreateWithoutTrip_trail__trailInput = {
   last_verified_at?: Date | string | null
   last_verified_by_id?: number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
@@ -4852,6 +5127,7 @@ export type TrailUpdateWithoutTrip_trail__trailInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -4893,6 +5169,7 @@ export type TrailUncheckedUpdateWithoutTrip_trail__trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -5036,6 +5313,7 @@ export type TrailUpdateWithoutCreated_byInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -5077,6 +5355,7 @@ export type TrailUncheckedUpdateWithoutCreated_byInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -5143,6 +5422,7 @@ export type TrailUpdateWithoutUpdated_byInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -5184,6 +5464,7 @@ export type TrailUncheckedUpdateWithoutUpdated_byInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -5250,6 +5531,7 @@ export type TrailUpdateWithoutLast_verified_byInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -5291,6 +5573,7 @@ export type TrailUncheckedUpdateWithoutLast_verified_byInput = {
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -5357,6 +5640,7 @@ export type TrailUpdateWithoutOwnerInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -5398,6 +5682,7 @@ export type TrailUncheckedUpdateWithoutOwnerInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -5490,6 +5775,7 @@ export type TrailUpdateWithoutPreview_img_mediaInput = {
   primary_profile?: Prisma.TrailProfileUpdateOneWithoutTrail__primary_profileNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -5531,6 +5817,7 @@ export type TrailUncheckedUpdateWithoutPreview_img_mediaInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -5623,6 +5910,7 @@ export type TrailUpdateWithoutDerived_from_trailInput = {
   primary_profile?: Prisma.TrailProfileUpdateOneWithoutTrail__primary_profileNestedInput
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -5664,6 +5952,7 @@ export type TrailUncheckedUpdateWithoutDerived_from_trailInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -5756,6 +6045,7 @@ export type TrailUpdateWithoutPrimary_profileInput = {
   preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
   derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
   trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
@@ -5797,6 +6087,7 @@ export type TrailUncheckedUpdateWithoutPrimary_profileInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
+  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
@@ -5846,6 +6137,7 @@ export type TrailUncheckedUpdateManyWithoutPrimary_profileInput = {
 
 export type TrailCountOutputType = {
   trail__derived_from_trail: number
+  trail_tag_relation__trail: number
   trail_challenge__trail: number
   trail_calendar__trail: number
   trail_source__trail: number
@@ -5864,6 +6156,7 @@ export type TrailCountOutputType = {
 
 export type TrailCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   trail__derived_from_trail?: boolean | TrailCountOutputTypeCountTrail__derived_from_trailArgs
+  trail_tag_relation__trail?: boolean | TrailCountOutputTypeCountTrail_tag_relation__trailArgs
   trail_challenge__trail?: boolean | TrailCountOutputTypeCountTrail_challenge__trailArgs
   trail_calendar__trail?: boolean | TrailCountOutputTypeCountTrail_calendar__trailArgs
   trail_source__trail?: boolean | TrailCountOutputTypeCountTrail_source__trailArgs
@@ -5895,6 +6188,13 @@ export type TrailCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extens
  */
 export type TrailCountOutputTypeCountTrail__derived_from_trailArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.TrailWhereInput
+}
+
+/**
+ * TrailCountOutputType without action
+ */
+export type TrailCountOutputTypeCountTrail_tag_relation__trailArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TrailTagRelationWhereInput
 }
 
 /**
@@ -6029,6 +6329,7 @@ export type TrailSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   preview_img_media?: boolean | Prisma.Trail$preview_img_mediaArgs<ExtArgs>
   derived_from_trail?: boolean | Prisma.Trail$derived_from_trailArgs<ExtArgs>
   trail__derived_from_trail?: boolean | Prisma.Trail$trail__derived_from_trailArgs<ExtArgs>
+  trail_tag_relation__trail?: boolean | Prisma.Trail$trail_tag_relation__trailArgs<ExtArgs>
   trail_challenge__trail?: boolean | Prisma.Trail$trail_challenge__trailArgs<ExtArgs>
   trail_calendar__trail?: boolean | Prisma.Trail$trail_calendar__trailArgs<ExtArgs>
   trail_source__trail?: boolean | Prisma.Trail$trail_source__trailArgs<ExtArgs>
@@ -6151,6 +6452,7 @@ export type TrailInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   preview_img_media?: boolean | Prisma.Trail$preview_img_mediaArgs<ExtArgs>
   derived_from_trail?: boolean | Prisma.Trail$derived_from_trailArgs<ExtArgs>
   trail__derived_from_trail?: boolean | Prisma.Trail$trail__derived_from_trailArgs<ExtArgs>
+  trail_tag_relation__trail?: boolean | Prisma.Trail$trail_tag_relation__trailArgs<ExtArgs>
   trail_challenge__trail?: boolean | Prisma.Trail$trail_challenge__trailArgs<ExtArgs>
   trail_calendar__trail?: boolean | Prisma.Trail$trail_calendar__trailArgs<ExtArgs>
   trail_source__trail?: boolean | Prisma.Trail$trail_source__trailArgs<ExtArgs>
@@ -6197,6 +6499,7 @@ export type $TrailPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     preview_img_media: Prisma.$MediaArchivePayload<ExtArgs> | null
     derived_from_trail: Prisma.$TrailPayload<ExtArgs> | null
     trail__derived_from_trail: Prisma.$TrailPayload<ExtArgs>[]
+    trail_tag_relation__trail: Prisma.$TrailTagRelationPayload<ExtArgs>[]
     trail_challenge__trail: Prisma.$TrailChallengePayload<ExtArgs>[]
     trail_calendar__trail: Prisma.$TrailCalendarPayload<ExtArgs>[]
     trail_source__trail: Prisma.$TrailSourcePayload<ExtArgs>[]
@@ -6639,6 +6942,7 @@ export interface Prisma__TrailClient<T, Null = never, ExtArgs extends runtime.Ty
   preview_img_media<T extends Prisma.Trail$preview_img_mediaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$preview_img_mediaArgs<ExtArgs>>): Prisma.Prisma__MediaArchiveClient<runtime.Types.Result.GetResult<Prisma.$MediaArchivePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   derived_from_trail<T extends Prisma.Trail$derived_from_trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$derived_from_trailArgs<ExtArgs>>): Prisma.Prisma__TrailClient<runtime.Types.Result.GetResult<Prisma.$TrailPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   trail__derived_from_trail<T extends Prisma.Trail$trail__derived_from_trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail__derived_from_trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  trail_tag_relation__trail<T extends Prisma.Trail$trail_tag_relation__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_tag_relation__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailTagRelationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trail_challenge__trail<T extends Prisma.Trail$trail_challenge__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_challenge__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailChallengePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trail_calendar__trail<T extends Prisma.Trail$trail_calendar__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_calendar__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailCalendarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trail_source__trail<T extends Prisma.Trail$trail_source__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_source__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailSourcePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -7223,6 +7527,30 @@ export type Trail$trail__derived_from_trailArgs<ExtArgs extends runtime.Types.Ex
   take?: number
   skip?: number
   distinct?: Prisma.TrailScalarFieldEnum | Prisma.TrailScalarFieldEnum[]
+}
+
+/**
+ * Trail.trail_tag_relation__trail
+ */
+export type Trail$trail_tag_relation__trailArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TrailTagRelation
+   */
+  select?: Prisma.TrailTagRelationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TrailTagRelation
+   */
+  omit?: Prisma.TrailTagRelationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TrailTagRelationInclude<ExtArgs> | null
+  where?: Prisma.TrailTagRelationWhereInput
+  orderBy?: Prisma.TrailTagRelationOrderByWithRelationInput | Prisma.TrailTagRelationOrderByWithRelationInput[]
+  cursor?: Prisma.TrailTagRelationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TrailTagRelationScalarFieldEnum | Prisma.TrailTagRelationScalarFieldEnum[]
 }
 
 /**

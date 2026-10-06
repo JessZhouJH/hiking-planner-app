@@ -270,6 +270,8 @@ export type GearTypeWhereInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementListRelationFilter
   trip_gear_list__gear_type?: Prisma.TripGearListListRelationFilter
   gear_type__parent_gear_type?: Prisma.GearTypeListRelationFilter
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationListRelationFilter
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationListRelationFilter
 }
 
 export type GearTypeOrderByWithRelationInput = {
@@ -292,6 +294,8 @@ export type GearTypeOrderByWithRelationInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementOrderByRelationAggregateInput
   trip_gear_list__gear_type?: Prisma.TripGearListOrderByRelationAggregateInput
   gear_type__parent_gear_type?: Prisma.GearTypeOrderByRelationAggregateInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationOrderByRelationAggregateInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationOrderByRelationAggregateInput
 }
 
 export type GearTypeWhereUniqueInput = Prisma.AtLeast<{
@@ -317,6 +321,8 @@ export type GearTypeWhereUniqueInput = Prisma.AtLeast<{
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementListRelationFilter
   trip_gear_list__gear_type?: Prisma.TripGearListListRelationFilter
   gear_type__parent_gear_type?: Prisma.GearTypeListRelationFilter
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationListRelationFilter
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationListRelationFilter
 }, "id" | "name">
 
 export type GearTypeOrderByWithAggregationInput = {
@@ -367,6 +373,8 @@ export type GearTypeCreateInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateInput = {
@@ -386,6 +394,8 @@ export type GearTypeUncheckedCreateInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUpdateInput = {
@@ -404,6 +414,8 @@ export type GearTypeUpdateInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateInput = {
@@ -423,6 +435,8 @@ export type GearTypeUncheckedUpdateInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeCreateManyInput = {
@@ -669,6 +683,34 @@ export type GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput = {
   deleteMany?: Prisma.GearTypeScalarWhereInput | Prisma.GearTypeScalarWhereInput[]
 }
 
+export type GearTypeCreateNestedOneWithoutGear_type_relation__parent_gear_typeInput = {
+  create?: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_type_relation__parent_gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_type_relation__parent_gear_typeInput>
+  connectOrCreate?: Prisma.GearTypeCreateOrConnectWithoutGear_type_relation__parent_gear_typeInput
+  connect?: Prisma.GearTypeWhereUniqueInput
+}
+
+export type GearTypeCreateNestedOneWithoutGear_type_relation__child_gear_typeInput = {
+  create?: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_type_relation__child_gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_type_relation__child_gear_typeInput>
+  connectOrCreate?: Prisma.GearTypeCreateOrConnectWithoutGear_type_relation__child_gear_typeInput
+  connect?: Prisma.GearTypeWhereUniqueInput
+}
+
+export type GearTypeUpdateOneRequiredWithoutGear_type_relation__parent_gear_typeNestedInput = {
+  create?: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_type_relation__parent_gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_type_relation__parent_gear_typeInput>
+  connectOrCreate?: Prisma.GearTypeCreateOrConnectWithoutGear_type_relation__parent_gear_typeInput
+  upsert?: Prisma.GearTypeUpsertWithoutGear_type_relation__parent_gear_typeInput
+  connect?: Prisma.GearTypeWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GearTypeUpdateToOneWithWhereWithoutGear_type_relation__parent_gear_typeInput, Prisma.GearTypeUpdateWithoutGear_type_relation__parent_gear_typeInput>, Prisma.GearTypeUncheckedUpdateWithoutGear_type_relation__parent_gear_typeInput>
+}
+
+export type GearTypeUpdateOneRequiredWithoutGear_type_relation__child_gear_typeNestedInput = {
+  create?: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_type_relation__child_gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_type_relation__child_gear_typeInput>
+  connectOrCreate?: Prisma.GearTypeCreateOrConnectWithoutGear_type_relation__child_gear_typeInput
+  upsert?: Prisma.GearTypeUpsertWithoutGear_type_relation__child_gear_typeInput
+  connect?: Prisma.GearTypeWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GearTypeUpdateToOneWithWhereWithoutGear_type_relation__child_gear_typeInput, Prisma.GearTypeUpdateWithoutGear_type_relation__child_gear_typeInput>, Prisma.GearTypeUncheckedUpdateWithoutGear_type_relation__child_gear_typeInput>
+}
+
 export type GearTypeCreateNestedOneWithoutGear_specs_definition__gear_typeInput = {
   create?: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_specs_definition__gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_specs_definition__gear_typeInput>
   connectOrCreate?: Prisma.GearTypeCreateOrConnectWithoutGear_specs_definition__gear_typeInput
@@ -774,6 +816,8 @@ export type GearTypeCreateWithoutCreated_byInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutCreated_byInput = {
@@ -792,6 +836,8 @@ export type GearTypeUncheckedCreateWithoutCreated_byInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutCreated_byInput = {
@@ -819,6 +865,8 @@ export type GearTypeCreateWithoutUpdated_byInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutUpdated_byInput = {
@@ -837,6 +885,8 @@ export type GearTypeUncheckedCreateWithoutUpdated_byInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutUpdated_byInput = {
@@ -911,6 +961,8 @@ export type GearTypeCreateWithoutGear_type__parent_gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutGear_typeInput
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutGear_type__parent_gear_typeInput = {
@@ -929,6 +981,8 @@ export type GearTypeUncheckedCreateWithoutGear_type__parent_gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutGear_type__parent_gear_typeInput = {
@@ -951,6 +1005,8 @@ export type GearTypeCreateWithoutParent_gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutParent_gear_typeInput = {
@@ -969,6 +1025,8 @@ export type GearTypeUncheckedCreateWithoutParent_gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutParent_gear_typeInput = {
@@ -1007,6 +1065,8 @@ export type GearTypeUpdateWithoutGear_type__parent_gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUpdateManyWithoutGear_typeNestedInput
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutGear_type__parent_gear_typeInput = {
@@ -1025,6 +1085,8 @@ export type GearTypeUncheckedUpdateWithoutGear_type__parent_gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUpsertWithWhereUniqueWithoutParent_gear_typeInput = {
@@ -1043,6 +1105,194 @@ export type GearTypeUpdateManyWithWhereWithoutParent_gear_typeInput = {
   data: Prisma.XOR<Prisma.GearTypeUpdateManyMutationInput, Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeInput>
 }
 
+export type GearTypeCreateWithoutGear_type_relation__parent_gear_typeInput = {
+  name: string
+  status?: $Enums.Status
+  notes?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  created_by: Prisma.UserCreateNestedOneWithoutGear_type__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutGear_type__updated_byInput
+  parent_gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear_type__parent_gear_typeInput
+  gear_specs_definition__gear_type?: Prisma.GearSpecsDefinitionCreateNestedManyWithoutGear_typeInput
+  gear__gear_type?: Prisma.GearCreateNestedManyWithoutGear_typeInput
+  gear_pack_component__gear_type?: Prisma.GearPackComponentCreateNestedManyWithoutGear_typeInput
+  challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutGear_typeInput
+  trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
+  trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
+  gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
+}
+
+export type GearTypeUncheckedCreateWithoutGear_type_relation__parent_gear_typeInput = {
+  id?: number
+  name: string
+  parent_gear_type_id?: number | null
+  status?: $Enums.Status
+  notes?: string | null
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+  gear_specs_definition__gear_type?: Prisma.GearSpecsDefinitionUncheckedCreateNestedManyWithoutGear_typeInput
+  gear__gear_type?: Prisma.GearUncheckedCreateNestedManyWithoutGear_typeInput
+  gear_pack_component__gear_type?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_typeInput
+  challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
+  trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
+  trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
+  gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
+}
+
+export type GearTypeCreateOrConnectWithoutGear_type_relation__parent_gear_typeInput = {
+  where: Prisma.GearTypeWhereUniqueInput
+  create: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_type_relation__parent_gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_type_relation__parent_gear_typeInput>
+}
+
+export type GearTypeCreateWithoutGear_type_relation__child_gear_typeInput = {
+  name: string
+  status?: $Enums.Status
+  notes?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  created_by: Prisma.UserCreateNestedOneWithoutGear_type__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutGear_type__updated_byInput
+  parent_gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear_type__parent_gear_typeInput
+  gear_specs_definition__gear_type?: Prisma.GearSpecsDefinitionCreateNestedManyWithoutGear_typeInput
+  gear__gear_type?: Prisma.GearCreateNestedManyWithoutGear_typeInput
+  gear_pack_component__gear_type?: Prisma.GearPackComponentCreateNestedManyWithoutGear_typeInput
+  challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutGear_typeInput
+  trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
+  trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
+  gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+}
+
+export type GearTypeUncheckedCreateWithoutGear_type_relation__child_gear_typeInput = {
+  id?: number
+  name: string
+  parent_gear_type_id?: number | null
+  status?: $Enums.Status
+  notes?: string | null
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+  gear_specs_definition__gear_type?: Prisma.GearSpecsDefinitionUncheckedCreateNestedManyWithoutGear_typeInput
+  gear__gear_type?: Prisma.GearUncheckedCreateNestedManyWithoutGear_typeInput
+  gear_pack_component__gear_type?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_typeInput
+  challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
+  trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
+  trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
+  gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+}
+
+export type GearTypeCreateOrConnectWithoutGear_type_relation__child_gear_typeInput = {
+  where: Prisma.GearTypeWhereUniqueInput
+  create: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_type_relation__child_gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_type_relation__child_gear_typeInput>
+}
+
+export type GearTypeUpsertWithoutGear_type_relation__parent_gear_typeInput = {
+  update: Prisma.XOR<Prisma.GearTypeUpdateWithoutGear_type_relation__parent_gear_typeInput, Prisma.GearTypeUncheckedUpdateWithoutGear_type_relation__parent_gear_typeInput>
+  create: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_type_relation__parent_gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_type_relation__parent_gear_typeInput>
+  where?: Prisma.GearTypeWhereInput
+}
+
+export type GearTypeUpdateToOneWithWhereWithoutGear_type_relation__parent_gear_typeInput = {
+  where?: Prisma.GearTypeWhereInput
+  data: Prisma.XOR<Prisma.GearTypeUpdateWithoutGear_type_relation__parent_gear_typeInput, Prisma.GearTypeUncheckedUpdateWithoutGear_type_relation__parent_gear_typeInput>
+}
+
+export type GearTypeUpdateWithoutGear_type_relation__parent_gear_typeInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by?: Prisma.UserUpdateOneRequiredWithoutGear_type__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_type__updated_byNestedInput
+  parent_gear_type?: Prisma.GearTypeUpdateOneWithoutGear_type__parent_gear_typeNestedInput
+  gear_specs_definition__gear_type?: Prisma.GearSpecsDefinitionUpdateManyWithoutGear_typeNestedInput
+  gear__gear_type?: Prisma.GearUpdateManyWithoutGear_typeNestedInput
+  gear_pack_component__gear_type?: Prisma.GearPackComponentUpdateManyWithoutGear_typeNestedInput
+  challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUpdateManyWithoutGear_typeNestedInput
+  trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
+  trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
+  gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
+}
+
+export type GearTypeUncheckedUpdateWithoutGear_type_relation__parent_gear_typeInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  parent_gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_specs_definition__gear_type?: Prisma.GearSpecsDefinitionUncheckedUpdateManyWithoutGear_typeNestedInput
+  gear__gear_type?: Prisma.GearUncheckedUpdateManyWithoutGear_typeNestedInput
+  gear_pack_component__gear_type?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_typeNestedInput
+  challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
+  trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
+  trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
+  gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
+}
+
+export type GearTypeUpsertWithoutGear_type_relation__child_gear_typeInput = {
+  update: Prisma.XOR<Prisma.GearTypeUpdateWithoutGear_type_relation__child_gear_typeInput, Prisma.GearTypeUncheckedUpdateWithoutGear_type_relation__child_gear_typeInput>
+  create: Prisma.XOR<Prisma.GearTypeCreateWithoutGear_type_relation__child_gear_typeInput, Prisma.GearTypeUncheckedCreateWithoutGear_type_relation__child_gear_typeInput>
+  where?: Prisma.GearTypeWhereInput
+}
+
+export type GearTypeUpdateToOneWithWhereWithoutGear_type_relation__child_gear_typeInput = {
+  where?: Prisma.GearTypeWhereInput
+  data: Prisma.XOR<Prisma.GearTypeUpdateWithoutGear_type_relation__child_gear_typeInput, Prisma.GearTypeUncheckedUpdateWithoutGear_type_relation__child_gear_typeInput>
+}
+
+export type GearTypeUpdateWithoutGear_type_relation__child_gear_typeInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by?: Prisma.UserUpdateOneRequiredWithoutGear_type__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_type__updated_byNestedInput
+  parent_gear_type?: Prisma.GearTypeUpdateOneWithoutGear_type__parent_gear_typeNestedInput
+  gear_specs_definition__gear_type?: Prisma.GearSpecsDefinitionUpdateManyWithoutGear_typeNestedInput
+  gear__gear_type?: Prisma.GearUpdateManyWithoutGear_typeNestedInput
+  gear_pack_component__gear_type?: Prisma.GearPackComponentUpdateManyWithoutGear_typeNestedInput
+  challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUpdateManyWithoutGear_typeNestedInput
+  trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
+  trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
+  gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+}
+
+export type GearTypeUncheckedUpdateWithoutGear_type_relation__child_gear_typeInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  parent_gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_specs_definition__gear_type?: Prisma.GearSpecsDefinitionUncheckedUpdateManyWithoutGear_typeNestedInput
+  gear__gear_type?: Prisma.GearUncheckedUpdateManyWithoutGear_typeNestedInput
+  gear_pack_component__gear_type?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_typeNestedInput
+  challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
+  trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
+  trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
+  gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+}
+
 export type GearTypeCreateWithoutGear_specs_definition__gear_typeInput = {
   name: string
   status?: $Enums.Status
@@ -1058,6 +1308,8 @@ export type GearTypeCreateWithoutGear_specs_definition__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutGear_specs_definition__gear_typeInput = {
@@ -1076,6 +1328,8 @@ export type GearTypeUncheckedCreateWithoutGear_specs_definition__gear_typeInput 
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutGear_specs_definition__gear_typeInput = {
@@ -1109,6 +1363,8 @@ export type GearTypeUpdateWithoutGear_specs_definition__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutGear_specs_definition__gear_typeInput = {
@@ -1127,6 +1383,8 @@ export type GearTypeUncheckedUpdateWithoutGear_specs_definition__gear_typeInput 
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeCreateWithoutGear__gear_typeInput = {
@@ -1144,6 +1402,8 @@ export type GearTypeCreateWithoutGear__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutGear__gear_typeInput = {
@@ -1162,6 +1422,8 @@ export type GearTypeUncheckedCreateWithoutGear__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutGear__gear_typeInput = {
@@ -1195,6 +1457,8 @@ export type GearTypeUpdateWithoutGear__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutGear__gear_typeInput = {
@@ -1213,6 +1477,8 @@ export type GearTypeUncheckedUpdateWithoutGear__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeCreateWithoutGear_pack_component__gear_typeInput = {
@@ -1230,6 +1496,8 @@ export type GearTypeCreateWithoutGear_pack_component__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutGear_pack_component__gear_typeInput = {
@@ -1248,6 +1516,8 @@ export type GearTypeUncheckedCreateWithoutGear_pack_component__gear_typeInput = 
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutGear_pack_component__gear_typeInput = {
@@ -1281,6 +1551,8 @@ export type GearTypeUpdateWithoutGear_pack_component__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutGear_pack_component__gear_typeInput = {
@@ -1299,6 +1571,8 @@ export type GearTypeUncheckedUpdateWithoutGear_pack_component__gear_typeInput = 
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeCreateWithoutChallnege_gear_reuqirement__gear_typeInput = {
@@ -1316,6 +1590,8 @@ export type GearTypeCreateWithoutChallnege_gear_reuqirement__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutChallnege_gear_reuqirement__gear_typeInput = {
@@ -1334,6 +1610,8 @@ export type GearTypeUncheckedCreateWithoutChallnege_gear_reuqirement__gear_typeI
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutChallnege_gear_reuqirement__gear_typeInput = {
@@ -1367,6 +1645,8 @@ export type GearTypeUpdateWithoutChallnege_gear_reuqirement__gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutChallnege_gear_reuqirement__gear_typeInput = {
@@ -1385,6 +1665,8 @@ export type GearTypeUncheckedUpdateWithoutChallnege_gear_reuqirement__gear_typeI
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeCreateWithoutTrail_gear_requirement__gear_typeInput = {
@@ -1402,6 +1684,8 @@ export type GearTypeCreateWithoutTrail_gear_requirement__gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutTrail_gear_requirement__gear_typeInput = {
@@ -1420,6 +1704,8 @@ export type GearTypeUncheckedCreateWithoutTrail_gear_requirement__gear_typeInput
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutTrail_gear_requirement__gear_typeInput = {
@@ -1453,6 +1739,8 @@ export type GearTypeUpdateWithoutTrail_gear_requirement__gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutTrail_gear_requirement__gear_typeInput = {
@@ -1471,6 +1759,8 @@ export type GearTypeUncheckedUpdateWithoutTrail_gear_requirement__gear_typeInput
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeCreateWithoutTrip_gear_list__gear_typeInput = {
@@ -1488,6 +1778,8 @@ export type GearTypeCreateWithoutTrip_gear_list__gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutGear_typeInput
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeUncheckedCreateWithoutTrip_gear_list__gear_typeInput = {
@@ -1506,6 +1798,8 @@ export type GearTypeUncheckedCreateWithoutTrip_gear_list__gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutGear_typeInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutParent_gear_typeInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutChild_gear_typeInput
 }
 
 export type GearTypeCreateOrConnectWithoutTrip_gear_list__gear_typeInput = {
@@ -1539,6 +1833,8 @@ export type GearTypeUpdateWithoutTrip_gear_list__gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUpdateManyWithoutGear_typeNestedInput
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutTrip_gear_list__gear_typeInput = {
@@ -1557,6 +1853,8 @@ export type GearTypeUncheckedUpdateWithoutTrip_gear_list__gear_typeInput = {
   challnege_gear_reuqirement__gear_type?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeCreateManyCreated_byInput = {
@@ -1596,6 +1894,8 @@ export type GearTypeUpdateWithoutCreated_byInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutCreated_byInput = {
@@ -1614,6 +1914,8 @@ export type GearTypeUncheckedUpdateWithoutCreated_byInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateManyWithoutCreated_byInput = {
@@ -1642,6 +1944,8 @@ export type GearTypeUpdateWithoutUpdated_byInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutUpdated_byInput = {
@@ -1660,6 +1964,8 @@ export type GearTypeUncheckedUpdateWithoutUpdated_byInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateManyWithoutUpdated_byInput = {
@@ -1699,6 +2005,8 @@ export type GearTypeUpdateWithoutParent_gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateWithoutParent_gear_typeInput = {
@@ -1717,6 +2025,8 @@ export type GearTypeUncheckedUpdateWithoutParent_gear_typeInput = {
   trail_gear_requirement__gear_type?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutGear_typeNestedInput
   trip_gear_list__gear_type?: Prisma.TripGearListUncheckedUpdateManyWithoutGear_typeNestedInput
   gear_type__parent_gear_type?: Prisma.GearTypeUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutParent_gear_typeNestedInput
+  gear_type_relation__child_gear_type?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutChild_gear_typeNestedInput
 }
 
 export type GearTypeUncheckedUpdateManyWithoutParent_gear_typeInput = {
@@ -1743,6 +2053,8 @@ export type GearTypeCountOutputType = {
   trail_gear_requirement__gear_type: number
   trip_gear_list__gear_type: number
   gear_type__parent_gear_type: number
+  gear_type_relation__parent_gear_type: number
+  gear_type_relation__child_gear_type: number
 }
 
 export type GearTypeCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1753,6 +2065,8 @@ export type GearTypeCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   trail_gear_requirement__gear_type?: boolean | GearTypeCountOutputTypeCountTrail_gear_requirement__gear_typeArgs
   trip_gear_list__gear_type?: boolean | GearTypeCountOutputTypeCountTrip_gear_list__gear_typeArgs
   gear_type__parent_gear_type?: boolean | GearTypeCountOutputTypeCountGear_type__parent_gear_typeArgs
+  gear_type_relation__parent_gear_type?: boolean | GearTypeCountOutputTypeCountGear_type_relation__parent_gear_typeArgs
+  gear_type_relation__child_gear_type?: boolean | GearTypeCountOutputTypeCountGear_type_relation__child_gear_typeArgs
 }
 
 /**
@@ -1814,6 +2128,20 @@ export type GearTypeCountOutputTypeCountGear_type__parent_gear_typeArgs<ExtArgs 
   where?: Prisma.GearTypeWhereInput
 }
 
+/**
+ * GearTypeCountOutputType without action
+ */
+export type GearTypeCountOutputTypeCountGear_type_relation__parent_gear_typeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GearTypeRelationWhereInput
+}
+
+/**
+ * GearTypeCountOutputType without action
+ */
+export type GearTypeCountOutputTypeCountGear_type_relation__child_gear_typeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GearTypeRelationWhereInput
+}
+
 
 export type GearTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1835,6 +2163,8 @@ export type GearTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   trail_gear_requirement__gear_type?: boolean | Prisma.GearType$trail_gear_requirement__gear_typeArgs<ExtArgs>
   trip_gear_list__gear_type?: boolean | Prisma.GearType$trip_gear_list__gear_typeArgs<ExtArgs>
   gear_type__parent_gear_type?: boolean | Prisma.GearType$gear_type__parent_gear_typeArgs<ExtArgs>
+  gear_type_relation__parent_gear_type?: boolean | Prisma.GearType$gear_type_relation__parent_gear_typeArgs<ExtArgs>
+  gear_type_relation__child_gear_type?: boolean | Prisma.GearType$gear_type_relation__child_gear_typeArgs<ExtArgs>
   _count?: boolean | Prisma.GearTypeCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gearType"]>
 
@@ -1892,6 +2222,8 @@ export type GearTypeInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   trail_gear_requirement__gear_type?: boolean | Prisma.GearType$trail_gear_requirement__gear_typeArgs<ExtArgs>
   trip_gear_list__gear_type?: boolean | Prisma.GearType$trip_gear_list__gear_typeArgs<ExtArgs>
   gear_type__parent_gear_type?: boolean | Prisma.GearType$gear_type__parent_gear_typeArgs<ExtArgs>
+  gear_type_relation__parent_gear_type?: boolean | Prisma.GearType$gear_type_relation__parent_gear_typeArgs<ExtArgs>
+  gear_type_relation__child_gear_type?: boolean | Prisma.GearType$gear_type_relation__child_gear_typeArgs<ExtArgs>
   _count?: boolean | Prisma.GearTypeCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type GearTypeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1918,6 +2250,8 @@ export type $GearTypePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     trail_gear_requirement__gear_type: Prisma.$TrailGearRequirementPayload<ExtArgs>[]
     trip_gear_list__gear_type: Prisma.$TripGearListPayload<ExtArgs>[]
     gear_type__parent_gear_type: Prisma.$GearTypePayload<ExtArgs>[]
+    gear_type_relation__parent_gear_type: Prisma.$GearTypeRelationPayload<ExtArgs>[]
+    gear_type_relation__child_gear_type: Prisma.$GearTypeRelationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2333,6 +2667,8 @@ export interface Prisma__GearTypeClient<T, Null = never, ExtArgs extends runtime
   trail_gear_requirement__gear_type<T extends Prisma.GearType$trail_gear_requirement__gear_typeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearType$trail_gear_requirement__gear_typeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailGearRequirementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trip_gear_list__gear_type<T extends Prisma.GearType$trip_gear_list__gear_typeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearType$trip_gear_list__gear_typeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TripGearListPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gear_type__parent_gear_type<T extends Prisma.GearType$gear_type__parent_gear_typeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearType$gear_type__parent_gear_typeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  gear_type_relation__parent_gear_type<T extends Prisma.GearType$gear_type_relation__parent_gear_typeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearType$gear_type_relation__parent_gear_typeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearTypeRelationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  gear_type_relation__child_gear_type<T extends Prisma.GearType$gear_type_relation__child_gear_typeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearType$gear_type_relation__child_gear_typeArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearTypeRelationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2956,6 +3292,54 @@ export type GearType$gear_type__parent_gear_typeArgs<ExtArgs extends runtime.Typ
   take?: number
   skip?: number
   distinct?: Prisma.GearTypeScalarFieldEnum | Prisma.GearTypeScalarFieldEnum[]
+}
+
+/**
+ * GearType.gear_type_relation__parent_gear_type
+ */
+export type GearType$gear_type_relation__parent_gear_typeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GearTypeRelation
+   */
+  select?: Prisma.GearTypeRelationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GearTypeRelation
+   */
+  omit?: Prisma.GearTypeRelationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GearTypeRelationInclude<ExtArgs> | null
+  where?: Prisma.GearTypeRelationWhereInput
+  orderBy?: Prisma.GearTypeRelationOrderByWithRelationInput | Prisma.GearTypeRelationOrderByWithRelationInput[]
+  cursor?: Prisma.GearTypeRelationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GearTypeRelationScalarFieldEnum | Prisma.GearTypeRelationScalarFieldEnum[]
+}
+
+/**
+ * GearType.gear_type_relation__child_gear_type
+ */
+export type GearType$gear_type_relation__child_gear_typeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GearTypeRelation
+   */
+  select?: Prisma.GearTypeRelationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GearTypeRelation
+   */
+  omit?: Prisma.GearTypeRelationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GearTypeRelationInclude<ExtArgs> | null
+  where?: Prisma.GearTypeRelationWhereInput
+  orderBy?: Prisma.GearTypeRelationOrderByWithRelationInput | Prisma.GearTypeRelationOrderByWithRelationInput[]
+  cursor?: Prisma.GearTypeRelationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GearTypeRelationScalarFieldEnum | Prisma.GearTypeRelationScalarFieldEnum[]
 }
 
 /**

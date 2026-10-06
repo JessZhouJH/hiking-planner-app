@@ -141,7 +141,5 @@ export async function seedGearPrep() {
         },
     })
 
-    // GearTags
-
     // GearSpecsDefinition
 }

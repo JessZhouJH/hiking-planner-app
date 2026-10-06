@@ -87,6 +87,26 @@ export type Attachment = Prisma.AttachmentModel
  */
 export type Unit = Prisma.UnitModel
 /**
+ * Model Tag
+ * 
+ */
+export type Tag = Prisma.TagModel
+/**
+ * Model TagGroup
+ * 
+ */
+export type TagGroup = Prisma.TagGroupModel
+/**
+ * Model TagRelation
+ * 
+ */
+export type TagRelation = Prisma.TagRelationModel
+/**
+ * Model TagGroupRelation
+ * 
+ */
+export type TagGroupRelation = Prisma.TagGroupRelationModel
+/**
  * Model Brand
  * 
  */
@@ -97,10 +117,10 @@ export type Brand = Prisma.BrandModel
  */
 export type GearType = Prisma.GearTypeModel
 /**
- * Model GearTag
+ * Model GearTypeRelation
  * 
  */
-export type GearTag = Prisma.GearTagModel
+export type GearTypeRelation = Prisma.GearTypeRelationModel
 /**
  * Model GearSpecsDefinition
  * 
@@ -111,6 +131,11 @@ export type GearSpecsDefinition = Prisma.GearSpecsDefinitionModel
  * 
  */
 export type Gear = Prisma.GearModel
+/**
+ * Model DescriptiveGear
+ * 
+ */
+export type DescriptiveGear = Prisma.DescriptiveGearModel
 /**
  * Model GearSpecs
  * 
@@ -171,6 +196,11 @@ export type DifficultyMapping = Prisma.DifficultyMappingModel
  * 
  */
 export type Trail = Prisma.TrailModel
+/**
+ * Model TrailTagRelation
+ * 
+ */
+export type TrailTagRelation = Prisma.TrailTagRelationModel
 /**
  * Model TrailChallenge
  * 
