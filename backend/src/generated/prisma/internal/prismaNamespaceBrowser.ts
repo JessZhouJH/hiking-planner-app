@@ -349,8 +349,8 @@ export type TagRelationScalarFieldEnum = (typeof TagRelationScalarFieldEnum)[key
 
 export const TagGroupRelationScalarFieldEnum = {
   id: 'id',
-  tag_id: 'tag_id',
   tag_group_id: 'tag_group_id',
+  tag_id: 'tag_id',
   notes: 'notes',
   status: 'status',
   created_at: 'created_at',
@@ -380,7 +380,7 @@ export type BrandScalarFieldEnum = (typeof BrandScalarFieldEnum)[keyof typeof Br
 export const GearTypeScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  parent_gear_type_id: 'parent_gear_type_id',
+  is_comparable: 'is_comparable',
   status: 'status',
   notes: 'notes',
   created_at: 'created_at',

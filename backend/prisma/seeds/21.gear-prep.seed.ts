@@ -1,145 +1,136 @@
 import { prisma } from './seed-client'
 
 import { SYSTEM_USER_ID, MEDIA_PATH_PREFIX } from '../../src/constants/macros'
+import { Status } from '../../src/generated/prisma/enums'
 
 export async function seedGearPrep() {
     // Brand
-    const osprey = await prisma.brand.upsert({
-        where: { name: 'Osprey' },
-        update: {},
-        create: {
-            name: 'Osprey',
-            logo_img_key: `${MEDIA_PATH_PREFIX}/brand-logo/Osprey-logo.png`,
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const sea_to_summit = await prisma.brand.upsert({
-        where: { name: 'Sea To Summit' },
-        update: {},
-        create: {
-            name: 'Sea To Summit',
-            logo_img_key: `${MEDIA_PATH_PREFIX}/brand-logo/Sea-to-summit-logo.png`,
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const montbell = await prisma.brand.upsert({
-        where: { name: 'Montbell' },
-        update: {},
-        create: {
-            name: '',
-            logo_img_key: `${MEDIA_PATH_PREFIX}/brand-logo/Montbell-logo.webp`,
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const macpac = await prisma.brand.upsert({
-        where: { name: 'Macpac' },
-        update: {},
-        create: {
-            name: '',
-            logo_img_key: `${MEDIA_PATH_PREFIX}/brand-logo/macpac-logo.jpg`,
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const merrell = await prisma.brand.upsert({
-        where: { name: 'Merrell' },
-        update: {},
-        create: {
-            name: '',
-            logo_img_key: `${MEDIA_PATH_PREFIX}/brand-logo/Merrell-Logo.png`,
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
+    async function createBrand(
+        name: string,
+        user_id: number,
+        logo_img_key?: string
+    ){
+        const new_brand = await prisma.brand.upsert({
+            where: { name: name },
+            update: {
+                updated_by_id: user_id,
+                ...(logo_img_key !== undefined && {
+                    logo_img_key: logo_img_key
+                })
+            },
+            create: {
+                name: name,
+                created_by_id: user_id,
+                updated_by_id: user_id,
+                ...(logo_img_key !== undefined && {
+                    logo_img_key: logo_img_key
+                })
+            }
+        })
+        return new_brand
+    }
+
+    const osprey_brand = await createBrand("Osprey", SYSTEM_USER_ID, `${MEDIA_PATH_PREFIX}/brand-logo/Osprey-logo.png`)
+    const sea_to_summit_brand = await createBrand("Sea To Summit", SYSTEM_USER_ID, `${MEDIA_PATH_PREFIX}/brand-logo/Sea-to-summit-logo.png`)
+    const montbell_brand = await createBrand("Montbell", SYSTEM_USER_ID, `${MEDIA_PATH_PREFIX}/brand-logo/Montbell-logo.webp`)
+    const macpac_brand = await createBrand("Macpac", SYSTEM_USER_ID, `${MEDIA_PATH_PREFIX}/brand-logo/macpac-logo.jpg`)
+    const merrell_brand = await createBrand("Merrell", SYSTEM_USER_ID, `${MEDIA_PATH_PREFIX}/brand-logo/Merrell-Logo.png`)
 
     // GearType
-    const tent = await prisma.gearType.upsert({
-        where: { name: 'Tent' },
-        update: {},
-        create: {
-            name: 'Tent',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const sleeping_bag = await prisma.gearType.upsert({
-        where: { name: 'Sleeping Bag' },
-        update: {},
-        create: {
-            name: 'Sleeping Bag',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const sleeping_mat = await prisma.gearType.upsert({
-        where: { name: 'Sleeping Mat' },
-        update: {},
-        create: {
-            name: 'Sleeping Mat',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const sleeping_bag_liner = await prisma.gearType.upsert({
-        where: { name: 'Sleeping Bag Liner' },
-        update: {},
-        create: {
-            name: 'Sleeping Bag Liner',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const pillow = await prisma.gearType.upsert({
-        where: { name: 'Pillow' },
-        update: {},
-        create: {
-            name: 'Pillow',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const packs = await prisma.gearType.upsert({
-        where: { name: 'Packs' },
-        update: {},
-        create: {
-            name: 'Packs',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-        },
-    })
-    const backpack = await prisma.gearType.upsert({
-        where: { name: 'Backpack' },
-        update: {},
-        create: {
-            name: 'Backpack',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-            parent_gear_type_id: packs.id,
-        },
-    })
-    const daypack = await prisma.gearType.upsert({
-        where: { name: 'Daypack' },
-        update: {},
-        create: {
-            name: 'Daypack',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-            parent_gear_type_id: backpack.id,
-        },
-    })
-    const trekking_pack = await prisma.gearType.upsert({
-        where: { name: 'Trekking Pack' },
-        update: {},
-        create: {
-            name: 'Trekking Pack',
-            created_by_id: SYSTEM_USER_ID,
-            updated_by_id: SYSTEM_USER_ID,
-            parent_gear_type_id: backpack.id,
-        },
-    })
+    async function createGearType(
+        name: string,
+        user_id: number,
+        is_comparable?: boolean
+    ) {
+        const new_gear_type = await prisma.gearType.upsert({
+            where: { name: name },
+            update: {
+                updated_by_id: user_id,
+                ...(is_comparable !== undefined && {
+                    is_comparable: is_comparable
+                })
+            },
+            create: {
+                name: name,
+                created_by_id: user_id,
+                updated_by_id: user_id,
+                ...(is_comparable !== undefined && {
+                    is_comparable: is_comparable
+                })
+            }
+        })
+        return new_gear_type
+    }
+    const tent_type = await createGearType("Tent",SYSTEM_USER_ID)
+    const sleeping_bag_type = await createGearType("Sleeping Bag",SYSTEM_USER_ID)
+    const sleeping_mat_type = await createGearType("Sleeping Mat",SYSTEM_USER_ID)
+    const sleeping_pad_type = await createGearType("Sleeping Pad",SYSTEM_USER_ID)
+    const sleeping_bag_liner_type = await createGearType("Sleeping Bag Liner",SYSTEM_USER_ID)
+    const pillow_type = await createGearType("Pillow",SYSTEM_USER_ID)
+    const packs_type = await createGearType("Packs",SYSTEM_USER_ID)
+    const backpack_type = await createGearType("Backpack",SYSTEM_USER_ID)
+    const daypack_type = await createGearType("Daypack",SYSTEM_USER_ID)
+    const trekking_pack_type = await createGearType("Trekking Pack",SYSTEM_USER_ID)
+    const multiday_pack_type = await createGearType("Multiday Pack",SYSTEM_USER_ID)
+    const foldable_pack_type = await createGearType("Foldable Pack",SYSTEM_USER_ID)
+    const waist_pack_type = await createGearType("Waist Pack",SYSTEM_USER_ID)
+    const pot_pan_type = await createGearType("Pot & Pan",SYSTEM_USER_ID)
+    const stove_type = await createGearType("Stove",SYSTEM_USER_ID)
+    const headlamp_type = await createGearType("Headlamp",SYSTEM_USER_ID)
+    const headtorch_type = await createGearType("Headtorch",SYSTEM_USER_ID)
+    const footwear_type = await createGearType("Footwear",SYSTEM_USER_ID)
+    const hiking_boots_type = await createGearType("Hiking Boots",SYSTEM_USER_ID)
+    const hiking_shoes_type = await createGearType("Hiking Shoes",SYSTEM_USER_ID)
+    const trail_running_shoes_type = await createGearType("Trail Running",SYSTEM_USER_ID)
+    const rain_jacket_type = await createGearType("Rain Jacket",SYSTEM_USER_ID)
+    const down_jacket_type = await createGearType("Down Jacket",SYSTEM_USER_ID)
+    const shell_jacket_type = await createGearType("Shell Jacket",SYSTEM_USER_ID)
+    const jacket_type = await createGearType("Jacket",SYSTEM_USER_ID)
+    const fleece_jacket_type = await createGearType("Fleece Jacket",SYSTEM_USER_ID)
+    const fleece_type = await createGearType("Fleece",SYSTEM_USER_ID)
+    const pants_type = await createGearType("Pants",SYSTEM_USER_ID)
+    const shorts_type = await createGearType("Shorts",SYSTEM_USER_ID)
+    const tops_type = await createGearType("Tops", SYSTEM_USER_ID)
+
+    // GearTypeRelation
+    async function createGearTypeRelation(
+        parent_id: number,
+        child_id: number,
+        user_id: number
+    ) {
+        const existing_gear_tag_relation = await prisma.gearTypeRelation.findFirst({
+            where: { 
+                parent_gear_type_id: parent_id,
+                child_gear_type_id:child_id,
+                status: Status.ACTIVE
+            }
+        })
+        if (existing_gear_tag_relation) return existing_gear_tag_relation
+        const new_gear_type_relation = await prisma.gearTypeRelation.create({
+            data: {
+                parent_gear_type_id: parent_id,
+                child_gear_type_id: child_id,
+                created_by_id: user_id,
+                updated_by_id: user_id
+            }
+        })
+        return new_gear_type_relation
+    }
+
+    await createGearTypeRelation(packs_type.id, backpack_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(packs_type.id, waist_pack_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(packs_type.id, foldable_pack_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(backpack_type.id, daypack_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(backpack_type.id, trekking_pack_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(backpack_type.id, multiday_pack_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(footwear_type.id, hiking_boots_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(footwear_type.id, hiking_shoes_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(footwear_type.id, trail_running_shoes_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(jacket_type.id, rain_jacket_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(jacket_type.id, down_jacket_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(jacket_type.id, shell_jacket_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(jacket_type.id, fleece_jacket_type.id, SYSTEM_USER_ID)
+    await createGearTypeRelation(fleece_type.id, fleece_jacket_type.id, SYSTEM_USER_ID)
 
     // GearSpecsDefinition
 }

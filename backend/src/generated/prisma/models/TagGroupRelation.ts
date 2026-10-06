@@ -28,24 +28,24 @@ export type AggregateTagGroupRelation = {
 
 export type TagGroupRelationAvgAggregateOutputType = {
   id: number | null
-  tag_id: number | null
   tag_group_id: number | null
+  tag_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
 }
 
 export type TagGroupRelationSumAggregateOutputType = {
   id: number | null
-  tag_id: number | null
   tag_group_id: number | null
+  tag_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
 }
 
 export type TagGroupRelationMinAggregateOutputType = {
   id: number | null
-  tag_id: number | null
   tag_group_id: number | null
+  tag_id: number | null
   notes: string | null
   status: $Enums.Status | null
   created_at: Date | null
@@ -56,8 +56,8 @@ export type TagGroupRelationMinAggregateOutputType = {
 
 export type TagGroupRelationMaxAggregateOutputType = {
   id: number | null
-  tag_id: number | null
   tag_group_id: number | null
+  tag_id: number | null
   notes: string | null
   status: $Enums.Status | null
   created_at: Date | null
@@ -68,8 +68,8 @@ export type TagGroupRelationMaxAggregateOutputType = {
 
 export type TagGroupRelationCountAggregateOutputType = {
   id: number
-  tag_id: number
   tag_group_id: number
+  tag_id: number
   notes: number
   status: number
   created_at: number
@@ -82,24 +82,24 @@ export type TagGroupRelationCountAggregateOutputType = {
 
 export type TagGroupRelationAvgAggregateInputType = {
   id?: true
-  tag_id?: true
   tag_group_id?: true
+  tag_id?: true
   created_by_id?: true
   updated_by_id?: true
 }
 
 export type TagGroupRelationSumAggregateInputType = {
   id?: true
-  tag_id?: true
   tag_group_id?: true
+  tag_id?: true
   created_by_id?: true
   updated_by_id?: true
 }
 
 export type TagGroupRelationMinAggregateInputType = {
   id?: true
-  tag_id?: true
   tag_group_id?: true
+  tag_id?: true
   notes?: true
   status?: true
   created_at?: true
@@ -110,8 +110,8 @@ export type TagGroupRelationMinAggregateInputType = {
 
 export type TagGroupRelationMaxAggregateInputType = {
   id?: true
-  tag_id?: true
   tag_group_id?: true
+  tag_id?: true
   notes?: true
   status?: true
   created_at?: true
@@ -122,8 +122,8 @@ export type TagGroupRelationMaxAggregateInputType = {
 
 export type TagGroupRelationCountAggregateInputType = {
   id?: true
-  tag_id?: true
   tag_group_id?: true
+  tag_id?: true
   notes?: true
   status?: true
   created_at?: true
@@ -221,8 +221,8 @@ export type TagGroupRelationGroupByArgs<ExtArgs extends runtime.Types.Extensions
 
 export type TagGroupRelationGroupByOutputType = {
   id: number
-  tag_id: number
   tag_group_id: number
+  tag_id: number
   notes: string | null
   status: $Enums.Status
   created_at: Date
@@ -256,8 +256,8 @@ export type TagGroupRelationWhereInput = {
   OR?: Prisma.TagGroupRelationWhereInput[]
   NOT?: Prisma.TagGroupRelationWhereInput | Prisma.TagGroupRelationWhereInput[]
   id?: Prisma.IntFilter<"TagGroupRelation"> | number
-  tag_id?: Prisma.IntFilter<"TagGroupRelation"> | number
   tag_group_id?: Prisma.IntFilter<"TagGroupRelation"> | number
+  tag_id?: Prisma.IntFilter<"TagGroupRelation"> | number
   notes?: Prisma.StringNullableFilter<"TagGroupRelation"> | string | null
   status?: Prisma.EnumStatusFilter<"TagGroupRelation"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TagGroupRelation"> | Date | string
@@ -272,8 +272,8 @@ export type TagGroupRelationWhereInput = {
 
 export type TagGroupRelationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  tag_id?: Prisma.SortOrder
   tag_group_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -291,8 +291,8 @@ export type TagGroupRelationWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.TagGroupRelationWhereInput | Prisma.TagGroupRelationWhereInput[]
   OR?: Prisma.TagGroupRelationWhereInput[]
   NOT?: Prisma.TagGroupRelationWhereInput | Prisma.TagGroupRelationWhereInput[]
-  tag_id?: Prisma.IntFilter<"TagGroupRelation"> | number
   tag_group_id?: Prisma.IntFilter<"TagGroupRelation"> | number
+  tag_id?: Prisma.IntFilter<"TagGroupRelation"> | number
   notes?: Prisma.StringNullableFilter<"TagGroupRelation"> | string | null
   status?: Prisma.EnumStatusFilter<"TagGroupRelation"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TagGroupRelation"> | Date | string
@@ -307,8 +307,8 @@ export type TagGroupRelationWhereUniqueInput = Prisma.AtLeast<{
 
 export type TagGroupRelationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  tag_id?: Prisma.SortOrder
   tag_group_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -327,8 +327,8 @@ export type TagGroupRelationScalarWhereWithAggregatesInput = {
   OR?: Prisma.TagGroupRelationScalarWhereWithAggregatesInput[]
   NOT?: Prisma.TagGroupRelationScalarWhereWithAggregatesInput | Prisma.TagGroupRelationScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"TagGroupRelation"> | number
-  tag_id?: Prisma.IntWithAggregatesFilter<"TagGroupRelation"> | number
   tag_group_id?: Prisma.IntWithAggregatesFilter<"TagGroupRelation"> | number
+  tag_id?: Prisma.IntWithAggregatesFilter<"TagGroupRelation"> | number
   notes?: Prisma.StringNullableWithAggregatesFilter<"TagGroupRelation"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"TagGroupRelation"> | $Enums.Status
   created_at?: Prisma.DateTimeWithAggregatesFilter<"TagGroupRelation"> | Date | string
@@ -350,8 +350,8 @@ export type TagGroupRelationCreateInput = {
 
 export type TagGroupRelationUncheckedCreateInput = {
   id?: number
-  tag_id: number
   tag_group_id: number
+  tag_id: number
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -373,8 +373,8 @@ export type TagGroupRelationUpdateInput = {
 
 export type TagGroupRelationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   tag_group_id?: Prisma.IntFieldUpdateOperationsInput | number
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -385,8 +385,8 @@ export type TagGroupRelationUncheckedUpdateInput = {
 
 export type TagGroupRelationCreateManyInput = {
   id?: number
-  tag_id: number
   tag_group_id: number
+  tag_id: number
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -404,8 +404,8 @@ export type TagGroupRelationUpdateManyMutationInput = {
 
 export type TagGroupRelationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   tag_group_id?: Prisma.IntFieldUpdateOperationsInput | number
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -426,8 +426,8 @@ export type TagGroupRelationOrderByRelationAggregateInput = {
 
 export type TagGroupRelationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tag_id?: Prisma.SortOrder
   tag_group_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -438,16 +438,16 @@ export type TagGroupRelationCountOrderByAggregateInput = {
 
 export type TagGroupRelationAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tag_id?: Prisma.SortOrder
   tag_group_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
 }
 
 export type TagGroupRelationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tag_id?: Prisma.SortOrder
   tag_group_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -458,8 +458,8 @@ export type TagGroupRelationMaxOrderByAggregateInput = {
 
 export type TagGroupRelationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tag_id?: Prisma.SortOrder
   tag_group_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -470,8 +470,8 @@ export type TagGroupRelationMinOrderByAggregateInput = {
 
 export type TagGroupRelationSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  tag_id?: Prisma.SortOrder
   tag_group_id?: Prisma.SortOrder
+  tag_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
 }
@@ -656,8 +656,8 @@ export type TagGroupRelationCreateWithoutCreated_byInput = {
 
 export type TagGroupRelationUncheckedCreateWithoutCreated_byInput = {
   id?: number
-  tag_id: number
   tag_group_id: number
+  tag_id: number
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -687,8 +687,8 @@ export type TagGroupRelationCreateWithoutUpdated_byInput = {
 
 export type TagGroupRelationUncheckedCreateWithoutUpdated_byInput = {
   id?: number
-  tag_id: number
   tag_group_id: number
+  tag_id: number
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -727,8 +727,8 @@ export type TagGroupRelationScalarWhereInput = {
   OR?: Prisma.TagGroupRelationScalarWhereInput[]
   NOT?: Prisma.TagGroupRelationScalarWhereInput | Prisma.TagGroupRelationScalarWhereInput[]
   id?: Prisma.IntFilter<"TagGroupRelation"> | number
-  tag_id?: Prisma.IntFilter<"TagGroupRelation"> | number
   tag_group_id?: Prisma.IntFilter<"TagGroupRelation"> | number
+  tag_id?: Prisma.IntFilter<"TagGroupRelation"> | number
   notes?: Prisma.StringNullableFilter<"TagGroupRelation"> | string | null
   status?: Prisma.EnumStatusFilter<"TagGroupRelation"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TagGroupRelation"> | Date | string
@@ -849,8 +849,8 @@ export type TagGroupRelationUpdateManyWithWhereWithoutTag_groupInput = {
 
 export type TagGroupRelationCreateManyCreated_byInput = {
   id?: number
-  tag_id: number
   tag_group_id: number
+  tag_id: number
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -860,8 +860,8 @@ export type TagGroupRelationCreateManyCreated_byInput = {
 
 export type TagGroupRelationCreateManyUpdated_byInput = {
   id?: number
-  tag_id: number
   tag_group_id: number
+  tag_id: number
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -881,8 +881,8 @@ export type TagGroupRelationUpdateWithoutCreated_byInput = {
 
 export type TagGroupRelationUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   tag_group_id?: Prisma.IntFieldUpdateOperationsInput | number
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -892,8 +892,8 @@ export type TagGroupRelationUncheckedUpdateWithoutCreated_byInput = {
 
 export type TagGroupRelationUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   tag_group_id?: Prisma.IntFieldUpdateOperationsInput | number
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -913,8 +913,8 @@ export type TagGroupRelationUpdateWithoutUpdated_byInput = {
 
 export type TagGroupRelationUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   tag_group_id?: Prisma.IntFieldUpdateOperationsInput | number
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -924,8 +924,8 @@ export type TagGroupRelationUncheckedUpdateWithoutUpdated_byInput = {
 
 export type TagGroupRelationUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   tag_group_id?: Prisma.IntFieldUpdateOperationsInput | number
+  tag_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1023,8 +1023,8 @@ export type TagGroupRelationUncheckedUpdateManyWithoutTag_groupInput = {
 
 export type TagGroupRelationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tag_id?: boolean
   tag_group_id?: boolean
+  tag_id?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1039,8 +1039,8 @@ export type TagGroupRelationSelect<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type TagGroupRelationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tag_id?: boolean
   tag_group_id?: boolean
+  tag_id?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1055,8 +1055,8 @@ export type TagGroupRelationSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
 
 export type TagGroupRelationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  tag_id?: boolean
   tag_group_id?: boolean
+  tag_id?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1071,8 +1071,8 @@ export type TagGroupRelationSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
 
 export type TagGroupRelationSelectScalar = {
   id?: boolean
-  tag_id?: boolean
   tag_group_id?: boolean
+  tag_id?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1081,7 +1081,7 @@ export type TagGroupRelationSelectScalar = {
   updated_by_id?: boolean
 }
 
-export type TagGroupRelationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tag_id" | "tag_group_id" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["tagGroupRelation"]>
+export type TagGroupRelationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tag_group_id" | "tag_id" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["tagGroupRelation"]>
 export type TagGroupRelationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1111,8 +1111,8 @@ export type $TagGroupRelationPayload<ExtArgs extends runtime.Types.Extensions.In
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    tag_id: number
     tag_group_id: number
+    tag_id: number
     notes: string | null
     status: $Enums.Status
     created_at: Date
@@ -1547,8 +1547,8 @@ export interface Prisma__TagGroupRelationClient<T, Null = never, ExtArgs extends
  */
 export interface TagGroupRelationFieldRefs {
   readonly id: Prisma.FieldRef<"TagGroupRelation", 'Int'>
-  readonly tag_id: Prisma.FieldRef<"TagGroupRelation", 'Int'>
   readonly tag_group_id: Prisma.FieldRef<"TagGroupRelation", 'Int'>
+  readonly tag_id: Prisma.FieldRef<"TagGroupRelation", 'Int'>
   readonly notes: Prisma.FieldRef<"TagGroupRelation", 'String'>
   readonly status: Prisma.FieldRef<"TagGroupRelation", 'Status'>
   readonly created_at: Prisma.FieldRef<"TagGroupRelation", 'DateTime'>

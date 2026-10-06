@@ -5,6 +5,7 @@ import { PrismaClient } from "../src/generated/prisma/client"
 
 import { seedAccessControl } from "./seeds/00.access-control.seed";
 import { seedCommon } from "./seeds/10.common.seed";
+import { seedGear } from "./seeds/20.gear.seed";
 
 const connectionString = `${process.env.DATABASE_URL}`;
 const pool = new Pool({ connectionString });
@@ -13,6 +14,7 @@ const prisma = new PrismaClient({ adapter });
 async function main() {
     await seedAccessControl()
     await seedCommon()
+    await seedGear()
 }
 main()
   .then(async () => {

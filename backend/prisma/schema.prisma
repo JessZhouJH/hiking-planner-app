@@ -1133,8 +1133,8 @@ model TagRelation {
 
 model TagGroupRelation {
   id Int @id @default(autoincrement())
-  tag_id Int
   tag_group_id Int
+  tag_id Int
 
   notes String?
   status Status @default(ACTIVE)
@@ -1174,7 +1174,7 @@ model Brand {
 model GearType {
   id Int @id @default(autoincrement())
   name String @unique
-  parent_gear_type_id Int?
+  is_comparable Boolean @default(true)
 
   status Status @default(ACTIVE)
   notes String?
@@ -1187,7 +1187,6 @@ model GearType {
   created_by User @relation("GearTypeCreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("GearTypeUpdatedBy", fields: [updated_by_id], references: [id])
 
-  parent_gear_type GearType? @relation("GearTypeParentGearType", fields: [parent_gear_type_id], references: [id])
 
   gear_specs_definition__gear_type GearSpecsDefinition[] @relation("GearSpecsDefinitionGearType")
   gear__gear_type Gear[] @relation("GearGearType")
@@ -1196,7 +1195,6 @@ model GearType {
   trail_gear_requirement__gear_type TrailGearRequirement[] @relation("TrailGearRequirementGearType")
   trip_gear_list__gear_type TripGearList[] @relation("TripGearListGearType")
   
-  gear_type__parent_gear_type GearType[] @relation("GearTypeParentGearType")
   gear_type_relation__parent_gear_type GearTypeRelation[] @relation("GearTypeRelationParentGearType")
   gear_type_relation__child_gear_type GearTypeRelation[] @relation("GearTypeRelationChildGearType")
 
