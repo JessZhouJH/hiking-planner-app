@@ -540,6 +540,12 @@ enum ChecklistItemType {
   DOCUMENTS
 }
 
+enum DescribingTargetType {
+  GEAR
+  TRAIL
+  GEAR_AND_TRAIL
+}
+
 
 
 /** Model Definition **/
@@ -610,9 +616,6 @@ model User {
   gear_type__created_by GearType[] @relation("GearTypeCreatedBy")
   gear_type__updated_by GearType[] @relation("GearTypeUpdatedBy")
 
-  gear_tag__created_by GearTag[] @relation("GearTagCreatedBy")
-  gear_tag__updated_by GearTag[] @relation("GearTagUpdatedBy")
-
   gear_specs_def__created_by GearSpecsDefinition[] @relation("GearSpecsDefinitionCreatedBy")
   gear_specs_def__updated_by GearSpecsDefinition[] @relation("GearSpecsDefinitionUpdatedBy")
 
@@ -630,9 +633,6 @@ model User {
   gear_variant__created_by GearVariant[] @relation("GearVariantCreatedBy")
   gear_variant__updated_by GearVariant[] @relation("GearVariantUpdatedBy")
 
-  gear_tag_relation__created_by GearTagRelation[] @relation("GearTagRelationCreatedBy")
-  gear_tag_relation__updated_by GearTagRelation[] @relation("GearTagRelationUpdatedBy")
-  
   gear_pack__created_by GearPack[] @relation("GearPackCreatedBy")
   gear_pack__updated_by GearPack[] @relation("GearPackUpdatedBy")
   gear_pack__reviewed_by GearPack[] @relation("GearPackReviewedBy")
@@ -1084,24 +1084,6 @@ model GearType {
   gear_type__parent_gear_type GearType[] @relation("GearTypeParentGearType")
 }
 
-model GearTag {
-  id Int @id @default(autoincrement())
-  name String @unique
-
-  status Status @default(ACTIVE)
-  notes String?
-
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int
-
-  created_by User @relation("GearTagCreatedBy", fields: [created_by_id], references: [id])
-  updated_by User @relation("GearTagUpdatedBy", fields: [updated_by_id], references: [id])
-
-  gear_tag_relation__gear_tag GearTagRelation[] @relation("GearTagRelationGearTag")
-}
-
 model GearSpecsDefinition {
   id Int @id @default(autoincrement())
   name String
@@ -1165,7 +1147,6 @@ model Gear {
   gear_variant__gear GearVariant[] @relation("GearGearVariant")
   gear_specs__gear GearSpecs[] @relation("GearGearSpecs")
   gear_feature__gear GearFeature[] @relation("GearFeatureGear")
-  gear_tag_relation__gear GearTagRelation[] @relation("GearTagRelationGear")
 
   user_gear__gear UserGear[] @relation("UserGearGear")
 }
@@ -1248,26 +1229,6 @@ model GearVariant {
 
   gear_specs__gear_variant GearSpecs[] @relation("GearSpecsGearVariant")
   gear_feature__gear_variant GearFeature[] @relation("GearFeatureGearVariant")
-}
-
-model GearTagRelation {
-  id Int @id @default(autoincrement())
-  gear_id Int
-  gear_tag_id Int
-
-  status Status @default(ACTIVE)
-  notes String?
-
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int
-
-  created_by User @relation("GearTagRelationCreatedBy", fields: [created_by_id], references: [id])
-  updated_by User @relation("GearTagRelationUpdatedBy", fields: [updated_by_id], references: [id])
-
-  gear_tag GearTag @relation("GearTagRelationGearTag", fields: [gear_tag_id], references: [id])
-  gear Gear @relation("GearTagRelationGear", fields: [gear_id], references: [id])
 }
 
 model GearPack {

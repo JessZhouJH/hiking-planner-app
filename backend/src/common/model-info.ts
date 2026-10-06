@@ -65,13 +65,11 @@ export const COMMON_MODULE_MODELS = [
 export const GEAR_MODULE_MODELS = [
     'Brand',
     'GearType',
-    'GearTag',
     'GearSpecsDefinition',
     'Gear',
     'GearSpecs',
     'GearFeature',
     'GearVariant',
-    'GearTagRelation',
     'GearPack',
     'GearPackTemplate',
     'GearPackComponent',
