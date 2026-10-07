@@ -1222,7 +1222,7 @@ model GearTypeRelation {
 
 model GearSpecsDefinition {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
   gear_type_id Int
   value_type ValueType
   default_unit_id Int?
