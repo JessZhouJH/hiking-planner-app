@@ -6,6 +6,7 @@ import {
     model,
     module,
 } from '../../src/common/model-info'
+import { upsertUserData } from '../../src/services/access_control/user.service'
 
 export async function seedAccessControl() {
     // User
@@ -55,6 +56,7 @@ export async function seedAccessControl() {
             updated_by_id: system.id,
         },
     })
+    const dean = await upsertUserData("Dean", "dean@sampleuser.com", system.id)
 
     // Role
     const admin = await prisma.role.upsert({
