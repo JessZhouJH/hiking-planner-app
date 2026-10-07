@@ -3,12 +3,89 @@ import {
     Status,
     UnitCategory,
     DescribingTargetType,
+    AliasTargetType
 } from '../../src/generated/prisma/enums'
 
 import { SYSTEM_USER_ID } from '../../src/constants/macros'
+import { AliasScalarFieldEnum } from '../../src/generated/prisma/internal/prismaNamespace'
+
 
 export async function seedCommon() {
     // Alias
+    async function findExistingTargetTypeObject(
+        target_object_type: AliasTargetType,
+        target_object_id: number,
+    ) { 
+        switch(target_object_type) {
+            case AliasTargetType.BRAND:
+                return await prisma.brand.findUnique({
+                    where: { id: target_object_id }
+                })
+            case AliasTargetType.GEAR:
+                return await prisma.gear.findUnique({
+                    where: { id: target_object_id }
+                })
+            case AliasTargetType.TRAIL:
+                return await prisma.trail.findUnique({
+                    where: { id: target_object_id }
+                })
+            case AliasTargetType.ACCESS_POINT:
+                return await prisma.accessPoint.findUnique({
+                    where: { id: target_object_id }
+                })
+            case AliasTargetType.DESCRIPTIVE_GEAR:
+                return await prisma.descriptiveGear.findUnique({
+                    where: { id: target_object_id }
+                })
+            default:
+                return null
+        }
+    }
+
+    async function findExistingAlias (
+        target_object_type: AliasTargetType,
+        target_object_id: number,
+        alias: string
+    ) {
+        return await prisma.alias.findFirst({
+            where: {
+                target_object_type: target_object_type,
+                target_object_id: target_object_id,
+                alias: alias,
+            }
+        })
+    }
+
+    async function createAlias(
+        target_object_type: AliasTargetType,
+        target_object_id: number,
+        alias: string,
+        user_id: number
+    ) {
+        const existing_target_object = await findExistingTargetTypeObject(target_object_type, target_object_id)
+        const existing_alias = existing_target_object
+            ? await findExistingAlias(target_object_type, target_object_id, alias)
+            : null
+        if (existing_alias) return existing_alias
+        return await prisma.alias.create({
+            data: {
+                target_object_type: target_object_type,
+                target_object_id: target_object_id,
+                alias: alias,
+                created_by_id: user_id,
+                updated_by_id: user_id
+            }
+        })
+    }
+
+    const sea_to_summit_brand = await prisma.brand.findFirst({
+        where: { name: "Sea To Summit" }
+    })
+    if (sea_to_summit_brand) {
+        await createAlias(AliasTargetType.BRAND, sea_to_summit_brand.id, "sea to summit", SYSTEM_USER_ID)
+        await createAlias(AliasTargetType.BRAND, sea_to_summit_brand.id, "sts", SYSTEM_USER_ID)
+        await createAlias(AliasTargetType.BRAND, sea_to_summit_brand.id, "STS", SYSTEM_USER_ID)
+    }
 
     // MediaArchive
 
@@ -59,6 +136,13 @@ export async function seedCommon() {
     await createUnit('Kilometer', 'km', UnitCategory.LENGTH, SYSTEM_USER_ID)
     await createUnit(' Meter', ',m', UnitCategory.LENGTH, SYSTEM_USER_ID)
     await createUnit('Centimeter', 'cm', UnitCategory.LENGTH, SYSTEM_USER_ID)
+    await createUnit('Millimeter', 'mm', UnitCategory.LENGTH, SYSTEM_USER_ID)
+    await createUnit('Liter', "L", UnitCategory.VOLUME, SYSTEM_USER_ID)
+    await createUnit('Milliliter', "ml", UnitCategory.VOLUME, SYSTEM_USER_ID)
+    await createUnit('Square Meter', "㎡", UnitCategory.AREA, SYSTEM_USER_ID)
+    await createUnit('Lumen', "lumen", UnitCategory.LUMINOUS_FLUX, SYSTEM_USER_ID)
+    await createUnit('Hour', "hrs", UnitCategory.DURATION, SYSTEM_USER_ID)
+    await createUnit('Minutes', "mins", UnitCategory.DURATION, SYSTEM_USER_ID)
 
     // Tag
     async function createTag(

@@ -42,7 +42,7 @@ export type AliasSumAggregateOutputType = {
 
 export type AliasMinAggregateOutputType = {
   id: number | null
-  target_object_type: $Enums.TargetType | null
+  target_object_type: $Enums.AliasTargetType | null
   target_object_id: number | null
   alias: string | null
   notes: string | null
@@ -55,7 +55,7 @@ export type AliasMinAggregateOutputType = {
 
 export type AliasMaxAggregateOutputType = {
   id: number | null
-  target_object_type: $Enums.TargetType | null
+  target_object_type: $Enums.AliasTargetType | null
   target_object_id: number | null
   alias: string | null
   notes: string | null
@@ -223,7 +223,7 @@ export type AliasGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type AliasGroupByOutputType = {
   id: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes: string | null
@@ -259,7 +259,7 @@ export type AliasWhereInput = {
   OR?: Prisma.AliasWhereInput[]
   NOT?: Prisma.AliasWhereInput | Prisma.AliasWhereInput[]
   id?: Prisma.IntFilter<"Alias"> | number
-  target_object_type?: Prisma.EnumTargetTypeFilter<"Alias"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFilter<"Alias"> | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFilter<"Alias"> | number
   alias?: Prisma.StringFilter<"Alias"> | string
   notes?: Prisma.StringNullableFilter<"Alias"> | string | null
@@ -293,7 +293,7 @@ export type AliasWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.AliasWhereInput | Prisma.AliasWhereInput[]
   OR?: Prisma.AliasWhereInput[]
   NOT?: Prisma.AliasWhereInput | Prisma.AliasWhereInput[]
-  target_object_type?: Prisma.EnumTargetTypeFilter<"Alias"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFilter<"Alias"> | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFilter<"Alias"> | number
   alias?: Prisma.StringFilter<"Alias"> | string
   notes?: Prisma.StringNullableFilter<"Alias"> | string | null
@@ -329,7 +329,7 @@ export type AliasScalarWhereWithAggregatesInput = {
   OR?: Prisma.AliasScalarWhereWithAggregatesInput[]
   NOT?: Prisma.AliasScalarWhereWithAggregatesInput | Prisma.AliasScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Alias"> | number
-  target_object_type?: Prisma.EnumTargetTypeWithAggregatesFilter<"Alias"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeWithAggregatesFilter<"Alias"> | $Enums.AliasTargetType
   target_object_id?: Prisma.IntWithAggregatesFilter<"Alias"> | number
   alias?: Prisma.StringWithAggregatesFilter<"Alias"> | string
   notes?: Prisma.StringNullableWithAggregatesFilter<"Alias"> | string | null
@@ -341,7 +341,7 @@ export type AliasScalarWhereWithAggregatesInput = {
 }
 
 export type AliasCreateInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -354,7 +354,7 @@ export type AliasCreateInput = {
 
 export type AliasUncheckedCreateInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -366,7 +366,7 @@ export type AliasUncheckedCreateInput = {
 }
 
 export type AliasUpdateInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -379,7 +379,7 @@ export type AliasUpdateInput = {
 
 export type AliasUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -392,7 +392,7 @@ export type AliasUncheckedUpdateInput = {
 
 export type AliasCreateManyInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -404,7 +404,7 @@ export type AliasCreateManyInput = {
 }
 
 export type AliasUpdateManyMutationInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -415,7 +415,7 @@ export type AliasUpdateManyMutationInput = {
 
 export type AliasUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -437,7 +437,7 @@ export type AliasOrderByRelationAggregateInput = {
 }
 
 export type AliasTarget_object_typeTarget_object_idAliasCompoundUniqueInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
 }
@@ -579,12 +579,12 @@ export type AliasUncheckedUpdateManyWithoutUpdated_byNestedInput = {
   deleteMany?: Prisma.AliasScalarWhereInput | Prisma.AliasScalarWhereInput[]
 }
 
-export type EnumTargetTypeFieldUpdateOperationsInput = {
-  set?: $Enums.TargetType
+export type EnumAliasTargetTypeFieldUpdateOperationsInput = {
+  set?: $Enums.AliasTargetType
 }
 
 export type AliasCreateWithoutCreated_byInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -596,7 +596,7 @@ export type AliasCreateWithoutCreated_byInput = {
 
 export type AliasUncheckedCreateWithoutCreated_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -617,7 +617,7 @@ export type AliasCreateManyCreated_byInputEnvelope = {
 }
 
 export type AliasCreateWithoutUpdated_byInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -629,7 +629,7 @@ export type AliasCreateWithoutUpdated_byInput = {
 
 export type AliasUncheckedCreateWithoutUpdated_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -670,7 +670,7 @@ export type AliasScalarWhereInput = {
   OR?: Prisma.AliasScalarWhereInput[]
   NOT?: Prisma.AliasScalarWhereInput | Prisma.AliasScalarWhereInput[]
   id?: Prisma.IntFilter<"Alias"> | number
-  target_object_type?: Prisma.EnumTargetTypeFilter<"Alias"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFilter<"Alias"> | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFilter<"Alias"> | number
   alias?: Prisma.StringFilter<"Alias"> | string
   notes?: Prisma.StringNullableFilter<"Alias"> | string | null
@@ -699,7 +699,7 @@ export type AliasUpdateManyWithWhereWithoutUpdated_byInput = {
 
 export type AliasCreateManyCreated_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -711,7 +711,7 @@ export type AliasCreateManyCreated_byInput = {
 
 export type AliasCreateManyUpdated_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AliasTargetType
   target_object_id: number
   alias: string
   notes?: string | null
@@ -722,7 +722,7 @@ export type AliasCreateManyUpdated_byInput = {
 }
 
 export type AliasUpdateWithoutCreated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -734,7 +734,7 @@ export type AliasUpdateWithoutCreated_byInput = {
 
 export type AliasUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -746,7 +746,7 @@ export type AliasUncheckedUpdateWithoutCreated_byInput = {
 
 export type AliasUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -757,7 +757,7 @@ export type AliasUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type AliasUpdateWithoutUpdated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -769,7 +769,7 @@ export type AliasUpdateWithoutUpdated_byInput = {
 
 export type AliasUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -781,7 +781,7 @@ export type AliasUncheckedUpdateWithoutUpdated_byInput = {
 
 export type AliasUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAliasTargetTypeFieldUpdateOperationsInput | $Enums.AliasTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   alias?: Prisma.StringFieldUpdateOperationsInput | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -873,7 +873,7 @@ export type $AliasPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    target_object_type: $Enums.TargetType
+    target_object_type: $Enums.AliasTargetType
     target_object_id: number
     alias: string
     notes: string | null
@@ -1308,7 +1308,7 @@ export interface Prisma__AliasClient<T, Null = never, ExtArgs extends runtime.Ty
  */
 export interface AliasFieldRefs {
   readonly id: Prisma.FieldRef<"Alias", 'Int'>
-  readonly target_object_type: Prisma.FieldRef<"Alias", 'TargetType'>
+  readonly target_object_type: Prisma.FieldRef<"Alias", 'AliasTargetType'>
   readonly target_object_id: Prisma.FieldRef<"Alias", 'Int'>
   readonly alias: Prisma.FieldRef<"Alias", 'String'>
   readonly notes: Prisma.FieldRef<"Alias", 'String'>

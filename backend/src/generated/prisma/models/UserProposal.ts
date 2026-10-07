@@ -49,7 +49,7 @@ export type UserProposalMinAggregateOutputType = {
   user_id: number | null
   name: string | null
   description: string | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   target_object_id: number | null
   proposed_action: $Enums.ProposedAction | null
   proposal_support_url: string | null
@@ -69,7 +69,7 @@ export type UserProposalMaxAggregateOutputType = {
   user_id: number | null
   name: string | null
   description: string | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   target_object_id: number | null
   proposed_action: $Enums.ProposedAction | null
   proposal_support_url: string | null
@@ -276,7 +276,7 @@ export type UserProposalGroupByOutputType = {
   user_id: number
   name: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url: string | null
@@ -319,7 +319,7 @@ export type UserProposalWhereInput = {
   user_id?: Prisma.IntFilter<"UserProposal"> | number
   name?: Prisma.StringNullableFilter<"UserProposal"> | string | null
   description?: Prisma.StringFilter<"UserProposal"> | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserProposal"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserProposal"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserProposal"> | number | null
   proposed_action?: Prisma.EnumProposedActionFilter<"UserProposal"> | $Enums.ProposedAction
   proposal_support_url?: Prisma.StringNullableFilter<"UserProposal"> | string | null
@@ -370,7 +370,7 @@ export type UserProposalWhereUniqueInput = Prisma.AtLeast<{
   user_id?: Prisma.IntFilter<"UserProposal"> | number
   name?: Prisma.StringNullableFilter<"UserProposal"> | string | null
   description?: Prisma.StringFilter<"UserProposal"> | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserProposal"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserProposal"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserProposal"> | number | null
   proposed_action?: Prisma.EnumProposedActionFilter<"UserProposal"> | $Enums.ProposedAction
   proposal_support_url?: Prisma.StringNullableFilter<"UserProposal"> | string | null
@@ -422,7 +422,7 @@ export type UserProposalScalarWhereWithAggregatesInput = {
   user_id?: Prisma.IntWithAggregatesFilter<"UserProposal"> | number
   name?: Prisma.StringNullableWithAggregatesFilter<"UserProposal"> | string | null
   description?: Prisma.StringWithAggregatesFilter<"UserProposal"> | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedWithAggregatesFilter<"UserProposal"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeWithAggregatesFilter<"UserProposal"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableWithAggregatesFilter<"UserProposal"> | number | null
   proposed_action?: Prisma.EnumProposedActionWithAggregatesFilter<"UserProposal"> | $Enums.ProposedAction
   proposal_support_url?: Prisma.StringNullableWithAggregatesFilter<"UserProposal"> | string | null
@@ -440,7 +440,7 @@ export type UserProposalScalarWhereWithAggregatesInput = {
 export type UserProposalCreateInput = {
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -461,7 +461,7 @@ export type UserProposalUncheckedCreateInput = {
   user_id: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -479,7 +479,7 @@ export type UserProposalUncheckedCreateInput = {
 export type UserProposalUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -500,7 +500,7 @@ export type UserProposalUncheckedUpdateInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -520,7 +520,7 @@ export type UserProposalCreateManyInput = {
   user_id: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -538,7 +538,7 @@ export type UserProposalCreateManyInput = {
 export type UserProposalUpdateManyMutationInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -555,7 +555,7 @@ export type UserProposalUncheckedUpdateManyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -833,7 +833,7 @@ export type EnumProposedActionFieldUpdateOperationsInput = {
 export type UserProposalCreateWithoutCreated_byInput = {
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -853,7 +853,7 @@ export type UserProposalUncheckedCreateWithoutCreated_byInput = {
   user_id: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -880,7 +880,7 @@ export type UserProposalCreateManyCreated_byInputEnvelope = {
 export type UserProposalCreateWithoutUpdated_byInput = {
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -900,7 +900,7 @@ export type UserProposalUncheckedCreateWithoutUpdated_byInput = {
   user_id: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -927,7 +927,7 @@ export type UserProposalCreateManyUpdated_byInputEnvelope = {
 export type UserProposalCreateWithoutLast_reviewed_byInput = {
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -947,7 +947,7 @@ export type UserProposalUncheckedCreateWithoutLast_reviewed_byInput = {
   user_id: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -974,7 +974,7 @@ export type UserProposalCreateManyLast_reviewed_byInputEnvelope = {
 export type UserProposalCreateWithoutUserInput = {
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -993,7 +993,7 @@ export type UserProposalUncheckedCreateWithoutUserInput = {
   id?: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -1042,7 +1042,7 @@ export type UserProposalScalarWhereInput = {
   user_id?: Prisma.IntFilter<"UserProposal"> | number
   name?: Prisma.StringNullableFilter<"UserProposal"> | string | null
   description?: Prisma.StringFilter<"UserProposal"> | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserProposal"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserProposal"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserProposal"> | number | null
   proposed_action?: Prisma.EnumProposedActionFilter<"UserProposal"> | $Enums.ProposedAction
   proposal_support_url?: Prisma.StringNullableFilter<"UserProposal"> | string | null
@@ -1110,7 +1110,7 @@ export type UserProposalCreateManyCreated_byInput = {
   user_id: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -1129,7 +1129,7 @@ export type UserProposalCreateManyUpdated_byInput = {
   user_id: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -1148,7 +1148,7 @@ export type UserProposalCreateManyLast_reviewed_byInput = {
   user_id: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -1166,7 +1166,7 @@ export type UserProposalCreateManyUserInput = {
   id?: number
   name?: string | null
   description: string
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   proposed_action: $Enums.ProposedAction
   proposal_support_url?: string | null
@@ -1184,7 +1184,7 @@ export type UserProposalCreateManyUserInput = {
 export type UserProposalUpdateWithoutCreated_byInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1204,7 +1204,7 @@ export type UserProposalUncheckedUpdateWithoutCreated_byInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1223,7 +1223,7 @@ export type UserProposalUncheckedUpdateManyWithoutCreated_byInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1240,7 +1240,7 @@ export type UserProposalUncheckedUpdateManyWithoutCreated_byInput = {
 export type UserProposalUpdateWithoutUpdated_byInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1260,7 +1260,7 @@ export type UserProposalUncheckedUpdateWithoutUpdated_byInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1279,7 +1279,7 @@ export type UserProposalUncheckedUpdateManyWithoutUpdated_byInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1296,7 +1296,7 @@ export type UserProposalUncheckedUpdateManyWithoutUpdated_byInput = {
 export type UserProposalUpdateWithoutLast_reviewed_byInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1316,7 +1316,7 @@ export type UserProposalUncheckedUpdateWithoutLast_reviewed_byInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1335,7 +1335,7 @@ export type UserProposalUncheckedUpdateManyWithoutLast_reviewed_byInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1352,7 +1352,7 @@ export type UserProposalUncheckedUpdateManyWithoutLast_reviewed_byInput = {
 export type UserProposalUpdateWithoutUserInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1371,7 +1371,7 @@ export type UserProposalUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1390,7 +1390,7 @@ export type UserProposalUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposed_action?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   proposal_support_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1532,7 +1532,7 @@ export type $UserProposalPayload<ExtArgs extends runtime.Types.Extensions.Intern
     user_id: number
     name: string | null
     description: string
-    target_object_type: $Enums.TargetTypeSelected
+    target_object_type: $Enums.SelectedTargetType
     target_object_id: number | null
     proposed_action: $Enums.ProposedAction
     proposal_support_url: string | null
@@ -1976,7 +1976,7 @@ export interface UserProposalFieldRefs {
   readonly user_id: Prisma.FieldRef<"UserProposal", 'Int'>
   readonly name: Prisma.FieldRef<"UserProposal", 'String'>
   readonly description: Prisma.FieldRef<"UserProposal", 'String'>
-  readonly target_object_type: Prisma.FieldRef<"UserProposal", 'TargetTypeSelected'>
+  readonly target_object_type: Prisma.FieldRef<"UserProposal", 'SelectedTargetType'>
   readonly target_object_id: Prisma.FieldRef<"UserProposal", 'Int'>
   readonly proposed_action: Prisma.FieldRef<"UserProposal", 'ProposedAction'>
   readonly proposal_support_url: Prisma.FieldRef<"UserProposal", 'String'>

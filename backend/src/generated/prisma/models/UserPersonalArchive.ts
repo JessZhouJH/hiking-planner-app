@@ -49,7 +49,7 @@ export type UserPersonalArchiveMinAggregateOutputType = {
   archive_type: $Enums.ArchiveType | null
   source_type: $Enums.SourceType | null
   archive_source_url: string | null
-  target_object_type: $Enums.TargetType | null
+  target_object_type: $Enums.AllTargetType | null
   target_object_id: number | null
   status: $Enums.Status | null
   notes: string | null
@@ -66,7 +66,7 @@ export type UserPersonalArchiveMaxAggregateOutputType = {
   archive_type: $Enums.ArchiveType | null
   source_type: $Enums.SourceType | null
   archive_source_url: string | null
-  target_object_type: $Enums.TargetType | null
+  target_object_type: $Enums.AllTargetType | null
   target_object_id: number | null
   status: $Enums.Status | null
   notes: string | null
@@ -256,7 +256,7 @@ export type UserPersonalArchiveGroupByOutputType = {
   archive_type: $Enums.ArchiveType
   source_type: $Enums.SourceType
   archive_source_url: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status: $Enums.Status
   notes: string | null
@@ -296,7 +296,7 @@ export type UserPersonalArchiveWhereInput = {
   archive_type?: Prisma.EnumArchiveTypeFilter<"UserPersonalArchive"> | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFilter<"UserPersonalArchive"> | $Enums.SourceType
   archive_source_url?: Prisma.StringNullableFilter<"UserPersonalArchive"> | string | null
-  target_object_type?: Prisma.EnumTargetTypeFilter<"UserPersonalArchive"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFilter<"UserPersonalArchive"> | $Enums.AllTargetType
   target_object_id?: Prisma.IntFilter<"UserPersonalArchive"> | number
   status?: Prisma.EnumStatusFilter<"UserPersonalArchive"> | $Enums.Status
   notes?: Prisma.StringNullableFilter<"UserPersonalArchive"> | string | null
@@ -341,7 +341,7 @@ export type UserPersonalArchiveWhereUniqueInput = Prisma.AtLeast<{
   archive_type?: Prisma.EnumArchiveTypeFilter<"UserPersonalArchive"> | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFilter<"UserPersonalArchive"> | $Enums.SourceType
   archive_source_url?: Prisma.StringNullableFilter<"UserPersonalArchive"> | string | null
-  target_object_type?: Prisma.EnumTargetTypeFilter<"UserPersonalArchive"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFilter<"UserPersonalArchive"> | $Enums.AllTargetType
   target_object_id?: Prisma.IntFilter<"UserPersonalArchive"> | number
   status?: Prisma.EnumStatusFilter<"UserPersonalArchive"> | $Enums.Status
   notes?: Prisma.StringNullableFilter<"UserPersonalArchive"> | string | null
@@ -387,7 +387,7 @@ export type UserPersonalArchiveScalarWhereWithAggregatesInput = {
   archive_type?: Prisma.EnumArchiveTypeWithAggregatesFilter<"UserPersonalArchive"> | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeWithAggregatesFilter<"UserPersonalArchive"> | $Enums.SourceType
   archive_source_url?: Prisma.StringNullableWithAggregatesFilter<"UserPersonalArchive"> | string | null
-  target_object_type?: Prisma.EnumTargetTypeWithAggregatesFilter<"UserPersonalArchive"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeWithAggregatesFilter<"UserPersonalArchive"> | $Enums.AllTargetType
   target_object_id?: Prisma.IntWithAggregatesFilter<"UserPersonalArchive"> | number
   status?: Prisma.EnumStatusWithAggregatesFilter<"UserPersonalArchive"> | $Enums.Status
   notes?: Prisma.StringNullableWithAggregatesFilter<"UserPersonalArchive"> | string | null
@@ -402,7 +402,7 @@ export type UserPersonalArchiveCreateInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -421,7 +421,7 @@ export type UserPersonalArchiveUncheckedCreateInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -437,7 +437,7 @@ export type UserPersonalArchiveUpdateInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -456,7 +456,7 @@ export type UserPersonalArchiveUncheckedUpdateInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -474,7 +474,7 @@ export type UserPersonalArchiveCreateManyInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -489,7 +489,7 @@ export type UserPersonalArchiveUpdateManyMutationInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -504,7 +504,7 @@ export type UserPersonalArchiveUncheckedUpdateManyInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -745,7 +745,7 @@ export type UserPersonalArchiveCreateWithoutCreated_byInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -763,7 +763,7 @@ export type UserPersonalArchiveUncheckedCreateWithoutCreated_byInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -788,7 +788,7 @@ export type UserPersonalArchiveCreateWithoutUpdated_byInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -806,7 +806,7 @@ export type UserPersonalArchiveUncheckedCreateWithoutUpdated_byInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -831,7 +831,7 @@ export type UserPersonalArchiveCreateWithoutUserInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -848,7 +848,7 @@ export type UserPersonalArchiveUncheckedCreateWithoutUserInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -895,7 +895,7 @@ export type UserPersonalArchiveScalarWhereInput = {
   archive_type?: Prisma.EnumArchiveTypeFilter<"UserPersonalArchive"> | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFilter<"UserPersonalArchive"> | $Enums.SourceType
   archive_source_url?: Prisma.StringNullableFilter<"UserPersonalArchive"> | string | null
-  target_object_type?: Prisma.EnumTargetTypeFilter<"UserPersonalArchive"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFilter<"UserPersonalArchive"> | $Enums.AllTargetType
   target_object_id?: Prisma.IntFilter<"UserPersonalArchive"> | number
   status?: Prisma.EnumStatusFilter<"UserPersonalArchive"> | $Enums.Status
   notes?: Prisma.StringNullableFilter<"UserPersonalArchive"> | string | null
@@ -942,7 +942,7 @@ export type UserPersonalArchiveCreateWithoutCommunity_publication_attachment__pe
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -960,7 +960,7 @@ export type UserPersonalArchiveUncheckedCreateWithoutCommunity_publication_attac
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -991,7 +991,7 @@ export type UserPersonalArchiveUpdateWithoutCommunity_publication_attachment__pe
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1009,7 +1009,7 @@ export type UserPersonalArchiveUncheckedUpdateWithoutCommunity_publication_attac
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1026,7 +1026,7 @@ export type UserPersonalArchiveCreateManyCreated_byInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -1042,7 +1042,7 @@ export type UserPersonalArchiveCreateManyUpdated_byInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -1057,7 +1057,7 @@ export type UserPersonalArchiveCreateManyUserInput = {
   archive_type: $Enums.ArchiveType
   source_type?: $Enums.SourceType
   archive_source_url?: string | null
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   status?: $Enums.Status
   notes?: string | null
@@ -1072,7 +1072,7 @@ export type UserPersonalArchiveUpdateWithoutCreated_byInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1090,7 +1090,7 @@ export type UserPersonalArchiveUncheckedUpdateWithoutCreated_byInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1107,7 +1107,7 @@ export type UserPersonalArchiveUncheckedUpdateManyWithoutCreated_byInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1121,7 +1121,7 @@ export type UserPersonalArchiveUpdateWithoutUpdated_byInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1139,7 +1139,7 @@ export type UserPersonalArchiveUncheckedUpdateWithoutUpdated_byInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1156,7 +1156,7 @@ export type UserPersonalArchiveUncheckedUpdateManyWithoutUpdated_byInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1170,7 +1170,7 @@ export type UserPersonalArchiveUpdateWithoutUserInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1187,7 +1187,7 @@ export type UserPersonalArchiveUncheckedUpdateWithoutUserInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1204,7 +1204,7 @@ export type UserPersonalArchiveUncheckedUpdateManyWithoutUserInput = {
   archive_type?: Prisma.EnumArchiveTypeFieldUpdateOperationsInput | $Enums.ArchiveType
   source_type?: Prisma.EnumSourceTypeFieldUpdateOperationsInput | $Enums.SourceType
   archive_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1358,7 +1358,7 @@ export type $UserPersonalArchivePayload<ExtArgs extends runtime.Types.Extensions
     archive_type: $Enums.ArchiveType
     source_type: $Enums.SourceType
     archive_source_url: string | null
-    target_object_type: $Enums.TargetType
+    target_object_type: $Enums.AllTargetType
     target_object_id: number
     status: $Enums.Status
     notes: string | null
@@ -1799,7 +1799,7 @@ export interface UserPersonalArchiveFieldRefs {
   readonly archive_type: Prisma.FieldRef<"UserPersonalArchive", 'ArchiveType'>
   readonly source_type: Prisma.FieldRef<"UserPersonalArchive", 'SourceType'>
   readonly archive_source_url: Prisma.FieldRef<"UserPersonalArchive", 'String'>
-  readonly target_object_type: Prisma.FieldRef<"UserPersonalArchive", 'TargetType'>
+  readonly target_object_type: Prisma.FieldRef<"UserPersonalArchive", 'AllTargetType'>
   readonly target_object_id: Prisma.FieldRef<"UserPersonalArchive", 'Int'>
   readonly status: Prisma.FieldRef<"UserPersonalArchive", 'Status'>
   readonly notes: Prisma.FieldRef<"UserPersonalArchive", 'String'>

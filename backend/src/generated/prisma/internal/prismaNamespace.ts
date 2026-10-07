@@ -8177,16 +8177,16 @@ export type ListEnumRBACStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$P
 
 
 /**
- * Reference to a field of type 'TargetType'
+ * Reference to a field of type 'AliasTargetType'
  */
-export type EnumTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TargetType'>
+export type EnumAliasTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AliasTargetType'>
     
 
 
 /**
- * Reference to a field of type 'TargetType[]'
+ * Reference to a field of type 'AliasTargetType[]'
  */
-export type ListEnumTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TargetType[]'>
+export type ListEnumAliasTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AliasTargetType[]'>
     
 
 
@@ -8243,6 +8243,20 @@ export type EnumVisibilityFieldRefInput<$PrismaModel> = FieldRefInputType<$Prism
  * Reference to a field of type 'Visibility[]'
  */
 export type ListEnumVisibilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Visibility[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AllTargetType'
+ */
+export type EnumAllTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AllTargetType'>
+    
+
+
+/**
+ * Reference to a field of type 'AllTargetType[]'
+ */
+export type ListEnumAllTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AllTargetType[]'>
     
 
 
@@ -8730,16 +8744,16 @@ export type ListEnumArchiveTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$
 
 
 /**
- * Reference to a field of type 'TargetTypeSelected'
+ * Reference to a field of type 'SelectedTargetType'
  */
-export type EnumTargetTypeSelectedFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TargetTypeSelected'>
+export type EnumSelectedTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SelectedTargetType'>
     
 
 
 /**
- * Reference to a field of type 'TargetTypeSelected[]'
+ * Reference to a field of type 'SelectedTargetType[]'
  */
-export type ListEnumTargetTypeSelectedFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TargetTypeSelected[]'>
+export type ListEnumSelectedTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SelectedTargetType[]'>
     
 
 

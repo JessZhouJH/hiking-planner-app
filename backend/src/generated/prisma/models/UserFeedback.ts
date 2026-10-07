@@ -47,7 +47,7 @@ export type UserFeedbackSumAggregateOutputType = {
 export type UserFeedbackMinAggregateOutputType = {
   id: number | null
   user_id: number | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   target_object_id: number | null
   title: string | null
   content: string | null
@@ -63,7 +63,7 @@ export type UserFeedbackMinAggregateOutputType = {
 export type UserFeedbackMaxAggregateOutputType = {
   id: number | null
   user_id: number | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   target_object_id: number | null
   title: string | null
   content: string | null
@@ -250,7 +250,7 @@ export type UserFeedbackGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type UserFeedbackGroupByOutputType = {
   id: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number | null
   title: string | null
   content: string
@@ -289,7 +289,7 @@ export type UserFeedbackWhereInput = {
   NOT?: Prisma.UserFeedbackWhereInput | Prisma.UserFeedbackWhereInput[]
   id?: Prisma.IntFilter<"UserFeedback"> | number
   user_id?: Prisma.IntFilter<"UserFeedback"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserFeedback"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserFeedback"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserFeedback"> | number | null
   title?: Prisma.StringNullableFilter<"UserFeedback"> | string | null
   content?: Prisma.StringFilter<"UserFeedback"> | string
@@ -332,7 +332,7 @@ export type UserFeedbackWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UserFeedbackWhereInput[]
   NOT?: Prisma.UserFeedbackWhereInput | Prisma.UserFeedbackWhereInput[]
   user_id?: Prisma.IntFilter<"UserFeedback"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserFeedback"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserFeedback"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserFeedback"> | number | null
   title?: Prisma.StringNullableFilter<"UserFeedback"> | string | null
   content?: Prisma.StringFilter<"UserFeedback"> | string
@@ -376,7 +376,7 @@ export type UserFeedbackScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UserFeedbackScalarWhereWithAggregatesInput | Prisma.UserFeedbackScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"UserFeedback"> | number
   user_id?: Prisma.IntWithAggregatesFilter<"UserFeedback"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedWithAggregatesFilter<"UserFeedback"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeWithAggregatesFilter<"UserFeedback"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableWithAggregatesFilter<"UserFeedback"> | number | null
   title?: Prisma.StringNullableWithAggregatesFilter<"UserFeedback"> | string | null
   content?: Prisma.StringWithAggregatesFilter<"UserFeedback"> | string
@@ -390,7 +390,7 @@ export type UserFeedbackScalarWhereWithAggregatesInput = {
 }
 
 export type UserFeedbackCreateInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -407,7 +407,7 @@ export type UserFeedbackCreateInput = {
 export type UserFeedbackUncheckedCreateInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -421,7 +421,7 @@ export type UserFeedbackUncheckedCreateInput = {
 }
 
 export type UserFeedbackUpdateInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -438,7 +438,7 @@ export type UserFeedbackUpdateInput = {
 export type UserFeedbackUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -454,7 +454,7 @@ export type UserFeedbackUncheckedUpdateInput = {
 export type UserFeedbackCreateManyInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -468,7 +468,7 @@ export type UserFeedbackCreateManyInput = {
 }
 
 export type UserFeedbackUpdateManyMutationInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -481,7 +481,7 @@ export type UserFeedbackUpdateManyMutationInput = {
 export type UserFeedbackUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -738,12 +738,12 @@ export type UserFeedbackUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.UserFeedbackScalarWhereInput | Prisma.UserFeedbackScalarWhereInput[]
 }
 
-export type EnumTargetTypeSelectedFieldUpdateOperationsInput = {
-  set?: $Enums.TargetTypeSelected
+export type EnumSelectedTargetTypeFieldUpdateOperationsInput = {
+  set?: $Enums.SelectedTargetType
 }
 
 export type UserFeedbackCreateWithoutCreated_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -759,7 +759,7 @@ export type UserFeedbackCreateWithoutCreated_byInput = {
 export type UserFeedbackUncheckedCreateWithoutCreated_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -782,7 +782,7 @@ export type UserFeedbackCreateManyCreated_byInputEnvelope = {
 }
 
 export type UserFeedbackCreateWithoutUpdated_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -798,7 +798,7 @@ export type UserFeedbackCreateWithoutUpdated_byInput = {
 export type UserFeedbackUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -821,7 +821,7 @@ export type UserFeedbackCreateManyUpdated_byInputEnvelope = {
 }
 
 export type UserFeedbackCreateWithoutLast_reviewed_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -837,7 +837,7 @@ export type UserFeedbackCreateWithoutLast_reviewed_byInput = {
 export type UserFeedbackUncheckedCreateWithoutLast_reviewed_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -860,7 +860,7 @@ export type UserFeedbackCreateManyLast_reviewed_byInputEnvelope = {
 }
 
 export type UserFeedbackCreateWithoutUserInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -875,7 +875,7 @@ export type UserFeedbackCreateWithoutUserInput = {
 
 export type UserFeedbackUncheckedCreateWithoutUserInput = {
   id?: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -920,7 +920,7 @@ export type UserFeedbackScalarWhereInput = {
   NOT?: Prisma.UserFeedbackScalarWhereInput | Prisma.UserFeedbackScalarWhereInput[]
   id?: Prisma.IntFilter<"UserFeedback"> | number
   user_id?: Prisma.IntFilter<"UserFeedback"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserFeedback"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserFeedback"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserFeedback"> | number | null
   title?: Prisma.StringNullableFilter<"UserFeedback"> | string | null
   content?: Prisma.StringFilter<"UserFeedback"> | string
@@ -984,7 +984,7 @@ export type UserFeedbackUpdateManyWithWhereWithoutUserInput = {
 export type UserFeedbackCreateManyCreated_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -999,7 +999,7 @@ export type UserFeedbackCreateManyCreated_byInput = {
 export type UserFeedbackCreateManyUpdated_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -1014,7 +1014,7 @@ export type UserFeedbackCreateManyUpdated_byInput = {
 export type UserFeedbackCreateManyLast_reviewed_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -1028,7 +1028,7 @@ export type UserFeedbackCreateManyLast_reviewed_byInput = {
 
 export type UserFeedbackCreateManyUserInput = {
   id?: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -1042,7 +1042,7 @@ export type UserFeedbackCreateManyUserInput = {
 }
 
 export type UserFeedbackUpdateWithoutCreated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1058,7 +1058,7 @@ export type UserFeedbackUpdateWithoutCreated_byInput = {
 export type UserFeedbackUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1073,7 +1073,7 @@ export type UserFeedbackUncheckedUpdateWithoutCreated_byInput = {
 export type UserFeedbackUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1086,7 +1086,7 @@ export type UserFeedbackUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type UserFeedbackUpdateWithoutUpdated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1102,7 +1102,7 @@ export type UserFeedbackUpdateWithoutUpdated_byInput = {
 export type UserFeedbackUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1117,7 +1117,7 @@ export type UserFeedbackUncheckedUpdateWithoutUpdated_byInput = {
 export type UserFeedbackUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1130,7 +1130,7 @@ export type UserFeedbackUncheckedUpdateManyWithoutUpdated_byInput = {
 }
 
 export type UserFeedbackUpdateWithoutLast_reviewed_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1146,7 +1146,7 @@ export type UserFeedbackUpdateWithoutLast_reviewed_byInput = {
 export type UserFeedbackUncheckedUpdateWithoutLast_reviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1161,7 +1161,7 @@ export type UserFeedbackUncheckedUpdateWithoutLast_reviewed_byInput = {
 export type UserFeedbackUncheckedUpdateManyWithoutLast_reviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1174,7 +1174,7 @@ export type UserFeedbackUncheckedUpdateManyWithoutLast_reviewed_byInput = {
 }
 
 export type UserFeedbackUpdateWithoutUserInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1189,7 +1189,7 @@ export type UserFeedbackUpdateWithoutUserInput = {
 
 export type UserFeedbackUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1204,7 +1204,7 @@ export type UserFeedbackUncheckedUpdateWithoutUserInput = {
 
 export type UserFeedbackUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1326,7 +1326,7 @@ export type $UserFeedbackPayload<ExtArgs extends runtime.Types.Extensions.Intern
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     user_id: number
-    target_object_type: $Enums.TargetTypeSelected
+    target_object_type: $Enums.SelectedTargetType
     target_object_id: number | null
     title: string | null
     content: string
@@ -1766,7 +1766,7 @@ export interface Prisma__UserFeedbackClient<T, Null = never, ExtArgs extends run
 export interface UserFeedbackFieldRefs {
   readonly id: Prisma.FieldRef<"UserFeedback", 'Int'>
   readonly user_id: Prisma.FieldRef<"UserFeedback", 'Int'>
-  readonly target_object_type: Prisma.FieldRef<"UserFeedback", 'TargetTypeSelected'>
+  readonly target_object_type: Prisma.FieldRef<"UserFeedback", 'SelectedTargetType'>
   readonly target_object_id: Prisma.FieldRef<"UserFeedback", 'Int'>
   readonly title: Prisma.FieldRef<"UserFeedback", 'String'>
   readonly content: Prisma.FieldRef<"UserFeedback", 'String'>

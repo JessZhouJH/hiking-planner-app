@@ -50,7 +50,7 @@ export type RecordActionSumAggregateOutputType = {
 
 export type RecordActionMinAggregateOutputType = {
   id: number | null
-  target_type: $Enums.TargetType | null
+  target_type: $Enums.AllTargetType | null
   target_id: number | null
   parent_record_action_id: number | null
   action_type: $Enums.ProposedAction | null
@@ -64,7 +64,7 @@ export type RecordActionMinAggregateOutputType = {
   performed_at: Date | null
   performed_by_id: number | null
   performer_notes: string | null
-  action_result_object_type: $Enums.TargetType | null
+  action_result_object_type: $Enums.AllTargetType | null
   action_result_object_id: number | null
   updated_at: Date | null
   updated_by_id: number | null
@@ -72,7 +72,7 @@ export type RecordActionMinAggregateOutputType = {
 
 export type RecordActionMaxAggregateOutputType = {
   id: number | null
-  target_type: $Enums.TargetType | null
+  target_type: $Enums.AllTargetType | null
   target_id: number | null
   parent_record_action_id: number | null
   action_type: $Enums.ProposedAction | null
@@ -86,7 +86,7 @@ export type RecordActionMaxAggregateOutputType = {
   performed_at: Date | null
   performed_by_id: number | null
   performer_notes: string | null
-  action_result_object_type: $Enums.TargetType | null
+  action_result_object_type: $Enums.AllTargetType | null
   action_result_object_id: number | null
   updated_at: Date | null
   updated_by_id: number | null
@@ -293,7 +293,7 @@ export type RecordActionGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 
 export type RecordActionGroupByOutputType = {
   id: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id: number | null
   action_type: $Enums.ProposedAction
@@ -307,7 +307,7 @@ export type RecordActionGroupByOutputType = {
   performed_at: Date | null
   performed_by_id: number | null
   performer_notes: string | null
-  action_result_object_type: $Enums.TargetType | null
+  action_result_object_type: $Enums.AllTargetType | null
   action_result_object_id: number | null
   updated_at: Date
   updated_by_id: number
@@ -338,7 +338,7 @@ export type RecordActionWhereInput = {
   OR?: Prisma.RecordActionWhereInput[]
   NOT?: Prisma.RecordActionWhereInput | Prisma.RecordActionWhereInput[]
   id?: Prisma.IntFilter<"RecordAction"> | number
-  target_type?: Prisma.EnumTargetTypeFilter<"RecordAction"> | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFilter<"RecordAction"> | $Enums.AllTargetType
   target_id?: Prisma.IntFilter<"RecordAction"> | number
   parent_record_action_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   action_type?: Prisma.EnumProposedActionFilter<"RecordAction"> | $Enums.ProposedAction
@@ -352,7 +352,7 @@ export type RecordActionWhereInput = {
   performed_at?: Prisma.DateTimeNullableFilter<"RecordAction"> | Date | string | null
   performed_by_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   performer_notes?: Prisma.StringNullableFilter<"RecordAction"> | string | null
-  action_result_object_type?: Prisma.EnumTargetTypeNullableFilter<"RecordAction"> | $Enums.TargetType | null
+  action_result_object_type?: Prisma.EnumAllTargetTypeNullableFilter<"RecordAction"> | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   updated_at?: Prisma.DateTimeFilter<"RecordAction"> | Date | string
   updated_by_id?: Prisma.IntFilter<"RecordAction"> | number
@@ -399,7 +399,7 @@ export type RecordActionWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.RecordActionWhereInput | Prisma.RecordActionWhereInput[]
   OR?: Prisma.RecordActionWhereInput[]
   NOT?: Prisma.RecordActionWhereInput | Prisma.RecordActionWhereInput[]
-  target_type?: Prisma.EnumTargetTypeFilter<"RecordAction"> | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFilter<"RecordAction"> | $Enums.AllTargetType
   target_id?: Prisma.IntFilter<"RecordAction"> | number
   parent_record_action_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   action_type?: Prisma.EnumProposedActionFilter<"RecordAction"> | $Enums.ProposedAction
@@ -413,7 +413,7 @@ export type RecordActionWhereUniqueInput = Prisma.AtLeast<{
   performed_at?: Prisma.DateTimeNullableFilter<"RecordAction"> | Date | string | null
   performed_by_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   performer_notes?: Prisma.StringNullableFilter<"RecordAction"> | string | null
-  action_result_object_type?: Prisma.EnumTargetTypeNullableFilter<"RecordAction"> | $Enums.TargetType | null
+  action_result_object_type?: Prisma.EnumAllTargetTypeNullableFilter<"RecordAction"> | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   updated_at?: Prisma.DateTimeFilter<"RecordAction"> | Date | string
   updated_by_id?: Prisma.IntFilter<"RecordAction"> | number
@@ -458,7 +458,7 @@ export type RecordActionScalarWhereWithAggregatesInput = {
   OR?: Prisma.RecordActionScalarWhereWithAggregatesInput[]
   NOT?: Prisma.RecordActionScalarWhereWithAggregatesInput | Prisma.RecordActionScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"RecordAction"> | number
-  target_type?: Prisma.EnumTargetTypeWithAggregatesFilter<"RecordAction"> | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeWithAggregatesFilter<"RecordAction"> | $Enums.AllTargetType
   target_id?: Prisma.IntWithAggregatesFilter<"RecordAction"> | number
   parent_record_action_id?: Prisma.IntNullableWithAggregatesFilter<"RecordAction"> | number | null
   action_type?: Prisma.EnumProposedActionWithAggregatesFilter<"RecordAction"> | $Enums.ProposedAction
@@ -472,14 +472,14 @@ export type RecordActionScalarWhereWithAggregatesInput = {
   performed_at?: Prisma.DateTimeNullableWithAggregatesFilter<"RecordAction"> | Date | string | null
   performed_by_id?: Prisma.IntNullableWithAggregatesFilter<"RecordAction"> | number | null
   performer_notes?: Prisma.StringNullableWithAggregatesFilter<"RecordAction"> | string | null
-  action_result_object_type?: Prisma.EnumTargetTypeNullableWithAggregatesFilter<"RecordAction"> | $Enums.TargetType | null
+  action_result_object_type?: Prisma.EnumAllTargetTypeNullableWithAggregatesFilter<"RecordAction"> | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.IntNullableWithAggregatesFilter<"RecordAction"> | number | null
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"RecordAction"> | Date | string
   updated_by_id?: Prisma.IntWithAggregatesFilter<"RecordAction"> | number
 }
 
 export type RecordActionCreateInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -489,7 +489,7 @@ export type RecordActionCreateInput = {
   consent_at?: Date | string | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   parent_record_action?: Prisma.RecordActionCreateNestedOneWithoutRecord_action__parent_record_actionInput
@@ -503,7 +503,7 @@ export type RecordActionCreateInput = {
 
 export type RecordActionUncheckedCreateInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -517,7 +517,7 @@ export type RecordActionUncheckedCreateInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -526,7 +526,7 @@ export type RecordActionUncheckedCreateInput = {
 }
 
 export type RecordActionUpdateInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -536,7 +536,7 @@ export type RecordActionUpdateInput = {
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent_record_action?: Prisma.RecordActionUpdateOneWithoutRecord_action__parent_record_actionNestedInput
@@ -550,7 +550,7 @@ export type RecordActionUpdateInput = {
 
 export type RecordActionUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -564,7 +564,7 @@ export type RecordActionUncheckedUpdateInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -574,7 +574,7 @@ export type RecordActionUncheckedUpdateInput = {
 
 export type RecordActionCreateManyInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -588,14 +588,14 @@ export type RecordActionCreateManyInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
 }
 
 export type RecordActionUpdateManyMutationInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -605,14 +605,14 @@ export type RecordActionUpdateManyMutationInput = {
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type RecordActionUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -626,7 +626,7 @@ export type RecordActionUncheckedUpdateManyInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -931,8 +931,8 @@ export type EnumRecordActionStatusFieldUpdateOperationsInput = {
   set?: $Enums.RecordActionStatus
 }
 
-export type NullableEnumTargetTypeFieldUpdateOperationsInput = {
-  set?: $Enums.TargetType | null
+export type NullableEnumAllTargetTypeFieldUpdateOperationsInput = {
+  set?: $Enums.AllTargetType | null
 }
 
 export type RecordActionUpdateOneWithoutRecord_action__parent_record_actionNestedInput = {
@@ -990,7 +990,7 @@ export type RecordActionUpdateOneWithoutContent_review_history__linked_record_ac
 }
 
 export type RecordActionCreateWithoutRequested_byInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1000,7 +1000,7 @@ export type RecordActionCreateWithoutRequested_byInput = {
   consent_at?: Date | string | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   parent_record_action?: Prisma.RecordActionCreateNestedOneWithoutRecord_action__parent_record_actionInput
@@ -1013,7 +1013,7 @@ export type RecordActionCreateWithoutRequested_byInput = {
 
 export type RecordActionUncheckedCreateWithoutRequested_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1026,7 +1026,7 @@ export type RecordActionUncheckedCreateWithoutRequested_byInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1045,7 +1045,7 @@ export type RecordActionCreateManyRequested_byInputEnvelope = {
 }
 
 export type RecordActionCreateWithoutConsent_byInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1055,7 +1055,7 @@ export type RecordActionCreateWithoutConsent_byInput = {
   consent_at?: Date | string | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   parent_record_action?: Prisma.RecordActionCreateNestedOneWithoutRecord_action__parent_record_actionInput
@@ -1068,7 +1068,7 @@ export type RecordActionCreateWithoutConsent_byInput = {
 
 export type RecordActionUncheckedCreateWithoutConsent_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1081,7 +1081,7 @@ export type RecordActionUncheckedCreateWithoutConsent_byInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1100,7 +1100,7 @@ export type RecordActionCreateManyConsent_byInputEnvelope = {
 }
 
 export type RecordActionCreateWithoutPerformed_byInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1110,7 +1110,7 @@ export type RecordActionCreateWithoutPerformed_byInput = {
   consent_at?: Date | string | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   parent_record_action?: Prisma.RecordActionCreateNestedOneWithoutRecord_action__parent_record_actionInput
@@ -1123,7 +1123,7 @@ export type RecordActionCreateWithoutPerformed_byInput = {
 
 export type RecordActionUncheckedCreateWithoutPerformed_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1136,7 +1136,7 @@ export type RecordActionUncheckedCreateWithoutPerformed_byInput = {
   consent_by_id?: number | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1155,7 +1155,7 @@ export type RecordActionCreateManyPerformed_byInputEnvelope = {
 }
 
 export type RecordActionCreateWithoutUpdated_byInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1165,7 +1165,7 @@ export type RecordActionCreateWithoutUpdated_byInput = {
   consent_at?: Date | string | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   parent_record_action?: Prisma.RecordActionCreateNestedOneWithoutRecord_action__parent_record_actionInput
@@ -1178,7 +1178,7 @@ export type RecordActionCreateWithoutUpdated_byInput = {
 
 export type RecordActionUncheckedCreateWithoutUpdated_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1192,7 +1192,7 @@ export type RecordActionUncheckedCreateWithoutUpdated_byInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   record_action__parent_record_action?: Prisma.RecordActionUncheckedCreateNestedManyWithoutParent_record_actionInput
@@ -1230,7 +1230,7 @@ export type RecordActionScalarWhereInput = {
   OR?: Prisma.RecordActionScalarWhereInput[]
   NOT?: Prisma.RecordActionScalarWhereInput | Prisma.RecordActionScalarWhereInput[]
   id?: Prisma.IntFilter<"RecordAction"> | number
-  target_type?: Prisma.EnumTargetTypeFilter<"RecordAction"> | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFilter<"RecordAction"> | $Enums.AllTargetType
   target_id?: Prisma.IntFilter<"RecordAction"> | number
   parent_record_action_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   action_type?: Prisma.EnumProposedActionFilter<"RecordAction"> | $Enums.ProposedAction
@@ -1244,7 +1244,7 @@ export type RecordActionScalarWhereInput = {
   performed_at?: Prisma.DateTimeNullableFilter<"RecordAction"> | Date | string | null
   performed_by_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   performer_notes?: Prisma.StringNullableFilter<"RecordAction"> | string | null
-  action_result_object_type?: Prisma.EnumTargetTypeNullableFilter<"RecordAction"> | $Enums.TargetType | null
+  action_result_object_type?: Prisma.EnumAllTargetTypeNullableFilter<"RecordAction"> | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.IntNullableFilter<"RecordAction"> | number | null
   updated_at?: Prisma.DateTimeFilter<"RecordAction"> | Date | string
   updated_by_id?: Prisma.IntFilter<"RecordAction"> | number
@@ -1299,7 +1299,7 @@ export type RecordActionUpdateManyWithWhereWithoutUpdated_byInput = {
 }
 
 export type RecordActionCreateWithoutRecord_action__parent_record_actionInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1309,7 +1309,7 @@ export type RecordActionCreateWithoutRecord_action__parent_record_actionInput = 
   consent_at?: Date | string | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   parent_record_action?: Prisma.RecordActionCreateNestedOneWithoutRecord_action__parent_record_actionInput
@@ -1322,7 +1322,7 @@ export type RecordActionCreateWithoutRecord_action__parent_record_actionInput = 
 
 export type RecordActionUncheckedCreateWithoutRecord_action__parent_record_actionInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1336,7 +1336,7 @@ export type RecordActionUncheckedCreateWithoutRecord_action__parent_record_actio
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1349,7 +1349,7 @@ export type RecordActionCreateOrConnectWithoutRecord_action__parent_record_actio
 }
 
 export type RecordActionCreateWithoutParent_record_actionInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1359,7 +1359,7 @@ export type RecordActionCreateWithoutParent_record_actionInput = {
   consent_at?: Date | string | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   requested_by: Prisma.UserCreateNestedOneWithoutRecord_action__requested_byInput
@@ -1372,7 +1372,7 @@ export type RecordActionCreateWithoutParent_record_actionInput = {
 
 export type RecordActionUncheckedCreateWithoutParent_record_actionInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1385,7 +1385,7 @@ export type RecordActionUncheckedCreateWithoutParent_record_actionInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1415,7 +1415,7 @@ export type RecordActionUpdateToOneWithWhereWithoutRecord_action__parent_record_
 }
 
 export type RecordActionUpdateWithoutRecord_action__parent_record_actionInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -1425,7 +1425,7 @@ export type RecordActionUpdateWithoutRecord_action__parent_record_actionInput = 
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent_record_action?: Prisma.RecordActionUpdateOneWithoutRecord_action__parent_record_actionNestedInput
@@ -1438,7 +1438,7 @@ export type RecordActionUpdateWithoutRecord_action__parent_record_actionInput = 
 
 export type RecordActionUncheckedUpdateWithoutRecord_action__parent_record_actionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1452,7 +1452,7 @@ export type RecordActionUncheckedUpdateWithoutRecord_action__parent_record_actio
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1476,7 +1476,7 @@ export type RecordActionUpdateManyWithWhereWithoutParent_record_actionInput = {
 }
 
 export type RecordActionCreateWithoutContent_review_history__linked_record_actionInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1486,7 +1486,7 @@ export type RecordActionCreateWithoutContent_review_history__linked_record_actio
   consent_at?: Date | string | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   parent_record_action?: Prisma.RecordActionCreateNestedOneWithoutRecord_action__parent_record_actionInput
@@ -1499,7 +1499,7 @@ export type RecordActionCreateWithoutContent_review_history__linked_record_actio
 
 export type RecordActionUncheckedCreateWithoutContent_review_history__linked_record_actionInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1513,7 +1513,7 @@ export type RecordActionUncheckedCreateWithoutContent_review_history__linked_rec
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1537,7 +1537,7 @@ export type RecordActionUpdateToOneWithWhereWithoutContent_review_history__linke
 }
 
 export type RecordActionUpdateWithoutContent_review_history__linked_record_actionInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -1547,7 +1547,7 @@ export type RecordActionUpdateWithoutContent_review_history__linked_record_actio
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent_record_action?: Prisma.RecordActionUpdateOneWithoutRecord_action__parent_record_actionNestedInput
@@ -1560,7 +1560,7 @@ export type RecordActionUpdateWithoutContent_review_history__linked_record_actio
 
 export type RecordActionUncheckedUpdateWithoutContent_review_history__linked_record_actionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1574,7 +1574,7 @@ export type RecordActionUncheckedUpdateWithoutContent_review_history__linked_rec
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1583,7 +1583,7 @@ export type RecordActionUncheckedUpdateWithoutContent_review_history__linked_rec
 
 export type RecordActionCreateManyRequested_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1596,7 +1596,7 @@ export type RecordActionCreateManyRequested_byInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1604,7 +1604,7 @@ export type RecordActionCreateManyRequested_byInput = {
 
 export type RecordActionCreateManyConsent_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1617,7 +1617,7 @@ export type RecordActionCreateManyConsent_byInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1625,7 +1625,7 @@ export type RecordActionCreateManyConsent_byInput = {
 
 export type RecordActionCreateManyPerformed_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1638,7 +1638,7 @@ export type RecordActionCreateManyPerformed_byInput = {
   consent_by_id?: number | null
   performed_at?: Date | string | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
@@ -1646,7 +1646,7 @@ export type RecordActionCreateManyPerformed_byInput = {
 
 export type RecordActionCreateManyUpdated_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   parent_record_action_id?: number | null
   action_type?: $Enums.ProposedAction
@@ -1660,13 +1660,13 @@ export type RecordActionCreateManyUpdated_byInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
 }
 
 export type RecordActionUpdateWithoutRequested_byInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -1676,7 +1676,7 @@ export type RecordActionUpdateWithoutRequested_byInput = {
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent_record_action?: Prisma.RecordActionUpdateOneWithoutRecord_action__parent_record_actionNestedInput
@@ -1689,7 +1689,7 @@ export type RecordActionUpdateWithoutRequested_byInput = {
 
 export type RecordActionUncheckedUpdateWithoutRequested_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1702,7 +1702,7 @@ export type RecordActionUncheckedUpdateWithoutRequested_byInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1712,7 +1712,7 @@ export type RecordActionUncheckedUpdateWithoutRequested_byInput = {
 
 export type RecordActionUncheckedUpdateManyWithoutRequested_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1725,14 +1725,14 @@ export type RecordActionUncheckedUpdateManyWithoutRequested_byInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type RecordActionUpdateWithoutConsent_byInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -1742,7 +1742,7 @@ export type RecordActionUpdateWithoutConsent_byInput = {
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent_record_action?: Prisma.RecordActionUpdateOneWithoutRecord_action__parent_record_actionNestedInput
@@ -1755,7 +1755,7 @@ export type RecordActionUpdateWithoutConsent_byInput = {
 
 export type RecordActionUncheckedUpdateWithoutConsent_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1768,7 +1768,7 @@ export type RecordActionUncheckedUpdateWithoutConsent_byInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1778,7 +1778,7 @@ export type RecordActionUncheckedUpdateWithoutConsent_byInput = {
 
 export type RecordActionUncheckedUpdateManyWithoutConsent_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1791,14 +1791,14 @@ export type RecordActionUncheckedUpdateManyWithoutConsent_byInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type RecordActionUpdateWithoutPerformed_byInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -1808,7 +1808,7 @@ export type RecordActionUpdateWithoutPerformed_byInput = {
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent_record_action?: Prisma.RecordActionUpdateOneWithoutRecord_action__parent_record_actionNestedInput
@@ -1821,7 +1821,7 @@ export type RecordActionUpdateWithoutPerformed_byInput = {
 
 export type RecordActionUncheckedUpdateWithoutPerformed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1834,7 +1834,7 @@ export type RecordActionUncheckedUpdateWithoutPerformed_byInput = {
   consent_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1844,7 +1844,7 @@ export type RecordActionUncheckedUpdateWithoutPerformed_byInput = {
 
 export type RecordActionUncheckedUpdateManyWithoutPerformed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1857,14 +1857,14 @@ export type RecordActionUncheckedUpdateManyWithoutPerformed_byInput = {
   consent_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type RecordActionUpdateWithoutUpdated_byInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -1874,7 +1874,7 @@ export type RecordActionUpdateWithoutUpdated_byInput = {
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   parent_record_action?: Prisma.RecordActionUpdateOneWithoutRecord_action__parent_record_actionNestedInput
@@ -1887,7 +1887,7 @@ export type RecordActionUpdateWithoutUpdated_byInput = {
 
 export type RecordActionUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1901,7 +1901,7 @@ export type RecordActionUncheckedUpdateWithoutUpdated_byInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   record_action__parent_record_action?: Prisma.RecordActionUncheckedUpdateManyWithoutParent_record_actionNestedInput
@@ -1910,7 +1910,7 @@ export type RecordActionUncheckedUpdateWithoutUpdated_byInput = {
 
 export type RecordActionUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   parent_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
@@ -1924,14 +1924,14 @@ export type RecordActionUncheckedUpdateManyWithoutUpdated_byInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type RecordActionCreateManyParent_record_actionInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   action_type?: $Enums.ProposedAction
   action_reason?: $Enums.ActionReason
@@ -1944,14 +1944,14 @@ export type RecordActionCreateManyParent_record_actionInput = {
   performed_at?: Date | string | null
   performed_by_id?: number | null
   performer_notes?: string | null
-  action_result_object_type?: $Enums.TargetType | null
+  action_result_object_type?: $Enums.AllTargetType | null
   action_result_object_id?: number | null
   updated_at?: Date | string
   updated_by_id: number
 }
 
 export type RecordActionUpdateWithoutParent_record_actionInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -1961,7 +1961,7 @@ export type RecordActionUpdateWithoutParent_record_actionInput = {
   consent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requested_by?: Prisma.UserUpdateOneRequiredWithoutRecord_action__requested_byNestedInput
@@ -1974,7 +1974,7 @@ export type RecordActionUpdateWithoutParent_record_actionInput = {
 
 export type RecordActionUncheckedUpdateWithoutParent_record_actionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -1987,7 +1987,7 @@ export type RecordActionUncheckedUpdateWithoutParent_record_actionInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1997,7 +1997,7 @@ export type RecordActionUncheckedUpdateWithoutParent_record_actionInput = {
 
 export type RecordActionUncheckedUpdateManyWithoutParent_record_actionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   action_type?: Prisma.EnumProposedActionFieldUpdateOperationsInput | $Enums.ProposedAction
   action_reason?: Prisma.EnumActionReasonFieldUpdateOperationsInput | $Enums.ActionReason
@@ -2010,7 +2010,7 @@ export type RecordActionUncheckedUpdateManyWithoutParent_record_actionInput = {
   performed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   performed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   performer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  action_result_object_type?: Prisma.NullableEnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType | null
+  action_result_object_type?: Prisma.NullableEnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType | null
   action_result_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -2201,7 +2201,7 @@ export type $RecordActionPayload<ExtArgs extends runtime.Types.Extensions.Intern
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    target_type: $Enums.TargetType
+    target_type: $Enums.AllTargetType
     target_id: number
     parent_record_action_id: number | null
     action_type: $Enums.ProposedAction
@@ -2215,7 +2215,7 @@ export type $RecordActionPayload<ExtArgs extends runtime.Types.Extensions.Intern
     performed_at: Date | null
     performed_by_id: number | null
     performer_notes: string | null
-    action_result_object_type: $Enums.TargetType | null
+    action_result_object_type: $Enums.AllTargetType | null
     action_result_object_id: number | null
     updated_at: Date
     updated_by_id: number
@@ -2650,7 +2650,7 @@ export interface Prisma__RecordActionClient<T, Null = never, ExtArgs extends run
  */
 export interface RecordActionFieldRefs {
   readonly id: Prisma.FieldRef<"RecordAction", 'Int'>
-  readonly target_type: Prisma.FieldRef<"RecordAction", 'TargetType'>
+  readonly target_type: Prisma.FieldRef<"RecordAction", 'AllTargetType'>
   readonly target_id: Prisma.FieldRef<"RecordAction", 'Int'>
   readonly parent_record_action_id: Prisma.FieldRef<"RecordAction", 'Int'>
   readonly action_type: Prisma.FieldRef<"RecordAction", 'ProposedAction'>
@@ -2664,7 +2664,7 @@ export interface RecordActionFieldRefs {
   readonly performed_at: Prisma.FieldRef<"RecordAction", 'DateTime'>
   readonly performed_by_id: Prisma.FieldRef<"RecordAction", 'Int'>
   readonly performer_notes: Prisma.FieldRef<"RecordAction", 'String'>
-  readonly action_result_object_type: Prisma.FieldRef<"RecordAction", 'TargetType'>
+  readonly action_result_object_type: Prisma.FieldRef<"RecordAction", 'AllTargetType'>
   readonly action_result_object_id: Prisma.FieldRef<"RecordAction", 'Int'>
   readonly updated_at: Prisma.FieldRef<"RecordAction", 'DateTime'>
   readonly updated_by_id: Prisma.FieldRef<"RecordAction", 'Int'>

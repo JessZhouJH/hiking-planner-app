@@ -379,13 +379,23 @@ enum LifecycleStatus {
   UNAVAILABLE
 }
 
-enum TargetTypeAll {  // TODO: complete this enum
+enum AllTargetType {  // TODO: complete this enum
   GEAR
   TRAIL
   TRIP
+  BRAND
+
 }
 
-enum TargetTypeSelected { // TODO: complete this enum
+enum AliasTargetType {  // TODO: complete this enum
+  GEAR
+  TRAIL
+  BRAND
+  ACCESS_POINT
+  DESCRIPTIVE_GEAR
+}
+
+enum SelectedTargetType { // TODO: complete this enum
   GEAR
   TRAIL
   TRIP
@@ -961,7 +971,7 @@ model RolePermission {
 // 2. Common: Alias, MediaArchive, Attachment, Unit
 model Alias {
   id Int @id @default(autoincrement())
-  target_object_type TargetType
+  target_object_type AliasTargetType
   target_object_id Int
   alias String
 
@@ -1013,7 +1023,7 @@ model MediaArchive {
 
 model Attachment {
   id Int @id @default(autoincrement())
-  target_object_type TargetType
+  target_object_type AllTargetType
   target_object_id Int
   attachment_usage AttachmentUsage
   media_archive_id Int
@@ -1222,7 +1232,7 @@ model GearTypeRelation {
 
 model GearSpecsDefinition {
   id Int @id @default(autoincrement())
-  name String @unique
+  name String
   gear_type_id Int
   value_type ValueType
   default_unit_id Int?
@@ -2490,7 +2500,7 @@ model UserPersonalArchive {
   source_type SourceType @default(UNSPECIFIED)
   archive_source_url String? 
 
-  target_object_type TargetType
+  target_object_type AllTargetType
   target_object_id Int
 
   status Status @default(ACTIVE)
@@ -2511,7 +2521,7 @@ model UserPersonalArchive {
 model UserFeedback {
   id Int @id @default(autoincrement())
   user_id Int
-  target_object_type TargetTypeSelected
+  target_object_type SelectedTargetType
   target_object_id Int?
 
   title String?
@@ -2536,7 +2546,7 @@ model UserFeedback {
 model UserStickyNotes {
   id Int @id @default(autoincrement())
   user_id Int
-  target_object_type TargetTypeSelected
+  target_object_type SelectedTargetType
   target_object_id Int?
 
   title String?
@@ -2894,7 +2904,7 @@ model Collection {
 model CollectionItem {
   id Int @id @default(autoincrement())
   collection_id Int
-  target_object_type TargetTypeSelected
+  target_object_type SelectedTargetType
   target_object_id Int
 
   notes String?
@@ -2923,7 +2933,7 @@ model UserProposal {  // TODO: leave until end of post-MVP phase 1 completed -- 
   name String?
   description String
 
-  target_object_type TargetTypeSelected
+  target_object_type SelectedTargetType
   target_object_id Int?
   proposed_action ProposedAction
   proposal_support_url String?
@@ -2949,7 +2959,7 @@ model CommunityPublication {
   name String
   contributor_id Int?
 
-  target_object_type TargetTypeSelected
+  target_object_type SelectedTargetType
   source_root_object_id Int?
 
   submitted_at DateTime @default(now())
@@ -2981,7 +2991,7 @@ model CommunityPublicationItem {
   community_publication_id Int
   contributor_id Int?
 
-  target_object_type TargetTypeSelected
+  target_object_type SelectedTargetType
   source_object_id Int
   snapshot_object_id Int?
   published_object_id Int?
@@ -3035,7 +3045,7 @@ model CommunityPublicationAttachment {
 
 model RecordAction {  // TODO: Leave to Post MVP P3
   id Int @id @default(autoincrement())
-  target_type TargetType
+  target_type AllTargetType
   target_id Int
   parent_record_action_id Int?
 
@@ -3054,7 +3064,7 @@ model RecordAction {  // TODO: Leave to Post MVP P3
   performed_by_id Int?
   performer_notes String?
 
-  action_result_object_type TargetType?
+  action_result_object_type AllTargetType?
   action_result_object_id Int?
 
   updated_at DateTime @updatedAt
@@ -3072,7 +3082,7 @@ model RecordAction {  // TODO: Leave to Post MVP P3
 
 model ContentReviewHistory {  // TODO: Leave to Post MVP P3
   id Int @id @default(autoincrement())
-  target_type TargetType
+  target_type AllTargetType
   target_id Int
   predecessor_review_id Int?
   linked_record_action_id Int?

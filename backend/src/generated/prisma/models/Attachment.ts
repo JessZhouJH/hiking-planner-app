@@ -46,7 +46,7 @@ export type AttachmentSumAggregateOutputType = {
 
 export type AttachmentMinAggregateOutputType = {
   id: number | null
-  target_object_type: $Enums.TargetType | null
+  target_object_type: $Enums.AllTargetType | null
   target_object_id: number | null
   attachment_usage: $Enums.AttachmentUsage | null
   media_archive_id: number | null
@@ -62,7 +62,7 @@ export type AttachmentMinAggregateOutputType = {
 
 export type AttachmentMaxAggregateOutputType = {
   id: number | null
-  target_object_type: $Enums.TargetType | null
+  target_object_type: $Enums.AllTargetType | null
   target_object_id: number | null
   attachment_usage: $Enums.AttachmentUsage | null
   media_archive_id: number | null
@@ -249,7 +249,7 @@ export type AttachmentGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 
 export type AttachmentGroupByOutputType = {
   id: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -288,7 +288,7 @@ export type AttachmentWhereInput = {
   OR?: Prisma.AttachmentWhereInput[]
   NOT?: Prisma.AttachmentWhereInput | Prisma.AttachmentWhereInput[]
   id?: Prisma.IntFilter<"Attachment"> | number
-  target_object_type?: Prisma.EnumTargetTypeFilter<"Attachment"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFilter<"Attachment"> | $Enums.AllTargetType
   target_object_id?: Prisma.IntFilter<"Attachment"> | number
   attachment_usage?: Prisma.EnumAttachmentUsageFilter<"Attachment"> | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFilter<"Attachment"> | number
@@ -332,7 +332,7 @@ export type AttachmentWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.AttachmentWhereInput | Prisma.AttachmentWhereInput[]
   OR?: Prisma.AttachmentWhereInput[]
   NOT?: Prisma.AttachmentWhereInput | Prisma.AttachmentWhereInput[]
-  target_object_type?: Prisma.EnumTargetTypeFilter<"Attachment"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFilter<"Attachment"> | $Enums.AllTargetType
   target_object_id?: Prisma.IntFilter<"Attachment"> | number
   attachment_usage?: Prisma.EnumAttachmentUsageFilter<"Attachment"> | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFilter<"Attachment"> | number
@@ -376,7 +376,7 @@ export type AttachmentScalarWhereWithAggregatesInput = {
   OR?: Prisma.AttachmentScalarWhereWithAggregatesInput[]
   NOT?: Prisma.AttachmentScalarWhereWithAggregatesInput | Prisma.AttachmentScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Attachment"> | number
-  target_object_type?: Prisma.EnumTargetTypeWithAggregatesFilter<"Attachment"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeWithAggregatesFilter<"Attachment"> | $Enums.AllTargetType
   target_object_id?: Prisma.IntWithAggregatesFilter<"Attachment"> | number
   attachment_usage?: Prisma.EnumAttachmentUsageWithAggregatesFilter<"Attachment"> | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntWithAggregatesFilter<"Attachment"> | number
@@ -391,7 +391,7 @@ export type AttachmentScalarWhereWithAggregatesInput = {
 }
 
 export type AttachmentCreateInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   notes?: string | null
@@ -407,7 +407,7 @@ export type AttachmentCreateInput = {
 
 export type AttachmentUncheckedCreateInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -422,7 +422,7 @@ export type AttachmentUncheckedCreateInput = {
 }
 
 export type AttachmentUpdateInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -438,7 +438,7 @@ export type AttachmentUpdateInput = {
 
 export type AttachmentUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -454,7 +454,7 @@ export type AttachmentUncheckedUpdateInput = {
 
 export type AttachmentCreateManyInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -469,7 +469,7 @@ export type AttachmentCreateManyInput = {
 }
 
 export type AttachmentUpdateManyMutationInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -481,7 +481,7 @@ export type AttachmentUpdateManyMutationInput = {
 
 export type AttachmentUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -506,7 +506,7 @@ export type AttachmentOrderByRelationAggregateInput = {
 }
 
 export type AttachmentTarget_object_typeTarget_object_idAttachment_usageMedia_archive_idCompoundUniqueInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -746,12 +746,16 @@ export type AttachmentUncheckedUpdateManyWithoutMedia_archiveNestedInput = {
   deleteMany?: Prisma.AttachmentScalarWhereInput | Prisma.AttachmentScalarWhereInput[]
 }
 
+export type EnumAllTargetTypeFieldUpdateOperationsInput = {
+  set?: $Enums.AllTargetType
+}
+
 export type EnumAttachmentUsageFieldUpdateOperationsInput = {
   set?: $Enums.AttachmentUsage
 }
 
 export type AttachmentCreateWithoutCreated_byInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   notes?: string | null
@@ -766,7 +770,7 @@ export type AttachmentCreateWithoutCreated_byInput = {
 
 export type AttachmentUncheckedCreateWithoutCreated_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -790,7 +794,7 @@ export type AttachmentCreateManyCreated_byInputEnvelope = {
 }
 
 export type AttachmentCreateWithoutUpdated_byInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   notes?: string | null
@@ -805,7 +809,7 @@ export type AttachmentCreateWithoutUpdated_byInput = {
 
 export type AttachmentUncheckedCreateWithoutUpdated_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -829,7 +833,7 @@ export type AttachmentCreateManyUpdated_byInputEnvelope = {
 }
 
 export type AttachmentCreateWithoutLast_reviewed_byInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   notes?: string | null
@@ -844,7 +848,7 @@ export type AttachmentCreateWithoutLast_reviewed_byInput = {
 
 export type AttachmentUncheckedCreateWithoutLast_reviewed_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -888,7 +892,7 @@ export type AttachmentScalarWhereInput = {
   OR?: Prisma.AttachmentScalarWhereInput[]
   NOT?: Prisma.AttachmentScalarWhereInput | Prisma.AttachmentScalarWhereInput[]
   id?: Prisma.IntFilter<"Attachment"> | number
-  target_object_type?: Prisma.EnumTargetTypeFilter<"Attachment"> | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFilter<"Attachment"> | $Enums.AllTargetType
   target_object_id?: Prisma.IntFilter<"Attachment"> | number
   attachment_usage?: Prisma.EnumAttachmentUsageFilter<"Attachment"> | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFilter<"Attachment"> | number
@@ -935,7 +939,7 @@ export type AttachmentUpdateManyWithWhereWithoutLast_reviewed_byInput = {
 }
 
 export type AttachmentCreateWithoutMedia_archiveInput = {
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   notes?: string | null
@@ -950,7 +954,7 @@ export type AttachmentCreateWithoutMedia_archiveInput = {
 
 export type AttachmentUncheckedCreateWithoutMedia_archiveInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   notes?: string | null
@@ -991,7 +995,7 @@ export type AttachmentUpdateManyWithWhereWithoutMedia_archiveInput = {
 
 export type AttachmentCreateManyCreated_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -1006,7 +1010,7 @@ export type AttachmentCreateManyCreated_byInput = {
 
 export type AttachmentCreateManyUpdated_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -1021,7 +1025,7 @@ export type AttachmentCreateManyUpdated_byInput = {
 
 export type AttachmentCreateManyLast_reviewed_byInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   media_archive_id: number
@@ -1035,7 +1039,7 @@ export type AttachmentCreateManyLast_reviewed_byInput = {
 }
 
 export type AttachmentUpdateWithoutCreated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1050,7 +1054,7 @@ export type AttachmentUpdateWithoutCreated_byInput = {
 
 export type AttachmentUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1065,7 +1069,7 @@ export type AttachmentUncheckedUpdateWithoutCreated_byInput = {
 
 export type AttachmentUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1079,7 +1083,7 @@ export type AttachmentUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type AttachmentUpdateWithoutUpdated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1094,7 +1098,7 @@ export type AttachmentUpdateWithoutUpdated_byInput = {
 
 export type AttachmentUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1109,7 +1113,7 @@ export type AttachmentUncheckedUpdateWithoutUpdated_byInput = {
 
 export type AttachmentUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1123,7 +1127,7 @@ export type AttachmentUncheckedUpdateManyWithoutUpdated_byInput = {
 }
 
 export type AttachmentUpdateWithoutLast_reviewed_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1138,7 +1142,7 @@ export type AttachmentUpdateWithoutLast_reviewed_byInput = {
 
 export type AttachmentUncheckedUpdateWithoutLast_reviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1153,7 +1157,7 @@ export type AttachmentUncheckedUpdateWithoutLast_reviewed_byInput = {
 
 export type AttachmentUncheckedUpdateManyWithoutLast_reviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   media_archive_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1168,7 +1172,7 @@ export type AttachmentUncheckedUpdateManyWithoutLast_reviewed_byInput = {
 
 export type AttachmentCreateManyMedia_archiveInput = {
   id?: number
-  target_object_type: $Enums.TargetType
+  target_object_type: $Enums.AllTargetType
   target_object_id: number
   attachment_usage: $Enums.AttachmentUsage
   notes?: string | null
@@ -1182,7 +1186,7 @@ export type AttachmentCreateManyMedia_archiveInput = {
 }
 
 export type AttachmentUpdateWithoutMedia_archiveInput = {
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1197,7 +1201,7 @@ export type AttachmentUpdateWithoutMedia_archiveInput = {
 
 export type AttachmentUncheckedUpdateWithoutMedia_archiveInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1212,7 +1216,7 @@ export type AttachmentUncheckedUpdateWithoutMedia_archiveInput = {
 
 export type AttachmentUncheckedUpdateManyWithoutMedia_archiveInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_object_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   attachment_usage?: Prisma.EnumAttachmentUsageFieldUpdateOperationsInput | $Enums.AttachmentUsage
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1333,7 +1337,7 @@ export type $AttachmentPayload<ExtArgs extends runtime.Types.Extensions.Internal
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    target_object_type: $Enums.TargetType
+    target_object_type: $Enums.AllTargetType
     target_object_id: number
     attachment_usage: $Enums.AttachmentUsage
     media_archive_id: number
@@ -1773,7 +1777,7 @@ export interface Prisma__AttachmentClient<T, Null = never, ExtArgs extends runti
  */
 export interface AttachmentFieldRefs {
   readonly id: Prisma.FieldRef<"Attachment", 'Int'>
-  readonly target_object_type: Prisma.FieldRef<"Attachment", 'TargetType'>
+  readonly target_object_type: Prisma.FieldRef<"Attachment", 'AllTargetType'>
   readonly target_object_id: Prisma.FieldRef<"Attachment", 'Int'>
   readonly attachment_usage: Prisma.FieldRef<"Attachment", 'AttachmentUsage'>
   readonly media_archive_id: Prisma.FieldRef<"Attachment", 'Int'>

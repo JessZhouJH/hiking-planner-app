@@ -46,7 +46,7 @@ export type ContentReviewHistorySumAggregateOutputType = {
 
 export type ContentReviewHistoryMinAggregateOutputType = {
   id: number | null
-  target_type: $Enums.TargetType | null
+  target_type: $Enums.AllTargetType | null
   target_id: number | null
   predecessor_review_id: number | null
   linked_record_action_id: number | null
@@ -62,7 +62,7 @@ export type ContentReviewHistoryMinAggregateOutputType = {
 
 export type ContentReviewHistoryMaxAggregateOutputType = {
   id: number | null
-  target_type: $Enums.TargetType | null
+  target_type: $Enums.AllTargetType | null
   target_id: number | null
   predecessor_review_id: number | null
   linked_record_action_id: number | null
@@ -249,7 +249,7 @@ export type ContentReviewHistoryGroupByArgs<ExtArgs extends runtime.Types.Extens
 
 export type ContentReviewHistoryGroupByOutputType = {
   id: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id: number | null
   linked_record_action_id: number | null
@@ -288,7 +288,7 @@ export type ContentReviewHistoryWhereInput = {
   OR?: Prisma.ContentReviewHistoryWhereInput[]
   NOT?: Prisma.ContentReviewHistoryWhereInput | Prisma.ContentReviewHistoryWhereInput[]
   id?: Prisma.IntFilter<"ContentReviewHistory"> | number
-  target_type?: Prisma.EnumTargetTypeFilter<"ContentReviewHistory"> | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFilter<"ContentReviewHistory"> | $Enums.AllTargetType
   target_id?: Prisma.IntFilter<"ContentReviewHistory"> | number
   predecessor_review_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
   linked_record_action_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
@@ -333,7 +333,7 @@ export type ContentReviewHistoryWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ContentReviewHistoryWhereInput | Prisma.ContentReviewHistoryWhereInput[]
   OR?: Prisma.ContentReviewHistoryWhereInput[]
   NOT?: Prisma.ContentReviewHistoryWhereInput | Prisma.ContentReviewHistoryWhereInput[]
-  target_type?: Prisma.EnumTargetTypeFilter<"ContentReviewHistory"> | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFilter<"ContentReviewHistory"> | $Enums.AllTargetType
   target_id?: Prisma.IntFilter<"ContentReviewHistory"> | number
   predecessor_review_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
   linked_record_action_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
@@ -378,7 +378,7 @@ export type ContentReviewHistoryScalarWhereWithAggregatesInput = {
   OR?: Prisma.ContentReviewHistoryScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ContentReviewHistoryScalarWhereWithAggregatesInput | Prisma.ContentReviewHistoryScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"ContentReviewHistory"> | number
-  target_type?: Prisma.EnumTargetTypeWithAggregatesFilter<"ContentReviewHistory"> | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeWithAggregatesFilter<"ContentReviewHistory"> | $Enums.AllTargetType
   target_id?: Prisma.IntWithAggregatesFilter<"ContentReviewHistory"> | number
   predecessor_review_id?: Prisma.IntNullableWithAggregatesFilter<"ContentReviewHistory"> | number | null
   linked_record_action_id?: Prisma.IntNullableWithAggregatesFilter<"ContentReviewHistory"> | number | null
@@ -393,7 +393,7 @@ export type ContentReviewHistoryScalarWhereWithAggregatesInput = {
 }
 
 export type ContentReviewHistoryCreateInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   requested_at?: Date | string
   requester_notes?: string | null
@@ -410,7 +410,7 @@ export type ContentReviewHistoryCreateInput = {
 
 export type ContentReviewHistoryUncheckedCreateInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   linked_record_action_id?: number | null
@@ -426,7 +426,7 @@ export type ContentReviewHistoryUncheckedCreateInput = {
 }
 
 export type ContentReviewHistoryUpdateInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -443,7 +443,7 @@ export type ContentReviewHistoryUpdateInput = {
 
 export type ContentReviewHistoryUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -460,7 +460,7 @@ export type ContentReviewHistoryUncheckedUpdateInput = {
 
 export type ContentReviewHistoryCreateManyInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   linked_record_action_id?: number | null
@@ -475,7 +475,7 @@ export type ContentReviewHistoryCreateManyInput = {
 }
 
 export type ContentReviewHistoryUpdateManyMutationInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -487,7 +487,7 @@ export type ContentReviewHistoryUpdateManyMutationInput = {
 
 export type ContentReviewHistoryUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -771,7 +771,7 @@ export type ContentReviewHistoryUncheckedUpdateManyWithoutPredecessor_reviewNest
 }
 
 export type ContentReviewHistoryCreateWithoutRequested_byInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   requested_at?: Date | string
   requester_notes?: string | null
@@ -787,7 +787,7 @@ export type ContentReviewHistoryCreateWithoutRequested_byInput = {
 
 export type ContentReviewHistoryUncheckedCreateWithoutRequested_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   linked_record_action_id?: number | null
@@ -812,7 +812,7 @@ export type ContentReviewHistoryCreateManyRequested_byInputEnvelope = {
 }
 
 export type ContentReviewHistoryCreateWithoutReviewed_byInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   requested_at?: Date | string
   requester_notes?: string | null
@@ -828,7 +828,7 @@ export type ContentReviewHistoryCreateWithoutReviewed_byInput = {
 
 export type ContentReviewHistoryUncheckedCreateWithoutReviewed_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   linked_record_action_id?: number | null
@@ -873,7 +873,7 @@ export type ContentReviewHistoryScalarWhereInput = {
   OR?: Prisma.ContentReviewHistoryScalarWhereInput[]
   NOT?: Prisma.ContentReviewHistoryScalarWhereInput | Prisma.ContentReviewHistoryScalarWhereInput[]
   id?: Prisma.IntFilter<"ContentReviewHistory"> | number
-  target_type?: Prisma.EnumTargetTypeFilter<"ContentReviewHistory"> | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFilter<"ContentReviewHistory"> | $Enums.AllTargetType
   target_id?: Prisma.IntFilter<"ContentReviewHistory"> | number
   predecessor_review_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
   linked_record_action_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
@@ -904,7 +904,7 @@ export type ContentReviewHistoryUpdateManyWithWhereWithoutReviewed_byInput = {
 }
 
 export type ContentReviewHistoryCreateWithoutLinked_record_actionInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   requested_at?: Date | string
   requester_notes?: string | null
@@ -920,7 +920,7 @@ export type ContentReviewHistoryCreateWithoutLinked_record_actionInput = {
 
 export type ContentReviewHistoryUncheckedCreateWithoutLinked_record_actionInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   requested_at?: Date | string
@@ -961,7 +961,7 @@ export type ContentReviewHistoryUpdateManyWithWhereWithoutLinked_record_actionIn
 }
 
 export type ContentReviewHistoryCreateWithoutContent_review_history__predecessor_reviewInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   requested_at?: Date | string
   requester_notes?: string | null
@@ -977,7 +977,7 @@ export type ContentReviewHistoryCreateWithoutContent_review_history__predecessor
 
 export type ContentReviewHistoryUncheckedCreateWithoutContent_review_history__predecessor_reviewInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   linked_record_action_id?: number | null
@@ -997,7 +997,7 @@ export type ContentReviewHistoryCreateOrConnectWithoutContent_review_history__pr
 }
 
 export type ContentReviewHistoryCreateWithoutPredecessor_reviewInput = {
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   requested_at?: Date | string
   requester_notes?: string | null
@@ -1013,7 +1013,7 @@ export type ContentReviewHistoryCreateWithoutPredecessor_reviewInput = {
 
 export type ContentReviewHistoryUncheckedCreateWithoutPredecessor_reviewInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   linked_record_action_id?: number | null
   requested_at?: Date | string
@@ -1049,7 +1049,7 @@ export type ContentReviewHistoryUpdateToOneWithWhereWithoutContent_review_histor
 }
 
 export type ContentReviewHistoryUpdateWithoutContent_review_history__predecessor_reviewInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1065,7 +1065,7 @@ export type ContentReviewHistoryUpdateWithoutContent_review_history__predecessor
 
 export type ContentReviewHistoryUncheckedUpdateWithoutContent_review_history__predecessor_reviewInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1097,7 +1097,7 @@ export type ContentReviewHistoryUpdateManyWithWhereWithoutPredecessor_reviewInpu
 
 export type ContentReviewHistoryCreateManyRequested_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   linked_record_action_id?: number | null
@@ -1112,7 +1112,7 @@ export type ContentReviewHistoryCreateManyRequested_byInput = {
 
 export type ContentReviewHistoryCreateManyReviewed_byInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   linked_record_action_id?: number | null
@@ -1126,7 +1126,7 @@ export type ContentReviewHistoryCreateManyReviewed_byInput = {
 }
 
 export type ContentReviewHistoryUpdateWithoutRequested_byInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1142,7 +1142,7 @@ export type ContentReviewHistoryUpdateWithoutRequested_byInput = {
 
 export type ContentReviewHistoryUncheckedUpdateWithoutRequested_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1158,7 +1158,7 @@ export type ContentReviewHistoryUncheckedUpdateWithoutRequested_byInput = {
 
 export type ContentReviewHistoryUncheckedUpdateManyWithoutRequested_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1172,7 +1172,7 @@ export type ContentReviewHistoryUncheckedUpdateManyWithoutRequested_byInput = {
 }
 
 export type ContentReviewHistoryUpdateWithoutReviewed_byInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1188,7 +1188,7 @@ export type ContentReviewHistoryUpdateWithoutReviewed_byInput = {
 
 export type ContentReviewHistoryUncheckedUpdateWithoutReviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1204,7 +1204,7 @@ export type ContentReviewHistoryUncheckedUpdateWithoutReviewed_byInput = {
 
 export type ContentReviewHistoryUncheckedUpdateManyWithoutReviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1219,7 +1219,7 @@ export type ContentReviewHistoryUncheckedUpdateManyWithoutReviewed_byInput = {
 
 export type ContentReviewHistoryCreateManyLinked_record_actionInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   predecessor_review_id?: number | null
   requested_at?: Date | string
@@ -1233,7 +1233,7 @@ export type ContentReviewHistoryCreateManyLinked_record_actionInput = {
 }
 
 export type ContentReviewHistoryUpdateWithoutLinked_record_actionInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1249,7 +1249,7 @@ export type ContentReviewHistoryUpdateWithoutLinked_record_actionInput = {
 
 export type ContentReviewHistoryUncheckedUpdateWithoutLinked_record_actionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1265,7 +1265,7 @@ export type ContentReviewHistoryUncheckedUpdateWithoutLinked_record_actionInput 
 
 export type ContentReviewHistoryUncheckedUpdateManyWithoutLinked_record_actionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   predecessor_review_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1280,7 +1280,7 @@ export type ContentReviewHistoryUncheckedUpdateManyWithoutLinked_record_actionIn
 
 export type ContentReviewHistoryCreateManyPredecessor_reviewInput = {
   id?: number
-  target_type: $Enums.TargetType
+  target_type: $Enums.AllTargetType
   target_id: number
   linked_record_action_id?: number | null
   requested_at?: Date | string
@@ -1294,7 +1294,7 @@ export type ContentReviewHistoryCreateManyPredecessor_reviewInput = {
 }
 
 export type ContentReviewHistoryUpdateWithoutPredecessor_reviewInput = {
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1310,7 +1310,7 @@ export type ContentReviewHistoryUpdateWithoutPredecessor_reviewInput = {
 
 export type ContentReviewHistoryUncheckedUpdateWithoutPredecessor_reviewInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1326,7 +1326,7 @@ export type ContentReviewHistoryUncheckedUpdateWithoutPredecessor_reviewInput = 
 
 export type ContentReviewHistoryUncheckedUpdateManyWithoutPredecessor_reviewInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_type?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  target_type?: Prisma.EnumAllTargetTypeFieldUpdateOperationsInput | $Enums.AllTargetType
   target_id?: Prisma.IntFieldUpdateOperationsInput | number
   linked_record_action_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1481,7 +1481,7 @@ export type $ContentReviewHistoryPayload<ExtArgs extends runtime.Types.Extension
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    target_type: $Enums.TargetType
+    target_type: $Enums.AllTargetType
     target_id: number
     predecessor_review_id: number | null
     linked_record_action_id: number | null
@@ -1922,7 +1922,7 @@ export interface Prisma__ContentReviewHistoryClient<T, Null = never, ExtArgs ext
  */
 export interface ContentReviewHistoryFieldRefs {
   readonly id: Prisma.FieldRef<"ContentReviewHistory", 'Int'>
-  readonly target_type: Prisma.FieldRef<"ContentReviewHistory", 'TargetType'>
+  readonly target_type: Prisma.FieldRef<"ContentReviewHistory", 'AllTargetType'>
   readonly target_id: Prisma.FieldRef<"ContentReviewHistory", 'Int'>
   readonly predecessor_review_id: Prisma.FieldRef<"ContentReviewHistory", 'Int'>
   readonly linked_record_action_id: Prisma.FieldRef<"ContentReviewHistory", 'Int'>

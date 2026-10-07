@@ -489,22 +489,34 @@ export const LifecycleStatus = {
 export type LifecycleStatus = (typeof LifecycleStatus)[keyof typeof LifecycleStatus]
 
 
-export const TargetTypeAll = {
+export const AllTargetType = {
+  GEAR: 'GEAR',
+  TRAIL: 'TRAIL',
+  TRIP: 'TRIP',
+  BRAND: 'BRAND'
+} as const
+
+export type AllTargetType = (typeof AllTargetType)[keyof typeof AllTargetType]
+
+
+export const AliasTargetType = {
+  GEAR: 'GEAR',
+  TRAIL: 'TRAIL',
+  BRAND: 'BRAND',
+  ACCESS_POINT: 'ACCESS_POINT',
+  DESCRIPTIVE_GEAR: 'DESCRIPTIVE_GEAR'
+} as const
+
+export type AliasTargetType = (typeof AliasTargetType)[keyof typeof AliasTargetType]
+
+
+export const SelectedTargetType = {
   GEAR: 'GEAR',
   TRAIL: 'TRAIL',
   TRIP: 'TRIP'
 } as const
 
-export type TargetTypeAll = (typeof TargetTypeAll)[keyof typeof TargetTypeAll]
-
-
-export const TargetTypeSelected = {
-  GEAR: 'GEAR',
-  TRAIL: 'TRAIL',
-  TRIP: 'TRIP'
-} as const
-
-export type TargetTypeSelected = (typeof TargetTypeSelected)[keyof typeof TargetTypeSelected]
+export type SelectedTargetType = (typeof SelectedTargetType)[keyof typeof SelectedTargetType]
 
 
 export const ReminderStatus = {

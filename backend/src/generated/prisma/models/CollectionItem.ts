@@ -47,7 +47,7 @@ export type CollectionItemSumAggregateOutputType = {
 export type CollectionItemMinAggregateOutputType = {
   id: number | null
   collection_id: number | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   target_object_id: number | null
   notes: string | null
   status: $Enums.Status | null
@@ -63,7 +63,7 @@ export type CollectionItemMinAggregateOutputType = {
 export type CollectionItemMaxAggregateOutputType = {
   id: number | null
   collection_id: number | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   target_object_id: number | null
   notes: string | null
   status: $Enums.Status | null
@@ -250,7 +250,7 @@ export type CollectionItemGroupByArgs<ExtArgs extends runtime.Types.Extensions.I
 export type CollectionItemGroupByOutputType = {
   id: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes: string | null
   status: $Enums.Status
@@ -289,7 +289,7 @@ export type CollectionItemWhereInput = {
   NOT?: Prisma.CollectionItemWhereInput | Prisma.CollectionItemWhereInput[]
   id?: Prisma.IntFilter<"CollectionItem"> | number
   collection_id?: Prisma.IntFilter<"CollectionItem"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"CollectionItem"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"CollectionItem"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFilter<"CollectionItem"> | number
   notes?: Prisma.StringNullableFilter<"CollectionItem"> | string | null
   status?: Prisma.EnumStatusFilter<"CollectionItem"> | $Enums.Status
@@ -332,7 +332,7 @@ export type CollectionItemWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.CollectionItemWhereInput[]
   NOT?: Prisma.CollectionItemWhereInput | Prisma.CollectionItemWhereInput[]
   collection_id?: Prisma.IntFilter<"CollectionItem"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"CollectionItem"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"CollectionItem"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFilter<"CollectionItem"> | number
   notes?: Prisma.StringNullableFilter<"CollectionItem"> | string | null
   status?: Prisma.EnumStatusFilter<"CollectionItem"> | $Enums.Status
@@ -376,7 +376,7 @@ export type CollectionItemScalarWhereWithAggregatesInput = {
   NOT?: Prisma.CollectionItemScalarWhereWithAggregatesInput | Prisma.CollectionItemScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"CollectionItem"> | number
   collection_id?: Prisma.IntWithAggregatesFilter<"CollectionItem"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedWithAggregatesFilter<"CollectionItem"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeWithAggregatesFilter<"CollectionItem"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntWithAggregatesFilter<"CollectionItem"> | number
   notes?: Prisma.StringNullableWithAggregatesFilter<"CollectionItem"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"CollectionItem"> | $Enums.Status
@@ -390,7 +390,7 @@ export type CollectionItemScalarWhereWithAggregatesInput = {
 }
 
 export type CollectionItemCreateInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -407,7 +407,7 @@ export type CollectionItemCreateInput = {
 export type CollectionItemUncheckedCreateInput = {
   id?: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -421,7 +421,7 @@ export type CollectionItemUncheckedCreateInput = {
 }
 
 export type CollectionItemUpdateInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -438,7 +438,7 @@ export type CollectionItemUpdateInput = {
 export type CollectionItemUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   collection_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -454,7 +454,7 @@ export type CollectionItemUncheckedUpdateInput = {
 export type CollectionItemCreateManyInput = {
   id?: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -468,7 +468,7 @@ export type CollectionItemCreateManyInput = {
 }
 
 export type CollectionItemUpdateManyMutationInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -481,7 +481,7 @@ export type CollectionItemUpdateManyMutationInput = {
 export type CollectionItemUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   collection_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -739,7 +739,7 @@ export type CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput = {
 }
 
 export type CollectionItemCreateWithoutCreated_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -755,7 +755,7 @@ export type CollectionItemCreateWithoutCreated_byInput = {
 export type CollectionItemUncheckedCreateWithoutCreated_byInput = {
   id?: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -778,7 +778,7 @@ export type CollectionItemCreateManyCreated_byInputEnvelope = {
 }
 
 export type CollectionItemCreateWithoutUpdated_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -794,7 +794,7 @@ export type CollectionItemCreateWithoutUpdated_byInput = {
 export type CollectionItemUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -817,7 +817,7 @@ export type CollectionItemCreateManyUpdated_byInputEnvelope = {
 }
 
 export type CollectionItemCreateWithoutLast_reviewed_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -833,7 +833,7 @@ export type CollectionItemCreateWithoutLast_reviewed_byInput = {
 export type CollectionItemUncheckedCreateWithoutLast_reviewed_byInput = {
   id?: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -877,7 +877,7 @@ export type CollectionItemScalarWhereInput = {
   NOT?: Prisma.CollectionItemScalarWhereInput | Prisma.CollectionItemScalarWhereInput[]
   id?: Prisma.IntFilter<"CollectionItem"> | number
   collection_id?: Prisma.IntFilter<"CollectionItem"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"CollectionItem"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"CollectionItem"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFilter<"CollectionItem"> | number
   notes?: Prisma.StringNullableFilter<"CollectionItem"> | string | null
   status?: Prisma.EnumStatusFilter<"CollectionItem"> | $Enums.Status
@@ -923,7 +923,7 @@ export type CollectionItemUpdateManyWithWhereWithoutLast_reviewed_byInput = {
 }
 
 export type CollectionItemCreateWithoutCollectionInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -938,7 +938,7 @@ export type CollectionItemCreateWithoutCollectionInput = {
 
 export type CollectionItemUncheckedCreateWithoutCollectionInput = {
   id?: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -980,7 +980,7 @@ export type CollectionItemUpdateManyWithWhereWithoutCollectionInput = {
 export type CollectionItemCreateManyCreated_byInput = {
   id?: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -995,7 +995,7 @@ export type CollectionItemCreateManyCreated_byInput = {
 export type CollectionItemCreateManyUpdated_byInput = {
   id?: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -1010,7 +1010,7 @@ export type CollectionItemCreateManyUpdated_byInput = {
 export type CollectionItemCreateManyLast_reviewed_byInput = {
   id?: number
   collection_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -1023,7 +1023,7 @@ export type CollectionItemCreateManyLast_reviewed_byInput = {
 }
 
 export type CollectionItemUpdateWithoutCreated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1039,7 +1039,7 @@ export type CollectionItemUpdateWithoutCreated_byInput = {
 export type CollectionItemUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   collection_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1054,7 +1054,7 @@ export type CollectionItemUncheckedUpdateWithoutCreated_byInput = {
 export type CollectionItemUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   collection_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1067,7 +1067,7 @@ export type CollectionItemUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type CollectionItemUpdateWithoutUpdated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1083,7 +1083,7 @@ export type CollectionItemUpdateWithoutUpdated_byInput = {
 export type CollectionItemUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   collection_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1098,7 +1098,7 @@ export type CollectionItemUncheckedUpdateWithoutUpdated_byInput = {
 export type CollectionItemUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   collection_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1111,7 +1111,7 @@ export type CollectionItemUncheckedUpdateManyWithoutUpdated_byInput = {
 }
 
 export type CollectionItemUpdateWithoutLast_reviewed_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1127,7 +1127,7 @@ export type CollectionItemUpdateWithoutLast_reviewed_byInput = {
 export type CollectionItemUncheckedUpdateWithoutLast_reviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   collection_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1142,7 +1142,7 @@ export type CollectionItemUncheckedUpdateWithoutLast_reviewed_byInput = {
 export type CollectionItemUncheckedUpdateManyWithoutLast_reviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   collection_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1156,7 +1156,7 @@ export type CollectionItemUncheckedUpdateManyWithoutLast_reviewed_byInput = {
 
 export type CollectionItemCreateManyCollectionInput = {
   id?: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number
   notes?: string | null
   status?: $Enums.Status
@@ -1170,7 +1170,7 @@ export type CollectionItemCreateManyCollectionInput = {
 }
 
 export type CollectionItemUpdateWithoutCollectionInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1185,7 +1185,7 @@ export type CollectionItemUpdateWithoutCollectionInput = {
 
 export type CollectionItemUncheckedUpdateWithoutCollectionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1200,7 +1200,7 @@ export type CollectionItemUncheckedUpdateWithoutCollectionInput = {
 
 export type CollectionItemUncheckedUpdateManyWithoutCollectionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1322,7 +1322,7 @@ export type $CollectionItemPayload<ExtArgs extends runtime.Types.Extensions.Inte
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     collection_id: number
-    target_object_type: $Enums.TargetTypeSelected
+    target_object_type: $Enums.SelectedTargetType
     target_object_id: number
     notes: string | null
     status: $Enums.Status
@@ -1762,7 +1762,7 @@ export interface Prisma__CollectionItemClient<T, Null = never, ExtArgs extends r
 export interface CollectionItemFieldRefs {
   readonly id: Prisma.FieldRef<"CollectionItem", 'Int'>
   readonly collection_id: Prisma.FieldRef<"CollectionItem", 'Int'>
-  readonly target_object_type: Prisma.FieldRef<"CollectionItem", 'TargetTypeSelected'>
+  readonly target_object_type: Prisma.FieldRef<"CollectionItem", 'SelectedTargetType'>
   readonly target_object_id: Prisma.FieldRef<"CollectionItem", 'Int'>
   readonly notes: Prisma.FieldRef<"CollectionItem", 'String'>
   readonly status: Prisma.FieldRef<"CollectionItem", 'Status'>

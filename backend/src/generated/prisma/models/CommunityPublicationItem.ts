@@ -54,7 +54,7 @@ export type CommunityPublicationItemMinAggregateOutputType = {
   id: number | null
   community_publication_id: number | null
   contributor_id: number | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   source_object_id: number | null
   snapshot_object_id: number | null
   published_object_id: number | null
@@ -74,7 +74,7 @@ export type CommunityPublicationItemMaxAggregateOutputType = {
   id: number | null
   community_publication_id: number | null
   contributor_id: number | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   source_object_id: number | null
   snapshot_object_id: number | null
   published_object_id: number | null
@@ -287,7 +287,7 @@ export type CommunityPublicationItemGroupByOutputType = {
   id: number
   community_publication_id: number
   contributor_id: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id: number | null
   published_object_id: number | null
@@ -330,7 +330,7 @@ export type CommunityPublicationItemWhereInput = {
   id?: Prisma.IntFilter<"CommunityPublicationItem"> | number
   community_publication_id?: Prisma.IntFilter<"CommunityPublicationItem"> | number
   contributor_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"CommunityPublicationItem"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"CommunityPublicationItem"> | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFilter<"CommunityPublicationItem"> | number
   snapshot_object_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
   published_object_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
@@ -385,7 +385,7 @@ export type CommunityPublicationItemWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.CommunityPublicationItemWhereInput | Prisma.CommunityPublicationItemWhereInput[]
   community_publication_id?: Prisma.IntFilter<"CommunityPublicationItem"> | number
   contributor_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"CommunityPublicationItem"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"CommunityPublicationItem"> | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFilter<"CommunityPublicationItem"> | number
   snapshot_object_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
   published_object_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
@@ -439,7 +439,7 @@ export type CommunityPublicationItemScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"CommunityPublicationItem"> | number
   community_publication_id?: Prisma.IntWithAggregatesFilter<"CommunityPublicationItem"> | number
   contributor_id?: Prisma.IntNullableWithAggregatesFilter<"CommunityPublicationItem"> | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedWithAggregatesFilter<"CommunityPublicationItem"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeWithAggregatesFilter<"CommunityPublicationItem"> | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntWithAggregatesFilter<"CommunityPublicationItem"> | number
   snapshot_object_id?: Prisma.IntNullableWithAggregatesFilter<"CommunityPublicationItem"> | number | null
   published_object_id?: Prisma.IntNullableWithAggregatesFilter<"CommunityPublicationItem"> | number | null
@@ -456,7 +456,7 @@ export type CommunityPublicationItemScalarWhereWithAggregatesInput = {
 }
 
 export type CommunityPublicationItemCreateInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -479,7 +479,7 @@ export type CommunityPublicationItemUncheckedCreateInput = {
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -497,7 +497,7 @@ export type CommunityPublicationItemUncheckedCreateInput = {
 }
 
 export type CommunityPublicationItemUpdateInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -520,7 +520,7 @@ export type CommunityPublicationItemUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -541,7 +541,7 @@ export type CommunityPublicationItemCreateManyInput = {
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -558,7 +558,7 @@ export type CommunityPublicationItemCreateManyInput = {
 }
 
 export type CommunityPublicationItemUpdateManyMutationInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -575,7 +575,7 @@ export type CommunityPublicationItemUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -917,7 +917,7 @@ export type CommunityPublicationItemUpdateOneWithoutCommunity_publication_attach
 }
 
 export type CommunityPublicationItemCreateWithoutCreated_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -939,7 +939,7 @@ export type CommunityPublicationItemUncheckedCreateWithoutCreated_byInput = {
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -966,7 +966,7 @@ export type CommunityPublicationItemCreateManyCreated_byInputEnvelope = {
 }
 
 export type CommunityPublicationItemCreateWithoutUpdated_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -988,7 +988,7 @@ export type CommunityPublicationItemUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1015,7 +1015,7 @@ export type CommunityPublicationItemCreateManyUpdated_byInputEnvelope = {
 }
 
 export type CommunityPublicationItemCreateWithoutLast_reviewed_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1037,7 +1037,7 @@ export type CommunityPublicationItemUncheckedCreateWithoutLast_reviewed_byInput 
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1064,7 +1064,7 @@ export type CommunityPublicationItemCreateManyLast_reviewed_byInputEnvelope = {
 }
 
 export type CommunityPublicationItemCreateWithoutContriutorInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1085,7 +1085,7 @@ export type CommunityPublicationItemCreateWithoutContriutorInput = {
 export type CommunityPublicationItemUncheckedCreateWithoutContriutorInput = {
   id?: number
   community_publication_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1135,7 +1135,7 @@ export type CommunityPublicationItemScalarWhereInput = {
   id?: Prisma.IntFilter<"CommunityPublicationItem"> | number
   community_publication_id?: Prisma.IntFilter<"CommunityPublicationItem"> | number
   contributor_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"CommunityPublicationItem"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"CommunityPublicationItem"> | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFilter<"CommunityPublicationItem"> | number
   snapshot_object_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
   published_object_id?: Prisma.IntNullableFilter<"CommunityPublicationItem"> | number | null
@@ -1200,7 +1200,7 @@ export type CommunityPublicationItemUpdateManyWithWhereWithoutContriutorInput = 
 }
 
 export type CommunityPublicationItemCreateWithoutCommunity_publicationInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1221,7 +1221,7 @@ export type CommunityPublicationItemCreateWithoutCommunity_publicationInput = {
 export type CommunityPublicationItemUncheckedCreateWithoutCommunity_publicationInput = {
   id?: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1265,7 +1265,7 @@ export type CommunityPublicationItemUpdateManyWithWhereWithoutCommunity_publicat
 }
 
 export type CommunityPublicationItemCreateWithoutCommunity_publication_attachment__community_publication_itemInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1287,7 +1287,7 @@ export type CommunityPublicationItemUncheckedCreateWithoutCommunity_publication_
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1320,7 +1320,7 @@ export type CommunityPublicationItemUpdateToOneWithWhereWithoutCommunity_publica
 }
 
 export type CommunityPublicationItemUpdateWithoutCommunity_publication_attachment__community_publication_itemInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1342,7 +1342,7 @@ export type CommunityPublicationItemUncheckedUpdateWithoutCommunity_publication_
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1362,7 +1362,7 @@ export type CommunityPublicationItemCreateManyCreated_byInput = {
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1381,7 +1381,7 @@ export type CommunityPublicationItemCreateManyUpdated_byInput = {
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1400,7 +1400,7 @@ export type CommunityPublicationItemCreateManyLast_reviewed_byInput = {
   id?: number
   community_publication_id: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1418,7 +1418,7 @@ export type CommunityPublicationItemCreateManyLast_reviewed_byInput = {
 export type CommunityPublicationItemCreateManyContriutorInput = {
   id?: number
   community_publication_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1435,7 +1435,7 @@ export type CommunityPublicationItemCreateManyContriutorInput = {
 }
 
 export type CommunityPublicationItemUpdateWithoutCreated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1457,7 +1457,7 @@ export type CommunityPublicationItemUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1477,7 +1477,7 @@ export type CommunityPublicationItemUncheckedUpdateManyWithoutCreated_byInput = 
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1493,7 +1493,7 @@ export type CommunityPublicationItemUncheckedUpdateManyWithoutCreated_byInput = 
 }
 
 export type CommunityPublicationItemUpdateWithoutUpdated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1515,7 +1515,7 @@ export type CommunityPublicationItemUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1535,7 +1535,7 @@ export type CommunityPublicationItemUncheckedUpdateManyWithoutUpdated_byInput = 
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1551,7 +1551,7 @@ export type CommunityPublicationItemUncheckedUpdateManyWithoutUpdated_byInput = 
 }
 
 export type CommunityPublicationItemUpdateWithoutLast_reviewed_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1573,7 +1573,7 @@ export type CommunityPublicationItemUncheckedUpdateWithoutLast_reviewed_byInput 
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1593,7 +1593,7 @@ export type CommunityPublicationItemUncheckedUpdateManyWithoutLast_reviewed_byIn
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1609,7 +1609,7 @@ export type CommunityPublicationItemUncheckedUpdateManyWithoutLast_reviewed_byIn
 }
 
 export type CommunityPublicationItemUpdateWithoutContriutorInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1630,7 +1630,7 @@ export type CommunityPublicationItemUpdateWithoutContriutorInput = {
 export type CommunityPublicationItemUncheckedUpdateWithoutContriutorInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1650,7 +1650,7 @@ export type CommunityPublicationItemUncheckedUpdateWithoutContriutorInput = {
 export type CommunityPublicationItemUncheckedUpdateManyWithoutContriutorInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   community_publication_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1669,7 +1669,7 @@ export type CommunityPublicationItemUncheckedUpdateManyWithoutContriutorInput = 
 export type CommunityPublicationItemCreateManyCommunity_publicationInput = {
   id?: number
   contributor_id?: number | null
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   source_object_id: number
   snapshot_object_id?: number | null
   published_object_id?: number | null
@@ -1686,7 +1686,7 @@ export type CommunityPublicationItemCreateManyCommunity_publicationInput = {
 }
 
 export type CommunityPublicationItemUpdateWithoutCommunity_publicationInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1707,7 +1707,7 @@ export type CommunityPublicationItemUpdateWithoutCommunity_publicationInput = {
 export type CommunityPublicationItemUncheckedUpdateWithoutCommunity_publicationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1727,7 +1727,7 @@ export type CommunityPublicationItemUncheckedUpdateWithoutCommunity_publicationI
 export type CommunityPublicationItemUncheckedUpdateManyWithoutCommunity_publicationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_object_id?: Prisma.IntFieldUpdateOperationsInput | number
   snapshot_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   published_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1910,7 +1910,7 @@ export type $CommunityPublicationItemPayload<ExtArgs extends runtime.Types.Exten
     id: number
     community_publication_id: number
     contributor_id: number | null
-    target_object_type: $Enums.TargetTypeSelected
+    target_object_type: $Enums.SelectedTargetType
     source_object_id: number
     snapshot_object_id: number | null
     published_object_id: number | null
@@ -2356,7 +2356,7 @@ export interface CommunityPublicationItemFieldRefs {
   readonly id: Prisma.FieldRef<"CommunityPublicationItem", 'Int'>
   readonly community_publication_id: Prisma.FieldRef<"CommunityPublicationItem", 'Int'>
   readonly contributor_id: Prisma.FieldRef<"CommunityPublicationItem", 'Int'>
-  readonly target_object_type: Prisma.FieldRef<"CommunityPublicationItem", 'TargetTypeSelected'>
+  readonly target_object_type: Prisma.FieldRef<"CommunityPublicationItem", 'SelectedTargetType'>
   readonly source_object_id: Prisma.FieldRef<"CommunityPublicationItem", 'Int'>
   readonly snapshot_object_id: Prisma.FieldRef<"CommunityPublicationItem", 'Int'>
   readonly published_object_id: Prisma.FieldRef<"CommunityPublicationItem", 'Int'>

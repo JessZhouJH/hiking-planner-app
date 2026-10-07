@@ -330,10 +330,10 @@ export type GearSpecsDefinitionOrderByWithRelationInput = {
 
 export type GearSpecsDefinitionWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name?: string
   AND?: Prisma.GearSpecsDefinitionWhereInput | Prisma.GearSpecsDefinitionWhereInput[]
   OR?: Prisma.GearSpecsDefinitionWhereInput[]
   NOT?: Prisma.GearSpecsDefinitionWhereInput | Prisma.GearSpecsDefinitionWhereInput[]
+  name?: Prisma.StringFilter<"GearSpecsDefinition"> | string
   gear_type_id?: Prisma.IntFilter<"GearSpecsDefinition"> | number
   value_type?: Prisma.EnumValueTypeFilter<"GearSpecsDefinition"> | $Enums.ValueType
   default_unit_id?: Prisma.IntNullableFilter<"GearSpecsDefinition"> | number | null
@@ -352,7 +352,7 @@ export type GearSpecsDefinitionWhereUniqueInput = Prisma.AtLeast<{
   gear_specs__gear_specs_definition?: Prisma.GearSpecsListRelationFilter
   challenge_gear_requirement__gear_specs_definition?: Prisma.ChallengeGearRequirementListRelationFilter
   trail_gear_requirement__gear_specs_definition?: Prisma.TrailGearRequirementListRelationFilter
-}, "id" | "name">
+}, "id">
 
 export type GearSpecsDefinitionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

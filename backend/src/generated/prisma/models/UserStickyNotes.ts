@@ -45,7 +45,7 @@ export type UserStickyNotesSumAggregateOutputType = {
 export type UserStickyNotesMinAggregateOutputType = {
   id: number | null
   user_id: number | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   target_object_id: number | null
   title: string | null
   content: string | null
@@ -60,7 +60,7 @@ export type UserStickyNotesMinAggregateOutputType = {
 export type UserStickyNotesMaxAggregateOutputType = {
   id: number | null
   user_id: number | null
-  target_object_type: $Enums.TargetTypeSelected | null
+  target_object_type: $Enums.SelectedTargetType | null
   target_object_id: number | null
   title: string | null
   content: string | null
@@ -240,7 +240,7 @@ export type UserStickyNotesGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 export type UserStickyNotesGroupByOutputType = {
   id: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id: number | null
   title: string | null
   content: string
@@ -278,7 +278,7 @@ export type UserStickyNotesWhereInput = {
   NOT?: Prisma.UserStickyNotesWhereInput | Prisma.UserStickyNotesWhereInput[]
   id?: Prisma.IntFilter<"UserStickyNotes"> | number
   user_id?: Prisma.IntFilter<"UserStickyNotes"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserStickyNotes"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserStickyNotes"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserStickyNotes"> | number | null
   title?: Prisma.StringNullableFilter<"UserStickyNotes"> | string | null
   content?: Prisma.StringFilter<"UserStickyNotes"> | string
@@ -317,7 +317,7 @@ export type UserStickyNotesWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UserStickyNotesWhereInput[]
   NOT?: Prisma.UserStickyNotesWhereInput | Prisma.UserStickyNotesWhereInput[]
   user_id?: Prisma.IntFilter<"UserStickyNotes"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserStickyNotes"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserStickyNotes"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserStickyNotes"> | number | null
   title?: Prisma.StringNullableFilter<"UserStickyNotes"> | string | null
   content?: Prisma.StringFilter<"UserStickyNotes"> | string
@@ -358,7 +358,7 @@ export type UserStickyNotesScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UserStickyNotesScalarWhereWithAggregatesInput | Prisma.UserStickyNotesScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"UserStickyNotes"> | number
   user_id?: Prisma.IntWithAggregatesFilter<"UserStickyNotes"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedWithAggregatesFilter<"UserStickyNotes"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeWithAggregatesFilter<"UserStickyNotes"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableWithAggregatesFilter<"UserStickyNotes"> | number | null
   title?: Prisma.StringNullableWithAggregatesFilter<"UserStickyNotes"> | string | null
   content?: Prisma.StringWithAggregatesFilter<"UserStickyNotes"> | string
@@ -371,7 +371,7 @@ export type UserStickyNotesScalarWhereWithAggregatesInput = {
 }
 
 export type UserStickyNotesCreateInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -387,7 +387,7 @@ export type UserStickyNotesCreateInput = {
 export type UserStickyNotesUncheckedCreateInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -400,7 +400,7 @@ export type UserStickyNotesUncheckedCreateInput = {
 }
 
 export type UserStickyNotesUpdateInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -416,7 +416,7 @@ export type UserStickyNotesUpdateInput = {
 export type UserStickyNotesUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -431,7 +431,7 @@ export type UserStickyNotesUncheckedUpdateInput = {
 export type UserStickyNotesCreateManyInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -444,7 +444,7 @@ export type UserStickyNotesCreateManyInput = {
 }
 
 export type UserStickyNotesUpdateManyMutationInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -457,7 +457,7 @@ export type UserStickyNotesUpdateManyMutationInput = {
 export type UserStickyNotesUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -667,7 +667,7 @@ export type UserStickyNotesUncheckedUpdateManyWithoutUserNestedInput = {
 }
 
 export type UserStickyNotesCreateWithoutCreated_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -682,7 +682,7 @@ export type UserStickyNotesCreateWithoutCreated_byInput = {
 export type UserStickyNotesUncheckedCreateWithoutCreated_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -704,7 +704,7 @@ export type UserStickyNotesCreateManyCreated_byInputEnvelope = {
 }
 
 export type UserStickyNotesCreateWithoutUpdated_byInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -719,7 +719,7 @@ export type UserStickyNotesCreateWithoutUpdated_byInput = {
 export type UserStickyNotesUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -741,7 +741,7 @@ export type UserStickyNotesCreateManyUpdated_byInputEnvelope = {
 }
 
 export type UserStickyNotesCreateWithoutUserInput = {
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -755,7 +755,7 @@ export type UserStickyNotesCreateWithoutUserInput = {
 
 export type UserStickyNotesUncheckedCreateWithoutUserInput = {
   id?: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -799,7 +799,7 @@ export type UserStickyNotesScalarWhereInput = {
   NOT?: Prisma.UserStickyNotesScalarWhereInput | Prisma.UserStickyNotesScalarWhereInput[]
   id?: Prisma.IntFilter<"UserStickyNotes"> | number
   user_id?: Prisma.IntFilter<"UserStickyNotes"> | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFilter<"UserStickyNotes"> | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFilter<"UserStickyNotes"> | $Enums.SelectedTargetType
   target_object_id?: Prisma.IntNullableFilter<"UserStickyNotes"> | number | null
   title?: Prisma.StringNullableFilter<"UserStickyNotes"> | string | null
   content?: Prisma.StringFilter<"UserStickyNotes"> | string
@@ -846,7 +846,7 @@ export type UserStickyNotesUpdateManyWithWhereWithoutUserInput = {
 export type UserStickyNotesCreateManyCreated_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -860,7 +860,7 @@ export type UserStickyNotesCreateManyCreated_byInput = {
 export type UserStickyNotesCreateManyUpdated_byInput = {
   id?: number
   user_id: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -873,7 +873,7 @@ export type UserStickyNotesCreateManyUpdated_byInput = {
 
 export type UserStickyNotesCreateManyUserInput = {
   id?: number
-  target_object_type: $Enums.TargetTypeSelected
+  target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null
   title?: string | null
   content: string
@@ -886,7 +886,7 @@ export type UserStickyNotesCreateManyUserInput = {
 }
 
 export type UserStickyNotesUpdateWithoutCreated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -901,7 +901,7 @@ export type UserStickyNotesUpdateWithoutCreated_byInput = {
 export type UserStickyNotesUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -915,7 +915,7 @@ export type UserStickyNotesUncheckedUpdateWithoutCreated_byInput = {
 export type UserStickyNotesUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -927,7 +927,7 @@ export type UserStickyNotesUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type UserStickyNotesUpdateWithoutUpdated_byInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -942,7 +942,7 @@ export type UserStickyNotesUpdateWithoutUpdated_byInput = {
 export type UserStickyNotesUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -956,7 +956,7 @@ export type UserStickyNotesUncheckedUpdateWithoutUpdated_byInput = {
 export type UserStickyNotesUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -968,7 +968,7 @@ export type UserStickyNotesUncheckedUpdateManyWithoutUpdated_byInput = {
 }
 
 export type UserStickyNotesUpdateWithoutUserInput = {
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -982,7 +982,7 @@ export type UserStickyNotesUpdateWithoutUserInput = {
 
 export type UserStickyNotesUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -996,7 +996,7 @@ export type UserStickyNotesUncheckedUpdateWithoutUserInput = {
 
 export type UserStickyNotesUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  target_object_type?: Prisma.EnumTargetTypeSelectedFieldUpdateOperationsInput | $Enums.TargetTypeSelected
+  target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   target_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1106,7 +1106,7 @@ export type $UserStickyNotesPayload<ExtArgs extends runtime.Types.Extensions.Int
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     user_id: number
-    target_object_type: $Enums.TargetTypeSelected
+    target_object_type: $Enums.SelectedTargetType
     target_object_id: number | null
     title: string | null
     content: string
@@ -1544,7 +1544,7 @@ export interface Prisma__UserStickyNotesClient<T, Null = never, ExtArgs extends 
 export interface UserStickyNotesFieldRefs {
   readonly id: Prisma.FieldRef<"UserStickyNotes", 'Int'>
   readonly user_id: Prisma.FieldRef<"UserStickyNotes", 'Int'>
-  readonly target_object_type: Prisma.FieldRef<"UserStickyNotes", 'TargetTypeSelected'>
+  readonly target_object_type: Prisma.FieldRef<"UserStickyNotes", 'SelectedTargetType'>
   readonly target_object_id: Prisma.FieldRef<"UserStickyNotes", 'Int'>
   readonly title: Prisma.FieldRef<"UserStickyNotes", 'String'>
   readonly content: Prisma.FieldRef<"UserStickyNotes", 'String'>
