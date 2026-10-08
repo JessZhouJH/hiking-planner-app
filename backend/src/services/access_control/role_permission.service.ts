@@ -9,39 +9,39 @@ const pool = new Pool({ connectionString })
 const adapter = new PrismaPg(pool)
 const prisma = new PrismaClient({ adapter })
 
-export async function findUserRoleById(
+export async function findRolePermissionById(
     id: number
 ) {
-    return await prisma.userRole.findUnique({
+    return await prisma.rolePermission.findUnique({
         where: { id: id }
     })
 }
 
-export async function findUserRoleByFks(
-    user_id: number,
-    role_id: number
+export async function findRolePermissionByFks(
+    role_id: number,
+    permission_id: number
 ) {
-    return await prisma.userRole.findFirst({
+    return await prisma.rolePermission.findFirst({
         where: {
-            user_id: user_id,
             role_id: role_id,
+            permission_id: permission_id,
             status: RBACStatus.ACTIVE
         }
     })
 }
 
-export async function grantUserRole(
-    user_id: number,
+export async function grantRolePermission(
     role_id: number,
+    permission_id: number,
     actor_user_id: number,
     notes?: string | null
 ) {
-    const existing_user_role = await findUserRoleByFks(user_id, role_id)
-    if (existing_user_role) return existing_user_role
-    return await prisma.userRole.create({
+    const existing_role_permission = await findRolePermissionByFks(role_id, permission_id)
+    if (existing_role_permission) return existing_role_permission
+    return await prisma.rolePermission.create({
         data: {
-            user_id: user_id,
             role_id: role_id,
+            permission_id: permission_id,
             granted_by_id: actor_user_id,
             updated_by_id: actor_user_id,
             status: RBACStatus.ACTIVE,
@@ -51,14 +51,14 @@ export async function grantUserRole(
     
 }
 
-export async function revokeUserRole(
+export async function revokeRolePermission(
     id: number,
     actor_user_id: number,
     notes?: string | null
 ) {
     // TODO: permission check
     try {
-        return prisma.userRole.update({
+        return prisma.rolePermission.update({
             where: { id: id },
             data: {
                 status: RBACStatus.ARCHIVED,
@@ -72,14 +72,14 @@ export async function revokeUserRole(
     }
 }
 
-export async function updateUserRole(
+export async function updateRolePermission(
     id: number,
     actor_user_id: number,
     notes?: string | null
 ) {
     // TODO: permission check
     try {
-        return prisma.userRole.update({
+        return prisma.rolePermission.update({
             where: { id: id },
             data: {
                 updated_by_id: actor_user_id,

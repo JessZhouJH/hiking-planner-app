@@ -66,6 +66,7 @@ export type TrailGeometryMinAggregateOutputType = {
   visibility: $Enums.Visibility | null
   is_official: boolean | null
   edit_policy_override: $Enums.EditPolicyOverride | null
+  export_policy: $Enums.GeometryExportPolicy | null
   notes: string | null
   status: $Enums.Status | null
   created_at: Date | null
@@ -93,6 +94,7 @@ export type TrailGeometryMaxAggregateOutputType = {
   visibility: $Enums.Visibility | null
   is_official: boolean | null
   edit_policy_override: $Enums.EditPolicyOverride | null
+  export_policy: $Enums.GeometryExportPolicy | null
   notes: string | null
   status: $Enums.Status | null
   created_at: Date | null
@@ -120,6 +122,7 @@ export type TrailGeometryCountAggregateOutputType = {
   visibility: number
   is_official: number
   edit_policy_override: number
+  export_policy: number
   notes: number
   status: number
   created_at: number
@@ -173,6 +176,7 @@ export type TrailGeometryMinAggregateInputType = {
   visibility?: true
   is_official?: true
   edit_policy_override?: true
+  export_policy?: true
   notes?: true
   status?: true
   created_at?: true
@@ -200,6 +204,7 @@ export type TrailGeometryMaxAggregateInputType = {
   visibility?: true
   is_official?: true
   edit_policy_override?: true
+  export_policy?: true
   notes?: true
   status?: true
   created_at?: true
@@ -227,6 +232,7 @@ export type TrailGeometryCountAggregateInputType = {
   visibility?: true
   is_official?: true
   edit_policy_override?: true
+  export_policy?: true
   notes?: true
   status?: true
   created_at?: true
@@ -341,6 +347,7 @@ export type TrailGeometryGroupByOutputType = {
   visibility: $Enums.Visibility
   is_official: boolean
   edit_policy_override: $Enums.EditPolicyOverride
+  export_policy: $Enums.GeometryExportPolicy
   notes: string | null
   status: $Enums.Status
   created_at: Date
@@ -391,6 +398,7 @@ export type TrailGeometryWhereInput = {
   visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailGeometry"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailGeometry"> | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFilter<"TrailGeometry"> | $Enums.GeometryExportPolicy
   notes?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   status?: Prisma.EnumStatusFilter<"TrailGeometry"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TrailGeometry"> | Date | string
@@ -430,6 +438,7 @@ export type TrailGeometryOrderByWithRelationInput = {
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
+  export_policy?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -472,6 +481,7 @@ export type TrailGeometryWhereUniqueInput = Prisma.AtLeast<{
   visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailGeometry"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailGeometry"> | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFilter<"TrailGeometry"> | $Enums.GeometryExportPolicy
   notes?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   status?: Prisma.EnumStatusFilter<"TrailGeometry"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TrailGeometry"> | Date | string
@@ -511,6 +521,7 @@ export type TrailGeometryOrderByWithAggregationInput = {
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
+  export_policy?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -546,6 +557,7 @@ export type TrailGeometryScalarWhereWithAggregatesInput = {
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"TrailGeometry"> | $Enums.Visibility
   is_official?: Prisma.BoolWithAggregatesFilter<"TrailGeometry"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideWithAggregatesFilter<"TrailGeometry"> | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyWithAggregatesFilter<"TrailGeometry"> | $Enums.GeometryExportPolicy
   notes?: Prisma.StringNullableWithAggregatesFilter<"TrailGeometry"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"TrailGeometry"> | $Enums.Status
   created_at?: Prisma.DateTimeWithAggregatesFilter<"TrailGeometry"> | Date | string
@@ -567,6 +579,7 @@ export type TrailGeometryCreateInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -603,6 +616,7 @@ export type TrailGeometryUncheckedCreateInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -628,6 +642,7 @@ export type TrailGeometryUpdateInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -664,6 +679,7 @@ export type TrailGeometryUncheckedUpdateInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -695,6 +711,7 @@ export type TrailGeometryCreateManyInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -716,6 +733,7 @@ export type TrailGeometryUpdateManyMutationInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -740,6 +758,7 @@ export type TrailGeometryUncheckedUpdateManyInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -782,6 +801,7 @@ export type TrailGeometryCountOrderByAggregateInput = {
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
+  export_policy?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -821,6 +841,7 @@ export type TrailGeometryMaxOrderByAggregateInput = {
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
+  export_policy?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -848,6 +869,7 @@ export type TrailGeometryMinOrderByAggregateInput = {
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
+  export_policy?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -1201,6 +1223,10 @@ export type TrailGeometryUncheckedCreateNestedManyWithoutDerived_fromInput = {
   connect?: Prisma.TrailGeometryWhereUniqueInput | Prisma.TrailGeometryWhereUniqueInput[]
 }
 
+export type EnumGeometryExportPolicyFieldUpdateOperationsInput = {
+  set?: $Enums.GeometryExportPolicy
+}
+
 export type TrailGeometryUpdateOneWithoutTrail_geometry__derived_fromNestedInput = {
   create?: Prisma.XOR<Prisma.TrailGeometryCreateWithoutTrail_geometry__derived_fromInput, Prisma.TrailGeometryUncheckedCreateWithoutTrail_geometry__derived_fromInput>
   connectOrCreate?: Prisma.TrailGeometryCreateOrConnectWithoutTrail_geometry__derived_fromInput
@@ -1281,6 +1307,7 @@ export type TrailGeometryCreateWithoutCreated_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1316,6 +1343,7 @@ export type TrailGeometryUncheckedCreateWithoutCreated_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1350,6 +1378,7 @@ export type TrailGeometryCreateWithoutUpdated_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1385,6 +1414,7 @@ export type TrailGeometryUncheckedCreateWithoutUpdated_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1419,6 +1449,7 @@ export type TrailGeometryCreateWithoutLast_verified_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1454,6 +1485,7 @@ export type TrailGeometryUncheckedCreateWithoutLast_verified_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1488,6 +1520,7 @@ export type TrailGeometryCreateWithoutOwnerInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1522,6 +1555,7 @@ export type TrailGeometryUncheckedCreateWithoutOwnerInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1582,6 +1616,7 @@ export type TrailGeometryScalarWhereInput = {
   visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailGeometry"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailGeometry"> | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFilter<"TrailGeometry"> | $Enums.GeometryExportPolicy
   notes?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   status?: Prisma.EnumStatusFilter<"TrailGeometry"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TrailGeometry"> | Date | string
@@ -1651,6 +1686,7 @@ export type TrailGeometryCreateWithoutTrailInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1685,6 +1721,7 @@ export type TrailGeometryUncheckedCreateWithoutTrailInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1736,6 +1773,7 @@ export type TrailGeometryCreateWithoutTrail_profile_primary_geometryInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1771,6 +1809,7 @@ export type TrailGeometryUncheckedCreateWithoutTrail_profile_primary_geometryInp
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1811,6 +1850,7 @@ export type TrailGeometryUpdateWithoutTrail_profile_primary_geometryInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1846,6 +1886,7 @@ export type TrailGeometryUncheckedUpdateWithoutTrail_profile_primary_geometryInp
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1870,6 +1911,7 @@ export type TrailGeometryCreateWithoutStart_access_pointInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1904,6 +1946,7 @@ export type TrailGeometryUncheckedCreateWithoutStart_access_pointInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1939,6 +1982,7 @@ export type TrailGeometryCreateWithoutEnd_access_pointInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1973,6 +2017,7 @@ export type TrailGeometryUncheckedCreateWithoutEnd_access_pointInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2040,6 +2085,7 @@ export type TrailGeometryCreateWithoutTrail_geometry__derived_fromInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2075,6 +2121,7 @@ export type TrailGeometryUncheckedCreateWithoutTrail_geometry__derived_fromInput
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2104,6 +2151,7 @@ export type TrailGeometryCreateWithoutDerived_fromInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2138,6 +2186,7 @@ export type TrailGeometryUncheckedCreateWithoutDerived_fromInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2184,6 +2233,7 @@ export type TrailGeometryUpdateWithoutTrail_geometry__derived_fromInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2219,6 +2269,7 @@ export type TrailGeometryUncheckedUpdateWithoutTrail_geometry__derived_fromInput
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2259,6 +2310,7 @@ export type TrailGeometryCreateWithoutTrail_segmentation__trail_geometryInput = 
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2294,6 +2346,7 @@ export type TrailGeometryUncheckedCreateWithoutTrail_segmentation__trail_geometr
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2334,6 +2387,7 @@ export type TrailGeometryUpdateWithoutTrail_segmentation__trail_geometryInput = 
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2369,6 +2423,7 @@ export type TrailGeometryUncheckedUpdateWithoutTrail_segmentation__trail_geometr
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2393,6 +2448,7 @@ export type TrailGeometryCreateWithoutTrip_trail_trail_geometryInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2428,6 +2484,7 @@ export type TrailGeometryUncheckedCreateWithoutTrip_trail_trail_geometryInput = 
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2468,6 +2525,7 @@ export type TrailGeometryUpdateWithoutTrip_trail_trail_geometryInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2503,6 +2561,7 @@ export type TrailGeometryUncheckedUpdateWithoutTrip_trail_trail_geometryInput = 
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2533,6 +2592,7 @@ export type TrailGeometryCreateManyCreated_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2559,6 +2619,7 @@ export type TrailGeometryCreateManyUpdated_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2585,6 +2646,7 @@ export type TrailGeometryCreateManyLast_verified_byInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2610,6 +2672,7 @@ export type TrailGeometryCreateManyOwnerInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2631,6 +2694,7 @@ export type TrailGeometryUpdateWithoutCreated_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2666,6 +2730,7 @@ export type TrailGeometryUncheckedUpdateWithoutCreated_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2696,6 +2761,7 @@ export type TrailGeometryUncheckedUpdateManyWithoutCreated_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2716,6 +2782,7 @@ export type TrailGeometryUpdateWithoutUpdated_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2751,6 +2818,7 @@ export type TrailGeometryUncheckedUpdateWithoutUpdated_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2781,6 +2849,7 @@ export type TrailGeometryUncheckedUpdateManyWithoutUpdated_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2801,6 +2870,7 @@ export type TrailGeometryUpdateWithoutLast_verified_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2836,6 +2906,7 @@ export type TrailGeometryUncheckedUpdateWithoutLast_verified_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2866,6 +2937,7 @@ export type TrailGeometryUncheckedUpdateManyWithoutLast_verified_byInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2886,6 +2958,7 @@ export type TrailGeometryUpdateWithoutOwnerInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2920,6 +2993,7 @@ export type TrailGeometryUncheckedUpdateWithoutOwnerInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2950,6 +3024,7 @@ export type TrailGeometryUncheckedUpdateManyWithoutOwnerInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -2976,6 +3051,7 @@ export type TrailGeometryCreateManyTrailInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -2997,6 +3073,7 @@ export type TrailGeometryUpdateWithoutTrailInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3031,6 +3108,7 @@ export type TrailGeometryUncheckedUpdateWithoutTrailInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3061,6 +3139,7 @@ export type TrailGeometryUncheckedUpdateManyWithoutTrailInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3087,6 +3166,7 @@ export type TrailGeometryCreateManyStart_access_pointInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -3113,6 +3193,7 @@ export type TrailGeometryCreateManyEnd_access_pointInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -3134,6 +3215,7 @@ export type TrailGeometryUpdateWithoutStart_access_pointInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3168,6 +3250,7 @@ export type TrailGeometryUncheckedUpdateWithoutStart_access_pointInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3198,6 +3281,7 @@ export type TrailGeometryUncheckedUpdateManyWithoutStart_access_pointInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3219,6 +3303,7 @@ export type TrailGeometryUpdateWithoutEnd_access_pointInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3253,6 +3338,7 @@ export type TrailGeometryUncheckedUpdateWithoutEnd_access_pointInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3283,6 +3369,7 @@ export type TrailGeometryUncheckedUpdateManyWithoutEnd_access_pointInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3309,6 +3396,7 @@ export type TrailGeometryCreateManyDerived_fromInput = {
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
+  export_policy?: $Enums.GeometryExportPolicy
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -3330,6 +3418,7 @@ export type TrailGeometryUpdateWithoutDerived_fromInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3364,6 +3453,7 @@ export type TrailGeometryUncheckedUpdateWithoutDerived_fromInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3394,6 +3484,7 @@ export type TrailGeometryUncheckedUpdateManyWithoutDerived_fromInput = {
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
+  export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -3479,6 +3570,7 @@ export type TrailGeometrySelect<ExtArgs extends runtime.Types.Extensions.Interna
   visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
+  export_policy?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -3519,6 +3611,7 @@ export type TrailGeometrySelectCreateManyAndReturn<ExtArgs extends runtime.Types
   visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
+  export_policy?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -3554,6 +3647,7 @@ export type TrailGeometrySelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
+  export_policy?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -3589,6 +3683,7 @@ export type TrailGeometrySelectScalar = {
   visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
+  export_policy?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -3600,7 +3695,7 @@ export type TrailGeometrySelectScalar = {
   last_calculated_at?: boolean
 }
 
-export type TrailGeometryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "trail_id" | "start_access_point_id" | "end_access_point_id" | "gpx_file_key" | "gpx_file_name" | "gpx_source_url" | "geometry_origin" | "derived_from_id" | "authenticity_level" | "owner_id" | "visibility" | "is_official" | "edit_policy_override" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id" | "last_calculated_at", ExtArgs["result"]["trailGeometry"]>
+export type TrailGeometryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "trail_id" | "start_access_point_id" | "end_access_point_id" | "gpx_file_key" | "gpx_file_name" | "gpx_source_url" | "geometry_origin" | "derived_from_id" | "authenticity_level" | "owner_id" | "visibility" | "is_official" | "edit_policy_override" | "export_policy" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id" | "last_calculated_at", ExtArgs["result"]["trailGeometry"]>
 export type TrailGeometryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -3669,6 +3764,7 @@ export type $TrailGeometryPayload<ExtArgs extends runtime.Types.Extensions.Inter
     visibility: $Enums.Visibility
     is_official: boolean
     edit_policy_override: $Enums.EditPolicyOverride
+    export_policy: $Enums.GeometryExportPolicy
     notes: string | null
     status: $Enums.Status
     created_at: Date
@@ -4128,6 +4224,7 @@ export interface TrailGeometryFieldRefs {
   readonly visibility: Prisma.FieldRef<"TrailGeometry", 'Visibility'>
   readonly is_official: Prisma.FieldRef<"TrailGeometry", 'Boolean'>
   readonly edit_policy_override: Prisma.FieldRef<"TrailGeometry", 'EditPolicyOverride'>
+  readonly export_policy: Prisma.FieldRef<"TrailGeometry", 'GeometryExportPolicy'>
   readonly notes: Prisma.FieldRef<"TrailGeometry", 'String'>
   readonly status: Prisma.FieldRef<"TrailGeometry", 'Status'>
   readonly created_at: Prisma.FieldRef<"TrailGeometry", 'DateTime'>

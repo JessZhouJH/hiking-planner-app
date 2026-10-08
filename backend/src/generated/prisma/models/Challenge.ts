@@ -304,10 +304,10 @@ export type ChallengeOrderByWithRelationInput = {
 
 export type ChallengeWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name?: string
   AND?: Prisma.ChallengeWhereInput | Prisma.ChallengeWhereInput[]
   OR?: Prisma.ChallengeWhereInput[]
   NOT?: Prisma.ChallengeWhereInput | Prisma.ChallengeWhereInput[]
-  name?: Prisma.StringFilter<"Challenge"> | string
   is_time_dependent?: Prisma.BoolFilter<"Challenge"> | boolean
   notes?: Prisma.StringNullableFilter<"Challenge"> | string | null
   status?: Prisma.EnumStatusFilter<"Challenge"> | $Enums.Status
@@ -322,7 +322,7 @@ export type ChallengeWhereUniqueInput = Prisma.AtLeast<{
   last_verified_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   challenge_gear_requirement__challenge?: Prisma.ChallengeGearRequirementListRelationFilter
   trail_challenge__challenge?: Prisma.TrailChallengeListRelationFilter
-}, "id">
+}, "id" | "name">
 
 export type ChallengeOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

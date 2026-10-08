@@ -729,3 +729,14 @@ export const DescribingTargetType = {
 } as const
 
 export type DescribingTargetType = (typeof DescribingTargetType)[keyof typeof DescribingTargetType]
+
+
+export const GeometryExportPolicy = {
+  UNSPECIFIED: 'UNSPECIFIED',
+  OWNER_ONLY: 'OWNER_ONLY',
+  ALLOWED: 'ALLOWED',
+  RESTRICTED: 'RESTRICTED',
+  FORBIDDEN: 'FORBIDDEN'
+} as const
+
+export type GeometryExportPolicy = (typeof GeometryExportPolicy)[keyof typeof GeometryExportPolicy]

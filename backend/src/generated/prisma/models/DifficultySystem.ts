@@ -280,10 +280,10 @@ export type DifficultySystemOrderByWithRelationInput = {
 
 export type DifficultySystemWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name?: string
   AND?: Prisma.DifficultySystemWhereInput | Prisma.DifficultySystemWhereInput[]
   OR?: Prisma.DifficultySystemWhereInput[]
   NOT?: Prisma.DifficultySystemWhereInput | Prisma.DifficultySystemWhereInput[]
-  name?: Prisma.StringFilter<"DifficultySystem"> | string
   source_url?: Prisma.StringNullableFilter<"DifficultySystem"> | string | null
   notes?: Prisma.StringNullableFilter<"DifficultySystem"> | string | null
   status?: Prisma.EnumStatusFilter<"DifficultySystem"> | $Enums.Status
@@ -295,7 +295,7 @@ export type DifficultySystemWhereUniqueInput = Prisma.AtLeast<{
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   difficulty_mapping__difficulty_system?: Prisma.DifficultyMappingListRelationFilter
   trail_source__difficulty_system?: Prisma.TrailSourceListRelationFilter
-}, "id">
+}, "id" | "name">
 
 export type DifficultySystemOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

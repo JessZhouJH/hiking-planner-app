@@ -269,10 +269,10 @@ export type TrailUseOrderByWithRelationInput = {
 
 export type TrailUseWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name?: string
   AND?: Prisma.TrailUseWhereInput | Prisma.TrailUseWhereInput[]
   OR?: Prisma.TrailUseWhereInput[]
   NOT?: Prisma.TrailUseWhereInput | Prisma.TrailUseWhereInput[]
-  name?: Prisma.StringFilter<"TrailUse"> | string
   notes?: Prisma.StringNullableFilter<"TrailUse"> | string | null
   status?: Prisma.EnumStatusFilter<"TrailUse"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TrailUse"> | Date | string
@@ -282,7 +282,7 @@ export type TrailUseWhereUniqueInput = Prisma.AtLeast<{
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   trail_profile_use__trail_use?: Prisma.TrailProfileUseListRelationFilter
-}, "id">
+}, "id" | "name">
 
 export type TrailUseOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

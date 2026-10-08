@@ -9,8 +9,8 @@ import {
 import { upsertUserData } from '../../src/services/access_control/user.service'
 import { upsertRoleData } from '../../src/services/access_control/role.service'
 import { upsertPermissionData } from '../../src/services/access_control/permission.service'
-import { upsertUserRoleData } from '../../src/services/access_control/user_role.sesrvice'
-
+import { grantUserRole } from '../../src/services/access_control/user_role.sesrvice'
+import { grantRolePermission } from '../../src/services/access_control/role_permission.service'
 export async function seedAccessControl() {
     // User
     const system = await prisma.user.upsert({
@@ -54,45 +54,23 @@ export async function seedAccessControl() {
 
     // UserRole
 
-    await upsertUserRoleData(system.id, admin.id, system.id)
-    await upsertUserRoleData(adam.id, admin.id, system.id)
-    await upsertUserRoleData(ben.id, moderator.id, system.id)
-    await upsertUserRoleData(charlie.id, user.id, system.id)
+    await grantUserRole(system.id, admin.id, system.id)
+    await grantUserRole(adam.id, admin.id, system.id)
+    await grantUserRole(ben.id, moderator.id, system.id)
+    await grantUserRole(charlie.id, user.id, system.id)
+    await grantUserRole(dean.id, user.id, system.id)
 
     // RolePermission -- only AccessControl Module is used for seeding
-
-    async function createRolePermission(
-        role_id: number,
-        permission_id: number,
-        granted_by_id: number
-    ) {
-        const existing_role_permission = await prisma.rolePermission.findFirst({
-            where: {
-                role_id: role_id,
-                permission_id: permission_id,
-                status: Status.ACTIVE,
-            },
-        })
-        if (existing_role_permission) return existing_role_permission
-        const new_role_permission = await prisma.rolePermission.create({
-            data: {
-                role_id: role_id,
-                permission_id: permission_id,
-                granted_by_id: granted_by_id,
-            },
-        })
-        return new_role_permission
-    }
     let AccessControl: module = MODEL_INFO[0]
     for (var m of AccessControl.models) {
         // assign all CRUD permission to Admin
-        let roleId = 1
+        let roleId = admin.id
         for (var p of m.permissions) {
             let permissionItem = await prisma.permission.findFirst({
                 where: { name: p, status: Status.ACTIVE },
             })
             if (permissionItem) {
-                await createRolePermission(roleId, permissionItem?.id, 1)
+                await grantRolePermission(roleId, permissionItem?.id, 1)
             }
         }
     }
@@ -111,10 +89,10 @@ export async function seedAccessControl() {
         },
     })
     if (userRead) {
-        await createRolePermission(2, userRead.id, 1)
-        await createRolePermission(3, userRead.id, 1)
+        await grantRolePermission(moderator.id, userRead.id, system.id)
+        await grantRolePermission(user.id, userRead.id, system.id)
     }
     if (userUpdate) {
-        await createRolePermission(3, userUpdate.id, 1)
+        await grantRolePermission(user.id, userUpdate.id, system.id)
     }
 }

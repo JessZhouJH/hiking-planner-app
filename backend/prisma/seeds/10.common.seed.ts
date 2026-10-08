@@ -7,8 +7,7 @@ import {
 } from '../../src/generated/prisma/enums'
 
 import { SYSTEM_USER_ID } from '../../src/constants/macros'
-import { AliasScalarFieldEnum } from '../../src/generated/prisma/internal/prismaNamespace'
-
+import { upsertUnitData } from '../../src/services/common/unit.service'
 
 export async function seedCommon() {
     // Alias
@@ -92,57 +91,25 @@ export async function seedCommon() {
     // Attachment
 
     // Unit
-    async function createUnit(
-        name: string,
-        display_name: string,
-        category: UnitCategory,
-        user_id: number
-    ) {
-        const existing_unit = await prisma.unit.findFirst({
-            where: { name: name },
-        })
-        if (existing_unit) {
-            await prisma.unit.update({
-                where: { id: existing_unit.id },
-                data: {
-                    name: name,
-                    display_name: display_name,
-                    category: category,
-                    updated_by_id: user_id,
-                },
-            })
-        } else {
-            await prisma.unit.create({
-                data: {
-                    name: name,
-                    display_name: display_name,
-                    category: category,
-                    created_by_id: user_id,
-                    updated_by_id: user_id,
-                },
-            })
-        }
-    }
-
-    await createUnit('Kilogram', 'kg', UnitCategory.WEIGHT, SYSTEM_USER_ID)
-    await createUnit('Gram', 'g', UnitCategory.WEIGHT, SYSTEM_USER_ID)
-    await createUnit('Celsius', '℃', UnitCategory.TEMPERATURE, SYSTEM_USER_ID)
-    await createUnit(
+    await upsertUnitData('Kilogram', UnitCategory.WEIGHT, SYSTEM_USER_ID, 'kg')
+    await upsertUnitData('Gram', UnitCategory.WEIGHT, SYSTEM_USER_ID, 'g')
+    await upsertUnitData('Celsius', UnitCategory.TEMPERATURE, SYSTEM_USER_ID, '℃')
+    await upsertUnitData(
         'Fahrenheit',
-        '℉',
         UnitCategory.TEMPERATURE,
-        SYSTEM_USER_ID
+        SYSTEM_USER_ID,
+        '℉'
     )
-    await createUnit('Kilometer', 'km', UnitCategory.LENGTH, SYSTEM_USER_ID)
-    await createUnit(' Meter', ',m', UnitCategory.LENGTH, SYSTEM_USER_ID)
-    await createUnit('Centimeter', 'cm', UnitCategory.LENGTH, SYSTEM_USER_ID)
-    await createUnit('Millimeter', 'mm', UnitCategory.LENGTH, SYSTEM_USER_ID)
-    await createUnit('Liter', "L", UnitCategory.VOLUME, SYSTEM_USER_ID)
-    await createUnit('Milliliter', "ml", UnitCategory.VOLUME, SYSTEM_USER_ID)
-    await createUnit('Square Meter', "㎡", UnitCategory.AREA, SYSTEM_USER_ID)
-    await createUnit('Lumen', "lumen", UnitCategory.LUMINOUS_FLUX, SYSTEM_USER_ID)
-    await createUnit('Hour', "hrs", UnitCategory.DURATION, SYSTEM_USER_ID)
-    await createUnit('Minutes', "mins", UnitCategory.DURATION, SYSTEM_USER_ID)
+    await upsertUnitData('Kilometer', UnitCategory.LENGTH, SYSTEM_USER_ID, 'km')
+    await upsertUnitData(' Meter', UnitCategory.LENGTH, SYSTEM_USER_ID, ',m')
+    await upsertUnitData('Centimeter', UnitCategory.LENGTH, SYSTEM_USER_ID, 'cm')
+    await upsertUnitData('Millimeter', UnitCategory.LENGTH, SYSTEM_USER_ID, 'mm')
+    await upsertUnitData('Liter', UnitCategory.VOLUME, SYSTEM_USER_ID, "L")
+    await upsertUnitData('Milliliter', UnitCategory.VOLUME, SYSTEM_USER_ID, "ml")
+    await upsertUnitData('Square Meter', UnitCategory.AREA, SYSTEM_USER_ID, "㎡")
+    await upsertUnitData('Lumen', UnitCategory.LUMINOUS_FLUX, SYSTEM_USER_ID, "lumen")
+    await upsertUnitData('Hour', UnitCategory.DURATION, SYSTEM_USER_ID, "hrs")
+    await upsertUnitData('Minutes', UnitCategory.DURATION, SYSTEM_USER_ID, "mins")
 
     // Tag
     async function createTag(

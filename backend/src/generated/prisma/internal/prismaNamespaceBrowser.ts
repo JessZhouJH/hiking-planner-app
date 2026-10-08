@@ -203,8 +203,10 @@ export const UserRoleScalarFieldEnum = {
   status: 'status',
   granted_at: 'granted_at',
   revoked_at: 'revoked_at',
+  updated_at: 'updated_at',
   granted_by_id: 'granted_by_id',
-  revoked_by_id: 'revoked_by_id'
+  revoked_by_id: 'revoked_by_id',
+  updated_by_id: 'updated_by_id'
 } as const
 
 export type UserRoleScalarFieldEnum = (typeof UserRoleScalarFieldEnum)[keyof typeof UserRoleScalarFieldEnum]
@@ -218,8 +220,10 @@ export const RolePermissionScalarFieldEnum = {
   status: 'status',
   granted_at: 'granted_at',
   revoked_at: 'revoked_at',
+  updated_at: 'updated_at',
   granted_by_id: 'granted_by_id',
-  revoked_by_id: 'revoked_by_id'
+  revoked_by_id: 'revoked_by_id',
+  updated_by_id: 'updated_by_id'
 } as const
 
 export type RolePermissionScalarFieldEnum = (typeof RolePermissionScalarFieldEnum)[keyof typeof RolePermissionScalarFieldEnum]
@@ -973,6 +977,7 @@ export const TrailGeometryScalarFieldEnum = {
   visibility: 'visibility',
   is_official: 'is_official',
   edit_policy_override: 'edit_policy_override',
+  export_policy: 'export_policy',
   notes: 'notes',
   status: 'status',
   created_at: 'created_at',

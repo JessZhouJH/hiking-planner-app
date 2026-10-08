@@ -291,7 +291,7 @@ export type TrailSegmentationGroupByArgs<ExtArgs extends runtime.Types.Extension
 
 export type TrailSegmentationGroupByOutputType = {
   id: number
-  name: string
+  name: string | null
   derived_from_segmentation_id: number | null
   trail_id: number
   trail_profile_id: number | null
@@ -335,7 +335,7 @@ export type TrailSegmentationWhereInput = {
   OR?: Prisma.TrailSegmentationWhereInput[]
   NOT?: Prisma.TrailSegmentationWhereInput | Prisma.TrailSegmentationWhereInput[]
   id?: Prisma.IntFilter<"TrailSegmentation"> | number
-  name?: Prisma.StringFilter<"TrailSegmentation"> | string
+  name?: Prisma.StringNullableFilter<"TrailSegmentation"> | string | null
   derived_from_segmentation_id?: Prisma.IntNullableFilter<"TrailSegmentation"> | number | null
   trail_id?: Prisma.IntFilter<"TrailSegmentation"> | number
   trail_profile_id?: Prisma.IntNullableFilter<"TrailSegmentation"> | number | null
@@ -366,7 +366,7 @@ export type TrailSegmentationWhereInput = {
 
 export type TrailSegmentationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  name?: Prisma.SortOrderInput | Prisma.SortOrder
   derived_from_segmentation_id?: Prisma.SortOrderInput | Prisma.SortOrder
   trail_id?: Prisma.SortOrder
   trail_profile_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -400,7 +400,7 @@ export type TrailSegmentationWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.TrailSegmentationWhereInput | Prisma.TrailSegmentationWhereInput[]
   OR?: Prisma.TrailSegmentationWhereInput[]
   NOT?: Prisma.TrailSegmentationWhereInput | Prisma.TrailSegmentationWhereInput[]
-  name?: Prisma.StringFilter<"TrailSegmentation"> | string
+  name?: Prisma.StringNullableFilter<"TrailSegmentation"> | string | null
   derived_from_segmentation_id?: Prisma.IntNullableFilter<"TrailSegmentation"> | number | null
   trail_id?: Prisma.IntFilter<"TrailSegmentation"> | number
   trail_profile_id?: Prisma.IntNullableFilter<"TrailSegmentation"> | number | null
@@ -431,7 +431,7 @@ export type TrailSegmentationWhereUniqueInput = Prisma.AtLeast<{
 
 export type TrailSegmentationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  name?: Prisma.SortOrderInput | Prisma.SortOrder
   derived_from_segmentation_id?: Prisma.SortOrderInput | Prisma.SortOrder
   trail_id?: Prisma.SortOrder
   trail_profile_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -460,7 +460,7 @@ export type TrailSegmentationScalarWhereWithAggregatesInput = {
   OR?: Prisma.TrailSegmentationScalarWhereWithAggregatesInput[]
   NOT?: Prisma.TrailSegmentationScalarWhereWithAggregatesInput | Prisma.TrailSegmentationScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"TrailSegmentation"> | number
-  name?: Prisma.StringWithAggregatesFilter<"TrailSegmentation"> | string
+  name?: Prisma.StringNullableWithAggregatesFilter<"TrailSegmentation"> | string | null
   derived_from_segmentation_id?: Prisma.IntNullableWithAggregatesFilter<"TrailSegmentation"> | number | null
   trail_id?: Prisma.IntWithAggregatesFilter<"TrailSegmentation"> | number
   trail_profile_id?: Prisma.IntNullableWithAggregatesFilter<"TrailSegmentation"> | number | null
@@ -480,7 +480,7 @@ export type TrailSegmentationScalarWhereWithAggregatesInput = {
 }
 
 export type TrailSegmentationCreateInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -503,7 +503,7 @@ export type TrailSegmentationCreateInput = {
 
 export type TrailSegmentationUncheckedCreateInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -525,7 +525,7 @@ export type TrailSegmentationUncheckedCreateInput = {
 }
 
 export type TrailSegmentationUpdateInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -548,7 +548,7 @@ export type TrailSegmentationUpdateInput = {
 
 export type TrailSegmentationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -571,7 +571,7 @@ export type TrailSegmentationUncheckedUpdateInput = {
 
 export type TrailSegmentationCreateManyInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -591,7 +591,7 @@ export type TrailSegmentationCreateManyInput = {
 }
 
 export type TrailSegmentationUpdateManyMutationInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -604,7 +604,7 @@ export type TrailSegmentationUpdateManyMutationInput = {
 
 export type TrailSegmentationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1097,7 +1097,7 @@ export type TrailSegmentationUpdateOneRequiredWithoutTrail_segment_relation__tra
 }
 
 export type TrailSegmentationCreateWithoutCreated_byInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1119,7 +1119,7 @@ export type TrailSegmentationCreateWithoutCreated_byInput = {
 
 export type TrailSegmentationUncheckedCreateWithoutCreated_byInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1150,7 +1150,7 @@ export type TrailSegmentationCreateManyCreated_byInputEnvelope = {
 }
 
 export type TrailSegmentationCreateWithoutUpdated_byInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1172,7 +1172,7 @@ export type TrailSegmentationCreateWithoutUpdated_byInput = {
 
 export type TrailSegmentationUncheckedCreateWithoutUpdated_byInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1203,7 +1203,7 @@ export type TrailSegmentationCreateManyUpdated_byInputEnvelope = {
 }
 
 export type TrailSegmentationCreateWithoutLast_reviewed_byInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1225,7 +1225,7 @@ export type TrailSegmentationCreateWithoutLast_reviewed_byInput = {
 
 export type TrailSegmentationUncheckedCreateWithoutLast_reviewed_byInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1256,7 +1256,7 @@ export type TrailSegmentationCreateManyLast_reviewed_byInputEnvelope = {
 }
 
 export type TrailSegmentationCreateWithoutOwnerInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1278,7 +1278,7 @@ export type TrailSegmentationCreateWithoutOwnerInput = {
 
 export type TrailSegmentationUncheckedCreateWithoutOwnerInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1329,7 +1329,7 @@ export type TrailSegmentationScalarWhereInput = {
   OR?: Prisma.TrailSegmentationScalarWhereInput[]
   NOT?: Prisma.TrailSegmentationScalarWhereInput | Prisma.TrailSegmentationScalarWhereInput[]
   id?: Prisma.IntFilter<"TrailSegmentation"> | number
-  name?: Prisma.StringFilter<"TrailSegmentation"> | string
+  name?: Prisma.StringNullableFilter<"TrailSegmentation"> | string | null
   derived_from_segmentation_id?: Prisma.IntNullableFilter<"TrailSegmentation"> | number | null
   trail_id?: Prisma.IntFilter<"TrailSegmentation"> | number
   trail_profile_id?: Prisma.IntNullableFilter<"TrailSegmentation"> | number | null
@@ -1397,7 +1397,7 @@ export type TrailSegmentationUpdateManyWithWhereWithoutOwnerInput = {
 }
 
 export type TrailSegmentationCreateWithoutTrailInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1419,7 +1419,7 @@ export type TrailSegmentationCreateWithoutTrailInput = {
 
 export type TrailSegmentationUncheckedCreateWithoutTrailInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_profile_id?: number | null
   trail_geometry_id?: number | null
@@ -1466,7 +1466,7 @@ export type TrailSegmentationUpdateManyWithWhereWithoutTrailInput = {
 }
 
 export type TrailSegmentationCreateWithoutTrail_profileInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1488,7 +1488,7 @@ export type TrailSegmentationCreateWithoutTrail_profileInput = {
 
 export type TrailSegmentationUncheckedCreateWithoutTrail_profileInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_geometry_id?: number | null
@@ -1535,7 +1535,7 @@ export type TrailSegmentationUpdateManyWithWhereWithoutTrail_profileInput = {
 }
 
 export type TrailSegmentationCreateWithoutTrail_geometryInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1557,7 +1557,7 @@ export type TrailSegmentationCreateWithoutTrail_geometryInput = {
 
 export type TrailSegmentationUncheckedCreateWithoutTrail_geometryInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1604,7 +1604,7 @@ export type TrailSegmentationUpdateManyWithWhereWithoutTrail_geometryInput = {
 }
 
 export type TrailSegmentationCreateWithoutTrail_segmentation__derived_fromInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1626,7 +1626,7 @@ export type TrailSegmentationCreateWithoutTrail_segmentation__derived_fromInput 
 
 export type TrailSegmentationUncheckedCreateWithoutTrail_segmentation__derived_fromInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1652,7 +1652,7 @@ export type TrailSegmentationCreateOrConnectWithoutTrail_segmentation__derived_f
 }
 
 export type TrailSegmentationCreateWithoutDerived_fromInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1674,7 +1674,7 @@ export type TrailSegmentationCreateWithoutDerived_fromInput = {
 
 export type TrailSegmentationUncheckedCreateWithoutDerived_fromInput = {
   id?: number
-  name: string
+  name?: string | null
   trail_id: number
   trail_profile_id?: number | null
   trail_geometry_id?: number | null
@@ -1716,7 +1716,7 @@ export type TrailSegmentationUpdateToOneWithWhereWithoutTrail_segmentation__deri
 }
 
 export type TrailSegmentationUpdateWithoutTrail_segmentation__derived_fromInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -1738,7 +1738,7 @@ export type TrailSegmentationUpdateWithoutTrail_segmentation__derived_fromInput 
 
 export type TrailSegmentationUncheckedUpdateWithoutTrail_segmentation__derived_fromInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1775,7 +1775,7 @@ export type TrailSegmentationUpdateManyWithWhereWithoutDerived_fromInput = {
 }
 
 export type TrailSegmentationCreateWithoutTrail_segment_relation__trail_segmentationInput = {
-  name: string
+  name?: string | null
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1797,7 +1797,7 @@ export type TrailSegmentationCreateWithoutTrail_segment_relation__trail_segmenta
 
 export type TrailSegmentationUncheckedCreateWithoutTrail_segment_relation__trail_segmentationInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1834,7 +1834,7 @@ export type TrailSegmentationUpdateToOneWithWhereWithoutTrail_segment_relation__
 }
 
 export type TrailSegmentationUpdateWithoutTrail_segment_relation__trail_segmentationInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -1856,7 +1856,7 @@ export type TrailSegmentationUpdateWithoutTrail_segment_relation__trail_segmenta
 
 export type TrailSegmentationUncheckedUpdateWithoutTrail_segment_relation__trail_segmentationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1878,7 +1878,7 @@ export type TrailSegmentationUncheckedUpdateWithoutTrail_segment_relation__trail
 
 export type TrailSegmentationCreateManyCreated_byInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1898,7 +1898,7 @@ export type TrailSegmentationCreateManyCreated_byInput = {
 
 export type TrailSegmentationCreateManyUpdated_byInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1918,7 +1918,7 @@ export type TrailSegmentationCreateManyUpdated_byInput = {
 
 export type TrailSegmentationCreateManyLast_reviewed_byInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1938,7 +1938,7 @@ export type TrailSegmentationCreateManyLast_reviewed_byInput = {
 
 export type TrailSegmentationCreateManyOwnerInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -1957,7 +1957,7 @@ export type TrailSegmentationCreateManyOwnerInput = {
 }
 
 export type TrailSegmentationUpdateWithoutCreated_byInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -1979,7 +1979,7 @@ export type TrailSegmentationUpdateWithoutCreated_byInput = {
 
 export type TrailSegmentationUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2001,7 +2001,7 @@ export type TrailSegmentationUncheckedUpdateWithoutCreated_byInput = {
 
 export type TrailSegmentationUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2020,7 +2020,7 @@ export type TrailSegmentationUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type TrailSegmentationUpdateWithoutUpdated_byInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2042,7 +2042,7 @@ export type TrailSegmentationUpdateWithoutUpdated_byInput = {
 
 export type TrailSegmentationUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2064,7 +2064,7 @@ export type TrailSegmentationUncheckedUpdateWithoutUpdated_byInput = {
 
 export type TrailSegmentationUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2083,7 +2083,7 @@ export type TrailSegmentationUncheckedUpdateManyWithoutUpdated_byInput = {
 }
 
 export type TrailSegmentationUpdateWithoutLast_reviewed_byInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2105,7 +2105,7 @@ export type TrailSegmentationUpdateWithoutLast_reviewed_byInput = {
 
 export type TrailSegmentationUncheckedUpdateWithoutLast_reviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2127,7 +2127,7 @@ export type TrailSegmentationUncheckedUpdateWithoutLast_reviewed_byInput = {
 
 export type TrailSegmentationUncheckedUpdateManyWithoutLast_reviewed_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2146,7 +2146,7 @@ export type TrailSegmentationUncheckedUpdateManyWithoutLast_reviewed_byInput = {
 }
 
 export type TrailSegmentationUpdateWithoutOwnerInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2168,7 +2168,7 @@ export type TrailSegmentationUpdateWithoutOwnerInput = {
 
 export type TrailSegmentationUncheckedUpdateWithoutOwnerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2190,7 +2190,7 @@ export type TrailSegmentationUncheckedUpdateWithoutOwnerInput = {
 
 export type TrailSegmentationUncheckedUpdateManyWithoutOwnerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2210,7 +2210,7 @@ export type TrailSegmentationUncheckedUpdateManyWithoutOwnerInput = {
 
 export type TrailSegmentationCreateManyTrailInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_profile_id?: number | null
   trail_geometry_id?: number | null
@@ -2229,7 +2229,7 @@ export type TrailSegmentationCreateManyTrailInput = {
 }
 
 export type TrailSegmentationUpdateWithoutTrailInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2251,7 +2251,7 @@ export type TrailSegmentationUpdateWithoutTrailInput = {
 
 export type TrailSegmentationUncheckedUpdateWithoutTrailInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2273,7 +2273,7 @@ export type TrailSegmentationUncheckedUpdateWithoutTrailInput = {
 
 export type TrailSegmentationUncheckedUpdateManyWithoutTrailInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2293,7 +2293,7 @@ export type TrailSegmentationUncheckedUpdateManyWithoutTrailInput = {
 
 export type TrailSegmentationCreateManyTrail_profileInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_geometry_id?: number | null
@@ -2312,7 +2312,7 @@ export type TrailSegmentationCreateManyTrail_profileInput = {
 }
 
 export type TrailSegmentationUpdateWithoutTrail_profileInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2334,7 +2334,7 @@ export type TrailSegmentationUpdateWithoutTrail_profileInput = {
 
 export type TrailSegmentationUncheckedUpdateWithoutTrail_profileInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2356,7 +2356,7 @@ export type TrailSegmentationUncheckedUpdateWithoutTrail_profileInput = {
 
 export type TrailSegmentationUncheckedUpdateManyWithoutTrail_profileInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2376,7 +2376,7 @@ export type TrailSegmentationUncheckedUpdateManyWithoutTrail_profileInput = {
 
 export type TrailSegmentationCreateManyTrail_geometryInput = {
   id?: number
-  name: string
+  name?: string | null
   derived_from_segmentation_id?: number | null
   trail_id: number
   trail_profile_id?: number | null
@@ -2395,7 +2395,7 @@ export type TrailSegmentationCreateManyTrail_geometryInput = {
 }
 
 export type TrailSegmentationUpdateWithoutTrail_geometryInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2417,7 +2417,7 @@ export type TrailSegmentationUpdateWithoutTrail_geometryInput = {
 
 export type TrailSegmentationUncheckedUpdateWithoutTrail_geometryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2439,7 +2439,7 @@ export type TrailSegmentationUncheckedUpdateWithoutTrail_geometryInput = {
 
 export type TrailSegmentationUncheckedUpdateManyWithoutTrail_geometryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   derived_from_segmentation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2459,7 +2459,7 @@ export type TrailSegmentationUncheckedUpdateManyWithoutTrail_geometryInput = {
 
 export type TrailSegmentationCreateManyDerived_fromInput = {
   id?: number
-  name: string
+  name?: string | null
   trail_id: number
   trail_profile_id?: number | null
   trail_geometry_id?: number | null
@@ -2478,7 +2478,7 @@ export type TrailSegmentationCreateManyDerived_fromInput = {
 }
 
 export type TrailSegmentationUpdateWithoutDerived_fromInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2500,7 +2500,7 @@ export type TrailSegmentationUpdateWithoutDerived_fromInput = {
 
 export type TrailSegmentationUncheckedUpdateWithoutDerived_fromInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2522,7 +2522,7 @@ export type TrailSegmentationUncheckedUpdateWithoutDerived_fromInput = {
 
 export type TrailSegmentationUncheckedUpdateManyWithoutDerived_fromInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trail_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2742,7 +2742,7 @@ export type $TrailSegmentationPayload<ExtArgs extends runtime.Types.Extensions.I
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    name: string
+    name: string | null
     derived_from_segmentation_id: number | null
     trail_id: number
     trail_profile_id: number | null

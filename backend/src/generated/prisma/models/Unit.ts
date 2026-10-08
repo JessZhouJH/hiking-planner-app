@@ -324,10 +324,10 @@ export type UnitOrderByWithRelationInput = {
 
 export type UnitWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name?: string
   AND?: Prisma.UnitWhereInput | Prisma.UnitWhereInput[]
   OR?: Prisma.UnitWhereInput[]
   NOT?: Prisma.UnitWhereInput | Prisma.UnitWhereInput[]
-  name?: Prisma.StringFilter<"Unit"> | string
   display_name?: Prisma.StringNullableFilter<"Unit"> | string | null
   category?: Prisma.EnumUnitCategoryFilter<"Unit"> | $Enums.UnitCategory
   is_base?: Prisma.BoolFilter<"Unit"> | boolean
@@ -343,7 +343,7 @@ export type UnitWhereUniqueInput = Prisma.AtLeast<{
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   gear_specs_definition__default_unit?: Prisma.GearSpecsDefinitionListRelationFilter
   gear_specs__source_unit?: Prisma.GearSpecsListRelationFilter
-}, "id">
+}, "id" | "name">
 
 export type UnitOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

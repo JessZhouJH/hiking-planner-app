@@ -820,6 +820,23 @@ export type EnumAccessPointRoleWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumAccessPointRoleFilter<$PrismaModel>
 }
 
+export type EnumGeometryExportPolicyFilter<$PrismaModel = never> = {
+  equals?: $Enums.GeometryExportPolicy | Prisma.EnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  in?: $Enums.GeometryExportPolicy[] | Prisma.ListEnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GeometryExportPolicy[] | Prisma.ListEnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGeometryExportPolicyFilter<$PrismaModel> | $Enums.GeometryExportPolicy
+}
+
+export type EnumGeometryExportPolicyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GeometryExportPolicy | Prisma.EnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  in?: $Enums.GeometryExportPolicy[] | Prisma.ListEnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GeometryExportPolicy[] | Prisma.ListEnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGeometryExportPolicyWithAggregatesFilter<$PrismaModel> | $Enums.GeometryExportPolicy
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGeometryExportPolicyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGeometryExportPolicyFilter<$PrismaModel>
+}
+
 export type EnumTransportModeFilter<$PrismaModel = never> = {
   equals?: $Enums.TransportMode | Prisma.EnumTransportModeFieldRefInput<$PrismaModel>
   in?: $Enums.TransportMode[] | Prisma.ListEnumTransportModeFieldRefInput<$PrismaModel>
@@ -2119,6 +2136,23 @@ export type NestedEnumAccessPointRoleWithAggregatesFilter<$PrismaModel = never> 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumAccessPointRoleFilter<$PrismaModel>
   _max?: Prisma.NestedEnumAccessPointRoleFilter<$PrismaModel>
+}
+
+export type NestedEnumGeometryExportPolicyFilter<$PrismaModel = never> = {
+  equals?: $Enums.GeometryExportPolicy | Prisma.EnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  in?: $Enums.GeometryExportPolicy[] | Prisma.ListEnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GeometryExportPolicy[] | Prisma.ListEnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGeometryExportPolicyFilter<$PrismaModel> | $Enums.GeometryExportPolicy
+}
+
+export type NestedEnumGeometryExportPolicyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GeometryExportPolicy | Prisma.EnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  in?: $Enums.GeometryExportPolicy[] | Prisma.ListEnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GeometryExportPolicy[] | Prisma.ListEnumGeometryExportPolicyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGeometryExportPolicyWithAggregatesFilter<$PrismaModel> | $Enums.GeometryExportPolicy
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGeometryExportPolicyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGeometryExportPolicyFilter<$PrismaModel>
 }
 
 export type NestedEnumTransportModeFilter<$PrismaModel = never> = {

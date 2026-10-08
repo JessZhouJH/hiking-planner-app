@@ -556,6 +556,14 @@ enum DescribingTargetType {
   GEAR_AND_TRAIL
 }
 
+enum GeometryExportPolicy {
+  UNSPECIFIED
+  OWNER_ONLY
+  ALLOWED
+  RESTRICTED
+  FORBIDDEN
+}
+
 
 
 /** Model Definition **/
@@ -598,10 +606,12 @@ model User {
 
   user_roles_granted_by UserRole[] @relation("UserRoleGrantedBy")
   user_roles_revoked_by UserRole[] @relation("UserRoleRevokedBy")
+  user_roles_updated_by UserRole[] @relation("UserRoleUpdatedBy")
   user_role__user UserRole[] @relation("UserRoleUser")
 
   role_permission_granted_by RolePermission[] @relation("RolePermissionGrantedBy")
   role_permission_revoked_by RolePermission[] @relation("RolePermissionRevokedBy")
+  role_permission_updated_by RolePermission[] @relation("RolePermissionUpdatedBy")
 
   // Common Module
   alias__created_by Alias[] @relation("AliasCreatedBy")
@@ -939,11 +949,14 @@ model UserRole {
 
   granted_at DateTime @default(now())
   revoked_at DateTime?
+  updated_at DateTime @updatedAt
   granted_by_id Int
   revoked_by_id Int?
+  updated_by_id Int
 
   granted_by User @relation("UserRoleGrantedBy", fields: [granted_by_id], references: [id])
   revoked_by User? @relation("UserRoleRevokedBy", fields: [revoked_by_id], references: [id])
+  updated_by User? @relation("UserRoleUpdatedBy", fields: [updated_by_id], references: [id])
   user User @relation("UserRoleUser", fields: [user_id], references: [id])
   role Role @relation("UserRoleRole", fields: [role_id], references: [id])
 }
@@ -958,11 +971,15 @@ model RolePermission {
 
   granted_at DateTime @default(now())
   revoked_at DateTime?
+  updated_at DateTime @updatedAt
   granted_by_id Int
   revoked_by_id Int?
+  updated_by_id Int
 
   granted_by User @relation("RolePermissionGrantedBy", fields: [granted_by_id], references: [id])
   revoked_by User? @relation("RolePermissionRevokedBy", fields: [revoked_by_id], references: [id])
+  updated_by User? @relation("RolePermissionUpdatedBy", fields: [updated_by_id], references: [id])
+
   role Role @relation("RolePermissionRole", fields: [role_id], references: [id])
   permission Permission @relation("RolePermissionRole", fields: [permission_id], references: [id])
 }
@@ -973,7 +990,7 @@ model Alias {
   id Int @id @default(autoincrement())
   target_object_type AliasTargetType
   target_object_id Int
-  alias String
+  alias String 
 
   notes String?
   status Status @default(ACTIVE)
@@ -1048,7 +1065,7 @@ model Attachment {
 
 model Unit {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
   display_name String?
   category UnitCategory
   
@@ -1503,7 +1520,7 @@ model GearPackComponent {
 // 4. Trail Module
 model Challenge {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
   is_time_dependent Boolean @default(false)
 
   notes String?
@@ -1560,7 +1577,7 @@ model ChallengeGearRequirement {
 
 model DifficultySystem {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
   source_url String?
 
   notes String?
@@ -1841,7 +1858,7 @@ model TrailFacility {
 
 model TrailUse {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
 
   notes String?
   status Status @default(ACTIVE)
@@ -2068,6 +2085,7 @@ model TrailGeometry {
   visibility Visibility @default(UNSPECIFIED)
   is_official Boolean @default(false)
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
+  export_policy GeometryExportPolicy @default(UNSPECIFIED)
   
   notes String?
   status Status @default(ACTIVE)
@@ -2099,7 +2117,7 @@ model TrailGeometry {
 
 model TrailSegmentation {
   id Int @id @default(autoincrement())
-  name String
+  name String?
   derived_from_segmentation_id Int?
 
   trail_id Int

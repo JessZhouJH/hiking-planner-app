@@ -13,26 +13,6 @@ export type module = {
     managedBy: managedBy
 }
 
-export enum findUserByType {
-    ID,
-    NAME,
-    EMAIL,
-}
-
-export enum accessTypeList {
-    CREATE,
-    READ,
-    UPDATE,
-    DELETE,
-    VERIFY,
-    EXPORT,
-}
-
-export type accessType = {
-    access: accessTypeList
-    name: string
-}
-
 export const GENERAL_ACCESS = ['create', 'read', 'update', 'write']
 export const VERIFICATION_ACCESS = 'verify'
 export const EXPORT_ACCESS = 'export'
@@ -195,6 +175,9 @@ export function generateModelInfo() {
             }
             if (requiresReview) {
                 currentModel.permissions.push(`${model}.verify`)
+            }
+            if (model === "TrailGeometry") {
+                currentModel.permissions.push(`${model}.export`)
             }
             currentModuleModels.push(currentModel)
         }

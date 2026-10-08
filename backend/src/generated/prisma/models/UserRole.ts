@@ -32,6 +32,7 @@ export type UserRoleAvgAggregateOutputType = {
   role_id: number | null
   granted_by_id: number | null
   revoked_by_id: number | null
+  updated_by_id: number | null
 }
 
 export type UserRoleSumAggregateOutputType = {
@@ -40,6 +41,7 @@ export type UserRoleSumAggregateOutputType = {
   role_id: number | null
   granted_by_id: number | null
   revoked_by_id: number | null
+  updated_by_id: number | null
 }
 
 export type UserRoleMinAggregateOutputType = {
@@ -50,8 +52,10 @@ export type UserRoleMinAggregateOutputType = {
   status: $Enums.RBACStatus | null
   granted_at: Date | null
   revoked_at: Date | null
+  updated_at: Date | null
   granted_by_id: number | null
   revoked_by_id: number | null
+  updated_by_id: number | null
 }
 
 export type UserRoleMaxAggregateOutputType = {
@@ -62,8 +66,10 @@ export type UserRoleMaxAggregateOutputType = {
   status: $Enums.RBACStatus | null
   granted_at: Date | null
   revoked_at: Date | null
+  updated_at: Date | null
   granted_by_id: number | null
   revoked_by_id: number | null
+  updated_by_id: number | null
 }
 
 export type UserRoleCountAggregateOutputType = {
@@ -74,8 +80,10 @@ export type UserRoleCountAggregateOutputType = {
   status: number
   granted_at: number
   revoked_at: number
+  updated_at: number
   granted_by_id: number
   revoked_by_id: number
+  updated_by_id: number
   _all: number
 }
 
@@ -86,6 +94,7 @@ export type UserRoleAvgAggregateInputType = {
   role_id?: true
   granted_by_id?: true
   revoked_by_id?: true
+  updated_by_id?: true
 }
 
 export type UserRoleSumAggregateInputType = {
@@ -94,6 +103,7 @@ export type UserRoleSumAggregateInputType = {
   role_id?: true
   granted_by_id?: true
   revoked_by_id?: true
+  updated_by_id?: true
 }
 
 export type UserRoleMinAggregateInputType = {
@@ -104,8 +114,10 @@ export type UserRoleMinAggregateInputType = {
   status?: true
   granted_at?: true
   revoked_at?: true
+  updated_at?: true
   granted_by_id?: true
   revoked_by_id?: true
+  updated_by_id?: true
 }
 
 export type UserRoleMaxAggregateInputType = {
@@ -116,8 +128,10 @@ export type UserRoleMaxAggregateInputType = {
   status?: true
   granted_at?: true
   revoked_at?: true
+  updated_at?: true
   granted_by_id?: true
   revoked_by_id?: true
+  updated_by_id?: true
 }
 
 export type UserRoleCountAggregateInputType = {
@@ -128,8 +142,10 @@ export type UserRoleCountAggregateInputType = {
   status?: true
   granted_at?: true
   revoked_at?: true
+  updated_at?: true
   granted_by_id?: true
   revoked_by_id?: true
+  updated_by_id?: true
   _all?: true
 }
 
@@ -227,8 +243,10 @@ export type UserRoleGroupByOutputType = {
   status: $Enums.RBACStatus
   granted_at: Date
   revoked_at: Date | null
+  updated_at: Date
   granted_by_id: number
   revoked_by_id: number | null
+  updated_by_id: number
   _count: UserRoleCountAggregateOutputType | null
   _avg: UserRoleAvgAggregateOutputType | null
   _sum: UserRoleSumAggregateOutputType | null
@@ -262,10 +280,13 @@ export type UserRoleWhereInput = {
   status?: Prisma.EnumRBACStatusFilter<"UserRole"> | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFilter<"UserRole"> | Date | string
   revoked_at?: Prisma.DateTimeNullableFilter<"UserRole"> | Date | string | null
+  updated_at?: Prisma.DateTimeFilter<"UserRole"> | Date | string
   granted_by_id?: Prisma.IntFilter<"UserRole"> | number
   revoked_by_id?: Prisma.IntNullableFilter<"UserRole"> | number | null
+  updated_by_id?: Prisma.IntFilter<"UserRole"> | number
   granted_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   revoked_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  updated_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
 }
@@ -278,10 +299,13 @@ export type UserRoleOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   granted_at?: Prisma.SortOrder
   revoked_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   granted_by_id?: Prisma.SortOrder
   revoked_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
   granted_by?: Prisma.UserOrderByWithRelationInput
   revoked_by?: Prisma.UserOrderByWithRelationInput
+  updated_by?: Prisma.UserOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
   role?: Prisma.RoleOrderByWithRelationInput
 }
@@ -297,10 +321,13 @@ export type UserRoleWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.EnumRBACStatusFilter<"UserRole"> | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFilter<"UserRole"> | Date | string
   revoked_at?: Prisma.DateTimeNullableFilter<"UserRole"> | Date | string | null
+  updated_at?: Prisma.DateTimeFilter<"UserRole"> | Date | string
   granted_by_id?: Prisma.IntFilter<"UserRole"> | number
   revoked_by_id?: Prisma.IntNullableFilter<"UserRole"> | number | null
+  updated_by_id?: Prisma.IntFilter<"UserRole"> | number
   granted_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   revoked_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  updated_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
 }, "id">
@@ -313,8 +340,10 @@ export type UserRoleOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   granted_at?: Prisma.SortOrder
   revoked_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   granted_by_id?: Prisma.SortOrder
   revoked_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
   _count?: Prisma.UserRoleCountOrderByAggregateInput
   _avg?: Prisma.UserRoleAvgOrderByAggregateInput
   _max?: Prisma.UserRoleMaxOrderByAggregateInput
@@ -333,8 +362,10 @@ export type UserRoleScalarWhereWithAggregatesInput = {
   status?: Prisma.EnumRBACStatusWithAggregatesFilter<"UserRole"> | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeWithAggregatesFilter<"UserRole"> | Date | string
   revoked_at?: Prisma.DateTimeNullableWithAggregatesFilter<"UserRole"> | Date | string | null
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"UserRole"> | Date | string
   granted_by_id?: Prisma.IntWithAggregatesFilter<"UserRole"> | number
   revoked_by_id?: Prisma.IntNullableWithAggregatesFilter<"UserRole"> | number | null
+  updated_by_id?: Prisma.IntWithAggregatesFilter<"UserRole"> | number
 }
 
 export type UserRoleCreateInput = {
@@ -342,8 +373,10 @@ export type UserRoleCreateInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by: Prisma.UserCreateNestedOneWithoutUser_roles_granted_byInput
   revoked_by?: Prisma.UserCreateNestedOneWithoutUser_roles_revoked_byInput
+  updated_by?: Prisma.UserCreateNestedOneWithoutUser_roles_updated_byInput
   user: Prisma.UserCreateNestedOneWithoutUser_role__userInput
   role: Prisma.RoleCreateNestedOneWithoutUser_role__roleInput
 }
@@ -356,8 +389,10 @@ export type UserRoleUncheckedCreateInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by_id: number
   revoked_by_id?: number | null
+  updated_by_id: number
 }
 
 export type UserRoleUpdateInput = {
@@ -365,8 +400,10 @@ export type UserRoleUpdateInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by?: Prisma.UserUpdateOneRequiredWithoutUser_roles_granted_byNestedInput
   revoked_by?: Prisma.UserUpdateOneWithoutUser_roles_revoked_byNestedInput
+  updated_by?: Prisma.UserUpdateOneWithoutUser_roles_updated_byNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutUser_role__userNestedInput
   role?: Prisma.RoleUpdateOneRequiredWithoutUser_role__roleNestedInput
 }
@@ -379,8 +416,10 @@ export type UserRoleUncheckedUpdateInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type UserRoleCreateManyInput = {
@@ -391,8 +430,10 @@ export type UserRoleCreateManyInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by_id: number
   revoked_by_id?: number | null
+  updated_by_id: number
 }
 
 export type UserRoleUpdateManyMutationInput = {
@@ -400,6 +441,7 @@ export type UserRoleUpdateManyMutationInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserRoleUncheckedUpdateManyInput = {
@@ -410,8 +452,10 @@ export type UserRoleUncheckedUpdateManyInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type UserRoleListRelationFilter = {
@@ -432,8 +476,10 @@ export type UserRoleCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   granted_at?: Prisma.SortOrder
   revoked_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   granted_by_id?: Prisma.SortOrder
   revoked_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
 }
 
 export type UserRoleAvgOrderByAggregateInput = {
@@ -442,6 +488,7 @@ export type UserRoleAvgOrderByAggregateInput = {
   role_id?: Prisma.SortOrder
   granted_by_id?: Prisma.SortOrder
   revoked_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
 }
 
 export type UserRoleMaxOrderByAggregateInput = {
@@ -452,8 +499,10 @@ export type UserRoleMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   granted_at?: Prisma.SortOrder
   revoked_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   granted_by_id?: Prisma.SortOrder
   revoked_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
 }
 
 export type UserRoleMinOrderByAggregateInput = {
@@ -464,8 +513,10 @@ export type UserRoleMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   granted_at?: Prisma.SortOrder
   revoked_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   granted_by_id?: Prisma.SortOrder
   revoked_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
 }
 
 export type UserRoleSumOrderByAggregateInput = {
@@ -474,6 +525,7 @@ export type UserRoleSumOrderByAggregateInput = {
   role_id?: Prisma.SortOrder
   granted_by_id?: Prisma.SortOrder
   revoked_by_id?: Prisma.SortOrder
+  updated_by_id?: Prisma.SortOrder
 }
 
 export type UserRoleCreateNestedManyWithoutGranted_byInput = {
@@ -487,6 +539,13 @@ export type UserRoleCreateNestedManyWithoutRevoked_byInput = {
   create?: Prisma.XOR<Prisma.UserRoleCreateWithoutRevoked_byInput, Prisma.UserRoleUncheckedCreateWithoutRevoked_byInput> | Prisma.UserRoleCreateWithoutRevoked_byInput[] | Prisma.UserRoleUncheckedCreateWithoutRevoked_byInput[]
   connectOrCreate?: Prisma.UserRoleCreateOrConnectWithoutRevoked_byInput | Prisma.UserRoleCreateOrConnectWithoutRevoked_byInput[]
   createMany?: Prisma.UserRoleCreateManyRevoked_byInputEnvelope
+  connect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+}
+
+export type UserRoleCreateNestedManyWithoutUpdated_byInput = {
+  create?: Prisma.XOR<Prisma.UserRoleCreateWithoutUpdated_byInput, Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput> | Prisma.UserRoleCreateWithoutUpdated_byInput[] | Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.UserRoleCreateOrConnectWithoutUpdated_byInput | Prisma.UserRoleCreateOrConnectWithoutUpdated_byInput[]
+  createMany?: Prisma.UserRoleCreateManyUpdated_byInputEnvelope
   connect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
 }
 
@@ -508,6 +567,13 @@ export type UserRoleUncheckedCreateNestedManyWithoutRevoked_byInput = {
   create?: Prisma.XOR<Prisma.UserRoleCreateWithoutRevoked_byInput, Prisma.UserRoleUncheckedCreateWithoutRevoked_byInput> | Prisma.UserRoleCreateWithoutRevoked_byInput[] | Prisma.UserRoleUncheckedCreateWithoutRevoked_byInput[]
   connectOrCreate?: Prisma.UserRoleCreateOrConnectWithoutRevoked_byInput | Prisma.UserRoleCreateOrConnectWithoutRevoked_byInput[]
   createMany?: Prisma.UserRoleCreateManyRevoked_byInputEnvelope
+  connect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+}
+
+export type UserRoleUncheckedCreateNestedManyWithoutUpdated_byInput = {
+  create?: Prisma.XOR<Prisma.UserRoleCreateWithoutUpdated_byInput, Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput> | Prisma.UserRoleCreateWithoutUpdated_byInput[] | Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.UserRoleCreateOrConnectWithoutUpdated_byInput | Prisma.UserRoleCreateOrConnectWithoutUpdated_byInput[]
+  createMany?: Prisma.UserRoleCreateManyUpdated_byInputEnvelope
   connect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
 }
 
@@ -543,6 +609,20 @@ export type UserRoleUpdateManyWithoutRevoked_byNestedInput = {
   connect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
   update?: Prisma.UserRoleUpdateWithWhereUniqueWithoutRevoked_byInput | Prisma.UserRoleUpdateWithWhereUniqueWithoutRevoked_byInput[]
   updateMany?: Prisma.UserRoleUpdateManyWithWhereWithoutRevoked_byInput | Prisma.UserRoleUpdateManyWithWhereWithoutRevoked_byInput[]
+  deleteMany?: Prisma.UserRoleScalarWhereInput | Prisma.UserRoleScalarWhereInput[]
+}
+
+export type UserRoleUpdateManyWithoutUpdated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.UserRoleCreateWithoutUpdated_byInput, Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput> | Prisma.UserRoleCreateWithoutUpdated_byInput[] | Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.UserRoleCreateOrConnectWithoutUpdated_byInput | Prisma.UserRoleCreateOrConnectWithoutUpdated_byInput[]
+  upsert?: Prisma.UserRoleUpsertWithWhereUniqueWithoutUpdated_byInput | Prisma.UserRoleUpsertWithWhereUniqueWithoutUpdated_byInput[]
+  createMany?: Prisma.UserRoleCreateManyUpdated_byInputEnvelope
+  set?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+  disconnect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+  delete?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+  connect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+  update?: Prisma.UserRoleUpdateWithWhereUniqueWithoutUpdated_byInput | Prisma.UserRoleUpdateWithWhereUniqueWithoutUpdated_byInput[]
+  updateMany?: Prisma.UserRoleUpdateManyWithWhereWithoutUpdated_byInput | Prisma.UserRoleUpdateManyWithWhereWithoutUpdated_byInput[]
   deleteMany?: Prisma.UserRoleScalarWhereInput | Prisma.UserRoleScalarWhereInput[]
 }
 
@@ -585,6 +665,20 @@ export type UserRoleUncheckedUpdateManyWithoutRevoked_byNestedInput = {
   connect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
   update?: Prisma.UserRoleUpdateWithWhereUniqueWithoutRevoked_byInput | Prisma.UserRoleUpdateWithWhereUniqueWithoutRevoked_byInput[]
   updateMany?: Prisma.UserRoleUpdateManyWithWhereWithoutRevoked_byInput | Prisma.UserRoleUpdateManyWithWhereWithoutRevoked_byInput[]
+  deleteMany?: Prisma.UserRoleScalarWhereInput | Prisma.UserRoleScalarWhereInput[]
+}
+
+export type UserRoleUncheckedUpdateManyWithoutUpdated_byNestedInput = {
+  create?: Prisma.XOR<Prisma.UserRoleCreateWithoutUpdated_byInput, Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput> | Prisma.UserRoleCreateWithoutUpdated_byInput[] | Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput[]
+  connectOrCreate?: Prisma.UserRoleCreateOrConnectWithoutUpdated_byInput | Prisma.UserRoleCreateOrConnectWithoutUpdated_byInput[]
+  upsert?: Prisma.UserRoleUpsertWithWhereUniqueWithoutUpdated_byInput | Prisma.UserRoleUpsertWithWhereUniqueWithoutUpdated_byInput[]
+  createMany?: Prisma.UserRoleCreateManyUpdated_byInputEnvelope
+  set?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+  disconnect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+  delete?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+  connect?: Prisma.UserRoleWhereUniqueInput | Prisma.UserRoleWhereUniqueInput[]
+  update?: Prisma.UserRoleUpdateWithWhereUniqueWithoutUpdated_byInput | Prisma.UserRoleUpdateWithWhereUniqueWithoutUpdated_byInput[]
+  updateMany?: Prisma.UserRoleUpdateManyWithWhereWithoutUpdated_byInput | Prisma.UserRoleUpdateManyWithWhereWithoutUpdated_byInput[]
   deleteMany?: Prisma.UserRoleScalarWhereInput | Prisma.UserRoleScalarWhereInput[]
 }
 
@@ -657,7 +751,9 @@ export type UserRoleCreateWithoutGranted_byInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   revoked_by?: Prisma.UserCreateNestedOneWithoutUser_roles_revoked_byInput
+  updated_by?: Prisma.UserCreateNestedOneWithoutUser_roles_updated_byInput
   user: Prisma.UserCreateNestedOneWithoutUser_role__userInput
   role: Prisma.RoleCreateNestedOneWithoutUser_role__roleInput
 }
@@ -670,7 +766,9 @@ export type UserRoleUncheckedCreateWithoutGranted_byInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   revoked_by_id?: number | null
+  updated_by_id: number
 }
 
 export type UserRoleCreateOrConnectWithoutGranted_byInput = {
@@ -688,7 +786,9 @@ export type UserRoleCreateWithoutRevoked_byInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by: Prisma.UserCreateNestedOneWithoutUser_roles_granted_byInput
+  updated_by?: Prisma.UserCreateNestedOneWithoutUser_roles_updated_byInput
   user: Prisma.UserCreateNestedOneWithoutUser_role__userInput
   role: Prisma.RoleCreateNestedOneWithoutUser_role__roleInput
 }
@@ -701,7 +801,9 @@ export type UserRoleUncheckedCreateWithoutRevoked_byInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by_id: number
+  updated_by_id: number
 }
 
 export type UserRoleCreateOrConnectWithoutRevoked_byInput = {
@@ -714,13 +816,50 @@ export type UserRoleCreateManyRevoked_byInputEnvelope = {
   skipDuplicates?: boolean
 }
 
+export type UserRoleCreateWithoutUpdated_byInput = {
+  notes?: string | null
+  status?: $Enums.RBACStatus
+  granted_at?: Date | string
+  revoked_at?: Date | string | null
+  updated_at?: Date | string
+  granted_by: Prisma.UserCreateNestedOneWithoutUser_roles_granted_byInput
+  revoked_by?: Prisma.UserCreateNestedOneWithoutUser_roles_revoked_byInput
+  user: Prisma.UserCreateNestedOneWithoutUser_role__userInput
+  role: Prisma.RoleCreateNestedOneWithoutUser_role__roleInput
+}
+
+export type UserRoleUncheckedCreateWithoutUpdated_byInput = {
+  id?: number
+  user_id: number
+  role_id: number
+  notes?: string | null
+  status?: $Enums.RBACStatus
+  granted_at?: Date | string
+  revoked_at?: Date | string | null
+  updated_at?: Date | string
+  granted_by_id: number
+  revoked_by_id?: number | null
+}
+
+export type UserRoleCreateOrConnectWithoutUpdated_byInput = {
+  where: Prisma.UserRoleWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserRoleCreateWithoutUpdated_byInput, Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput>
+}
+
+export type UserRoleCreateManyUpdated_byInputEnvelope = {
+  data: Prisma.UserRoleCreateManyUpdated_byInput | Prisma.UserRoleCreateManyUpdated_byInput[]
+  skipDuplicates?: boolean
+}
+
 export type UserRoleCreateWithoutUserInput = {
   notes?: string | null
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by: Prisma.UserCreateNestedOneWithoutUser_roles_granted_byInput
   revoked_by?: Prisma.UserCreateNestedOneWithoutUser_roles_revoked_byInput
+  updated_by?: Prisma.UserCreateNestedOneWithoutUser_roles_updated_byInput
   role: Prisma.RoleCreateNestedOneWithoutUser_role__roleInput
 }
 
@@ -731,8 +870,10 @@ export type UserRoleUncheckedCreateWithoutUserInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by_id: number
   revoked_by_id?: number | null
+  updated_by_id: number
 }
 
 export type UserRoleCreateOrConnectWithoutUserInput = {
@@ -772,8 +913,10 @@ export type UserRoleScalarWhereInput = {
   status?: Prisma.EnumRBACStatusFilter<"UserRole"> | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFilter<"UserRole"> | Date | string
   revoked_at?: Prisma.DateTimeNullableFilter<"UserRole"> | Date | string | null
+  updated_at?: Prisma.DateTimeFilter<"UserRole"> | Date | string
   granted_by_id?: Prisma.IntFilter<"UserRole"> | number
   revoked_by_id?: Prisma.IntNullableFilter<"UserRole"> | number | null
+  updated_by_id?: Prisma.IntFilter<"UserRole"> | number
 }
 
 export type UserRoleUpsertWithWhereUniqueWithoutRevoked_byInput = {
@@ -790,6 +933,22 @@ export type UserRoleUpdateWithWhereUniqueWithoutRevoked_byInput = {
 export type UserRoleUpdateManyWithWhereWithoutRevoked_byInput = {
   where: Prisma.UserRoleScalarWhereInput
   data: Prisma.XOR<Prisma.UserRoleUpdateManyMutationInput, Prisma.UserRoleUncheckedUpdateManyWithoutRevoked_byInput>
+}
+
+export type UserRoleUpsertWithWhereUniqueWithoutUpdated_byInput = {
+  where: Prisma.UserRoleWhereUniqueInput
+  update: Prisma.XOR<Prisma.UserRoleUpdateWithoutUpdated_byInput, Prisma.UserRoleUncheckedUpdateWithoutUpdated_byInput>
+  create: Prisma.XOR<Prisma.UserRoleCreateWithoutUpdated_byInput, Prisma.UserRoleUncheckedCreateWithoutUpdated_byInput>
+}
+
+export type UserRoleUpdateWithWhereUniqueWithoutUpdated_byInput = {
+  where: Prisma.UserRoleWhereUniqueInput
+  data: Prisma.XOR<Prisma.UserRoleUpdateWithoutUpdated_byInput, Prisma.UserRoleUncheckedUpdateWithoutUpdated_byInput>
+}
+
+export type UserRoleUpdateManyWithWhereWithoutUpdated_byInput = {
+  where: Prisma.UserRoleScalarWhereInput
+  data: Prisma.XOR<Prisma.UserRoleUpdateManyMutationInput, Prisma.UserRoleUncheckedUpdateManyWithoutUpdated_byInput>
 }
 
 export type UserRoleUpsertWithWhereUniqueWithoutUserInput = {
@@ -813,8 +972,10 @@ export type UserRoleCreateWithoutRoleInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by: Prisma.UserCreateNestedOneWithoutUser_roles_granted_byInput
   revoked_by?: Prisma.UserCreateNestedOneWithoutUser_roles_revoked_byInput
+  updated_by?: Prisma.UserCreateNestedOneWithoutUser_roles_updated_byInput
   user: Prisma.UserCreateNestedOneWithoutUser_role__userInput
 }
 
@@ -825,8 +986,10 @@ export type UserRoleUncheckedCreateWithoutRoleInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by_id: number
   revoked_by_id?: number | null
+  updated_by_id: number
 }
 
 export type UserRoleCreateOrConnectWithoutRoleInput = {
@@ -863,7 +1026,9 @@ export type UserRoleCreateManyGranted_byInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   revoked_by_id?: number | null
+  updated_by_id: number
 }
 
 export type UserRoleCreateManyRevoked_byInput = {
@@ -874,7 +1039,22 @@ export type UserRoleCreateManyRevoked_byInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by_id: number
+  updated_by_id: number
+}
+
+export type UserRoleCreateManyUpdated_byInput = {
+  id?: number
+  user_id: number
+  role_id: number
+  notes?: string | null
+  status?: $Enums.RBACStatus
+  granted_at?: Date | string
+  revoked_at?: Date | string | null
+  updated_at?: Date | string
+  granted_by_id: number
+  revoked_by_id?: number | null
 }
 
 export type UserRoleCreateManyUserInput = {
@@ -884,8 +1064,10 @@ export type UserRoleCreateManyUserInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by_id: number
   revoked_by_id?: number | null
+  updated_by_id: number
 }
 
 export type UserRoleUpdateWithoutGranted_byInput = {
@@ -893,7 +1075,9 @@ export type UserRoleUpdateWithoutGranted_byInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_by?: Prisma.UserUpdateOneWithoutUser_roles_revoked_byNestedInput
+  updated_by?: Prisma.UserUpdateOneWithoutUser_roles_updated_byNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutUser_role__userNestedInput
   role?: Prisma.RoleUpdateOneRequiredWithoutUser_role__roleNestedInput
 }
@@ -906,7 +1090,9 @@ export type UserRoleUncheckedUpdateWithoutGranted_byInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type UserRoleUncheckedUpdateManyWithoutGranted_byInput = {
@@ -917,7 +1103,9 @@ export type UserRoleUncheckedUpdateManyWithoutGranted_byInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type UserRoleUpdateWithoutRevoked_byInput = {
@@ -925,7 +1113,9 @@ export type UserRoleUpdateWithoutRevoked_byInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by?: Prisma.UserUpdateOneRequiredWithoutUser_roles_granted_byNestedInput
+  updated_by?: Prisma.UserUpdateOneWithoutUser_roles_updated_byNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutUser_role__userNestedInput
   role?: Prisma.RoleUpdateOneRequiredWithoutUser_role__roleNestedInput
 }
@@ -938,7 +1128,9 @@ export type UserRoleUncheckedUpdateWithoutRevoked_byInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type UserRoleUncheckedUpdateManyWithoutRevoked_byInput = {
@@ -949,7 +1141,47 @@ export type UserRoleUncheckedUpdateManyWithoutRevoked_byInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type UserRoleUpdateWithoutUpdated_byInput = {
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
+  granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  granted_by?: Prisma.UserUpdateOneRequiredWithoutUser_roles_granted_byNestedInput
+  revoked_by?: Prisma.UserUpdateOneWithoutUser_roles_revoked_byNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutUser_role__userNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUser_role__roleNestedInput
+}
+
+export type UserRoleUncheckedUpdateWithoutUpdated_byInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  role_id?: Prisma.IntFieldUpdateOperationsInput | number
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
+  granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+}
+
+export type UserRoleUncheckedUpdateManyWithoutUpdated_byInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  role_id?: Prisma.IntFieldUpdateOperationsInput | number
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
+  granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type UserRoleUpdateWithoutUserInput = {
@@ -957,8 +1189,10 @@ export type UserRoleUpdateWithoutUserInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by?: Prisma.UserUpdateOneRequiredWithoutUser_roles_granted_byNestedInput
   revoked_by?: Prisma.UserUpdateOneWithoutUser_roles_revoked_byNestedInput
+  updated_by?: Prisma.UserUpdateOneWithoutUser_roles_updated_byNestedInput
   role?: Prisma.RoleUpdateOneRequiredWithoutUser_role__roleNestedInput
 }
 
@@ -969,8 +1203,10 @@ export type UserRoleUncheckedUpdateWithoutUserInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type UserRoleUncheckedUpdateManyWithoutUserInput = {
@@ -980,8 +1216,10 @@ export type UserRoleUncheckedUpdateManyWithoutUserInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type UserRoleCreateManyRoleInput = {
@@ -991,8 +1229,10 @@ export type UserRoleCreateManyRoleInput = {
   status?: $Enums.RBACStatus
   granted_at?: Date | string
   revoked_at?: Date | string | null
+  updated_at?: Date | string
   granted_by_id: number
   revoked_by_id?: number | null
+  updated_by_id: number
 }
 
 export type UserRoleUpdateWithoutRoleInput = {
@@ -1000,8 +1240,10 @@ export type UserRoleUpdateWithoutRoleInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by?: Prisma.UserUpdateOneRequiredWithoutUser_roles_granted_byNestedInput
   revoked_by?: Prisma.UserUpdateOneWithoutUser_roles_revoked_byNestedInput
+  updated_by?: Prisma.UserUpdateOneWithoutUser_roles_updated_byNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutUser_role__userNestedInput
 }
 
@@ -1012,8 +1254,10 @@ export type UserRoleUncheckedUpdateWithoutRoleInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type UserRoleUncheckedUpdateManyWithoutRoleInput = {
@@ -1023,8 +1267,10 @@ export type UserRoleUncheckedUpdateManyWithoutRoleInput = {
   status?: Prisma.EnumRBACStatusFieldUpdateOperationsInput | $Enums.RBACStatus
   granted_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revoked_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   granted_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   revoked_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -1037,10 +1283,13 @@ export type UserRoleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   status?: boolean
   granted_at?: boolean
   revoked_at?: boolean
+  updated_at?: boolean
   granted_by_id?: boolean
   revoked_by_id?: boolean
+  updated_by_id?: boolean
   granted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   revoked_by?: boolean | Prisma.UserRole$revoked_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.UserRole$updated_byArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["userRole"]>
@@ -1053,10 +1302,13 @@ export type UserRoleSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   status?: boolean
   granted_at?: boolean
   revoked_at?: boolean
+  updated_at?: boolean
   granted_by_id?: boolean
   revoked_by_id?: boolean
+  updated_by_id?: boolean
   granted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   revoked_by?: boolean | Prisma.UserRole$revoked_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.UserRole$updated_byArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["userRole"]>
@@ -1069,10 +1321,13 @@ export type UserRoleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   status?: boolean
   granted_at?: boolean
   revoked_at?: boolean
+  updated_at?: boolean
   granted_by_id?: boolean
   revoked_by_id?: boolean
+  updated_by_id?: boolean
   granted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   revoked_by?: boolean | Prisma.UserRole$revoked_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.UserRole$updated_byArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["userRole"]>
@@ -1085,26 +1340,31 @@ export type UserRoleSelectScalar = {
   status?: boolean
   granted_at?: boolean
   revoked_at?: boolean
+  updated_at?: boolean
   granted_by_id?: boolean
   revoked_by_id?: boolean
+  updated_by_id?: boolean
 }
 
-export type UserRoleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "role_id" | "notes" | "status" | "granted_at" | "revoked_at" | "granted_by_id" | "revoked_by_id", ExtArgs["result"]["userRole"]>
+export type UserRoleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "role_id" | "notes" | "status" | "granted_at" | "revoked_at" | "updated_at" | "granted_by_id" | "revoked_by_id" | "updated_by_id", ExtArgs["result"]["userRole"]>
 export type UserRoleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   granted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   revoked_by?: boolean | Prisma.UserRole$revoked_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.UserRole$updated_byArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
 }
 export type UserRoleIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   granted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   revoked_by?: boolean | Prisma.UserRole$revoked_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.UserRole$updated_byArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
 }
 export type UserRoleIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   granted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   revoked_by?: boolean | Prisma.UserRole$revoked_byArgs<ExtArgs>
+  updated_by?: boolean | Prisma.UserRole$updated_byArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
 }
@@ -1114,6 +1374,7 @@ export type $UserRolePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   objects: {
     granted_by: Prisma.$UserPayload<ExtArgs>
     revoked_by: Prisma.$UserPayload<ExtArgs> | null
+    updated_by: Prisma.$UserPayload<ExtArgs> | null
     user: Prisma.$UserPayload<ExtArgs>
     role: Prisma.$RolePayload<ExtArgs>
   }
@@ -1125,8 +1386,10 @@ export type $UserRolePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     status: $Enums.RBACStatus
     granted_at: Date
     revoked_at: Date | null
+    updated_at: Date
     granted_by_id: number
     revoked_by_id: number | null
+    updated_by_id: number
   }, ExtArgs["result"]["userRole"]>
   composites: {}
 }
@@ -1523,6 +1786,7 @@ export interface Prisma__UserRoleClient<T, Null = never, ExtArgs extends runtime
   readonly [Symbol.toStringTag]: "PrismaPromise"
   granted_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   revoked_by<T extends Prisma.UserRole$revoked_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserRole$revoked_byArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  updated_by<T extends Prisma.UserRole$updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserRole$updated_byArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   role<T extends Prisma.RoleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoleDefaultArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
@@ -1561,8 +1825,10 @@ export interface UserRoleFieldRefs {
   readonly status: Prisma.FieldRef<"UserRole", 'RBACStatus'>
   readonly granted_at: Prisma.FieldRef<"UserRole", 'DateTime'>
   readonly revoked_at: Prisma.FieldRef<"UserRole", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"UserRole", 'DateTime'>
   readonly granted_by_id: Prisma.FieldRef<"UserRole", 'Int'>
   readonly revoked_by_id: Prisma.FieldRef<"UserRole", 'Int'>
+  readonly updated_by_id: Prisma.FieldRef<"UserRole", 'Int'>
 }
     
 
@@ -1967,6 +2233,25 @@ export type UserRoleDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
  * UserRole.revoked_by
  */
 export type UserRole$revoked_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the User
+   */
+  select?: Prisma.UserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the User
+   */
+  omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  where?: Prisma.UserWhereInput
+}
+
+/**
+ * UserRole.updated_by
+ */
+export type UserRole$updated_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the User
    */
