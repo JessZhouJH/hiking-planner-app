@@ -7,6 +7,9 @@ import {
     module,
 } from '../../src/common/model-info'
 import { upsertUserData } from '../../src/services/access_control/user.service'
+import { upsertRoleData } from '../../src/services/access_control/role.service'
+import { upsertPermissionData } from '../../src/services/access_control/permission.service'
+import { upsertUserRoleData } from '../../src/services/access_control/user_role.sesrvice'
 
 export async function seedAccessControl() {
     // User
@@ -26,116 +29,43 @@ export async function seedAccessControl() {
         },
     })
 
-    const adam = await prisma.user.upsert({
-        where: { email: 'adam@hiking.com' },
-        update: {},
-        create: {
-            name: 'Adam',
-            email: 'adam@hiking.com',
-            created_by_id: system.id,
-            updated_by_id: system.id,
-        },
-    })
-    const ben = await prisma.user.upsert({
-        where: { email: 'ben@hiking.com' },
-        update: {},
-        create: {
-            name: 'Ben',
-            email: 'ben@hiking.com',
-            created_by_id: system.id,
-            updated_by_id: system.id,
-        },
-    })
-    const charlie = await prisma.user.upsert({
-        where: { email: 'charlie@sampleuser.com' },
-        update: {},
-        create: {
-            name: 'Charlie',
-            email: 'charlie@sampleuser.com',
-            created_by_id: system.id,
-            updated_by_id: system.id,
-        },
-    })
-    const dean = await upsertUserData("Dean", "dean@sampleuser.com", system.id)
+    const adam = await upsertUserData('Adam', 'adam@sampleuser.com', system.id)
+    const ben = await upsertUserData('Ben', 'ben@sampleuser.com', system.id)
+    const charlie = await upsertUserData(
+        'Charlie',
+        'charlie@sampleuser.com',
+        system.id
+    )
+    const dean = await upsertUserData('Dean', 'dean@sampleuser.com', system.id)
 
     // Role
-    const admin = await prisma.role.upsert({
-        where: { name: 'Admin' },
-        update: {},
-        create: {
-            name: 'Admin',
-            created_by_id: system.id,
-            updated_by_id: system.id,
-        },
-    })
-    const moderator = await prisma.role.upsert({
-        where: { name: 'Moderator' },
-        update: {},
-        create: {
-            name: 'Moderator',
-            created_by_id: system.id,
-            updated_by_id: system.id,
-        },
-    })
-    const user = await prisma.role.upsert({
-        where: { name: 'User' },
-        update: {},
-        create: {
-            name: 'User',
-            created_by_id: system.id,
-            updated_by_id: system.id,
-        },
-    })
+    const admin = await upsertRoleData('Admin', system.id)
+    const moderator = await upsertRoleData('Moderator', system.id)
+    const user = await upsertRoleData('User', system.id)
 
     // Permission
     for (var module of MODEL_INFO) {
-        // console.log(module.name)
         for (var model of module.models) {
             for (var permission of model.permissions) {
-                await prisma.permission.upsert({
-                    where: { name: permission },
-                    update: {},
-                    create: {
-                        name: permission,
-                        created_by_id: system.id,
-                        updated_by_id: system.id,
-                    },
-                })
+                await upsertPermissionData(permission, system.id)
             }
         }
     }
 
     // UserRole
-    async function createUserRole(
-        user_id: number,
-        role_id: number,
-        granted_by_id: number
-    ) {
-        const existing_user_role = await prisma.userRole.findFirst({
-            where: {
-                user_id: user_id,
-                role_id: role_id,
-                status: Status.ACTIVE,
-            },
-        })
-        if (existing_user_role) return existing_user_role
-        const new_user_role = await prisma.userRole.create({
-            data: {
-                user_id: user_id,
-                role_id: role_id,
-                granted_by_id: granted_by_id,
-            },
-        })
-        return new_user_role
-    }
-    await createUserRole(system.id, admin.id, system.id)
-    await createUserRole(adam.id, admin.id, system.id)
-    await createUserRole(ben.id, moderator.id, system.id)
-    await createUserRole(charlie.id, user.id, system.id)
+
+    await upsertUserRoleData(system.id, admin.id, system.id)
+    await upsertUserRoleData(adam.id, admin.id, system.id)
+    await upsertUserRoleData(ben.id, moderator.id, system.id)
+    await upsertUserRoleData(charlie.id, user.id, system.id)
 
     // RolePermission -- only AccessControl Module is used for seeding
 
-    async function createRolePermission(role_id: number, permission_id: number, granted_by_id: number) {
+    async function createRolePermission(
+        role_id: number,
+        permission_id: number,
+        granted_by_id: number
+    ) {
         const existing_role_permission = await prisma.rolePermission.findFirst({
             where: {
                 role_id: role_id,

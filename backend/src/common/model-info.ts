@@ -1,6 +1,6 @@
 export enum managedBy {
-    user,
-    system,
+    USER,
+    SYSTEM,
 }
 export type model = {
     name: string
@@ -13,7 +13,29 @@ export type module = {
     managedBy: managedBy
 }
 
-const generalAccessTypes = ['create', 'read', 'update', 'write']
+export enum findUserByType {
+    ID,
+    NAME,
+    EMAIL,
+}
+
+export enum accessTypeList {
+    CREATE,
+    READ,
+    UPDATE,
+    DELETE,
+    VERIFY,
+    EXPORT,
+}
+
+export type accessType = {
+    access: accessTypeList
+    name: string
+}
+
+export const GENERAL_ACCESS = ['create', 'read', 'update', 'write']
+export const VERIFICATION_ACCESS = 'verify'
+export const EXPORT_ACCESS = 'export'
 
 export const VERIFY_MODEL_NAMES: string[] = [
     'MediaArchive',
@@ -161,7 +183,7 @@ export function generateModelInfo() {
         let currentModuleModels: model[] = []
         for (var model of module.models) {
             let modelPermissions: string[] = []
-            for (var access of generalAccessTypes) {
+            for (var access of GENERAL_ACCESS) {
                 let currentPermission = `${model}.${access}`
                 modelPermissions.push(currentPermission)
             }
@@ -181,8 +203,8 @@ export function generateModelInfo() {
             models: currentModuleModels,
             managedBy:
                 USER_MANAGED_MODULES.indexOf(module.name) > -1
-                    ? managedBy.user
-                    : managedBy.system,
+                    ? managedBy.USER
+                    : managedBy.SYSTEM,
         }
         modules.push(currentModule)
     }
