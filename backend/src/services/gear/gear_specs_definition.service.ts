@@ -1,0 +1,85 @@
+import 'dotenv/config'
+import { Pool } from 'pg'
+import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaClient } from '../../generated/prisma/client.js'
+
+import { Status, ValueType } from '../../generated/prisma/enums.js'
+import { arch } from 'node:os'
+
+const connectionString = `${process.env.DATABASE_URL}`
+const pool = new Pool({ connectionString })
+const adapter = new PrismaPg(pool)
+const prisma = new PrismaClient({ adapter })
+
+export async function findGearSpecsDefinitionById( id: number ){
+    return await prisma.gearSpecsDefinition.findUnique({ where: { id: id }})
+}
+
+export async function findGearSpecsDefinitionByNameAndType(
+    name: string,
+    gear_type_id: number
+) {
+    return await prisma.gearSpecsDefinition.findFirst({
+        where: {
+            name: name,
+            gear_type_id: gear_type_id,
+        }
+    })
+}
+
+export async function createGearSpecsDefitionData(
+    name: string,
+    gear_type_id: number,
+    value_type: ValueType,
+    actor_user_id: number,
+
+    is_key_spec?: boolean,
+    is_variant_sensitive?: boolean,
+    default_unit_id?: number,
+    
+    status?: Status,
+    notes?: string
+) {
+    // check whether there's already an entry with given name and gear_type_id in the database
+    const exisiting_gear_specs_definition = await findGearSpecsDefinitionByNameAndType(name, gear_type_id)
+    if (exisiting_gear_specs_definition) {
+        // update the record with given data
+        return await prisma.gearSpecsDefinition.update({
+            where: { id: exisiting_gear_specs_definition.id },
+            data: {
+                updated_by_id: actor_user_id,
+                value_type: value_type,
+                ...(default_unit_id !== undefined && {
+                    default_unit_id: default_unit_id
+                }),
+                ...(status != undefined && {
+                    status: status
+                }),
+                ...(is_key_spec !== undefined && {
+                    is_key_spec: is_key_spec
+                }),
+                ...(is_variant_sensitive !== undefined && {
+                    is_variant_sensitive: is_variant_sensitive
+                }),
+                ...(notes !== undefined && {
+                    notes: notes
+                })
+            }
+        })
+    }
+
+    // create new entry
+    return await prisma.gearSpecsDefinition.create({
+        data: {
+            name: name,
+            gear_type_id: gear_type_id,
+            value_type: value_type,
+            created_by_id: actor_user_id,
+            updated_by_id: actor_user_id,
+            status: status ?? Status.ACTIVE,
+            is_key_spec: is_key_spec ?? false,
+            is_variant_sensitive: is_variant_sensitive ?? false,
+            notes: notes
+        }
+    })
+}
