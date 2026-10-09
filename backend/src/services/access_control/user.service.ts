@@ -3,15 +3,36 @@ import { Pool } from 'pg'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '../../generated/prisma/client.js'
 import { Status } from '../../generated/prisma/enums.js'
+import type { User } from '../../generated/prisma/client.js'
 
 const connectionString = `${process.env.DATABASE_URL}`
 const pool = new Pool({ connectionString })
 const adapter = new PrismaPg(pool)
 const prisma = new PrismaClient({ adapter })
 
-const MODEL_NAME = 'User'
+/**
+ * findUserById(), findUserByEmail(), findUserByName()
+ * functions to find user in the database by three potential fields:
+ * - id, email, name
+ * **/
+export async function findUserById(id: number) {
+    return await prisma.user.findUnique({
+        where: { id: id },
+    })
+}
+export async function findUserByEmail(email: string) {
+    return await prisma.user.findUnique({
+        where: { email: email },
+    })
+}
+export async function findUserByName(name: string) {
+    return await prisma.user.findMany({
+        where: { name: name },
+    })
+}
 
 /**
+ * createUserData()
  * function to create user data without checking whether user exists or not
  * suitable when the caller has already ensured that the user does not exist
  * **/
@@ -40,68 +61,82 @@ export async function createUserData(
 }
 
 /**
- * function to create user data with checking whether user exists or not before wring user data
- * suitable for creating the user entry in general
+ * isInputIdenticalToDb()
+ * Function to check whether the input is identical to database user data,
+ * Undefined input fields are ignored.
+ * Used to avoid unnecessary update
+ * **/
+export function isInputIdenticalToDb(
+    db_user: User,
+    name?: string,
+    password_hash?: string | null,
+    avatar_key?: string | null,
+    status?: Status,
+    notes?: string | null
+) {
+    return (
+        (name === undefined || name === db_user.name) &&
+        (password_hash === undefined || password_hash === db_user.password_hash) &&
+        (avatar_key === undefined || avatar_key === db_user.avatar_key) &&
+        (status === undefined || status === db_user.status) && 
+        (notes === undefined || notes === db_user.notes)
+        )
+}
+
+/**
+ * upsertUserData()
+ * Function to create user data with checking whether user exists or not before writing user data
+ * Suitable for creating the user entry in general
  * **/
 export async function upsertUserData(
     name: string,
     email: string,
     actor_user_id: number,
-    status?: Status,
     password_hash?: string | null,
     avatar_key?: string | null,
+    status?: Status,
     notes?: string | null
 ) {
-    return await prisma.user.upsert({
-        where: { email: email },
-        // if user already exisited, update data with input value
-        update: {
-            name: name,
-            ...(status !== undefined && {
-                status: status,
-            }),
-            updated_by_id: actor_user_id,
-            ...(password_hash !== undefined && {
-                password_hash: password_hash,
-            }),
-            ...(avatar_key !== undefined && {
-                avatar_key: avatar_key,
-            }),
-            ...(notes !== undefined && {
-                notes: notes,
-            }),
-        },
-        // create new user entry
-        create: {
+    // check whether user with given email exists in the database already
+    const existing_user = await findUserByEmail(email)
+    if (existing_user) {
+        if (isInputIdenticalToDb(existing_user, name, password_hash, avatar_key, status, notes)) {
+            return existing_user
+        }
+        return prisma.user.update({
+            where: { id: existing_user.id },
+            data: {
+                name: name,
+                ...(status !== undefined && {
+                    status: status,
+                }),
+                updated_by_id: actor_user_id,
+                ...(password_hash !== undefined && {
+                    password_hash: password_hash,
+                }),
+                ...(avatar_key !== undefined && {
+                    avatar_key: avatar_key,
+                }),
+                ...(notes !== undefined && {
+                    notes: notes,
+                }),
+            }
+        })
+    }
+    // create new user record
+    return prisma.user.create({
+        data: {
             name: name,
             email: email,
             created_by_id: actor_user_id,
             updated_by_id: actor_user_id,
             password_hash: password_hash ?? null,
             avatar_key: avatar_key ?? null,
+            status: status ?? Status.ACTIVE,
             notes: notes ?? null
         },
     })
-}
-
-/**
- * functions to find user in the database by three potential fields:
- * - id, name, email
- * **/
-export async function findUserById(id: number) {
-    return await prisma.user.findUnique({
-        where: { id: id },
-    })
-}
-export async function findUserByEmail(email: string) {
-    return await prisma.user.findUnique({
-        where: { email: email },
-    })
-}
-export async function findUserByName(name: string) {
-    return await prisma.user.findMany({
-        where: { name: name },
-    })
+    
 }
 
 /**

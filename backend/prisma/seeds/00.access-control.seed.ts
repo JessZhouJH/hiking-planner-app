@@ -9,7 +9,7 @@ import {
 import { upsertUserData } from '../../src/services/access_control/user.service'
 import { upsertRoleData } from '../../src/services/access_control/role.service'
 import { upsertPermissionData } from '../../src/services/access_control/permission.service'
-import { grantUserRole } from '../../src/services/access_control/user_role.sesrvice'
+import { upsertUserRoleData } from '../../src/services/access_control/user_role.sesrvice'
 import { grantRolePermission } from '../../src/services/access_control/role_permission.service'
 export async function seedAccessControl() {
     // User
@@ -54,11 +54,11 @@ export async function seedAccessControl() {
 
     // UserRole
 
-    await grantUserRole(system.id, admin.id, system.id)
-    await grantUserRole(adam.id, admin.id, system.id)
-    await grantUserRole(ben.id, moderator.id, system.id)
-    await grantUserRole(charlie.id, user.id, system.id)
-    await grantUserRole(dean.id, user.id, system.id)
+    await upsertUserRoleData(system.id, admin.id, system.id)
+    await upsertUserRoleData(adam.id, admin.id, system.id)
+    await upsertUserRoleData(ben.id, moderator.id, system.id)
+    await upsertUserRoleData(charlie.id, user.id, system.id)
+    await upsertUserRoleData(dean.id, user.id, system.id)
 
     // RolePermission -- only AccessControl Module is used for seeding
     let AccessControl: module = MODEL_INFO[0]

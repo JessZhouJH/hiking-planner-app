@@ -4,7 +4,6 @@ import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '../../generated/prisma/client.js'
 
 import { Status, ValueType } from '../../generated/prisma/enums.js'
-import { arch } from 'node:os'
 
 const connectionString = `${process.env.DATABASE_URL}`
 const pool = new Pool({ connectionString })
@@ -36,7 +35,7 @@ export async function createGearSpecsDefitionData(
     is_key_spec?: boolean,
     is_variant_sensitive?: boolean,
     default_unit_id?: number,
-    
+
     status?: Status,
     notes?: string
 ) {
