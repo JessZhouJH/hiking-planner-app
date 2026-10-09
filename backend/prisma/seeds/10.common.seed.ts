@@ -3,45 +3,48 @@ import {
     Status,
     UnitCategory,
     DescribingTargetType,
-    AliasTargetType
+    AliasTargetType,
 } from '../../src/generated/prisma/enums'
 
 import { SYSTEM_USER_ID } from '../../src/constants/macros'
 import { upsertUnitData } from '../../src/services/common/unit.service'
+import { upsertTagData } from '../../src/services/common/tag.service'
+import { upsertTagGroupData } from '../../src/services/common/tag_group.service'
+import { createTagRelationData } from '../../src/services/common/tag_relation.service'
 
 export async function seedCommon() {
     // Alias
     async function findExistingTargetTypeObject(
         target_object_type: AliasTargetType,
-        target_object_id: number,
-    ) { 
-        switch(target_object_type) {
+        target_object_id: number
+    ) {
+        switch (target_object_type) {
             case AliasTargetType.BRAND:
                 return await prisma.brand.findUnique({
-                    where: { id: target_object_id }
+                    where: { id: target_object_id },
                 })
             case AliasTargetType.GEAR:
                 return await prisma.gear.findUnique({
-                    where: { id: target_object_id }
+                    where: { id: target_object_id },
                 })
             case AliasTargetType.TRAIL:
                 return await prisma.trail.findUnique({
-                    where: { id: target_object_id }
+                    where: { id: target_object_id },
                 })
             case AliasTargetType.ACCESS_POINT:
                 return await prisma.accessPoint.findUnique({
-                    where: { id: target_object_id }
+                    where: { id: target_object_id },
                 })
             case AliasTargetType.DESCRIPTIVE_GEAR:
                 return await prisma.descriptiveGear.findUnique({
-                    where: { id: target_object_id }
+                    where: { id: target_object_id },
                 })
             default:
                 return null
         }
     }
 
-    async function findExistingAlias (
+    async function findExistingAlias(
         target_object_type: AliasTargetType,
         target_object_id: number,
         alias: string
@@ -51,7 +54,7 @@ export async function seedCommon() {
                 target_object_type: target_object_type,
                 target_object_id: target_object_id,
                 alias: alias,
-            }
+            },
         })
     }
 
@@ -61,9 +64,16 @@ export async function seedCommon() {
         alias: string,
         user_id: number
     ) {
-        const existing_target_object = await findExistingTargetTypeObject(target_object_type, target_object_id)
+        const existing_target_object = await findExistingTargetTypeObject(
+            target_object_type,
+            target_object_id
+        )
         const existing_alias = existing_target_object
-            ? await findExistingAlias(target_object_type, target_object_id, alias)
+            ? await findExistingAlias(
+                  target_object_type,
+                  target_object_id,
+                  alias
+              )
             : null
         if (existing_alias) return existing_alias
         return await prisma.alias.create({
@@ -72,18 +82,33 @@ export async function seedCommon() {
                 target_object_id: target_object_id,
                 alias: alias,
                 created_by_id: user_id,
-                updated_by_id: user_id
-            }
+                updated_by_id: user_id,
+            },
         })
     }
 
     const sea_to_summit_brand = await prisma.brand.findFirst({
-        where: { name: "Sea To Summit" }
+        where: { name: 'Sea To Summit' },
     })
     if (sea_to_summit_brand) {
-        await createAlias(AliasTargetType.BRAND, sea_to_summit_brand.id, "sea to summit", SYSTEM_USER_ID)
-        await createAlias(AliasTargetType.BRAND, sea_to_summit_brand.id, "sts", SYSTEM_USER_ID)
-        await createAlias(AliasTargetType.BRAND, sea_to_summit_brand.id, "STS", SYSTEM_USER_ID)
+        await createAlias(
+            AliasTargetType.BRAND,
+            sea_to_summit_brand.id,
+            'sea to summit',
+            SYSTEM_USER_ID
+        )
+        await createAlias(
+            AliasTargetType.BRAND,
+            sea_to_summit_brand.id,
+            'sts',
+            SYSTEM_USER_ID
+        )
+        await createAlias(
+            AliasTargetType.BRAND,
+            sea_to_summit_brand.id,
+            'STS',
+            SYSTEM_USER_ID
+        )
     }
 
     // MediaArchive
@@ -93,7 +118,12 @@ export async function seedCommon() {
     // Unit
     await upsertUnitData('Kilogram', UnitCategory.WEIGHT, SYSTEM_USER_ID, 'kg')
     await upsertUnitData('Gram', UnitCategory.WEIGHT, SYSTEM_USER_ID, 'g')
-    await upsertUnitData('Celsius', UnitCategory.TEMPERATURE, SYSTEM_USER_ID, '℃')
+    await upsertUnitData(
+        'Celsius',
+        UnitCategory.TEMPERATURE,
+        SYSTEM_USER_ID,
+        '℃'
+    )
     await upsertUnitData(
         'Fahrenheit',
         UnitCategory.TEMPERATURE,
@@ -102,250 +132,238 @@ export async function seedCommon() {
     )
     await upsertUnitData('Kilometer', UnitCategory.LENGTH, SYSTEM_USER_ID, 'km')
     await upsertUnitData('Meter', UnitCategory.LENGTH, SYSTEM_USER_ID, ',m')
-    await upsertUnitData('Centimeter', UnitCategory.LENGTH, SYSTEM_USER_ID, 'cm')
-    await upsertUnitData('Millimeter', UnitCategory.LENGTH, SYSTEM_USER_ID, 'mm')
-    await upsertUnitData('Liter', UnitCategory.VOLUME, SYSTEM_USER_ID, "L")
-    await upsertUnitData('Milliliter', UnitCategory.VOLUME, SYSTEM_USER_ID, "ml")
-    await upsertUnitData('Square Meter', UnitCategory.AREA, SYSTEM_USER_ID, "㎡")
-    await upsertUnitData('Lumen', UnitCategory.LUMINOUS_FLUX, SYSTEM_USER_ID, "lumen")
-    await upsertUnitData('Hour', UnitCategory.DURATION, SYSTEM_USER_ID, "hrs")
-    await upsertUnitData('Minutes', UnitCategory.DURATION, SYSTEM_USER_ID, "mins")
+    await upsertUnitData(
+        'Centimeter',
+        UnitCategory.LENGTH,
+        SYSTEM_USER_ID,
+        'cm'
+    )
+    await upsertUnitData(
+        'Millimeter',
+        UnitCategory.LENGTH,
+        SYSTEM_USER_ID,
+        'mm'
+    )
+    await upsertUnitData('Liter', UnitCategory.VOLUME, SYSTEM_USER_ID, 'L')
+    await upsertUnitData(
+        'Milliliter',
+        UnitCategory.VOLUME,
+        SYSTEM_USER_ID,
+        'ml'
+    )
+    await upsertUnitData(
+        'Square Meter',
+        UnitCategory.AREA,
+        SYSTEM_USER_ID,
+        '㎡'
+    )
+    await upsertUnitData(
+        'Lumen',
+        UnitCategory.LUMINOUS_FLUX,
+        SYSTEM_USER_ID,
+        'lumen'
+    )
+    await upsertUnitData('Hour', UnitCategory.DURATION, SYSTEM_USER_ID, 'hrs')
+    await upsertUnitData(
+        'Minutes',
+        UnitCategory.DURATION,
+        SYSTEM_USER_ID,
+        'mins'
+    )
 
     // Tag
-    async function createTag(
-        name: string,
-        user_id: number,
-        describing_target_type?: DescribingTargetType
-    ) {
-        const new_tag = await prisma.tag.upsert({
-            where: { name: name },
-            update: {},
-            create: {
-                name: name,
-                created_by_id: user_id,
-                updated_by_id: user_id,
-                describe_target_type: describing_target_type
-                    ? describing_target_type
-                    : DescribingTargetType.GEAR_AND_TRAIL,
-            },
-        })
-        return new_tag
-    }
-    const alpine_tag = await createTag('Alpine', SYSTEM_USER_ID)
-    const trail_running_tag = await createTag('Trail Running', SYSTEM_USER_ID)
-    const multiday_tag = await createTag('Multiday', SYSTEM_USER_ID)
-    const ultralight_tag = await createTag(
+    const alpine_tag = await upsertTagData('Alpine', SYSTEM_USER_ID)
+    const trail_running_tag = await upsertTagData(
+        'Trail Running',
+        SYSTEM_USER_ID
+    )
+    const multiday_tag = await upsertTagData('Multiday', SYSTEM_USER_ID)
+    const ultralight_tag = await upsertTagData(
         'Ultralight',
         SYSTEM_USER_ID,
         DescribingTargetType.GEAR
     )
-    const technical_tag = await createTag('Technical', SYSTEM_USER_ID)
-    const wet_weather_tag = await createTag('Wet Weather', SYSTEM_USER_ID)
-    const cold_weather_tag = await createTag('Cold Weather', SYSTEM_USER_ID)
-    const waterproof_tag = await createTag(
+    const technical_tag = await upsertTagData('Technical', SYSTEM_USER_ID)
+    const wet_weather_tag = await upsertTagData('Wet Weather', SYSTEM_USER_ID)
+    const cold_weather_tag = await upsertTagData('Cold Weather', SYSTEM_USER_ID)
+    const waterproof_tag = await upsertTagData(
         'Waterproof',
         SYSTEM_USER_ID,
         DescribingTargetType.GEAR
     )
-    const sleeping_system_tag = await createTag(
+    const sleeping_system_tag = await upsertTagData(
         'Sleeping System',
         SYSTEM_USER_ID,
         DescribingTargetType.GEAR
     )
-    const hydration_tag = await createTag(
+    const hydration_tag = await upsertTagData(
         'Hydration',
         SYSTEM_USER_ID,
         DescribingTargetType.GEAR
     )
-    const hiking_boots_tag = await createTag(
+    const hiking_boots_tag = await upsertTagData(
         'Hiking Boots',
         SYSTEM_USER_ID,
         DescribingTargetType.GEAR
     )
-    const hiking_shoes_tag = await createTag(
+    const hiking_shoes_tag = await upsertTagData(
         'Hiking Shoes',
         SYSTEM_USER_ID,
         DescribingTargetType.GEAR
     )
-    const trail_running_shoes_tag = await createTag(
+    const trail_running_shoes_tag = await upsertTagData(
         'Trail Running Shoes',
         SYSTEM_USER_ID,
         DescribingTargetType.GEAR
     )
-    const extended_fit_tag = await createTag(
+    const extended_fit_tag = await upsertTagData(
         'Extended Fit',
         SYSTEM_USER_ID,
         DescribingTargetType.GEAR
     )
-    const remote_tag = await createTag(
+    const remote_tag = await upsertTagData(
         'Remote',
         SYSTEM_USER_ID,
         DescribingTargetType.TRAIL
     )
 
     // TagGroup
-    async function createTagGroup(name: string, user_id: number) {
-        const new_tag_group = await prisma.tagGroup.upsert({
-            where: { name: name },
-            update: {},
-            create: {
-                name: name,
-                created_by_id: user_id,
-                updated_by_id: user_id,
-            },
-        })
-        return new_tag_group
-    }
-    const terrain_tag_group = await createTagGroup('Terrain', SYSTEM_USER_ID)
-    const activity_tag_group = await createTagGroup('Activity', SYSTEM_USER_ID)
-    const techinical_use_tag_group = await createTagGroup(
+    const terrain_tag_group = await upsertTagGroupData(
+        'Terrain',
+        SYSTEM_USER_ID
+    )
+    const activity_tag_group = await upsertTagGroupData(
+        'Activity',
+        SYSTEM_USER_ID
+    )
+    const techinical_use_tag_group = await upsertTagGroupData(
         'Technical Use',
         SYSTEM_USER_ID
     )
-    const footwear_tag_group = await createTagGroup('Footwear', SYSTEM_USER_ID)
-    const gear_system_tag_group = await createTagGroup(
+    const footwear_tag_group = await upsertTagGroupData(
+        'Footwear',
+        SYSTEM_USER_ID
+    )
+    const gear_system_tag_group = await upsertTagGroupData(
         'Gear System',
         SYSTEM_USER_ID
     )
-    const gear_characteristics_tag_group = await createTagGroup(
+    const gear_characteristics_tag_group = await upsertTagGroupData(
         'Gear Characteristics',
         SYSTEM_USER_ID
     )
 
     // TagRelation
-    async function createTagRelation(
-        parent_tag_id: number,
-        child_tag_id: number,
-        user_id: number
-    ) {
-        const existing_tag_relation = await prisma.tagRelation.findFirst({
-            where: {
-                parent_tag_id: parent_tag_id,
-                child_tag_id: child_tag_id,
-                status: Status.ACTIVE,
-            },
-        })
-        if (existing_tag_relation) return existing_tag_relation
-        const new_tag_relation = await prisma.tagRelation.create({
-            data: {
-                parent_tag_id: parent_tag_id,
-                child_tag_id: child_tag_id,
-                created_by_id: user_id,
-                updated_by_id: user_id,
-            },
-        })
-        return new_tag_relation
-    }
-    await createTagRelation(
+    await createTagRelationData(
         trail_running_tag.id,
         trail_running_shoes_tag.id,
         SYSTEM_USER_ID
     )
-    await createTagRelation(
+    await createTagRelationData(
         wet_weather_tag.id,
         waterproof_tag.id,
         SYSTEM_USER_ID
     )
-    await createTagRelation(
+    await createTagRelationData(
         multiday_tag.id,
         sleeping_system_tag.id,
         SYSTEM_USER_ID
     )
-    await createTagRelation(alpine_tag.id, technical_tag.id, SYSTEM_USER_ID)
+    await createTagRelationData(alpine_tag.id, technical_tag.id, SYSTEM_USER_ID)
 
     // TagGroupRelation
-    async function createTagGroupRelation(
-        tag_group_id: number,
-        tag_id: number,
-        user_id: number
-    ) {
-        const existing_tag_group_relation =
-            await prisma.tagGroupRelation.findFirst({
-                where: {
-                    tag_group_id: tag_group_id,
-                    tag_id: tag_id,
-                    status: Status.ACTIVE,
-                },
-            })
-        if (existing_tag_group_relation) return existing_tag_group_relation
-        const new_tag_group_relation = await prisma.tagGroupRelation.create({
-            data: {
-                tag_group_id: tag_group_id,
-                tag_id: tag_id,
-                created_by_id: user_id,
-                updated_by_id: user_id,
-            },
-        })
-        return new_tag_group_relation
-    }
-    await createTagGroupRelation(
-        terrain_tag_group.id,
-        alpine_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        activity_tag_group.id,
-        trail_running_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        activity_tag_group.id,
-        multiday_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        techinical_use_tag_group.id,
-        alpine_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        techinical_use_tag_group.id,
-        technical_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        techinical_use_tag_group.id,
-        trail_running_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        footwear_tag_group.id,
-        hiking_boots_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        footwear_tag_group.id,
-        hiking_shoes_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        footwear_tag_group.id,
-        trail_running_shoes_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        gear_system_tag_group.id,
-        sleeping_system_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        gear_system_tag_group.id,
-        hydration_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        gear_characteristics_tag_group.id,
-        ultralight_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        gear_characteristics_tag_group.id,
-        waterproof_tag.id,
-        SYSTEM_USER_ID
-    )
-    await createTagGroupRelation(
-        gear_characteristics_tag_group.id,
-        extended_fit_tag.id,
-        SYSTEM_USER_ID
-    )
+    // async function createTagGroupRelation(
+    //     tag_group_id: number,
+    //     tag_id: number,
+    //     user_id: number
+    // ) {
+    //     const existing_tag_group_relation =
+    //         await prisma.tagGroupRelation.findFirst({
+    //             where: {
+    //                 tag_group_id: tag_group_id,
+    //                 tag_id: tag_id,
+    //                 status: Status.ACTIVE,
+    //             },
+    //         })
+    //     if (existing_tag_group_relation) return existing_tag_group_relation
+    //     const new_tag_group_relation = await prisma.tagGroupRelation.create({
+    //         data: {
+    //             tag_group_id: tag_group_id,
+    //             tag_id: tag_id,
+    //             created_by_id: user_id,
+    //             updated_by_id: user_id,
+    //         },
+    //     })
+    //     return new_tag_group_relation
+    // }
+    // await createTagGroupRelation(
+    //     terrain_tag_group.id,
+    //     alpine_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     activity_tag_group.id,
+    //     trail_running_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     activity_tag_group.id,
+    //     multiday_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     techinical_use_tag_group.id,
+    //     alpine_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     techinical_use_tag_group.id,
+    //     technical_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     techinical_use_tag_group.id,
+    //     trail_running_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     footwear_tag_group.id,
+    //     hiking_boots_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     footwear_tag_group.id,
+    //     hiking_shoes_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     footwear_tag_group.id,
+    //     trail_running_shoes_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     gear_system_tag_group.id,
+    //     sleeping_system_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     gear_system_tag_group.id,
+    //     hydration_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     gear_characteristics_tag_group.id,
+    //     ultralight_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     gear_characteristics_tag_group.id,
+    //     waterproof_tag.id,
+    //     SYSTEM_USER_ID
+    // )
+    // await createTagGroupRelation(
+    //     gear_characteristics_tag_group.id,
+    //     extended_fit_tag.id,
+    //     SYSTEM_USER_ID
+    // )
 }
