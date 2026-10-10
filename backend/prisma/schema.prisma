@@ -1316,6 +1316,7 @@ model Gear {
 model DescriptiveGear {
   id Int @id @default(autoincrement())
   name String @unique
+  preview_img_key String?
 
   owner_id Int
   visibility Visibility @default(UNSPECIFIED)
@@ -1416,6 +1417,8 @@ model GearVariant {
 
   gear_specs__gear_variant GearSpecs[] @relation("GearSpecsGearVariant")
   gear_feature__gear_variant GearFeature[] @relation("GearFeatureGearVariant")
+
+  @@unique([gear_id, gear_variant_name])
 }
 
 model GearTagRelation {

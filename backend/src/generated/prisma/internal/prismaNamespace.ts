@@ -6760,6 +6760,7 @@ export type GearScalarFieldEnum = (typeof GearScalarFieldEnum)[keyof typeof Gear
 export const DescriptiveGearScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  preview_img_key: 'preview_img_key',
   owner_id: 'owner_id',
   visibility: 'visibility',
   status: 'status',
