@@ -4,6 +4,7 @@ import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '../../generated/prisma/client.js'
 
 import { Status, AliasTargetType } from '../../generated/prisma/enums.js'
+import type { Alias } from '../../generated/prisma/client.js'
 
 const connectionString = `${process.env.DATABASE_URL}`
 const pool = new Pool({ connectionString })
@@ -28,6 +29,23 @@ export async function findAliasById ( id: number ){
     return await prisma.alias.findUnique({where: {id: id} })
 }
 
+/**
+ * isInputIdenticalToDb()
+ * Function to check whether the input is identical to database alias data,
+ * Undefined input fields are ignored.
+ * Used to avoid unnecessary update
+ * **/
+export function isInputIdenticalToDb(
+    db_alias: Alias,
+    status?: Status,
+    notes?: string | null
+) {
+    return (
+        (status === undefined || status === db_alias.status) && 
+        (notes === undefined || notes === db_alias.notes)
+        )
+}
+
 export async function upsertAliasData (
     target_object_type: AliasTargetType,
     target_object_id: number,
@@ -44,11 +62,8 @@ export async function upsertAliasData (
     )
     if (existing_alias) {
         // check whether the existed data is identical to input
-        const identical_data = (
-            status === undefined || status === existing_alias.status) && (
-            notes === undefined || notes === existing_alias.notes)
-        if (identical_data) return existing_alias
-        
+        if (isInputIdenticalToDb(existing_alias, status, notes)) return existing_alias
+        // update database record with input value
         return await prisma.alias.update({
             where: { id: existing_alias.id },
             data:{
@@ -62,7 +77,7 @@ export async function upsertAliasData (
             }
         })
     }
-
+    // create new alias 
     return await prisma.alias.create({
         data:{
             target_object_type: target_object_type,

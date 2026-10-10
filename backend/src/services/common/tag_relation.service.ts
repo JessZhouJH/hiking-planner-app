@@ -3,6 +3,7 @@ import { Pool } from 'pg'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '../../generated/prisma/client.js'
 import { Status } from '../../generated/prisma/enums.js'
+import type { TagRelation } from '../../generated/prisma/client.js'
 
 const connectionString = `${process.env.DATABASE_URL}`
 const pool = new Pool({ connectionString })
@@ -25,7 +26,24 @@ export async function findTagRelationByFks(
     })
 }
 
-export async function createTagRelationData(
+/**
+ * isInputIdenticalToDb()
+ * Function to check whether the input is identical to database parent-child tag relation data,
+ * Undefined input fields are ignored.
+ * Used to avoid unnecessary update
+ * **/
+export function isInputIdenticalToDb(
+    db_tag_relation: TagRelation,
+    status?: Status,
+    notes?: string | null
+) {
+    return (
+        (status === undefined || status === db_tag_relation.status) && 
+        (notes === undefined || notes === db_tag_relation.notes)
+        )
+}
+
+export async function upsertTagRelationData(
     parent_tag_id: number,
     child_tag_id: number,
     actor_user_id: number,
@@ -36,7 +54,10 @@ export async function createTagRelationData(
         parent_tag_id,
         child_tag_id
     )
-    if (exisiting_tag_relation)
+    if (exisiting_tag_relation){
+        // check whether the input is identical to database parent-child tag relation data
+        if (isInputIdenticalToDb(exisiting_tag_relation, status, notes)) return exisiting_tag_relation
+        // update database record with input value 
         return await prisma.tagRelation.update({
             where: { id: exisiting_tag_relation.id },
             data: {
@@ -49,6 +70,8 @@ export async function createTagRelationData(
                 }),
             },
         })
+    }
+    // create new tag relation record
     return await prisma.tagRelation.create({
         data: {
             parent_tag_id: parent_tag_id,
