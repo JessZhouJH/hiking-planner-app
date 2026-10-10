@@ -421,7 +421,6 @@ export const ModelName = {
   GearVariant: 'GearVariant',
   GearTagRelation: 'GearTagRelation',
   GearPack: 'GearPack',
-  GearPackTemplate: 'GearPackTemplate',
   GearPackComponent: 'GearPackComponent',
   Challenge: 'Challenge',
   ChallengeGearRequirement: 'ChallengeGearRequirement',
@@ -493,7 +492,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "role" | "permission" | "userRole" | "rolePermission" | "alias" | "mediaArchive" | "attachment" | "unit" | "tag" | "tagGroup" | "tagRelation" | "tagGroupRelation" | "brand" | "gearType" | "gearTypeRelation" | "gearSpecsDefinition" | "gear" | "descriptiveGear" | "gearSpecs" | "gearFeature" | "gearVariant" | "gearTagRelation" | "gearPack" | "gearPackTemplate" | "gearPackComponent" | "challenge" | "challengeGearRequirement" | "difficultySystem" | "difficultyMapping" | "trail" | "trailTagRelation" | "trailChallenge" | "trailCalendar" | "trailSource" | "trailGearRequirement" | "trailDifficulty" | "trailFacility" | "trailUse" | "trailProfile" | "trailProfileUse" | "accessPoint" | "accessPointCalendar" | "trailAccessPointRelation" | "trailGeometry" | "trailSegmentation" | "trailSegmentRelation" | "transportService" | "transportServiceCalendar" | "transportServiceStop" | "trailTransportService" | "mealPack" | "mealItem" | "mealPackItem" | "userTrail" | "userTrailCompletion" | "userGear" | "userGearPack" | "userGearPackItem" | "userPersonalArchive" | "userFeedback" | "userStickyNotes" | "userIdeaCapture" | "trip" | "tripAccommodation" | "tripGearList" | "tripMealPack" | "tripMealPackItem" | "tripTrail" | "tripTransport" | "criticalEvent" | "tripChecklist" | "tripChecklistItem" | "collection" | "collectionItem" | "userProposal" | "communityPublication" | "communityPublicationItem" | "communityPublicationAttachment" | "recordAction" | "contentReviewHistory"
+    modelProps: "user" | "role" | "permission" | "userRole" | "rolePermission" | "alias" | "mediaArchive" | "attachment" | "unit" | "tag" | "tagGroup" | "tagRelation" | "tagGroupRelation" | "brand" | "gearType" | "gearTypeRelation" | "gearSpecsDefinition" | "gear" | "descriptiveGear" | "gearSpecs" | "gearFeature" | "gearVariant" | "gearTagRelation" | "gearPack" | "gearPackComponent" | "challenge" | "challengeGearRequirement" | "difficultySystem" | "difficultyMapping" | "trail" | "trailTagRelation" | "trailChallenge" | "trailCalendar" | "trailSource" | "trailGearRequirement" | "trailDifficulty" | "trailFacility" | "trailUse" | "trailProfile" | "trailProfileUse" | "accessPoint" | "accessPointCalendar" | "trailAccessPointRelation" | "trailGeometry" | "trailSegmentation" | "trailSegmentRelation" | "transportService" | "transportServiceCalendar" | "transportServiceStop" | "trailTransportService" | "mealPack" | "mealItem" | "mealPackItem" | "userTrail" | "userTrailCompletion" | "userGear" | "userGearPack" | "userGearPackItem" | "userPersonalArchive" | "userFeedback" | "userStickyNotes" | "userIdeaCapture" | "trip" | "tripAccommodation" | "tripGearList" | "tripMealPack" | "tripMealPackItem" | "tripTrail" | "tripTransport" | "criticalEvent" | "tripChecklist" | "tripChecklistItem" | "collection" | "collectionItem" | "userProposal" | "communityPublication" | "communityPublicationItem" | "communityPublicationAttachment" | "recordAction" | "contentReviewHistory"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2270,80 +2269,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.GearPackCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.GearPackCountAggregateOutputType> | number
-        }
-      }
-    }
-    GearPackTemplate: {
-      payload: Prisma.$GearPackTemplatePayload<ExtArgs>
-      fields: Prisma.GearPackTemplateFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.GearPackTemplateFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.GearPackTemplateFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>
-        }
-        findFirst: {
-          args: Prisma.GearPackTemplateFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.GearPackTemplateFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>
-        }
-        findMany: {
-          args: Prisma.GearPackTemplateFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>[]
-        }
-        create: {
-          args: Prisma.GearPackTemplateCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>
-        }
-        createMany: {
-          args: Prisma.GearPackTemplateCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.GearPackTemplateCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>[]
-        }
-        delete: {
-          args: Prisma.GearPackTemplateDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>
-        }
-        update: {
-          args: Prisma.GearPackTemplateUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>
-        }
-        deleteMany: {
-          args: Prisma.GearPackTemplateDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.GearPackTemplateUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.GearPackTemplateUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>[]
-        }
-        upsert: {
-          args: Prisma.GearPackTemplateUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GearPackTemplatePayload>
-        }
-        aggregate: {
-          args: Prisma.GearPackTemplateAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateGearPackTemplate>
-        }
-        groupBy: {
-          args: Prisma.GearPackTemplateGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.GearPackTemplateGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.GearPackTemplateCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.GearPackTemplateCountAggregateOutputType> | number
         }
       }
     }
@@ -6939,28 +6864,15 @@ export const GearPackScalarFieldEnum = {
 export type GearPackScalarFieldEnum = (typeof GearPackScalarFieldEnum)[keyof typeof GearPackScalarFieldEnum]
 
 
-export const GearPackTemplateScalarFieldEnum = {
-  id: 'id',
-  gear_pack_id: 'gear_pack_id',
-  notes: 'notes',
-  status: 'status',
-  created_at: 'created_at',
-  created_by_id: 'created_by_id',
-  updated_at: 'updated_at',
-  updated_by_id: 'updated_by_id'
-} as const
-
-export type GearPackTemplateScalarFieldEnum = (typeof GearPackTemplateScalarFieldEnum)[keyof typeof GearPackTemplateScalarFieldEnum]
-
-
 export const GearPackComponentScalarFieldEnum = {
   id: 'id',
-  gear_pack_template_id: 'gear_pack_template_id',
+  gear_pack_id: 'gear_pack_id',
   gear_type_id: 'gear_type_id',
-  gear_description: 'gear_description',
+  descriptive_gear_id: 'descriptive_gear_id',
   requires_gear_detail: 'requires_gear_detail',
   default_frequency: 'default_frequency',
   default_qty: 'default_qty',
+  component_nickname: 'component_nickname',
   notes: 'notes',
   status: 'status',
   created_at: 'created_at',
@@ -7221,6 +7133,7 @@ export const TrailProfileScalarFieldEnum = {
   id: 'id',
   trail_type: 'trail_type',
   trail_id: 'trail_id',
+  name: 'name',
   primary_geometry_id: 'primary_geometry_id',
   distance: 'distance',
   elevation_gain: 'elevation_gain',
@@ -9146,7 +9059,6 @@ export type GlobalOmitConfig = {
   gearVariant?: Prisma.GearVariantOmit
   gearTagRelation?: Prisma.GearTagRelationOmit
   gearPack?: Prisma.GearPackOmit
-  gearPackTemplate?: Prisma.GearPackTemplateOmit
   gearPackComponent?: Prisma.GearPackComponentOmit
   challenge?: Prisma.ChallengeOmit
   challengeGearRequirement?: Prisma.ChallengeGearRequirementOmit

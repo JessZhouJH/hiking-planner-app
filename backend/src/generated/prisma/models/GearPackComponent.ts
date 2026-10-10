@@ -28,8 +28,9 @@ export type AggregateGearPackComponent = {
 
 export type GearPackComponentAvgAggregateOutputType = {
   id: number | null
-  gear_pack_template_id: number | null
+  gear_pack_id: number | null
   gear_type_id: number | null
+  descriptive_gear_id: number | null
   default_qty: number | null
   created_by_id: number | null
   updated_by_id: number | null
@@ -37,8 +38,9 @@ export type GearPackComponentAvgAggregateOutputType = {
 
 export type GearPackComponentSumAggregateOutputType = {
   id: number | null
-  gear_pack_template_id: number | null
+  gear_pack_id: number | null
   gear_type_id: number | null
+  descriptive_gear_id: number | null
   default_qty: number | null
   created_by_id: number | null
   updated_by_id: number | null
@@ -46,12 +48,13 @@ export type GearPackComponentSumAggregateOutputType = {
 
 export type GearPackComponentMinAggregateOutputType = {
   id: number | null
-  gear_pack_template_id: number | null
+  gear_pack_id: number | null
   gear_type_id: number | null
-  gear_description: string | null
+  descriptive_gear_id: number | null
   requires_gear_detail: boolean | null
   default_frequency: $Enums.Frequency | null
   default_qty: number | null
+  component_nickname: string | null
   notes: string | null
   status: $Enums.Status | null
   created_at: Date | null
@@ -62,12 +65,13 @@ export type GearPackComponentMinAggregateOutputType = {
 
 export type GearPackComponentMaxAggregateOutputType = {
   id: number | null
-  gear_pack_template_id: number | null
+  gear_pack_id: number | null
   gear_type_id: number | null
-  gear_description: string | null
+  descriptive_gear_id: number | null
   requires_gear_detail: boolean | null
   default_frequency: $Enums.Frequency | null
   default_qty: number | null
+  component_nickname: string | null
   notes: string | null
   status: $Enums.Status | null
   created_at: Date | null
@@ -78,12 +82,13 @@ export type GearPackComponentMaxAggregateOutputType = {
 
 export type GearPackComponentCountAggregateOutputType = {
   id: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id: number
-  gear_description: number
+  descriptive_gear_id: number
   requires_gear_detail: number
   default_frequency: number
   default_qty: number
+  component_nickname: number
   notes: number
   status: number
   created_at: number
@@ -96,8 +101,9 @@ export type GearPackComponentCountAggregateOutputType = {
 
 export type GearPackComponentAvgAggregateInputType = {
   id?: true
-  gear_pack_template_id?: true
+  gear_pack_id?: true
   gear_type_id?: true
+  descriptive_gear_id?: true
   default_qty?: true
   created_by_id?: true
   updated_by_id?: true
@@ -105,8 +111,9 @@ export type GearPackComponentAvgAggregateInputType = {
 
 export type GearPackComponentSumAggregateInputType = {
   id?: true
-  gear_pack_template_id?: true
+  gear_pack_id?: true
   gear_type_id?: true
+  descriptive_gear_id?: true
   default_qty?: true
   created_by_id?: true
   updated_by_id?: true
@@ -114,12 +121,13 @@ export type GearPackComponentSumAggregateInputType = {
 
 export type GearPackComponentMinAggregateInputType = {
   id?: true
-  gear_pack_template_id?: true
+  gear_pack_id?: true
   gear_type_id?: true
-  gear_description?: true
+  descriptive_gear_id?: true
   requires_gear_detail?: true
   default_frequency?: true
   default_qty?: true
+  component_nickname?: true
   notes?: true
   status?: true
   created_at?: true
@@ -130,12 +138,13 @@ export type GearPackComponentMinAggregateInputType = {
 
 export type GearPackComponentMaxAggregateInputType = {
   id?: true
-  gear_pack_template_id?: true
+  gear_pack_id?: true
   gear_type_id?: true
-  gear_description?: true
+  descriptive_gear_id?: true
   requires_gear_detail?: true
   default_frequency?: true
   default_qty?: true
+  component_nickname?: true
   notes?: true
   status?: true
   created_at?: true
@@ -146,12 +155,13 @@ export type GearPackComponentMaxAggregateInputType = {
 
 export type GearPackComponentCountAggregateInputType = {
   id?: true
-  gear_pack_template_id?: true
+  gear_pack_id?: true
   gear_type_id?: true
-  gear_description?: true
+  descriptive_gear_id?: true
   requires_gear_detail?: true
   default_frequency?: true
   default_qty?: true
+  component_nickname?: true
   notes?: true
   status?: true
   created_at?: true
@@ -249,12 +259,13 @@ export type GearPackComponentGroupByArgs<ExtArgs extends runtime.Types.Extension
 
 export type GearPackComponentGroupByOutputType = {
   id: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id: number | null
-  gear_description: string | null
+  descriptive_gear_id: number | null
   requires_gear_detail: boolean
   default_frequency: $Enums.Frequency
   default_qty: number
+  component_nickname: string | null
   notes: string | null
   status: $Enums.Status
   created_at: Date
@@ -288,12 +299,13 @@ export type GearPackComponentWhereInput = {
   OR?: Prisma.GearPackComponentWhereInput[]
   NOT?: Prisma.GearPackComponentWhereInput | Prisma.GearPackComponentWhereInput[]
   id?: Prisma.IntFilter<"GearPackComponent"> | number
-  gear_pack_template_id?: Prisma.IntFilter<"GearPackComponent"> | number
+  gear_pack_id?: Prisma.IntFilter<"GearPackComponent"> | number
   gear_type_id?: Prisma.IntNullableFilter<"GearPackComponent"> | number | null
-  gear_description?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
+  descriptive_gear_id?: Prisma.IntNullableFilter<"GearPackComponent"> | number | null
   requires_gear_detail?: Prisma.BoolFilter<"GearPackComponent"> | boolean
   default_frequency?: Prisma.EnumFrequencyFilter<"GearPackComponent"> | $Enums.Frequency
   default_qty?: Prisma.IntFilter<"GearPackComponent"> | number
+  component_nickname?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
   notes?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
   status?: Prisma.EnumStatusFilter<"GearPackComponent"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"GearPackComponent"> | Date | string
@@ -302,19 +314,21 @@ export type GearPackComponentWhereInput = {
   updated_by_id?: Prisma.IntFilter<"GearPackComponent"> | number
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  gear_pack_template?: Prisma.XOR<Prisma.GearPackTemplateScalarRelationFilter, Prisma.GearPackTemplateWhereInput>
+  gear_pack?: Prisma.XOR<Prisma.GearPackScalarRelationFilter, Prisma.GearPackWhereInput>
   gear_type?: Prisma.XOR<Prisma.GearTypeNullableScalarRelationFilter, Prisma.GearTypeWhereInput> | null
+  descriptive_gear?: Prisma.XOR<Prisma.DescriptiveGearNullableScalarRelationFilter, Prisma.DescriptiveGearWhereInput> | null
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemListRelationFilter
 }
 
 export type GearPackComponentOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  gear_pack_template_id?: Prisma.SortOrder
+  gear_pack_id?: Prisma.SortOrder
   gear_type_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  gear_description?: Prisma.SortOrderInput | Prisma.SortOrder
+  descriptive_gear_id?: Prisma.SortOrderInput | Prisma.SortOrder
   requires_gear_detail?: Prisma.SortOrder
   default_frequency?: Prisma.SortOrder
   default_qty?: Prisma.SortOrder
+  component_nickname?: Prisma.SortOrderInput | Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -323,8 +337,9 @@ export type GearPackComponentOrderByWithRelationInput = {
   updated_by_id?: Prisma.SortOrder
   created_by?: Prisma.UserOrderByWithRelationInput
   updated_by?: Prisma.UserOrderByWithRelationInput
-  gear_pack_template?: Prisma.GearPackTemplateOrderByWithRelationInput
+  gear_pack?: Prisma.GearPackOrderByWithRelationInput
   gear_type?: Prisma.GearTypeOrderByWithRelationInput
+  descriptive_gear?: Prisma.DescriptiveGearOrderByWithRelationInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemOrderByRelationAggregateInput
 }
 
@@ -333,12 +348,13 @@ export type GearPackComponentWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.GearPackComponentWhereInput | Prisma.GearPackComponentWhereInput[]
   OR?: Prisma.GearPackComponentWhereInput[]
   NOT?: Prisma.GearPackComponentWhereInput | Prisma.GearPackComponentWhereInput[]
-  gear_pack_template_id?: Prisma.IntFilter<"GearPackComponent"> | number
+  gear_pack_id?: Prisma.IntFilter<"GearPackComponent"> | number
   gear_type_id?: Prisma.IntNullableFilter<"GearPackComponent"> | number | null
-  gear_description?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
+  descriptive_gear_id?: Prisma.IntNullableFilter<"GearPackComponent"> | number | null
   requires_gear_detail?: Prisma.BoolFilter<"GearPackComponent"> | boolean
   default_frequency?: Prisma.EnumFrequencyFilter<"GearPackComponent"> | $Enums.Frequency
   default_qty?: Prisma.IntFilter<"GearPackComponent"> | number
+  component_nickname?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
   notes?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
   status?: Prisma.EnumStatusFilter<"GearPackComponent"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"GearPackComponent"> | Date | string
@@ -347,19 +363,21 @@ export type GearPackComponentWhereUniqueInput = Prisma.AtLeast<{
   updated_by_id?: Prisma.IntFilter<"GearPackComponent"> | number
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  gear_pack_template?: Prisma.XOR<Prisma.GearPackTemplateScalarRelationFilter, Prisma.GearPackTemplateWhereInput>
+  gear_pack?: Prisma.XOR<Prisma.GearPackScalarRelationFilter, Prisma.GearPackWhereInput>
   gear_type?: Prisma.XOR<Prisma.GearTypeNullableScalarRelationFilter, Prisma.GearTypeWhereInput> | null
+  descriptive_gear?: Prisma.XOR<Prisma.DescriptiveGearNullableScalarRelationFilter, Prisma.DescriptiveGearWhereInput> | null
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemListRelationFilter
 }, "id">
 
 export type GearPackComponentOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  gear_pack_template_id?: Prisma.SortOrder
+  gear_pack_id?: Prisma.SortOrder
   gear_type_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  gear_description?: Prisma.SortOrderInput | Prisma.SortOrder
+  descriptive_gear_id?: Prisma.SortOrderInput | Prisma.SortOrder
   requires_gear_detail?: Prisma.SortOrder
   default_frequency?: Prisma.SortOrder
   default_qty?: Prisma.SortOrder
+  component_nickname?: Prisma.SortOrderInput | Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -378,12 +396,13 @@ export type GearPackComponentScalarWhereWithAggregatesInput = {
   OR?: Prisma.GearPackComponentScalarWhereWithAggregatesInput[]
   NOT?: Prisma.GearPackComponentScalarWhereWithAggregatesInput | Prisma.GearPackComponentScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"GearPackComponent"> | number
-  gear_pack_template_id?: Prisma.IntWithAggregatesFilter<"GearPackComponent"> | number
+  gear_pack_id?: Prisma.IntWithAggregatesFilter<"GearPackComponent"> | number
   gear_type_id?: Prisma.IntNullableWithAggregatesFilter<"GearPackComponent"> | number | null
-  gear_description?: Prisma.StringNullableWithAggregatesFilter<"GearPackComponent"> | string | null
+  descriptive_gear_id?: Prisma.IntNullableWithAggregatesFilter<"GearPackComponent"> | number | null
   requires_gear_detail?: Prisma.BoolWithAggregatesFilter<"GearPackComponent"> | boolean
   default_frequency?: Prisma.EnumFrequencyWithAggregatesFilter<"GearPackComponent"> | $Enums.Frequency
   default_qty?: Prisma.IntWithAggregatesFilter<"GearPackComponent"> | number
+  component_nickname?: Prisma.StringNullableWithAggregatesFilter<"GearPackComponent"> | string | null
   notes?: Prisma.StringNullableWithAggregatesFilter<"GearPackComponent"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"GearPackComponent"> | $Enums.Status
   created_at?: Prisma.DateTimeWithAggregatesFilter<"GearPackComponent"> | Date | string
@@ -393,29 +412,31 @@ export type GearPackComponentScalarWhereWithAggregatesInput = {
 }
 
 export type GearPackComponentCreateInput = {
-  gear_description?: string | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__updated_byInput
-  gear_pack_template: Prisma.GearPackTemplateCreateNestedOneWithoutGear_pakc_component__gear_pack_templateInput
+  gear_pack: Prisma.GearPackCreateNestedOneWithoutGear_pack_component__gear_packInput
   gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear_pack_component__gear_typeInput
+  descriptive_gear?: Prisma.DescriptiveGearCreateNestedOneWithoutGear_pack_component__descriptive_gearInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemCreateNestedManyWithoutGear_pack_componentInput
 }
 
 export type GearPackComponentUncheckedCreateInput = {
   id?: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -426,29 +447,31 @@ export type GearPackComponentUncheckedCreateInput = {
 }
 
 export type GearPackComponentUpdateInput = {
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__updated_byNestedInput
-  gear_pack_template?: Prisma.GearPackTemplateUpdateOneRequiredWithoutGear_pakc_component__gear_pack_templateNestedInput
+  gear_pack?: Prisma.GearPackUpdateOneRequiredWithoutGear_pack_component__gear_packNestedInput
   gear_type?: Prisma.GearTypeUpdateOneWithoutGear_pack_component__gear_typeNestedInput
+  descriptive_gear?: Prisma.DescriptiveGearUpdateOneWithoutGear_pack_component__descriptive_gearNestedInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUpdateManyWithoutGear_pack_componentNestedInput
 }
 
 export type GearPackComponentUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -460,12 +483,13 @@ export type GearPackComponentUncheckedUpdateInput = {
 
 export type GearPackComponentCreateManyInput = {
   id?: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -475,10 +499,10 @@ export type GearPackComponentCreateManyInput = {
 }
 
 export type GearPackComponentUpdateManyMutationInput = {
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -487,12 +511,13 @@ export type GearPackComponentUpdateManyMutationInput = {
 
 export type GearPackComponentUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -513,12 +538,13 @@ export type GearPackComponentOrderByRelationAggregateInput = {
 
 export type GearPackComponentCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  gear_pack_template_id?: Prisma.SortOrder
+  gear_pack_id?: Prisma.SortOrder
   gear_type_id?: Prisma.SortOrder
-  gear_description?: Prisma.SortOrder
+  descriptive_gear_id?: Prisma.SortOrder
   requires_gear_detail?: Prisma.SortOrder
   default_frequency?: Prisma.SortOrder
   default_qty?: Prisma.SortOrder
+  component_nickname?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -529,8 +555,9 @@ export type GearPackComponentCountOrderByAggregateInput = {
 
 export type GearPackComponentAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  gear_pack_template_id?: Prisma.SortOrder
+  gear_pack_id?: Prisma.SortOrder
   gear_type_id?: Prisma.SortOrder
+  descriptive_gear_id?: Prisma.SortOrder
   default_qty?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
@@ -538,12 +565,13 @@ export type GearPackComponentAvgOrderByAggregateInput = {
 
 export type GearPackComponentMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  gear_pack_template_id?: Prisma.SortOrder
+  gear_pack_id?: Prisma.SortOrder
   gear_type_id?: Prisma.SortOrder
-  gear_description?: Prisma.SortOrder
+  descriptive_gear_id?: Prisma.SortOrder
   requires_gear_detail?: Prisma.SortOrder
   default_frequency?: Prisma.SortOrder
   default_qty?: Prisma.SortOrder
+  component_nickname?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -554,12 +582,13 @@ export type GearPackComponentMaxOrderByAggregateInput = {
 
 export type GearPackComponentMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  gear_pack_template_id?: Prisma.SortOrder
+  gear_pack_id?: Prisma.SortOrder
   gear_type_id?: Prisma.SortOrder
-  gear_description?: Prisma.SortOrder
+  descriptive_gear_id?: Prisma.SortOrder
   requires_gear_detail?: Prisma.SortOrder
   default_frequency?: Prisma.SortOrder
   default_qty?: Prisma.SortOrder
+  component_nickname?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -570,8 +599,9 @@ export type GearPackComponentMinOrderByAggregateInput = {
 
 export type GearPackComponentSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  gear_pack_template_id?: Prisma.SortOrder
+  gear_pack_id?: Prisma.SortOrder
   gear_type_id?: Prisma.SortOrder
+  descriptive_gear_id?: Prisma.SortOrder
   default_qty?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
@@ -708,45 +738,87 @@ export type GearPackComponentUncheckedUpdateManyWithoutGear_typeNestedInput = {
   deleteMany?: Prisma.GearPackComponentScalarWhereInput | Prisma.GearPackComponentScalarWhereInput[]
 }
 
-export type GearPackComponentCreateNestedManyWithoutGear_pack_templateInput = {
-  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_pack_templateInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput> | Prisma.GearPackComponentCreateWithoutGear_pack_templateInput[] | Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput[]
-  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutGear_pack_templateInput | Prisma.GearPackComponentCreateOrConnectWithoutGear_pack_templateInput[]
-  createMany?: Prisma.GearPackComponentCreateManyGear_pack_templateInputEnvelope
+export type GearPackComponentCreateNestedManyWithoutDescriptive_gearInput = {
+  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutDescriptive_gearInput, Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput> | Prisma.GearPackComponentCreateWithoutDescriptive_gearInput[] | Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput[]
+  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutDescriptive_gearInput | Prisma.GearPackComponentCreateOrConnectWithoutDescriptive_gearInput[]
+  createMany?: Prisma.GearPackComponentCreateManyDescriptive_gearInputEnvelope
   connect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
 }
 
-export type GearPackComponentUncheckedCreateNestedManyWithoutGear_pack_templateInput = {
-  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_pack_templateInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput> | Prisma.GearPackComponentCreateWithoutGear_pack_templateInput[] | Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput[]
-  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutGear_pack_templateInput | Prisma.GearPackComponentCreateOrConnectWithoutGear_pack_templateInput[]
-  createMany?: Prisma.GearPackComponentCreateManyGear_pack_templateInputEnvelope
+export type GearPackComponentUncheckedCreateNestedManyWithoutDescriptive_gearInput = {
+  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutDescriptive_gearInput, Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput> | Prisma.GearPackComponentCreateWithoutDescriptive_gearInput[] | Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput[]
+  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutDescriptive_gearInput | Prisma.GearPackComponentCreateOrConnectWithoutDescriptive_gearInput[]
+  createMany?: Prisma.GearPackComponentCreateManyDescriptive_gearInputEnvelope
   connect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
 }
 
-export type GearPackComponentUpdateManyWithoutGear_pack_templateNestedInput = {
-  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_pack_templateInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput> | Prisma.GearPackComponentCreateWithoutGear_pack_templateInput[] | Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput[]
-  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutGear_pack_templateInput | Prisma.GearPackComponentCreateOrConnectWithoutGear_pack_templateInput[]
-  upsert?: Prisma.GearPackComponentUpsertWithWhereUniqueWithoutGear_pack_templateInput | Prisma.GearPackComponentUpsertWithWhereUniqueWithoutGear_pack_templateInput[]
-  createMany?: Prisma.GearPackComponentCreateManyGear_pack_templateInputEnvelope
+export type GearPackComponentUpdateManyWithoutDescriptive_gearNestedInput = {
+  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutDescriptive_gearInput, Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput> | Prisma.GearPackComponentCreateWithoutDescriptive_gearInput[] | Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput[]
+  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutDescriptive_gearInput | Prisma.GearPackComponentCreateOrConnectWithoutDescriptive_gearInput[]
+  upsert?: Prisma.GearPackComponentUpsertWithWhereUniqueWithoutDescriptive_gearInput | Prisma.GearPackComponentUpsertWithWhereUniqueWithoutDescriptive_gearInput[]
+  createMany?: Prisma.GearPackComponentCreateManyDescriptive_gearInputEnvelope
   set?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
   disconnect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
   delete?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
   connect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
-  update?: Prisma.GearPackComponentUpdateWithWhereUniqueWithoutGear_pack_templateInput | Prisma.GearPackComponentUpdateWithWhereUniqueWithoutGear_pack_templateInput[]
-  updateMany?: Prisma.GearPackComponentUpdateManyWithWhereWithoutGear_pack_templateInput | Prisma.GearPackComponentUpdateManyWithWhereWithoutGear_pack_templateInput[]
+  update?: Prisma.GearPackComponentUpdateWithWhereUniqueWithoutDescriptive_gearInput | Prisma.GearPackComponentUpdateWithWhereUniqueWithoutDescriptive_gearInput[]
+  updateMany?: Prisma.GearPackComponentUpdateManyWithWhereWithoutDescriptive_gearInput | Prisma.GearPackComponentUpdateManyWithWhereWithoutDescriptive_gearInput[]
   deleteMany?: Prisma.GearPackComponentScalarWhereInput | Prisma.GearPackComponentScalarWhereInput[]
 }
 
-export type GearPackComponentUncheckedUpdateManyWithoutGear_pack_templateNestedInput = {
-  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_pack_templateInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput> | Prisma.GearPackComponentCreateWithoutGear_pack_templateInput[] | Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput[]
-  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutGear_pack_templateInput | Prisma.GearPackComponentCreateOrConnectWithoutGear_pack_templateInput[]
-  upsert?: Prisma.GearPackComponentUpsertWithWhereUniqueWithoutGear_pack_templateInput | Prisma.GearPackComponentUpsertWithWhereUniqueWithoutGear_pack_templateInput[]
-  createMany?: Prisma.GearPackComponentCreateManyGear_pack_templateInputEnvelope
+export type GearPackComponentUncheckedUpdateManyWithoutDescriptive_gearNestedInput = {
+  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutDescriptive_gearInput, Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput> | Prisma.GearPackComponentCreateWithoutDescriptive_gearInput[] | Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput[]
+  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutDescriptive_gearInput | Prisma.GearPackComponentCreateOrConnectWithoutDescriptive_gearInput[]
+  upsert?: Prisma.GearPackComponentUpsertWithWhereUniqueWithoutDescriptive_gearInput | Prisma.GearPackComponentUpsertWithWhereUniqueWithoutDescriptive_gearInput[]
+  createMany?: Prisma.GearPackComponentCreateManyDescriptive_gearInputEnvelope
   set?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
   disconnect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
   delete?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
   connect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
-  update?: Prisma.GearPackComponentUpdateWithWhereUniqueWithoutGear_pack_templateInput | Prisma.GearPackComponentUpdateWithWhereUniqueWithoutGear_pack_templateInput[]
-  updateMany?: Prisma.GearPackComponentUpdateManyWithWhereWithoutGear_pack_templateInput | Prisma.GearPackComponentUpdateManyWithWhereWithoutGear_pack_templateInput[]
+  update?: Prisma.GearPackComponentUpdateWithWhereUniqueWithoutDescriptive_gearInput | Prisma.GearPackComponentUpdateWithWhereUniqueWithoutDescriptive_gearInput[]
+  updateMany?: Prisma.GearPackComponentUpdateManyWithWhereWithoutDescriptive_gearInput | Prisma.GearPackComponentUpdateManyWithWhereWithoutDescriptive_gearInput[]
+  deleteMany?: Prisma.GearPackComponentScalarWhereInput | Prisma.GearPackComponentScalarWhereInput[]
+}
+
+export type GearPackComponentCreateNestedManyWithoutGear_packInput = {
+  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_packInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput> | Prisma.GearPackComponentCreateWithoutGear_packInput[] | Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput[]
+  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutGear_packInput | Prisma.GearPackComponentCreateOrConnectWithoutGear_packInput[]
+  createMany?: Prisma.GearPackComponentCreateManyGear_packInputEnvelope
+  connect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+}
+
+export type GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput = {
+  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_packInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput> | Prisma.GearPackComponentCreateWithoutGear_packInput[] | Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput[]
+  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutGear_packInput | Prisma.GearPackComponentCreateOrConnectWithoutGear_packInput[]
+  createMany?: Prisma.GearPackComponentCreateManyGear_packInputEnvelope
+  connect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+}
+
+export type GearPackComponentUpdateManyWithoutGear_packNestedInput = {
+  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_packInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput> | Prisma.GearPackComponentCreateWithoutGear_packInput[] | Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput[]
+  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutGear_packInput | Prisma.GearPackComponentCreateOrConnectWithoutGear_packInput[]
+  upsert?: Prisma.GearPackComponentUpsertWithWhereUniqueWithoutGear_packInput | Prisma.GearPackComponentUpsertWithWhereUniqueWithoutGear_packInput[]
+  createMany?: Prisma.GearPackComponentCreateManyGear_packInputEnvelope
+  set?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+  disconnect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+  delete?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+  connect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+  update?: Prisma.GearPackComponentUpdateWithWhereUniqueWithoutGear_packInput | Prisma.GearPackComponentUpdateWithWhereUniqueWithoutGear_packInput[]
+  updateMany?: Prisma.GearPackComponentUpdateManyWithWhereWithoutGear_packInput | Prisma.GearPackComponentUpdateManyWithWhereWithoutGear_packInput[]
+  deleteMany?: Prisma.GearPackComponentScalarWhereInput | Prisma.GearPackComponentScalarWhereInput[]
+}
+
+export type GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput = {
+  create?: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_packInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput> | Prisma.GearPackComponentCreateWithoutGear_packInput[] | Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput[]
+  connectOrCreate?: Prisma.GearPackComponentCreateOrConnectWithoutGear_packInput | Prisma.GearPackComponentCreateOrConnectWithoutGear_packInput[]
+  upsert?: Prisma.GearPackComponentUpsertWithWhereUniqueWithoutGear_packInput | Prisma.GearPackComponentUpsertWithWhereUniqueWithoutGear_packInput[]
+  createMany?: Prisma.GearPackComponentCreateManyGear_packInputEnvelope
+  set?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+  disconnect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+  delete?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+  connect?: Prisma.GearPackComponentWhereUniqueInput | Prisma.GearPackComponentWhereUniqueInput[]
+  update?: Prisma.GearPackComponentUpdateWithWhereUniqueWithoutGear_packInput | Prisma.GearPackComponentUpdateWithWhereUniqueWithoutGear_packInput[]
+  updateMany?: Prisma.GearPackComponentUpdateManyWithWhereWithoutGear_packInput | Prisma.GearPackComponentUpdateManyWithWhereWithoutGear_packInput[]
   deleteMany?: Prisma.GearPackComponentScalarWhereInput | Prisma.GearPackComponentScalarWhereInput[]
 }
 
@@ -771,28 +843,30 @@ export type GearPackComponentUpdateOneWithoutUser_gear_pack_item__gear_pack_comp
 }
 
 export type GearPackComponentCreateWithoutCreated_byInput = {
-  gear_description?: string | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   updated_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__updated_byInput
-  gear_pack_template: Prisma.GearPackTemplateCreateNestedOneWithoutGear_pakc_component__gear_pack_templateInput
+  gear_pack: Prisma.GearPackCreateNestedOneWithoutGear_pack_component__gear_packInput
   gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear_pack_component__gear_typeInput
+  descriptive_gear?: Prisma.DescriptiveGearCreateNestedOneWithoutGear_pack_component__descriptive_gearInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemCreateNestedManyWithoutGear_pack_componentInput
 }
 
 export type GearPackComponentUncheckedCreateWithoutCreated_byInput = {
   id?: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -812,28 +886,30 @@ export type GearPackComponentCreateManyCreated_byInputEnvelope = {
 }
 
 export type GearPackComponentCreateWithoutUpdated_byInput = {
-  gear_description?: string | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__created_byInput
-  gear_pack_template: Prisma.GearPackTemplateCreateNestedOneWithoutGear_pakc_component__gear_pack_templateInput
+  gear_pack: Prisma.GearPackCreateNestedOneWithoutGear_pack_component__gear_packInput
   gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear_pack_component__gear_typeInput
+  descriptive_gear?: Prisma.DescriptiveGearCreateNestedOneWithoutGear_pack_component__descriptive_gearInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemCreateNestedManyWithoutGear_pack_componentInput
 }
 
 export type GearPackComponentUncheckedCreateWithoutUpdated_byInput = {
   id?: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -873,12 +949,13 @@ export type GearPackComponentScalarWhereInput = {
   OR?: Prisma.GearPackComponentScalarWhereInput[]
   NOT?: Prisma.GearPackComponentScalarWhereInput | Prisma.GearPackComponentScalarWhereInput[]
   id?: Prisma.IntFilter<"GearPackComponent"> | number
-  gear_pack_template_id?: Prisma.IntFilter<"GearPackComponent"> | number
+  gear_pack_id?: Prisma.IntFilter<"GearPackComponent"> | number
   gear_type_id?: Prisma.IntNullableFilter<"GearPackComponent"> | number | null
-  gear_description?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
+  descriptive_gear_id?: Prisma.IntNullableFilter<"GearPackComponent"> | number | null
   requires_gear_detail?: Prisma.BoolFilter<"GearPackComponent"> | boolean
   default_frequency?: Prisma.EnumFrequencyFilter<"GearPackComponent"> | $Enums.Frequency
   default_qty?: Prisma.IntFilter<"GearPackComponent"> | number
+  component_nickname?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
   notes?: Prisma.StringNullableFilter<"GearPackComponent"> | string | null
   status?: Prisma.EnumStatusFilter<"GearPackComponent"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"GearPackComponent"> | Date | string
@@ -904,27 +981,29 @@ export type GearPackComponentUpdateManyWithWhereWithoutUpdated_byInput = {
 }
 
 export type GearPackComponentCreateWithoutGear_typeInput = {
-  gear_description?: string | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__updated_byInput
-  gear_pack_template: Prisma.GearPackTemplateCreateNestedOneWithoutGear_pakc_component__gear_pack_templateInput
+  gear_pack: Prisma.GearPackCreateNestedOneWithoutGear_pack_component__gear_packInput
+  descriptive_gear?: Prisma.DescriptiveGearCreateNestedOneWithoutGear_pack_component__descriptive_gearInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemCreateNestedManyWithoutGear_pack_componentInput
 }
 
 export type GearPackComponentUncheckedCreateWithoutGear_typeInput = {
   id?: number
-  gear_pack_template_id: number
-  gear_description?: string | null
+  gear_pack_id: number
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -960,28 +1039,30 @@ export type GearPackComponentUpdateManyWithWhereWithoutGear_typeInput = {
   data: Prisma.XOR<Prisma.GearPackComponentUpdateManyMutationInput, Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_typeInput>
 }
 
-export type GearPackComponentCreateWithoutGear_pack_templateInput = {
-  gear_description?: string | null
+export type GearPackComponentCreateWithoutDescriptive_gearInput = {
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__updated_byInput
+  gear_pack: Prisma.GearPackCreateNestedOneWithoutGear_pack_component__gear_packInput
   gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear_pack_component__gear_typeInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemCreateNestedManyWithoutGear_pack_componentInput
 }
 
-export type GearPackComponentUncheckedCreateWithoutGear_pack_templateInput = {
+export type GearPackComponentUncheckedCreateWithoutDescriptive_gearInput = {
   id?: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -991,55 +1072,116 @@ export type GearPackComponentUncheckedCreateWithoutGear_pack_templateInput = {
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUncheckedCreateNestedManyWithoutGear_pack_componentInput
 }
 
-export type GearPackComponentCreateOrConnectWithoutGear_pack_templateInput = {
+export type GearPackComponentCreateOrConnectWithoutDescriptive_gearInput = {
   where: Prisma.GearPackComponentWhereUniqueInput
-  create: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_pack_templateInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput>
+  create: Prisma.XOR<Prisma.GearPackComponentCreateWithoutDescriptive_gearInput, Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput>
 }
 
-export type GearPackComponentCreateManyGear_pack_templateInputEnvelope = {
-  data: Prisma.GearPackComponentCreateManyGear_pack_templateInput | Prisma.GearPackComponentCreateManyGear_pack_templateInput[]
+export type GearPackComponentCreateManyDescriptive_gearInputEnvelope = {
+  data: Prisma.GearPackComponentCreateManyDescriptive_gearInput | Prisma.GearPackComponentCreateManyDescriptive_gearInput[]
   skipDuplicates?: boolean
 }
 
-export type GearPackComponentUpsertWithWhereUniqueWithoutGear_pack_templateInput = {
+export type GearPackComponentUpsertWithWhereUniqueWithoutDescriptive_gearInput = {
   where: Prisma.GearPackComponentWhereUniqueInput
-  update: Prisma.XOR<Prisma.GearPackComponentUpdateWithoutGear_pack_templateInput, Prisma.GearPackComponentUncheckedUpdateWithoutGear_pack_templateInput>
-  create: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_pack_templateInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_pack_templateInput>
+  update: Prisma.XOR<Prisma.GearPackComponentUpdateWithoutDescriptive_gearInput, Prisma.GearPackComponentUncheckedUpdateWithoutDescriptive_gearInput>
+  create: Prisma.XOR<Prisma.GearPackComponentCreateWithoutDescriptive_gearInput, Prisma.GearPackComponentUncheckedCreateWithoutDescriptive_gearInput>
 }
 
-export type GearPackComponentUpdateWithWhereUniqueWithoutGear_pack_templateInput = {
+export type GearPackComponentUpdateWithWhereUniqueWithoutDescriptive_gearInput = {
   where: Prisma.GearPackComponentWhereUniqueInput
-  data: Prisma.XOR<Prisma.GearPackComponentUpdateWithoutGear_pack_templateInput, Prisma.GearPackComponentUncheckedUpdateWithoutGear_pack_templateInput>
+  data: Prisma.XOR<Prisma.GearPackComponentUpdateWithoutDescriptive_gearInput, Prisma.GearPackComponentUncheckedUpdateWithoutDescriptive_gearInput>
 }
 
-export type GearPackComponentUpdateManyWithWhereWithoutGear_pack_templateInput = {
+export type GearPackComponentUpdateManyWithWhereWithoutDescriptive_gearInput = {
   where: Prisma.GearPackComponentScalarWhereInput
-  data: Prisma.XOR<Prisma.GearPackComponentUpdateManyMutationInput, Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_pack_templateInput>
+  data: Prisma.XOR<Prisma.GearPackComponentUpdateManyMutationInput, Prisma.GearPackComponentUncheckedUpdateManyWithoutDescriptive_gearInput>
 }
 
-export type GearPackComponentCreateWithoutUser_gear_pack_item__gear_pack_componentInput = {
-  gear_description?: string | null
+export type GearPackComponentCreateWithoutGear_packInput = {
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__updated_byInput
-  gear_pack_template: Prisma.GearPackTemplateCreateNestedOneWithoutGear_pakc_component__gear_pack_templateInput
   gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear_pack_component__gear_typeInput
+  descriptive_gear?: Prisma.DescriptiveGearCreateNestedOneWithoutGear_pack_component__descriptive_gearInput
+  user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemCreateNestedManyWithoutGear_pack_componentInput
+}
+
+export type GearPackComponentUncheckedCreateWithoutGear_packInput = {
+  id?: number
+  gear_type_id?: number | null
+  descriptive_gear_id?: number | null
+  requires_gear_detail?: boolean
+  default_frequency?: $Enums.Frequency
+  default_qty?: number
+  component_nickname?: string | null
+  notes?: string | null
+  status?: $Enums.Status
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+  user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUncheckedCreateNestedManyWithoutGear_pack_componentInput
+}
+
+export type GearPackComponentCreateOrConnectWithoutGear_packInput = {
+  where: Prisma.GearPackComponentWhereUniqueInput
+  create: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_packInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput>
+}
+
+export type GearPackComponentCreateManyGear_packInputEnvelope = {
+  data: Prisma.GearPackComponentCreateManyGear_packInput | Prisma.GearPackComponentCreateManyGear_packInput[]
+  skipDuplicates?: boolean
+}
+
+export type GearPackComponentUpsertWithWhereUniqueWithoutGear_packInput = {
+  where: Prisma.GearPackComponentWhereUniqueInput
+  update: Prisma.XOR<Prisma.GearPackComponentUpdateWithoutGear_packInput, Prisma.GearPackComponentUncheckedUpdateWithoutGear_packInput>
+  create: Prisma.XOR<Prisma.GearPackComponentCreateWithoutGear_packInput, Prisma.GearPackComponentUncheckedCreateWithoutGear_packInput>
+}
+
+export type GearPackComponentUpdateWithWhereUniqueWithoutGear_packInput = {
+  where: Prisma.GearPackComponentWhereUniqueInput
+  data: Prisma.XOR<Prisma.GearPackComponentUpdateWithoutGear_packInput, Prisma.GearPackComponentUncheckedUpdateWithoutGear_packInput>
+}
+
+export type GearPackComponentUpdateManyWithWhereWithoutGear_packInput = {
+  where: Prisma.GearPackComponentScalarWhereInput
+  data: Prisma.XOR<Prisma.GearPackComponentUpdateManyMutationInput, Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packInput>
+}
+
+export type GearPackComponentCreateWithoutUser_gear_pack_item__gear_pack_componentInput = {
+  requires_gear_detail?: boolean
+  default_frequency?: $Enums.Frequency
+  default_qty?: number
+  component_nickname?: string | null
+  notes?: string | null
+  status?: $Enums.Status
+  created_at?: Date | string
+  updated_at?: Date | string
+  created_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutGear_pack_component__updated_byInput
+  gear_pack: Prisma.GearPackCreateNestedOneWithoutGear_pack_component__gear_packInput
+  gear_type?: Prisma.GearTypeCreateNestedOneWithoutGear_pack_component__gear_typeInput
+  descriptive_gear?: Prisma.DescriptiveGearCreateNestedOneWithoutGear_pack_component__descriptive_gearInput
 }
 
 export type GearPackComponentUncheckedCreateWithoutUser_gear_pack_item__gear_pack_componentInput = {
   id?: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1065,28 +1207,30 @@ export type GearPackComponentUpdateToOneWithWhereWithoutUser_gear_pack_item__gea
 }
 
 export type GearPackComponentUpdateWithoutUser_gear_pack_item__gear_pack_componentInput = {
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__updated_byNestedInput
-  gear_pack_template?: Prisma.GearPackTemplateUpdateOneRequiredWithoutGear_pakc_component__gear_pack_templateNestedInput
+  gear_pack?: Prisma.GearPackUpdateOneRequiredWithoutGear_pack_component__gear_packNestedInput
   gear_type?: Prisma.GearTypeUpdateOneWithoutGear_pack_component__gear_typeNestedInput
+  descriptive_gear?: Prisma.DescriptiveGearUpdateOneWithoutGear_pack_component__descriptive_gearNestedInput
 }
 
 export type GearPackComponentUncheckedUpdateWithoutUser_gear_pack_item__gear_pack_componentInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1097,12 +1241,13 @@ export type GearPackComponentUncheckedUpdateWithoutUser_gear_pack_item__gear_pac
 
 export type GearPackComponentCreateManyCreated_byInput = {
   id?: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1112,12 +1257,13 @@ export type GearPackComponentCreateManyCreated_byInput = {
 
 export type GearPackComponentCreateManyUpdated_byInput = {
   id?: number
-  gear_pack_template_id: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1126,28 +1272,30 @@ export type GearPackComponentCreateManyUpdated_byInput = {
 }
 
 export type GearPackComponentUpdateWithoutCreated_byInput = {
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__updated_byNestedInput
-  gear_pack_template?: Prisma.GearPackTemplateUpdateOneRequiredWithoutGear_pakc_component__gear_pack_templateNestedInput
+  gear_pack?: Prisma.GearPackUpdateOneRequiredWithoutGear_pack_component__gear_packNestedInput
   gear_type?: Prisma.GearTypeUpdateOneWithoutGear_pack_component__gear_typeNestedInput
+  descriptive_gear?: Prisma.DescriptiveGearUpdateOneWithoutGear_pack_component__descriptive_gearNestedInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUpdateManyWithoutGear_pack_componentNestedInput
 }
 
 export type GearPackComponentUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1158,12 +1306,13 @@ export type GearPackComponentUncheckedUpdateWithoutCreated_byInput = {
 
 export type GearPackComponentUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1172,28 +1321,30 @@ export type GearPackComponentUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type GearPackComponentUpdateWithoutUpdated_byInput = {
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__created_byNestedInput
-  gear_pack_template?: Prisma.GearPackTemplateUpdateOneRequiredWithoutGear_pakc_component__gear_pack_templateNestedInput
+  gear_pack?: Prisma.GearPackUpdateOneRequiredWithoutGear_pack_component__gear_packNestedInput
   gear_type?: Prisma.GearTypeUpdateOneWithoutGear_pack_component__gear_typeNestedInput
+  descriptive_gear?: Prisma.DescriptiveGearUpdateOneWithoutGear_pack_component__descriptive_gearNestedInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUpdateManyWithoutGear_pack_componentNestedInput
 }
 
 export type GearPackComponentUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1204,12 +1355,13 @@ export type GearPackComponentUncheckedUpdateWithoutUpdated_byInput = {
 
 export type GearPackComponentUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1219,11 +1371,12 @@ export type GearPackComponentUncheckedUpdateManyWithoutUpdated_byInput = {
 
 export type GearPackComponentCreateManyGear_typeInput = {
   id?: number
-  gear_pack_template_id: number
-  gear_description?: string | null
+  gear_pack_id: number
+  descriptive_gear_id?: number | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1233,27 +1386,29 @@ export type GearPackComponentCreateManyGear_typeInput = {
 }
 
 export type GearPackComponentUpdateWithoutGear_typeInput = {
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__updated_byNestedInput
-  gear_pack_template?: Prisma.GearPackTemplateUpdateOneRequiredWithoutGear_pakc_component__gear_pack_templateNestedInput
+  gear_pack?: Prisma.GearPackUpdateOneRequiredWithoutGear_pack_component__gear_packNestedInput
+  descriptive_gear?: Prisma.DescriptiveGearUpdateOneWithoutGear_pack_component__descriptive_gearNestedInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUpdateManyWithoutGear_pack_componentNestedInput
 }
 
 export type GearPackComponentUncheckedUpdateWithoutGear_typeInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1265,11 +1420,12 @@ export type GearPackComponentUncheckedUpdateWithoutGear_typeInput = {
 
 export type GearPackComponentUncheckedUpdateManyWithoutGear_typeInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_pack_template_id?: Prisma.IntFieldUpdateOperationsInput | number
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1278,13 +1434,14 @@ export type GearPackComponentUncheckedUpdateManyWithoutGear_typeInput = {
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type GearPackComponentCreateManyGear_pack_templateInput = {
+export type GearPackComponentCreateManyDescriptive_gearInput = {
   id?: number
+  gear_pack_id: number
   gear_type_id?: number | null
-  gear_description?: string | null
   requires_gear_detail?: boolean
   default_frequency?: $Enums.Frequency
   default_qty?: number
+  component_nickname?: string | null
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1293,28 +1450,30 @@ export type GearPackComponentCreateManyGear_pack_templateInput = {
   updated_by_id: number
 }
 
-export type GearPackComponentUpdateWithoutGear_pack_templateInput = {
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+export type GearPackComponentUpdateWithoutDescriptive_gearInput = {
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__updated_byNestedInput
+  gear_pack?: Prisma.GearPackUpdateOneRequiredWithoutGear_pack_component__gear_packNestedInput
   gear_type?: Prisma.GearTypeUpdateOneWithoutGear_pack_component__gear_typeNestedInput
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUpdateManyWithoutGear_pack_componentNestedInput
 }
 
-export type GearPackComponentUncheckedUpdateWithoutGear_pack_templateInput = {
+export type GearPackComponentUncheckedUpdateWithoutDescriptive_gearInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1324,13 +1483,79 @@ export type GearPackComponentUncheckedUpdateWithoutGear_pack_templateInput = {
   user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUncheckedUpdateManyWithoutGear_pack_componentNestedInput
 }
 
-export type GearPackComponentUncheckedUpdateManyWithoutGear_pack_templateInput = {
+export type GearPackComponentUncheckedUpdateManyWithoutDescriptive_gearInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
   default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type GearPackComponentCreateManyGear_packInput = {
+  id?: number
+  gear_type_id?: number | null
+  descriptive_gear_id?: number | null
+  requires_gear_detail?: boolean
+  default_frequency?: $Enums.Frequency
+  default_qty?: number
+  component_nickname?: string | null
+  notes?: string | null
+  status?: $Enums.Status
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+}
+
+export type GearPackComponentUpdateWithoutGear_packInput = {
+  requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
+  default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutGear_pack_component__updated_byNestedInput
+  gear_type?: Prisma.GearTypeUpdateOneWithoutGear_pack_component__gear_typeNestedInput
+  descriptive_gear?: Prisma.DescriptiveGearUpdateOneWithoutGear_pack_component__descriptive_gearNestedInput
+  user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUpdateManyWithoutGear_pack_componentNestedInput
+}
+
+export type GearPackComponentUncheckedUpdateWithoutGear_packInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
+  default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_gear_pack_item__gear_pack_component?: Prisma.UserGearPackItemUncheckedUpdateManyWithoutGear_pack_componentNestedInput
+}
+
+export type GearPackComponentUncheckedUpdateManyWithoutGear_packInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_type_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  descriptive_gear_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  requires_gear_detail?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  default_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
+  default_qty?: Prisma.IntFieldUpdateOperationsInput | number
+  component_nickname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1372,12 +1597,13 @@ export type GearPackComponentCountOutputTypeCountUser_gear_pack_item__gear_pack_
 
 export type GearPackComponentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  gear_pack_template_id?: boolean
+  gear_pack_id?: boolean
   gear_type_id?: boolean
-  gear_description?: boolean
+  descriptive_gear_id?: boolean
   requires_gear_detail?: boolean
   default_frequency?: boolean
   default_qty?: boolean
+  component_nickname?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1386,20 +1612,22 @@ export type GearPackComponentSelect<ExtArgs extends runtime.Types.Extensions.Int
   updated_by_id?: boolean
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_pack_template?: boolean | Prisma.GearPackTemplateDefaultArgs<ExtArgs>
+  gear_pack?: boolean | Prisma.GearPackDefaultArgs<ExtArgs>
   gear_type?: boolean | Prisma.GearPackComponent$gear_typeArgs<ExtArgs>
+  descriptive_gear?: boolean | Prisma.GearPackComponent$descriptive_gearArgs<ExtArgs>
   user_gear_pack_item__gear_pack_component?: boolean | Prisma.GearPackComponent$user_gear_pack_item__gear_pack_componentArgs<ExtArgs>
   _count?: boolean | Prisma.GearPackComponentCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gearPackComponent"]>
 
 export type GearPackComponentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  gear_pack_template_id?: boolean
+  gear_pack_id?: boolean
   gear_type_id?: boolean
-  gear_description?: boolean
+  descriptive_gear_id?: boolean
   requires_gear_detail?: boolean
   default_frequency?: boolean
   default_qty?: boolean
+  component_nickname?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1408,18 +1636,20 @@ export type GearPackComponentSelectCreateManyAndReturn<ExtArgs extends runtime.T
   updated_by_id?: boolean
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_pack_template?: boolean | Prisma.GearPackTemplateDefaultArgs<ExtArgs>
+  gear_pack?: boolean | Prisma.GearPackDefaultArgs<ExtArgs>
   gear_type?: boolean | Prisma.GearPackComponent$gear_typeArgs<ExtArgs>
+  descriptive_gear?: boolean | Prisma.GearPackComponent$descriptive_gearArgs<ExtArgs>
 }, ExtArgs["result"]["gearPackComponent"]>
 
 export type GearPackComponentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  gear_pack_template_id?: boolean
+  gear_pack_id?: boolean
   gear_type_id?: boolean
-  gear_description?: boolean
+  descriptive_gear_id?: boolean
   requires_gear_detail?: boolean
   default_frequency?: boolean
   default_qty?: boolean
+  component_nickname?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1428,18 +1658,20 @@ export type GearPackComponentSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   updated_by_id?: boolean
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_pack_template?: boolean | Prisma.GearPackTemplateDefaultArgs<ExtArgs>
+  gear_pack?: boolean | Prisma.GearPackDefaultArgs<ExtArgs>
   gear_type?: boolean | Prisma.GearPackComponent$gear_typeArgs<ExtArgs>
+  descriptive_gear?: boolean | Prisma.GearPackComponent$descriptive_gearArgs<ExtArgs>
 }, ExtArgs["result"]["gearPackComponent"]>
 
 export type GearPackComponentSelectScalar = {
   id?: boolean
-  gear_pack_template_id?: boolean
+  gear_pack_id?: boolean
   gear_type_id?: boolean
-  gear_description?: boolean
+  descriptive_gear_id?: boolean
   requires_gear_detail?: boolean
   default_frequency?: boolean
   default_qty?: boolean
+  component_nickname?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1448,26 +1680,29 @@ export type GearPackComponentSelectScalar = {
   updated_by_id?: boolean
 }
 
-export type GearPackComponentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "gear_pack_template_id" | "gear_type_id" | "gear_description" | "requires_gear_detail" | "default_frequency" | "default_qty" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["gearPackComponent"]>
+export type GearPackComponentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "gear_pack_id" | "gear_type_id" | "descriptive_gear_id" | "requires_gear_detail" | "default_frequency" | "default_qty" | "component_nickname" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["gearPackComponent"]>
 export type GearPackComponentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_pack_template?: boolean | Prisma.GearPackTemplateDefaultArgs<ExtArgs>
+  gear_pack?: boolean | Prisma.GearPackDefaultArgs<ExtArgs>
   gear_type?: boolean | Prisma.GearPackComponent$gear_typeArgs<ExtArgs>
+  descriptive_gear?: boolean | Prisma.GearPackComponent$descriptive_gearArgs<ExtArgs>
   user_gear_pack_item__gear_pack_component?: boolean | Prisma.GearPackComponent$user_gear_pack_item__gear_pack_componentArgs<ExtArgs>
   _count?: boolean | Prisma.GearPackComponentCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type GearPackComponentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_pack_template?: boolean | Prisma.GearPackTemplateDefaultArgs<ExtArgs>
+  gear_pack?: boolean | Prisma.GearPackDefaultArgs<ExtArgs>
   gear_type?: boolean | Prisma.GearPackComponent$gear_typeArgs<ExtArgs>
+  descriptive_gear?: boolean | Prisma.GearPackComponent$descriptive_gearArgs<ExtArgs>
 }
 export type GearPackComponentIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  gear_pack_template?: boolean | Prisma.GearPackTemplateDefaultArgs<ExtArgs>
+  gear_pack?: boolean | Prisma.GearPackDefaultArgs<ExtArgs>
   gear_type?: boolean | Prisma.GearPackComponent$gear_typeArgs<ExtArgs>
+  descriptive_gear?: boolean | Prisma.GearPackComponent$descriptive_gearArgs<ExtArgs>
 }
 
 export type $GearPackComponentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1475,18 +1710,20 @@ export type $GearPackComponentPayload<ExtArgs extends runtime.Types.Extensions.I
   objects: {
     created_by: Prisma.$UserPayload<ExtArgs>
     updated_by: Prisma.$UserPayload<ExtArgs>
-    gear_pack_template: Prisma.$GearPackTemplatePayload<ExtArgs>
+    gear_pack: Prisma.$GearPackPayload<ExtArgs>
     gear_type: Prisma.$GearTypePayload<ExtArgs> | null
+    descriptive_gear: Prisma.$DescriptiveGearPayload<ExtArgs> | null
     user_gear_pack_item__gear_pack_component: Prisma.$UserGearPackItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    gear_pack_template_id: number
+    gear_pack_id: number
     gear_type_id: number | null
-    gear_description: string | null
+    descriptive_gear_id: number | null
     requires_gear_detail: boolean
     default_frequency: $Enums.Frequency
     default_qty: number
+    component_nickname: string | null
     notes: string | null
     status: $Enums.Status
     created_at: Date
@@ -1889,8 +2126,9 @@ export interface Prisma__GearPackComponentClient<T, Null = never, ExtArgs extend
   readonly [Symbol.toStringTag]: "PrismaPromise"
   created_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   updated_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  gear_pack_template<T extends Prisma.GearPackTemplateDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPackTemplateDefaultArgs<ExtArgs>>): Prisma.Prisma__GearPackTemplateClient<runtime.Types.Result.GetResult<Prisma.$GearPackTemplatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  gear_pack<T extends Prisma.GearPackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPackDefaultArgs<ExtArgs>>): Prisma.Prisma__GearPackClient<runtime.Types.Result.GetResult<Prisma.$GearPackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   gear_type<T extends Prisma.GearPackComponent$gear_typeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPackComponent$gear_typeArgs<ExtArgs>>): Prisma.Prisma__GearTypeClient<runtime.Types.Result.GetResult<Prisma.$GearTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  descriptive_gear<T extends Prisma.GearPackComponent$descriptive_gearArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPackComponent$descriptive_gearArgs<ExtArgs>>): Prisma.Prisma__DescriptiveGearClient<runtime.Types.Result.GetResult<Prisma.$DescriptiveGearPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   user_gear_pack_item__gear_pack_component<T extends Prisma.GearPackComponent$user_gear_pack_item__gear_pack_componentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPackComponent$user_gear_pack_item__gear_pack_componentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserGearPackItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1922,12 +2160,13 @@ export interface Prisma__GearPackComponentClient<T, Null = never, ExtArgs extend
  */
 export interface GearPackComponentFieldRefs {
   readonly id: Prisma.FieldRef<"GearPackComponent", 'Int'>
-  readonly gear_pack_template_id: Prisma.FieldRef<"GearPackComponent", 'Int'>
+  readonly gear_pack_id: Prisma.FieldRef<"GearPackComponent", 'Int'>
   readonly gear_type_id: Prisma.FieldRef<"GearPackComponent", 'Int'>
-  readonly gear_description: Prisma.FieldRef<"GearPackComponent", 'String'>
+  readonly descriptive_gear_id: Prisma.FieldRef<"GearPackComponent", 'Int'>
   readonly requires_gear_detail: Prisma.FieldRef<"GearPackComponent", 'Boolean'>
   readonly default_frequency: Prisma.FieldRef<"GearPackComponent", 'Frequency'>
   readonly default_qty: Prisma.FieldRef<"GearPackComponent", 'Int'>
+  readonly component_nickname: Prisma.FieldRef<"GearPackComponent", 'String'>
   readonly notes: Prisma.FieldRef<"GearPackComponent", 'String'>
   readonly status: Prisma.FieldRef<"GearPackComponent", 'Status'>
   readonly created_at: Prisma.FieldRef<"GearPackComponent", 'DateTime'>
@@ -2351,6 +2590,25 @@ export type GearPackComponent$gear_typeArgs<ExtArgs extends runtime.Types.Extens
    */
   include?: Prisma.GearTypeInclude<ExtArgs> | null
   where?: Prisma.GearTypeWhereInput
+}
+
+/**
+ * GearPackComponent.descriptive_gear
+ */
+export type GearPackComponent$descriptive_gearArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DescriptiveGear
+   */
+  select?: Prisma.DescriptiveGearSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DescriptiveGear
+   */
+  omit?: Prisma.DescriptiveGearOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DescriptiveGearInclude<ExtArgs> | null
+  where?: Prisma.DescriptiveGearWhereInput
 }
 
 /**

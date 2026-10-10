@@ -230,7 +230,7 @@ export type MealItemGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 export type MealItemGroupByOutputType = {
   id: number
   name: string
-  owner_id: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal: boolean
   notes: string | null
@@ -267,7 +267,7 @@ export type MealItemWhereInput = {
   NOT?: Prisma.MealItemWhereInput | Prisma.MealItemWhereInput[]
   id?: Prisma.IntFilter<"MealItem"> | number
   name?: Prisma.StringFilter<"MealItem"> | string
-  owner_id?: Prisma.IntNullableFilter<"MealItem"> | number | null
+  owner_id?: Prisma.IntFilter<"MealItem"> | number
   visibility?: Prisma.EnumVisibilityFilter<"MealItem"> | $Enums.Visibility
   is_universal?: Prisma.BoolFilter<"MealItem"> | boolean
   notes?: Prisma.StringNullableFilter<"MealItem"> | string | null
@@ -286,7 +286,7 @@ export type MealItemWhereInput = {
 export type MealItemOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   is_universal?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -304,11 +304,12 @@ export type MealItemOrderByWithRelationInput = {
 
 export type MealItemWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name_owner_id?: Prisma.MealItemNameOwner_idCompoundUniqueInput
   AND?: Prisma.MealItemWhereInput | Prisma.MealItemWhereInput[]
   OR?: Prisma.MealItemWhereInput[]
   NOT?: Prisma.MealItemWhereInput | Prisma.MealItemWhereInput[]
   name?: Prisma.StringFilter<"MealItem"> | string
-  owner_id?: Prisma.IntNullableFilter<"MealItem"> | number | null
+  owner_id?: Prisma.IntFilter<"MealItem"> | number
   visibility?: Prisma.EnumVisibilityFilter<"MealItem"> | $Enums.Visibility
   is_universal?: Prisma.BoolFilter<"MealItem"> | boolean
   notes?: Prisma.StringNullableFilter<"MealItem"> | string | null
@@ -322,12 +323,12 @@ export type MealItemWhereUniqueInput = Prisma.AtLeast<{
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   meal_pack_item__meal_item?: Prisma.MealPackItemListRelationFilter
   trip_meal_pack_item__meal_item?: Prisma.TripMealPackItemListRelationFilter
-}, "id">
+}, "id" | "name_owner_id">
 
 export type MealItemOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   is_universal?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -349,7 +350,7 @@ export type MealItemScalarWhereWithAggregatesInput = {
   NOT?: Prisma.MealItemScalarWhereWithAggregatesInput | Prisma.MealItemScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"MealItem"> | number
   name?: Prisma.StringWithAggregatesFilter<"MealItem"> | string
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"MealItem"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"MealItem"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"MealItem"> | $Enums.Visibility
   is_universal?: Prisma.BoolWithAggregatesFilter<"MealItem"> | boolean
   notes?: Prisma.StringNullableWithAggregatesFilter<"MealItem"> | string | null
@@ -378,7 +379,7 @@ export type MealItemCreateInput = {
 export type MealItemUncheckedCreateInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -409,7 +410,7 @@ export type MealItemUpdateInput = {
 export type MealItemUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -425,7 +426,7 @@ export type MealItemUncheckedUpdateInput = {
 export type MealItemCreateManyInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -449,7 +450,7 @@ export type MealItemUpdateManyMutationInput = {
 export type MealItemUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -468,6 +469,11 @@ export type MealItemListRelationFilter = {
 
 export type MealItemOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type MealItemNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
 }
 
 export type MealItemCountOrderByAggregateInput = {
@@ -709,7 +715,7 @@ export type MealItemCreateWithoutCreated_byInput = {
 export type MealItemUncheckedCreateWithoutCreated_byInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -748,7 +754,7 @@ export type MealItemCreateWithoutUpdated_byInput = {
 export type MealItemUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -831,7 +837,7 @@ export type MealItemScalarWhereInput = {
   NOT?: Prisma.MealItemScalarWhereInput | Prisma.MealItemScalarWhereInput[]
   id?: Prisma.IntFilter<"MealItem"> | number
   name?: Prisma.StringFilter<"MealItem"> | string
-  owner_id?: Prisma.IntNullableFilter<"MealItem"> | number | null
+  owner_id?: Prisma.IntFilter<"MealItem"> | number
   visibility?: Prisma.EnumVisibilityFilter<"MealItem"> | $Enums.Visibility
   is_universal?: Prisma.BoolFilter<"MealItem"> | boolean
   notes?: Prisma.StringNullableFilter<"MealItem"> | string | null
@@ -891,7 +897,7 @@ export type MealItemCreateWithoutMeal_pack_item__meal_itemInput = {
 export type MealItemUncheckedCreateWithoutMeal_pack_item__meal_itemInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -936,7 +942,7 @@ export type MealItemUpdateWithoutMeal_pack_item__meal_itemInput = {
 export type MealItemUncheckedUpdateWithoutMeal_pack_item__meal_itemInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -965,7 +971,7 @@ export type MealItemCreateWithoutTrip_meal_pack_item__meal_itemInput = {
 export type MealItemUncheckedCreateWithoutTrip_meal_pack_item__meal_itemInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1010,7 +1016,7 @@ export type MealItemUpdateWithoutTrip_meal_pack_item__meal_itemInput = {
 export type MealItemUncheckedUpdateWithoutTrip_meal_pack_item__meal_itemInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1025,7 +1031,7 @@ export type MealItemUncheckedUpdateWithoutTrip_meal_pack_item__meal_itemInput = 
 export type MealItemCreateManyCreated_byInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1038,7 +1044,7 @@ export type MealItemCreateManyCreated_byInput = {
 export type MealItemCreateManyUpdated_byInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1078,7 +1084,7 @@ export type MealItemUpdateWithoutCreated_byInput = {
 export type MealItemUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1093,7 +1099,7 @@ export type MealItemUncheckedUpdateWithoutCreated_byInput = {
 export type MealItemUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1120,7 +1126,7 @@ export type MealItemUpdateWithoutUpdated_byInput = {
 export type MealItemUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1135,7 +1141,7 @@ export type MealItemUncheckedUpdateWithoutUpdated_byInput = {
 export type MealItemUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1327,7 +1333,7 @@ export type $MealItemPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
-    owner_id: number | null
+    owner_id: number
     visibility: $Enums.Visibility
     is_universal: boolean
     notes: string | null

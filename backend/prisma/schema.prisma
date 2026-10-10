@@ -683,9 +683,6 @@ model User {
   gear_pack__reviewed_by GearPack[] @relation("GearPackReviewedBy")
   gear_pack__owner GearPack[] @relation("GearPackOwner")
 
-  gear_pack_template__created_by GearPackTemplate[] @relation("GearPackTemplateCreatedBy")
-  gear_pack_template__updated_by GearPackTemplate[] @relation("GearPackTemplateUpdatedBy")
-  
   gear_pack_component__created_by GearPackComponent[] @relation("GearPackComponentCreatedBy")
   gear_pack_component__updated_by GearPackComponent[] @relation("GearPackComponentUpdatedBy")
   
@@ -1284,7 +1281,7 @@ model Gear {
   gear_type_id Int
   preview_img_key String?
 
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
 
   notes String?
@@ -1313,13 +1310,14 @@ model Gear {
   gear_tag_relation__gear GearTagRelation[] @relation("GearTagRelationGear")
 
   user_gear__gear UserGear[] @relation("UserGearGear")
+  @@unique([name, owner_id])
 }
 
 model DescriptiveGear {
   id Int @id @default(autoincrement())
   name String @unique
 
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
 
   status Status @default(ACTIVE)
@@ -1334,6 +1332,10 @@ model DescriptiveGear {
   updated_by User @relation("DescriptiveGearUpdatedBy", fields: [updated_by_id], references: [id])
 
   owner User? @relation("DescriptiveGearOwner", fields: [owner_id], references: [id])
+
+  gear_pack_component__descriptive_gear GearPackComponent[] @relation("GearPackComponentDescriptiveGear")
+
+  @@unique([name, owner_id])
 }
 
 model GearSpecs {
@@ -1442,7 +1444,7 @@ model GearPack {
   is_universal Boolean @default(false)
   derived_from_gear_pack_id Int?
 
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
 
   notes String?
@@ -1464,39 +1466,23 @@ model GearPack {
   gear_pack GearPack[] @relation("DerivedFromGearPack")
   derived_from_gear_pack GearPack? @relation("DerivedFromGearPack", fields: [derived_from_gear_pack_id], references: [id])
 
-  gear_pack_template__gear_pack GearPackTemplate[] @relation("GearPackTemplateGearPack")
+  gear_pack_component__gear_pack GearPackComponent[] @relation("GearPackComponentGearPack")
   user_gear_pack__gear_pack UserGearPack[] @relation("UserGearPackGearPack")
-}
 
-model GearPackTemplate {
-  id Int @id @default(autoincrement())
-  gear_pack_id Int @unique
-
-  notes String?
-  status Status @default(ACTIVE)
-
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int
-
-  created_by User @relation("GearPackTemplateCreatedBy", fields: [created_by_id], references: [id])
-  updated_by User @relation("GearPackTemplateUpdatedBy", fields: [updated_by_id], references: [id])
-  
-  gear_pack GearPack @relation("GearPackTemplateGearPack", fields: [gear_pack_id], references: [id])
-
-  gear_pakc_component__gear_pack_template GearPackComponent[] @relation("GearPackComponentGearPackTemplate")
+  @@unique([name, owner_id])
 }
 
 model GearPackComponent {
   id Int @id @default(autoincrement())
-  gear_pack_template_id Int
+  gear_pack_id Int
   gear_type_id Int?
-  gear_description String?
+  descriptive_gear_id Int?
   
   requires_gear_detail Boolean @default(true)
   default_frequency Frequency @default(PER_TRIP)
   default_qty Int @default(1)
+
+  component_nickname String?
 
   notes String?
   status Status @default(ACTIVE)
@@ -1509,11 +1495,12 @@ model GearPackComponent {
   created_by User @relation("GearPackComponentCreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("GearPackComponentUpdatedBy", fields: [updated_by_id], references: [id])
   
-  gear_pack_template GearPackTemplate @relation("GearPackComponentGearPackTemplate", fields: [gear_pack_template_id], references: [id])
+  gear_pack GearPack @relation("GearPackComponentGearPack", fields: [gear_pack_id], references: [id])
   gear_type GearType? @relation("GearPackComponentGearType", fields: [gear_type_id], references: [id])
+  descriptive_gear DescriptiveGear? @relation("GearPackComponentDescriptiveGear", fields: [descriptive_gear_id], references: [id])
   
   user_gear_pack_item__gear_pack_component UserGearPackItem[] @relation("UserGearPackItemGearPackComponent")
-  // TODO: add constraint check in Postgres migration to ensure that either gear_type_id or gear_description is not null
+  // TODO: add constraint check in Postgres migration to ensure that either gear_type_id or descriptive_gear_id is not null
 }
 
 
@@ -1631,7 +1618,7 @@ model Trail {
   authenticity_level AuthenticityLevel @default(UNSPECIFIED)
   derived_from_trail_id Int?
 
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
   is_official Boolean @default(false)
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
@@ -1673,6 +1660,8 @@ model Trail {
 
   user_trail__trail UserTrail[] @relation("UserTrailTrail")
   trip_trail__trail TripTrail[] @relation("TripTrailTrail")
+
+  @@unique([name, owner_id])
 }
 
 model TrailTagRelation {
@@ -1878,6 +1867,7 @@ model TrailProfile {
   id Int @id @default(autoincrement())
   trail_type TrailType?
   trail_id Int
+  name String
   primary_geometry_id Int?
 
   distance Float?
@@ -1894,7 +1884,7 @@ model TrailProfile {
   profile_origin DataOrigin
   trail_source_id Int? 
   authenticity_level AuthenticityLevel @default(UNSPECIFIED)
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
   is_official Boolean @default(false)
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
@@ -1922,6 +1912,8 @@ model TrailProfile {
   trail_profile_use__trail_profile TrailProfileUse[] @relation("TrailProfileUseTrailProfile")
   trail_geometry__trail_profile TrailSegmentation[] @relation("TrailSegmentationTrailProfile")
   trip_trail__trail_profile TripTrail[] @relation("TripTrailTrailProfile")
+
+  @@unique([name, owner_id])
 }
 
 model TrailProfileUse {
@@ -1956,7 +1948,7 @@ model AccessPoint {
   point_lat Float?
   point_lng Float?
 
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
 
   // Merge actions -- TODO: remove after implementing RecordAction
@@ -2019,6 +2011,8 @@ model AccessPoint {
   trip_transport__dep_accesss_point TripTransport[] @relation("TripTransportDepAccessPoint")
   trip_transport__arr_access_point TripTransport[] @relation("TripTransportArrAccessPoint")
   cirtical_event__event_loc_access_point CriticalEvent[] @relation("CriticalEventEventLocAccessPoint")
+
+  @@unique([name, owner_id])
 }
 
 model AccessPointCalendar {
@@ -2081,7 +2075,7 @@ model TrailGeometry {
   derived_from_id Int?
   authenticity_level AuthenticityLevel @default(UNSPECIFIED)
 
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
   is_official Boolean @default(false)
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
@@ -2113,18 +2107,20 @@ model TrailGeometry {
   trail_geometry__derived_from TrailGeometry[] @relation("TrailGeometryDerivedFrom")
   trail_segmentation__trail_geometry TrailSegmentation[] @relation("TrailSegmentationTrailGeometry")
   trip_trail_trail_geometry TripTrail[] @relation("TripTrailTrailGeometry")
+
+  @@unique([name, owner_id])
 }
 
 model TrailSegmentation {
   id Int @id @default(autoincrement())
-  name String?
+  name String
   derived_from_segmentation_id Int?
 
   trail_id Int
   trail_profile_id Int?
   trail_geometry_id Int?
   
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
 
   is_official Boolean @default(false)
@@ -2154,6 +2150,7 @@ model TrailSegmentation {
   trail_segmentation__derived_from TrailSegmentation[] @relation("TrailSegmentationDerivedFrom")
   trail_segment_relation__trail_segmentation TrailSegmentRelation[] @relation("TrailSegmentRelationTrailSegmentation")
 
+  @@unique([name, owner_id])
 }
 
 model TrailSegmentRelation {
@@ -2306,7 +2303,7 @@ model MealPack {
   consumption_frequency Frequency
   qty_per_consumption Int
 
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(PRIVATE)
   is_universal Boolean @default(false)
 
@@ -2331,12 +2328,14 @@ model MealPack {
   meal_pack__derived_from MealPack[] @relation("MealPackDerivedFrom")
   meal_pack_item__meal_pack MealPackItem[] @relation("MealPackItemMealPack")
   trip_meal_pack__meal_pack TripMealPack[] @relation("TripMealPackMealPack")
+
+  @@unique([name, owner_id])
 }
 
 model MealItem {
   id Int @id @default(autoincrement())
   name String
-  owner_id Int?
+  owner_id Int
   visibility Visibility
   is_universal Boolean @default(false)
 
@@ -2355,6 +2354,8 @@ model MealItem {
 
   meal_pack_item__meal_item MealPackItem[] @relation("MealPackItemMealItem")
   trip_meal_pack_item__meal_item TripMealPackItem[] @relation("TripMealPackItemMealItem")
+
+  @@unique([name, owner_id])
 }
 
 model MealPackItem {
@@ -2896,7 +2897,7 @@ model Collection {
 
   collection_type CollectionType @default(UNSPECIFIED)
   collection_summary String?
-  owner_id Int?
+  owner_id Int
   visibility Visibility @default(UNSPECIFIED)
 
   notes String?
@@ -2917,6 +2918,8 @@ model Collection {
   owner User? @relation("CollectionOwner", fields: [owner_id], references: [id])
 
   colleciton_item_collection CollectionItem[] @relation("CollectionItemCollection")
+
+  @@unique([name, owner_id])
 }
 
 model CollectionItem {

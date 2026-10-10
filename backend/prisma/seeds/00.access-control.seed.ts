@@ -38,7 +38,8 @@ export async function seedAccessControl() {
         system.id
     )
     const dean = await upsertUserData('Dean', 'dean@sampleuser.com', system.id)
-
+    const jessie = await upsertUserData('Jessie', 'jessie@sampleuser.com', system.id)
+    
     // Role
     const admin = await upsertRoleData('Admin', system.id)
     const moderator = await upsertRoleData('Moderator', system.id)
@@ -60,6 +61,7 @@ export async function seedAccessControl() {
     await upsertUserRoleData(ben.id, moderator.id, system.id)
     await upsertUserRoleData(charlie.id, user.id, system.id)
     await upsertUserRoleData(dean.id, user.id, system.id)
+    await upsertUserRoleData(jessie.id, user.id, system.id)
 
     // RolePermission -- only AccessControl Module is used for seeding
     let AccessControl: module = MODEL_INFO[0]

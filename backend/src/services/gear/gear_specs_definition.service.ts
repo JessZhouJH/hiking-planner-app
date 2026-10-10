@@ -66,13 +66,13 @@ export async function upsertGearSpecsDefitionData(
     notes?: string | null
 ) {
     // check whether there's already an entry with given name and gear_type_id in the database
-    const exisiting_gear_specs_definition = await findGearSpecsDefinitionByNameAndType(name, gear_type_id)
-    if (exisiting_gear_specs_definition) {
+    const existing_gear_specs_definition = await findGearSpecsDefinitionByNameAndType(name, gear_type_id)
+    if (existing_gear_specs_definition) {
         // check whether the input is identical to database data
-        if (isInputIdenticalToDb(exisiting_gear_specs_definition, value_type, is_key_spec, is_variant_sensitive, default_unit_id, status, notes)) return exisiting_gear_specs_definition
+        if (isInputIdenticalToDb(existing_gear_specs_definition, value_type, is_key_spec, is_variant_sensitive, default_unit_id, status, notes)) return existing_gear_specs_definition
         // update the record with given data
         return await prisma.gearSpecsDefinition.update({
-            where: { id: exisiting_gear_specs_definition.id },
+            where: { id: existing_gear_specs_definition.id },
             data: {
                 updated_by_id: actor_user_id,
                 value_type: value_type,

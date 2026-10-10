@@ -334,7 +334,7 @@ export type TrailGroupByOutputType = {
   trail_origin: $Enums.DataOrigin
   authenticity_level: $Enums.AuthenticityLevel
   derived_from_trail_id: number | null
-  owner_id: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_official: boolean
   edit_policy_override: $Enums.EditPolicyOverride
@@ -384,7 +384,7 @@ export type TrailWhereInput = {
   trail_origin?: Prisma.EnumDataOriginFilter<"Trail"> | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"Trail"> | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.IntNullableFilter<"Trail"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"Trail"> | number | null
+  owner_id?: Prisma.IntFilter<"Trail"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Trail"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"Trail"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"Trail"> | $Enums.EditPolicyOverride
@@ -434,7 +434,7 @@ export type TrailOrderByWithRelationInput = {
   trail_origin?: Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
   derived_from_trail_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
@@ -473,6 +473,7 @@ export type TrailOrderByWithRelationInput = {
 
 export type TrailWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name_owner_id?: Prisma.TrailNameOwner_idCompoundUniqueInput
   AND?: Prisma.TrailWhereInput | Prisma.TrailWhereInput[]
   OR?: Prisma.TrailWhereInput[]
   NOT?: Prisma.TrailWhereInput | Prisma.TrailWhereInput[]
@@ -487,7 +488,7 @@ export type TrailWhereUniqueInput = Prisma.AtLeast<{
   trail_origin?: Prisma.EnumDataOriginFilter<"Trail"> | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"Trail"> | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.IntNullableFilter<"Trail"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"Trail"> | number | null
+  owner_id?: Prisma.IntFilter<"Trail"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Trail"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"Trail"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"Trail"> | $Enums.EditPolicyOverride
@@ -522,7 +523,7 @@ export type TrailWhereUniqueInput = Prisma.AtLeast<{
   trail_transport_service__trail?: Prisma.TrailTransportServiceListRelationFilter
   user_trail__trail?: Prisma.UserTrailListRelationFilter
   trip_trail__trail?: Prisma.TripTrailListRelationFilter
-}, "id">
+}, "id" | "name_owner_id">
 
 export type TrailOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -537,7 +538,7 @@ export type TrailOrderByWithAggregationInput = {
   trail_origin?: Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
   derived_from_trail_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
@@ -572,7 +573,7 @@ export type TrailScalarWhereWithAggregatesInput = {
   trail_origin?: Prisma.EnumDataOriginWithAggregatesFilter<"Trail"> | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelWithAggregatesFilter<"Trail"> | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.IntNullableWithAggregatesFilter<"Trail"> | number | null
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"Trail"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"Trail"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"Trail"> | $Enums.Visibility
   is_official?: Prisma.BoolWithAggregatesFilter<"Trail"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideWithAggregatesFilter<"Trail"> | $Enums.EditPolicyOverride
@@ -641,7 +642,7 @@ export type TrailUncheckedCreateInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -726,7 +727,7 @@ export type TrailUncheckedUpdateInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -769,7 +770,7 @@ export type TrailCreateManyInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -815,7 +816,7 @@ export type TrailUncheckedUpdateManyInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -842,6 +843,11 @@ export type TrailOrderByRelationAggregateInput = {
 export type TrailNullableScalarRelationFilter = {
   is?: Prisma.TrailWhereInput | null
   isNot?: Prisma.TrailWhereInput | null
+}
+
+export type TrailNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
 }
 
 export type TrailCountOrderByAggregateInput = {
@@ -1534,7 +1540,7 @@ export type TrailUncheckedCreateWithoutCreated_byInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1627,7 +1633,7 @@ export type TrailUncheckedCreateWithoutUpdated_byInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1720,7 +1726,7 @@ export type TrailUncheckedCreateWithoutLast_verified_byInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1884,7 +1890,7 @@ export type TrailScalarWhereInput = {
   trail_origin?: Prisma.EnumDataOriginFilter<"Trail"> | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"Trail"> | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.IntNullableFilter<"Trail"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"Trail"> | number | null
+  owner_id?: Prisma.IntFilter<"Trail"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Trail"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"Trail"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"Trail"> | $Enums.EditPolicyOverride
@@ -1999,7 +2005,7 @@ export type TrailUncheckedCreateWithoutPreview_img_mediaInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2109,7 +2115,7 @@ export type TrailUncheckedCreateWithoutTrail__derived_from_trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2196,7 +2202,7 @@ export type TrailUncheckedCreateWithoutDerived_from_trailInput = {
   is_trail_root?: boolean
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2301,7 +2307,7 @@ export type TrailUncheckedUpdateWithoutTrail__derived_from_trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2400,7 +2406,7 @@ export type TrailUncheckedCreateWithoutTrail_tag_relation__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2499,7 +2505,7 @@ export type TrailUncheckedUpdateWithoutTrail_tag_relation__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2582,7 +2588,7 @@ export type TrailUncheckedCreateWithoutTrail_challenge__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2681,7 +2687,7 @@ export type TrailUncheckedUpdateWithoutTrail_challenge__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2764,7 +2770,7 @@ export type TrailUncheckedCreateWithoutTrail_calendar__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2863,7 +2869,7 @@ export type TrailUncheckedUpdateWithoutTrail_calendar__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2946,7 +2952,7 @@ export type TrailUncheckedCreateWithoutTrail_source__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3045,7 +3051,7 @@ export type TrailUncheckedUpdateWithoutTrail_source__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3128,7 +3134,7 @@ export type TrailUncheckedCreateWithoutTrail_gear_requirement__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3227,7 +3233,7 @@ export type TrailUncheckedUpdateWithoutTrail_gear_requirement__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3310,7 +3316,7 @@ export type TrailUncheckedCreateWithoutTrail_difficulty__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3409,7 +3415,7 @@ export type TrailUncheckedUpdateWithoutTrail_difficulty__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3492,7 +3498,7 @@ export type TrailUncheckedCreateWithoutTrail_facility__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3591,7 +3597,7 @@ export type TrailUncheckedUpdateWithoutTrail_facility__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3674,7 +3680,7 @@ export type TrailUncheckedCreateWithoutTrail_profile__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3761,7 +3767,7 @@ export type TrailUncheckedCreateWithoutPrimary_profileInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3866,7 +3872,7 @@ export type TrailUncheckedUpdateWithoutTrail_profile__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3965,7 +3971,7 @@ export type TrailUncheckedCreateWithoutTrail_access_point_relation__trailInput =
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -4064,7 +4070,7 @@ export type TrailUncheckedUpdateWithoutTrail_access_point_relation__trailInput =
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -4147,7 +4153,7 @@ export type TrailUncheckedCreateWithoutTrail_geometry__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -4246,7 +4252,7 @@ export type TrailUncheckedUpdateWithoutTrail_geometry__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -4329,7 +4335,7 @@ export type TrailUncheckedCreateWithoutTrail_segmentation__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -4428,7 +4434,7 @@ export type TrailUncheckedUpdateWithoutTrail_segmentation__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -4511,7 +4517,7 @@ export type TrailUncheckedCreateWithoutTrail_segment_relation__child_trailInput 
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -4610,7 +4616,7 @@ export type TrailUncheckedUpdateWithoutTrail_segment_relation__child_trailInput 
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -4693,7 +4699,7 @@ export type TrailUncheckedCreateWithoutTrail_transport_service__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -4792,7 +4798,7 @@ export type TrailUncheckedUpdateWithoutTrail_transport_service__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -4875,7 +4881,7 @@ export type TrailUncheckedCreateWithoutUser_trail__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -4974,7 +4980,7 @@ export type TrailUncheckedUpdateWithoutUser_trail__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5057,7 +5063,7 @@ export type TrailUncheckedCreateWithoutTrip_trail__trailInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -5156,7 +5162,7 @@ export type TrailUncheckedUpdateWithoutTrip_trail__trailInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5198,7 +5204,7 @@ export type TrailCreateManyCreated_byInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -5224,7 +5230,7 @@ export type TrailCreateManyUpdated_byInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -5250,7 +5256,7 @@ export type TrailCreateManyLast_verified_byInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -5343,7 +5349,7 @@ export type TrailUncheckedUpdateWithoutCreated_byInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5385,7 +5391,7 @@ export type TrailUncheckedUpdateManyWithoutCreated_byInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5452,7 +5458,7 @@ export type TrailUncheckedUpdateWithoutUpdated_byInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5494,7 +5500,7 @@ export type TrailUncheckedUpdateManyWithoutUpdated_byInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5561,7 +5567,7 @@ export type TrailUncheckedUpdateWithoutLast_verified_byInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5603,7 +5609,7 @@ export type TrailUncheckedUpdateManyWithoutLast_verified_byInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5737,7 +5743,7 @@ export type TrailCreateManyPreview_img_mediaInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -5804,7 +5810,7 @@ export type TrailUncheckedUpdateWithoutPreview_img_mediaInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5846,7 +5852,7 @@ export type TrailUncheckedUpdateManyWithoutPreview_img_mediaInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5872,7 +5878,7 @@ export type TrailCreateManyDerived_from_trailInput = {
   is_trail_root?: boolean
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -5939,7 +5945,7 @@ export type TrailUncheckedUpdateWithoutDerived_from_trailInput = {
   is_trail_root?: Prisma.BoolFieldUpdateOperationsInput | boolean
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -5981,7 +5987,7 @@ export type TrailUncheckedUpdateManyWithoutDerived_from_trailInput = {
   is_trail_root?: Prisma.BoolFieldUpdateOperationsInput | boolean
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -6007,7 +6013,7 @@ export type TrailCreateManyPrimary_profileInput = {
   trail_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
   derived_from_trail_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -6074,7 +6080,7 @@ export type TrailUncheckedUpdateWithoutPrimary_profileInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -6116,7 +6122,7 @@ export type TrailUncheckedUpdateManyWithoutPrimary_profileInput = {
   trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -6528,7 +6534,7 @@ export type $TrailPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     trail_origin: $Enums.DataOrigin
     authenticity_level: $Enums.AuthenticityLevel
     derived_from_trail_id: number | null
-    owner_id: number | null
+    owner_id: number
     visibility: $Enums.Visibility
     is_official: boolean
     edit_policy_override: $Enums.EditPolicyOverride

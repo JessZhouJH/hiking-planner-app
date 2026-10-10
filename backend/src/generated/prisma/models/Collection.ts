@@ -260,7 +260,7 @@ export type CollectionGroupByOutputType = {
   name: string
   collection_type: $Enums.CollectionType
   collection_summary: string | null
-  owner_id: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   notes: string | null
   status: $Enums.Status
@@ -301,7 +301,7 @@ export type CollectionWhereInput = {
   name?: Prisma.StringFilter<"Collection"> | string
   collection_type?: Prisma.EnumCollectionTypeFilter<"Collection"> | $Enums.CollectionType
   collection_summary?: Prisma.StringNullableFilter<"Collection"> | string | null
-  owner_id?: Prisma.IntNullableFilter<"Collection"> | number | null
+  owner_id?: Prisma.IntFilter<"Collection"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Collection"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"Collection"> | string | null
   status?: Prisma.EnumStatusFilter<"Collection"> | $Enums.Status
@@ -324,7 +324,7 @@ export type CollectionOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   collection_type?: Prisma.SortOrder
   collection_summary?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -344,13 +344,14 @@ export type CollectionOrderByWithRelationInput = {
 
 export type CollectionWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name_owner_id?: Prisma.CollectionNameOwner_idCompoundUniqueInput
   AND?: Prisma.CollectionWhereInput | Prisma.CollectionWhereInput[]
   OR?: Prisma.CollectionWhereInput[]
   NOT?: Prisma.CollectionWhereInput | Prisma.CollectionWhereInput[]
   name?: Prisma.StringFilter<"Collection"> | string
   collection_type?: Prisma.EnumCollectionTypeFilter<"Collection"> | $Enums.CollectionType
   collection_summary?: Prisma.StringNullableFilter<"Collection"> | string | null
-  owner_id?: Prisma.IntNullableFilter<"Collection"> | number | null
+  owner_id?: Prisma.IntFilter<"Collection"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Collection"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"Collection"> | string | null
   status?: Prisma.EnumStatusFilter<"Collection"> | $Enums.Status
@@ -366,14 +367,14 @@ export type CollectionWhereUniqueInput = Prisma.AtLeast<{
   last_reviewed_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   colleciton_item_collection?: Prisma.CollectionItemListRelationFilter
-}, "id">
+}, "id" | "name_owner_id">
 
 export type CollectionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   collection_type?: Prisma.SortOrder
   collection_summary?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -399,7 +400,7 @@ export type CollectionScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Collection"> | string
   collection_type?: Prisma.EnumCollectionTypeWithAggregatesFilter<"Collection"> | $Enums.CollectionType
   collection_summary?: Prisma.StringNullableWithAggregatesFilter<"Collection"> | string | null
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"Collection"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"Collection"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"Collection"> | $Enums.Visibility
   notes?: Prisma.StringNullableWithAggregatesFilter<"Collection"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"Collection"> | $Enums.Status
@@ -435,7 +436,7 @@ export type CollectionUncheckedCreateInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -472,7 +473,7 @@ export type CollectionUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -491,7 +492,7 @@ export type CollectionCreateManyInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -522,7 +523,7 @@ export type CollectionUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -543,6 +544,11 @@ export type CollectionListRelationFilter = {
 
 export type CollectionOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type CollectionNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
 }
 
 export type CollectionCountOrderByAggregateInput = {
@@ -832,7 +838,7 @@ export type CollectionUncheckedCreateWithoutCreated_byInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -877,7 +883,7 @@ export type CollectionUncheckedCreateWithoutUpdated_byInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -922,7 +928,7 @@ export type CollectionUncheckedCreateWithoutLast_reviewed_byInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1014,7 +1020,7 @@ export type CollectionScalarWhereInput = {
   name?: Prisma.StringFilter<"Collection"> | string
   collection_type?: Prisma.EnumCollectionTypeFilter<"Collection"> | $Enums.CollectionType
   collection_summary?: Prisma.StringNullableFilter<"Collection"> | string | null
-  owner_id?: Prisma.IntNullableFilter<"Collection"> | number | null
+  owner_id?: Prisma.IntFilter<"Collection"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Collection"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"Collection"> | string | null
   status?: Prisma.EnumStatusFilter<"Collection"> | $Enums.Status
@@ -1097,7 +1103,7 @@ export type CollectionUncheckedCreateWithoutColleciton_item_collectionInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1148,7 +1154,7 @@ export type CollectionUncheckedUpdateWithoutColleciton_item_collectionInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1166,7 +1172,7 @@ export type CollectionCreateManyCreated_byInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1183,7 +1189,7 @@ export type CollectionCreateManyUpdated_byInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1200,7 +1206,7 @@ export type CollectionCreateManyLast_reviewed_byInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1251,7 +1257,7 @@ export type CollectionUncheckedUpdateWithoutCreated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1269,7 +1275,7 @@ export type CollectionUncheckedUpdateManyWithoutCreated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1303,7 +1309,7 @@ export type CollectionUncheckedUpdateWithoutUpdated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1321,7 +1327,7 @@ export type CollectionUncheckedUpdateManyWithoutUpdated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1355,7 +1361,7 @@ export type CollectionUncheckedUpdateWithoutLast_reviewed_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1373,7 +1379,7 @@ export type CollectionUncheckedUpdateManyWithoutLast_reviewed_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1590,7 +1596,7 @@ export type $CollectionPayload<ExtArgs extends runtime.Types.Extensions.Internal
     name: string
     collection_type: $Enums.CollectionType
     collection_summary: string | null
-    owner_id: number | null
+    owner_id: number
     visibility: $Enums.Visibility
     notes: string | null
     status: $Enums.Status

@@ -162,11 +162,6 @@ export type GearTagRelation = Prisma.GearTagRelationModel
  */
 export type GearPack = Prisma.GearPackModel
 /**
- * Model GearPackTemplate
- * 
- */
-export type GearPackTemplate = Prisma.GearPackTemplateModel
-/**
  * Model GearPackComponent
  * 
  */

@@ -75,7 +75,6 @@ export const ModelName = {
   GearVariant: 'GearVariant',
   GearTagRelation: 'GearTagRelation',
   GearPack: 'GearPack',
-  GearPackTemplate: 'GearPackTemplate',
   GearPackComponent: 'GearPackComponent',
   Challenge: 'Challenge',
   ChallengeGearRequirement: 'ChallengeGearRequirement',
@@ -559,28 +558,15 @@ export const GearPackScalarFieldEnum = {
 export type GearPackScalarFieldEnum = (typeof GearPackScalarFieldEnum)[keyof typeof GearPackScalarFieldEnum]
 
 
-export const GearPackTemplateScalarFieldEnum = {
-  id: 'id',
-  gear_pack_id: 'gear_pack_id',
-  notes: 'notes',
-  status: 'status',
-  created_at: 'created_at',
-  created_by_id: 'created_by_id',
-  updated_at: 'updated_at',
-  updated_by_id: 'updated_by_id'
-} as const
-
-export type GearPackTemplateScalarFieldEnum = (typeof GearPackTemplateScalarFieldEnum)[keyof typeof GearPackTemplateScalarFieldEnum]
-
-
 export const GearPackComponentScalarFieldEnum = {
   id: 'id',
-  gear_pack_template_id: 'gear_pack_template_id',
+  gear_pack_id: 'gear_pack_id',
   gear_type_id: 'gear_type_id',
-  gear_description: 'gear_description',
+  descriptive_gear_id: 'descriptive_gear_id',
   requires_gear_detail: 'requires_gear_detail',
   default_frequency: 'default_frequency',
   default_qty: 'default_qty',
+  component_nickname: 'component_nickname',
   notes: 'notes',
   status: 'status',
   created_at: 'created_at',
@@ -841,6 +827,7 @@ export const TrailProfileScalarFieldEnum = {
   id: 'id',
   trail_type: 'trail_type',
   trail_id: 'trail_id',
+  name: 'name',
   primary_geometry_id: 'primary_geometry_id',
   distance: 'distance',
   elevation_gain: 'elevation_gain',
