@@ -1,6 +1,5 @@
-import { prisma } from "./seed-client"
-
-import { upsertGearData } from "../../src/services/gear/gear.service"
+import { prisma } from './seed-client'
+import { upsertGearData } from '../../src/services/gear/gear.service'
 import { findGearTypeByName } from '../../src/services/gear/gear_type.service'
 import { findBrandByName } from '../../src/services/gear/brand.service'
 import { upsertDescriptiveGearData } from '../../src/services/gear/descriptive_gear.service'
@@ -45,63 +44,63 @@ export async function seedGearDetails() {
 
     // gear
     const osprey_hikelite_26 = await upsertGearData(
-        "Hikelite 26 Backpack",
+        'Hikelite 26 Backpack',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         day_pack_type.id,
         osprey_brand?.id
     )
     const gregory_maven_48 = await upsertGearData(
-        "Maven 48",
+        'Maven 48',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         trekking_pack_type.id,
         gregory_brand?.id
     )
     const gregory_deva_60 = await upsertGearData(
-        "Deva 60",
+        'Deva 60',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         trekking_pack_type.id,
         gregory_brand?.id
     )
     const naturehike_starriver_tent = await upsertGearData(
-        "Star River 2-Person Ultralight Backpacking Tent",
+        'Star River 2-Person Ultralight Backpacking Tent',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         tent_type.id,
         naturehike_brand?.id
     )
     const sts_XR_sleeping_mat = await upsertGearData(
-        "XR Insulated Air Sleeping Mat",
-        SYSTEM_USER_ID, 
+        'XR Insulated Air Sleeping Mat',
+        SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         sleeping_mat_type.id,
         sea_to_summit_brand?.id
     )
     const thermarest_sleeping_pad = await upsertGearData(
-        "NeoAir XTherm NXT Sleeping Pd",
-        SYSTEM_USER_ID, 
+        'NeoAir XTherm NXT Sleeping Pd',
+        SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         sleeping_pad_type.id,
         thermarest_brand?.id
     )
     const sts_ascent_sleeping_bag = await upsertGearData(
-        "Ascent Down Sleeping Bag -1",
+        'Ascent Down Sleeping Bag -1',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         sleeping_bag_type.id,
         sea_to_summit_brand?.id
     )
     const sts_reactor_liner = await upsertGearData(
-        "Reactor Sleeping Bag Liner",
+        'Reactor Sleeping Bag Liner',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         sleeping_bag_liner_type.id,
         sea_to_summit_brand?.id
     )
     const sts_areo_pillow = await upsertGearData(
-        "Areo Premium Pillow",
+        'Areo Premium Pillow',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID,
         pillow_type.id,
@@ -110,12 +109,12 @@ export async function seedGearDetails() {
 
     // descriptive gear
     const first_aid_kit = await upsertDescriptiveGearData(
-        "First Aid Kit",
+        'First Aid Kit',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID
     )
     const whistle = await upsertDescriptiveGearData(
-        "Whistle",
+        'Whistle',
         SYSTEM_USER_ID,
         SYSTEM_USER_ID
     )
@@ -144,61 +143,44 @@ export async function seedGearDetails() {
     if (!backpack_torso_length_spec_definition) {throw new Error("GearSpecsDefinition Torso Length-backpack_type not found")}
     
 
-
     // gear feature
-
 
     // gear variant
     await upsertGearVariantData(
         sts_ascent_sleeping_bag.id,
-        "Regular",
+        'Regular',
         SYSTEM_USER_ID,
         true
     )
     await upsertGearVariantData(
         sts_areo_pillow.id,
-        "Regular",
+        'Regular',
         SYSTEM_USER_ID,
         true
     )
     await upsertGearVariantData(
         sts_ascent_sleeping_bag.id,
-        "Large",
+        'Large',
         SYSTEM_USER_ID,
         true
     )
     await upsertGearVariantData(
         sts_ascent_sleeping_bag.id,
-        "XLarge",
+        'XLarge',
         SYSTEM_USER_ID,
         true
     )
+    await upsertGearVariantData(gregory_deva_60.id, 'xs', SYSTEM_USER_ID, true)
+    await upsertGearVariantData(gregory_deva_60.id, 'sm', SYSTEM_USER_ID, true)
+    await upsertGearVariantData(gregory_deva_60.id, 'md', SYSTEM_USER_ID, true)
     await upsertGearVariantData(
         gregory_deva_60.id,
-        "xs",
-        SYSTEM_USER_ID,
-        true
-    )
-    await upsertGearVariantData(
-        gregory_deva_60.id,
-        "sm",
-        SYSTEM_USER_ID,
-        true
-    )
-    await upsertGearVariantData(
-        gregory_deva_60.id,
-        "md",
-        SYSTEM_USER_ID,
-        true
-    )
-    await upsertGearVariantData(
-        gregory_deva_60.id,
-        "Mountain Teal",
+        'Mountain Teal',
         SYSTEM_USER_ID
     )
     await upsertGearVariantData(
         gregory_deva_60.id,
-        "Garnet Red",
+        'Garnet Red',
         SYSTEM_USER_ID
     )
 

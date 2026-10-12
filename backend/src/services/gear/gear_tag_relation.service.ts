@@ -3,8 +3,8 @@ import { Pool } from 'pg'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '../../generated/prisma/client.js'
 
-import { Status } from '../../generated/prisma/enums.js'
-import type { GearTagRelation } from '../../generated/prisma/client.js'
+import { Status, DescribingTargetType } from '../../generated/prisma/enums.js'
+import type { Tag, GearTagRelation } from '../../generated/prisma/client.js'
 
 const connectionString = `${process.env.DATABASE_URL}`
 const pool = new Pool({ connectionString })
@@ -43,7 +43,6 @@ export function isInputIdenticalToDb(
         (notes === undefined || notes === db_gear_tag_relation.notes)
     )
 }
-
 
 export async function upsertGearTagRelationData(
     gear_id: number,
