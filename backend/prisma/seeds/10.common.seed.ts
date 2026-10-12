@@ -156,6 +156,8 @@ export async function seedCommon() {
         DescribingTargetType.TRAIL
     )
 
+    const camping_tag = await upsertTagData('Camping', SYSTEM_USER_ID)
+
     // TagGroup
     const terrain_tag_group = await upsertTagGroupData(
         'Terrain',

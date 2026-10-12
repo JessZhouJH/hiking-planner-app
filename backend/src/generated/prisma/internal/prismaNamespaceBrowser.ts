@@ -472,6 +472,7 @@ export const GearSpecsScalarFieldEnum = {
   gear_id: 'gear_id',
   gear_variant_id: 'gear_variant_id',
   gear_specs_definition_id: 'gear_specs_definition_id',
+  specs_sequence: 'specs_sequence',
   source_unit_id: 'source_unit_id',
   value_boolean: 'value_boolean',
   value_text: 'value_text',
