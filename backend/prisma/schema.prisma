@@ -109,8 +109,6 @@ enum Visibility {
 }
 
 enum ValueType {
-  UNSPECIFIED
-
   WEIGHT
   LENGTH
   AREA
@@ -1439,6 +1437,8 @@ model GearTagRelation {
 
   gear Gear @relation("GearTagRelationGear", fields: [gear_id], references: [id])
   tag Tag @relation("GearTagRelationTag",fields: [tag_id], references: [id])
+
+  @@unique([gear_id, tag_id])
 }
 
 model GearPack {

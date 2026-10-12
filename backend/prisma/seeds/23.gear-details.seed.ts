@@ -5,11 +5,17 @@ import { findGearTypeByName } from '../../src/services/gear/gear_type.service'
 import { findBrandByName } from '../../src/services/gear/brand.service'
 import { upsertDescriptiveGearData } from '../../src/services/gear/descriptive_gear.service'
 import { upsertGearVariantData } from '../../src/services/gear/gear_variant.service'
-
+import { findTagByName } from "../../src/services/common/tag.service"
+import { upsertGearSpecsData } from '../../src/services/gear/gear_specs.service'
+import { upsertGearTagRelationData } from '../../src/services/gear/gear_tag_relation.service'
 import { SYSTEM_USER_ID } from "../../src/constants/macros"
+import { findGearSpecsDefinitionByNameAndType } from "../../src/services/gear/gear_specs_definition.service"
+import { findUnitByName } from '../../src/services/common/unit.service'
 
 export async function seedGearDetails() {
-
+    
+    const backpack_type = await findGearTypeByName("Backpack")
+    if (!backpack_type) {throw new Error("GearType Backpack Bag not found")}
     const sleeping_bag_type = await findGearTypeByName("Sleeping Bag")
     if (!sleeping_bag_type) {throw new Error("GearType Sleeping Bag not found")}
     const sleeping_bag_liner_type = await findGearTypeByName("Sleeping Bag Liner")
@@ -115,6 +121,28 @@ export async function seedGearDetails() {
     )
 
     // gear specs
+    const kilogram_unit = await findUnitByName('Kilogram')
+    const gram_unit = await findUnitByName('Gram')
+    const celsius_unit = await findUnitByName('Celsius')
+    const kilometer_unit = await findUnitByName('Kilometer')
+    const meter_unit = await findUnitByName('Meter')
+    const centimeter_unit = await findUnitByName('Centimeter')
+    const millimeter_unit = await findUnitByName('Millimeter')
+    const liter_unit = await findUnitByName('Liter')
+    const milliliter_unit = await findUnitByName('Milliliter')
+    const squaremeter_unit = await findUnitByName('Square Meter')
+    const lumen_unit = await findUnitByName('Lumen')
+    const hour_unit = await findUnitByName('Hour')
+    // Maven 48
+    const backpack_weight_spec_definition = findGearSpecsDefinitionByNameAndType("Weight", backpack_type.id)
+    if (!backpack_weight_spec_definition) {throw new Error("GearSpecsDefinition Weight-backpack_type not found")}
+    const backpack_capacity_spec_definition = findGearSpecsDefinitionByNameAndType("Capacity", backpack_type.id)
+    if (!backpack_capacity_spec_definition) {throw new Error("GearSpecsDefinition Capacity-backpack_type not found")}
+    const backpack_recommended_load_spec_definition = findGearSpecsDefinitionByNameAndType("Recommended Load", backpack_type.id)
+    if (!backpack_recommended_load_spec_definition) {throw new Error("GearSpecsDefinition Recommended Load-backpack_type not found")}
+    const backpack_torso_length_spec_definition = findGearSpecsDefinitionByNameAndType("Torso Length", backpack_type.id)
+    if (!backpack_torso_length_spec_definition) {throw new Error("GearSpecsDefinition Torso Length-backpack_type not found")}
+    
 
 
     // gear feature
@@ -175,9 +203,32 @@ export async function seedGearDetails() {
     )
 
     // gear tag relation
+    const waterproof_tag = await findTagByName("Waterproof")
+    if (!waterproof_tag) {throw new Error("Tag Waterproof not found")}
+    const sleeping_system_tag = await findTagByName("Sleeping System")
+    if (!sleeping_system_tag) {throw new Error("Tag Sleeping System not found")}
+    const ultralight_tag = await findTagByName("Ultralight")
+    if (!ultralight_tag) {throw new Error("Tag Ultralight not found")}
+    const multiday_tag = await findTagByName("Multiday")
+    if (!multiday_tag) {throw new Error("Tag Multiday not found")}
 
+    await upsertGearTagRelationData(naturehike_starriver_tent.id, waterproof_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(naturehike_starriver_tent.id, sleeping_system_tag.id, SYSTEM_USER_ID)    
 
+    await upsertGearTagRelationData(sts_XR_sleeping_mat.id, sleeping_system_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(thermarest_sleeping_pad.id, sleeping_system_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(sts_ascent_sleeping_bag.id, sleeping_system_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(sts_reactor_liner.id, sleeping_system_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(sts_areo_pillow.id, sleeping_system_tag.id, SYSTEM_USER_ID)    
 
+    await upsertGearTagRelationData(sts_XR_sleeping_mat.id, ultralight_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(sts_ascent_sleeping_bag.id, ultralight_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(sts_reactor_liner.id, ultralight_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(thermarest_sleeping_pad.id, ultralight_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(sts_areo_pillow.id, ultralight_tag.id, SYSTEM_USER_ID)    
 
+    await upsertGearTagRelationData(gregory_maven_48.id, multiday_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(gregory_deva_60.id, multiday_tag.id, SYSTEM_USER_ID)    
+    await upsertGearTagRelationData(sts_ascent_sleeping_bag.id, multiday_tag.id, SYSTEM_USER_ID)    
 
 }

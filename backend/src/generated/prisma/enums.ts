@@ -135,7 +135,6 @@ export type Visibility = (typeof Visibility)[keyof typeof Visibility]
 
 
 export const ValueType = {
-  UNSPECIFIED: 'UNSPECIFIED',
   WEIGHT: 'WEIGHT',
   LENGTH: 'LENGTH',
   AREA: 'AREA',
