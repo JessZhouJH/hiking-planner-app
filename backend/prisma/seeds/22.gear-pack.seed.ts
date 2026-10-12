@@ -11,7 +11,6 @@ import { findGearTypeByName } from '../../src/services/gear/gear_type.service'
 export async function seedGearPack() {
     const adam = await findUserByName("Adam")
     const ben = await findUserByName("Ben")
-    const charlie = await findUserByName("Charlie")
     const jessie = await findUserByName("Jessie")
 
     // gear pack

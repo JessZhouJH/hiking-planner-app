@@ -7,5 +7,5 @@ import { seedGearDetails } from "./23.gear-details.seed"
 export async function seedGear(){
     await seedGearPrep()
     await seedGearPack()
-    // await seedGearDetails()
+    await seedGearDetails()
 }

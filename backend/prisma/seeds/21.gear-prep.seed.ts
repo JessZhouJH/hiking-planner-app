@@ -56,6 +56,14 @@ export async function seedGearPrep() {
         SYSTEM_USER_ID,
         `${MEDIA_PATH_PREFIX}/brand-logo/Gregory-logo.png`
     )
+    const naturehike_brand = await upsertBrandData(
+        'Naturehike',
+        SYSTEM_USER_ID
+    )
+    const thermarest_brand = await upsertBrandData(
+        'Therm-A-Rest',
+        SYSTEM_USER_ID
+    )
 
     // GearType
     const tent_type = await upsertGearTypeData('Tent', SYSTEM_USER_ID)
