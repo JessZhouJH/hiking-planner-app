@@ -58,10 +58,10 @@ CREATE TABLE "ContentReviewHistory" (
     "requested_by_id" INTEGER NOT NULL,
     "requester_notes" TEXT,
     "review_type" "ContentReviewType" NOT NULL DEFAULT 'UNSPECIFIED',
-    "reivewed_at" TIMESTAMP(3),
+    "reviewed_at" TIMESTAMP(3),
     "reviewed_by_id" INTEGER,
     "reviewer_notes" TEXT,
-    "reivew_status" "RecordActionStatus" NOT NULL DEFAULT 'UNSPECIFIED',
+    "review_status" "RecordActionStatus" NOT NULL DEFAULT 'UNSPECIFIED',
 
     CONSTRAINT "ContentReviewHistory_pkey" PRIMARY KEY ("id")
 );

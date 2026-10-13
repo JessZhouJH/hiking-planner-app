@@ -1,28 +1,31 @@
 import { prisma } from './seed-client'
 
 import { SYSTEM_USER_ID, MEDIA_PATH_PREFIX } from '../../src/constants/macros'
-import { Status, ValueType } from '../../src/generated/prisma/enums'
+import { Status, ValueType, AliasTargetType } from '../../src/generated/prisma/enums'
 
 import { findUnitByName } from '../../src/services/common/unit.service'
 import { upsertBrandData } from '../../src/services/gear/brand.service'
 import { upsertGearTypeData } from '../../src/services/gear/gear_type.service'
 import { upsertGearTypeRelationData } from '../../src/services/gear/gear_type_relation.service'
-import { upsertGearSpecsDefitionData } from '../../src/services/gear/gear_specs_definition.service'
+import { upsertGearSpecsDefinitionData } from '../../src/services/gear/gear_specs_definition.service'
+import { upsertAliasData } from '../../src/services/common/alias.service'
 
-const kilogram_unit = await findUnitByName('Kilogram')
-const gram_unit = await findUnitByName('Gram')
-const celsius_unit = await findUnitByName('Celsius')
-const kilometer_unit = await findUnitByName('Kilometer')
-const meter_unit = await findUnitByName('Meter')
-const centimeter_unit = await findUnitByName('Centimeter')
-const millimeter_unit = await findUnitByName('Millimeter')
-const liter_unit = await findUnitByName('Liter')
-const milliliter_unit = await findUnitByName('Milliliter')
-const squaremeter_unit = await findUnitByName('Square Meter')
-const lumen_unit = await findUnitByName('Lumen')
-const hour_unit = await findUnitByName('Hour')
+
 
 export async function seedGearPrep() {
+    const kilogram_unit = await findUnitByName('Kilogram')
+    const gram_unit = await findUnitByName('Gram')
+    const celsius_unit = await findUnitByName('Celsius')
+    const kilometer_unit = await findUnitByName('Kilometer')
+    const meter_unit = await findUnitByName('Meter')
+    const centimeter_unit = await findUnitByName('Centimeter')
+    const millimeter_unit = await findUnitByName('Millimeter')
+    const liter_unit = await findUnitByName('Liter')
+    const milliliter_unit = await findUnitByName('Milliliter')
+    const squaremeter_unit = await findUnitByName('Square Meter')
+    const lumen_unit = await findUnitByName('Lumen')
+    const hour_unit = await findUnitByName('Hour')
+
     // Brand
     const osprey_brand = await upsertBrandData(
         'Osprey',
@@ -60,6 +63,25 @@ export async function seedGearPrep() {
         SYSTEM_USER_ID
     )
     const deuter_brand = await upsertBrandData('Deuter', SYSTEM_USER_ID)
+
+    await upsertAliasData(
+        AliasTargetType.BRAND,
+        sea_to_summit_brand.id,
+        'sea to summit',
+        SYSTEM_USER_ID
+    )
+    await upsertAliasData(
+        AliasTargetType.BRAND,
+        sea_to_summit_brand.id,
+        'sts',
+        SYSTEM_USER_ID
+    )
+    await upsertAliasData(
+        AliasTargetType.BRAND,
+        sea_to_summit_brand.id,
+        'STS',
+        SYSTEM_USER_ID
+    )
 
     // GearType
     const tent_type = await upsertGearTypeData('Tent', SYSTEM_USER_ID)
@@ -226,7 +248,7 @@ export async function seedGearPrep() {
     // GearSpecsDefinition
 
     // backpack sepcs
-    const backpack_weight_spec_definition = await upsertGearSpecsDefitionData(
+    const backpack_weight_spec_definition = await upsertGearSpecsDefinitionData(
         'Weight',
         backpack_type.id,
         ValueType.WEIGHT,
@@ -235,7 +257,7 @@ export async function seedGearPrep() {
         true,
         gram_unit?.id
     )
-    const backpack_capacity_spec_definition = await upsertGearSpecsDefitionData(
+    const backpack_capacity_spec_definition = await upsertGearSpecsDefinitionData(
         'Capacity',
         backpack_type.id,
         ValueType.VOLUME,
@@ -245,7 +267,7 @@ export async function seedGearPrep() {
         liter_unit?.id
     )
     const backpack_recommended_load_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Recommended Load',
             backpack_type.id,
             ValueType.WEIGHT,
@@ -254,7 +276,7 @@ export async function seedGearPrep() {
             true,
             kilogram_unit?.id
         )
-    const backpack_max_load_spec_definition = await upsertGearSpecsDefitionData(
+    const backpack_max_load_spec_definition = await upsertGearSpecsDefinitionData(
         'Maximum Load',
         backpack_type.id,
         ValueType.WEIGHT,
@@ -265,7 +287,7 @@ export async function seedGearPrep() {
     )
 
     const backpack_torso_length_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Torso Length',
             backpack_type.id,
             ValueType.LENGTH,
@@ -275,7 +297,7 @@ export async function seedGearPrep() {
             centimeter_unit?.id
         )
     const backpack_back_panel_technology_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Back Panel Technology',
             backpack_type.id,
             ValueType.TEXT,
@@ -285,7 +307,7 @@ export async function seedGearPrep() {
         )
 
     // footwear specs
-    const footwear_weight_spec_definition = await upsertGearSpecsDefitionData(
+    const footwear_weight_spec_definition = await upsertGearSpecsDefinitionData(
         'Weight',
         footwear_type.id,
         ValueType.WEIGHT,
@@ -295,7 +317,7 @@ export async function seedGearPrep() {
         gram_unit?.id
     )
     const footwear_heel_to_toe_drop_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Heel-to-Toe Drop',
             footwear_type.id,
             ValueType.LENGTH,
@@ -305,7 +327,7 @@ export async function seedGearPrep() {
             millimeter_unit?.id
         )
     const footwear_stack_height_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Stack Height',
             footwear_type.id,
             ValueType.LENGTH,
@@ -315,7 +337,7 @@ export async function seedGearPrep() {
             millimeter_unit?.id
         )
     const footwear_shaft_height_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Shaft Height',
             footwear_type.id,
             ValueType.LENGTH,
@@ -325,7 +347,7 @@ export async function seedGearPrep() {
             centimeter_unit?.id
         )
     const footwear_upper_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Upper Material',
             footwear_type.id,
             ValueType.TEXT,
@@ -334,7 +356,7 @@ export async function seedGearPrep() {
             false
         )
     const footwear_waterproof_technology_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Waterproof Technology',
             footwear_type.id,
             ValueType.LENGTH,
@@ -342,7 +364,7 @@ export async function seedGearPrep() {
             true,
             false
         )
-    const footwear_outsole_spec_definition = await upsertGearSpecsDefitionData(
+    const footwear_outsole_spec_definition = await upsertGearSpecsDefinitionData(
         'Outsole',
         footwear_type.id,
         ValueType.LENGTH,
@@ -353,7 +375,7 @@ export async function seedGearPrep() {
 
     // sleeping bag spcs
     const sleeping_bag_weight_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Weight',
             sleeping_bag_type.id,
             ValueType.WEIGHT,
@@ -363,7 +385,7 @@ export async function seedGearPrep() {
             gram_unit?.id
         )
     const sleeping_bag_comfortable_temperature_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Comfortable Temperature',
             sleeping_bag_type.id,
             ValueType.TEMPERATURE,
@@ -373,7 +395,7 @@ export async function seedGearPrep() {
             celsius_unit?.id
         )
     const sleeping_bag_limit_temperature_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Limit Temperature',
             sleeping_bag_type.id,
             ValueType.TEMPERATURE,
@@ -383,7 +405,7 @@ export async function seedGearPrep() {
             celsius_unit?.id
         )
     const sleeping_bag_extreme_temperature_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Extreme Temperature',
             sleeping_bag_type.id,
             ValueType.TEMPERATURE,
@@ -393,7 +415,7 @@ export async function seedGearPrep() {
             celsius_unit?.id
         )
     const sleeping_bag_packed_volume_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Packed Volume',
             sleeping_bag_type.id,
             ValueType.VOLUME,
@@ -403,7 +425,7 @@ export async function seedGearPrep() {
             liter_unit?.id
         )
     const sleeping_bag_length_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Length',
             sleeping_bag_type.id,
             ValueType.LENGTH,
@@ -413,7 +435,7 @@ export async function seedGearPrep() {
             centimeter_unit?.id
         )
     const sleeping_bag_fill_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Fill Material',
             sleeping_bag_type.id,
             ValueType.TEXT,
@@ -422,7 +444,7 @@ export async function seedGearPrep() {
             false
         )
     const sleeping_bag_insulation_type_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Insulation Type',
             sleeping_bag_type.id,
             ValueType.TEXT,
@@ -433,7 +455,7 @@ export async function seedGearPrep() {
 
     // sleeping bag liner specs
     const sleeping_bag_liner_main_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Main Material',
             sleeping_bag_liner_type.id,
             ValueType.TEXT,
@@ -442,7 +464,7 @@ export async function seedGearPrep() {
             false
         )
     const sleeping_bag_liner_thermal_function_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Thermal Function',
             sleeping_bag_liner_type.id,
             ValueType.TEXT,
@@ -453,7 +475,7 @@ export async function seedGearPrep() {
 
     // pillow specs
     const pillow_main_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Main Material',
             pillow_type.id,
             ValueType.TEXT,
@@ -464,7 +486,7 @@ export async function seedGearPrep() {
 
     // sleeping mat specs
     const sleeping_mat_r_value_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'R-Value',
             sleeping_mat_type.id,
             ValueType.R_VALUE,
@@ -473,7 +495,7 @@ export async function seedGearPrep() {
             false
         )
     const sleeping_mat_length_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Length',
             sleeping_mat_type.id,
             ValueType.LENGTH,
@@ -483,7 +505,7 @@ export async function seedGearPrep() {
             centimeter_unit?.id
         )
     const sleeping_mat_width_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Width',
             sleeping_mat_type.id,
             ValueType.LENGTH,
@@ -493,7 +515,7 @@ export async function seedGearPrep() {
             centimeter_unit?.id
         )
     const sleeping_mat_thickness_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Thickness',
             sleeping_mat_type.id,
             ValueType.LENGTH,
@@ -503,7 +525,7 @@ export async function seedGearPrep() {
             centimeter_unit?.id
         )
     const sleeping_mat_packed_length_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Packed Length',
             sleeping_mat_type.id,
             ValueType.LENGTH,
@@ -513,7 +535,7 @@ export async function seedGearPrep() {
             centimeter_unit?.id
         )
     const sleeping_mat_weight_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Weight',
             sleeping_mat_type.id,
             ValueType.WEIGHT,
@@ -523,7 +545,7 @@ export async function seedGearPrep() {
             gram_unit?.id
         )
     const sleeping_mat_insulation_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Insulation Material',
             sleeping_mat_type.id,
             ValueType.TEXT,
@@ -532,7 +554,7 @@ export async function seedGearPrep() {
             false
         )
     const sleeping_mat_shell_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Shell Material',
             sleeping_mat_type.id,
             ValueType.TEXT,
@@ -541,7 +563,7 @@ export async function seedGearPrep() {
             false
         )
     const sleeping_mat_valve_type_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Valve Type',
             sleeping_mat_type.id,
             ValueType.TEXT,
@@ -551,7 +573,7 @@ export async function seedGearPrep() {
         )
 
     // tent specs
-    const tent_weight_spec_definition = await upsertGearSpecsDefitionData(
+    const tent_weight_spec_definition = await upsertGearSpecsDefinitionData(
         'Weight',
         tent_type.id,
         ValueType.WEIGHT,
@@ -561,7 +583,7 @@ export async function seedGearPrep() {
         gram_unit?.id
     )
     const tent_packed_length_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Packed Length',
             tent_type.id,
             ValueType.LENGTH,
@@ -570,7 +592,7 @@ export async function seedGearPrep() {
             true,
             centimeter_unit?.id
         )
-    const tent_floor_area_spec_definition = await upsertGearSpecsDefitionData(
+    const tent_floor_area_spec_definition = await upsertGearSpecsDefinitionData(
         'Floor Area',
         tent_type.id,
         ValueType.AREA,
@@ -579,7 +601,7 @@ export async function seedGearPrep() {
         false,
         squaremeter_unit?.id
     )
-    const tent_max_person_spec_definition = await upsertGearSpecsDefitionData(
+    const tent_max_person_spec_definition = await upsertGearSpecsDefinitionData(
         'Max Person',
         tent_type.id,
         ValueType.COUNT,
@@ -588,7 +610,7 @@ export async function seedGearPrep() {
         false
     )
     const tent_waterproof_technology_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Waterproof Technology',
             tent_type.id,
             ValueType.TEXT,
@@ -597,7 +619,7 @@ export async function seedGearPrep() {
             false
         )
     const tent_floor_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Floor Material',
             tent_type.id,
             ValueType.TEXT,
@@ -605,7 +627,7 @@ export async function seedGearPrep() {
             false,
             false
         )
-    const tent_fly_material_spec_definition = await upsertGearSpecsDefitionData(
+    const tent_fly_material_spec_definition = await upsertGearSpecsDefinitionData(
         'Fly Material',
         tent_type.id,
         ValueType.TEXT,
@@ -614,7 +636,7 @@ export async function seedGearPrep() {
         false
     )
     const tent_pole_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Pole Material',
             tent_type.id,
             ValueType.TEXT,
@@ -625,7 +647,7 @@ export async function seedGearPrep() {
 
     // rain jacket specs
     const rain_jacket_waterproof_rating_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Waterproof Rating',
             rain_jacket_type.id,
             ValueType.LENGTH,
@@ -635,7 +657,7 @@ export async function seedGearPrep() {
             millimeter_unit?.id
         )
     const rain_jacket_weight_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Weight',
             rain_jacket_type.id,
             ValueType.WEIGHT,
@@ -645,7 +667,7 @@ export async function seedGearPrep() {
             gram_unit?.id
         )
     const rain_jacket_waterproof_technology_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Waterproof Technology',
             rain_jacket_type.id,
             ValueType.TEXT,
@@ -654,7 +676,7 @@ export async function seedGearPrep() {
             false
         )
     const rain_jacket_fabric_construction_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Fabric Construction',
             rain_jacket_type.id,
             ValueType.TEXT,
@@ -663,7 +685,7 @@ export async function seedGearPrep() {
             false
         )
     const rain_jacket_main_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Main Material',
             rain_jacket_type.id,
             ValueType.TEXT,
@@ -674,7 +696,7 @@ export async function seedGearPrep() {
 
     // down jacket specs
     const down_jacket_insulation_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Insulation Material',
             down_jacket_type.id,
             ValueType.TEXT,
@@ -683,7 +705,7 @@ export async function seedGearPrep() {
             false
         )
     const down_jacket_fill_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Fill Material',
             down_jacket_type.id,
             ValueType.TEXT,
@@ -692,7 +714,7 @@ export async function seedGearPrep() {
             false
         )
     const down_jacket_shell_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Shell Material',
             down_jacket_type.id,
             ValueType.TEXT,
@@ -703,7 +725,7 @@ export async function seedGearPrep() {
 
     // fleece specs
     const fleece_main_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Main Material',
             fleece_type.id,
             ValueType.TEXT,
@@ -714,7 +736,7 @@ export async function seedGearPrep() {
 
     // base layer specs
     const base_layer_main_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Main Material',
             base_layer_type.id,
             ValueType.TEXT,
@@ -725,7 +747,7 @@ export async function seedGearPrep() {
 
     // pants specs
     const pants_main_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Main Material',
             pants_type.id,
             ValueType.TEXT,
@@ -734,7 +756,7 @@ export async function seedGearPrep() {
             false
         )
     const pants_stretch_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Stretch Material',
             pants_type.id,
             ValueType.TEXT,
@@ -745,7 +767,7 @@ export async function seedGearPrep() {
 
     // towel specs
     const towel_main_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Main Material',
             towel_type.id,
             ValueType.TEXT,
@@ -755,7 +777,7 @@ export async function seedGearPrep() {
         )
 
     // headtorch specs
-    const headtorch_weight_spec_definition = await upsertGearSpecsDefitionData(
+    const headtorch_weight_spec_definition = await upsertGearSpecsDefinitionData(
         'Weight',
         headtorch_type.id,
         ValueType.WEIGHT,
@@ -765,7 +787,7 @@ export async function seedGearPrep() {
         gram_unit?.id
     )
     const headtorch_max_lumens_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Maximum Lumens',
             headtorch_type.id,
             ValueType.LUMINOUS_FLUX,
@@ -775,7 +797,7 @@ export async function seedGearPrep() {
             lumen_unit?.id
         )
     const headtorch_battery_runtime_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Battery Runtime',
             headtorch_type.id,
             ValueType.DURATION,
@@ -785,7 +807,7 @@ export async function seedGearPrep() {
             hour_unit?.id
         )
     const headtorch_ingress_protection_rating_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Ingress Protection Rating',
             headtorch_type.id,
             ValueType.TEXT,
@@ -796,7 +818,7 @@ export async function seedGearPrep() {
 
     // cookware specs
     const cookware_main_material_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Main Material',
             cookware_type.id,
             ValueType.TEXT,
@@ -807,7 +829,7 @@ export async function seedGearPrep() {
 
     // trekking pole specs
     const trekking_pole_weight_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Weight',
             trekking_pole_type.id,
             ValueType.WEIGHT,
@@ -817,7 +839,7 @@ export async function seedGearPrep() {
             gram_unit?.id
         )
     const trekking_pole_pole_length_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Pole Length',
             trekking_pole_type.id,
             ValueType.LENGTH,
@@ -827,7 +849,7 @@ export async function seedGearPrep() {
             centimeter_unit?.id
         )
     const trekking_pole_packed_length_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Packed Length',
             trekking_pole_type.id,
             ValueType.LENGTH,
@@ -839,7 +861,7 @@ export async function seedGearPrep() {
 
     // hydration pack specs
     const hydration_pack_weight_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Weight',
             hydration_pack_type.id,
             ValueType.WEIGHT,
@@ -849,7 +871,7 @@ export async function seedGearPrep() {
             gram_unit?.id
         )
     const hydration_pack_water_capacity_spec_definition =
-        await upsertGearSpecsDefitionData(
+        await upsertGearSpecsDefinitionData(
             'Water Capacity',
             hydration_pack_type.id,
             ValueType.VOLUME,

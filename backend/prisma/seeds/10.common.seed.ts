@@ -170,7 +170,7 @@ export async function seedCommon() {
         'Activity',
         SYSTEM_USER_ID
     )
-    const techinical_use_tag_group = await upsertTagGroupData(
+    const technical_use_tag_group = await upsertTagGroupData(
         'Technical Use',
         SYSTEM_USER_ID
     )
@@ -222,17 +222,17 @@ export async function seedCommon() {
         SYSTEM_USER_ID
     )
     await upsertTagGroupRelationData(
-        techinical_use_tag_group.id,
+        technical_use_tag_group.id,
         alpine_tag.id,
         SYSTEM_USER_ID
     )
     await upsertTagGroupRelationData(
-        techinical_use_tag_group.id,
+        technical_use_tag_group.id,
         technical_tag.id,
         SYSTEM_USER_ID
     )
     await upsertTagGroupRelationData(
-        techinical_use_tag_group.id,
+        technical_use_tag_group.id,
         trail_running_tag.id,
         SYSTEM_USER_ID
     )

@@ -371,7 +371,6 @@ export type GearSpecsOrderByWithRelationInput = {
 
 export type GearSpecsWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  gear_id_gear_variant_id_gear_specs_definition_id?: Prisma.GearSpecsGear_idGear_variant_idGear_specs_definition_idCompoundUniqueInput
   AND?: Prisma.GearSpecsWhereInput | Prisma.GearSpecsWhereInput[]
   OR?: Prisma.GearSpecsWhereInput[]
   NOT?: Prisma.GearSpecsWhereInput | Prisma.GearSpecsWhereInput[]
@@ -396,7 +395,7 @@ export type GearSpecsWhereUniqueInput = Prisma.AtLeast<{
   gear_variant?: Prisma.XOR<Prisma.GearVariantNullableScalarRelationFilter, Prisma.GearVariantWhereInput> | null
   gear_specs_definition?: Prisma.XOR<Prisma.GearSpecsDefinitionScalarRelationFilter, Prisma.GearSpecsDefinitionWhereInput>
   source_unit?: Prisma.XOR<Prisma.UnitNullableScalarRelationFilter, Prisma.UnitWhereInput> | null
-}, "id" | "gear_id_gear_variant_id_gear_specs_definition_id">
+}, "id">
 
 export type GearSpecsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -576,12 +575,6 @@ export type GearSpecsListRelationFilter = {
 
 export type GearSpecsOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
-}
-
-export type GearSpecsGear_idGear_variant_idGear_specs_definition_idCompoundUniqueInput = {
-  gear_id: number
-  gear_variant_id: number
-  gear_specs_definition_id: number
 }
 
 export type GearSpecsCountOrderByAggregateInput = {

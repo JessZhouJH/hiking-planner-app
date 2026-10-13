@@ -401,7 +401,7 @@ export type CollectionItemCreateInput = {
   created_by: Prisma.UserCreateNestedOneWithoutCollection_item__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutCollection_item__updated_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCollection_item__reviewed_byInput
-  collection: Prisma.CollectionCreateNestedOneWithoutColleciton_item_collectionInput
+  collection: Prisma.CollectionCreateNestedOneWithoutCollection_item_collectionInput
 }
 
 export type CollectionItemUncheckedCreateInput = {
@@ -432,7 +432,7 @@ export type CollectionItemUpdateInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutCollection_item__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCollection_item__updated_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCollection_item__reviewed_byNestedInput
-  collection?: Prisma.CollectionUpdateOneRequiredWithoutColleciton_item_collectionNestedInput
+  collection?: Prisma.CollectionUpdateOneRequiredWithoutCollection_item_collectionNestedInput
 }
 
 export type CollectionItemUncheckedUpdateInput = {
@@ -749,7 +749,7 @@ export type CollectionItemCreateWithoutCreated_byInput = {
   last_reviewed_at?: Date | string | null
   updated_by: Prisma.UserCreateNestedOneWithoutCollection_item__updated_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCollection_item__reviewed_byInput
-  collection: Prisma.CollectionCreateNestedOneWithoutColleciton_item_collectionInput
+  collection: Prisma.CollectionCreateNestedOneWithoutCollection_item_collectionInput
 }
 
 export type CollectionItemUncheckedCreateWithoutCreated_byInput = {
@@ -788,7 +788,7 @@ export type CollectionItemCreateWithoutUpdated_byInput = {
   last_reviewed_at?: Date | string | null
   created_by: Prisma.UserCreateNestedOneWithoutCollection_item__created_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCollection_item__reviewed_byInput
-  collection: Prisma.CollectionCreateNestedOneWithoutColleciton_item_collectionInput
+  collection: Prisma.CollectionCreateNestedOneWithoutCollection_item_collectionInput
 }
 
 export type CollectionItemUncheckedCreateWithoutUpdated_byInput = {
@@ -827,7 +827,7 @@ export type CollectionItemCreateWithoutLast_reviewed_byInput = {
   last_reviewed_at?: Date | string | null
   created_by: Prisma.UserCreateNestedOneWithoutCollection_item__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutCollection_item__updated_byInput
-  collection: Prisma.CollectionCreateNestedOneWithoutColleciton_item_collectionInput
+  collection: Prisma.CollectionCreateNestedOneWithoutCollection_item_collectionInput
 }
 
 export type CollectionItemUncheckedCreateWithoutLast_reviewed_byInput = {
@@ -1033,7 +1033,7 @@ export type CollectionItemUpdateWithoutCreated_byInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCollection_item__updated_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCollection_item__reviewed_byNestedInput
-  collection?: Prisma.CollectionUpdateOneRequiredWithoutColleciton_item_collectionNestedInput
+  collection?: Prisma.CollectionUpdateOneRequiredWithoutCollection_item_collectionNestedInput
 }
 
 export type CollectionItemUncheckedUpdateWithoutCreated_byInput = {
@@ -1077,7 +1077,7 @@ export type CollectionItemUpdateWithoutUpdated_byInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_by?: Prisma.UserUpdateOneRequiredWithoutCollection_item__created_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCollection_item__reviewed_byNestedInput
-  collection?: Prisma.CollectionUpdateOneRequiredWithoutColleciton_item_collectionNestedInput
+  collection?: Prisma.CollectionUpdateOneRequiredWithoutCollection_item_collectionNestedInput
 }
 
 export type CollectionItemUncheckedUpdateWithoutUpdated_byInput = {
@@ -1121,7 +1121,7 @@ export type CollectionItemUpdateWithoutLast_reviewed_byInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_by?: Prisma.UserUpdateOneRequiredWithoutCollection_item__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCollection_item__updated_byNestedInput
-  collection?: Prisma.CollectionUpdateOneRequiredWithoutColleciton_item_collectionNestedInput
+  collection?: Prisma.CollectionUpdateOneRequiredWithoutCollection_item_collectionNestedInput
 }
 
 export type CollectionItemUncheckedUpdateWithoutLast_reviewed_byInput = {

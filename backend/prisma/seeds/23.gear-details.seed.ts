@@ -339,11 +339,7 @@ export async function seedGearDetails() {
 
     // gear specs
     const kilogram_unit = await findUnitByName('Kilogram')
-    const gram_unit = await findUnitByName('Gram')
     const pounds_unit = await findUnitByName('Pounds')
-    const celsius_unit = await findUnitByName('Celsius')
-    const kilometer_unit = await findUnitByName('Kilometer')
-    const meter_unit = await findUnitByName('Meter')
     const centimeter_unit = await findUnitByName('Centimeter')
     const liter_unit = await findUnitByName('Liter')
     const inch_unit = await findUnitByName('Inch')

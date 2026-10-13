@@ -1,16 +1,8 @@
-import 'dotenv/config'
-import { Pool } from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../../generated/prisma/client.js'
+import { prisma } from '../../db/prisma.js'
 
 import { Status } from '../../generated/prisma/enums.js'
 import { GearFeature } from '../../generated/prisma/client.js'
 import { SYSTEM_USER_ID } from '../../constants/macros.js'
-
-const connectionString = `${process.env.DATABASE_URL}`
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
 
 export async function findGearFeatureById(id: number) {
     return await prisma.gearFeature.findUnique({ where: { id: id } })

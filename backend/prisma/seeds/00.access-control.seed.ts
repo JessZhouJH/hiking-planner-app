@@ -9,7 +9,7 @@ import {
 import { upsertUserData } from '../../src/services/access_control/user.service'
 import { upsertRoleData } from '../../src/services/access_control/role.service'
 import { upsertPermissionData } from '../../src/services/access_control/permission.service'
-import { upsertUserRoleData } from '../../src/services/access_control/user_role.sesrvice'
+import { upsertUserRoleData } from '../../src/services/access_control/user_role.service'
 import { upsertRolePermission } from '../../src/services/access_control/role_permission.service'
 
 export async function seedAccessControl() {

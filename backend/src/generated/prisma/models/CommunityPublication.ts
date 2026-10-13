@@ -332,9 +332,9 @@ export type CommunityPublicationWhereInput = {
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   submitted_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   last_reviewed_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  contriutor?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  contributor?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemListRelationFilter
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentListRelationFilter
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentListRelationFilter
 }
 
 export type CommunityPublicationOrderByWithRelationInput = {
@@ -358,9 +358,9 @@ export type CommunityPublicationOrderByWithRelationInput = {
   updated_by?: Prisma.UserOrderByWithRelationInput
   submitted_by?: Prisma.UserOrderByWithRelationInput
   last_reviewed_by?: Prisma.UserOrderByWithRelationInput
-  contriutor?: Prisma.UserOrderByWithRelationInput
+  contributor?: Prisma.UserOrderByWithRelationInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemOrderByRelationAggregateInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentOrderByRelationAggregateInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentOrderByRelationAggregateInput
 }
 
 export type CommunityPublicationWhereUniqueInput = Prisma.AtLeast<{
@@ -387,9 +387,9 @@ export type CommunityPublicationWhereUniqueInput = Prisma.AtLeast<{
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   submitted_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   last_reviewed_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  contriutor?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  contributor?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemListRelationFilter
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentListRelationFilter
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentListRelationFilter
 }, "id">
 
 export type CommunityPublicationOrderByWithAggregationInput = {
@@ -453,9 +453,9 @@ export type CommunityPublicationCreateInput = {
   updated_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__updated_byInput
   submitted_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__submitted_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCommunity_publication__reviewed_byInput
-  contriutor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
+  contributor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationUncheckedCreateInput = {
@@ -476,7 +476,7 @@ export type CommunityPublicationUncheckedCreateInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationUpdateInput = {
@@ -494,9 +494,9 @@ export type CommunityPublicationUpdateInput = {
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__updated_byNestedInput
   submitted_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__submitted_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCommunity_publication__reviewed_byNestedInput
-  contriutor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
+  contributor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateInput = {
@@ -517,7 +517,7 @@ export type CommunityPublicationUncheckedUpdateInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationCreateManyInput = {
@@ -696,10 +696,10 @@ export type CommunityPublicationCreateNestedManyWithoutLast_reviewed_byInput = {
   connect?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
 }
 
-export type CommunityPublicationCreateNestedManyWithoutContriutorInput = {
-  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContriutorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput> | Prisma.CommunityPublicationCreateWithoutContriutorInput[] | Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput[]
-  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutContriutorInput | Prisma.CommunityPublicationCreateOrConnectWithoutContriutorInput[]
-  createMany?: Prisma.CommunityPublicationCreateManyContriutorInputEnvelope
+export type CommunityPublicationCreateNestedManyWithoutContributorInput = {
+  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContributorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput> | Prisma.CommunityPublicationCreateWithoutContributorInput[] | Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput[]
+  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutContributorInput | Prisma.CommunityPublicationCreateOrConnectWithoutContributorInput[]
+  createMany?: Prisma.CommunityPublicationCreateManyContributorInputEnvelope
   connect?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
 }
 
@@ -731,10 +731,10 @@ export type CommunityPublicationUncheckedCreateNestedManyWithoutLast_reviewed_by
   connect?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
 }
 
-export type CommunityPublicationUncheckedCreateNestedManyWithoutContriutorInput = {
-  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContriutorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput> | Prisma.CommunityPublicationCreateWithoutContriutorInput[] | Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput[]
-  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutContriutorInput | Prisma.CommunityPublicationCreateOrConnectWithoutContriutorInput[]
-  createMany?: Prisma.CommunityPublicationCreateManyContriutorInputEnvelope
+export type CommunityPublicationUncheckedCreateNestedManyWithoutContributorInput = {
+  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContributorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput> | Prisma.CommunityPublicationCreateWithoutContributorInput[] | Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput[]
+  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutContributorInput | Prisma.CommunityPublicationCreateOrConnectWithoutContributorInput[]
+  createMany?: Prisma.CommunityPublicationCreateManyContributorInputEnvelope
   connect?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
 }
 
@@ -794,17 +794,17 @@ export type CommunityPublicationUpdateManyWithoutLast_reviewed_byNestedInput = {
   deleteMany?: Prisma.CommunityPublicationScalarWhereInput | Prisma.CommunityPublicationScalarWhereInput[]
 }
 
-export type CommunityPublicationUpdateManyWithoutContriutorNestedInput = {
-  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContriutorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput> | Prisma.CommunityPublicationCreateWithoutContriutorInput[] | Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput[]
-  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutContriutorInput | Prisma.CommunityPublicationCreateOrConnectWithoutContriutorInput[]
-  upsert?: Prisma.CommunityPublicationUpsertWithWhereUniqueWithoutContriutorInput | Prisma.CommunityPublicationUpsertWithWhereUniqueWithoutContriutorInput[]
-  createMany?: Prisma.CommunityPublicationCreateManyContriutorInputEnvelope
+export type CommunityPublicationUpdateManyWithoutContributorNestedInput = {
+  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContributorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput> | Prisma.CommunityPublicationCreateWithoutContributorInput[] | Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput[]
+  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutContributorInput | Prisma.CommunityPublicationCreateOrConnectWithoutContributorInput[]
+  upsert?: Prisma.CommunityPublicationUpsertWithWhereUniqueWithoutContributorInput | Prisma.CommunityPublicationUpsertWithWhereUniqueWithoutContributorInput[]
+  createMany?: Prisma.CommunityPublicationCreateManyContributorInputEnvelope
   set?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
   disconnect?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
   delete?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
   connect?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
-  update?: Prisma.CommunityPublicationUpdateWithWhereUniqueWithoutContriutorInput | Prisma.CommunityPublicationUpdateWithWhereUniqueWithoutContriutorInput[]
-  updateMany?: Prisma.CommunityPublicationUpdateManyWithWhereWithoutContriutorInput | Prisma.CommunityPublicationUpdateManyWithWhereWithoutContriutorInput[]
+  update?: Prisma.CommunityPublicationUpdateWithWhereUniqueWithoutContributorInput | Prisma.CommunityPublicationUpdateWithWhereUniqueWithoutContributorInput[]
+  updateMany?: Prisma.CommunityPublicationUpdateManyWithWhereWithoutContributorInput | Prisma.CommunityPublicationUpdateManyWithWhereWithoutContributorInput[]
   deleteMany?: Prisma.CommunityPublicationScalarWhereInput | Prisma.CommunityPublicationScalarWhereInput[]
 }
 
@@ -864,17 +864,17 @@ export type CommunityPublicationUncheckedUpdateManyWithoutLast_reviewed_byNested
   deleteMany?: Prisma.CommunityPublicationScalarWhereInput | Prisma.CommunityPublicationScalarWhereInput[]
 }
 
-export type CommunityPublicationUncheckedUpdateManyWithoutContriutorNestedInput = {
-  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContriutorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput> | Prisma.CommunityPublicationCreateWithoutContriutorInput[] | Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput[]
-  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutContriutorInput | Prisma.CommunityPublicationCreateOrConnectWithoutContriutorInput[]
-  upsert?: Prisma.CommunityPublicationUpsertWithWhereUniqueWithoutContriutorInput | Prisma.CommunityPublicationUpsertWithWhereUniqueWithoutContriutorInput[]
-  createMany?: Prisma.CommunityPublicationCreateManyContriutorInputEnvelope
+export type CommunityPublicationUncheckedUpdateManyWithoutContributorNestedInput = {
+  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContributorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput> | Prisma.CommunityPublicationCreateWithoutContributorInput[] | Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput[]
+  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutContributorInput | Prisma.CommunityPublicationCreateOrConnectWithoutContributorInput[]
+  upsert?: Prisma.CommunityPublicationUpsertWithWhereUniqueWithoutContributorInput | Prisma.CommunityPublicationUpsertWithWhereUniqueWithoutContributorInput[]
+  createMany?: Prisma.CommunityPublicationCreateManyContributorInputEnvelope
   set?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
   disconnect?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
   delete?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
   connect?: Prisma.CommunityPublicationWhereUniqueInput | Prisma.CommunityPublicationWhereUniqueInput[]
-  update?: Prisma.CommunityPublicationUpdateWithWhereUniqueWithoutContriutorInput | Prisma.CommunityPublicationUpdateWithWhereUniqueWithoutContriutorInput[]
-  updateMany?: Prisma.CommunityPublicationUpdateManyWithWhereWithoutContriutorInput | Prisma.CommunityPublicationUpdateManyWithWhereWithoutContriutorInput[]
+  update?: Prisma.CommunityPublicationUpdateWithWhereUniqueWithoutContributorInput | Prisma.CommunityPublicationUpdateWithWhereUniqueWithoutContributorInput[]
+  updateMany?: Prisma.CommunityPublicationUpdateManyWithWhereWithoutContributorInput | Prisma.CommunityPublicationUpdateManyWithWhereWithoutContributorInput[]
   deleteMany?: Prisma.CommunityPublicationScalarWhereInput | Prisma.CommunityPublicationScalarWhereInput[]
 }
 
@@ -892,20 +892,20 @@ export type CommunityPublicationUpdateOneRequiredWithoutCommunity_publication_it
   update?: Prisma.XOR<Prisma.XOR<Prisma.CommunityPublicationUpdateToOneWithWhereWithoutCommunity_publication_item__community_publicationInput, Prisma.CommunityPublicationUpdateWithoutCommunity_publication_item__community_publicationInput>, Prisma.CommunityPublicationUncheckedUpdateWithoutCommunity_publication_item__community_publicationInput>
 }
 
-export type CommunityPublicationCreateNestedOneWithoutCommunity_publication_attachement__community_publicationInput = {
-  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutCommunity_publication_attachement__community_publicationInput, Prisma.CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachement__community_publicationInput>
-  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutCommunity_publication_attachement__community_publicationInput
+export type CommunityPublicationCreateNestedOneWithoutCommunity_publication_attachment__community_publicationInput = {
+  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutCommunity_publication_attachment__community_publicationInput, Prisma.CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachment__community_publicationInput>
+  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutCommunity_publication_attachment__community_publicationInput
   connect?: Prisma.CommunityPublicationWhereUniqueInput
 }
 
-export type CommunityPublicationUpdateOneWithoutCommunity_publication_attachement__community_publicationNestedInput = {
-  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutCommunity_publication_attachement__community_publicationInput, Prisma.CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachement__community_publicationInput>
-  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutCommunity_publication_attachement__community_publicationInput
-  upsert?: Prisma.CommunityPublicationUpsertWithoutCommunity_publication_attachement__community_publicationInput
+export type CommunityPublicationUpdateOneWithoutCommunity_publication_attachment__community_publicationNestedInput = {
+  create?: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutCommunity_publication_attachment__community_publicationInput, Prisma.CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachment__community_publicationInput>
+  connectOrCreate?: Prisma.CommunityPublicationCreateOrConnectWithoutCommunity_publication_attachment__community_publicationInput
+  upsert?: Prisma.CommunityPublicationUpsertWithoutCommunity_publication_attachment__community_publicationInput
   disconnect?: Prisma.CommunityPublicationWhereInput | boolean
   delete?: Prisma.CommunityPublicationWhereInput | boolean
   connect?: Prisma.CommunityPublicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CommunityPublicationUpdateToOneWithWhereWithoutCommunity_publication_attachement__community_publicationInput, Prisma.CommunityPublicationUpdateWithoutCommunity_publication_attachement__community_publicationInput>, Prisma.CommunityPublicationUncheckedUpdateWithoutCommunity_publication_attachement__community_publicationInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CommunityPublicationUpdateToOneWithWhereWithoutCommunity_publication_attachment__community_publicationInput, Prisma.CommunityPublicationUpdateWithoutCommunity_publication_attachment__community_publicationInput>, Prisma.CommunityPublicationUncheckedUpdateWithoutCommunity_publication_attachment__community_publicationInput>
 }
 
 export type CommunityPublicationCreateWithoutCreated_byInput = {
@@ -922,9 +922,9 @@ export type CommunityPublicationCreateWithoutCreated_byInput = {
   updated_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__updated_byInput
   submitted_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__submitted_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCommunity_publication__reviewed_byInput
-  contriutor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
+  contributor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationUncheckedCreateWithoutCreated_byInput = {
@@ -944,7 +944,7 @@ export type CommunityPublicationUncheckedCreateWithoutCreated_byInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationCreateOrConnectWithoutCreated_byInput = {
@@ -971,9 +971,9 @@ export type CommunityPublicationCreateWithoutUpdated_byInput = {
   created_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__created_byInput
   submitted_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__submitted_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCommunity_publication__reviewed_byInput
-  contriutor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
+  contributor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationUncheckedCreateWithoutUpdated_byInput = {
@@ -993,7 +993,7 @@ export type CommunityPublicationUncheckedCreateWithoutUpdated_byInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationCreateOrConnectWithoutUpdated_byInput = {
@@ -1020,9 +1020,9 @@ export type CommunityPublicationCreateWithoutSubmitted_byInput = {
   created_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__updated_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCommunity_publication__reviewed_byInput
-  contriutor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
+  contributor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationUncheckedCreateWithoutSubmitted_byInput = {
@@ -1042,7 +1042,7 @@ export type CommunityPublicationUncheckedCreateWithoutSubmitted_byInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationCreateOrConnectWithoutSubmitted_byInput = {
@@ -1069,9 +1069,9 @@ export type CommunityPublicationCreateWithoutLast_reviewed_byInput = {
   created_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__updated_byInput
   submitted_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__submitted_byInput
-  contriutor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
+  contributor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationUncheckedCreateWithoutLast_reviewed_byInput = {
@@ -1091,7 +1091,7 @@ export type CommunityPublicationUncheckedCreateWithoutLast_reviewed_byInput = {
   updated_by_id: number
   last_reviewed_at?: Date | string | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationCreateOrConnectWithoutLast_reviewed_byInput = {
@@ -1104,7 +1104,7 @@ export type CommunityPublicationCreateManyLast_reviewed_byInputEnvelope = {
   skipDuplicates?: boolean
 }
 
-export type CommunityPublicationCreateWithoutContriutorInput = {
+export type CommunityPublicationCreateWithoutContributorInput = {
   name: string
   target_object_type: $Enums.SelectedTargetType
   source_root_object_id?: number | null
@@ -1120,10 +1120,10 @@ export type CommunityPublicationCreateWithoutContriutorInput = {
   submitted_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__submitted_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCommunity_publication__reviewed_byInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
 }
 
-export type CommunityPublicationUncheckedCreateWithoutContriutorInput = {
+export type CommunityPublicationUncheckedCreateWithoutContributorInput = {
   id?: number
   name: string
   target_object_type: $Enums.SelectedTargetType
@@ -1140,16 +1140,16 @@ export type CommunityPublicationUncheckedCreateWithoutContriutorInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCommunity_publicationInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
 }
 
-export type CommunityPublicationCreateOrConnectWithoutContriutorInput = {
+export type CommunityPublicationCreateOrConnectWithoutContributorInput = {
   where: Prisma.CommunityPublicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContriutorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput>
+  create: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContributorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput>
 }
 
-export type CommunityPublicationCreateManyContriutorInputEnvelope = {
-  data: Prisma.CommunityPublicationCreateManyContriutorInput | Prisma.CommunityPublicationCreateManyContriutorInput[]
+export type CommunityPublicationCreateManyContributorInputEnvelope = {
+  data: Prisma.CommunityPublicationCreateManyContributorInput | Prisma.CommunityPublicationCreateManyContributorInput[]
   skipDuplicates?: boolean
 }
 
@@ -1239,20 +1239,20 @@ export type CommunityPublicationUpdateManyWithWhereWithoutLast_reviewed_byInput 
   data: Prisma.XOR<Prisma.CommunityPublicationUpdateManyMutationInput, Prisma.CommunityPublicationUncheckedUpdateManyWithoutLast_reviewed_byInput>
 }
 
-export type CommunityPublicationUpsertWithWhereUniqueWithoutContriutorInput = {
+export type CommunityPublicationUpsertWithWhereUniqueWithoutContributorInput = {
   where: Prisma.CommunityPublicationWhereUniqueInput
-  update: Prisma.XOR<Prisma.CommunityPublicationUpdateWithoutContriutorInput, Prisma.CommunityPublicationUncheckedUpdateWithoutContriutorInput>
-  create: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContriutorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContriutorInput>
+  update: Prisma.XOR<Prisma.CommunityPublicationUpdateWithoutContributorInput, Prisma.CommunityPublicationUncheckedUpdateWithoutContributorInput>
+  create: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutContributorInput, Prisma.CommunityPublicationUncheckedCreateWithoutContributorInput>
 }
 
-export type CommunityPublicationUpdateWithWhereUniqueWithoutContriutorInput = {
+export type CommunityPublicationUpdateWithWhereUniqueWithoutContributorInput = {
   where: Prisma.CommunityPublicationWhereUniqueInput
-  data: Prisma.XOR<Prisma.CommunityPublicationUpdateWithoutContriutorInput, Prisma.CommunityPublicationUncheckedUpdateWithoutContriutorInput>
+  data: Prisma.XOR<Prisma.CommunityPublicationUpdateWithoutContributorInput, Prisma.CommunityPublicationUncheckedUpdateWithoutContributorInput>
 }
 
-export type CommunityPublicationUpdateManyWithWhereWithoutContriutorInput = {
+export type CommunityPublicationUpdateManyWithWhereWithoutContributorInput = {
   where: Prisma.CommunityPublicationScalarWhereInput
-  data: Prisma.XOR<Prisma.CommunityPublicationUpdateManyMutationInput, Prisma.CommunityPublicationUncheckedUpdateManyWithoutContriutorInput>
+  data: Prisma.XOR<Prisma.CommunityPublicationUpdateManyMutationInput, Prisma.CommunityPublicationUncheckedUpdateManyWithoutContributorInput>
 }
 
 export type CommunityPublicationCreateWithoutCommunity_publication_item__community_publicationInput = {
@@ -1270,8 +1270,8 @@ export type CommunityPublicationCreateWithoutCommunity_publication_item__communi
   updated_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__updated_byInput
   submitted_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__submitted_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCommunity_publication__reviewed_byInput
-  contriutor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
+  contributor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationUncheckedCreateWithoutCommunity_publication_item__community_publicationInput = {
@@ -1291,7 +1291,7 @@ export type CommunityPublicationUncheckedCreateWithoutCommunity_publication_item
   updated_by_id: number
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCommunity_publicationInput
 }
 
 export type CommunityPublicationCreateOrConnectWithoutCommunity_publication_item__community_publicationInput = {
@@ -1325,8 +1325,8 @@ export type CommunityPublicationUpdateWithoutCommunity_publication_item__communi
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__updated_byNestedInput
   submitted_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__submitted_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCommunity_publication__reviewed_byNestedInput
-  contriutor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
+  contributor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateWithoutCommunity_publication_item__community_publicationInput = {
@@ -1346,10 +1346,10 @@ export type CommunityPublicationUncheckedUpdateWithoutCommunity_publication_item
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
 }
 
-export type CommunityPublicationCreateWithoutCommunity_publication_attachement__community_publicationInput = {
+export type CommunityPublicationCreateWithoutCommunity_publication_attachment__community_publicationInput = {
   name: string
   target_object_type: $Enums.SelectedTargetType
   source_root_object_id?: number | null
@@ -1364,11 +1364,11 @@ export type CommunityPublicationCreateWithoutCommunity_publication_attachement__
   updated_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__updated_byInput
   submitted_by: Prisma.UserCreateNestedOneWithoutCommunity_publication__submitted_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCommunity_publication__reviewed_byInput
-  contriutor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
+  contributor?: Prisma.UserCreateNestedOneWithoutCommunity_publication__contributorInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCommunity_publicationInput
 }
 
-export type CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachement__community_publicationInput = {
+export type CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachment__community_publicationInput = {
   id?: number
   name: string
   contributor_id?: number | null
@@ -1388,23 +1388,23 @@ export type CommunityPublicationUncheckedCreateWithoutCommunity_publication_atta
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCommunity_publicationInput
 }
 
-export type CommunityPublicationCreateOrConnectWithoutCommunity_publication_attachement__community_publicationInput = {
+export type CommunityPublicationCreateOrConnectWithoutCommunity_publication_attachment__community_publicationInput = {
   where: Prisma.CommunityPublicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutCommunity_publication_attachement__community_publicationInput, Prisma.CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachement__community_publicationInput>
+  create: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutCommunity_publication_attachment__community_publicationInput, Prisma.CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachment__community_publicationInput>
 }
 
-export type CommunityPublicationUpsertWithoutCommunity_publication_attachement__community_publicationInput = {
-  update: Prisma.XOR<Prisma.CommunityPublicationUpdateWithoutCommunity_publication_attachement__community_publicationInput, Prisma.CommunityPublicationUncheckedUpdateWithoutCommunity_publication_attachement__community_publicationInput>
-  create: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutCommunity_publication_attachement__community_publicationInput, Prisma.CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachement__community_publicationInput>
+export type CommunityPublicationUpsertWithoutCommunity_publication_attachment__community_publicationInput = {
+  update: Prisma.XOR<Prisma.CommunityPublicationUpdateWithoutCommunity_publication_attachment__community_publicationInput, Prisma.CommunityPublicationUncheckedUpdateWithoutCommunity_publication_attachment__community_publicationInput>
+  create: Prisma.XOR<Prisma.CommunityPublicationCreateWithoutCommunity_publication_attachment__community_publicationInput, Prisma.CommunityPublicationUncheckedCreateWithoutCommunity_publication_attachment__community_publicationInput>
   where?: Prisma.CommunityPublicationWhereInput
 }
 
-export type CommunityPublicationUpdateToOneWithWhereWithoutCommunity_publication_attachement__community_publicationInput = {
+export type CommunityPublicationUpdateToOneWithWhereWithoutCommunity_publication_attachment__community_publicationInput = {
   where?: Prisma.CommunityPublicationWhereInput
-  data: Prisma.XOR<Prisma.CommunityPublicationUpdateWithoutCommunity_publication_attachement__community_publicationInput, Prisma.CommunityPublicationUncheckedUpdateWithoutCommunity_publication_attachement__community_publicationInput>
+  data: Prisma.XOR<Prisma.CommunityPublicationUpdateWithoutCommunity_publication_attachment__community_publicationInput, Prisma.CommunityPublicationUncheckedUpdateWithoutCommunity_publication_attachment__community_publicationInput>
 }
 
-export type CommunityPublicationUpdateWithoutCommunity_publication_attachement__community_publicationInput = {
+export type CommunityPublicationUpdateWithoutCommunity_publication_attachment__community_publicationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_root_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1419,11 +1419,11 @@ export type CommunityPublicationUpdateWithoutCommunity_publication_attachement__
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__updated_byNestedInput
   submitted_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__submitted_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCommunity_publication__reviewed_byNestedInput
-  contriutor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
+  contributor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUpdateManyWithoutCommunity_publicationNestedInput
 }
 
-export type CommunityPublicationUncheckedUpdateWithoutCommunity_publication_attachement__community_publicationInput = {
+export type CommunityPublicationUncheckedUpdateWithoutCommunity_publication_attachment__community_publicationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   contributor_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1515,7 +1515,7 @@ export type CommunityPublicationCreateManyLast_reviewed_byInput = {
   last_reviewed_at?: Date | string | null
 }
 
-export type CommunityPublicationCreateManyContriutorInput = {
+export type CommunityPublicationCreateManyContributorInput = {
   id?: number
   name: string
   target_object_type: $Enums.SelectedTargetType
@@ -1547,9 +1547,9 @@ export type CommunityPublicationUpdateWithoutCreated_byInput = {
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__updated_byNestedInput
   submitted_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__submitted_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCommunity_publication__reviewed_byNestedInput
-  contriutor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
+  contributor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateWithoutCreated_byInput = {
@@ -1569,7 +1569,7 @@ export type CommunityPublicationUncheckedUpdateWithoutCreated_byInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateManyWithoutCreated_byInput = {
@@ -1604,9 +1604,9 @@ export type CommunityPublicationUpdateWithoutUpdated_byInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__created_byNestedInput
   submitted_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__submitted_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCommunity_publication__reviewed_byNestedInput
-  contriutor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
+  contributor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateWithoutUpdated_byInput = {
@@ -1626,7 +1626,7 @@ export type CommunityPublicationUncheckedUpdateWithoutUpdated_byInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateManyWithoutUpdated_byInput = {
@@ -1661,9 +1661,9 @@ export type CommunityPublicationUpdateWithoutSubmitted_byInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__updated_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCommunity_publication__reviewed_byNestedInput
-  contriutor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
+  contributor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateWithoutSubmitted_byInput = {
@@ -1683,7 +1683,7 @@ export type CommunityPublicationUncheckedUpdateWithoutSubmitted_byInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateManyWithoutSubmitted_byInput = {
@@ -1718,9 +1718,9 @@ export type CommunityPublicationUpdateWithoutLast_reviewed_byInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__updated_byNestedInput
   submitted_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__submitted_byNestedInput
-  contriutor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
+  contributor?: Prisma.UserUpdateOneWithoutCommunity_publication__contributorNestedInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateWithoutLast_reviewed_byInput = {
@@ -1740,7 +1740,7 @@ export type CommunityPublicationUncheckedUpdateWithoutLast_reviewed_byInput = {
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
 }
 
 export type CommunityPublicationUncheckedUpdateManyWithoutLast_reviewed_byInput = {
@@ -1761,7 +1761,7 @@ export type CommunityPublicationUncheckedUpdateManyWithoutLast_reviewed_byInput 
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type CommunityPublicationUpdateWithoutContriutorInput = {
+export type CommunityPublicationUpdateWithoutContributorInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
   source_root_object_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1777,10 +1777,10 @@ export type CommunityPublicationUpdateWithoutContriutorInput = {
   submitted_by?: Prisma.UserUpdateOneRequiredWithoutCommunity_publication__submitted_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCommunity_publication__reviewed_byNestedInput
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCommunity_publicationNestedInput
 }
 
-export type CommunityPublicationUncheckedUpdateWithoutContriutorInput = {
+export type CommunityPublicationUncheckedUpdateWithoutContributorInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
@@ -1797,10 +1797,10 @@ export type CommunityPublicationUncheckedUpdateWithoutContriutorInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   community_publication_item__community_publication?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutCommunity_publicationNestedInput
-  community_publication_attachement__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
+  community_publication_attachment__community_publication?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCommunity_publicationNestedInput
 }
 
-export type CommunityPublicationUncheckedUpdateManyWithoutContriutorInput = {
+export type CommunityPublicationUncheckedUpdateManyWithoutContributorInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   target_object_type?: Prisma.EnumSelectedTargetTypeFieldUpdateOperationsInput | $Enums.SelectedTargetType
@@ -1825,12 +1825,12 @@ export type CommunityPublicationUncheckedUpdateManyWithoutContriutorInput = {
 
 export type CommunityPublicationCountOutputType = {
   community_publication_item__community_publication: number
-  community_publication_attachement__community_publication: number
+  community_publication_attachment__community_publication: number
 }
 
 export type CommunityPublicationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   community_publication_item__community_publication?: boolean | CommunityPublicationCountOutputTypeCountCommunity_publication_item__community_publicationArgs
-  community_publication_attachement__community_publication?: boolean | CommunityPublicationCountOutputTypeCountCommunity_publication_attachement__community_publicationArgs
+  community_publication_attachment__community_publication?: boolean | CommunityPublicationCountOutputTypeCountCommunity_publication_attachment__community_publicationArgs
 }
 
 /**
@@ -1853,7 +1853,7 @@ export type CommunityPublicationCountOutputTypeCountCommunity_publication_item__
 /**
  * CommunityPublicationCountOutputType without action
  */
-export type CommunityPublicationCountOutputTypeCountCommunity_publication_attachement__community_publicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type CommunityPublicationCountOutputTypeCountCommunity_publication_attachment__community_publicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.CommunityPublicationAttachmentWhereInput
 }
 
@@ -1879,9 +1879,9 @@ export type CommunityPublicationSelect<ExtArgs extends runtime.Types.Extensions.
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   submitted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_reviewed_by?: boolean | Prisma.CommunityPublication$last_reviewed_byArgs<ExtArgs>
-  contriutor?: boolean | Prisma.CommunityPublication$contriutorArgs<ExtArgs>
+  contributor?: boolean | Prisma.CommunityPublication$contributorArgs<ExtArgs>
   community_publication_item__community_publication?: boolean | Prisma.CommunityPublication$community_publication_item__community_publicationArgs<ExtArgs>
-  community_publication_attachement__community_publication?: boolean | Prisma.CommunityPublication$community_publication_attachement__community_publicationArgs<ExtArgs>
+  community_publication_attachment__community_publication?: boolean | Prisma.CommunityPublication$community_publication_attachment__community_publicationArgs<ExtArgs>
   _count?: boolean | Prisma.CommunityPublicationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["communityPublication"]>
 
@@ -1906,7 +1906,7 @@ export type CommunityPublicationSelectCreateManyAndReturn<ExtArgs extends runtim
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   submitted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_reviewed_by?: boolean | Prisma.CommunityPublication$last_reviewed_byArgs<ExtArgs>
-  contriutor?: boolean | Prisma.CommunityPublication$contriutorArgs<ExtArgs>
+  contributor?: boolean | Prisma.CommunityPublication$contributorArgs<ExtArgs>
 }, ExtArgs["result"]["communityPublication"]>
 
 export type CommunityPublicationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1930,7 +1930,7 @@ export type CommunityPublicationSelectUpdateManyAndReturn<ExtArgs extends runtim
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   submitted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_reviewed_by?: boolean | Prisma.CommunityPublication$last_reviewed_byArgs<ExtArgs>
-  contriutor?: boolean | Prisma.CommunityPublication$contriutorArgs<ExtArgs>
+  contributor?: boolean | Prisma.CommunityPublication$contributorArgs<ExtArgs>
 }, ExtArgs["result"]["communityPublication"]>
 
 export type CommunityPublicationSelectScalar = {
@@ -1958,9 +1958,9 @@ export type CommunityPublicationInclude<ExtArgs extends runtime.Types.Extensions
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   submitted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_reviewed_by?: boolean | Prisma.CommunityPublication$last_reviewed_byArgs<ExtArgs>
-  contriutor?: boolean | Prisma.CommunityPublication$contriutorArgs<ExtArgs>
+  contributor?: boolean | Prisma.CommunityPublication$contributorArgs<ExtArgs>
   community_publication_item__community_publication?: boolean | Prisma.CommunityPublication$community_publication_item__community_publicationArgs<ExtArgs>
-  community_publication_attachement__community_publication?: boolean | Prisma.CommunityPublication$community_publication_attachement__community_publicationArgs<ExtArgs>
+  community_publication_attachment__community_publication?: boolean | Prisma.CommunityPublication$community_publication_attachment__community_publicationArgs<ExtArgs>
   _count?: boolean | Prisma.CommunityPublicationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CommunityPublicationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1968,14 +1968,14 @@ export type CommunityPublicationIncludeCreateManyAndReturn<ExtArgs extends runti
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   submitted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_reviewed_by?: boolean | Prisma.CommunityPublication$last_reviewed_byArgs<ExtArgs>
-  contriutor?: boolean | Prisma.CommunityPublication$contriutorArgs<ExtArgs>
+  contributor?: boolean | Prisma.CommunityPublication$contributorArgs<ExtArgs>
 }
 export type CommunityPublicationIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   submitted_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_reviewed_by?: boolean | Prisma.CommunityPublication$last_reviewed_byArgs<ExtArgs>
-  contriutor?: boolean | Prisma.CommunityPublication$contriutorArgs<ExtArgs>
+  contributor?: boolean | Prisma.CommunityPublication$contributorArgs<ExtArgs>
 }
 
 export type $CommunityPublicationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1985,9 +1985,9 @@ export type $CommunityPublicationPayload<ExtArgs extends runtime.Types.Extension
     updated_by: Prisma.$UserPayload<ExtArgs>
     submitted_by: Prisma.$UserPayload<ExtArgs>
     last_reviewed_by: Prisma.$UserPayload<ExtArgs> | null
-    contriutor: Prisma.$UserPayload<ExtArgs> | null
+    contributor: Prisma.$UserPayload<ExtArgs> | null
     community_publication_item__community_publication: Prisma.$CommunityPublicationItemPayload<ExtArgs>[]
-    community_publication_attachement__community_publication: Prisma.$CommunityPublicationAttachmentPayload<ExtArgs>[]
+    community_publication_attachment__community_publication: Prisma.$CommunityPublicationAttachmentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2404,9 +2404,9 @@ export interface Prisma__CommunityPublicationClient<T, Null = never, ExtArgs ext
   updated_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   submitted_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   last_reviewed_by<T extends Prisma.CommunityPublication$last_reviewed_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommunityPublication$last_reviewed_byArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  contriutor<T extends Prisma.CommunityPublication$contriutorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommunityPublication$contriutorArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  contributor<T extends Prisma.CommunityPublication$contributorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommunityPublication$contributorArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   community_publication_item__community_publication<T extends Prisma.CommunityPublication$community_publication_item__community_publicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommunityPublication$community_publication_item__community_publicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommunityPublicationItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  community_publication_attachement__community_publication<T extends Prisma.CommunityPublication$community_publication_attachement__community_publicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommunityPublication$community_publication_attachement__community_publicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommunityPublicationAttachmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  community_publication_attachment__community_publication<T extends Prisma.CommunityPublication$community_publication_attachment__community_publicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CommunityPublication$community_publication_attachment__community_publicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommunityPublicationAttachmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2872,9 +2872,9 @@ export type CommunityPublication$last_reviewed_byArgs<ExtArgs extends runtime.Ty
 }
 
 /**
- * CommunityPublication.contriutor
+ * CommunityPublication.contributor
  */
-export type CommunityPublication$contriutorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type CommunityPublication$contributorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the User
    */
@@ -2915,9 +2915,9 @@ export type CommunityPublication$community_publication_item__community_publicati
 }
 
 /**
- * CommunityPublication.community_publication_attachement__community_publication
+ * CommunityPublication.community_publication_attachment__community_publication
  */
-export type CommunityPublication$community_publication_attachement__community_publicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type CommunityPublication$community_publication_attachment__community_publicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the CommunityPublicationAttachment
    */

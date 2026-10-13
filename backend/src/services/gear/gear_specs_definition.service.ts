@@ -1,15 +1,7 @@
-import 'dotenv/config'
-import { Pool } from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../../generated/prisma/client.js'
+import { prisma } from '../../db/prisma.js'
 
 import { Status, ValueType } from '../../generated/prisma/enums.js'
 import type { GearSpecsDefinition } from '../../generated/prisma/client.js'
-
-const connectionString = `${process.env.DATABASE_URL}`
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
 
 export async function findGearSpecsDefinitionById( id: number ){
     return await prisma.gearSpecsDefinition.findUnique({ where: { id: id }})
@@ -52,7 +44,7 @@ export function isInputIdenticalToDb(
         )
 }
 
-export async function upsertGearSpecsDefitionData(
+export async function upsertGearSpecsDefinitionData(
     name: string,
     gear_type_id: number,
     value_type: ValueType,
