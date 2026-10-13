@@ -288,6 +288,7 @@ export type GearTagRelationOrderByWithRelationInput = {
 
 export type GearTagRelationWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  gear_id_tag_id?: Prisma.GearTagRelationGear_idTag_idCompoundUniqueInput
   AND?: Prisma.GearTagRelationWhereInput | Prisma.GearTagRelationWhereInput[]
   OR?: Prisma.GearTagRelationWhereInput[]
   NOT?: Prisma.GearTagRelationWhereInput | Prisma.GearTagRelationWhereInput[]
@@ -303,7 +304,7 @@ export type GearTagRelationWhereUniqueInput = Prisma.AtLeast<{
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   gear?: Prisma.XOR<Prisma.GearScalarRelationFilter, Prisma.GearWhereInput>
   tag?: Prisma.XOR<Prisma.TagScalarRelationFilter, Prisma.TagWhereInput>
-}, "id">
+}, "id" | "gear_id_tag_id">
 
 export type GearTagRelationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -422,6 +423,11 @@ export type GearTagRelationListRelationFilter = {
 
 export type GearTagRelationOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type GearTagRelationGear_idTag_idCompoundUniqueInput = {
+  gear_id: number
+  tag_id: number
 }
 
 export type GearTagRelationCountOrderByAggregateInput = {

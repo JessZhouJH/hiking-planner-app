@@ -258,7 +258,7 @@ export type GearPackGroupByOutputType = {
   name: string
   is_universal: boolean
   derived_from_gear_pack_id: number | null
-  owner_id: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   notes: string | null
   status: $Enums.Status
@@ -298,7 +298,7 @@ export type GearPackWhereInput = {
   name?: Prisma.StringFilter<"GearPack"> | string
   is_universal?: Prisma.BoolFilter<"GearPack"> | boolean
   derived_from_gear_pack_id?: Prisma.IntNullableFilter<"GearPack"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"GearPack"> | number | null
+  owner_id?: Prisma.IntFilter<"GearPack"> | number
   visibility?: Prisma.EnumVisibilityFilter<"GearPack"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"GearPack"> | string | null
   status?: Prisma.EnumStatusFilter<"GearPack"> | $Enums.Status
@@ -314,7 +314,7 @@ export type GearPackWhereInput = {
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   gear_pack?: Prisma.GearPackListRelationFilter
   derived_from_gear_pack?: Prisma.XOR<Prisma.GearPackNullableScalarRelationFilter, Prisma.GearPackWhereInput> | null
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateListRelationFilter
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentListRelationFilter
   user_gear_pack__gear_pack?: Prisma.UserGearPackListRelationFilter
 }
 
@@ -323,7 +323,7 @@ export type GearPackOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   is_universal?: Prisma.SortOrder
   derived_from_gear_pack_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -339,19 +339,20 @@ export type GearPackOrderByWithRelationInput = {
   owner?: Prisma.UserOrderByWithRelationInput
   gear_pack?: Prisma.GearPackOrderByRelationAggregateInput
   derived_from_gear_pack?: Prisma.GearPackOrderByWithRelationInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateOrderByRelationAggregateInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentOrderByRelationAggregateInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackOrderByRelationAggregateInput
 }
 
 export type GearPackWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name_owner_id?: Prisma.GearPackNameOwner_idCompoundUniqueInput
   AND?: Prisma.GearPackWhereInput | Prisma.GearPackWhereInput[]
   OR?: Prisma.GearPackWhereInput[]
   NOT?: Prisma.GearPackWhereInput | Prisma.GearPackWhereInput[]
   name?: Prisma.StringFilter<"GearPack"> | string
   is_universal?: Prisma.BoolFilter<"GearPack"> | boolean
   derived_from_gear_pack_id?: Prisma.IntNullableFilter<"GearPack"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"GearPack"> | number | null
+  owner_id?: Prisma.IntFilter<"GearPack"> | number
   visibility?: Prisma.EnumVisibilityFilter<"GearPack"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"GearPack"> | string | null
   status?: Prisma.EnumStatusFilter<"GearPack"> | $Enums.Status
@@ -367,16 +368,16 @@ export type GearPackWhereUniqueInput = Prisma.AtLeast<{
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   gear_pack?: Prisma.GearPackListRelationFilter
   derived_from_gear_pack?: Prisma.XOR<Prisma.GearPackNullableScalarRelationFilter, Prisma.GearPackWhereInput> | null
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateListRelationFilter
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentListRelationFilter
   user_gear_pack__gear_pack?: Prisma.UserGearPackListRelationFilter
-}, "id">
+}, "id" | "name_owner_id">
 
 export type GearPackOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   is_universal?: Prisma.SortOrder
   derived_from_gear_pack_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -401,7 +402,7 @@ export type GearPackScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"GearPack"> | string
   is_universal?: Prisma.BoolWithAggregatesFilter<"GearPack"> | boolean
   derived_from_gear_pack_id?: Prisma.IntNullableWithAggregatesFilter<"GearPack"> | number | null
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"GearPack"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"GearPack"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"GearPack"> | $Enums.Visibility
   notes?: Prisma.StringNullableWithAggregatesFilter<"GearPack"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"GearPack"> | $Enums.Status
@@ -428,7 +429,7 @@ export type GearPackCreateInput = {
   owner?: Prisma.UserCreateNestedOneWithoutGear_pack__ownerInput
   gear_pack?: Prisma.GearPackCreateNestedManyWithoutDerived_from_gear_packInput
   derived_from_gear_pack?: Prisma.GearPackCreateNestedOneWithoutGear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackCreateNestedManyWithoutGear_packInput
 }
 
@@ -437,7 +438,7 @@ export type GearPackUncheckedCreateInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -448,7 +449,7 @@ export type GearPackUncheckedCreateInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   gear_pack?: Prisma.GearPackUncheckedCreateNestedManyWithoutDerived_from_gear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutGear_packInput
 }
 
@@ -467,7 +468,7 @@ export type GearPackUpdateInput = {
   owner?: Prisma.UserUpdateOneWithoutGear_pack__ownerNestedInput
   gear_pack?: Prisma.GearPackUpdateManyWithoutDerived_from_gear_packNestedInput
   derived_from_gear_pack?: Prisma.GearPackUpdateOneWithoutGear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUpdateManyWithoutGear_packNestedInput
 }
 
@@ -476,7 +477,7 @@ export type GearPackUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -487,7 +488,7 @@ export type GearPackUncheckedUpdateInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_pack?: Prisma.GearPackUncheckedUpdateManyWithoutDerived_from_gear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedUpdateManyWithoutGear_packNestedInput
 }
 
@@ -496,7 +497,7 @@ export type GearPackCreateManyInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -524,7 +525,7 @@ export type GearPackUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -549,6 +550,11 @@ export type GearPackOrderByRelationAggregateInput = {
 export type GearPackNullableScalarRelationFilter = {
   is?: Prisma.GearPackWhereInput | null
   isNot?: Prisma.GearPackWhereInput | null
+}
+
+export type GearPackNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
 }
 
 export type GearPackCountOrderByAggregateInput = {
@@ -851,18 +857,18 @@ export type GearPackUncheckedUpdateManyWithoutDerived_from_gear_packNestedInput 
   deleteMany?: Prisma.GearPackScalarWhereInput | Prisma.GearPackScalarWhereInput[]
 }
 
-export type GearPackCreateNestedOneWithoutGear_pack_template__gear_packInput = {
-  create?: Prisma.XOR<Prisma.GearPackCreateWithoutGear_pack_template__gear_packInput, Prisma.GearPackUncheckedCreateWithoutGear_pack_template__gear_packInput>
-  connectOrCreate?: Prisma.GearPackCreateOrConnectWithoutGear_pack_template__gear_packInput
+export type GearPackCreateNestedOneWithoutGear_pack_component__gear_packInput = {
+  create?: Prisma.XOR<Prisma.GearPackCreateWithoutGear_pack_component__gear_packInput, Prisma.GearPackUncheckedCreateWithoutGear_pack_component__gear_packInput>
+  connectOrCreate?: Prisma.GearPackCreateOrConnectWithoutGear_pack_component__gear_packInput
   connect?: Prisma.GearPackWhereUniqueInput
 }
 
-export type GearPackUpdateOneRequiredWithoutGear_pack_template__gear_packNestedInput = {
-  create?: Prisma.XOR<Prisma.GearPackCreateWithoutGear_pack_template__gear_packInput, Prisma.GearPackUncheckedCreateWithoutGear_pack_template__gear_packInput>
-  connectOrCreate?: Prisma.GearPackCreateOrConnectWithoutGear_pack_template__gear_packInput
-  upsert?: Prisma.GearPackUpsertWithoutGear_pack_template__gear_packInput
+export type GearPackUpdateOneRequiredWithoutGear_pack_component__gear_packNestedInput = {
+  create?: Prisma.XOR<Prisma.GearPackCreateWithoutGear_pack_component__gear_packInput, Prisma.GearPackUncheckedCreateWithoutGear_pack_component__gear_packInput>
+  connectOrCreate?: Prisma.GearPackCreateOrConnectWithoutGear_pack_component__gear_packInput
+  upsert?: Prisma.GearPackUpsertWithoutGear_pack_component__gear_packInput
   connect?: Prisma.GearPackWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.GearPackUpdateToOneWithWhereWithoutGear_pack_template__gear_packInput, Prisma.GearPackUpdateWithoutGear_pack_template__gear_packInput>, Prisma.GearPackUncheckedUpdateWithoutGear_pack_template__gear_packInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GearPackUpdateToOneWithWhereWithoutGear_pack_component__gear_packInput, Prisma.GearPackUpdateWithoutGear_pack_component__gear_packInput>, Prisma.GearPackUncheckedUpdateWithoutGear_pack_component__gear_packInput>
 }
 
 export type GearPackCreateNestedOneWithoutUser_gear_pack__gear_packInput = {
@@ -893,7 +899,7 @@ export type GearPackCreateWithoutCreated_byInput = {
   owner?: Prisma.UserCreateNestedOneWithoutGear_pack__ownerInput
   gear_pack?: Prisma.GearPackCreateNestedManyWithoutDerived_from_gear_packInput
   derived_from_gear_pack?: Prisma.GearPackCreateNestedOneWithoutGear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackCreateNestedManyWithoutGear_packInput
 }
 
@@ -902,7 +908,7 @@ export type GearPackUncheckedCreateWithoutCreated_byInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -912,7 +918,7 @@ export type GearPackUncheckedCreateWithoutCreated_byInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   gear_pack?: Prisma.GearPackUncheckedCreateNestedManyWithoutDerived_from_gear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutGear_packInput
 }
 
@@ -940,7 +946,7 @@ export type GearPackCreateWithoutUpdated_byInput = {
   owner?: Prisma.UserCreateNestedOneWithoutGear_pack__ownerInput
   gear_pack?: Prisma.GearPackCreateNestedManyWithoutDerived_from_gear_packInput
   derived_from_gear_pack?: Prisma.GearPackCreateNestedOneWithoutGear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackCreateNestedManyWithoutGear_packInput
 }
 
@@ -949,7 +955,7 @@ export type GearPackUncheckedCreateWithoutUpdated_byInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -959,7 +965,7 @@ export type GearPackUncheckedCreateWithoutUpdated_byInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   gear_pack?: Prisma.GearPackUncheckedCreateNestedManyWithoutDerived_from_gear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutGear_packInput
 }
 
@@ -987,7 +993,7 @@ export type GearPackCreateWithoutLast_reviewed_byInput = {
   owner?: Prisma.UserCreateNestedOneWithoutGear_pack__ownerInput
   gear_pack?: Prisma.GearPackCreateNestedManyWithoutDerived_from_gear_packInput
   derived_from_gear_pack?: Prisma.GearPackCreateNestedOneWithoutGear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackCreateNestedManyWithoutGear_packInput
 }
 
@@ -996,7 +1002,7 @@ export type GearPackUncheckedCreateWithoutLast_reviewed_byInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1006,7 +1012,7 @@ export type GearPackUncheckedCreateWithoutLast_reviewed_byInput = {
   updated_by_id: number
   last_reviewed_at?: Date | string | null
   gear_pack?: Prisma.GearPackUncheckedCreateNestedManyWithoutDerived_from_gear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutGear_packInput
 }
 
@@ -1034,7 +1040,7 @@ export type GearPackCreateWithoutOwnerInput = {
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutGear_pack__reviewed_byInput
   gear_pack?: Prisma.GearPackCreateNestedManyWithoutDerived_from_gear_packInput
   derived_from_gear_pack?: Prisma.GearPackCreateNestedOneWithoutGear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackCreateNestedManyWithoutGear_packInput
 }
 
@@ -1053,7 +1059,7 @@ export type GearPackUncheckedCreateWithoutOwnerInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   gear_pack?: Prisma.GearPackUncheckedCreateNestedManyWithoutDerived_from_gear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutGear_packInput
 }
 
@@ -1091,7 +1097,7 @@ export type GearPackScalarWhereInput = {
   name?: Prisma.StringFilter<"GearPack"> | string
   is_universal?: Prisma.BoolFilter<"GearPack"> | boolean
   derived_from_gear_pack_id?: Prisma.IntNullableFilter<"GearPack"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"GearPack"> | number | null
+  owner_id?: Prisma.IntFilter<"GearPack"> | number
   visibility?: Prisma.EnumVisibilityFilter<"GearPack"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"GearPack"> | string | null
   status?: Prisma.EnumStatusFilter<"GearPack"> | $Enums.Status
@@ -1165,7 +1171,7 @@ export type GearPackCreateWithoutDerived_from_gear_packInput = {
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutGear_pack__reviewed_byInput
   owner?: Prisma.UserCreateNestedOneWithoutGear_pack__ownerInput
   gear_pack?: Prisma.GearPackCreateNestedManyWithoutDerived_from_gear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackCreateNestedManyWithoutGear_packInput
 }
 
@@ -1173,7 +1179,7 @@ export type GearPackUncheckedCreateWithoutDerived_from_gear_packInput = {
   id?: number
   name: string
   is_universal?: boolean
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1184,7 +1190,7 @@ export type GearPackUncheckedCreateWithoutDerived_from_gear_packInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   gear_pack?: Prisma.GearPackUncheckedCreateNestedManyWithoutDerived_from_gear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutGear_packInput
 }
 
@@ -1212,7 +1218,7 @@ export type GearPackCreateWithoutGear_packInput = {
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutGear_pack__reviewed_byInput
   owner?: Prisma.UserCreateNestedOneWithoutGear_pack__ownerInput
   derived_from_gear_pack?: Prisma.GearPackCreateNestedOneWithoutGear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackCreateNestedManyWithoutGear_packInput
 }
 
@@ -1221,7 +1227,7 @@ export type GearPackUncheckedCreateWithoutGear_packInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1231,7 +1237,7 @@ export type GearPackUncheckedCreateWithoutGear_packInput = {
   updated_by_id: number
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutGear_packInput
 }
 
@@ -1281,7 +1287,7 @@ export type GearPackUpdateWithoutGear_packInput = {
   last_reviewed_by?: Prisma.UserUpdateOneWithoutGear_pack__reviewed_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutGear_pack__ownerNestedInput
   derived_from_gear_pack?: Prisma.GearPackUpdateOneWithoutGear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1290,7 +1296,7 @@ export type GearPackUncheckedUpdateWithoutGear_packInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1300,11 +1306,11 @@ export type GearPackUncheckedUpdateWithoutGear_packInput = {
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedUpdateManyWithoutGear_packNestedInput
 }
 
-export type GearPackCreateWithoutGear_pack_template__gear_packInput = {
+export type GearPackCreateWithoutGear_pack_component__gear_packInput = {
   name: string
   is_universal?: boolean
   visibility?: $Enums.Visibility
@@ -1322,12 +1328,12 @@ export type GearPackCreateWithoutGear_pack_template__gear_packInput = {
   user_gear_pack__gear_pack?: Prisma.UserGearPackCreateNestedManyWithoutGear_packInput
 }
 
-export type GearPackUncheckedCreateWithoutGear_pack_template__gear_packInput = {
+export type GearPackUncheckedCreateWithoutGear_pack_component__gear_packInput = {
   id?: number
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1341,23 +1347,23 @@ export type GearPackUncheckedCreateWithoutGear_pack_template__gear_packInput = {
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutGear_packInput
 }
 
-export type GearPackCreateOrConnectWithoutGear_pack_template__gear_packInput = {
+export type GearPackCreateOrConnectWithoutGear_pack_component__gear_packInput = {
   where: Prisma.GearPackWhereUniqueInput
-  create: Prisma.XOR<Prisma.GearPackCreateWithoutGear_pack_template__gear_packInput, Prisma.GearPackUncheckedCreateWithoutGear_pack_template__gear_packInput>
+  create: Prisma.XOR<Prisma.GearPackCreateWithoutGear_pack_component__gear_packInput, Prisma.GearPackUncheckedCreateWithoutGear_pack_component__gear_packInput>
 }
 
-export type GearPackUpsertWithoutGear_pack_template__gear_packInput = {
-  update: Prisma.XOR<Prisma.GearPackUpdateWithoutGear_pack_template__gear_packInput, Prisma.GearPackUncheckedUpdateWithoutGear_pack_template__gear_packInput>
-  create: Prisma.XOR<Prisma.GearPackCreateWithoutGear_pack_template__gear_packInput, Prisma.GearPackUncheckedCreateWithoutGear_pack_template__gear_packInput>
+export type GearPackUpsertWithoutGear_pack_component__gear_packInput = {
+  update: Prisma.XOR<Prisma.GearPackUpdateWithoutGear_pack_component__gear_packInput, Prisma.GearPackUncheckedUpdateWithoutGear_pack_component__gear_packInput>
+  create: Prisma.XOR<Prisma.GearPackCreateWithoutGear_pack_component__gear_packInput, Prisma.GearPackUncheckedCreateWithoutGear_pack_component__gear_packInput>
   where?: Prisma.GearPackWhereInput
 }
 
-export type GearPackUpdateToOneWithWhereWithoutGear_pack_template__gear_packInput = {
+export type GearPackUpdateToOneWithWhereWithoutGear_pack_component__gear_packInput = {
   where?: Prisma.GearPackWhereInput
-  data: Prisma.XOR<Prisma.GearPackUpdateWithoutGear_pack_template__gear_packInput, Prisma.GearPackUncheckedUpdateWithoutGear_pack_template__gear_packInput>
+  data: Prisma.XOR<Prisma.GearPackUpdateWithoutGear_pack_component__gear_packInput, Prisma.GearPackUncheckedUpdateWithoutGear_pack_component__gear_packInput>
 }
 
-export type GearPackUpdateWithoutGear_pack_template__gear_packInput = {
+export type GearPackUpdateWithoutGear_pack_component__gear_packInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
@@ -1375,12 +1381,12 @@ export type GearPackUpdateWithoutGear_pack_template__gear_packInput = {
   user_gear_pack__gear_pack?: Prisma.UserGearPackUpdateManyWithoutGear_packNestedInput
 }
 
-export type GearPackUncheckedUpdateWithoutGear_pack_template__gear_packInput = {
+export type GearPackUncheckedUpdateWithoutGear_pack_component__gear_packInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1409,7 +1415,7 @@ export type GearPackCreateWithoutUser_gear_pack__gear_packInput = {
   owner?: Prisma.UserCreateNestedOneWithoutGear_pack__ownerInput
   gear_pack?: Prisma.GearPackCreateNestedManyWithoutDerived_from_gear_packInput
   derived_from_gear_pack?: Prisma.GearPackCreateNestedOneWithoutGear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentCreateNestedManyWithoutGear_packInput
 }
 
 export type GearPackUncheckedCreateWithoutUser_gear_pack__gear_packInput = {
@@ -1417,7 +1423,7 @@ export type GearPackUncheckedCreateWithoutUser_gear_pack__gear_packInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1428,7 +1434,7 @@ export type GearPackUncheckedCreateWithoutUser_gear_pack__gear_packInput = {
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
   gear_pack?: Prisma.GearPackUncheckedCreateNestedManyWithoutDerived_from_gear_packInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutGear_packInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutGear_packInput
 }
 
 export type GearPackCreateOrConnectWithoutUser_gear_pack__gear_packInput = {
@@ -1462,7 +1468,7 @@ export type GearPackUpdateWithoutUser_gear_pack__gear_packInput = {
   owner?: Prisma.UserUpdateOneWithoutGear_pack__ownerNestedInput
   gear_pack?: Prisma.GearPackUpdateManyWithoutDerived_from_gear_packNestedInput
   derived_from_gear_pack?: Prisma.GearPackUpdateOneWithoutGear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUpdateManyWithoutGear_packNestedInput
 }
 
 export type GearPackUncheckedUpdateWithoutUser_gear_pack__gear_packInput = {
@@ -1470,7 +1476,7 @@ export type GearPackUncheckedUpdateWithoutUser_gear_pack__gear_packInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1481,7 +1487,7 @@ export type GearPackUncheckedUpdateWithoutUser_gear_pack__gear_packInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_pack?: Prisma.GearPackUncheckedUpdateManyWithoutDerived_from_gear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput
 }
 
 export type GearPackCreateManyCreated_byInput = {
@@ -1489,7 +1495,7 @@ export type GearPackCreateManyCreated_byInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1505,7 +1511,7 @@ export type GearPackCreateManyUpdated_byInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1521,7 +1527,7 @@ export type GearPackCreateManyLast_reviewed_byInput = {
   name: string
   is_universal?: boolean
   derived_from_gear_pack_id?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1562,7 +1568,7 @@ export type GearPackUpdateWithoutCreated_byInput = {
   owner?: Prisma.UserUpdateOneWithoutGear_pack__ownerNestedInput
   gear_pack?: Prisma.GearPackUpdateManyWithoutDerived_from_gear_packNestedInput
   derived_from_gear_pack?: Prisma.GearPackUpdateOneWithoutGear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1571,7 +1577,7 @@ export type GearPackUncheckedUpdateWithoutCreated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1581,7 +1587,7 @@ export type GearPackUncheckedUpdateWithoutCreated_byInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_pack?: Prisma.GearPackUncheckedUpdateManyWithoutDerived_from_gear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1590,7 +1596,7 @@ export type GearPackUncheckedUpdateManyWithoutCreated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1615,7 +1621,7 @@ export type GearPackUpdateWithoutUpdated_byInput = {
   owner?: Prisma.UserUpdateOneWithoutGear_pack__ownerNestedInput
   gear_pack?: Prisma.GearPackUpdateManyWithoutDerived_from_gear_packNestedInput
   derived_from_gear_pack?: Prisma.GearPackUpdateOneWithoutGear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1624,7 +1630,7 @@ export type GearPackUncheckedUpdateWithoutUpdated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1634,7 +1640,7 @@ export type GearPackUncheckedUpdateWithoutUpdated_byInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_pack?: Prisma.GearPackUncheckedUpdateManyWithoutDerived_from_gear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1643,7 +1649,7 @@ export type GearPackUncheckedUpdateManyWithoutUpdated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1668,7 +1674,7 @@ export type GearPackUpdateWithoutLast_reviewed_byInput = {
   owner?: Prisma.UserUpdateOneWithoutGear_pack__ownerNestedInput
   gear_pack?: Prisma.GearPackUpdateManyWithoutDerived_from_gear_packNestedInput
   derived_from_gear_pack?: Prisma.GearPackUpdateOneWithoutGear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1677,7 +1683,7 @@ export type GearPackUncheckedUpdateWithoutLast_reviewed_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1687,7 +1693,7 @@ export type GearPackUncheckedUpdateWithoutLast_reviewed_byInput = {
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gear_pack?: Prisma.GearPackUncheckedUpdateManyWithoutDerived_from_gear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1696,7 +1702,7 @@ export type GearPackUncheckedUpdateManyWithoutLast_reviewed_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   derived_from_gear_pack_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1721,7 +1727,7 @@ export type GearPackUpdateWithoutOwnerInput = {
   last_reviewed_by?: Prisma.UserUpdateOneWithoutGear_pack__reviewed_byNestedInput
   gear_pack?: Prisma.GearPackUpdateManyWithoutDerived_from_gear_packNestedInput
   derived_from_gear_pack?: Prisma.GearPackUpdateOneWithoutGear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1740,7 +1746,7 @@ export type GearPackUncheckedUpdateWithoutOwnerInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_pack?: Prisma.GearPackUncheckedUpdateManyWithoutDerived_from_gear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1764,7 +1770,7 @@ export type GearPackCreateManyDerived_from_gear_packInput = {
   id?: number
   name: string
   is_universal?: boolean
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1790,7 +1796,7 @@ export type GearPackUpdateWithoutDerived_from_gear_packInput = {
   last_reviewed_by?: Prisma.UserUpdateOneWithoutGear_pack__reviewed_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutGear_pack__ownerNestedInput
   gear_pack?: Prisma.GearPackUpdateManyWithoutDerived_from_gear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1798,7 +1804,7 @@ export type GearPackUncheckedUpdateWithoutDerived_from_gear_packInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1809,7 +1815,7 @@ export type GearPackUncheckedUpdateWithoutDerived_from_gear_packInput = {
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_pack?: Prisma.GearPackUncheckedUpdateManyWithoutDerived_from_gear_packNestedInput
-  gear_pack_template__gear_pack?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutGear_packNestedInput
+  gear_pack_component__gear_pack?: Prisma.GearPackComponentUncheckedUpdateManyWithoutGear_packNestedInput
   user_gear_pack__gear_pack?: Prisma.UserGearPackUncheckedUpdateManyWithoutGear_packNestedInput
 }
 
@@ -1817,7 +1823,7 @@ export type GearPackUncheckedUpdateManyWithoutDerived_from_gear_packInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1836,13 +1842,13 @@ export type GearPackUncheckedUpdateManyWithoutDerived_from_gear_packInput = {
 
 export type GearPackCountOutputType = {
   gear_pack: number
-  gear_pack_template__gear_pack: number
+  gear_pack_component__gear_pack: number
   user_gear_pack__gear_pack: number
 }
 
 export type GearPackCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   gear_pack?: boolean | GearPackCountOutputTypeCountGear_packArgs
-  gear_pack_template__gear_pack?: boolean | GearPackCountOutputTypeCountGear_pack_template__gear_packArgs
+  gear_pack_component__gear_pack?: boolean | GearPackCountOutputTypeCountGear_pack_component__gear_packArgs
   user_gear_pack__gear_pack?: boolean | GearPackCountOutputTypeCountUser_gear_pack__gear_packArgs
 }
 
@@ -1866,8 +1872,8 @@ export type GearPackCountOutputTypeCountGear_packArgs<ExtArgs extends runtime.Ty
 /**
  * GearPackCountOutputType without action
  */
-export type GearPackCountOutputTypeCountGear_pack_template__gear_packArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.GearPackTemplateWhereInput
+export type GearPackCountOutputTypeCountGear_pack_component__gear_packArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GearPackComponentWhereInput
 }
 
 /**
@@ -1899,7 +1905,7 @@ export type GearPackSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   owner?: boolean | Prisma.GearPack$ownerArgs<ExtArgs>
   gear_pack?: boolean | Prisma.GearPack$gear_packArgs<ExtArgs>
   derived_from_gear_pack?: boolean | Prisma.GearPack$derived_from_gear_packArgs<ExtArgs>
-  gear_pack_template__gear_pack?: boolean | Prisma.GearPack$gear_pack_template__gear_packArgs<ExtArgs>
+  gear_pack_component__gear_pack?: boolean | Prisma.GearPack$gear_pack_component__gear_packArgs<ExtArgs>
   user_gear_pack__gear_pack?: boolean | Prisma.GearPack$user_gear_pack__gear_packArgs<ExtArgs>
   _count?: boolean | Prisma.GearPackCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gearPack"]>
@@ -1973,7 +1979,7 @@ export type GearPackInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   owner?: boolean | Prisma.GearPack$ownerArgs<ExtArgs>
   gear_pack?: boolean | Prisma.GearPack$gear_packArgs<ExtArgs>
   derived_from_gear_pack?: boolean | Prisma.GearPack$derived_from_gear_packArgs<ExtArgs>
-  gear_pack_template__gear_pack?: boolean | Prisma.GearPack$gear_pack_template__gear_packArgs<ExtArgs>
+  gear_pack_component__gear_pack?: boolean | Prisma.GearPack$gear_pack_component__gear_packArgs<ExtArgs>
   user_gear_pack__gear_pack?: boolean | Prisma.GearPack$user_gear_pack__gear_packArgs<ExtArgs>
   _count?: boolean | Prisma.GearPackCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -2001,7 +2007,7 @@ export type $GearPackPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     owner: Prisma.$UserPayload<ExtArgs> | null
     gear_pack: Prisma.$GearPackPayload<ExtArgs>[]
     derived_from_gear_pack: Prisma.$GearPackPayload<ExtArgs> | null
-    gear_pack_template__gear_pack: Prisma.$GearPackTemplatePayload<ExtArgs>[]
+    gear_pack_component__gear_pack: Prisma.$GearPackComponentPayload<ExtArgs>[]
     user_gear_pack__gear_pack: Prisma.$UserGearPackPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -2009,7 +2015,7 @@ export type $GearPackPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     name: string
     is_universal: boolean
     derived_from_gear_pack_id: number | null
-    owner_id: number | null
+    owner_id: number
     visibility: $Enums.Visibility
     notes: string | null
     status: $Enums.Status
@@ -2419,7 +2425,7 @@ export interface Prisma__GearPackClient<T, Null = never, ExtArgs extends runtime
   owner<T extends Prisma.GearPack$ownerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPack$ownerArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   gear_pack<T extends Prisma.GearPack$gear_packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPack$gear_packArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   derived_from_gear_pack<T extends Prisma.GearPack$derived_from_gear_packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPack$derived_from_gear_packArgs<ExtArgs>>): Prisma.Prisma__GearPackClient<runtime.Types.Result.GetResult<Prisma.$GearPackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  gear_pack_template__gear_pack<T extends Prisma.GearPack$gear_pack_template__gear_packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPack$gear_pack_template__gear_packArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  gear_pack_component__gear_pack<T extends Prisma.GearPack$gear_pack_component__gear_packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPack$gear_pack_component__gear_packArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackComponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   user_gear_pack__gear_pack<T extends Prisma.GearPack$user_gear_pack__gear_packArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GearPack$user_gear_pack__gear_packArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserGearPackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2946,27 +2952,27 @@ export type GearPack$derived_from_gear_packArgs<ExtArgs extends runtime.Types.Ex
 }
 
 /**
- * GearPack.gear_pack_template__gear_pack
+ * GearPack.gear_pack_component__gear_pack
  */
-export type GearPack$gear_pack_template__gear_packArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GearPack$gear_pack_component__gear_packArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the GearPackTemplate
+   * Select specific fields to fetch from the GearPackComponent
    */
-  select?: Prisma.GearPackTemplateSelect<ExtArgs> | null
+  select?: Prisma.GearPackComponentSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the GearPackTemplate
+   * Omit specific fields from the GearPackComponent
    */
-  omit?: Prisma.GearPackTemplateOmit<ExtArgs> | null
+  omit?: Prisma.GearPackComponentOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.GearPackTemplateInclude<ExtArgs> | null
-  where?: Prisma.GearPackTemplateWhereInput
-  orderBy?: Prisma.GearPackTemplateOrderByWithRelationInput | Prisma.GearPackTemplateOrderByWithRelationInput[]
-  cursor?: Prisma.GearPackTemplateWhereUniqueInput
+  include?: Prisma.GearPackComponentInclude<ExtArgs> | null
+  where?: Prisma.GearPackComponentWhereInput
+  orderBy?: Prisma.GearPackComponentOrderByWithRelationInput | Prisma.GearPackComponentOrderByWithRelationInput[]
+  cursor?: Prisma.GearPackComponentWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.GearPackTemplateScalarFieldEnum | Prisma.GearPackTemplateScalarFieldEnum[]
+  distinct?: Prisma.GearPackComponentScalarFieldEnum | Prisma.GearPackComponentScalarFieldEnum[]
 }
 
 /**

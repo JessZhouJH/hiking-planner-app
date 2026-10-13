@@ -10,7 +10,8 @@ import { SYSTEM_USER_ID } from '../../src/constants/macros'
 import { upsertUnitData } from '../../src/services/common/unit.service'
 import { upsertTagData } from '../../src/services/common/tag.service'
 import { upsertTagGroupData } from '../../src/services/common/tag_group.service'
-import { createTagRelationData } from '../../src/services/common/tag_relation.service'
+import { upsertTagRelationData } from '../../src/services/common/tag_relation.service'
+import { upsertTagGroupRelationData } from '../../src/services/common/tag_group_relation.service'
 import { upsertAliasData } from '../../src/services/common/alias.service'
 
 export async function seedCommon() {
@@ -59,7 +60,7 @@ export async function seedCommon() {
         '℉'
     )
     await upsertUnitData('Kilometer', UnitCategory.LENGTH, SYSTEM_USER_ID, 'km')
-    await upsertUnitData('Meter', UnitCategory.LENGTH, SYSTEM_USER_ID, ',m')
+    await upsertUnitData('Meter', UnitCategory.LENGTH, SYSTEM_USER_ID, 'm')
     await upsertUnitData(
         'Centimeter',
         UnitCategory.LENGTH,
@@ -72,6 +73,7 @@ export async function seedCommon() {
         SYSTEM_USER_ID,
         'mm'
     )
+    await upsertUnitData('Inch', UnitCategory.LENGTH, SYSTEM_USER_ID, 'in')
     await upsertUnitData('Liter', UnitCategory.VOLUME, SYSTEM_USER_ID, 'L')
     await upsertUnitData(
         'Milliliter',
@@ -79,6 +81,8 @@ export async function seedCommon() {
         SYSTEM_USER_ID,
         'ml'
     )
+    await upsertUnitData('Pounds', UnitCategory.WEIGHT, SYSTEM_USER_ID, 'lbs')
+
     await upsertUnitData(
         'Square Meter',
         UnitCategory.AREA,
@@ -155,6 +159,8 @@ export async function seedCommon() {
         DescribingTargetType.TRAIL
     )
 
+    const camping_tag = await upsertTagData('Camping', SYSTEM_USER_ID)
+
     // TagGroup
     const terrain_tag_group = await upsertTagGroupData(
         'Terrain',
@@ -182,116 +188,92 @@ export async function seedCommon() {
     )
 
     // TagRelation
-    await createTagRelationData(
+    await upsertTagRelationData(
         trail_running_tag.id,
         trail_running_shoes_tag.id,
         SYSTEM_USER_ID
     )
-    await createTagRelationData(
+    await upsertTagRelationData(
         wet_weather_tag.id,
         waterproof_tag.id,
         SYSTEM_USER_ID
     )
-    await createTagRelationData(
+    await upsertTagRelationData(
         multiday_tag.id,
         sleeping_system_tag.id,
         SYSTEM_USER_ID
     )
-    await createTagRelationData(alpine_tag.id, technical_tag.id, SYSTEM_USER_ID)
+    await upsertTagRelationData(alpine_tag.id, technical_tag.id, SYSTEM_USER_ID)
 
     // TagGroupRelation
-    // async function createTagGroupRelation(
-    //     tag_group_id: number,
-    //     tag_id: number,
-    //     user_id: number
-    // ) {
-    //     const existing_tag_group_relation =
-    //         await prisma.tagGroupRelation.findFirst({
-    //             where: {
-    //                 tag_group_id: tag_group_id,
-    //                 tag_id: tag_id,
-    //                 status: Status.ACTIVE,
-    //             },
-    //         })
-    //     if (existing_tag_group_relation) return existing_tag_group_relation
-    //     const new_tag_group_relation = await prisma.tagGroupRelation.create({
-    //         data: {
-    //             tag_group_id: tag_group_id,
-    //             tag_id: tag_id,
-    //             created_by_id: user_id,
-    //             updated_by_id: user_id,
-    //         },
-    //     })
-    //     return new_tag_group_relation
-    // }
-    // await createTagGroupRelation(
-    //     terrain_tag_group.id,
-    //     alpine_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     activity_tag_group.id,
-    //     trail_running_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     activity_tag_group.id,
-    //     multiday_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     techinical_use_tag_group.id,
-    //     alpine_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     techinical_use_tag_group.id,
-    //     technical_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     techinical_use_tag_group.id,
-    //     trail_running_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     footwear_tag_group.id,
-    //     hiking_boots_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     footwear_tag_group.id,
-    //     hiking_shoes_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     footwear_tag_group.id,
-    //     trail_running_shoes_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     gear_system_tag_group.id,
-    //     sleeping_system_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     gear_system_tag_group.id,
-    //     hydration_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     gear_characteristics_tag_group.id,
-    //     ultralight_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     gear_characteristics_tag_group.id,
-    //     waterproof_tag.id,
-    //     SYSTEM_USER_ID
-    // )
-    // await createTagGroupRelation(
-    //     gear_characteristics_tag_group.id,
-    //     extended_fit_tag.id,
-    //     SYSTEM_USER_ID
-    // )
+    await upsertTagGroupRelationData(
+        terrain_tag_group.id,
+        alpine_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        activity_tag_group.id,
+        trail_running_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        activity_tag_group.id,
+        multiday_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        techinical_use_tag_group.id,
+        alpine_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        techinical_use_tag_group.id,
+        technical_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        techinical_use_tag_group.id,
+        trail_running_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        footwear_tag_group.id,
+        hiking_boots_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        footwear_tag_group.id,
+        hiking_shoes_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        footwear_tag_group.id,
+        trail_running_shoes_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        gear_system_tag_group.id,
+        sleeping_system_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        gear_system_tag_group.id,
+        hydration_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        gear_characteristics_tag_group.id,
+        ultralight_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        gear_characteristics_tag_group.id,
+        waterproof_tag.id,
+        SYSTEM_USER_ID
+    )
+    await upsertTagGroupRelationData(
+        gear_characteristics_tag_group.id,
+        extended_fit_tag.id,
+        SYSTEM_USER_ID
+    )
 }

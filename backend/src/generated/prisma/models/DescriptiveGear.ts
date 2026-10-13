@@ -43,6 +43,7 @@ export type DescriptiveGearSumAggregateOutputType = {
 export type DescriptiveGearMinAggregateOutputType = {
   id: number | null
   name: string | null
+  preview_img_key: string | null
   owner_id: number | null
   visibility: $Enums.Visibility | null
   status: $Enums.Status | null
@@ -56,6 +57,7 @@ export type DescriptiveGearMinAggregateOutputType = {
 export type DescriptiveGearMaxAggregateOutputType = {
   id: number | null
   name: string | null
+  preview_img_key: string | null
   owner_id: number | null
   visibility: $Enums.Visibility | null
   status: $Enums.Status | null
@@ -69,6 +71,7 @@ export type DescriptiveGearMaxAggregateOutputType = {
 export type DescriptiveGearCountAggregateOutputType = {
   id: number
   name: number
+  preview_img_key: number
   owner_id: number
   visibility: number
   status: number
@@ -98,6 +101,7 @@ export type DescriptiveGearSumAggregateInputType = {
 export type DescriptiveGearMinAggregateInputType = {
   id?: true
   name?: true
+  preview_img_key?: true
   owner_id?: true
   visibility?: true
   status?: true
@@ -111,6 +115,7 @@ export type DescriptiveGearMinAggregateInputType = {
 export type DescriptiveGearMaxAggregateInputType = {
   id?: true
   name?: true
+  preview_img_key?: true
   owner_id?: true
   visibility?: true
   status?: true
@@ -124,6 +129,7 @@ export type DescriptiveGearMaxAggregateInputType = {
 export type DescriptiveGearCountAggregateInputType = {
   id?: true
   name?: true
+  preview_img_key?: true
   owner_id?: true
   visibility?: true
   status?: true
@@ -224,7 +230,8 @@ export type DescriptiveGearGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 export type DescriptiveGearGroupByOutputType = {
   id: number
   name: string
-  owner_id: number | null
+  preview_img_key: string | null
+  owner_id: number
   visibility: $Enums.Visibility
   status: $Enums.Status
   notes: string | null
@@ -260,7 +267,8 @@ export type DescriptiveGearWhereInput = {
   NOT?: Prisma.DescriptiveGearWhereInput | Prisma.DescriptiveGearWhereInput[]
   id?: Prisma.IntFilter<"DescriptiveGear"> | number
   name?: Prisma.StringFilter<"DescriptiveGear"> | string
-  owner_id?: Prisma.IntNullableFilter<"DescriptiveGear"> | number | null
+  preview_img_key?: Prisma.StringNullableFilter<"DescriptiveGear"> | string | null
+  owner_id?: Prisma.IntFilter<"DescriptiveGear"> | number
   visibility?: Prisma.EnumVisibilityFilter<"DescriptiveGear"> | $Enums.Visibility
   status?: Prisma.EnumStatusFilter<"DescriptiveGear"> | $Enums.Status
   notes?: Prisma.StringNullableFilter<"DescriptiveGear"> | string | null
@@ -271,12 +279,14 @@ export type DescriptiveGearWhereInput = {
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentListRelationFilter
 }
 
 export type DescriptiveGearOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  preview_img_key?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   status?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -287,15 +297,18 @@ export type DescriptiveGearOrderByWithRelationInput = {
   created_by?: Prisma.UserOrderByWithRelationInput
   updated_by?: Prisma.UserOrderByWithRelationInput
   owner?: Prisma.UserOrderByWithRelationInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentOrderByRelationAggregateInput
 }
 
 export type DescriptiveGearWhereUniqueInput = Prisma.AtLeast<{
   id?: number
   name?: string
+  name_owner_id?: Prisma.DescriptiveGearNameOwner_idCompoundUniqueInput
   AND?: Prisma.DescriptiveGearWhereInput | Prisma.DescriptiveGearWhereInput[]
   OR?: Prisma.DescriptiveGearWhereInput[]
   NOT?: Prisma.DescriptiveGearWhereInput | Prisma.DescriptiveGearWhereInput[]
-  owner_id?: Prisma.IntNullableFilter<"DescriptiveGear"> | number | null
+  preview_img_key?: Prisma.StringNullableFilter<"DescriptiveGear"> | string | null
+  owner_id?: Prisma.IntFilter<"DescriptiveGear"> | number
   visibility?: Prisma.EnumVisibilityFilter<"DescriptiveGear"> | $Enums.Visibility
   status?: Prisma.EnumStatusFilter<"DescriptiveGear"> | $Enums.Status
   notes?: Prisma.StringNullableFilter<"DescriptiveGear"> | string | null
@@ -306,12 +319,14 @@ export type DescriptiveGearWhereUniqueInput = Prisma.AtLeast<{
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-}, "id" | "name">
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentListRelationFilter
+}, "id" | "name" | "name_owner_id">
 
 export type DescriptiveGearOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  preview_img_key?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   status?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -332,7 +347,8 @@ export type DescriptiveGearScalarWhereWithAggregatesInput = {
   NOT?: Prisma.DescriptiveGearScalarWhereWithAggregatesInput | Prisma.DescriptiveGearScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"DescriptiveGear"> | number
   name?: Prisma.StringWithAggregatesFilter<"DescriptiveGear"> | string
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"DescriptiveGear"> | number | null
+  preview_img_key?: Prisma.StringNullableWithAggregatesFilter<"DescriptiveGear"> | string | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"DescriptiveGear"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"DescriptiveGear"> | $Enums.Visibility
   status?: Prisma.EnumStatusWithAggregatesFilter<"DescriptiveGear"> | $Enums.Status
   notes?: Prisma.StringNullableWithAggregatesFilter<"DescriptiveGear"> | string | null
@@ -344,6 +360,7 @@ export type DescriptiveGearScalarWhereWithAggregatesInput = {
 
 export type DescriptiveGearCreateInput = {
   name: string
+  preview_img_key?: string | null
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -352,12 +369,14 @@ export type DescriptiveGearCreateInput = {
   created_by: Prisma.UserCreateNestedOneWithoutDescriptive_gear__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutDescriptive_gear__updated_byInput
   owner?: Prisma.UserCreateNestedOneWithoutDescriptive_gear__ownerInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentCreateNestedManyWithoutDescriptive_gearInput
 }
 
 export type DescriptiveGearUncheckedCreateInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  preview_img_key?: string | null
+  owner_id: number
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -365,10 +384,12 @@ export type DescriptiveGearUncheckedCreateInput = {
   created_by_id: number
   updated_at?: Date | string
   updated_by_id: number
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutDescriptive_gearInput
 }
 
 export type DescriptiveGearUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -377,12 +398,14 @@ export type DescriptiveGearUpdateInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutDescriptive_gear__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutDescriptive_gear__updated_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutDescriptive_gear__ownerNestedInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUpdateManyWithoutDescriptive_gearNestedInput
 }
 
 export type DescriptiveGearUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -390,12 +413,14 @@ export type DescriptiveGearUncheckedUpdateInput = {
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUncheckedUpdateManyWithoutDescriptive_gearNestedInput
 }
 
 export type DescriptiveGearCreateManyInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  preview_img_key?: string | null
+  owner_id: number
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -407,6 +432,7 @@ export type DescriptiveGearCreateManyInput = {
 
 export type DescriptiveGearUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -417,7 +443,8 @@ export type DescriptiveGearUpdateManyMutationInput = {
 export type DescriptiveGearUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -437,9 +464,15 @@ export type DescriptiveGearOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type DescriptiveGearNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
+}
+
 export type DescriptiveGearCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  preview_img_key?: Prisma.SortOrder
   owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -460,6 +493,7 @@ export type DescriptiveGearAvgOrderByAggregateInput = {
 export type DescriptiveGearMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  preview_img_key?: Prisma.SortOrder
   owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -473,6 +507,7 @@ export type DescriptiveGearMaxOrderByAggregateInput = {
 export type DescriptiveGearMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  preview_img_key?: Prisma.SortOrder
   owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -488,6 +523,11 @@ export type DescriptiveGearSumOrderByAggregateInput = {
   owner_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
+}
+
+export type DescriptiveGearNullableScalarRelationFilter = {
+  is?: Prisma.DescriptiveGearWhereInput | null
+  isNot?: Prisma.DescriptiveGearWhereInput | null
 }
 
 export type DescriptiveGearCreateNestedManyWithoutCreated_byInput = {
@@ -616,8 +656,25 @@ export type DescriptiveGearUncheckedUpdateManyWithoutOwnerNestedInput = {
   deleteMany?: Prisma.DescriptiveGearScalarWhereInput | Prisma.DescriptiveGearScalarWhereInput[]
 }
 
+export type DescriptiveGearCreateNestedOneWithoutGear_pack_component__descriptive_gearInput = {
+  create?: Prisma.XOR<Prisma.DescriptiveGearCreateWithoutGear_pack_component__descriptive_gearInput, Prisma.DescriptiveGearUncheckedCreateWithoutGear_pack_component__descriptive_gearInput>
+  connectOrCreate?: Prisma.DescriptiveGearCreateOrConnectWithoutGear_pack_component__descriptive_gearInput
+  connect?: Prisma.DescriptiveGearWhereUniqueInput
+}
+
+export type DescriptiveGearUpdateOneWithoutGear_pack_component__descriptive_gearNestedInput = {
+  create?: Prisma.XOR<Prisma.DescriptiveGearCreateWithoutGear_pack_component__descriptive_gearInput, Prisma.DescriptiveGearUncheckedCreateWithoutGear_pack_component__descriptive_gearInput>
+  connectOrCreate?: Prisma.DescriptiveGearCreateOrConnectWithoutGear_pack_component__descriptive_gearInput
+  upsert?: Prisma.DescriptiveGearUpsertWithoutGear_pack_component__descriptive_gearInput
+  disconnect?: Prisma.DescriptiveGearWhereInput | boolean
+  delete?: Prisma.DescriptiveGearWhereInput | boolean
+  connect?: Prisma.DescriptiveGearWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DescriptiveGearUpdateToOneWithWhereWithoutGear_pack_component__descriptive_gearInput, Prisma.DescriptiveGearUpdateWithoutGear_pack_component__descriptive_gearInput>, Prisma.DescriptiveGearUncheckedUpdateWithoutGear_pack_component__descriptive_gearInput>
+}
+
 export type DescriptiveGearCreateWithoutCreated_byInput = {
   name: string
+  preview_img_key?: string | null
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -625,18 +682,21 @@ export type DescriptiveGearCreateWithoutCreated_byInput = {
   updated_at?: Date | string
   updated_by: Prisma.UserCreateNestedOneWithoutDescriptive_gear__updated_byInput
   owner?: Prisma.UserCreateNestedOneWithoutDescriptive_gear__ownerInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentCreateNestedManyWithoutDescriptive_gearInput
 }
 
 export type DescriptiveGearUncheckedCreateWithoutCreated_byInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  preview_img_key?: string | null
+  owner_id: number
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   updated_by_id: number
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutDescriptive_gearInput
 }
 
 export type DescriptiveGearCreateOrConnectWithoutCreated_byInput = {
@@ -651,6 +711,7 @@ export type DescriptiveGearCreateManyCreated_byInputEnvelope = {
 
 export type DescriptiveGearCreateWithoutUpdated_byInput = {
   name: string
+  preview_img_key?: string | null
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -658,18 +719,21 @@ export type DescriptiveGearCreateWithoutUpdated_byInput = {
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutDescriptive_gear__created_byInput
   owner?: Prisma.UserCreateNestedOneWithoutDescriptive_gear__ownerInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentCreateNestedManyWithoutDescriptive_gearInput
 }
 
 export type DescriptiveGearUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  preview_img_key?: string | null
+  owner_id: number
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
   created_at?: Date | string
   created_by_id: number
   updated_at?: Date | string
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutDescriptive_gearInput
 }
 
 export type DescriptiveGearCreateOrConnectWithoutUpdated_byInput = {
@@ -684,6 +748,7 @@ export type DescriptiveGearCreateManyUpdated_byInputEnvelope = {
 
 export type DescriptiveGearCreateWithoutOwnerInput = {
   name: string
+  preview_img_key?: string | null
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -691,11 +756,13 @@ export type DescriptiveGearCreateWithoutOwnerInput = {
   updated_at?: Date | string
   created_by: Prisma.UserCreateNestedOneWithoutDescriptive_gear__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutDescriptive_gear__updated_byInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentCreateNestedManyWithoutDescriptive_gearInput
 }
 
 export type DescriptiveGearUncheckedCreateWithoutOwnerInput = {
   id?: number
   name: string
+  preview_img_key?: string | null
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -703,6 +770,7 @@ export type DescriptiveGearUncheckedCreateWithoutOwnerInput = {
   created_by_id: number
   updated_at?: Date | string
   updated_by_id: number
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutDescriptive_gearInput
 }
 
 export type DescriptiveGearCreateOrConnectWithoutOwnerInput = {
@@ -737,7 +805,8 @@ export type DescriptiveGearScalarWhereInput = {
   NOT?: Prisma.DescriptiveGearScalarWhereInput | Prisma.DescriptiveGearScalarWhereInput[]
   id?: Prisma.IntFilter<"DescriptiveGear"> | number
   name?: Prisma.StringFilter<"DescriptiveGear"> | string
-  owner_id?: Prisma.IntNullableFilter<"DescriptiveGear"> | number | null
+  preview_img_key?: Prisma.StringNullableFilter<"DescriptiveGear"> | string | null
+  owner_id?: Prisma.IntFilter<"DescriptiveGear"> | number
   visibility?: Prisma.EnumVisibilityFilter<"DescriptiveGear"> | $Enums.Visibility
   status?: Prisma.EnumStatusFilter<"DescriptiveGear"> | $Enums.Status
   notes?: Prisma.StringNullableFilter<"DescriptiveGear"> | string | null
@@ -779,10 +848,81 @@ export type DescriptiveGearUpdateManyWithWhereWithoutOwnerInput = {
   data: Prisma.XOR<Prisma.DescriptiveGearUpdateManyMutationInput, Prisma.DescriptiveGearUncheckedUpdateManyWithoutOwnerInput>
 }
 
+export type DescriptiveGearCreateWithoutGear_pack_component__descriptive_gearInput = {
+  name: string
+  preview_img_key?: string | null
+  visibility?: $Enums.Visibility
+  status?: $Enums.Status
+  notes?: string | null
+  created_at?: Date | string
+  updated_at?: Date | string
+  created_by: Prisma.UserCreateNestedOneWithoutDescriptive_gear__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutDescriptive_gear__updated_byInput
+  owner?: Prisma.UserCreateNestedOneWithoutDescriptive_gear__ownerInput
+}
+
+export type DescriptiveGearUncheckedCreateWithoutGear_pack_component__descriptive_gearInput = {
+  id?: number
+  name: string
+  preview_img_key?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
+  status?: $Enums.Status
+  notes?: string | null
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+}
+
+export type DescriptiveGearCreateOrConnectWithoutGear_pack_component__descriptive_gearInput = {
+  where: Prisma.DescriptiveGearWhereUniqueInput
+  create: Prisma.XOR<Prisma.DescriptiveGearCreateWithoutGear_pack_component__descriptive_gearInput, Prisma.DescriptiveGearUncheckedCreateWithoutGear_pack_component__descriptive_gearInput>
+}
+
+export type DescriptiveGearUpsertWithoutGear_pack_component__descriptive_gearInput = {
+  update: Prisma.XOR<Prisma.DescriptiveGearUpdateWithoutGear_pack_component__descriptive_gearInput, Prisma.DescriptiveGearUncheckedUpdateWithoutGear_pack_component__descriptive_gearInput>
+  create: Prisma.XOR<Prisma.DescriptiveGearCreateWithoutGear_pack_component__descriptive_gearInput, Prisma.DescriptiveGearUncheckedCreateWithoutGear_pack_component__descriptive_gearInput>
+  where?: Prisma.DescriptiveGearWhereInput
+}
+
+export type DescriptiveGearUpdateToOneWithWhereWithoutGear_pack_component__descriptive_gearInput = {
+  where?: Prisma.DescriptiveGearWhereInput
+  data: Prisma.XOR<Prisma.DescriptiveGearUpdateWithoutGear_pack_component__descriptive_gearInput, Prisma.DescriptiveGearUncheckedUpdateWithoutGear_pack_component__descriptive_gearInput>
+}
+
+export type DescriptiveGearUpdateWithoutGear_pack_component__descriptive_gearInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by?: Prisma.UserUpdateOneRequiredWithoutDescriptive_gear__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutDescriptive_gear__updated_byNestedInput
+  owner?: Prisma.UserUpdateOneWithoutDescriptive_gear__ownerNestedInput
+}
+
+export type DescriptiveGearUncheckedUpdateWithoutGear_pack_component__descriptive_gearInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
 export type DescriptiveGearCreateManyCreated_byInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  preview_img_key?: string | null
+  owner_id: number
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -794,7 +934,8 @@ export type DescriptiveGearCreateManyCreated_byInput = {
 export type DescriptiveGearCreateManyUpdated_byInput = {
   id?: number
   name: string
-  owner_id?: number | null
+  preview_img_key?: string | null
+  owner_id: number
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -806,6 +947,7 @@ export type DescriptiveGearCreateManyUpdated_byInput = {
 export type DescriptiveGearCreateManyOwnerInput = {
   id?: number
   name: string
+  preview_img_key?: string | null
   visibility?: $Enums.Visibility
   status?: $Enums.Status
   notes?: string | null
@@ -817,6 +959,7 @@ export type DescriptiveGearCreateManyOwnerInput = {
 
 export type DescriptiveGearUpdateWithoutCreated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -824,24 +967,28 @@ export type DescriptiveGearUpdateWithoutCreated_byInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by?: Prisma.UserUpdateOneRequiredWithoutDescriptive_gear__updated_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutDescriptive_gear__ownerNestedInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUpdateManyWithoutDescriptive_gearNestedInput
 }
 
 export type DescriptiveGearUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUncheckedUpdateManyWithoutDescriptive_gearNestedInput
 }
 
 export type DescriptiveGearUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -852,6 +999,7 @@ export type DescriptiveGearUncheckedUpdateManyWithoutCreated_byInput = {
 
 export type DescriptiveGearUpdateWithoutUpdated_byInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -859,24 +1007,28 @@ export type DescriptiveGearUpdateWithoutUpdated_byInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutDescriptive_gear__created_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutDescriptive_gear__ownerNestedInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUpdateManyWithoutDescriptive_gearNestedInput
 }
 
 export type DescriptiveGearUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUncheckedUpdateManyWithoutDescriptive_gearNestedInput
 }
 
 export type DescriptiveGearUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -887,6 +1039,7 @@ export type DescriptiveGearUncheckedUpdateManyWithoutUpdated_byInput = {
 
 export type DescriptiveGearUpdateWithoutOwnerInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -894,11 +1047,13 @@ export type DescriptiveGearUpdateWithoutOwnerInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   created_by?: Prisma.UserUpdateOneRequiredWithoutDescriptive_gear__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutDescriptive_gear__updated_byNestedInput
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUpdateManyWithoutDescriptive_gearNestedInput
 }
 
 export type DescriptiveGearUncheckedUpdateWithoutOwnerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -906,11 +1061,13 @@ export type DescriptiveGearUncheckedUpdateWithoutOwnerInput = {
   created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
+  gear_pack_component__descriptive_gear?: Prisma.GearPackComponentUncheckedUpdateManyWithoutDescriptive_gearNestedInput
 }
 
 export type DescriptiveGearUncheckedUpdateManyWithoutOwnerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -921,10 +1078,40 @@ export type DescriptiveGearUncheckedUpdateManyWithoutOwnerInput = {
 }
 
 
+/**
+ * Count Type DescriptiveGearCountOutputType
+ */
+
+export type DescriptiveGearCountOutputType = {
+  gear_pack_component__descriptive_gear: number
+}
+
+export type DescriptiveGearCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  gear_pack_component__descriptive_gear?: boolean | DescriptiveGearCountOutputTypeCountGear_pack_component__descriptive_gearArgs
+}
+
+/**
+ * DescriptiveGearCountOutputType without action
+ */
+export type DescriptiveGearCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DescriptiveGearCountOutputType
+   */
+  select?: Prisma.DescriptiveGearCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * DescriptiveGearCountOutputType without action
+ */
+export type DescriptiveGearCountOutputTypeCountGear_pack_component__descriptive_gearArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GearPackComponentWhereInput
+}
+
 
 export type DescriptiveGearSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  preview_img_key?: boolean
   owner_id?: boolean
   visibility?: boolean
   status?: boolean
@@ -936,11 +1123,14 @@ export type DescriptiveGearSelect<ExtArgs extends runtime.Types.Extensions.Inter
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   owner?: boolean | Prisma.DescriptiveGear$ownerArgs<ExtArgs>
+  gear_pack_component__descriptive_gear?: boolean | Prisma.DescriptiveGear$gear_pack_component__descriptive_gearArgs<ExtArgs>
+  _count?: boolean | Prisma.DescriptiveGearCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["descriptiveGear"]>
 
 export type DescriptiveGearSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  preview_img_key?: boolean
   owner_id?: boolean
   visibility?: boolean
   status?: boolean
@@ -957,6 +1147,7 @@ export type DescriptiveGearSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
 export type DescriptiveGearSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  preview_img_key?: boolean
   owner_id?: boolean
   visibility?: boolean
   status?: boolean
@@ -973,6 +1164,7 @@ export type DescriptiveGearSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
 export type DescriptiveGearSelectScalar = {
   id?: boolean
   name?: boolean
+  preview_img_key?: boolean
   owner_id?: boolean
   visibility?: boolean
   status?: boolean
@@ -983,11 +1175,13 @@ export type DescriptiveGearSelectScalar = {
   updated_by_id?: boolean
 }
 
-export type DescriptiveGearOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "owner_id" | "visibility" | "status" | "notes" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["descriptiveGear"]>
+export type DescriptiveGearOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "preview_img_key" | "owner_id" | "visibility" | "status" | "notes" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["descriptiveGear"]>
 export type DescriptiveGearInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   owner?: boolean | Prisma.DescriptiveGear$ownerArgs<ExtArgs>
+  gear_pack_component__descriptive_gear?: boolean | Prisma.DescriptiveGear$gear_pack_component__descriptive_gearArgs<ExtArgs>
+  _count?: boolean | Prisma.DescriptiveGearCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DescriptiveGearIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1006,11 +1200,13 @@ export type $DescriptiveGearPayload<ExtArgs extends runtime.Types.Extensions.Int
     created_by: Prisma.$UserPayload<ExtArgs>
     updated_by: Prisma.$UserPayload<ExtArgs>
     owner: Prisma.$UserPayload<ExtArgs> | null
+    gear_pack_component__descriptive_gear: Prisma.$GearPackComponentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
-    owner_id: number | null
+    preview_img_key: string | null
+    owner_id: number
     visibility: $Enums.Visibility
     status: $Enums.Status
     notes: string | null
@@ -1415,6 +1611,7 @@ export interface Prisma__DescriptiveGearClient<T, Null = never, ExtArgs extends 
   created_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   updated_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   owner<T extends Prisma.DescriptiveGear$ownerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DescriptiveGear$ownerArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  gear_pack_component__descriptive_gear<T extends Prisma.DescriptiveGear$gear_pack_component__descriptive_gearArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DescriptiveGear$gear_pack_component__descriptive_gearArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackComponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1446,6 +1643,7 @@ export interface Prisma__DescriptiveGearClient<T, Null = never, ExtArgs extends 
 export interface DescriptiveGearFieldRefs {
   readonly id: Prisma.FieldRef<"DescriptiveGear", 'Int'>
   readonly name: Prisma.FieldRef<"DescriptiveGear", 'String'>
+  readonly preview_img_key: Prisma.FieldRef<"DescriptiveGear", 'String'>
   readonly owner_id: Prisma.FieldRef<"DescriptiveGear", 'Int'>
   readonly visibility: Prisma.FieldRef<"DescriptiveGear", 'Visibility'>
   readonly status: Prisma.FieldRef<"DescriptiveGear", 'Status'>
@@ -1871,6 +2069,30 @@ export type DescriptiveGear$ownerArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   include?: Prisma.UserInclude<ExtArgs> | null
   where?: Prisma.UserWhereInput
+}
+
+/**
+ * DescriptiveGear.gear_pack_component__descriptive_gear
+ */
+export type DescriptiveGear$gear_pack_component__descriptive_gearArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GearPackComponent
+   */
+  select?: Prisma.GearPackComponentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GearPackComponent
+   */
+  omit?: Prisma.GearPackComponentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GearPackComponentInclude<ExtArgs> | null
+  where?: Prisma.GearPackComponentWhereInput
+  orderBy?: Prisma.GearPackComponentOrderByWithRelationInput | Prisma.GearPackComponentOrderByWithRelationInput[]
+  cursor?: Prisma.GearPackComponentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GearPackComponentScalarFieldEnum | Prisma.GearPackComponentScalarFieldEnum[]
 }
 
 /**

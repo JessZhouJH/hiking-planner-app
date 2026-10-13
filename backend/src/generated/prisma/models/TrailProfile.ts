@@ -64,6 +64,7 @@ export type TrailProfileMinAggregateOutputType = {
   id: number | null
   trail_type: $Enums.TrailType | null
   trail_id: number | null
+  name: string | null
   primary_geometry_id: number | null
   distance: number | null
   elevation_gain: number | null
@@ -95,6 +96,7 @@ export type TrailProfileMaxAggregateOutputType = {
   id: number | null
   trail_type: $Enums.TrailType | null
   trail_id: number | null
+  name: string | null
   primary_geometry_id: number | null
   distance: number | null
   elevation_gain: number | null
@@ -126,6 +128,7 @@ export type TrailProfileCountAggregateOutputType = {
   id: number
   trail_type: number
   trail_id: number
+  name: number
   primary_geometry_id: number
   distance: number
   elevation_gain: number
@@ -193,6 +196,7 @@ export type TrailProfileMinAggregateInputType = {
   id?: true
   trail_type?: true
   trail_id?: true
+  name?: true
   primary_geometry_id?: true
   distance?: true
   elevation_gain?: true
@@ -224,6 +228,7 @@ export type TrailProfileMaxAggregateInputType = {
   id?: true
   trail_type?: true
   trail_id?: true
+  name?: true
   primary_geometry_id?: true
   distance?: true
   elevation_gain?: true
@@ -255,6 +260,7 @@ export type TrailProfileCountAggregateInputType = {
   id?: true
   trail_type?: true
   trail_id?: true
+  name?: true
   primary_geometry_id?: true
   distance?: true
   elevation_gain?: true
@@ -373,6 +379,7 @@ export type TrailProfileGroupByOutputType = {
   id: number
   trail_type: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id: number | null
   distance: number | null
   elevation_gain: number | null
@@ -386,7 +393,7 @@ export type TrailProfileGroupByOutputType = {
   profile_origin: $Enums.DataOrigin
   trail_source_id: number | null
   authenticity_level: $Enums.AuthenticityLevel
-  owner_id: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_official: boolean
   edit_policy_override: $Enums.EditPolicyOverride
@@ -427,6 +434,7 @@ export type TrailProfileWhereInput = {
   id?: Prisma.IntFilter<"TrailProfile"> | number
   trail_type?: Prisma.EnumTrailTypeNullableFilter<"TrailProfile"> | $Enums.TrailType | null
   trail_id?: Prisma.IntFilter<"TrailProfile"> | number
+  name?: Prisma.StringFilter<"TrailProfile"> | string
   primary_geometry_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   distance?: Prisma.FloatNullableFilter<"TrailProfile"> | number | null
   elevation_gain?: Prisma.FloatNullableFilter<"TrailProfile"> | number | null
@@ -440,7 +448,7 @@ export type TrailProfileWhereInput = {
   profile_origin?: Prisma.EnumDataOriginFilter<"TrailProfile"> | $Enums.DataOrigin
   trail_source_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailProfile"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
+  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
   visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailProfile"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailProfile"> | $Enums.EditPolicyOverride
@@ -469,6 +477,7 @@ export type TrailProfileOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   trail_type?: Prisma.SortOrderInput | Prisma.SortOrder
   trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   primary_geometry_id?: Prisma.SortOrderInput | Prisma.SortOrder
   distance?: Prisma.SortOrderInput | Prisma.SortOrder
   elevation_gain?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -482,7 +491,7 @@ export type TrailProfileOrderByWithRelationInput = {
   profile_origin?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrderInput | Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
@@ -509,11 +518,13 @@ export type TrailProfileOrderByWithRelationInput = {
 
 export type TrailProfileWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name_owner_id?: Prisma.TrailProfileNameOwner_idCompoundUniqueInput
   AND?: Prisma.TrailProfileWhereInput | Prisma.TrailProfileWhereInput[]
   OR?: Prisma.TrailProfileWhereInput[]
   NOT?: Prisma.TrailProfileWhereInput | Prisma.TrailProfileWhereInput[]
   trail_type?: Prisma.EnumTrailTypeNullableFilter<"TrailProfile"> | $Enums.TrailType | null
   trail_id?: Prisma.IntFilter<"TrailProfile"> | number
+  name?: Prisma.StringFilter<"TrailProfile"> | string
   primary_geometry_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   distance?: Prisma.FloatNullableFilter<"TrailProfile"> | number | null
   elevation_gain?: Prisma.FloatNullableFilter<"TrailProfile"> | number | null
@@ -527,7 +538,7 @@ export type TrailProfileWhereUniqueInput = Prisma.AtLeast<{
   profile_origin?: Prisma.EnumDataOriginFilter<"TrailProfile"> | $Enums.DataOrigin
   trail_source_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailProfile"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
+  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
   visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailProfile"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailProfile"> | $Enums.EditPolicyOverride
@@ -550,12 +561,13 @@ export type TrailProfileWhereUniqueInput = Prisma.AtLeast<{
   trail_profile_use__trail_profile?: Prisma.TrailProfileUseListRelationFilter
   trail_geometry__trail_profile?: Prisma.TrailSegmentationListRelationFilter
   trip_trail__trail_profile?: Prisma.TripTrailListRelationFilter
-}, "id">
+}, "id" | "name_owner_id">
 
 export type TrailProfileOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   trail_type?: Prisma.SortOrderInput | Prisma.SortOrder
   trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   primary_geometry_id?: Prisma.SortOrderInput | Prisma.SortOrder
   distance?: Prisma.SortOrderInput | Prisma.SortOrder
   elevation_gain?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -569,7 +581,7 @@ export type TrailProfileOrderByWithAggregationInput = {
   profile_origin?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrderInput | Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
@@ -595,6 +607,7 @@ export type TrailProfileScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"TrailProfile"> | number
   trail_type?: Prisma.EnumTrailTypeNullableWithAggregatesFilter<"TrailProfile"> | $Enums.TrailType | null
   trail_id?: Prisma.IntWithAggregatesFilter<"TrailProfile"> | number
+  name?: Prisma.StringWithAggregatesFilter<"TrailProfile"> | string
   primary_geometry_id?: Prisma.IntNullableWithAggregatesFilter<"TrailProfile"> | number | null
   distance?: Prisma.FloatNullableWithAggregatesFilter<"TrailProfile"> | number | null
   elevation_gain?: Prisma.FloatNullableWithAggregatesFilter<"TrailProfile"> | number | null
@@ -608,7 +621,7 @@ export type TrailProfileScalarWhereWithAggregatesInput = {
   profile_origin?: Prisma.EnumDataOriginWithAggregatesFilter<"TrailProfile"> | $Enums.DataOrigin
   trail_source_id?: Prisma.IntNullableWithAggregatesFilter<"TrailProfile"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelWithAggregatesFilter<"TrailProfile"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"TrailProfile"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"TrailProfile"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"TrailProfile"> | $Enums.Visibility
   is_official?: Prisma.BoolWithAggregatesFilter<"TrailProfile"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideWithAggregatesFilter<"TrailProfile"> | $Enums.EditPolicyOverride
@@ -624,6 +637,7 @@ export type TrailProfileScalarWhereWithAggregatesInput = {
 
 export type TrailProfileCreateInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -660,6 +674,7 @@ export type TrailProfileUncheckedCreateInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -673,7 +688,7 @@ export type TrailProfileUncheckedCreateInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -693,6 +708,7 @@ export type TrailProfileUncheckedCreateInput = {
 
 export type TrailProfileUpdateInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -729,6 +745,7 @@ export type TrailProfileUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -742,7 +759,7 @@ export type TrailProfileUncheckedUpdateInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -764,6 +781,7 @@ export type TrailProfileCreateManyInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -777,7 +795,7 @@ export type TrailProfileCreateManyInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -793,6 +811,7 @@ export type TrailProfileCreateManyInput = {
 
 export type TrailProfileUpdateManyMutationInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -818,6 +837,7 @@ export type TrailProfileUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -831,7 +851,7 @@ export type TrailProfileUncheckedUpdateManyInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -860,10 +880,16 @@ export type TrailProfileNullableScalarRelationFilter = {
   isNot?: Prisma.TrailProfileWhereInput | null
 }
 
+export type TrailProfileNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
+}
+
 export type TrailProfileCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   trail_type?: Prisma.SortOrder
   trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   primary_geometry_id?: Prisma.SortOrder
   distance?: Prisma.SortOrder
   elevation_gain?: Prisma.SortOrder
@@ -912,6 +938,7 @@ export type TrailProfileMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   trail_type?: Prisma.SortOrder
   trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   primary_geometry_id?: Prisma.SortOrder
   distance?: Prisma.SortOrder
   elevation_gain?: Prisma.SortOrder
@@ -943,6 +970,7 @@ export type TrailProfileMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   trail_type?: Prisma.SortOrder
   trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   primary_geometry_id?: Prisma.SortOrder
   distance?: Prisma.SortOrder
   elevation_gain?: Prisma.SortOrder
@@ -1362,6 +1390,7 @@ export type TrailProfileUpdateOneWithoutTrip_trail__trail_profileNestedInput = {
 
 export type TrailProfileCreateWithoutCreated_byInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -1397,6 +1426,7 @@ export type TrailProfileUncheckedCreateWithoutCreated_byInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -1410,7 +1440,7 @@ export type TrailProfileUncheckedCreateWithoutCreated_byInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1439,6 +1469,7 @@ export type TrailProfileCreateManyCreated_byInputEnvelope = {
 
 export type TrailProfileCreateWithoutUpdated_byInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -1474,6 +1505,7 @@ export type TrailProfileUncheckedCreateWithoutUpdated_byInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -1487,7 +1519,7 @@ export type TrailProfileUncheckedCreateWithoutUpdated_byInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1516,6 +1548,7 @@ export type TrailProfileCreateManyUpdated_byInputEnvelope = {
 
 export type TrailProfileCreateWithoutLast_verified_byInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -1551,6 +1584,7 @@ export type TrailProfileUncheckedCreateWithoutLast_verified_byInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -1564,7 +1598,7 @@ export type TrailProfileUncheckedCreateWithoutLast_verified_byInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1593,6 +1627,7 @@ export type TrailProfileCreateManyLast_verified_byInputEnvelope = {
 
 export type TrailProfileCreateWithoutOwnerInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -1628,6 +1663,7 @@ export type TrailProfileUncheckedCreateWithoutOwnerInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -1691,6 +1727,7 @@ export type TrailProfileScalarWhereInput = {
   id?: Prisma.IntFilter<"TrailProfile"> | number
   trail_type?: Prisma.EnumTrailTypeNullableFilter<"TrailProfile"> | $Enums.TrailType | null
   trail_id?: Prisma.IntFilter<"TrailProfile"> | number
+  name?: Prisma.StringFilter<"TrailProfile"> | string
   primary_geometry_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   distance?: Prisma.FloatNullableFilter<"TrailProfile"> | number | null
   elevation_gain?: Prisma.FloatNullableFilter<"TrailProfile"> | number | null
@@ -1704,7 +1741,7 @@ export type TrailProfileScalarWhereInput = {
   profile_origin?: Prisma.EnumDataOriginFilter<"TrailProfile"> | $Enums.DataOrigin
   trail_source_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailProfile"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
+  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
   visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailProfile"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailProfile"> | $Enums.EditPolicyOverride
@@ -1768,6 +1805,7 @@ export type TrailProfileUpdateManyWithWhereWithoutOwnerInput = {
 
 export type TrailProfileCreateWithoutTrail__primary_profileInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -1803,6 +1841,7 @@ export type TrailProfileUncheckedCreateWithoutTrail__primary_profileInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -1816,7 +1855,7 @@ export type TrailProfileUncheckedCreateWithoutTrail__primary_profileInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1840,6 +1879,7 @@ export type TrailProfileCreateOrConnectWithoutTrail__primary_profileInput = {
 
 export type TrailProfileCreateWithoutTrailInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -1874,6 +1914,7 @@ export type TrailProfileCreateWithoutTrailInput = {
 export type TrailProfileUncheckedCreateWithoutTrailInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -1887,7 +1928,7 @@ export type TrailProfileUncheckedCreateWithoutTrailInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -1928,6 +1969,7 @@ export type TrailProfileUpdateToOneWithWhereWithoutTrail__primary_profileInput =
 
 export type TrailProfileUpdateWithoutTrail__primary_profileInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1963,6 +2005,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail__primary_profileInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1976,7 +2019,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail__primary_profileInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2011,6 +2054,7 @@ export type TrailProfileUpdateManyWithWhereWithoutTrailInput = {
 
 export type TrailProfileCreateWithoutTrail_sourceInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -2046,6 +2090,7 @@ export type TrailProfileUncheckedCreateWithoutTrail_sourceInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -2058,7 +2103,7 @@ export type TrailProfileUncheckedCreateWithoutTrail_sourceInput = {
   accessibility_notes?: string | null
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2104,6 +2149,7 @@ export type TrailProfileUpdateManyWithWhereWithoutTrail_sourceInput = {
 
 export type TrailProfileCreateWithoutTrail_profile_use__trail_profileInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -2139,6 +2185,7 @@ export type TrailProfileUncheckedCreateWithoutTrail_profile_use__trail_profileIn
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -2152,7 +2199,7 @@ export type TrailProfileUncheckedCreateWithoutTrail_profile_use__trail_profileIn
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2187,6 +2234,7 @@ export type TrailProfileUpdateToOneWithWhereWithoutTrail_profile_use__trail_prof
 
 export type TrailProfileUpdateWithoutTrail_profile_use__trail_profileInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2222,6 +2270,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail_profile_use__trail_profileIn
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2235,7 +2284,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail_profile_use__trail_profileIn
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2254,6 +2303,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail_profile_use__trail_profileIn
 
 export type TrailProfileCreateWithoutPrimary_geometryInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -2289,6 +2339,7 @@ export type TrailProfileUncheckedCreateWithoutPrimary_geometryInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -2301,7 +2352,7 @@ export type TrailProfileUncheckedCreateWithoutPrimary_geometryInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2347,6 +2398,7 @@ export type TrailProfileUpdateManyWithWhereWithoutPrimary_geometryInput = {
 
 export type TrailProfileCreateWithoutTrail_geometry__trail_profileInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -2382,6 +2434,7 @@ export type TrailProfileUncheckedCreateWithoutTrail_geometry__trail_profileInput
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -2395,7 +2448,7 @@ export type TrailProfileUncheckedCreateWithoutTrail_geometry__trail_profileInput
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2430,6 +2483,7 @@ export type TrailProfileUpdateToOneWithWhereWithoutTrail_geometry__trail_profile
 
 export type TrailProfileUpdateWithoutTrail_geometry__trail_profileInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2465,6 +2519,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail_geometry__trail_profileInput
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2478,7 +2533,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail_geometry__trail_profileInput
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2497,6 +2552,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail_geometry__trail_profileInput
 
 export type TrailProfileCreateWithoutTrip_trail__trail_profileInput = {
   trail_type?: $Enums.TrailType | null
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -2532,6 +2588,7 @@ export type TrailProfileUncheckedCreateWithoutTrip_trail__trail_profileInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -2545,7 +2602,7 @@ export type TrailProfileUncheckedCreateWithoutTrip_trail__trail_profileInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2580,6 +2637,7 @@ export type TrailProfileUpdateToOneWithWhereWithoutTrip_trail__trail_profileInpu
 
 export type TrailProfileUpdateWithoutTrip_trail__trail_profileInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2615,6 +2673,7 @@ export type TrailProfileUncheckedUpdateWithoutTrip_trail__trail_profileInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2628,7 +2687,7 @@ export type TrailProfileUncheckedUpdateWithoutTrip_trail__trail_profileInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2649,6 +2708,7 @@ export type TrailProfileCreateManyCreated_byInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -2662,7 +2722,7 @@ export type TrailProfileCreateManyCreated_byInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2679,6 +2739,7 @@ export type TrailProfileCreateManyUpdated_byInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -2692,7 +2753,7 @@ export type TrailProfileCreateManyUpdated_byInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2709,6 +2770,7 @@ export type TrailProfileCreateManyLast_verified_byInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -2722,7 +2784,7 @@ export type TrailProfileCreateManyLast_verified_byInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -2739,6 +2801,7 @@ export type TrailProfileCreateManyOwnerInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -2767,6 +2830,7 @@ export type TrailProfileCreateManyOwnerInput = {
 
 export type TrailProfileUpdateWithoutCreated_byInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2802,6 +2866,7 @@ export type TrailProfileUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2815,7 +2880,7 @@ export type TrailProfileUncheckedUpdateWithoutCreated_byInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2836,6 +2901,7 @@ export type TrailProfileUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2849,7 +2915,7 @@ export type TrailProfileUncheckedUpdateManyWithoutCreated_byInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2864,6 +2930,7 @@ export type TrailProfileUncheckedUpdateManyWithoutCreated_byInput = {
 
 export type TrailProfileUpdateWithoutUpdated_byInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2899,6 +2966,7 @@ export type TrailProfileUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2912,7 +2980,7 @@ export type TrailProfileUncheckedUpdateWithoutUpdated_byInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2933,6 +3001,7 @@ export type TrailProfileUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2946,7 +3015,7 @@ export type TrailProfileUncheckedUpdateManyWithoutUpdated_byInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -2961,6 +3030,7 @@ export type TrailProfileUncheckedUpdateManyWithoutUpdated_byInput = {
 
 export type TrailProfileUpdateWithoutLast_verified_byInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -2996,6 +3066,7 @@ export type TrailProfileUncheckedUpdateWithoutLast_verified_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3009,7 +3080,7 @@ export type TrailProfileUncheckedUpdateWithoutLast_verified_byInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3030,6 +3101,7 @@ export type TrailProfileUncheckedUpdateManyWithoutLast_verified_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3043,7 +3115,7 @@ export type TrailProfileUncheckedUpdateManyWithoutLast_verified_byInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3058,6 +3130,7 @@ export type TrailProfileUncheckedUpdateManyWithoutLast_verified_byInput = {
 
 export type TrailProfileUpdateWithoutOwnerInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3093,6 +3166,7 @@ export type TrailProfileUncheckedUpdateWithoutOwnerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3127,6 +3201,7 @@ export type TrailProfileUncheckedUpdateManyWithoutOwnerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3156,6 +3231,7 @@ export type TrailProfileUncheckedUpdateManyWithoutOwnerInput = {
 export type TrailProfileCreateManyTrailInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -3169,7 +3245,7 @@ export type TrailProfileCreateManyTrailInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3185,6 +3261,7 @@ export type TrailProfileCreateManyTrailInput = {
 
 export type TrailProfileUpdateWithoutTrailInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3219,6 +3296,7 @@ export type TrailProfileUpdateWithoutTrailInput = {
 export type TrailProfileUncheckedUpdateWithoutTrailInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3232,7 +3310,7 @@ export type TrailProfileUncheckedUpdateWithoutTrailInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3253,6 +3331,7 @@ export type TrailProfileUncheckedUpdateWithoutTrailInput = {
 export type TrailProfileUncheckedUpdateManyWithoutTrailInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3266,7 +3345,7 @@ export type TrailProfileUncheckedUpdateManyWithoutTrailInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3284,6 +3363,7 @@ export type TrailProfileCreateManyTrail_sourceInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   primary_geometry_id?: number | null
   distance?: number | null
   elevation_gain?: number | null
@@ -3296,7 +3376,7 @@ export type TrailProfileCreateManyTrail_sourceInput = {
   accessibility_notes?: string | null
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3312,6 +3392,7 @@ export type TrailProfileCreateManyTrail_sourceInput = {
 
 export type TrailProfileUpdateWithoutTrail_sourceInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3347,6 +3428,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail_sourceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3359,7 +3441,7 @@ export type TrailProfileUncheckedUpdateWithoutTrail_sourceInput = {
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3381,6 +3463,7 @@ export type TrailProfileUncheckedUpdateManyWithoutTrail_sourceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   primary_geometry_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3393,7 +3476,7 @@ export type TrailProfileUncheckedUpdateManyWithoutTrail_sourceInput = {
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3411,6 +3494,7 @@ export type TrailProfileCreateManyPrimary_geometryInput = {
   id?: number
   trail_type?: $Enums.TrailType | null
   trail_id: number
+  name: string
   distance?: number | null
   elevation_gain?: number | null
   elevation_loss?: number | null
@@ -3423,7 +3507,7 @@ export type TrailProfileCreateManyPrimary_geometryInput = {
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
@@ -3439,6 +3523,7 @@ export type TrailProfileCreateManyPrimary_geometryInput = {
 
 export type TrailProfileUpdateWithoutPrimary_geometryInput = {
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3474,6 +3559,7 @@ export type TrailProfileUncheckedUpdateWithoutPrimary_geometryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3486,7 +3572,7 @@ export type TrailProfileUncheckedUpdateWithoutPrimary_geometryInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3508,6 +3594,7 @@ export type TrailProfileUncheckedUpdateManyWithoutPrimary_geometryInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   trail_type?: Prisma.NullableEnumTrailTypeFieldUpdateOperationsInput | $Enums.TrailType | null
   trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   distance?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_gain?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   elevation_loss?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -3520,7 +3607,7 @@ export type TrailProfileUncheckedUpdateManyWithoutPrimary_geometryInput = {
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
@@ -3596,6 +3683,7 @@ export type TrailProfileSelect<ExtArgs extends runtime.Types.Extensions.Internal
   id?: boolean
   trail_type?: boolean
   trail_id?: boolean
+  name?: boolean
   primary_geometry_id?: boolean
   distance?: boolean
   elevation_gain?: boolean
@@ -3639,6 +3727,7 @@ export type TrailProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   id?: boolean
   trail_type?: boolean
   trail_id?: boolean
+  name?: boolean
   primary_geometry_id?: boolean
   distance?: boolean
   elevation_gain?: boolean
@@ -3677,6 +3766,7 @@ export type TrailProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   id?: boolean
   trail_type?: boolean
   trail_id?: boolean
+  name?: boolean
   primary_geometry_id?: boolean
   distance?: boolean
   elevation_gain?: boolean
@@ -3715,6 +3805,7 @@ export type TrailProfileSelectScalar = {
   id?: boolean
   trail_type?: boolean
   trail_id?: boolean
+  name?: boolean
   primary_geometry_id?: boolean
   distance?: boolean
   elevation_gain?: boolean
@@ -3742,7 +3833,7 @@ export type TrailProfileSelectScalar = {
   last_verified_by_id?: boolean
 }
 
-export type TrailProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "trail_type" | "trail_id" | "primary_geometry_id" | "distance" | "elevation_gain" | "elevation_loss" | "duration_hr" | "duration_hr_calculated" | "duration_day" | "trail_difficulty_converted" | "accessibility" | "accessibility_notes" | "profile_origin" | "trail_source_id" | "authenticity_level" | "owner_id" | "visibility" | "is_official" | "edit_policy_override" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id", ExtArgs["result"]["trailProfile"]>
+export type TrailProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "trail_type" | "trail_id" | "name" | "primary_geometry_id" | "distance" | "elevation_gain" | "elevation_loss" | "duration_hr" | "duration_hr_calculated" | "duration_day" | "trail_difficulty_converted" | "accessibility" | "accessibility_notes" | "profile_origin" | "trail_source_id" | "authenticity_level" | "owner_id" | "visibility" | "is_official" | "edit_policy_override" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id", ExtArgs["result"]["trailProfile"]>
 export type TrailProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   owner?: boolean | Prisma.TrailProfile$ownerArgs<ExtArgs>
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -3795,6 +3886,7 @@ export type $TrailProfilePayload<ExtArgs extends runtime.Types.Extensions.Intern
     id: number
     trail_type: $Enums.TrailType | null
     trail_id: number
+    name: string
     primary_geometry_id: number | null
     distance: number | null
     elevation_gain: number | null
@@ -3808,7 +3900,7 @@ export type $TrailProfilePayload<ExtArgs extends runtime.Types.Extensions.Intern
     profile_origin: $Enums.DataOrigin
     trail_source_id: number | null
     authenticity_level: $Enums.AuthenticityLevel
-    owner_id: number | null
+    owner_id: number
     visibility: $Enums.Visibility
     is_official: boolean
     edit_policy_override: $Enums.EditPolicyOverride
@@ -4257,6 +4349,7 @@ export interface TrailProfileFieldRefs {
   readonly id: Prisma.FieldRef<"TrailProfile", 'Int'>
   readonly trail_type: Prisma.FieldRef<"TrailProfile", 'TrailType'>
   readonly trail_id: Prisma.FieldRef<"TrailProfile", 'Int'>
+  readonly name: Prisma.FieldRef<"TrailProfile", 'String'>
   readonly primary_geometry_id: Prisma.FieldRef<"TrailProfile", 'Int'>
   readonly distance: Prisma.FieldRef<"TrailProfile", 'Float'>
   readonly elevation_gain: Prisma.FieldRef<"TrailProfile", 'Float'>

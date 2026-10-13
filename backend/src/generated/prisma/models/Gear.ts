@@ -275,7 +275,7 @@ export type GearGroupByOutputType = {
   brand_id: number | null
   gear_type_id: number
   preview_img_key: string | null
-  owner_id: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   notes: string | null
   status: $Enums.Status
@@ -317,7 +317,7 @@ export type GearWhereInput = {
   brand_id?: Prisma.IntNullableFilter<"Gear"> | number | null
   gear_type_id?: Prisma.IntFilter<"Gear"> | number
   preview_img_key?: Prisma.StringNullableFilter<"Gear"> | string | null
-  owner_id?: Prisma.IntNullableFilter<"Gear"> | number | null
+  owner_id?: Prisma.IntFilter<"Gear"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Gear"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"Gear"> | string | null
   status?: Prisma.EnumStatusFilter<"Gear"> | $Enums.Status
@@ -347,7 +347,7 @@ export type GearOrderByWithRelationInput = {
   brand_id?: Prisma.SortOrderInput | Prisma.SortOrder
   gear_type_id?: Prisma.SortOrder
   preview_img_key?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -373,6 +373,7 @@ export type GearOrderByWithRelationInput = {
 
 export type GearWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name_owner_id?: Prisma.GearNameOwner_idCompoundUniqueInput
   AND?: Prisma.GearWhereInput | Prisma.GearWhereInput[]
   OR?: Prisma.GearWhereInput[]
   NOT?: Prisma.GearWhereInput | Prisma.GearWhereInput[]
@@ -380,7 +381,7 @@ export type GearWhereUniqueInput = Prisma.AtLeast<{
   brand_id?: Prisma.IntNullableFilter<"Gear"> | number | null
   gear_type_id?: Prisma.IntFilter<"Gear"> | number
   preview_img_key?: Prisma.StringNullableFilter<"Gear"> | string | null
-  owner_id?: Prisma.IntNullableFilter<"Gear"> | number | null
+  owner_id?: Prisma.IntFilter<"Gear"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Gear"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"Gear"> | string | null
   status?: Prisma.EnumStatusFilter<"Gear"> | $Enums.Status
@@ -402,7 +403,7 @@ export type GearWhereUniqueInput = Prisma.AtLeast<{
   gear_feature__gear?: Prisma.GearFeatureListRelationFilter
   gear_tag_relation__gear?: Prisma.GearTagRelationListRelationFilter
   user_gear__gear?: Prisma.UserGearListRelationFilter
-}, "id">
+}, "id" | "name_owner_id">
 
 export type GearOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -410,7 +411,7 @@ export type GearOrderByWithAggregationInput = {
   brand_id?: Prisma.SortOrderInput | Prisma.SortOrder
   gear_type_id?: Prisma.SortOrder
   preview_img_key?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -437,7 +438,7 @@ export type GearScalarWhereWithAggregatesInput = {
   brand_id?: Prisma.IntNullableWithAggregatesFilter<"Gear"> | number | null
   gear_type_id?: Prisma.IntWithAggregatesFilter<"Gear"> | number
   preview_img_key?: Prisma.StringNullableWithAggregatesFilter<"Gear"> | string | null
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"Gear"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"Gear"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"Gear"> | $Enums.Visibility
   notes?: Prisma.StringNullableWithAggregatesFilter<"Gear"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"Gear"> | $Enums.Status
@@ -479,7 +480,7 @@ export type GearUncheckedCreateInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -526,7 +527,7 @@ export type GearUncheckedUpdateInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -550,7 +551,7 @@ export type GearCreateManyInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -581,7 +582,7 @@ export type GearUncheckedUpdateManyInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -602,6 +603,11 @@ export type GearListRelationFilter = {
 
 export type GearOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type GearNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
 }
 
 export type GearCountOrderByAggregateInput = {
@@ -1040,7 +1046,7 @@ export type GearUncheckedCreateWithoutCreated_byInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1095,7 +1101,7 @@ export type GearUncheckedCreateWithoutUpdated_byInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1150,7 +1156,7 @@ export type GearUncheckedCreateWithoutLast_verified_byInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1257,7 +1263,7 @@ export type GearScalarWhereInput = {
   brand_id?: Prisma.IntNullableFilter<"Gear"> | number | null
   gear_type_id?: Prisma.IntFilter<"Gear"> | number
   preview_img_key?: Prisma.StringNullableFilter<"Gear"> | string | null
-  owner_id?: Prisma.IntNullableFilter<"Gear"> | number | null
+  owner_id?: Prisma.IntFilter<"Gear"> | number
   visibility?: Prisma.EnumVisibilityFilter<"Gear"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"Gear"> | string | null
   status?: Prisma.EnumStatusFilter<"Gear"> | $Enums.Status
@@ -1345,7 +1351,7 @@ export type GearUncheckedCreateWithoutBrandInput = {
   name: string
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1416,7 +1422,7 @@ export type GearUncheckedCreateWithoutGear_typeInput = {
   name: string
   brand_id?: number | null
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1488,7 +1494,7 @@ export type GearUncheckedCreateWithoutGear_specs__gearInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1549,7 +1555,7 @@ export type GearUncheckedUpdateWithoutGear_specs__gearInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1594,7 +1600,7 @@ export type GearUncheckedCreateWithoutGear_feature__gearInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1655,7 +1661,7 @@ export type GearUncheckedUpdateWithoutGear_feature__gearInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1700,7 +1706,7 @@ export type GearUncheckedCreateWithoutGear_variant__gearInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1761,7 +1767,7 @@ export type GearUncheckedUpdateWithoutGear_variant__gearInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1806,7 +1812,7 @@ export type GearUncheckedCreateWithoutGear_tag_relation__gearInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1867,7 +1873,7 @@ export type GearUncheckedUpdateWithoutGear_tag_relation__gearInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1912,7 +1918,7 @@ export type GearUncheckedCreateWithoutUser_gear__gearInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -1973,7 +1979,7 @@ export type GearUncheckedUpdateWithoutUser_gear__gearInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -1996,7 +2002,7 @@ export type GearCreateManyCreated_byInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -2014,7 +2020,7 @@ export type GearCreateManyUpdated_byInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -2032,7 +2038,7 @@ export type GearCreateManyLast_verified_byInput = {
   brand_id?: number | null
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -2090,7 +2096,7 @@ export type GearUncheckedUpdateWithoutCreated_byInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2113,7 +2119,7 @@ export type GearUncheckedUpdateManyWithoutCreated_byInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2153,7 +2159,7 @@ export type GearUncheckedUpdateWithoutUpdated_byInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2176,7 +2182,7 @@ export type GearUncheckedUpdateManyWithoutUpdated_byInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2216,7 +2222,7 @@ export type GearUncheckedUpdateWithoutLast_verified_byInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2239,7 +2245,7 @@ export type GearUncheckedUpdateManyWithoutLast_verified_byInput = {
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2319,7 +2325,7 @@ export type GearCreateManyBrandInput = {
   name: string
   gear_type_id: number
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -2359,7 +2365,7 @@ export type GearUncheckedUpdateWithoutBrandInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2382,7 +2388,7 @@ export type GearUncheckedUpdateManyWithoutBrandInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   gear_type_id?: Prisma.IntFieldUpdateOperationsInput | number
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2400,7 +2406,7 @@ export type GearCreateManyGear_typeInput = {
   name: string
   brand_id?: number | null
   preview_img_key?: string | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
@@ -2440,7 +2446,7 @@ export type GearUncheckedUpdateWithoutGear_typeInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2463,7 +2469,7 @@ export type GearUncheckedUpdateManyWithoutGear_typeInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   brand_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   preview_img_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -2696,7 +2702,7 @@ export type $GearPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     brand_id: number | null
     gear_type_id: number
     preview_img_key: string | null
-    owner_id: number | null
+    owner_id: number
     visibility: $Enums.Visibility
     notes: string | null
     status: $Enums.Status

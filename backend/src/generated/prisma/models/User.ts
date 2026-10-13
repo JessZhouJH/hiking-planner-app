@@ -335,8 +335,6 @@ export type UserWhereInput = {
   gear_pack__updated_by?: Prisma.GearPackListRelationFilter
   gear_pack__reviewed_by?: Prisma.GearPackListRelationFilter
   gear_pack__owner?: Prisma.GearPackListRelationFilter
-  gear_pack_template__created_by?: Prisma.GearPackTemplateListRelationFilter
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateListRelationFilter
   gear_pack_component__created_by?: Prisma.GearPackComponentListRelationFilter
   gear_pack_component__updated_by?: Prisma.GearPackComponentListRelationFilter
   challenge__created_by?: Prisma.ChallengeListRelationFilter
@@ -570,8 +568,6 @@ export type UserOrderByWithRelationInput = {
   gear_pack__updated_by?: Prisma.GearPackOrderByRelationAggregateInput
   gear_pack__reviewed_by?: Prisma.GearPackOrderByRelationAggregateInput
   gear_pack__owner?: Prisma.GearPackOrderByRelationAggregateInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateOrderByRelationAggregateInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateOrderByRelationAggregateInput
   gear_pack_component__created_by?: Prisma.GearPackComponentOrderByRelationAggregateInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentOrderByRelationAggregateInput
   challenge__created_by?: Prisma.ChallengeOrderByRelationAggregateInput
@@ -808,8 +804,6 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   gear_pack__updated_by?: Prisma.GearPackListRelationFilter
   gear_pack__reviewed_by?: Prisma.GearPackListRelationFilter
   gear_pack__owner?: Prisma.GearPackListRelationFilter
-  gear_pack_template__created_by?: Prisma.GearPackTemplateListRelationFilter
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateListRelationFilter
   gear_pack_component__created_by?: Prisma.GearPackComponentListRelationFilter
   gear_pack_component__updated_by?: Prisma.GearPackComponentListRelationFilter
   challenge__created_by?: Prisma.ChallengeListRelationFilter
@@ -1076,8 +1070,6 @@ export type UserCreateInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -1309,8 +1301,6 @@ export type UserUncheckedCreateInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -1541,8 +1531,6 @@ export type UserUpdateInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -1774,8 +1762,6 @@ export type UserUncheckedUpdateInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -3015,34 +3001,6 @@ export type UserUpdateOneWithoutGear_pack__ownerNestedInput = {
   delete?: Prisma.UserWhereInput | boolean
   connect?: Prisma.UserWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutGear_pack__ownerInput, Prisma.UserUpdateWithoutGear_pack__ownerInput>, Prisma.UserUncheckedUpdateWithoutGear_pack__ownerInput>
-}
-
-export type UserCreateNestedOneWithoutGear_pack_template__created_byInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutGear_pack_template__created_byInput, Prisma.UserUncheckedCreateWithoutGear_pack_template__created_byInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGear_pack_template__created_byInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserCreateNestedOneWithoutGear_pack_template__updated_byInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutGear_pack_template__updated_byInput, Prisma.UserUncheckedCreateWithoutGear_pack_template__updated_byInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGear_pack_template__updated_byInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserUpdateOneRequiredWithoutGear_pack_template__created_byNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutGear_pack_template__created_byInput, Prisma.UserUncheckedCreateWithoutGear_pack_template__created_byInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGear_pack_template__created_byInput
-  upsert?: Prisma.UserUpsertWithoutGear_pack_template__created_byInput
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutGear_pack_template__created_byInput, Prisma.UserUpdateWithoutGear_pack_template__created_byInput>, Prisma.UserUncheckedUpdateWithoutGear_pack_template__created_byInput>
-}
-
-export type UserUpdateOneRequiredWithoutGear_pack_template__updated_byNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutGear_pack_template__updated_byInput, Prisma.UserUncheckedCreateWithoutGear_pack_template__updated_byInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGear_pack_template__updated_byInput
-  upsert?: Prisma.UserUpsertWithoutGear_pack_template__updated_byInput
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutGear_pack_template__updated_byInput, Prisma.UserUpdateWithoutGear_pack_template__updated_byInput>, Prisma.UserUncheckedUpdateWithoutGear_pack_template__updated_byInput>
 }
 
 export type UserCreateNestedOneWithoutGear_pack_component__created_byInput = {
@@ -5400,8 +5358,6 @@ export type UserCreateWithoutUsers__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -5632,8 +5588,6 @@ export type UserUncheckedCreateWithoutUsers__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -5868,8 +5822,6 @@ export type UserCreateWithoutUsers__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -6100,8 +6052,6 @@ export type UserUncheckedCreateWithoutUsers__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -6336,8 +6286,6 @@ export type UserCreateWithoutCreated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -6568,8 +6516,6 @@ export type UserUncheckedCreateWithoutCreated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -6809,8 +6755,6 @@ export type UserCreateWithoutUpdated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -7041,8 +6985,6 @@ export type UserUncheckedCreateWithoutUpdated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -7293,8 +7235,6 @@ export type UserUpdateWithoutUsers__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -7525,8 +7465,6 @@ export type UserUncheckedUpdateWithoutUsers__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -7767,8 +7705,6 @@ export type UserUpdateWithoutUsers__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -7999,8 +7935,6 @@ export type UserUncheckedUpdateWithoutUsers__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -8279,8 +8213,6 @@ export type UserCreateWithoutRoles__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -8511,8 +8443,6 @@ export type UserUncheckedCreateWithoutRoles__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -8747,8 +8677,6 @@ export type UserCreateWithoutRoles__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -8979,8 +8907,6 @@ export type UserUncheckedCreateWithoutRoles__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -9226,8 +9152,6 @@ export type UserUpdateWithoutRoles__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -9458,8 +9382,6 @@ export type UserUncheckedUpdateWithoutRoles__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -9700,8 +9622,6 @@ export type UserUpdateWithoutRoles__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -9932,8 +9852,6 @@ export type UserUncheckedUpdateWithoutRoles__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -10163,8 +10081,6 @@ export type UserCreateWithoutPermissions__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -10395,8 +10311,6 @@ export type UserUncheckedCreateWithoutPermissions__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -10631,8 +10545,6 @@ export type UserCreateWithoutPermissions__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -10863,8 +10775,6 @@ export type UserUncheckedCreateWithoutPermissions__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -11110,8 +11020,6 @@ export type UserUpdateWithoutPermissions__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -11342,8 +11250,6 @@ export type UserUncheckedUpdateWithoutPermissions__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -11584,8 +11490,6 @@ export type UserUpdateWithoutPermissions__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -11816,8 +11720,6 @@ export type UserUncheckedUpdateWithoutPermissions__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -12047,8 +11949,6 @@ export type UserCreateWithoutUser_roles_granted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -12279,8 +12179,6 @@ export type UserUncheckedCreateWithoutUser_roles_granted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -12515,8 +12413,6 @@ export type UserCreateWithoutUser_roles_revoked_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -12747,8 +12643,6 @@ export type UserUncheckedCreateWithoutUser_roles_revoked_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -12983,8 +12877,6 @@ export type UserCreateWithoutUser_roles_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -13215,8 +13107,6 @@ export type UserUncheckedCreateWithoutUser_roles_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -13451,8 +13341,6 @@ export type UserCreateWithoutUser_role__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -13683,8 +13571,6 @@ export type UserUncheckedCreateWithoutUser_role__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -13930,8 +13816,6 @@ export type UserUpdateWithoutUser_roles_granted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -14162,8 +14046,6 @@ export type UserUncheckedUpdateWithoutUser_roles_granted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -14404,8 +14286,6 @@ export type UserUpdateWithoutUser_roles_revoked_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -14636,8 +14516,6 @@ export type UserUncheckedUpdateWithoutUser_roles_revoked_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -14878,8 +14756,6 @@ export type UserUpdateWithoutUser_roles_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -15110,8 +14986,6 @@ export type UserUncheckedUpdateWithoutUser_roles_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -15352,8 +15226,6 @@ export type UserUpdateWithoutUser_role__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -15584,8 +15456,6 @@ export type UserUncheckedUpdateWithoutUser_role__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -15815,8 +15685,6 @@ export type UserCreateWithoutRole_permission_granted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -16047,8 +15915,6 @@ export type UserUncheckedCreateWithoutRole_permission_granted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -16283,8 +16149,6 @@ export type UserCreateWithoutRole_permission_revoked_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -16515,8 +16379,6 @@ export type UserUncheckedCreateWithoutRole_permission_revoked_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -16751,8 +16613,6 @@ export type UserCreateWithoutRole_permission_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -16983,8 +16843,6 @@ export type UserUncheckedCreateWithoutRole_permission_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -17230,8 +17088,6 @@ export type UserUpdateWithoutRole_permission_granted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -17462,8 +17318,6 @@ export type UserUncheckedUpdateWithoutRole_permission_granted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -17704,8 +17558,6 @@ export type UserUpdateWithoutRole_permission_revoked_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -17936,8 +17788,6 @@ export type UserUncheckedUpdateWithoutRole_permission_revoked_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -18178,8 +18028,6 @@ export type UserUpdateWithoutRole_permission_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -18410,8 +18258,6 @@ export type UserUncheckedUpdateWithoutRole_permission_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -18641,8 +18487,6 @@ export type UserCreateWithoutAlias__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -18873,8 +18717,6 @@ export type UserUncheckedCreateWithoutAlias__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -19109,8 +18951,6 @@ export type UserCreateWithoutAlias__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -19341,8 +19181,6 @@ export type UserUncheckedCreateWithoutAlias__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -19588,8 +19426,6 @@ export type UserUpdateWithoutAlias__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -19820,8 +19656,6 @@ export type UserUncheckedUpdateWithoutAlias__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -20062,8 +19896,6 @@ export type UserUpdateWithoutAlias__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -20294,8 +20126,6 @@ export type UserUncheckedUpdateWithoutAlias__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -20525,8 +20355,6 @@ export type UserCreateWithoutMedia_archive__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -20757,8 +20585,6 @@ export type UserUncheckedCreateWithoutMedia_archive__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -20993,8 +20819,6 @@ export type UserCreateWithoutMedia_archive__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -21225,8 +21049,6 @@ export type UserUncheckedCreateWithoutMedia_archive__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -21461,8 +21283,6 @@ export type UserCreateWithoutMedia_archive__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -21693,8 +21513,6 @@ export type UserUncheckedCreateWithoutMedia_archive__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -21929,8 +21747,6 @@ export type UserCreateWithoutMedia_archive__contributorInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -22161,8 +21977,6 @@ export type UserUncheckedCreateWithoutMedia_archive__contributorInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -22408,8 +22222,6 @@ export type UserUpdateWithoutMedia_archive__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -22640,8 +22452,6 @@ export type UserUncheckedUpdateWithoutMedia_archive__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -22882,8 +22692,6 @@ export type UserUpdateWithoutMedia_archive__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -23114,8 +22922,6 @@ export type UserUncheckedUpdateWithoutMedia_archive__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -23356,8 +23162,6 @@ export type UserUpdateWithoutMedia_archive__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -23588,8 +23392,6 @@ export type UserUncheckedUpdateWithoutMedia_archive__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -23830,8 +23632,6 @@ export type UserUpdateWithoutMedia_archive__contributorInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -24062,8 +23862,6 @@ export type UserUncheckedUpdateWithoutMedia_archive__contributorInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -24293,8 +24091,6 @@ export type UserCreateWithoutAttachement__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -24525,8 +24321,6 @@ export type UserUncheckedCreateWithoutAttachement__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -24761,8 +24555,6 @@ export type UserCreateWithoutAttachement__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -24993,8 +24785,6 @@ export type UserUncheckedCreateWithoutAttachement__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -25229,8 +25019,6 @@ export type UserCreateWithoutAttachement__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -25461,8 +25249,6 @@ export type UserUncheckedCreateWithoutAttachement__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -25708,8 +25494,6 @@ export type UserUpdateWithoutAttachement__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -25940,8 +25724,6 @@ export type UserUncheckedUpdateWithoutAttachement__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -26182,8 +25964,6 @@ export type UserUpdateWithoutAttachement__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -26414,8 +26194,6 @@ export type UserUncheckedUpdateWithoutAttachement__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -26656,8 +26434,6 @@ export type UserUpdateWithoutAttachement__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -26888,8 +26664,6 @@ export type UserUncheckedUpdateWithoutAttachement__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -27119,8 +26893,6 @@ export type UserCreateWithoutUnit__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -27351,8 +27123,6 @@ export type UserUncheckedCreateWithoutUnit__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -27587,8 +27357,6 @@ export type UserCreateWithoutUnit__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -27819,8 +27587,6 @@ export type UserUncheckedCreateWithoutUnit__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -28066,8 +27832,6 @@ export type UserUpdateWithoutUnit__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -28298,8 +28062,6 @@ export type UserUncheckedUpdateWithoutUnit__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -28540,8 +28302,6 @@ export type UserUpdateWithoutUnit__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -28772,8 +28532,6 @@ export type UserUncheckedUpdateWithoutUnit__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -29003,8 +28761,6 @@ export type UserCreateWithoutTag__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -29235,8 +28991,6 @@ export type UserUncheckedCreateWithoutTag__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -29471,8 +29225,6 @@ export type UserCreateWithoutTag__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -29703,8 +29455,6 @@ export type UserUncheckedCreateWithoutTag__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -29950,8 +29700,6 @@ export type UserUpdateWithoutTag__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -30182,8 +29930,6 @@ export type UserUncheckedUpdateWithoutTag__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -30424,8 +30170,6 @@ export type UserUpdateWithoutTag__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -30656,8 +30400,6 @@ export type UserUncheckedUpdateWithoutTag__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -30887,8 +30629,6 @@ export type UserCreateWithoutTag_group__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -31119,8 +30859,6 @@ export type UserUncheckedCreateWithoutTag_group__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -31355,8 +31093,6 @@ export type UserCreateWithoutTag_group__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -31587,8 +31323,6 @@ export type UserUncheckedCreateWithoutTag_group__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -31834,8 +31568,6 @@ export type UserUpdateWithoutTag_group__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -32066,8 +31798,6 @@ export type UserUncheckedUpdateWithoutTag_group__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -32308,8 +32038,6 @@ export type UserUpdateWithoutTag_group__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -32540,8 +32268,6 @@ export type UserUncheckedUpdateWithoutTag_group__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -32771,8 +32497,6 @@ export type UserCreateWithoutTag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -33003,8 +32727,6 @@ export type UserUncheckedCreateWithoutTag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -33239,8 +32961,6 @@ export type UserCreateWithoutTag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -33471,8 +33191,6 @@ export type UserUncheckedCreateWithoutTag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -33718,8 +33436,6 @@ export type UserUpdateWithoutTag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -33950,8 +33666,6 @@ export type UserUncheckedUpdateWithoutTag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -34192,8 +33906,6 @@ export type UserUpdateWithoutTag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -34424,8 +34136,6 @@ export type UserUncheckedUpdateWithoutTag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -34655,8 +34365,6 @@ export type UserCreateWithoutTag_group_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -34887,8 +34595,6 @@ export type UserUncheckedCreateWithoutTag_group_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -35123,8 +34829,6 @@ export type UserCreateWithoutTag_group_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -35355,8 +35059,6 @@ export type UserUncheckedCreateWithoutTag_group_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -35602,8 +35304,6 @@ export type UserUpdateWithoutTag_group_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -35834,8 +35534,6 @@ export type UserUncheckedUpdateWithoutTag_group_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -36076,8 +35774,6 @@ export type UserUpdateWithoutTag_group_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -36308,8 +36004,6 @@ export type UserUncheckedUpdateWithoutTag_group_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -36539,8 +36233,6 @@ export type UserCreateWithoutBrand__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -36771,8 +36463,6 @@ export type UserUncheckedCreateWithoutBrand__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -37007,8 +36697,6 @@ export type UserCreateWithoutBrand__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -37239,8 +36927,6 @@ export type UserUncheckedCreateWithoutBrand__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -37486,8 +37172,6 @@ export type UserUpdateWithoutBrand__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -37718,8 +37402,6 @@ export type UserUncheckedUpdateWithoutBrand__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -37960,8 +37642,6 @@ export type UserUpdateWithoutBrand__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -38192,8 +37872,6 @@ export type UserUncheckedUpdateWithoutBrand__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -38423,8 +38101,6 @@ export type UserCreateWithoutGear_type__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -38655,8 +38331,6 @@ export type UserUncheckedCreateWithoutGear_type__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -38891,8 +38565,6 @@ export type UserCreateWithoutGear_type__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -39123,8 +38795,6 @@ export type UserUncheckedCreateWithoutGear_type__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -39370,8 +39040,6 @@ export type UserUpdateWithoutGear_type__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -39602,8 +39270,6 @@ export type UserUncheckedUpdateWithoutGear_type__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -39844,8 +39510,6 @@ export type UserUpdateWithoutGear_type__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -40076,8 +39740,6 @@ export type UserUncheckedUpdateWithoutGear_type__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -40307,8 +39969,6 @@ export type UserCreateWithoutGear_type_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -40539,8 +40199,6 @@ export type UserUncheckedCreateWithoutGear_type_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -40775,8 +40433,6 @@ export type UserCreateWithoutGear_type_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -41007,8 +40663,6 @@ export type UserUncheckedCreateWithoutGear_type_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -41254,8 +40908,6 @@ export type UserUpdateWithoutGear_type_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -41486,8 +41138,6 @@ export type UserUncheckedUpdateWithoutGear_type_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -41728,8 +41378,6 @@ export type UserUpdateWithoutGear_type_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -41960,8 +41608,6 @@ export type UserUncheckedUpdateWithoutGear_type_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -42191,8 +41837,6 @@ export type UserCreateWithoutGear_specs_def__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -42423,8 +42067,6 @@ export type UserUncheckedCreateWithoutGear_specs_def__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -42659,8 +42301,6 @@ export type UserCreateWithoutGear_specs_def__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -42891,8 +42531,6 @@ export type UserUncheckedCreateWithoutGear_specs_def__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -43138,8 +42776,6 @@ export type UserUpdateWithoutGear_specs_def__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -43370,8 +43006,6 @@ export type UserUncheckedUpdateWithoutGear_specs_def__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -43612,8 +43246,6 @@ export type UserUpdateWithoutGear_specs_def__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -43844,8 +43476,6 @@ export type UserUncheckedUpdateWithoutGear_specs_def__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -44075,8 +43705,6 @@ export type UserCreateWithoutGear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -44307,8 +43935,6 @@ export type UserUncheckedCreateWithoutGear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -44543,8 +44169,6 @@ export type UserCreateWithoutGear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -44775,8 +44399,6 @@ export type UserUncheckedCreateWithoutGear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -45011,8 +44633,6 @@ export type UserCreateWithoutGear__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -45243,8 +44863,6 @@ export type UserUncheckedCreateWithoutGear__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -45479,8 +45097,6 @@ export type UserCreateWithoutGear__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -45711,8 +45327,6 @@ export type UserUncheckedCreateWithoutGear__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -45958,8 +45572,6 @@ export type UserUpdateWithoutGear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -46190,8 +45802,6 @@ export type UserUncheckedUpdateWithoutGear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -46432,8 +46042,6 @@ export type UserUpdateWithoutGear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -46664,8 +46272,6 @@ export type UserUncheckedUpdateWithoutGear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -46906,8 +46512,6 @@ export type UserUpdateWithoutGear__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -47138,8 +46742,6 @@ export type UserUncheckedUpdateWithoutGear__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -47380,8 +46982,6 @@ export type UserUpdateWithoutGear__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -47612,8 +47212,6 @@ export type UserUncheckedUpdateWithoutGear__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -47843,8 +47441,6 @@ export type UserCreateWithoutDescriptive_gear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -48075,8 +47671,6 @@ export type UserUncheckedCreateWithoutDescriptive_gear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -48311,8 +47905,6 @@ export type UserCreateWithoutDescriptive_gear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -48543,8 +48135,6 @@ export type UserUncheckedCreateWithoutDescriptive_gear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -48779,8 +48369,6 @@ export type UserCreateWithoutDescriptive_gear__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -49011,8 +48599,6 @@ export type UserUncheckedCreateWithoutDescriptive_gear__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -49258,8 +48844,6 @@ export type UserUpdateWithoutDescriptive_gear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -49490,8 +49074,6 @@ export type UserUncheckedUpdateWithoutDescriptive_gear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -49732,8 +49314,6 @@ export type UserUpdateWithoutDescriptive_gear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -49964,8 +49544,6 @@ export type UserUncheckedUpdateWithoutDescriptive_gear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -50206,8 +49784,6 @@ export type UserUpdateWithoutDescriptive_gear__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -50438,8 +50014,6 @@ export type UserUncheckedUpdateWithoutDescriptive_gear__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -50669,8 +50243,6 @@ export type UserCreateWithoutGear_specs__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -50901,8 +50473,6 @@ export type UserUncheckedCreateWithoutGear_specs__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -51137,8 +50707,6 @@ export type UserCreateWithoutGear_specs__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -51369,8 +50937,6 @@ export type UserUncheckedCreateWithoutGear_specs__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -51616,8 +51182,6 @@ export type UserUpdateWithoutGear_specs__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -51848,8 +51412,6 @@ export type UserUncheckedUpdateWithoutGear_specs__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -52090,8 +51652,6 @@ export type UserUpdateWithoutGear_specs__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -52322,8 +51882,6 @@ export type UserUncheckedUpdateWithoutGear_specs__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -52553,8 +52111,6 @@ export type UserCreateWithoutGear_feature__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -52785,8 +52341,6 @@ export type UserUncheckedCreateWithoutGear_feature__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -53021,8 +52575,6 @@ export type UserCreateWithoutGear_feature__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -53253,8 +52805,6 @@ export type UserUncheckedCreateWithoutGear_feature__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -53500,8 +53050,6 @@ export type UserUpdateWithoutGear_feature__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -53732,8 +53280,6 @@ export type UserUncheckedUpdateWithoutGear_feature__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -53974,8 +53520,6 @@ export type UserUpdateWithoutGear_feature__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -54206,8 +53750,6 @@ export type UserUncheckedUpdateWithoutGear_feature__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -54437,8 +53979,6 @@ export type UserCreateWithoutGear_variant__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -54669,8 +54209,6 @@ export type UserUncheckedCreateWithoutGear_variant__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -54905,8 +54443,6 @@ export type UserCreateWithoutGear_variant__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -55137,8 +54673,6 @@ export type UserUncheckedCreateWithoutGear_variant__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -55384,8 +54918,6 @@ export type UserUpdateWithoutGear_variant__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -55616,8 +55148,6 @@ export type UserUncheckedUpdateWithoutGear_variant__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -55858,8 +55388,6 @@ export type UserUpdateWithoutGear_variant__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -56090,8 +55618,6 @@ export type UserUncheckedUpdateWithoutGear_variant__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -56321,8 +55847,6 @@ export type UserCreateWithoutGear_tag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -56553,8 +56077,6 @@ export type UserUncheckedCreateWithoutGear_tag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -56789,8 +56311,6 @@ export type UserCreateWithoutGear_tag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -57021,8 +56541,6 @@ export type UserUncheckedCreateWithoutGear_tag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -57268,8 +56786,6 @@ export type UserUpdateWithoutGear_tag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -57500,8 +57016,6 @@ export type UserUncheckedUpdateWithoutGear_tag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -57742,8 +57256,6 @@ export type UserUpdateWithoutGear_tag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -57974,8 +57486,6 @@ export type UserUncheckedUpdateWithoutGear_tag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -58205,8 +57715,6 @@ export type UserCreateWithoutGear_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -58437,8 +57945,6 @@ export type UserUncheckedCreateWithoutGear_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -58673,8 +58179,6 @@ export type UserCreateWithoutGear_pack__updated_byInput = {
   gear_pack__created_by?: Prisma.GearPackCreateNestedManyWithoutCreated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -58905,8 +58409,6 @@ export type UserUncheckedCreateWithoutGear_pack__updated_byInput = {
   gear_pack__created_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -59141,8 +58643,6 @@ export type UserCreateWithoutGear_pack__reviewed_byInput = {
   gear_pack__created_by?: Prisma.GearPackCreateNestedManyWithoutCreated_byInput
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -59373,8 +58873,6 @@ export type UserUncheckedCreateWithoutGear_pack__reviewed_byInput = {
   gear_pack__created_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -59609,8 +59107,6 @@ export type UserCreateWithoutGear_pack__ownerInput = {
   gear_pack__created_by?: Prisma.GearPackCreateNestedManyWithoutCreated_byInput
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -59841,8 +59337,6 @@ export type UserUncheckedCreateWithoutGear_pack__ownerInput = {
   gear_pack__created_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -60088,8 +59582,6 @@ export type UserUpdateWithoutGear_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -60320,8 +59812,6 @@ export type UserUncheckedUpdateWithoutGear_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -60562,8 +60052,6 @@ export type UserUpdateWithoutGear_pack__updated_byInput = {
   gear_pack__created_by?: Prisma.GearPackUpdateManyWithoutCreated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -60794,8 +60282,6 @@ export type UserUncheckedUpdateWithoutGear_pack__updated_byInput = {
   gear_pack__created_by?: Prisma.GearPackUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -61036,8 +60522,6 @@ export type UserUpdateWithoutGear_pack__reviewed_byInput = {
   gear_pack__created_by?: Prisma.GearPackUpdateManyWithoutCreated_byNestedInput
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -61268,8 +60752,6 @@ export type UserUncheckedUpdateWithoutGear_pack__reviewed_byInput = {
   gear_pack__created_by?: Prisma.GearPackUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -61510,8 +60992,6 @@ export type UserUpdateWithoutGear_pack__ownerInput = {
   gear_pack__created_by?: Prisma.GearPackUpdateManyWithoutCreated_byNestedInput
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -61742,1892 +61222,6 @@ export type UserUncheckedUpdateWithoutGear_pack__ownerInput = {
   gear_pack__created_by?: Prisma.GearPackUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
-  challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
-  challenge__updated_by?: Prisma.ChallengeUncheckedUpdateManyWithoutUpdated_byNestedInput
-  challenge__verified_by?: Prisma.ChallengeUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  challenge_gear_requirement__created_by?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutCreated_byNestedInput
-  challenge_gear_requirement__updated_by?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutUpdated_byNestedInput
-  difficulty_system__created_by?: Prisma.DifficultySystemUncheckedUpdateManyWithoutCreated_byNestedInput
-  difficulty_system__updated_by?: Prisma.DifficultySystemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  difficulty_mapping__created_by?: Prisma.DifficultyMappingUncheckedUpdateManyWithoutCreated_byNestedInput
-  difficulty_mapping__updated_by?: Prisma.DifficultyMappingUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail__created_by?: Prisma.TrailUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail__updated_by?: Prisma.TrailUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail__verified_by?: Prisma.TrailUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail__owner?: Prisma.TrailUncheckedUpdateManyWithoutOwnerNestedInput
-  trail_challenge__created_by?: Prisma.TrailChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_challenge__updated_by?: Prisma.TrailChallengeUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_calendar__created_by?: Prisma.TrailCalendarUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_calendar__updated_by?: Prisma.TrailCalendarUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_use__created_by?: Prisma.TrailUseUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_use__updated_by?: Prisma.TrailUseUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_source__created_by?: Prisma.TrailSourceUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_source__updated_by?: Prisma.TrailSourceUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_gear_requirement__created_by?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_gear_requirement__updated_by?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_difficulty__created_by?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_difficulty__updated_by?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_difficulty__verified_by?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_facility__created_by?: Prisma.TrailFacilityUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_facility__updated_by?: Prisma.TrailFacilityUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_facility__verified_by?: Prisma.TrailFacilityUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_profile__created_by?: Prisma.TrailProfileUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_profile__updated_by?: Prisma.TrailProfileUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_profile__verified_by?: Prisma.TrailProfileUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_profile__owner?: Prisma.TrailProfileUncheckedUpdateManyWithoutOwnerNestedInput
-  trail_profile_use__created_by?: Prisma.TrailProfileUseUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_profile_use__updated_by?: Prisma.TrailProfileUseUncheckedUpdateManyWithoutUpdated_byNestedInput
-  access_point__created_by?: Prisma.AccessPointUncheckedUpdateManyWithoutCreated_byNestedInput
-  access_point__updated_by?: Prisma.AccessPointUncheckedUpdateManyWithoutUpdated_byNestedInput
-  access_point__verified_by?: Prisma.AccessPointUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  access_point__owner?: Prisma.AccessPointUncheckedUpdateManyWithoutOwnerNestedInput
-  access_point__merged_by?: Prisma.AccessPointUncheckedUpdateManyWithoutMerged_byNestedInput
-  access_point__canonical_proposed_by?: Prisma.AccessPointUncheckedUpdateManyWithoutCanonical_proposed_byNestedInput
-  access_point__canonical_proposal_consent_by?: Prisma.AccessPointUncheckedUpdateManyWithoutCanonical_proposal_consent_byNestedInput
-  access_point__canonical_proposal_resolved_by?: Prisma.AccessPointUncheckedUpdateManyWithoutCanonical_proposal_resolved_byNestedInput
-  access_point_calendar__created_by?: Prisma.AccessPointCalendarUncheckedUpdateManyWithoutCreated_byNestedInput
-  access_point_calendar__updated_by?: Prisma.AccessPointCalendarUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_access_point_relation__created_by?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_access_point_relation__updated_by?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_access_point_relation__verified_by?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_geometry__created_by?: Prisma.TrailGeometryUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_geometry__updated_by?: Prisma.TrailGeometryUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_geometry__verified_by?: Prisma.TrailGeometryUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_geometry__owner?: Prisma.TrailGeometryUncheckedUpdateManyWithoutOwnerNestedInput
-  trail_segmentation__created_by?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_segmentation__updated_by?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_segmentation__reviewed_by?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  trail_segment_relation__created_by?: Prisma.TrailSegmentRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_segment_relation__updated_by?: Prisma.TrailSegmentRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_segment_relation__reviewed_by?: Prisma.TrailSegmentRelationUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  trail_segmentation__owner?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutOwnerNestedInput
-  transport_service__created_by?: Prisma.TransportServiceUncheckedUpdateManyWithoutCreated_byNestedInput
-  transport_service__updated_by?: Prisma.TransportServiceUncheckedUpdateManyWithoutUpdated_byNestedInput
-  transport_service__verified_by?: Prisma.TransportServiceUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  transport_service_calendar__created_by?: Prisma.TransportServiceCalendarUncheckedUpdateManyWithoutCreated_byNestedInput
-  transport_service_calendar__updated_by?: Prisma.TransportServiceCalendarUncheckedUpdateManyWithoutUpdated_byNestedInput
-  transport_service_stop__created_by?: Prisma.TransportServiceStopUncheckedUpdateManyWithoutCreated_byNestedInput
-  transport_service_stop__updated_by?: Prisma.TransportServiceStopUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_transport_service_created_by?: Prisma.TrailTransportServiceUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_transport_service_updated_by?: Prisma.TrailTransportServiceUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_transport_service_verified_by?: Prisma.TrailTransportServiceUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  meal_pack__created_by?: Prisma.MealPackUncheckedUpdateManyWithoutCreated_byNestedInput
-  meal_pack__updated_by?: Prisma.MealPackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  meal_pack__reviewed_by?: Prisma.MealPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  meal_pack__owner?: Prisma.MealPackUncheckedUpdateManyWithoutOwnerNestedInput
-  meal_item__created_by?: Prisma.MealItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  meal_item__updated_by?: Prisma.MealItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  meal_item__owner?: Prisma.MealItemUncheckedUpdateManyWithoutOwnerNestedInput
-  meal_pack_item__created_by?: Prisma.MealPackItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  meal_pack_item__updated_by?: Prisma.MealPackItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  meal_pack_item__user?: Prisma.MealPackItemUncheckedUpdateManyWithoutUserNestedInput
-  user_trail__created_by?: Prisma.UserTrailUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_trail__updated_by?: Prisma.UserTrailUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_trail__user?: Prisma.UserTrailUncheckedUpdateManyWithoutUserNestedInput
-  user_trail_completion__created_by?: Prisma.UserTrailCompletionUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_trail_completion__updated_by?: Prisma.UserTrailCompletionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_gear__created_by?: Prisma.UserGearUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_gear__updated_by?: Prisma.UserGearUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_gear__user?: Prisma.UserGearUncheckedUpdateManyWithoutUserNestedInput
-  user_gear_pack__created_by?: Prisma.UserGearPackUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_gear_pack__updated_by?: Prisma.UserGearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_gear_pack__user?: Prisma.UserGearPackUncheckedUpdateManyWithoutUserNestedInput
-  user_gear_pack_item__created_by?: Prisma.UserGearPackItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_gear_pack_item__updated_by?: Prisma.UserGearPackItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_personal_archive__created_by?: Prisma.UserPersonalArchiveUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_personal_archive__updated_by?: Prisma.UserPersonalArchiveUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_personal_archive__user?: Prisma.UserPersonalArchiveUncheckedUpdateManyWithoutUserNestedInput
-  user_feedback__created_by?: Prisma.UserFeedbackUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_feedback__updated_by?: Prisma.UserFeedbackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_feedback__user?: Prisma.UserFeedbackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  user_feedback__reviewed_by?: Prisma.UserFeedbackUncheckedUpdateManyWithoutUserNestedInput
-  user_sticky_notes__created_by?: Prisma.UserStickyNotesUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_sticky_notes__updated_by?: Prisma.UserStickyNotesUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_sticky_notes__user?: Prisma.UserStickyNotesUncheckedUpdateManyWithoutUserNestedInput
-  user_idea_capture__created_by?: Prisma.UserIdeaCaptureUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_idea_capture__updated_by?: Prisma.UserIdeaCaptureUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_idea_capture__user?: Prisma.UserIdeaCaptureUncheckedUpdateManyWithoutUserNestedInput
-  trip__created_by?: Prisma.TripUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip__updated_by?: Prisma.TripUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip__user?: Prisma.TripUncheckedUpdateManyWithoutUserNestedInput
-  trip_accommodation__created_by?: Prisma.TripAccommodationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_accommodation__updated_by?: Prisma.TripAccommodationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_gear_list__created_by?: Prisma.TripGearListUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_gear_list__updated_by?: Prisma.TripGearListUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_meal_pack__created_by?: Prisma.TripMealPackUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_meal_pack__updated_by?: Prisma.TripMealPackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_meal_pack_item__created_by?: Prisma.TripMealPackItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_meal_pack_item__updated_by?: Prisma.TripMealPackItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_trail__created_by?: Prisma.TripTrailUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_trail__updated_by?: Prisma.TripTrailUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_transport__created_by?: Prisma.TripTransportUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_transport__updated_by?: Prisma.TripTransportUncheckedUpdateManyWithoutUpdated_byNestedInput
-  critical_event__created_by?: Prisma.CriticalEventUncheckedUpdateManyWithoutCreated_byNestedInput
-  critical_event__updated_by?: Prisma.CriticalEventUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_checklist__created_by?: Prisma.TripChecklistUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_checklist__updated_by?: Prisma.TripChecklistUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_checklist_item__created_by?: Prisma.TripChecklistItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_checklist_item__updated_by?: Prisma.TripChecklistItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  colleciton__created_by?: Prisma.CollectionUncheckedUpdateManyWithoutCreated_byNestedInput
-  collection__updated_by?: Prisma.CollectionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  collection__reviewed_by?: Prisma.CollectionUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  colleciton__owner?: Prisma.CollectionUncheckedUpdateManyWithoutOwnerNestedInput
-  collection_item__created_by?: Prisma.CollectionItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  collection_item__updated_by?: Prisma.CollectionItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  collection_item__reviewed_by?: Prisma.CollectionItemUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  user_proposal__created_by?: Prisma.UserProposalUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_proposal__updated_by?: Prisma.UserProposalUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_proposal__reviewed_by?: Prisma.UserProposalUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  user_proposal__user?: Prisma.UserProposalUncheckedUpdateManyWithoutUserNestedInput
-  community_publication__created_by?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutCreated_byNestedInput
-  community_publication__updated_by?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  community_publication__submitted_by?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutSubmitted_byNestedInput
-  community_publication__reviewed_by?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  community_publication__contributor?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutContriutorNestedInput
-  community_publication_item__created_by?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  community_publication_item__updated_by?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  community_publication_item__reviewed_by?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  community_publication_item__contributor?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutContriutorNestedInput
-  community_publication_attachment__created_by?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCreated_byNestedInput
-  community_publication_attachment__updated_by?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutUpdated_byNestedInput
-  record_action__requested_by?: Prisma.RecordActionUncheckedUpdateManyWithoutRequested_byNestedInput
-  record_action__consent_by?: Prisma.RecordActionUncheckedUpdateManyWithoutConsent_byNestedInput
-  record_action__performed_by?: Prisma.RecordActionUncheckedUpdateManyWithoutPerformed_byNestedInput
-  record_action__updated_by?: Prisma.RecordActionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  content_review_history__requested_by?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutRequested_byNestedInput
-  content_review_history__reviewed_by?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutReviewed_byNestedInput
-}
-
-export type UserCreateWithoutGear_pack_template__created_byInput = {
-  name: string
-  email: string
-  password_hash?: string | null
-  avatar_key?: string | null
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  updated_at?: Date | string
-  created_by?: Prisma.UserCreateNestedOneWithoutUsers__created_byInput
-  updated_by?: Prisma.UserCreateNestedOneWithoutUsers__updated_byInput
-  users__created_by?: Prisma.UserCreateNestedManyWithoutCreated_byInput
-  users__updated_by?: Prisma.UserCreateNestedManyWithoutUpdated_byInput
-  roles__created_by?: Prisma.RoleCreateNestedManyWithoutCreated_byInput
-  roles__updated_by?: Prisma.RoleCreateNestedManyWithoutUpdated_byInput
-  permissions__created_by?: Prisma.PermissionCreateNestedManyWithoutCreated_byInput
-  permissions__updated_by?: Prisma.PermissionCreateNestedManyWithoutUpdated_byInput
-  user_roles_granted_by?: Prisma.UserRoleCreateNestedManyWithoutGranted_byInput
-  user_roles_revoked_by?: Prisma.UserRoleCreateNestedManyWithoutRevoked_byInput
-  user_roles_updated_by?: Prisma.UserRoleCreateNestedManyWithoutUpdated_byInput
-  user_role__user?: Prisma.UserRoleCreateNestedManyWithoutUserInput
-  role_permission_granted_by?: Prisma.RolePermissionCreateNestedManyWithoutGranted_byInput
-  role_permission_revoked_by?: Prisma.RolePermissionCreateNestedManyWithoutRevoked_byInput
-  role_permission_updated_by?: Prisma.RolePermissionCreateNestedManyWithoutUpdated_byInput
-  alias__created_by?: Prisma.AliasCreateNestedManyWithoutCreated_byInput
-  alias__updated_by?: Prisma.AliasCreateNestedManyWithoutUpdated_byInput
-  media_archive__created_by?: Prisma.MediaArchiveCreateNestedManyWithoutCreated_byInput
-  media_archive__updated_by?: Prisma.MediaArchiveCreateNestedManyWithoutUpdated_byInput
-  media_archive__reviewed_by?: Prisma.MediaArchiveCreateNestedManyWithoutLast_reviewed_byInput
-  media_archive__contributor?: Prisma.MediaArchiveCreateNestedManyWithoutContributorInput
-  attachement__created_by?: Prisma.AttachmentCreateNestedManyWithoutCreated_byInput
-  attachement__updated_by?: Prisma.AttachmentCreateNestedManyWithoutUpdated_byInput
-  attachement__reviewed_by?: Prisma.AttachmentCreateNestedManyWithoutLast_reviewed_byInput
-  unit__created_by?: Prisma.UnitCreateNestedManyWithoutCreated_byInput
-  unit__updated_by?: Prisma.UnitCreateNestedManyWithoutUpdated_byInput
-  tag__created_by?: Prisma.TagCreateNestedManyWithoutCreated_byInput
-  tag__updated_by?: Prisma.TagCreateNestedManyWithoutUpdated_byInput
-  tag_group__created_by?: Prisma.TagGroupCreateNestedManyWithoutCreated_byInput
-  tag_group__updated_by?: Prisma.TagGroupCreateNestedManyWithoutUpdated_byInput
-  tag_relation__created_by?: Prisma.TagRelationCreateNestedManyWithoutCreated_byInput
-  tag_relation__updated_by?: Prisma.TagRelationCreateNestedManyWithoutUpdated_byInput
-  tag_group_relation__created_by?: Prisma.TagGroupRelationCreateNestedManyWithoutCreated_byInput
-  tag_group_relation__updated_by?: Prisma.TagGroupRelationCreateNestedManyWithoutUpdated_byInput
-  gear_tag_relation__created_by?: Prisma.GearTagRelationCreateNestedManyWithoutCreated_byInput
-  gear_tag_relation__updated_by?: Prisma.GearTagRelationCreateNestedManyWithoutUpdated_byInput
-  trail_tag_relation__created_by?: Prisma.TrailTagRelationCreateNestedManyWithoutCreated_byInput
-  trail_tag_relation__updated_by?: Prisma.TrailTagRelationCreateNestedManyWithoutUpdated_byInput
-  brand__created_by?: Prisma.BrandCreateNestedManyWithoutCreated_byInput
-  brand__updated_by?: Prisma.BrandCreateNestedManyWithoutUpdated_byInput
-  gear_type__created_by?: Prisma.GearTypeCreateNestedManyWithoutCreated_byInput
-  gear_type__updated_by?: Prisma.GearTypeCreateNestedManyWithoutUpdated_byInput
-  gear_type_relation__created_by?: Prisma.GearTypeRelationCreateNestedManyWithoutCreated_byInput
-  gear_type_relation__updated_by?: Prisma.GearTypeRelationCreateNestedManyWithoutUpdated_byInput
-  gear_specs_def__created_by?: Prisma.GearSpecsDefinitionCreateNestedManyWithoutCreated_byInput
-  gear_specs_def__updated_by?: Prisma.GearSpecsDefinitionCreateNestedManyWithoutUpdated_byInput
-  gear__created_by?: Prisma.GearCreateNestedManyWithoutCreated_byInput
-  gear__updated_by?: Prisma.GearCreateNestedManyWithoutUpdated_byInput
-  gear__verified_by?: Prisma.GearCreateNestedManyWithoutLast_verified_byInput
-  gear__owner?: Prisma.GearCreateNestedManyWithoutOwnerInput
-  descriptive_gear__created_by?: Prisma.DescriptiveGearCreateNestedManyWithoutCreated_byInput
-  descriptive_gear__updated_by?: Prisma.DescriptiveGearCreateNestedManyWithoutUpdated_byInput
-  descriptive_gear__owner?: Prisma.DescriptiveGearCreateNestedManyWithoutOwnerInput
-  gear_specs__created_by?: Prisma.GearSpecsCreateNestedManyWithoutCreated_byInput
-  gear_specs__updated_by?: Prisma.GearSpecsCreateNestedManyWithoutUpdated_byInput
-  gear_feature__created_by?: Prisma.GearFeatureCreateNestedManyWithoutCreated_byInput
-  gear_feature__updated_by?: Prisma.GearFeatureCreateNestedManyWithoutUpdated_byInput
-  gear_variant__created_by?: Prisma.GearVariantCreateNestedManyWithoutCreated_byInput
-  gear_variant__updated_by?: Prisma.GearVariantCreateNestedManyWithoutUpdated_byInput
-  gear_pack__created_by?: Prisma.GearPackCreateNestedManyWithoutCreated_byInput
-  gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
-  gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
-  gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
-  gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
-  gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
-  challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
-  challenge__updated_by?: Prisma.ChallengeCreateNestedManyWithoutUpdated_byInput
-  challenge__verified_by?: Prisma.ChallengeCreateNestedManyWithoutLast_verified_byInput
-  challenge_gear_requirement__created_by?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutCreated_byInput
-  challenge_gear_requirement__updated_by?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutUpdated_byInput
-  difficulty_system__created_by?: Prisma.DifficultySystemCreateNestedManyWithoutCreated_byInput
-  difficulty_system__updated_by?: Prisma.DifficultySystemCreateNestedManyWithoutUpdated_byInput
-  difficulty_mapping__created_by?: Prisma.DifficultyMappingCreateNestedManyWithoutCreated_byInput
-  difficulty_mapping__updated_by?: Prisma.DifficultyMappingCreateNestedManyWithoutUpdated_byInput
-  trail__created_by?: Prisma.TrailCreateNestedManyWithoutCreated_byInput
-  trail__updated_by?: Prisma.TrailCreateNestedManyWithoutUpdated_byInput
-  trail__verified_by?: Prisma.TrailCreateNestedManyWithoutLast_verified_byInput
-  trail__owner?: Prisma.TrailCreateNestedManyWithoutOwnerInput
-  trail_challenge__created_by?: Prisma.TrailChallengeCreateNestedManyWithoutCreated_byInput
-  trail_challenge__updated_by?: Prisma.TrailChallengeCreateNestedManyWithoutUpdated_byInput
-  trail_calendar__created_by?: Prisma.TrailCalendarCreateNestedManyWithoutCreated_byInput
-  trail_calendar__updated_by?: Prisma.TrailCalendarCreateNestedManyWithoutUpdated_byInput
-  trail_use__created_by?: Prisma.TrailUseCreateNestedManyWithoutCreated_byInput
-  trail_use__updated_by?: Prisma.TrailUseCreateNestedManyWithoutUpdated_byInput
-  trail_source__created_by?: Prisma.TrailSourceCreateNestedManyWithoutCreated_byInput
-  trail_source__updated_by?: Prisma.TrailSourceCreateNestedManyWithoutUpdated_byInput
-  trail_gear_requirement__created_by?: Prisma.TrailGearRequirementCreateNestedManyWithoutCreated_byInput
-  trail_gear_requirement__updated_by?: Prisma.TrailGearRequirementCreateNestedManyWithoutUpdated_byInput
-  trail_difficulty__created_by?: Prisma.TrailDifficultyCreateNestedManyWithoutCreated_byInput
-  trail_difficulty__updated_by?: Prisma.TrailDifficultyCreateNestedManyWithoutUpdated_byInput
-  trail_difficulty__verified_by?: Prisma.TrailDifficultyCreateNestedManyWithoutLast_verified_byInput
-  trail_facility__created_by?: Prisma.TrailFacilityCreateNestedManyWithoutCreated_byInput
-  trail_facility__updated_by?: Prisma.TrailFacilityCreateNestedManyWithoutUpdated_byInput
-  trail_facility__verified_by?: Prisma.TrailFacilityCreateNestedManyWithoutLast_verified_byInput
-  trail_profile__created_by?: Prisma.TrailProfileCreateNestedManyWithoutCreated_byInput
-  trail_profile__updated_by?: Prisma.TrailProfileCreateNestedManyWithoutUpdated_byInput
-  trail_profile__verified_by?: Prisma.TrailProfileCreateNestedManyWithoutLast_verified_byInput
-  trail_profile__owner?: Prisma.TrailProfileCreateNestedManyWithoutOwnerInput
-  trail_profile_use__created_by?: Prisma.TrailProfileUseCreateNestedManyWithoutCreated_byInput
-  trail_profile_use__updated_by?: Prisma.TrailProfileUseCreateNestedManyWithoutUpdated_byInput
-  access_point__created_by?: Prisma.AccessPointCreateNestedManyWithoutCreated_byInput
-  access_point__updated_by?: Prisma.AccessPointCreateNestedManyWithoutUpdated_byInput
-  access_point__verified_by?: Prisma.AccessPointCreateNestedManyWithoutLast_verified_byInput
-  access_point__owner?: Prisma.AccessPointCreateNestedManyWithoutOwnerInput
-  access_point__merged_by?: Prisma.AccessPointCreateNestedManyWithoutMerged_byInput
-  access_point__canonical_proposed_by?: Prisma.AccessPointCreateNestedManyWithoutCanonical_proposed_byInput
-  access_point__canonical_proposal_consent_by?: Prisma.AccessPointCreateNestedManyWithoutCanonical_proposal_consent_byInput
-  access_point__canonical_proposal_resolved_by?: Prisma.AccessPointCreateNestedManyWithoutCanonical_proposal_resolved_byInput
-  access_point_calendar__created_by?: Prisma.AccessPointCalendarCreateNestedManyWithoutCreated_byInput
-  access_point_calendar__updated_by?: Prisma.AccessPointCalendarCreateNestedManyWithoutUpdated_byInput
-  trail_access_point_relation__created_by?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutCreated_byInput
-  trail_access_point_relation__updated_by?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutUpdated_byInput
-  trail_access_point_relation__verified_by?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutLast_verified_byInput
-  trail_geometry__created_by?: Prisma.TrailGeometryCreateNestedManyWithoutCreated_byInput
-  trail_geometry__updated_by?: Prisma.TrailGeometryCreateNestedManyWithoutUpdated_byInput
-  trail_geometry__verified_by?: Prisma.TrailGeometryCreateNestedManyWithoutLast_verified_byInput
-  trail_geometry__owner?: Prisma.TrailGeometryCreateNestedManyWithoutOwnerInput
-  trail_segmentation__created_by?: Prisma.TrailSegmentationCreateNestedManyWithoutCreated_byInput
-  trail_segmentation__updated_by?: Prisma.TrailSegmentationCreateNestedManyWithoutUpdated_byInput
-  trail_segmentation__reviewed_by?: Prisma.TrailSegmentationCreateNestedManyWithoutLast_reviewed_byInput
-  trail_segment_relation__created_by?: Prisma.TrailSegmentRelationCreateNestedManyWithoutCreated_byInput
-  trail_segment_relation__updated_by?: Prisma.TrailSegmentRelationCreateNestedManyWithoutUpdated_byInput
-  trail_segment_relation__reviewed_by?: Prisma.TrailSegmentRelationCreateNestedManyWithoutLast_reviewed_byInput
-  trail_segmentation__owner?: Prisma.TrailSegmentationCreateNestedManyWithoutOwnerInput
-  transport_service__created_by?: Prisma.TransportServiceCreateNestedManyWithoutCreated_byInput
-  transport_service__updated_by?: Prisma.TransportServiceCreateNestedManyWithoutUpdated_byInput
-  transport_service__verified_by?: Prisma.TransportServiceCreateNestedManyWithoutLast_verified_byInput
-  transport_service_calendar__created_by?: Prisma.TransportServiceCalendarCreateNestedManyWithoutCreated_byInput
-  transport_service_calendar__updated_by?: Prisma.TransportServiceCalendarCreateNestedManyWithoutUpdated_byInput
-  transport_service_stop__created_by?: Prisma.TransportServiceStopCreateNestedManyWithoutCreated_byInput
-  transport_service_stop__updated_by?: Prisma.TransportServiceStopCreateNestedManyWithoutUpdated_byInput
-  trail_transport_service_created_by?: Prisma.TrailTransportServiceCreateNestedManyWithoutCreated_byInput
-  trail_transport_service_updated_by?: Prisma.TrailTransportServiceCreateNestedManyWithoutUpdated_byInput
-  trail_transport_service_verified_by?: Prisma.TrailTransportServiceCreateNestedManyWithoutLast_verified_byInput
-  meal_pack__created_by?: Prisma.MealPackCreateNestedManyWithoutCreated_byInput
-  meal_pack__updated_by?: Prisma.MealPackCreateNestedManyWithoutUpdated_byInput
-  meal_pack__reviewed_by?: Prisma.MealPackCreateNestedManyWithoutLast_reviewed_byInput
-  meal_pack__owner?: Prisma.MealPackCreateNestedManyWithoutOwnerInput
-  meal_item__created_by?: Prisma.MealItemCreateNestedManyWithoutCreated_byInput
-  meal_item__updated_by?: Prisma.MealItemCreateNestedManyWithoutUpdated_byInput
-  meal_item__owner?: Prisma.MealItemCreateNestedManyWithoutOwnerInput
-  meal_pack_item__created_by?: Prisma.MealPackItemCreateNestedManyWithoutCreated_byInput
-  meal_pack_item__updated_by?: Prisma.MealPackItemCreateNestedManyWithoutUpdated_byInput
-  meal_pack_item__user?: Prisma.MealPackItemCreateNestedManyWithoutUserInput
-  user_trail__created_by?: Prisma.UserTrailCreateNestedManyWithoutCreated_byInput
-  user_trail__updated_by?: Prisma.UserTrailCreateNestedManyWithoutUpdated_byInput
-  user_trail__user?: Prisma.UserTrailCreateNestedManyWithoutUserInput
-  user_trail_completion__created_by?: Prisma.UserTrailCompletionCreateNestedManyWithoutCreated_byInput
-  user_trail_completion__updated_by?: Prisma.UserTrailCompletionCreateNestedManyWithoutUpdated_byInput
-  user_gear__created_by?: Prisma.UserGearCreateNestedManyWithoutCreated_byInput
-  user_gear__updated_by?: Prisma.UserGearCreateNestedManyWithoutUpdated_byInput
-  user_gear__user?: Prisma.UserGearCreateNestedManyWithoutUserInput
-  user_gear_pack__created_by?: Prisma.UserGearPackCreateNestedManyWithoutCreated_byInput
-  user_gear_pack__updated_by?: Prisma.UserGearPackCreateNestedManyWithoutUpdated_byInput
-  user_gear_pack__user?: Prisma.UserGearPackCreateNestedManyWithoutUserInput
-  user_gear_pack_item__created_by?: Prisma.UserGearPackItemCreateNestedManyWithoutCreated_byInput
-  user_gear_pack_item__updated_by?: Prisma.UserGearPackItemCreateNestedManyWithoutUpdated_byInput
-  user_personal_archive__created_by?: Prisma.UserPersonalArchiveCreateNestedManyWithoutCreated_byInput
-  user_personal_archive__updated_by?: Prisma.UserPersonalArchiveCreateNestedManyWithoutUpdated_byInput
-  user_personal_archive__user?: Prisma.UserPersonalArchiveCreateNestedManyWithoutUserInput
-  user_feedback__created_by?: Prisma.UserFeedbackCreateNestedManyWithoutCreated_byInput
-  user_feedback__updated_by?: Prisma.UserFeedbackCreateNestedManyWithoutUpdated_byInput
-  user_feedback__user?: Prisma.UserFeedbackCreateNestedManyWithoutLast_reviewed_byInput
-  user_feedback__reviewed_by?: Prisma.UserFeedbackCreateNestedManyWithoutUserInput
-  user_sticky_notes__created_by?: Prisma.UserStickyNotesCreateNestedManyWithoutCreated_byInput
-  user_sticky_notes__updated_by?: Prisma.UserStickyNotesCreateNestedManyWithoutUpdated_byInput
-  user_sticky_notes__user?: Prisma.UserStickyNotesCreateNestedManyWithoutUserInput
-  user_idea_capture__created_by?: Prisma.UserIdeaCaptureCreateNestedManyWithoutCreated_byInput
-  user_idea_capture__updated_by?: Prisma.UserIdeaCaptureCreateNestedManyWithoutUpdated_byInput
-  user_idea_capture__user?: Prisma.UserIdeaCaptureCreateNestedManyWithoutUserInput
-  trip__created_by?: Prisma.TripCreateNestedManyWithoutCreated_byInput
-  trip__updated_by?: Prisma.TripCreateNestedManyWithoutUpdated_byInput
-  trip__user?: Prisma.TripCreateNestedManyWithoutUserInput
-  trip_accommodation__created_by?: Prisma.TripAccommodationCreateNestedManyWithoutCreated_byInput
-  trip_accommodation__updated_by?: Prisma.TripAccommodationCreateNestedManyWithoutUpdated_byInput
-  trip_gear_list__created_by?: Prisma.TripGearListCreateNestedManyWithoutCreated_byInput
-  trip_gear_list__updated_by?: Prisma.TripGearListCreateNestedManyWithoutUpdated_byInput
-  trip_meal_pack__created_by?: Prisma.TripMealPackCreateNestedManyWithoutCreated_byInput
-  trip_meal_pack__updated_by?: Prisma.TripMealPackCreateNestedManyWithoutUpdated_byInput
-  trip_meal_pack_item__created_by?: Prisma.TripMealPackItemCreateNestedManyWithoutCreated_byInput
-  trip_meal_pack_item__updated_by?: Prisma.TripMealPackItemCreateNestedManyWithoutUpdated_byInput
-  trip_trail__created_by?: Prisma.TripTrailCreateNestedManyWithoutCreated_byInput
-  trip_trail__updated_by?: Prisma.TripTrailCreateNestedManyWithoutUpdated_byInput
-  trip_transport__created_by?: Prisma.TripTransportCreateNestedManyWithoutCreated_byInput
-  trip_transport__updated_by?: Prisma.TripTransportCreateNestedManyWithoutUpdated_byInput
-  critical_event__created_by?: Prisma.CriticalEventCreateNestedManyWithoutCreated_byInput
-  critical_event__updated_by?: Prisma.CriticalEventCreateNestedManyWithoutUpdated_byInput
-  trip_checklist__created_by?: Prisma.TripChecklistCreateNestedManyWithoutCreated_byInput
-  trip_checklist__updated_by?: Prisma.TripChecklistCreateNestedManyWithoutUpdated_byInput
-  trip_checklist_item__created_by?: Prisma.TripChecklistItemCreateNestedManyWithoutCreated_byInput
-  trip_checklist_item__updated_by?: Prisma.TripChecklistItemCreateNestedManyWithoutUpdated_byInput
-  colleciton__created_by?: Prisma.CollectionCreateNestedManyWithoutCreated_byInput
-  collection__updated_by?: Prisma.CollectionCreateNestedManyWithoutUpdated_byInput
-  collection__reviewed_by?: Prisma.CollectionCreateNestedManyWithoutLast_reviewed_byInput
-  colleciton__owner?: Prisma.CollectionCreateNestedManyWithoutOwnerInput
-  collection_item__created_by?: Prisma.CollectionItemCreateNestedManyWithoutCreated_byInput
-  collection_item__updated_by?: Prisma.CollectionItemCreateNestedManyWithoutUpdated_byInput
-  collection_item__reviewed_by?: Prisma.CollectionItemCreateNestedManyWithoutLast_reviewed_byInput
-  user_proposal__created_by?: Prisma.UserProposalCreateNestedManyWithoutCreated_byInput
-  user_proposal__updated_by?: Prisma.UserProposalCreateNestedManyWithoutUpdated_byInput
-  user_proposal__reviewed_by?: Prisma.UserProposalCreateNestedManyWithoutLast_reviewed_byInput
-  user_proposal__user?: Prisma.UserProposalCreateNestedManyWithoutUserInput
-  community_publication__created_by?: Prisma.CommunityPublicationCreateNestedManyWithoutCreated_byInput
-  community_publication__updated_by?: Prisma.CommunityPublicationCreateNestedManyWithoutUpdated_byInput
-  community_publication__submitted_by?: Prisma.CommunityPublicationCreateNestedManyWithoutSubmitted_byInput
-  community_publication__reviewed_by?: Prisma.CommunityPublicationCreateNestedManyWithoutLast_reviewed_byInput
-  community_publication__contributor?: Prisma.CommunityPublicationCreateNestedManyWithoutContriutorInput
-  community_publication_item__created_by?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCreated_byInput
-  community_publication_item__updated_by?: Prisma.CommunityPublicationItemCreateNestedManyWithoutUpdated_byInput
-  community_publication_item__reviewed_by?: Prisma.CommunityPublicationItemCreateNestedManyWithoutLast_reviewed_byInput
-  community_publication_item__contributor?: Prisma.CommunityPublicationItemCreateNestedManyWithoutContriutorInput
-  community_publication_attachment__created_by?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCreated_byInput
-  community_publication_attachment__updated_by?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutUpdated_byInput
-  record_action__requested_by?: Prisma.RecordActionCreateNestedManyWithoutRequested_byInput
-  record_action__consent_by?: Prisma.RecordActionCreateNestedManyWithoutConsent_byInput
-  record_action__performed_by?: Prisma.RecordActionCreateNestedManyWithoutPerformed_byInput
-  record_action__updated_by?: Prisma.RecordActionCreateNestedManyWithoutUpdated_byInput
-  content_review_history__requested_by?: Prisma.ContentReviewHistoryCreateNestedManyWithoutRequested_byInput
-  content_review_history__reviewed_by?: Prisma.ContentReviewHistoryCreateNestedManyWithoutReviewed_byInput
-}
-
-export type UserUncheckedCreateWithoutGear_pack_template__created_byInput = {
-  id?: number
-  name: string
-  email: string
-  password_hash?: string | null
-  avatar_key?: string | null
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  updated_at?: Date | string
-  created_by_id?: number | null
-  updated_by_id?: number | null
-  users__created_by?: Prisma.UserUncheckedCreateNestedManyWithoutCreated_byInput
-  users__updated_by?: Prisma.UserUncheckedCreateNestedManyWithoutUpdated_byInput
-  roles__created_by?: Prisma.RoleUncheckedCreateNestedManyWithoutCreated_byInput
-  roles__updated_by?: Prisma.RoleUncheckedCreateNestedManyWithoutUpdated_byInput
-  permissions__created_by?: Prisma.PermissionUncheckedCreateNestedManyWithoutCreated_byInput
-  permissions__updated_by?: Prisma.PermissionUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_roles_granted_by?: Prisma.UserRoleUncheckedCreateNestedManyWithoutGranted_byInput
-  user_roles_revoked_by?: Prisma.UserRoleUncheckedCreateNestedManyWithoutRevoked_byInput
-  user_roles_updated_by?: Prisma.UserRoleUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_role__user?: Prisma.UserRoleUncheckedCreateNestedManyWithoutUserInput
-  role_permission_granted_by?: Prisma.RolePermissionUncheckedCreateNestedManyWithoutGranted_byInput
-  role_permission_revoked_by?: Prisma.RolePermissionUncheckedCreateNestedManyWithoutRevoked_byInput
-  role_permission_updated_by?: Prisma.RolePermissionUncheckedCreateNestedManyWithoutUpdated_byInput
-  alias__created_by?: Prisma.AliasUncheckedCreateNestedManyWithoutCreated_byInput
-  alias__updated_by?: Prisma.AliasUncheckedCreateNestedManyWithoutUpdated_byInput
-  media_archive__created_by?: Prisma.MediaArchiveUncheckedCreateNestedManyWithoutCreated_byInput
-  media_archive__updated_by?: Prisma.MediaArchiveUncheckedCreateNestedManyWithoutUpdated_byInput
-  media_archive__reviewed_by?: Prisma.MediaArchiveUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  media_archive__contributor?: Prisma.MediaArchiveUncheckedCreateNestedManyWithoutContributorInput
-  attachement__created_by?: Prisma.AttachmentUncheckedCreateNestedManyWithoutCreated_byInput
-  attachement__updated_by?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUpdated_byInput
-  attachement__reviewed_by?: Prisma.AttachmentUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  unit__created_by?: Prisma.UnitUncheckedCreateNestedManyWithoutCreated_byInput
-  unit__updated_by?: Prisma.UnitUncheckedCreateNestedManyWithoutUpdated_byInput
-  tag__created_by?: Prisma.TagUncheckedCreateNestedManyWithoutCreated_byInput
-  tag__updated_by?: Prisma.TagUncheckedCreateNestedManyWithoutUpdated_byInput
-  tag_group__created_by?: Prisma.TagGroupUncheckedCreateNestedManyWithoutCreated_byInput
-  tag_group__updated_by?: Prisma.TagGroupUncheckedCreateNestedManyWithoutUpdated_byInput
-  tag_relation__created_by?: Prisma.TagRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  tag_relation__updated_by?: Prisma.TagRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  tag_group_relation__created_by?: Prisma.TagGroupRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  tag_group_relation__updated_by?: Prisma.TagGroupRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_tag_relation__created_by?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_tag_relation__updated_by?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_tag_relation__created_by?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_tag_relation__updated_by?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  brand__created_by?: Prisma.BrandUncheckedCreateNestedManyWithoutCreated_byInput
-  brand__updated_by?: Prisma.BrandUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_type__created_by?: Prisma.GearTypeUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_type__updated_by?: Prisma.GearTypeUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_type_relation__created_by?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_type_relation__updated_by?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_specs_def__created_by?: Prisma.GearSpecsDefinitionUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_specs_def__updated_by?: Prisma.GearSpecsDefinitionUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear__created_by?: Prisma.GearUncheckedCreateNestedManyWithoutCreated_byInput
-  gear__updated_by?: Prisma.GearUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear__verified_by?: Prisma.GearUncheckedCreateNestedManyWithoutLast_verified_byInput
-  gear__owner?: Prisma.GearUncheckedCreateNestedManyWithoutOwnerInput
-  descriptive_gear__created_by?: Prisma.DescriptiveGearUncheckedCreateNestedManyWithoutCreated_byInput
-  descriptive_gear__updated_by?: Prisma.DescriptiveGearUncheckedCreateNestedManyWithoutUpdated_byInput
-  descriptive_gear__owner?: Prisma.DescriptiveGearUncheckedCreateNestedManyWithoutOwnerInput
-  gear_specs__created_by?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_specs__updated_by?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_feature__created_by?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_feature__updated_by?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_variant__created_by?: Prisma.GearVariantUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_variant__updated_by?: Prisma.GearVariantUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_pack__created_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
-  challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
-  challenge__updated_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutUpdated_byInput
-  challenge__verified_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutLast_verified_byInput
-  challenge_gear_requirement__created_by?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutCreated_byInput
-  challenge_gear_requirement__updated_by?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutUpdated_byInput
-  difficulty_system__created_by?: Prisma.DifficultySystemUncheckedCreateNestedManyWithoutCreated_byInput
-  difficulty_system__updated_by?: Prisma.DifficultySystemUncheckedCreateNestedManyWithoutUpdated_byInput
-  difficulty_mapping__created_by?: Prisma.DifficultyMappingUncheckedCreateNestedManyWithoutCreated_byInput
-  difficulty_mapping__updated_by?: Prisma.DifficultyMappingUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail__created_by?: Prisma.TrailUncheckedCreateNestedManyWithoutCreated_byInput
-  trail__updated_by?: Prisma.TrailUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail__verified_by?: Prisma.TrailUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail__owner?: Prisma.TrailUncheckedCreateNestedManyWithoutOwnerInput
-  trail_challenge__created_by?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_challenge__updated_by?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_calendar__created_by?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_calendar__updated_by?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_use__created_by?: Prisma.TrailUseUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_use__updated_by?: Prisma.TrailUseUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_source__created_by?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_source__updated_by?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_gear_requirement__created_by?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_gear_requirement__updated_by?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_difficulty__created_by?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_difficulty__updated_by?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_difficulty__verified_by?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_facility__created_by?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_facility__updated_by?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_facility__verified_by?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_profile__created_by?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_profile__updated_by?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_profile__verified_by?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_profile__owner?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutOwnerInput
-  trail_profile_use__created_by?: Prisma.TrailProfileUseUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_profile_use__updated_by?: Prisma.TrailProfileUseUncheckedCreateNestedManyWithoutUpdated_byInput
-  access_point__created_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutCreated_byInput
-  access_point__updated_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutUpdated_byInput
-  access_point__verified_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutLast_verified_byInput
-  access_point__owner?: Prisma.AccessPointUncheckedCreateNestedManyWithoutOwnerInput
-  access_point__merged_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutMerged_byInput
-  access_point__canonical_proposed_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutCanonical_proposed_byInput
-  access_point__canonical_proposal_consent_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutCanonical_proposal_consent_byInput
-  access_point__canonical_proposal_resolved_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutCanonical_proposal_resolved_byInput
-  access_point_calendar__created_by?: Prisma.AccessPointCalendarUncheckedCreateNestedManyWithoutCreated_byInput
-  access_point_calendar__updated_by?: Prisma.AccessPointCalendarUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_access_point_relation__created_by?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_access_point_relation__updated_by?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_access_point_relation__verified_by?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_geometry__created_by?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_geometry__updated_by?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_geometry__verified_by?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_geometry__owner?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutOwnerInput
-  trail_segmentation__created_by?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_segmentation__updated_by?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_segmentation__reviewed_by?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  trail_segment_relation__created_by?: Prisma.TrailSegmentRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_segment_relation__updated_by?: Prisma.TrailSegmentRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_segment_relation__reviewed_by?: Prisma.TrailSegmentRelationUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  trail_segmentation__owner?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutOwnerInput
-  transport_service__created_by?: Prisma.TransportServiceUncheckedCreateNestedManyWithoutCreated_byInput
-  transport_service__updated_by?: Prisma.TransportServiceUncheckedCreateNestedManyWithoutUpdated_byInput
-  transport_service__verified_by?: Prisma.TransportServiceUncheckedCreateNestedManyWithoutLast_verified_byInput
-  transport_service_calendar__created_by?: Prisma.TransportServiceCalendarUncheckedCreateNestedManyWithoutCreated_byInput
-  transport_service_calendar__updated_by?: Prisma.TransportServiceCalendarUncheckedCreateNestedManyWithoutUpdated_byInput
-  transport_service_stop__created_by?: Prisma.TransportServiceStopUncheckedCreateNestedManyWithoutCreated_byInput
-  transport_service_stop__updated_by?: Prisma.TransportServiceStopUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_transport_service_created_by?: Prisma.TrailTransportServiceUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_transport_service_updated_by?: Prisma.TrailTransportServiceUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_transport_service_verified_by?: Prisma.TrailTransportServiceUncheckedCreateNestedManyWithoutLast_verified_byInput
-  meal_pack__created_by?: Prisma.MealPackUncheckedCreateNestedManyWithoutCreated_byInput
-  meal_pack__updated_by?: Prisma.MealPackUncheckedCreateNestedManyWithoutUpdated_byInput
-  meal_pack__reviewed_by?: Prisma.MealPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  meal_pack__owner?: Prisma.MealPackUncheckedCreateNestedManyWithoutOwnerInput
-  meal_item__created_by?: Prisma.MealItemUncheckedCreateNestedManyWithoutCreated_byInput
-  meal_item__updated_by?: Prisma.MealItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  meal_item__owner?: Prisma.MealItemUncheckedCreateNestedManyWithoutOwnerInput
-  meal_pack_item__created_by?: Prisma.MealPackItemUncheckedCreateNestedManyWithoutCreated_byInput
-  meal_pack_item__updated_by?: Prisma.MealPackItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  meal_pack_item__user?: Prisma.MealPackItemUncheckedCreateNestedManyWithoutUserInput
-  user_trail__created_by?: Prisma.UserTrailUncheckedCreateNestedManyWithoutCreated_byInput
-  user_trail__updated_by?: Prisma.UserTrailUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_trail__user?: Prisma.UserTrailUncheckedCreateNestedManyWithoutUserInput
-  user_trail_completion__created_by?: Prisma.UserTrailCompletionUncheckedCreateNestedManyWithoutCreated_byInput
-  user_trail_completion__updated_by?: Prisma.UserTrailCompletionUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_gear__created_by?: Prisma.UserGearUncheckedCreateNestedManyWithoutCreated_byInput
-  user_gear__updated_by?: Prisma.UserGearUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_gear__user?: Prisma.UserGearUncheckedCreateNestedManyWithoutUserInput
-  user_gear_pack__created_by?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutCreated_byInput
-  user_gear_pack__updated_by?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_gear_pack__user?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutUserInput
-  user_gear_pack_item__created_by?: Prisma.UserGearPackItemUncheckedCreateNestedManyWithoutCreated_byInput
-  user_gear_pack_item__updated_by?: Prisma.UserGearPackItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_personal_archive__created_by?: Prisma.UserPersonalArchiveUncheckedCreateNestedManyWithoutCreated_byInput
-  user_personal_archive__updated_by?: Prisma.UserPersonalArchiveUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_personal_archive__user?: Prisma.UserPersonalArchiveUncheckedCreateNestedManyWithoutUserInput
-  user_feedback__created_by?: Prisma.UserFeedbackUncheckedCreateNestedManyWithoutCreated_byInput
-  user_feedback__updated_by?: Prisma.UserFeedbackUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_feedback__user?: Prisma.UserFeedbackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  user_feedback__reviewed_by?: Prisma.UserFeedbackUncheckedCreateNestedManyWithoutUserInput
-  user_sticky_notes__created_by?: Prisma.UserStickyNotesUncheckedCreateNestedManyWithoutCreated_byInput
-  user_sticky_notes__updated_by?: Prisma.UserStickyNotesUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_sticky_notes__user?: Prisma.UserStickyNotesUncheckedCreateNestedManyWithoutUserInput
-  user_idea_capture__created_by?: Prisma.UserIdeaCaptureUncheckedCreateNestedManyWithoutCreated_byInput
-  user_idea_capture__updated_by?: Prisma.UserIdeaCaptureUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_idea_capture__user?: Prisma.UserIdeaCaptureUncheckedCreateNestedManyWithoutUserInput
-  trip__created_by?: Prisma.TripUncheckedCreateNestedManyWithoutCreated_byInput
-  trip__updated_by?: Prisma.TripUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip__user?: Prisma.TripUncheckedCreateNestedManyWithoutUserInput
-  trip_accommodation__created_by?: Prisma.TripAccommodationUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_accommodation__updated_by?: Prisma.TripAccommodationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_gear_list__created_by?: Prisma.TripGearListUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_gear_list__updated_by?: Prisma.TripGearListUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_meal_pack__created_by?: Prisma.TripMealPackUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_meal_pack__updated_by?: Prisma.TripMealPackUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_meal_pack_item__created_by?: Prisma.TripMealPackItemUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_meal_pack_item__updated_by?: Prisma.TripMealPackItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_trail__created_by?: Prisma.TripTrailUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_trail__updated_by?: Prisma.TripTrailUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_transport__created_by?: Prisma.TripTransportUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_transport__updated_by?: Prisma.TripTransportUncheckedCreateNestedManyWithoutUpdated_byInput
-  critical_event__created_by?: Prisma.CriticalEventUncheckedCreateNestedManyWithoutCreated_byInput
-  critical_event__updated_by?: Prisma.CriticalEventUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_checklist__created_by?: Prisma.TripChecklistUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_checklist__updated_by?: Prisma.TripChecklistUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_checklist_item__created_by?: Prisma.TripChecklistItemUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_checklist_item__updated_by?: Prisma.TripChecklistItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  colleciton__created_by?: Prisma.CollectionUncheckedCreateNestedManyWithoutCreated_byInput
-  collection__updated_by?: Prisma.CollectionUncheckedCreateNestedManyWithoutUpdated_byInput
-  collection__reviewed_by?: Prisma.CollectionUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  colleciton__owner?: Prisma.CollectionUncheckedCreateNestedManyWithoutOwnerInput
-  collection_item__created_by?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCreated_byInput
-  collection_item__updated_by?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  collection_item__reviewed_by?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  user_proposal__created_by?: Prisma.UserProposalUncheckedCreateNestedManyWithoutCreated_byInput
-  user_proposal__updated_by?: Prisma.UserProposalUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_proposal__reviewed_by?: Prisma.UserProposalUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  user_proposal__user?: Prisma.UserProposalUncheckedCreateNestedManyWithoutUserInput
-  community_publication__created_by?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutCreated_byInput
-  community_publication__updated_by?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutUpdated_byInput
-  community_publication__submitted_by?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutSubmitted_byInput
-  community_publication__reviewed_by?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  community_publication__contributor?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutContriutorInput
-  community_publication_item__created_by?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCreated_byInput
-  community_publication_item__updated_by?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  community_publication_item__reviewed_by?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  community_publication_item__contributor?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutContriutorInput
-  community_publication_attachment__created_by?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCreated_byInput
-  community_publication_attachment__updated_by?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutUpdated_byInput
-  record_action__requested_by?: Prisma.RecordActionUncheckedCreateNestedManyWithoutRequested_byInput
-  record_action__consent_by?: Prisma.RecordActionUncheckedCreateNestedManyWithoutConsent_byInput
-  record_action__performed_by?: Prisma.RecordActionUncheckedCreateNestedManyWithoutPerformed_byInput
-  record_action__updated_by?: Prisma.RecordActionUncheckedCreateNestedManyWithoutUpdated_byInput
-  content_review_history__requested_by?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutRequested_byInput
-  content_review_history__reviewed_by?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutReviewed_byInput
-}
-
-export type UserCreateOrConnectWithoutGear_pack_template__created_byInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutGear_pack_template__created_byInput, Prisma.UserUncheckedCreateWithoutGear_pack_template__created_byInput>
-}
-
-export type UserCreateWithoutGear_pack_template__updated_byInput = {
-  name: string
-  email: string
-  password_hash?: string | null
-  avatar_key?: string | null
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  updated_at?: Date | string
-  created_by?: Prisma.UserCreateNestedOneWithoutUsers__created_byInput
-  updated_by?: Prisma.UserCreateNestedOneWithoutUsers__updated_byInput
-  users__created_by?: Prisma.UserCreateNestedManyWithoutCreated_byInput
-  users__updated_by?: Prisma.UserCreateNestedManyWithoutUpdated_byInput
-  roles__created_by?: Prisma.RoleCreateNestedManyWithoutCreated_byInput
-  roles__updated_by?: Prisma.RoleCreateNestedManyWithoutUpdated_byInput
-  permissions__created_by?: Prisma.PermissionCreateNestedManyWithoutCreated_byInput
-  permissions__updated_by?: Prisma.PermissionCreateNestedManyWithoutUpdated_byInput
-  user_roles_granted_by?: Prisma.UserRoleCreateNestedManyWithoutGranted_byInput
-  user_roles_revoked_by?: Prisma.UserRoleCreateNestedManyWithoutRevoked_byInput
-  user_roles_updated_by?: Prisma.UserRoleCreateNestedManyWithoutUpdated_byInput
-  user_role__user?: Prisma.UserRoleCreateNestedManyWithoutUserInput
-  role_permission_granted_by?: Prisma.RolePermissionCreateNestedManyWithoutGranted_byInput
-  role_permission_revoked_by?: Prisma.RolePermissionCreateNestedManyWithoutRevoked_byInput
-  role_permission_updated_by?: Prisma.RolePermissionCreateNestedManyWithoutUpdated_byInput
-  alias__created_by?: Prisma.AliasCreateNestedManyWithoutCreated_byInput
-  alias__updated_by?: Prisma.AliasCreateNestedManyWithoutUpdated_byInput
-  media_archive__created_by?: Prisma.MediaArchiveCreateNestedManyWithoutCreated_byInput
-  media_archive__updated_by?: Prisma.MediaArchiveCreateNestedManyWithoutUpdated_byInput
-  media_archive__reviewed_by?: Prisma.MediaArchiveCreateNestedManyWithoutLast_reviewed_byInput
-  media_archive__contributor?: Prisma.MediaArchiveCreateNestedManyWithoutContributorInput
-  attachement__created_by?: Prisma.AttachmentCreateNestedManyWithoutCreated_byInput
-  attachement__updated_by?: Prisma.AttachmentCreateNestedManyWithoutUpdated_byInput
-  attachement__reviewed_by?: Prisma.AttachmentCreateNestedManyWithoutLast_reviewed_byInput
-  unit__created_by?: Prisma.UnitCreateNestedManyWithoutCreated_byInput
-  unit__updated_by?: Prisma.UnitCreateNestedManyWithoutUpdated_byInput
-  tag__created_by?: Prisma.TagCreateNestedManyWithoutCreated_byInput
-  tag__updated_by?: Prisma.TagCreateNestedManyWithoutUpdated_byInput
-  tag_group__created_by?: Prisma.TagGroupCreateNestedManyWithoutCreated_byInput
-  tag_group__updated_by?: Prisma.TagGroupCreateNestedManyWithoutUpdated_byInput
-  tag_relation__created_by?: Prisma.TagRelationCreateNestedManyWithoutCreated_byInput
-  tag_relation__updated_by?: Prisma.TagRelationCreateNestedManyWithoutUpdated_byInput
-  tag_group_relation__created_by?: Prisma.TagGroupRelationCreateNestedManyWithoutCreated_byInput
-  tag_group_relation__updated_by?: Prisma.TagGroupRelationCreateNestedManyWithoutUpdated_byInput
-  gear_tag_relation__created_by?: Prisma.GearTagRelationCreateNestedManyWithoutCreated_byInput
-  gear_tag_relation__updated_by?: Prisma.GearTagRelationCreateNestedManyWithoutUpdated_byInput
-  trail_tag_relation__created_by?: Prisma.TrailTagRelationCreateNestedManyWithoutCreated_byInput
-  trail_tag_relation__updated_by?: Prisma.TrailTagRelationCreateNestedManyWithoutUpdated_byInput
-  brand__created_by?: Prisma.BrandCreateNestedManyWithoutCreated_byInput
-  brand__updated_by?: Prisma.BrandCreateNestedManyWithoutUpdated_byInput
-  gear_type__created_by?: Prisma.GearTypeCreateNestedManyWithoutCreated_byInput
-  gear_type__updated_by?: Prisma.GearTypeCreateNestedManyWithoutUpdated_byInput
-  gear_type_relation__created_by?: Prisma.GearTypeRelationCreateNestedManyWithoutCreated_byInput
-  gear_type_relation__updated_by?: Prisma.GearTypeRelationCreateNestedManyWithoutUpdated_byInput
-  gear_specs_def__created_by?: Prisma.GearSpecsDefinitionCreateNestedManyWithoutCreated_byInput
-  gear_specs_def__updated_by?: Prisma.GearSpecsDefinitionCreateNestedManyWithoutUpdated_byInput
-  gear__created_by?: Prisma.GearCreateNestedManyWithoutCreated_byInput
-  gear__updated_by?: Prisma.GearCreateNestedManyWithoutUpdated_byInput
-  gear__verified_by?: Prisma.GearCreateNestedManyWithoutLast_verified_byInput
-  gear__owner?: Prisma.GearCreateNestedManyWithoutOwnerInput
-  descriptive_gear__created_by?: Prisma.DescriptiveGearCreateNestedManyWithoutCreated_byInput
-  descriptive_gear__updated_by?: Prisma.DescriptiveGearCreateNestedManyWithoutUpdated_byInput
-  descriptive_gear__owner?: Prisma.DescriptiveGearCreateNestedManyWithoutOwnerInput
-  gear_specs__created_by?: Prisma.GearSpecsCreateNestedManyWithoutCreated_byInput
-  gear_specs__updated_by?: Prisma.GearSpecsCreateNestedManyWithoutUpdated_byInput
-  gear_feature__created_by?: Prisma.GearFeatureCreateNestedManyWithoutCreated_byInput
-  gear_feature__updated_by?: Prisma.GearFeatureCreateNestedManyWithoutUpdated_byInput
-  gear_variant__created_by?: Prisma.GearVariantCreateNestedManyWithoutCreated_byInput
-  gear_variant__updated_by?: Prisma.GearVariantCreateNestedManyWithoutUpdated_byInput
-  gear_pack__created_by?: Prisma.GearPackCreateNestedManyWithoutCreated_byInput
-  gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
-  gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
-  gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
-  gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
-  challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
-  challenge__updated_by?: Prisma.ChallengeCreateNestedManyWithoutUpdated_byInput
-  challenge__verified_by?: Prisma.ChallengeCreateNestedManyWithoutLast_verified_byInput
-  challenge_gear_requirement__created_by?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutCreated_byInput
-  challenge_gear_requirement__updated_by?: Prisma.ChallengeGearRequirementCreateNestedManyWithoutUpdated_byInput
-  difficulty_system__created_by?: Prisma.DifficultySystemCreateNestedManyWithoutCreated_byInput
-  difficulty_system__updated_by?: Prisma.DifficultySystemCreateNestedManyWithoutUpdated_byInput
-  difficulty_mapping__created_by?: Prisma.DifficultyMappingCreateNestedManyWithoutCreated_byInput
-  difficulty_mapping__updated_by?: Prisma.DifficultyMappingCreateNestedManyWithoutUpdated_byInput
-  trail__created_by?: Prisma.TrailCreateNestedManyWithoutCreated_byInput
-  trail__updated_by?: Prisma.TrailCreateNestedManyWithoutUpdated_byInput
-  trail__verified_by?: Prisma.TrailCreateNestedManyWithoutLast_verified_byInput
-  trail__owner?: Prisma.TrailCreateNestedManyWithoutOwnerInput
-  trail_challenge__created_by?: Prisma.TrailChallengeCreateNestedManyWithoutCreated_byInput
-  trail_challenge__updated_by?: Prisma.TrailChallengeCreateNestedManyWithoutUpdated_byInput
-  trail_calendar__created_by?: Prisma.TrailCalendarCreateNestedManyWithoutCreated_byInput
-  trail_calendar__updated_by?: Prisma.TrailCalendarCreateNestedManyWithoutUpdated_byInput
-  trail_use__created_by?: Prisma.TrailUseCreateNestedManyWithoutCreated_byInput
-  trail_use__updated_by?: Prisma.TrailUseCreateNestedManyWithoutUpdated_byInput
-  trail_source__created_by?: Prisma.TrailSourceCreateNestedManyWithoutCreated_byInput
-  trail_source__updated_by?: Prisma.TrailSourceCreateNestedManyWithoutUpdated_byInput
-  trail_gear_requirement__created_by?: Prisma.TrailGearRequirementCreateNestedManyWithoutCreated_byInput
-  trail_gear_requirement__updated_by?: Prisma.TrailGearRequirementCreateNestedManyWithoutUpdated_byInput
-  trail_difficulty__created_by?: Prisma.TrailDifficultyCreateNestedManyWithoutCreated_byInput
-  trail_difficulty__updated_by?: Prisma.TrailDifficultyCreateNestedManyWithoutUpdated_byInput
-  trail_difficulty__verified_by?: Prisma.TrailDifficultyCreateNestedManyWithoutLast_verified_byInput
-  trail_facility__created_by?: Prisma.TrailFacilityCreateNestedManyWithoutCreated_byInput
-  trail_facility__updated_by?: Prisma.TrailFacilityCreateNestedManyWithoutUpdated_byInput
-  trail_facility__verified_by?: Prisma.TrailFacilityCreateNestedManyWithoutLast_verified_byInput
-  trail_profile__created_by?: Prisma.TrailProfileCreateNestedManyWithoutCreated_byInput
-  trail_profile__updated_by?: Prisma.TrailProfileCreateNestedManyWithoutUpdated_byInput
-  trail_profile__verified_by?: Prisma.TrailProfileCreateNestedManyWithoutLast_verified_byInput
-  trail_profile__owner?: Prisma.TrailProfileCreateNestedManyWithoutOwnerInput
-  trail_profile_use__created_by?: Prisma.TrailProfileUseCreateNestedManyWithoutCreated_byInput
-  trail_profile_use__updated_by?: Prisma.TrailProfileUseCreateNestedManyWithoutUpdated_byInput
-  access_point__created_by?: Prisma.AccessPointCreateNestedManyWithoutCreated_byInput
-  access_point__updated_by?: Prisma.AccessPointCreateNestedManyWithoutUpdated_byInput
-  access_point__verified_by?: Prisma.AccessPointCreateNestedManyWithoutLast_verified_byInput
-  access_point__owner?: Prisma.AccessPointCreateNestedManyWithoutOwnerInput
-  access_point__merged_by?: Prisma.AccessPointCreateNestedManyWithoutMerged_byInput
-  access_point__canonical_proposed_by?: Prisma.AccessPointCreateNestedManyWithoutCanonical_proposed_byInput
-  access_point__canonical_proposal_consent_by?: Prisma.AccessPointCreateNestedManyWithoutCanonical_proposal_consent_byInput
-  access_point__canonical_proposal_resolved_by?: Prisma.AccessPointCreateNestedManyWithoutCanonical_proposal_resolved_byInput
-  access_point_calendar__created_by?: Prisma.AccessPointCalendarCreateNestedManyWithoutCreated_byInput
-  access_point_calendar__updated_by?: Prisma.AccessPointCalendarCreateNestedManyWithoutUpdated_byInput
-  trail_access_point_relation__created_by?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutCreated_byInput
-  trail_access_point_relation__updated_by?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutUpdated_byInput
-  trail_access_point_relation__verified_by?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutLast_verified_byInput
-  trail_geometry__created_by?: Prisma.TrailGeometryCreateNestedManyWithoutCreated_byInput
-  trail_geometry__updated_by?: Prisma.TrailGeometryCreateNestedManyWithoutUpdated_byInput
-  trail_geometry__verified_by?: Prisma.TrailGeometryCreateNestedManyWithoutLast_verified_byInput
-  trail_geometry__owner?: Prisma.TrailGeometryCreateNestedManyWithoutOwnerInput
-  trail_segmentation__created_by?: Prisma.TrailSegmentationCreateNestedManyWithoutCreated_byInput
-  trail_segmentation__updated_by?: Prisma.TrailSegmentationCreateNestedManyWithoutUpdated_byInput
-  trail_segmentation__reviewed_by?: Prisma.TrailSegmentationCreateNestedManyWithoutLast_reviewed_byInput
-  trail_segment_relation__created_by?: Prisma.TrailSegmentRelationCreateNestedManyWithoutCreated_byInput
-  trail_segment_relation__updated_by?: Prisma.TrailSegmentRelationCreateNestedManyWithoutUpdated_byInput
-  trail_segment_relation__reviewed_by?: Prisma.TrailSegmentRelationCreateNestedManyWithoutLast_reviewed_byInput
-  trail_segmentation__owner?: Prisma.TrailSegmentationCreateNestedManyWithoutOwnerInput
-  transport_service__created_by?: Prisma.TransportServiceCreateNestedManyWithoutCreated_byInput
-  transport_service__updated_by?: Prisma.TransportServiceCreateNestedManyWithoutUpdated_byInput
-  transport_service__verified_by?: Prisma.TransportServiceCreateNestedManyWithoutLast_verified_byInput
-  transport_service_calendar__created_by?: Prisma.TransportServiceCalendarCreateNestedManyWithoutCreated_byInput
-  transport_service_calendar__updated_by?: Prisma.TransportServiceCalendarCreateNestedManyWithoutUpdated_byInput
-  transport_service_stop__created_by?: Prisma.TransportServiceStopCreateNestedManyWithoutCreated_byInput
-  transport_service_stop__updated_by?: Prisma.TransportServiceStopCreateNestedManyWithoutUpdated_byInput
-  trail_transport_service_created_by?: Prisma.TrailTransportServiceCreateNestedManyWithoutCreated_byInput
-  trail_transport_service_updated_by?: Prisma.TrailTransportServiceCreateNestedManyWithoutUpdated_byInput
-  trail_transport_service_verified_by?: Prisma.TrailTransportServiceCreateNestedManyWithoutLast_verified_byInput
-  meal_pack__created_by?: Prisma.MealPackCreateNestedManyWithoutCreated_byInput
-  meal_pack__updated_by?: Prisma.MealPackCreateNestedManyWithoutUpdated_byInput
-  meal_pack__reviewed_by?: Prisma.MealPackCreateNestedManyWithoutLast_reviewed_byInput
-  meal_pack__owner?: Prisma.MealPackCreateNestedManyWithoutOwnerInput
-  meal_item__created_by?: Prisma.MealItemCreateNestedManyWithoutCreated_byInput
-  meal_item__updated_by?: Prisma.MealItemCreateNestedManyWithoutUpdated_byInput
-  meal_item__owner?: Prisma.MealItemCreateNestedManyWithoutOwnerInput
-  meal_pack_item__created_by?: Prisma.MealPackItemCreateNestedManyWithoutCreated_byInput
-  meal_pack_item__updated_by?: Prisma.MealPackItemCreateNestedManyWithoutUpdated_byInput
-  meal_pack_item__user?: Prisma.MealPackItemCreateNestedManyWithoutUserInput
-  user_trail__created_by?: Prisma.UserTrailCreateNestedManyWithoutCreated_byInput
-  user_trail__updated_by?: Prisma.UserTrailCreateNestedManyWithoutUpdated_byInput
-  user_trail__user?: Prisma.UserTrailCreateNestedManyWithoutUserInput
-  user_trail_completion__created_by?: Prisma.UserTrailCompletionCreateNestedManyWithoutCreated_byInput
-  user_trail_completion__updated_by?: Prisma.UserTrailCompletionCreateNestedManyWithoutUpdated_byInput
-  user_gear__created_by?: Prisma.UserGearCreateNestedManyWithoutCreated_byInput
-  user_gear__updated_by?: Prisma.UserGearCreateNestedManyWithoutUpdated_byInput
-  user_gear__user?: Prisma.UserGearCreateNestedManyWithoutUserInput
-  user_gear_pack__created_by?: Prisma.UserGearPackCreateNestedManyWithoutCreated_byInput
-  user_gear_pack__updated_by?: Prisma.UserGearPackCreateNestedManyWithoutUpdated_byInput
-  user_gear_pack__user?: Prisma.UserGearPackCreateNestedManyWithoutUserInput
-  user_gear_pack_item__created_by?: Prisma.UserGearPackItemCreateNestedManyWithoutCreated_byInput
-  user_gear_pack_item__updated_by?: Prisma.UserGearPackItemCreateNestedManyWithoutUpdated_byInput
-  user_personal_archive__created_by?: Prisma.UserPersonalArchiveCreateNestedManyWithoutCreated_byInput
-  user_personal_archive__updated_by?: Prisma.UserPersonalArchiveCreateNestedManyWithoutUpdated_byInput
-  user_personal_archive__user?: Prisma.UserPersonalArchiveCreateNestedManyWithoutUserInput
-  user_feedback__created_by?: Prisma.UserFeedbackCreateNestedManyWithoutCreated_byInput
-  user_feedback__updated_by?: Prisma.UserFeedbackCreateNestedManyWithoutUpdated_byInput
-  user_feedback__user?: Prisma.UserFeedbackCreateNestedManyWithoutLast_reviewed_byInput
-  user_feedback__reviewed_by?: Prisma.UserFeedbackCreateNestedManyWithoutUserInput
-  user_sticky_notes__created_by?: Prisma.UserStickyNotesCreateNestedManyWithoutCreated_byInput
-  user_sticky_notes__updated_by?: Prisma.UserStickyNotesCreateNestedManyWithoutUpdated_byInput
-  user_sticky_notes__user?: Prisma.UserStickyNotesCreateNestedManyWithoutUserInput
-  user_idea_capture__created_by?: Prisma.UserIdeaCaptureCreateNestedManyWithoutCreated_byInput
-  user_idea_capture__updated_by?: Prisma.UserIdeaCaptureCreateNestedManyWithoutUpdated_byInput
-  user_idea_capture__user?: Prisma.UserIdeaCaptureCreateNestedManyWithoutUserInput
-  trip__created_by?: Prisma.TripCreateNestedManyWithoutCreated_byInput
-  trip__updated_by?: Prisma.TripCreateNestedManyWithoutUpdated_byInput
-  trip__user?: Prisma.TripCreateNestedManyWithoutUserInput
-  trip_accommodation__created_by?: Prisma.TripAccommodationCreateNestedManyWithoutCreated_byInput
-  trip_accommodation__updated_by?: Prisma.TripAccommodationCreateNestedManyWithoutUpdated_byInput
-  trip_gear_list__created_by?: Prisma.TripGearListCreateNestedManyWithoutCreated_byInput
-  trip_gear_list__updated_by?: Prisma.TripGearListCreateNestedManyWithoutUpdated_byInput
-  trip_meal_pack__created_by?: Prisma.TripMealPackCreateNestedManyWithoutCreated_byInput
-  trip_meal_pack__updated_by?: Prisma.TripMealPackCreateNestedManyWithoutUpdated_byInput
-  trip_meal_pack_item__created_by?: Prisma.TripMealPackItemCreateNestedManyWithoutCreated_byInput
-  trip_meal_pack_item__updated_by?: Prisma.TripMealPackItemCreateNestedManyWithoutUpdated_byInput
-  trip_trail__created_by?: Prisma.TripTrailCreateNestedManyWithoutCreated_byInput
-  trip_trail__updated_by?: Prisma.TripTrailCreateNestedManyWithoutUpdated_byInput
-  trip_transport__created_by?: Prisma.TripTransportCreateNestedManyWithoutCreated_byInput
-  trip_transport__updated_by?: Prisma.TripTransportCreateNestedManyWithoutUpdated_byInput
-  critical_event__created_by?: Prisma.CriticalEventCreateNestedManyWithoutCreated_byInput
-  critical_event__updated_by?: Prisma.CriticalEventCreateNestedManyWithoutUpdated_byInput
-  trip_checklist__created_by?: Prisma.TripChecklistCreateNestedManyWithoutCreated_byInput
-  trip_checklist__updated_by?: Prisma.TripChecklistCreateNestedManyWithoutUpdated_byInput
-  trip_checklist_item__created_by?: Prisma.TripChecklistItemCreateNestedManyWithoutCreated_byInput
-  trip_checklist_item__updated_by?: Prisma.TripChecklistItemCreateNestedManyWithoutUpdated_byInput
-  colleciton__created_by?: Prisma.CollectionCreateNestedManyWithoutCreated_byInput
-  collection__updated_by?: Prisma.CollectionCreateNestedManyWithoutUpdated_byInput
-  collection__reviewed_by?: Prisma.CollectionCreateNestedManyWithoutLast_reviewed_byInput
-  colleciton__owner?: Prisma.CollectionCreateNestedManyWithoutOwnerInput
-  collection_item__created_by?: Prisma.CollectionItemCreateNestedManyWithoutCreated_byInput
-  collection_item__updated_by?: Prisma.CollectionItemCreateNestedManyWithoutUpdated_byInput
-  collection_item__reviewed_by?: Prisma.CollectionItemCreateNestedManyWithoutLast_reviewed_byInput
-  user_proposal__created_by?: Prisma.UserProposalCreateNestedManyWithoutCreated_byInput
-  user_proposal__updated_by?: Prisma.UserProposalCreateNestedManyWithoutUpdated_byInput
-  user_proposal__reviewed_by?: Prisma.UserProposalCreateNestedManyWithoutLast_reviewed_byInput
-  user_proposal__user?: Prisma.UserProposalCreateNestedManyWithoutUserInput
-  community_publication__created_by?: Prisma.CommunityPublicationCreateNestedManyWithoutCreated_byInput
-  community_publication__updated_by?: Prisma.CommunityPublicationCreateNestedManyWithoutUpdated_byInput
-  community_publication__submitted_by?: Prisma.CommunityPublicationCreateNestedManyWithoutSubmitted_byInput
-  community_publication__reviewed_by?: Prisma.CommunityPublicationCreateNestedManyWithoutLast_reviewed_byInput
-  community_publication__contributor?: Prisma.CommunityPublicationCreateNestedManyWithoutContriutorInput
-  community_publication_item__created_by?: Prisma.CommunityPublicationItemCreateNestedManyWithoutCreated_byInput
-  community_publication_item__updated_by?: Prisma.CommunityPublicationItemCreateNestedManyWithoutUpdated_byInput
-  community_publication_item__reviewed_by?: Prisma.CommunityPublicationItemCreateNestedManyWithoutLast_reviewed_byInput
-  community_publication_item__contributor?: Prisma.CommunityPublicationItemCreateNestedManyWithoutContriutorInput
-  community_publication_attachment__created_by?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutCreated_byInput
-  community_publication_attachment__updated_by?: Prisma.CommunityPublicationAttachmentCreateNestedManyWithoutUpdated_byInput
-  record_action__requested_by?: Prisma.RecordActionCreateNestedManyWithoutRequested_byInput
-  record_action__consent_by?: Prisma.RecordActionCreateNestedManyWithoutConsent_byInput
-  record_action__performed_by?: Prisma.RecordActionCreateNestedManyWithoutPerformed_byInput
-  record_action__updated_by?: Prisma.RecordActionCreateNestedManyWithoutUpdated_byInput
-  content_review_history__requested_by?: Prisma.ContentReviewHistoryCreateNestedManyWithoutRequested_byInput
-  content_review_history__reviewed_by?: Prisma.ContentReviewHistoryCreateNestedManyWithoutReviewed_byInput
-}
-
-export type UserUncheckedCreateWithoutGear_pack_template__updated_byInput = {
-  id?: number
-  name: string
-  email: string
-  password_hash?: string | null
-  avatar_key?: string | null
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  updated_at?: Date | string
-  created_by_id?: number | null
-  updated_by_id?: number | null
-  users__created_by?: Prisma.UserUncheckedCreateNestedManyWithoutCreated_byInput
-  users__updated_by?: Prisma.UserUncheckedCreateNestedManyWithoutUpdated_byInput
-  roles__created_by?: Prisma.RoleUncheckedCreateNestedManyWithoutCreated_byInput
-  roles__updated_by?: Prisma.RoleUncheckedCreateNestedManyWithoutUpdated_byInput
-  permissions__created_by?: Prisma.PermissionUncheckedCreateNestedManyWithoutCreated_byInput
-  permissions__updated_by?: Prisma.PermissionUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_roles_granted_by?: Prisma.UserRoleUncheckedCreateNestedManyWithoutGranted_byInput
-  user_roles_revoked_by?: Prisma.UserRoleUncheckedCreateNestedManyWithoutRevoked_byInput
-  user_roles_updated_by?: Prisma.UserRoleUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_role__user?: Prisma.UserRoleUncheckedCreateNestedManyWithoutUserInput
-  role_permission_granted_by?: Prisma.RolePermissionUncheckedCreateNestedManyWithoutGranted_byInput
-  role_permission_revoked_by?: Prisma.RolePermissionUncheckedCreateNestedManyWithoutRevoked_byInput
-  role_permission_updated_by?: Prisma.RolePermissionUncheckedCreateNestedManyWithoutUpdated_byInput
-  alias__created_by?: Prisma.AliasUncheckedCreateNestedManyWithoutCreated_byInput
-  alias__updated_by?: Prisma.AliasUncheckedCreateNestedManyWithoutUpdated_byInput
-  media_archive__created_by?: Prisma.MediaArchiveUncheckedCreateNestedManyWithoutCreated_byInput
-  media_archive__updated_by?: Prisma.MediaArchiveUncheckedCreateNestedManyWithoutUpdated_byInput
-  media_archive__reviewed_by?: Prisma.MediaArchiveUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  media_archive__contributor?: Prisma.MediaArchiveUncheckedCreateNestedManyWithoutContributorInput
-  attachement__created_by?: Prisma.AttachmentUncheckedCreateNestedManyWithoutCreated_byInput
-  attachement__updated_by?: Prisma.AttachmentUncheckedCreateNestedManyWithoutUpdated_byInput
-  attachement__reviewed_by?: Prisma.AttachmentUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  unit__created_by?: Prisma.UnitUncheckedCreateNestedManyWithoutCreated_byInput
-  unit__updated_by?: Prisma.UnitUncheckedCreateNestedManyWithoutUpdated_byInput
-  tag__created_by?: Prisma.TagUncheckedCreateNestedManyWithoutCreated_byInput
-  tag__updated_by?: Prisma.TagUncheckedCreateNestedManyWithoutUpdated_byInput
-  tag_group__created_by?: Prisma.TagGroupUncheckedCreateNestedManyWithoutCreated_byInput
-  tag_group__updated_by?: Prisma.TagGroupUncheckedCreateNestedManyWithoutUpdated_byInput
-  tag_relation__created_by?: Prisma.TagRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  tag_relation__updated_by?: Prisma.TagRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  tag_group_relation__created_by?: Prisma.TagGroupRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  tag_group_relation__updated_by?: Prisma.TagGroupRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_tag_relation__created_by?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_tag_relation__updated_by?: Prisma.GearTagRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_tag_relation__created_by?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_tag_relation__updated_by?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  brand__created_by?: Prisma.BrandUncheckedCreateNestedManyWithoutCreated_byInput
-  brand__updated_by?: Prisma.BrandUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_type__created_by?: Prisma.GearTypeUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_type__updated_by?: Prisma.GearTypeUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_type_relation__created_by?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_type_relation__updated_by?: Prisma.GearTypeRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_specs_def__created_by?: Prisma.GearSpecsDefinitionUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_specs_def__updated_by?: Prisma.GearSpecsDefinitionUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear__created_by?: Prisma.GearUncheckedCreateNestedManyWithoutCreated_byInput
-  gear__updated_by?: Prisma.GearUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear__verified_by?: Prisma.GearUncheckedCreateNestedManyWithoutLast_verified_byInput
-  gear__owner?: Prisma.GearUncheckedCreateNestedManyWithoutOwnerInput
-  descriptive_gear__created_by?: Prisma.DescriptiveGearUncheckedCreateNestedManyWithoutCreated_byInput
-  descriptive_gear__updated_by?: Prisma.DescriptiveGearUncheckedCreateNestedManyWithoutUpdated_byInput
-  descriptive_gear__owner?: Prisma.DescriptiveGearUncheckedCreateNestedManyWithoutOwnerInput
-  gear_specs__created_by?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_specs__updated_by?: Prisma.GearSpecsUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_feature__created_by?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_feature__updated_by?: Prisma.GearFeatureUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_variant__created_by?: Prisma.GearVariantUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_variant__updated_by?: Prisma.GearVariantUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_pack__created_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
-  gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
-  challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
-  challenge__updated_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutUpdated_byInput
-  challenge__verified_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutLast_verified_byInput
-  challenge_gear_requirement__created_by?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutCreated_byInput
-  challenge_gear_requirement__updated_by?: Prisma.ChallengeGearRequirementUncheckedCreateNestedManyWithoutUpdated_byInput
-  difficulty_system__created_by?: Prisma.DifficultySystemUncheckedCreateNestedManyWithoutCreated_byInput
-  difficulty_system__updated_by?: Prisma.DifficultySystemUncheckedCreateNestedManyWithoutUpdated_byInput
-  difficulty_mapping__created_by?: Prisma.DifficultyMappingUncheckedCreateNestedManyWithoutCreated_byInput
-  difficulty_mapping__updated_by?: Prisma.DifficultyMappingUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail__created_by?: Prisma.TrailUncheckedCreateNestedManyWithoutCreated_byInput
-  trail__updated_by?: Prisma.TrailUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail__verified_by?: Prisma.TrailUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail__owner?: Prisma.TrailUncheckedCreateNestedManyWithoutOwnerInput
-  trail_challenge__created_by?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_challenge__updated_by?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_calendar__created_by?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_calendar__updated_by?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_use__created_by?: Prisma.TrailUseUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_use__updated_by?: Prisma.TrailUseUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_source__created_by?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_source__updated_by?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_gear_requirement__created_by?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_gear_requirement__updated_by?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_difficulty__created_by?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_difficulty__updated_by?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_difficulty__verified_by?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_facility__created_by?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_facility__updated_by?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_facility__verified_by?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_profile__created_by?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_profile__updated_by?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_profile__verified_by?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_profile__owner?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutOwnerInput
-  trail_profile_use__created_by?: Prisma.TrailProfileUseUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_profile_use__updated_by?: Prisma.TrailProfileUseUncheckedCreateNestedManyWithoutUpdated_byInput
-  access_point__created_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutCreated_byInput
-  access_point__updated_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutUpdated_byInput
-  access_point__verified_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutLast_verified_byInput
-  access_point__owner?: Prisma.AccessPointUncheckedCreateNestedManyWithoutOwnerInput
-  access_point__merged_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutMerged_byInput
-  access_point__canonical_proposed_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutCanonical_proposed_byInput
-  access_point__canonical_proposal_consent_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutCanonical_proposal_consent_byInput
-  access_point__canonical_proposal_resolved_by?: Prisma.AccessPointUncheckedCreateNestedManyWithoutCanonical_proposal_resolved_byInput
-  access_point_calendar__created_by?: Prisma.AccessPointCalendarUncheckedCreateNestedManyWithoutCreated_byInput
-  access_point_calendar__updated_by?: Prisma.AccessPointCalendarUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_access_point_relation__created_by?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_access_point_relation__updated_by?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_access_point_relation__verified_by?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_geometry__created_by?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_geometry__updated_by?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_geometry__verified_by?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutLast_verified_byInput
-  trail_geometry__owner?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutOwnerInput
-  trail_segmentation__created_by?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_segmentation__updated_by?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_segmentation__reviewed_by?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  trail_segment_relation__created_by?: Prisma.TrailSegmentRelationUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_segment_relation__updated_by?: Prisma.TrailSegmentRelationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_segment_relation__reviewed_by?: Prisma.TrailSegmentRelationUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  trail_segmentation__owner?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutOwnerInput
-  transport_service__created_by?: Prisma.TransportServiceUncheckedCreateNestedManyWithoutCreated_byInput
-  transport_service__updated_by?: Prisma.TransportServiceUncheckedCreateNestedManyWithoutUpdated_byInput
-  transport_service__verified_by?: Prisma.TransportServiceUncheckedCreateNestedManyWithoutLast_verified_byInput
-  transport_service_calendar__created_by?: Prisma.TransportServiceCalendarUncheckedCreateNestedManyWithoutCreated_byInput
-  transport_service_calendar__updated_by?: Prisma.TransportServiceCalendarUncheckedCreateNestedManyWithoutUpdated_byInput
-  transport_service_stop__created_by?: Prisma.TransportServiceStopUncheckedCreateNestedManyWithoutCreated_byInput
-  transport_service_stop__updated_by?: Prisma.TransportServiceStopUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_transport_service_created_by?: Prisma.TrailTransportServiceUncheckedCreateNestedManyWithoutCreated_byInput
-  trail_transport_service_updated_by?: Prisma.TrailTransportServiceUncheckedCreateNestedManyWithoutUpdated_byInput
-  trail_transport_service_verified_by?: Prisma.TrailTransportServiceUncheckedCreateNestedManyWithoutLast_verified_byInput
-  meal_pack__created_by?: Prisma.MealPackUncheckedCreateNestedManyWithoutCreated_byInput
-  meal_pack__updated_by?: Prisma.MealPackUncheckedCreateNestedManyWithoutUpdated_byInput
-  meal_pack__reviewed_by?: Prisma.MealPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  meal_pack__owner?: Prisma.MealPackUncheckedCreateNestedManyWithoutOwnerInput
-  meal_item__created_by?: Prisma.MealItemUncheckedCreateNestedManyWithoutCreated_byInput
-  meal_item__updated_by?: Prisma.MealItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  meal_item__owner?: Prisma.MealItemUncheckedCreateNestedManyWithoutOwnerInput
-  meal_pack_item__created_by?: Prisma.MealPackItemUncheckedCreateNestedManyWithoutCreated_byInput
-  meal_pack_item__updated_by?: Prisma.MealPackItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  meal_pack_item__user?: Prisma.MealPackItemUncheckedCreateNestedManyWithoutUserInput
-  user_trail__created_by?: Prisma.UserTrailUncheckedCreateNestedManyWithoutCreated_byInput
-  user_trail__updated_by?: Prisma.UserTrailUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_trail__user?: Prisma.UserTrailUncheckedCreateNestedManyWithoutUserInput
-  user_trail_completion__created_by?: Prisma.UserTrailCompletionUncheckedCreateNestedManyWithoutCreated_byInput
-  user_trail_completion__updated_by?: Prisma.UserTrailCompletionUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_gear__created_by?: Prisma.UserGearUncheckedCreateNestedManyWithoutCreated_byInput
-  user_gear__updated_by?: Prisma.UserGearUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_gear__user?: Prisma.UserGearUncheckedCreateNestedManyWithoutUserInput
-  user_gear_pack__created_by?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutCreated_byInput
-  user_gear_pack__updated_by?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_gear_pack__user?: Prisma.UserGearPackUncheckedCreateNestedManyWithoutUserInput
-  user_gear_pack_item__created_by?: Prisma.UserGearPackItemUncheckedCreateNestedManyWithoutCreated_byInput
-  user_gear_pack_item__updated_by?: Prisma.UserGearPackItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_personal_archive__created_by?: Prisma.UserPersonalArchiveUncheckedCreateNestedManyWithoutCreated_byInput
-  user_personal_archive__updated_by?: Prisma.UserPersonalArchiveUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_personal_archive__user?: Prisma.UserPersonalArchiveUncheckedCreateNestedManyWithoutUserInput
-  user_feedback__created_by?: Prisma.UserFeedbackUncheckedCreateNestedManyWithoutCreated_byInput
-  user_feedback__updated_by?: Prisma.UserFeedbackUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_feedback__user?: Prisma.UserFeedbackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  user_feedback__reviewed_by?: Prisma.UserFeedbackUncheckedCreateNestedManyWithoutUserInput
-  user_sticky_notes__created_by?: Prisma.UserStickyNotesUncheckedCreateNestedManyWithoutCreated_byInput
-  user_sticky_notes__updated_by?: Prisma.UserStickyNotesUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_sticky_notes__user?: Prisma.UserStickyNotesUncheckedCreateNestedManyWithoutUserInput
-  user_idea_capture__created_by?: Prisma.UserIdeaCaptureUncheckedCreateNestedManyWithoutCreated_byInput
-  user_idea_capture__updated_by?: Prisma.UserIdeaCaptureUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_idea_capture__user?: Prisma.UserIdeaCaptureUncheckedCreateNestedManyWithoutUserInput
-  trip__created_by?: Prisma.TripUncheckedCreateNestedManyWithoutCreated_byInput
-  trip__updated_by?: Prisma.TripUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip__user?: Prisma.TripUncheckedCreateNestedManyWithoutUserInput
-  trip_accommodation__created_by?: Prisma.TripAccommodationUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_accommodation__updated_by?: Prisma.TripAccommodationUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_gear_list__created_by?: Prisma.TripGearListUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_gear_list__updated_by?: Prisma.TripGearListUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_meal_pack__created_by?: Prisma.TripMealPackUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_meal_pack__updated_by?: Prisma.TripMealPackUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_meal_pack_item__created_by?: Prisma.TripMealPackItemUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_meal_pack_item__updated_by?: Prisma.TripMealPackItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_trail__created_by?: Prisma.TripTrailUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_trail__updated_by?: Prisma.TripTrailUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_transport__created_by?: Prisma.TripTransportUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_transport__updated_by?: Prisma.TripTransportUncheckedCreateNestedManyWithoutUpdated_byInput
-  critical_event__created_by?: Prisma.CriticalEventUncheckedCreateNestedManyWithoutCreated_byInput
-  critical_event__updated_by?: Prisma.CriticalEventUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_checklist__created_by?: Prisma.TripChecklistUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_checklist__updated_by?: Prisma.TripChecklistUncheckedCreateNestedManyWithoutUpdated_byInput
-  trip_checklist_item__created_by?: Prisma.TripChecklistItemUncheckedCreateNestedManyWithoutCreated_byInput
-  trip_checklist_item__updated_by?: Prisma.TripChecklistItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  colleciton__created_by?: Prisma.CollectionUncheckedCreateNestedManyWithoutCreated_byInput
-  collection__updated_by?: Prisma.CollectionUncheckedCreateNestedManyWithoutUpdated_byInput
-  collection__reviewed_by?: Prisma.CollectionUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  colleciton__owner?: Prisma.CollectionUncheckedCreateNestedManyWithoutOwnerInput
-  collection_item__created_by?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCreated_byInput
-  collection_item__updated_by?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  collection_item__reviewed_by?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  user_proposal__created_by?: Prisma.UserProposalUncheckedCreateNestedManyWithoutCreated_byInput
-  user_proposal__updated_by?: Prisma.UserProposalUncheckedCreateNestedManyWithoutUpdated_byInput
-  user_proposal__reviewed_by?: Prisma.UserProposalUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  user_proposal__user?: Prisma.UserProposalUncheckedCreateNestedManyWithoutUserInput
-  community_publication__created_by?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutCreated_byInput
-  community_publication__updated_by?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutUpdated_byInput
-  community_publication__submitted_by?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutSubmitted_byInput
-  community_publication__reviewed_by?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  community_publication__contributor?: Prisma.CommunityPublicationUncheckedCreateNestedManyWithoutContriutorInput
-  community_publication_item__created_by?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutCreated_byInput
-  community_publication_item__updated_by?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutUpdated_byInput
-  community_publication_item__reviewed_by?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutLast_reviewed_byInput
-  community_publication_item__contributor?: Prisma.CommunityPublicationItemUncheckedCreateNestedManyWithoutContriutorInput
-  community_publication_attachment__created_by?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutCreated_byInput
-  community_publication_attachment__updated_by?: Prisma.CommunityPublicationAttachmentUncheckedCreateNestedManyWithoutUpdated_byInput
-  record_action__requested_by?: Prisma.RecordActionUncheckedCreateNestedManyWithoutRequested_byInput
-  record_action__consent_by?: Prisma.RecordActionUncheckedCreateNestedManyWithoutConsent_byInput
-  record_action__performed_by?: Prisma.RecordActionUncheckedCreateNestedManyWithoutPerformed_byInput
-  record_action__updated_by?: Prisma.RecordActionUncheckedCreateNestedManyWithoutUpdated_byInput
-  content_review_history__requested_by?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutRequested_byInput
-  content_review_history__reviewed_by?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutReviewed_byInput
-}
-
-export type UserCreateOrConnectWithoutGear_pack_template__updated_byInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutGear_pack_template__updated_byInput, Prisma.UserUncheckedCreateWithoutGear_pack_template__updated_byInput>
-}
-
-export type UserUpsertWithoutGear_pack_template__created_byInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutGear_pack_template__created_byInput, Prisma.UserUncheckedUpdateWithoutGear_pack_template__created_byInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutGear_pack_template__created_byInput, Prisma.UserUncheckedCreateWithoutGear_pack_template__created_byInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutGear_pack_template__created_byInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutGear_pack_template__created_byInput, Prisma.UserUncheckedUpdateWithoutGear_pack_template__created_byInput>
-}
-
-export type UserUpdateWithoutGear_pack_template__created_byInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  created_by?: Prisma.UserUpdateOneWithoutUsers__created_byNestedInput
-  updated_by?: Prisma.UserUpdateOneWithoutUsers__updated_byNestedInput
-  users__created_by?: Prisma.UserUpdateManyWithoutCreated_byNestedInput
-  users__updated_by?: Prisma.UserUpdateManyWithoutUpdated_byNestedInput
-  roles__created_by?: Prisma.RoleUpdateManyWithoutCreated_byNestedInput
-  roles__updated_by?: Prisma.RoleUpdateManyWithoutUpdated_byNestedInput
-  permissions__created_by?: Prisma.PermissionUpdateManyWithoutCreated_byNestedInput
-  permissions__updated_by?: Prisma.PermissionUpdateManyWithoutUpdated_byNestedInput
-  user_roles_granted_by?: Prisma.UserRoleUpdateManyWithoutGranted_byNestedInput
-  user_roles_revoked_by?: Prisma.UserRoleUpdateManyWithoutRevoked_byNestedInput
-  user_roles_updated_by?: Prisma.UserRoleUpdateManyWithoutUpdated_byNestedInput
-  user_role__user?: Prisma.UserRoleUpdateManyWithoutUserNestedInput
-  role_permission_granted_by?: Prisma.RolePermissionUpdateManyWithoutGranted_byNestedInput
-  role_permission_revoked_by?: Prisma.RolePermissionUpdateManyWithoutRevoked_byNestedInput
-  role_permission_updated_by?: Prisma.RolePermissionUpdateManyWithoutUpdated_byNestedInput
-  alias__created_by?: Prisma.AliasUpdateManyWithoutCreated_byNestedInput
-  alias__updated_by?: Prisma.AliasUpdateManyWithoutUpdated_byNestedInput
-  media_archive__created_by?: Prisma.MediaArchiveUpdateManyWithoutCreated_byNestedInput
-  media_archive__updated_by?: Prisma.MediaArchiveUpdateManyWithoutUpdated_byNestedInput
-  media_archive__reviewed_by?: Prisma.MediaArchiveUpdateManyWithoutLast_reviewed_byNestedInput
-  media_archive__contributor?: Prisma.MediaArchiveUpdateManyWithoutContributorNestedInput
-  attachement__created_by?: Prisma.AttachmentUpdateManyWithoutCreated_byNestedInput
-  attachement__updated_by?: Prisma.AttachmentUpdateManyWithoutUpdated_byNestedInput
-  attachement__reviewed_by?: Prisma.AttachmentUpdateManyWithoutLast_reviewed_byNestedInput
-  unit__created_by?: Prisma.UnitUpdateManyWithoutCreated_byNestedInput
-  unit__updated_by?: Prisma.UnitUpdateManyWithoutUpdated_byNestedInput
-  tag__created_by?: Prisma.TagUpdateManyWithoutCreated_byNestedInput
-  tag__updated_by?: Prisma.TagUpdateManyWithoutUpdated_byNestedInput
-  tag_group__created_by?: Prisma.TagGroupUpdateManyWithoutCreated_byNestedInput
-  tag_group__updated_by?: Prisma.TagGroupUpdateManyWithoutUpdated_byNestedInput
-  tag_relation__created_by?: Prisma.TagRelationUpdateManyWithoutCreated_byNestedInput
-  tag_relation__updated_by?: Prisma.TagRelationUpdateManyWithoutUpdated_byNestedInput
-  tag_group_relation__created_by?: Prisma.TagGroupRelationUpdateManyWithoutCreated_byNestedInput
-  tag_group_relation__updated_by?: Prisma.TagGroupRelationUpdateManyWithoutUpdated_byNestedInput
-  gear_tag_relation__created_by?: Prisma.GearTagRelationUpdateManyWithoutCreated_byNestedInput
-  gear_tag_relation__updated_by?: Prisma.GearTagRelationUpdateManyWithoutUpdated_byNestedInput
-  trail_tag_relation__created_by?: Prisma.TrailTagRelationUpdateManyWithoutCreated_byNestedInput
-  trail_tag_relation__updated_by?: Prisma.TrailTagRelationUpdateManyWithoutUpdated_byNestedInput
-  brand__created_by?: Prisma.BrandUpdateManyWithoutCreated_byNestedInput
-  brand__updated_by?: Prisma.BrandUpdateManyWithoutUpdated_byNestedInput
-  gear_type__created_by?: Prisma.GearTypeUpdateManyWithoutCreated_byNestedInput
-  gear_type__updated_by?: Prisma.GearTypeUpdateManyWithoutUpdated_byNestedInput
-  gear_type_relation__created_by?: Prisma.GearTypeRelationUpdateManyWithoutCreated_byNestedInput
-  gear_type_relation__updated_by?: Prisma.GearTypeRelationUpdateManyWithoutUpdated_byNestedInput
-  gear_specs_def__created_by?: Prisma.GearSpecsDefinitionUpdateManyWithoutCreated_byNestedInput
-  gear_specs_def__updated_by?: Prisma.GearSpecsDefinitionUpdateManyWithoutUpdated_byNestedInput
-  gear__created_by?: Prisma.GearUpdateManyWithoutCreated_byNestedInput
-  gear__updated_by?: Prisma.GearUpdateManyWithoutUpdated_byNestedInput
-  gear__verified_by?: Prisma.GearUpdateManyWithoutLast_verified_byNestedInput
-  gear__owner?: Prisma.GearUpdateManyWithoutOwnerNestedInput
-  descriptive_gear__created_by?: Prisma.DescriptiveGearUpdateManyWithoutCreated_byNestedInput
-  descriptive_gear__updated_by?: Prisma.DescriptiveGearUpdateManyWithoutUpdated_byNestedInput
-  descriptive_gear__owner?: Prisma.DescriptiveGearUpdateManyWithoutOwnerNestedInput
-  gear_specs__created_by?: Prisma.GearSpecsUpdateManyWithoutCreated_byNestedInput
-  gear_specs__updated_by?: Prisma.GearSpecsUpdateManyWithoutUpdated_byNestedInput
-  gear_feature__created_by?: Prisma.GearFeatureUpdateManyWithoutCreated_byNestedInput
-  gear_feature__updated_by?: Prisma.GearFeatureUpdateManyWithoutUpdated_byNestedInput
-  gear_variant__created_by?: Prisma.GearVariantUpdateManyWithoutCreated_byNestedInput
-  gear_variant__updated_by?: Prisma.GearVariantUpdateManyWithoutUpdated_byNestedInput
-  gear_pack__created_by?: Prisma.GearPackUpdateManyWithoutCreated_byNestedInput
-  gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
-  gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
-  gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
-  gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
-  gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
-  challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
-  challenge__updated_by?: Prisma.ChallengeUpdateManyWithoutUpdated_byNestedInput
-  challenge__verified_by?: Prisma.ChallengeUpdateManyWithoutLast_verified_byNestedInput
-  challenge_gear_requirement__created_by?: Prisma.ChallengeGearRequirementUpdateManyWithoutCreated_byNestedInput
-  challenge_gear_requirement__updated_by?: Prisma.ChallengeGearRequirementUpdateManyWithoutUpdated_byNestedInput
-  difficulty_system__created_by?: Prisma.DifficultySystemUpdateManyWithoutCreated_byNestedInput
-  difficulty_system__updated_by?: Prisma.DifficultySystemUpdateManyWithoutUpdated_byNestedInput
-  difficulty_mapping__created_by?: Prisma.DifficultyMappingUpdateManyWithoutCreated_byNestedInput
-  difficulty_mapping__updated_by?: Prisma.DifficultyMappingUpdateManyWithoutUpdated_byNestedInput
-  trail__created_by?: Prisma.TrailUpdateManyWithoutCreated_byNestedInput
-  trail__updated_by?: Prisma.TrailUpdateManyWithoutUpdated_byNestedInput
-  trail__verified_by?: Prisma.TrailUpdateManyWithoutLast_verified_byNestedInput
-  trail__owner?: Prisma.TrailUpdateManyWithoutOwnerNestedInput
-  trail_challenge__created_by?: Prisma.TrailChallengeUpdateManyWithoutCreated_byNestedInput
-  trail_challenge__updated_by?: Prisma.TrailChallengeUpdateManyWithoutUpdated_byNestedInput
-  trail_calendar__created_by?: Prisma.TrailCalendarUpdateManyWithoutCreated_byNestedInput
-  trail_calendar__updated_by?: Prisma.TrailCalendarUpdateManyWithoutUpdated_byNestedInput
-  trail_use__created_by?: Prisma.TrailUseUpdateManyWithoutCreated_byNestedInput
-  trail_use__updated_by?: Prisma.TrailUseUpdateManyWithoutUpdated_byNestedInput
-  trail_source__created_by?: Prisma.TrailSourceUpdateManyWithoutCreated_byNestedInput
-  trail_source__updated_by?: Prisma.TrailSourceUpdateManyWithoutUpdated_byNestedInput
-  trail_gear_requirement__created_by?: Prisma.TrailGearRequirementUpdateManyWithoutCreated_byNestedInput
-  trail_gear_requirement__updated_by?: Prisma.TrailGearRequirementUpdateManyWithoutUpdated_byNestedInput
-  trail_difficulty__created_by?: Prisma.TrailDifficultyUpdateManyWithoutCreated_byNestedInput
-  trail_difficulty__updated_by?: Prisma.TrailDifficultyUpdateManyWithoutUpdated_byNestedInput
-  trail_difficulty__verified_by?: Prisma.TrailDifficultyUpdateManyWithoutLast_verified_byNestedInput
-  trail_facility__created_by?: Prisma.TrailFacilityUpdateManyWithoutCreated_byNestedInput
-  trail_facility__updated_by?: Prisma.TrailFacilityUpdateManyWithoutUpdated_byNestedInput
-  trail_facility__verified_by?: Prisma.TrailFacilityUpdateManyWithoutLast_verified_byNestedInput
-  trail_profile__created_by?: Prisma.TrailProfileUpdateManyWithoutCreated_byNestedInput
-  trail_profile__updated_by?: Prisma.TrailProfileUpdateManyWithoutUpdated_byNestedInput
-  trail_profile__verified_by?: Prisma.TrailProfileUpdateManyWithoutLast_verified_byNestedInput
-  trail_profile__owner?: Prisma.TrailProfileUpdateManyWithoutOwnerNestedInput
-  trail_profile_use__created_by?: Prisma.TrailProfileUseUpdateManyWithoutCreated_byNestedInput
-  trail_profile_use__updated_by?: Prisma.TrailProfileUseUpdateManyWithoutUpdated_byNestedInput
-  access_point__created_by?: Prisma.AccessPointUpdateManyWithoutCreated_byNestedInput
-  access_point__updated_by?: Prisma.AccessPointUpdateManyWithoutUpdated_byNestedInput
-  access_point__verified_by?: Prisma.AccessPointUpdateManyWithoutLast_verified_byNestedInput
-  access_point__owner?: Prisma.AccessPointUpdateManyWithoutOwnerNestedInput
-  access_point__merged_by?: Prisma.AccessPointUpdateManyWithoutMerged_byNestedInput
-  access_point__canonical_proposed_by?: Prisma.AccessPointUpdateManyWithoutCanonical_proposed_byNestedInput
-  access_point__canonical_proposal_consent_by?: Prisma.AccessPointUpdateManyWithoutCanonical_proposal_consent_byNestedInput
-  access_point__canonical_proposal_resolved_by?: Prisma.AccessPointUpdateManyWithoutCanonical_proposal_resolved_byNestedInput
-  access_point_calendar__created_by?: Prisma.AccessPointCalendarUpdateManyWithoutCreated_byNestedInput
-  access_point_calendar__updated_by?: Prisma.AccessPointCalendarUpdateManyWithoutUpdated_byNestedInput
-  trail_access_point_relation__created_by?: Prisma.TrailAccessPointRelationUpdateManyWithoutCreated_byNestedInput
-  trail_access_point_relation__updated_by?: Prisma.TrailAccessPointRelationUpdateManyWithoutUpdated_byNestedInput
-  trail_access_point_relation__verified_by?: Prisma.TrailAccessPointRelationUpdateManyWithoutLast_verified_byNestedInput
-  trail_geometry__created_by?: Prisma.TrailGeometryUpdateManyWithoutCreated_byNestedInput
-  trail_geometry__updated_by?: Prisma.TrailGeometryUpdateManyWithoutUpdated_byNestedInput
-  trail_geometry__verified_by?: Prisma.TrailGeometryUpdateManyWithoutLast_verified_byNestedInput
-  trail_geometry__owner?: Prisma.TrailGeometryUpdateManyWithoutOwnerNestedInput
-  trail_segmentation__created_by?: Prisma.TrailSegmentationUpdateManyWithoutCreated_byNestedInput
-  trail_segmentation__updated_by?: Prisma.TrailSegmentationUpdateManyWithoutUpdated_byNestedInput
-  trail_segmentation__reviewed_by?: Prisma.TrailSegmentationUpdateManyWithoutLast_reviewed_byNestedInput
-  trail_segment_relation__created_by?: Prisma.TrailSegmentRelationUpdateManyWithoutCreated_byNestedInput
-  trail_segment_relation__updated_by?: Prisma.TrailSegmentRelationUpdateManyWithoutUpdated_byNestedInput
-  trail_segment_relation__reviewed_by?: Prisma.TrailSegmentRelationUpdateManyWithoutLast_reviewed_byNestedInput
-  trail_segmentation__owner?: Prisma.TrailSegmentationUpdateManyWithoutOwnerNestedInput
-  transport_service__created_by?: Prisma.TransportServiceUpdateManyWithoutCreated_byNestedInput
-  transport_service__updated_by?: Prisma.TransportServiceUpdateManyWithoutUpdated_byNestedInput
-  transport_service__verified_by?: Prisma.TransportServiceUpdateManyWithoutLast_verified_byNestedInput
-  transport_service_calendar__created_by?: Prisma.TransportServiceCalendarUpdateManyWithoutCreated_byNestedInput
-  transport_service_calendar__updated_by?: Prisma.TransportServiceCalendarUpdateManyWithoutUpdated_byNestedInput
-  transport_service_stop__created_by?: Prisma.TransportServiceStopUpdateManyWithoutCreated_byNestedInput
-  transport_service_stop__updated_by?: Prisma.TransportServiceStopUpdateManyWithoutUpdated_byNestedInput
-  trail_transport_service_created_by?: Prisma.TrailTransportServiceUpdateManyWithoutCreated_byNestedInput
-  trail_transport_service_updated_by?: Prisma.TrailTransportServiceUpdateManyWithoutUpdated_byNestedInput
-  trail_transport_service_verified_by?: Prisma.TrailTransportServiceUpdateManyWithoutLast_verified_byNestedInput
-  meal_pack__created_by?: Prisma.MealPackUpdateManyWithoutCreated_byNestedInput
-  meal_pack__updated_by?: Prisma.MealPackUpdateManyWithoutUpdated_byNestedInput
-  meal_pack__reviewed_by?: Prisma.MealPackUpdateManyWithoutLast_reviewed_byNestedInput
-  meal_pack__owner?: Prisma.MealPackUpdateManyWithoutOwnerNestedInput
-  meal_item__created_by?: Prisma.MealItemUpdateManyWithoutCreated_byNestedInput
-  meal_item__updated_by?: Prisma.MealItemUpdateManyWithoutUpdated_byNestedInput
-  meal_item__owner?: Prisma.MealItemUpdateManyWithoutOwnerNestedInput
-  meal_pack_item__created_by?: Prisma.MealPackItemUpdateManyWithoutCreated_byNestedInput
-  meal_pack_item__updated_by?: Prisma.MealPackItemUpdateManyWithoutUpdated_byNestedInput
-  meal_pack_item__user?: Prisma.MealPackItemUpdateManyWithoutUserNestedInput
-  user_trail__created_by?: Prisma.UserTrailUpdateManyWithoutCreated_byNestedInput
-  user_trail__updated_by?: Prisma.UserTrailUpdateManyWithoutUpdated_byNestedInput
-  user_trail__user?: Prisma.UserTrailUpdateManyWithoutUserNestedInput
-  user_trail_completion__created_by?: Prisma.UserTrailCompletionUpdateManyWithoutCreated_byNestedInput
-  user_trail_completion__updated_by?: Prisma.UserTrailCompletionUpdateManyWithoutUpdated_byNestedInput
-  user_gear__created_by?: Prisma.UserGearUpdateManyWithoutCreated_byNestedInput
-  user_gear__updated_by?: Prisma.UserGearUpdateManyWithoutUpdated_byNestedInput
-  user_gear__user?: Prisma.UserGearUpdateManyWithoutUserNestedInput
-  user_gear_pack__created_by?: Prisma.UserGearPackUpdateManyWithoutCreated_byNestedInput
-  user_gear_pack__updated_by?: Prisma.UserGearPackUpdateManyWithoutUpdated_byNestedInput
-  user_gear_pack__user?: Prisma.UserGearPackUpdateManyWithoutUserNestedInput
-  user_gear_pack_item__created_by?: Prisma.UserGearPackItemUpdateManyWithoutCreated_byNestedInput
-  user_gear_pack_item__updated_by?: Prisma.UserGearPackItemUpdateManyWithoutUpdated_byNestedInput
-  user_personal_archive__created_by?: Prisma.UserPersonalArchiveUpdateManyWithoutCreated_byNestedInput
-  user_personal_archive__updated_by?: Prisma.UserPersonalArchiveUpdateManyWithoutUpdated_byNestedInput
-  user_personal_archive__user?: Prisma.UserPersonalArchiveUpdateManyWithoutUserNestedInput
-  user_feedback__created_by?: Prisma.UserFeedbackUpdateManyWithoutCreated_byNestedInput
-  user_feedback__updated_by?: Prisma.UserFeedbackUpdateManyWithoutUpdated_byNestedInput
-  user_feedback__user?: Prisma.UserFeedbackUpdateManyWithoutLast_reviewed_byNestedInput
-  user_feedback__reviewed_by?: Prisma.UserFeedbackUpdateManyWithoutUserNestedInput
-  user_sticky_notes__created_by?: Prisma.UserStickyNotesUpdateManyWithoutCreated_byNestedInput
-  user_sticky_notes__updated_by?: Prisma.UserStickyNotesUpdateManyWithoutUpdated_byNestedInput
-  user_sticky_notes__user?: Prisma.UserStickyNotesUpdateManyWithoutUserNestedInput
-  user_idea_capture__created_by?: Prisma.UserIdeaCaptureUpdateManyWithoutCreated_byNestedInput
-  user_idea_capture__updated_by?: Prisma.UserIdeaCaptureUpdateManyWithoutUpdated_byNestedInput
-  user_idea_capture__user?: Prisma.UserIdeaCaptureUpdateManyWithoutUserNestedInput
-  trip__created_by?: Prisma.TripUpdateManyWithoutCreated_byNestedInput
-  trip__updated_by?: Prisma.TripUpdateManyWithoutUpdated_byNestedInput
-  trip__user?: Prisma.TripUpdateManyWithoutUserNestedInput
-  trip_accommodation__created_by?: Prisma.TripAccommodationUpdateManyWithoutCreated_byNestedInput
-  trip_accommodation__updated_by?: Prisma.TripAccommodationUpdateManyWithoutUpdated_byNestedInput
-  trip_gear_list__created_by?: Prisma.TripGearListUpdateManyWithoutCreated_byNestedInput
-  trip_gear_list__updated_by?: Prisma.TripGearListUpdateManyWithoutUpdated_byNestedInput
-  trip_meal_pack__created_by?: Prisma.TripMealPackUpdateManyWithoutCreated_byNestedInput
-  trip_meal_pack__updated_by?: Prisma.TripMealPackUpdateManyWithoutUpdated_byNestedInput
-  trip_meal_pack_item__created_by?: Prisma.TripMealPackItemUpdateManyWithoutCreated_byNestedInput
-  trip_meal_pack_item__updated_by?: Prisma.TripMealPackItemUpdateManyWithoutUpdated_byNestedInput
-  trip_trail__created_by?: Prisma.TripTrailUpdateManyWithoutCreated_byNestedInput
-  trip_trail__updated_by?: Prisma.TripTrailUpdateManyWithoutUpdated_byNestedInput
-  trip_transport__created_by?: Prisma.TripTransportUpdateManyWithoutCreated_byNestedInput
-  trip_transport__updated_by?: Prisma.TripTransportUpdateManyWithoutUpdated_byNestedInput
-  critical_event__created_by?: Prisma.CriticalEventUpdateManyWithoutCreated_byNestedInput
-  critical_event__updated_by?: Prisma.CriticalEventUpdateManyWithoutUpdated_byNestedInput
-  trip_checklist__created_by?: Prisma.TripChecklistUpdateManyWithoutCreated_byNestedInput
-  trip_checklist__updated_by?: Prisma.TripChecklistUpdateManyWithoutUpdated_byNestedInput
-  trip_checklist_item__created_by?: Prisma.TripChecklistItemUpdateManyWithoutCreated_byNestedInput
-  trip_checklist_item__updated_by?: Prisma.TripChecklistItemUpdateManyWithoutUpdated_byNestedInput
-  colleciton__created_by?: Prisma.CollectionUpdateManyWithoutCreated_byNestedInput
-  collection__updated_by?: Prisma.CollectionUpdateManyWithoutUpdated_byNestedInput
-  collection__reviewed_by?: Prisma.CollectionUpdateManyWithoutLast_reviewed_byNestedInput
-  colleciton__owner?: Prisma.CollectionUpdateManyWithoutOwnerNestedInput
-  collection_item__created_by?: Prisma.CollectionItemUpdateManyWithoutCreated_byNestedInput
-  collection_item__updated_by?: Prisma.CollectionItemUpdateManyWithoutUpdated_byNestedInput
-  collection_item__reviewed_by?: Prisma.CollectionItemUpdateManyWithoutLast_reviewed_byNestedInput
-  user_proposal__created_by?: Prisma.UserProposalUpdateManyWithoutCreated_byNestedInput
-  user_proposal__updated_by?: Prisma.UserProposalUpdateManyWithoutUpdated_byNestedInput
-  user_proposal__reviewed_by?: Prisma.UserProposalUpdateManyWithoutLast_reviewed_byNestedInput
-  user_proposal__user?: Prisma.UserProposalUpdateManyWithoutUserNestedInput
-  community_publication__created_by?: Prisma.CommunityPublicationUpdateManyWithoutCreated_byNestedInput
-  community_publication__updated_by?: Prisma.CommunityPublicationUpdateManyWithoutUpdated_byNestedInput
-  community_publication__submitted_by?: Prisma.CommunityPublicationUpdateManyWithoutSubmitted_byNestedInput
-  community_publication__reviewed_by?: Prisma.CommunityPublicationUpdateManyWithoutLast_reviewed_byNestedInput
-  community_publication__contributor?: Prisma.CommunityPublicationUpdateManyWithoutContriutorNestedInput
-  community_publication_item__created_by?: Prisma.CommunityPublicationItemUpdateManyWithoutCreated_byNestedInput
-  community_publication_item__updated_by?: Prisma.CommunityPublicationItemUpdateManyWithoutUpdated_byNestedInput
-  community_publication_item__reviewed_by?: Prisma.CommunityPublicationItemUpdateManyWithoutLast_reviewed_byNestedInput
-  community_publication_item__contributor?: Prisma.CommunityPublicationItemUpdateManyWithoutContriutorNestedInput
-  community_publication_attachment__created_by?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCreated_byNestedInput
-  community_publication_attachment__updated_by?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutUpdated_byNestedInput
-  record_action__requested_by?: Prisma.RecordActionUpdateManyWithoutRequested_byNestedInput
-  record_action__consent_by?: Prisma.RecordActionUpdateManyWithoutConsent_byNestedInput
-  record_action__performed_by?: Prisma.RecordActionUpdateManyWithoutPerformed_byNestedInput
-  record_action__updated_by?: Prisma.RecordActionUpdateManyWithoutUpdated_byNestedInput
-  content_review_history__requested_by?: Prisma.ContentReviewHistoryUpdateManyWithoutRequested_byNestedInput
-  content_review_history__reviewed_by?: Prisma.ContentReviewHistoryUpdateManyWithoutReviewed_byNestedInput
-}
-
-export type UserUncheckedUpdateWithoutGear_pack_template__created_byInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  created_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  updated_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  users__created_by?: Prisma.UserUncheckedUpdateManyWithoutCreated_byNestedInput
-  users__updated_by?: Prisma.UserUncheckedUpdateManyWithoutUpdated_byNestedInput
-  roles__created_by?: Prisma.RoleUncheckedUpdateManyWithoutCreated_byNestedInput
-  roles__updated_by?: Prisma.RoleUncheckedUpdateManyWithoutUpdated_byNestedInput
-  permissions__created_by?: Prisma.PermissionUncheckedUpdateManyWithoutCreated_byNestedInput
-  permissions__updated_by?: Prisma.PermissionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_roles_granted_by?: Prisma.UserRoleUncheckedUpdateManyWithoutGranted_byNestedInput
-  user_roles_revoked_by?: Prisma.UserRoleUncheckedUpdateManyWithoutRevoked_byNestedInput
-  user_roles_updated_by?: Prisma.UserRoleUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_role__user?: Prisma.UserRoleUncheckedUpdateManyWithoutUserNestedInput
-  role_permission_granted_by?: Prisma.RolePermissionUncheckedUpdateManyWithoutGranted_byNestedInput
-  role_permission_revoked_by?: Prisma.RolePermissionUncheckedUpdateManyWithoutRevoked_byNestedInput
-  role_permission_updated_by?: Prisma.RolePermissionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  alias__created_by?: Prisma.AliasUncheckedUpdateManyWithoutCreated_byNestedInput
-  alias__updated_by?: Prisma.AliasUncheckedUpdateManyWithoutUpdated_byNestedInput
-  media_archive__created_by?: Prisma.MediaArchiveUncheckedUpdateManyWithoutCreated_byNestedInput
-  media_archive__updated_by?: Prisma.MediaArchiveUncheckedUpdateManyWithoutUpdated_byNestedInput
-  media_archive__reviewed_by?: Prisma.MediaArchiveUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  media_archive__contributor?: Prisma.MediaArchiveUncheckedUpdateManyWithoutContributorNestedInput
-  attachement__created_by?: Prisma.AttachmentUncheckedUpdateManyWithoutCreated_byNestedInput
-  attachement__updated_by?: Prisma.AttachmentUncheckedUpdateManyWithoutUpdated_byNestedInput
-  attachement__reviewed_by?: Prisma.AttachmentUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  unit__created_by?: Prisma.UnitUncheckedUpdateManyWithoutCreated_byNestedInput
-  unit__updated_by?: Prisma.UnitUncheckedUpdateManyWithoutUpdated_byNestedInput
-  tag__created_by?: Prisma.TagUncheckedUpdateManyWithoutCreated_byNestedInput
-  tag__updated_by?: Prisma.TagUncheckedUpdateManyWithoutUpdated_byNestedInput
-  tag_group__created_by?: Prisma.TagGroupUncheckedUpdateManyWithoutCreated_byNestedInput
-  tag_group__updated_by?: Prisma.TagGroupUncheckedUpdateManyWithoutUpdated_byNestedInput
-  tag_relation__created_by?: Prisma.TagRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  tag_relation__updated_by?: Prisma.TagRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  tag_group_relation__created_by?: Prisma.TagGroupRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  tag_group_relation__updated_by?: Prisma.TagGroupRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_tag_relation__created_by?: Prisma.GearTagRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_tag_relation__updated_by?: Prisma.GearTagRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_tag_relation__created_by?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_tag_relation__updated_by?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  brand__created_by?: Prisma.BrandUncheckedUpdateManyWithoutCreated_byNestedInput
-  brand__updated_by?: Prisma.BrandUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_type__created_by?: Prisma.GearTypeUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_type__updated_by?: Prisma.GearTypeUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_type_relation__created_by?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_type_relation__updated_by?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_specs_def__created_by?: Prisma.GearSpecsDefinitionUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_specs_def__updated_by?: Prisma.GearSpecsDefinitionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear__created_by?: Prisma.GearUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear__updated_by?: Prisma.GearUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear__verified_by?: Prisma.GearUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  gear__owner?: Prisma.GearUncheckedUpdateManyWithoutOwnerNestedInput
-  descriptive_gear__created_by?: Prisma.DescriptiveGearUncheckedUpdateManyWithoutCreated_byNestedInput
-  descriptive_gear__updated_by?: Prisma.DescriptiveGearUncheckedUpdateManyWithoutUpdated_byNestedInput
-  descriptive_gear__owner?: Prisma.DescriptiveGearUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_specs__created_by?: Prisma.GearSpecsUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_specs__updated_by?: Prisma.GearSpecsUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_feature__created_by?: Prisma.GearFeatureUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_feature__updated_by?: Prisma.GearFeatureUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_variant__created_by?: Prisma.GearVariantUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_variant__updated_by?: Prisma.GearVariantUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_pack__created_by?: Prisma.GearPackUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
-  challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
-  challenge__updated_by?: Prisma.ChallengeUncheckedUpdateManyWithoutUpdated_byNestedInput
-  challenge__verified_by?: Prisma.ChallengeUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  challenge_gear_requirement__created_by?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutCreated_byNestedInput
-  challenge_gear_requirement__updated_by?: Prisma.ChallengeGearRequirementUncheckedUpdateManyWithoutUpdated_byNestedInput
-  difficulty_system__created_by?: Prisma.DifficultySystemUncheckedUpdateManyWithoutCreated_byNestedInput
-  difficulty_system__updated_by?: Prisma.DifficultySystemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  difficulty_mapping__created_by?: Prisma.DifficultyMappingUncheckedUpdateManyWithoutCreated_byNestedInput
-  difficulty_mapping__updated_by?: Prisma.DifficultyMappingUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail__created_by?: Prisma.TrailUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail__updated_by?: Prisma.TrailUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail__verified_by?: Prisma.TrailUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail__owner?: Prisma.TrailUncheckedUpdateManyWithoutOwnerNestedInput
-  trail_challenge__created_by?: Prisma.TrailChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_challenge__updated_by?: Prisma.TrailChallengeUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_calendar__created_by?: Prisma.TrailCalendarUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_calendar__updated_by?: Prisma.TrailCalendarUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_use__created_by?: Prisma.TrailUseUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_use__updated_by?: Prisma.TrailUseUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_source__created_by?: Prisma.TrailSourceUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_source__updated_by?: Prisma.TrailSourceUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_gear_requirement__created_by?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_gear_requirement__updated_by?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_difficulty__created_by?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_difficulty__updated_by?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_difficulty__verified_by?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_facility__created_by?: Prisma.TrailFacilityUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_facility__updated_by?: Prisma.TrailFacilityUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_facility__verified_by?: Prisma.TrailFacilityUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_profile__created_by?: Prisma.TrailProfileUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_profile__updated_by?: Prisma.TrailProfileUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_profile__verified_by?: Prisma.TrailProfileUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_profile__owner?: Prisma.TrailProfileUncheckedUpdateManyWithoutOwnerNestedInput
-  trail_profile_use__created_by?: Prisma.TrailProfileUseUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_profile_use__updated_by?: Prisma.TrailProfileUseUncheckedUpdateManyWithoutUpdated_byNestedInput
-  access_point__created_by?: Prisma.AccessPointUncheckedUpdateManyWithoutCreated_byNestedInput
-  access_point__updated_by?: Prisma.AccessPointUncheckedUpdateManyWithoutUpdated_byNestedInput
-  access_point__verified_by?: Prisma.AccessPointUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  access_point__owner?: Prisma.AccessPointUncheckedUpdateManyWithoutOwnerNestedInput
-  access_point__merged_by?: Prisma.AccessPointUncheckedUpdateManyWithoutMerged_byNestedInput
-  access_point__canonical_proposed_by?: Prisma.AccessPointUncheckedUpdateManyWithoutCanonical_proposed_byNestedInput
-  access_point__canonical_proposal_consent_by?: Prisma.AccessPointUncheckedUpdateManyWithoutCanonical_proposal_consent_byNestedInput
-  access_point__canonical_proposal_resolved_by?: Prisma.AccessPointUncheckedUpdateManyWithoutCanonical_proposal_resolved_byNestedInput
-  access_point_calendar__created_by?: Prisma.AccessPointCalendarUncheckedUpdateManyWithoutCreated_byNestedInput
-  access_point_calendar__updated_by?: Prisma.AccessPointCalendarUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_access_point_relation__created_by?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_access_point_relation__updated_by?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_access_point_relation__verified_by?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_geometry__created_by?: Prisma.TrailGeometryUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_geometry__updated_by?: Prisma.TrailGeometryUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_geometry__verified_by?: Prisma.TrailGeometryUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  trail_geometry__owner?: Prisma.TrailGeometryUncheckedUpdateManyWithoutOwnerNestedInput
-  trail_segmentation__created_by?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_segmentation__updated_by?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_segmentation__reviewed_by?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  trail_segment_relation__created_by?: Prisma.TrailSegmentRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_segment_relation__updated_by?: Prisma.TrailSegmentRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_segment_relation__reviewed_by?: Prisma.TrailSegmentRelationUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  trail_segmentation__owner?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutOwnerNestedInput
-  transport_service__created_by?: Prisma.TransportServiceUncheckedUpdateManyWithoutCreated_byNestedInput
-  transport_service__updated_by?: Prisma.TransportServiceUncheckedUpdateManyWithoutUpdated_byNestedInput
-  transport_service__verified_by?: Prisma.TransportServiceUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  transport_service_calendar__created_by?: Prisma.TransportServiceCalendarUncheckedUpdateManyWithoutCreated_byNestedInput
-  transport_service_calendar__updated_by?: Prisma.TransportServiceCalendarUncheckedUpdateManyWithoutUpdated_byNestedInput
-  transport_service_stop__created_by?: Prisma.TransportServiceStopUncheckedUpdateManyWithoutCreated_byNestedInput
-  transport_service_stop__updated_by?: Prisma.TransportServiceStopUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_transport_service_created_by?: Prisma.TrailTransportServiceUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_transport_service_updated_by?: Prisma.TrailTransportServiceUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_transport_service_verified_by?: Prisma.TrailTransportServiceUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  meal_pack__created_by?: Prisma.MealPackUncheckedUpdateManyWithoutCreated_byNestedInput
-  meal_pack__updated_by?: Prisma.MealPackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  meal_pack__reviewed_by?: Prisma.MealPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  meal_pack__owner?: Prisma.MealPackUncheckedUpdateManyWithoutOwnerNestedInput
-  meal_item__created_by?: Prisma.MealItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  meal_item__updated_by?: Prisma.MealItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  meal_item__owner?: Prisma.MealItemUncheckedUpdateManyWithoutOwnerNestedInput
-  meal_pack_item__created_by?: Prisma.MealPackItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  meal_pack_item__updated_by?: Prisma.MealPackItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  meal_pack_item__user?: Prisma.MealPackItemUncheckedUpdateManyWithoutUserNestedInput
-  user_trail__created_by?: Prisma.UserTrailUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_trail__updated_by?: Prisma.UserTrailUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_trail__user?: Prisma.UserTrailUncheckedUpdateManyWithoutUserNestedInput
-  user_trail_completion__created_by?: Prisma.UserTrailCompletionUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_trail_completion__updated_by?: Prisma.UserTrailCompletionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_gear__created_by?: Prisma.UserGearUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_gear__updated_by?: Prisma.UserGearUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_gear__user?: Prisma.UserGearUncheckedUpdateManyWithoutUserNestedInput
-  user_gear_pack__created_by?: Prisma.UserGearPackUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_gear_pack__updated_by?: Prisma.UserGearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_gear_pack__user?: Prisma.UserGearPackUncheckedUpdateManyWithoutUserNestedInput
-  user_gear_pack_item__created_by?: Prisma.UserGearPackItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_gear_pack_item__updated_by?: Prisma.UserGearPackItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_personal_archive__created_by?: Prisma.UserPersonalArchiveUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_personal_archive__updated_by?: Prisma.UserPersonalArchiveUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_personal_archive__user?: Prisma.UserPersonalArchiveUncheckedUpdateManyWithoutUserNestedInput
-  user_feedback__created_by?: Prisma.UserFeedbackUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_feedback__updated_by?: Prisma.UserFeedbackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_feedback__user?: Prisma.UserFeedbackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  user_feedback__reviewed_by?: Prisma.UserFeedbackUncheckedUpdateManyWithoutUserNestedInput
-  user_sticky_notes__created_by?: Prisma.UserStickyNotesUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_sticky_notes__updated_by?: Prisma.UserStickyNotesUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_sticky_notes__user?: Prisma.UserStickyNotesUncheckedUpdateManyWithoutUserNestedInput
-  user_idea_capture__created_by?: Prisma.UserIdeaCaptureUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_idea_capture__updated_by?: Prisma.UserIdeaCaptureUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_idea_capture__user?: Prisma.UserIdeaCaptureUncheckedUpdateManyWithoutUserNestedInput
-  trip__created_by?: Prisma.TripUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip__updated_by?: Prisma.TripUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip__user?: Prisma.TripUncheckedUpdateManyWithoutUserNestedInput
-  trip_accommodation__created_by?: Prisma.TripAccommodationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_accommodation__updated_by?: Prisma.TripAccommodationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_gear_list__created_by?: Prisma.TripGearListUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_gear_list__updated_by?: Prisma.TripGearListUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_meal_pack__created_by?: Prisma.TripMealPackUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_meal_pack__updated_by?: Prisma.TripMealPackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_meal_pack_item__created_by?: Prisma.TripMealPackItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_meal_pack_item__updated_by?: Prisma.TripMealPackItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_trail__created_by?: Prisma.TripTrailUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_trail__updated_by?: Prisma.TripTrailUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_transport__created_by?: Prisma.TripTransportUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_transport__updated_by?: Prisma.TripTransportUncheckedUpdateManyWithoutUpdated_byNestedInput
-  critical_event__created_by?: Prisma.CriticalEventUncheckedUpdateManyWithoutCreated_byNestedInput
-  critical_event__updated_by?: Prisma.CriticalEventUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_checklist__created_by?: Prisma.TripChecklistUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_checklist__updated_by?: Prisma.TripChecklistUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trip_checklist_item__created_by?: Prisma.TripChecklistItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  trip_checklist_item__updated_by?: Prisma.TripChecklistItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  colleciton__created_by?: Prisma.CollectionUncheckedUpdateManyWithoutCreated_byNestedInput
-  collection__updated_by?: Prisma.CollectionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  collection__reviewed_by?: Prisma.CollectionUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  colleciton__owner?: Prisma.CollectionUncheckedUpdateManyWithoutOwnerNestedInput
-  collection_item__created_by?: Prisma.CollectionItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  collection_item__updated_by?: Prisma.CollectionItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  collection_item__reviewed_by?: Prisma.CollectionItemUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  user_proposal__created_by?: Prisma.UserProposalUncheckedUpdateManyWithoutCreated_byNestedInput
-  user_proposal__updated_by?: Prisma.UserProposalUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_proposal__reviewed_by?: Prisma.UserProposalUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  user_proposal__user?: Prisma.UserProposalUncheckedUpdateManyWithoutUserNestedInput
-  community_publication__created_by?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutCreated_byNestedInput
-  community_publication__updated_by?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  community_publication__submitted_by?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutSubmitted_byNestedInput
-  community_publication__reviewed_by?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  community_publication__contributor?: Prisma.CommunityPublicationUncheckedUpdateManyWithoutContriutorNestedInput
-  community_publication_item__created_by?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutCreated_byNestedInput
-  community_publication_item__updated_by?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutUpdated_byNestedInput
-  community_publication_item__reviewed_by?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  community_publication_item__contributor?: Prisma.CommunityPublicationItemUncheckedUpdateManyWithoutContriutorNestedInput
-  community_publication_attachment__created_by?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutCreated_byNestedInput
-  community_publication_attachment__updated_by?: Prisma.CommunityPublicationAttachmentUncheckedUpdateManyWithoutUpdated_byNestedInput
-  record_action__requested_by?: Prisma.RecordActionUncheckedUpdateManyWithoutRequested_byNestedInput
-  record_action__consent_by?: Prisma.RecordActionUncheckedUpdateManyWithoutConsent_byNestedInput
-  record_action__performed_by?: Prisma.RecordActionUncheckedUpdateManyWithoutPerformed_byNestedInput
-  record_action__updated_by?: Prisma.RecordActionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  content_review_history__requested_by?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutRequested_byNestedInput
-  content_review_history__reviewed_by?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutReviewed_byNestedInput
-}
-
-export type UserUpsertWithoutGear_pack_template__updated_byInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutGear_pack_template__updated_byInput, Prisma.UserUncheckedUpdateWithoutGear_pack_template__updated_byInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutGear_pack_template__updated_byInput, Prisma.UserUncheckedCreateWithoutGear_pack_template__updated_byInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutGear_pack_template__updated_byInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutGear_pack_template__updated_byInput, Prisma.UserUncheckedUpdateWithoutGear_pack_template__updated_byInput>
-}
-
-export type UserUpdateWithoutGear_pack_template__updated_byInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  created_by?: Prisma.UserUpdateOneWithoutUsers__created_byNestedInput
-  updated_by?: Prisma.UserUpdateOneWithoutUsers__updated_byNestedInput
-  users__created_by?: Prisma.UserUpdateManyWithoutCreated_byNestedInput
-  users__updated_by?: Prisma.UserUpdateManyWithoutUpdated_byNestedInput
-  roles__created_by?: Prisma.RoleUpdateManyWithoutCreated_byNestedInput
-  roles__updated_by?: Prisma.RoleUpdateManyWithoutUpdated_byNestedInput
-  permissions__created_by?: Prisma.PermissionUpdateManyWithoutCreated_byNestedInput
-  permissions__updated_by?: Prisma.PermissionUpdateManyWithoutUpdated_byNestedInput
-  user_roles_granted_by?: Prisma.UserRoleUpdateManyWithoutGranted_byNestedInput
-  user_roles_revoked_by?: Prisma.UserRoleUpdateManyWithoutRevoked_byNestedInput
-  user_roles_updated_by?: Prisma.UserRoleUpdateManyWithoutUpdated_byNestedInput
-  user_role__user?: Prisma.UserRoleUpdateManyWithoutUserNestedInput
-  role_permission_granted_by?: Prisma.RolePermissionUpdateManyWithoutGranted_byNestedInput
-  role_permission_revoked_by?: Prisma.RolePermissionUpdateManyWithoutRevoked_byNestedInput
-  role_permission_updated_by?: Prisma.RolePermissionUpdateManyWithoutUpdated_byNestedInput
-  alias__created_by?: Prisma.AliasUpdateManyWithoutCreated_byNestedInput
-  alias__updated_by?: Prisma.AliasUpdateManyWithoutUpdated_byNestedInput
-  media_archive__created_by?: Prisma.MediaArchiveUpdateManyWithoutCreated_byNestedInput
-  media_archive__updated_by?: Prisma.MediaArchiveUpdateManyWithoutUpdated_byNestedInput
-  media_archive__reviewed_by?: Prisma.MediaArchiveUpdateManyWithoutLast_reviewed_byNestedInput
-  media_archive__contributor?: Prisma.MediaArchiveUpdateManyWithoutContributorNestedInput
-  attachement__created_by?: Prisma.AttachmentUpdateManyWithoutCreated_byNestedInput
-  attachement__updated_by?: Prisma.AttachmentUpdateManyWithoutUpdated_byNestedInput
-  attachement__reviewed_by?: Prisma.AttachmentUpdateManyWithoutLast_reviewed_byNestedInput
-  unit__created_by?: Prisma.UnitUpdateManyWithoutCreated_byNestedInput
-  unit__updated_by?: Prisma.UnitUpdateManyWithoutUpdated_byNestedInput
-  tag__created_by?: Prisma.TagUpdateManyWithoutCreated_byNestedInput
-  tag__updated_by?: Prisma.TagUpdateManyWithoutUpdated_byNestedInput
-  tag_group__created_by?: Prisma.TagGroupUpdateManyWithoutCreated_byNestedInput
-  tag_group__updated_by?: Prisma.TagGroupUpdateManyWithoutUpdated_byNestedInput
-  tag_relation__created_by?: Prisma.TagRelationUpdateManyWithoutCreated_byNestedInput
-  tag_relation__updated_by?: Prisma.TagRelationUpdateManyWithoutUpdated_byNestedInput
-  tag_group_relation__created_by?: Prisma.TagGroupRelationUpdateManyWithoutCreated_byNestedInput
-  tag_group_relation__updated_by?: Prisma.TagGroupRelationUpdateManyWithoutUpdated_byNestedInput
-  gear_tag_relation__created_by?: Prisma.GearTagRelationUpdateManyWithoutCreated_byNestedInput
-  gear_tag_relation__updated_by?: Prisma.GearTagRelationUpdateManyWithoutUpdated_byNestedInput
-  trail_tag_relation__created_by?: Prisma.TrailTagRelationUpdateManyWithoutCreated_byNestedInput
-  trail_tag_relation__updated_by?: Prisma.TrailTagRelationUpdateManyWithoutUpdated_byNestedInput
-  brand__created_by?: Prisma.BrandUpdateManyWithoutCreated_byNestedInput
-  brand__updated_by?: Prisma.BrandUpdateManyWithoutUpdated_byNestedInput
-  gear_type__created_by?: Prisma.GearTypeUpdateManyWithoutCreated_byNestedInput
-  gear_type__updated_by?: Prisma.GearTypeUpdateManyWithoutUpdated_byNestedInput
-  gear_type_relation__created_by?: Prisma.GearTypeRelationUpdateManyWithoutCreated_byNestedInput
-  gear_type_relation__updated_by?: Prisma.GearTypeRelationUpdateManyWithoutUpdated_byNestedInput
-  gear_specs_def__created_by?: Prisma.GearSpecsDefinitionUpdateManyWithoutCreated_byNestedInput
-  gear_specs_def__updated_by?: Prisma.GearSpecsDefinitionUpdateManyWithoutUpdated_byNestedInput
-  gear__created_by?: Prisma.GearUpdateManyWithoutCreated_byNestedInput
-  gear__updated_by?: Prisma.GearUpdateManyWithoutUpdated_byNestedInput
-  gear__verified_by?: Prisma.GearUpdateManyWithoutLast_verified_byNestedInput
-  gear__owner?: Prisma.GearUpdateManyWithoutOwnerNestedInput
-  descriptive_gear__created_by?: Prisma.DescriptiveGearUpdateManyWithoutCreated_byNestedInput
-  descriptive_gear__updated_by?: Prisma.DescriptiveGearUpdateManyWithoutUpdated_byNestedInput
-  descriptive_gear__owner?: Prisma.DescriptiveGearUpdateManyWithoutOwnerNestedInput
-  gear_specs__created_by?: Prisma.GearSpecsUpdateManyWithoutCreated_byNestedInput
-  gear_specs__updated_by?: Prisma.GearSpecsUpdateManyWithoutUpdated_byNestedInput
-  gear_feature__created_by?: Prisma.GearFeatureUpdateManyWithoutCreated_byNestedInput
-  gear_feature__updated_by?: Prisma.GearFeatureUpdateManyWithoutUpdated_byNestedInput
-  gear_variant__created_by?: Prisma.GearVariantUpdateManyWithoutCreated_byNestedInput
-  gear_variant__updated_by?: Prisma.GearVariantUpdateManyWithoutUpdated_byNestedInput
-  gear_pack__created_by?: Prisma.GearPackUpdateManyWithoutCreated_byNestedInput
-  gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
-  gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
-  gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
-  gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
-  challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
-  challenge__updated_by?: Prisma.ChallengeUpdateManyWithoutUpdated_byNestedInput
-  challenge__verified_by?: Prisma.ChallengeUpdateManyWithoutLast_verified_byNestedInput
-  challenge_gear_requirement__created_by?: Prisma.ChallengeGearRequirementUpdateManyWithoutCreated_byNestedInput
-  challenge_gear_requirement__updated_by?: Prisma.ChallengeGearRequirementUpdateManyWithoutUpdated_byNestedInput
-  difficulty_system__created_by?: Prisma.DifficultySystemUpdateManyWithoutCreated_byNestedInput
-  difficulty_system__updated_by?: Prisma.DifficultySystemUpdateManyWithoutUpdated_byNestedInput
-  difficulty_mapping__created_by?: Prisma.DifficultyMappingUpdateManyWithoutCreated_byNestedInput
-  difficulty_mapping__updated_by?: Prisma.DifficultyMappingUpdateManyWithoutUpdated_byNestedInput
-  trail__created_by?: Prisma.TrailUpdateManyWithoutCreated_byNestedInput
-  trail__updated_by?: Prisma.TrailUpdateManyWithoutUpdated_byNestedInput
-  trail__verified_by?: Prisma.TrailUpdateManyWithoutLast_verified_byNestedInput
-  trail__owner?: Prisma.TrailUpdateManyWithoutOwnerNestedInput
-  trail_challenge__created_by?: Prisma.TrailChallengeUpdateManyWithoutCreated_byNestedInput
-  trail_challenge__updated_by?: Prisma.TrailChallengeUpdateManyWithoutUpdated_byNestedInput
-  trail_calendar__created_by?: Prisma.TrailCalendarUpdateManyWithoutCreated_byNestedInput
-  trail_calendar__updated_by?: Prisma.TrailCalendarUpdateManyWithoutUpdated_byNestedInput
-  trail_use__created_by?: Prisma.TrailUseUpdateManyWithoutCreated_byNestedInput
-  trail_use__updated_by?: Prisma.TrailUseUpdateManyWithoutUpdated_byNestedInput
-  trail_source__created_by?: Prisma.TrailSourceUpdateManyWithoutCreated_byNestedInput
-  trail_source__updated_by?: Prisma.TrailSourceUpdateManyWithoutUpdated_byNestedInput
-  trail_gear_requirement__created_by?: Prisma.TrailGearRequirementUpdateManyWithoutCreated_byNestedInput
-  trail_gear_requirement__updated_by?: Prisma.TrailGearRequirementUpdateManyWithoutUpdated_byNestedInput
-  trail_difficulty__created_by?: Prisma.TrailDifficultyUpdateManyWithoutCreated_byNestedInput
-  trail_difficulty__updated_by?: Prisma.TrailDifficultyUpdateManyWithoutUpdated_byNestedInput
-  trail_difficulty__verified_by?: Prisma.TrailDifficultyUpdateManyWithoutLast_verified_byNestedInput
-  trail_facility__created_by?: Prisma.TrailFacilityUpdateManyWithoutCreated_byNestedInput
-  trail_facility__updated_by?: Prisma.TrailFacilityUpdateManyWithoutUpdated_byNestedInput
-  trail_facility__verified_by?: Prisma.TrailFacilityUpdateManyWithoutLast_verified_byNestedInput
-  trail_profile__created_by?: Prisma.TrailProfileUpdateManyWithoutCreated_byNestedInput
-  trail_profile__updated_by?: Prisma.TrailProfileUpdateManyWithoutUpdated_byNestedInput
-  trail_profile__verified_by?: Prisma.TrailProfileUpdateManyWithoutLast_verified_byNestedInput
-  trail_profile__owner?: Prisma.TrailProfileUpdateManyWithoutOwnerNestedInput
-  trail_profile_use__created_by?: Prisma.TrailProfileUseUpdateManyWithoutCreated_byNestedInput
-  trail_profile_use__updated_by?: Prisma.TrailProfileUseUpdateManyWithoutUpdated_byNestedInput
-  access_point__created_by?: Prisma.AccessPointUpdateManyWithoutCreated_byNestedInput
-  access_point__updated_by?: Prisma.AccessPointUpdateManyWithoutUpdated_byNestedInput
-  access_point__verified_by?: Prisma.AccessPointUpdateManyWithoutLast_verified_byNestedInput
-  access_point__owner?: Prisma.AccessPointUpdateManyWithoutOwnerNestedInput
-  access_point__merged_by?: Prisma.AccessPointUpdateManyWithoutMerged_byNestedInput
-  access_point__canonical_proposed_by?: Prisma.AccessPointUpdateManyWithoutCanonical_proposed_byNestedInput
-  access_point__canonical_proposal_consent_by?: Prisma.AccessPointUpdateManyWithoutCanonical_proposal_consent_byNestedInput
-  access_point__canonical_proposal_resolved_by?: Prisma.AccessPointUpdateManyWithoutCanonical_proposal_resolved_byNestedInput
-  access_point_calendar__created_by?: Prisma.AccessPointCalendarUpdateManyWithoutCreated_byNestedInput
-  access_point_calendar__updated_by?: Prisma.AccessPointCalendarUpdateManyWithoutUpdated_byNestedInput
-  trail_access_point_relation__created_by?: Prisma.TrailAccessPointRelationUpdateManyWithoutCreated_byNestedInput
-  trail_access_point_relation__updated_by?: Prisma.TrailAccessPointRelationUpdateManyWithoutUpdated_byNestedInput
-  trail_access_point_relation__verified_by?: Prisma.TrailAccessPointRelationUpdateManyWithoutLast_verified_byNestedInput
-  trail_geometry__created_by?: Prisma.TrailGeometryUpdateManyWithoutCreated_byNestedInput
-  trail_geometry__updated_by?: Prisma.TrailGeometryUpdateManyWithoutUpdated_byNestedInput
-  trail_geometry__verified_by?: Prisma.TrailGeometryUpdateManyWithoutLast_verified_byNestedInput
-  trail_geometry__owner?: Prisma.TrailGeometryUpdateManyWithoutOwnerNestedInput
-  trail_segmentation__created_by?: Prisma.TrailSegmentationUpdateManyWithoutCreated_byNestedInput
-  trail_segmentation__updated_by?: Prisma.TrailSegmentationUpdateManyWithoutUpdated_byNestedInput
-  trail_segmentation__reviewed_by?: Prisma.TrailSegmentationUpdateManyWithoutLast_reviewed_byNestedInput
-  trail_segment_relation__created_by?: Prisma.TrailSegmentRelationUpdateManyWithoutCreated_byNestedInput
-  trail_segment_relation__updated_by?: Prisma.TrailSegmentRelationUpdateManyWithoutUpdated_byNestedInput
-  trail_segment_relation__reviewed_by?: Prisma.TrailSegmentRelationUpdateManyWithoutLast_reviewed_byNestedInput
-  trail_segmentation__owner?: Prisma.TrailSegmentationUpdateManyWithoutOwnerNestedInput
-  transport_service__created_by?: Prisma.TransportServiceUpdateManyWithoutCreated_byNestedInput
-  transport_service__updated_by?: Prisma.TransportServiceUpdateManyWithoutUpdated_byNestedInput
-  transport_service__verified_by?: Prisma.TransportServiceUpdateManyWithoutLast_verified_byNestedInput
-  transport_service_calendar__created_by?: Prisma.TransportServiceCalendarUpdateManyWithoutCreated_byNestedInput
-  transport_service_calendar__updated_by?: Prisma.TransportServiceCalendarUpdateManyWithoutUpdated_byNestedInput
-  transport_service_stop__created_by?: Prisma.TransportServiceStopUpdateManyWithoutCreated_byNestedInput
-  transport_service_stop__updated_by?: Prisma.TransportServiceStopUpdateManyWithoutUpdated_byNestedInput
-  trail_transport_service_created_by?: Prisma.TrailTransportServiceUpdateManyWithoutCreated_byNestedInput
-  trail_transport_service_updated_by?: Prisma.TrailTransportServiceUpdateManyWithoutUpdated_byNestedInput
-  trail_transport_service_verified_by?: Prisma.TrailTransportServiceUpdateManyWithoutLast_verified_byNestedInput
-  meal_pack__created_by?: Prisma.MealPackUpdateManyWithoutCreated_byNestedInput
-  meal_pack__updated_by?: Prisma.MealPackUpdateManyWithoutUpdated_byNestedInput
-  meal_pack__reviewed_by?: Prisma.MealPackUpdateManyWithoutLast_reviewed_byNestedInput
-  meal_pack__owner?: Prisma.MealPackUpdateManyWithoutOwnerNestedInput
-  meal_item__created_by?: Prisma.MealItemUpdateManyWithoutCreated_byNestedInput
-  meal_item__updated_by?: Prisma.MealItemUpdateManyWithoutUpdated_byNestedInput
-  meal_item__owner?: Prisma.MealItemUpdateManyWithoutOwnerNestedInput
-  meal_pack_item__created_by?: Prisma.MealPackItemUpdateManyWithoutCreated_byNestedInput
-  meal_pack_item__updated_by?: Prisma.MealPackItemUpdateManyWithoutUpdated_byNestedInput
-  meal_pack_item__user?: Prisma.MealPackItemUpdateManyWithoutUserNestedInput
-  user_trail__created_by?: Prisma.UserTrailUpdateManyWithoutCreated_byNestedInput
-  user_trail__updated_by?: Prisma.UserTrailUpdateManyWithoutUpdated_byNestedInput
-  user_trail__user?: Prisma.UserTrailUpdateManyWithoutUserNestedInput
-  user_trail_completion__created_by?: Prisma.UserTrailCompletionUpdateManyWithoutCreated_byNestedInput
-  user_trail_completion__updated_by?: Prisma.UserTrailCompletionUpdateManyWithoutUpdated_byNestedInput
-  user_gear__created_by?: Prisma.UserGearUpdateManyWithoutCreated_byNestedInput
-  user_gear__updated_by?: Prisma.UserGearUpdateManyWithoutUpdated_byNestedInput
-  user_gear__user?: Prisma.UserGearUpdateManyWithoutUserNestedInput
-  user_gear_pack__created_by?: Prisma.UserGearPackUpdateManyWithoutCreated_byNestedInput
-  user_gear_pack__updated_by?: Prisma.UserGearPackUpdateManyWithoutUpdated_byNestedInput
-  user_gear_pack__user?: Prisma.UserGearPackUpdateManyWithoutUserNestedInput
-  user_gear_pack_item__created_by?: Prisma.UserGearPackItemUpdateManyWithoutCreated_byNestedInput
-  user_gear_pack_item__updated_by?: Prisma.UserGearPackItemUpdateManyWithoutUpdated_byNestedInput
-  user_personal_archive__created_by?: Prisma.UserPersonalArchiveUpdateManyWithoutCreated_byNestedInput
-  user_personal_archive__updated_by?: Prisma.UserPersonalArchiveUpdateManyWithoutUpdated_byNestedInput
-  user_personal_archive__user?: Prisma.UserPersonalArchiveUpdateManyWithoutUserNestedInput
-  user_feedback__created_by?: Prisma.UserFeedbackUpdateManyWithoutCreated_byNestedInput
-  user_feedback__updated_by?: Prisma.UserFeedbackUpdateManyWithoutUpdated_byNestedInput
-  user_feedback__user?: Prisma.UserFeedbackUpdateManyWithoutLast_reviewed_byNestedInput
-  user_feedback__reviewed_by?: Prisma.UserFeedbackUpdateManyWithoutUserNestedInput
-  user_sticky_notes__created_by?: Prisma.UserStickyNotesUpdateManyWithoutCreated_byNestedInput
-  user_sticky_notes__updated_by?: Prisma.UserStickyNotesUpdateManyWithoutUpdated_byNestedInput
-  user_sticky_notes__user?: Prisma.UserStickyNotesUpdateManyWithoutUserNestedInput
-  user_idea_capture__created_by?: Prisma.UserIdeaCaptureUpdateManyWithoutCreated_byNestedInput
-  user_idea_capture__updated_by?: Prisma.UserIdeaCaptureUpdateManyWithoutUpdated_byNestedInput
-  user_idea_capture__user?: Prisma.UserIdeaCaptureUpdateManyWithoutUserNestedInput
-  trip__created_by?: Prisma.TripUpdateManyWithoutCreated_byNestedInput
-  trip__updated_by?: Prisma.TripUpdateManyWithoutUpdated_byNestedInput
-  trip__user?: Prisma.TripUpdateManyWithoutUserNestedInput
-  trip_accommodation__created_by?: Prisma.TripAccommodationUpdateManyWithoutCreated_byNestedInput
-  trip_accommodation__updated_by?: Prisma.TripAccommodationUpdateManyWithoutUpdated_byNestedInput
-  trip_gear_list__created_by?: Prisma.TripGearListUpdateManyWithoutCreated_byNestedInput
-  trip_gear_list__updated_by?: Prisma.TripGearListUpdateManyWithoutUpdated_byNestedInput
-  trip_meal_pack__created_by?: Prisma.TripMealPackUpdateManyWithoutCreated_byNestedInput
-  trip_meal_pack__updated_by?: Prisma.TripMealPackUpdateManyWithoutUpdated_byNestedInput
-  trip_meal_pack_item__created_by?: Prisma.TripMealPackItemUpdateManyWithoutCreated_byNestedInput
-  trip_meal_pack_item__updated_by?: Prisma.TripMealPackItemUpdateManyWithoutUpdated_byNestedInput
-  trip_trail__created_by?: Prisma.TripTrailUpdateManyWithoutCreated_byNestedInput
-  trip_trail__updated_by?: Prisma.TripTrailUpdateManyWithoutUpdated_byNestedInput
-  trip_transport__created_by?: Prisma.TripTransportUpdateManyWithoutCreated_byNestedInput
-  trip_transport__updated_by?: Prisma.TripTransportUpdateManyWithoutUpdated_byNestedInput
-  critical_event__created_by?: Prisma.CriticalEventUpdateManyWithoutCreated_byNestedInput
-  critical_event__updated_by?: Prisma.CriticalEventUpdateManyWithoutUpdated_byNestedInput
-  trip_checklist__created_by?: Prisma.TripChecklistUpdateManyWithoutCreated_byNestedInput
-  trip_checklist__updated_by?: Prisma.TripChecklistUpdateManyWithoutUpdated_byNestedInput
-  trip_checklist_item__created_by?: Prisma.TripChecklistItemUpdateManyWithoutCreated_byNestedInput
-  trip_checklist_item__updated_by?: Prisma.TripChecklistItemUpdateManyWithoutUpdated_byNestedInput
-  colleciton__created_by?: Prisma.CollectionUpdateManyWithoutCreated_byNestedInput
-  collection__updated_by?: Prisma.CollectionUpdateManyWithoutUpdated_byNestedInput
-  collection__reviewed_by?: Prisma.CollectionUpdateManyWithoutLast_reviewed_byNestedInput
-  colleciton__owner?: Prisma.CollectionUpdateManyWithoutOwnerNestedInput
-  collection_item__created_by?: Prisma.CollectionItemUpdateManyWithoutCreated_byNestedInput
-  collection_item__updated_by?: Prisma.CollectionItemUpdateManyWithoutUpdated_byNestedInput
-  collection_item__reviewed_by?: Prisma.CollectionItemUpdateManyWithoutLast_reviewed_byNestedInput
-  user_proposal__created_by?: Prisma.UserProposalUpdateManyWithoutCreated_byNestedInput
-  user_proposal__updated_by?: Prisma.UserProposalUpdateManyWithoutUpdated_byNestedInput
-  user_proposal__reviewed_by?: Prisma.UserProposalUpdateManyWithoutLast_reviewed_byNestedInput
-  user_proposal__user?: Prisma.UserProposalUpdateManyWithoutUserNestedInput
-  community_publication__created_by?: Prisma.CommunityPublicationUpdateManyWithoutCreated_byNestedInput
-  community_publication__updated_by?: Prisma.CommunityPublicationUpdateManyWithoutUpdated_byNestedInput
-  community_publication__submitted_by?: Prisma.CommunityPublicationUpdateManyWithoutSubmitted_byNestedInput
-  community_publication__reviewed_by?: Prisma.CommunityPublicationUpdateManyWithoutLast_reviewed_byNestedInput
-  community_publication__contributor?: Prisma.CommunityPublicationUpdateManyWithoutContriutorNestedInput
-  community_publication_item__created_by?: Prisma.CommunityPublicationItemUpdateManyWithoutCreated_byNestedInput
-  community_publication_item__updated_by?: Prisma.CommunityPublicationItemUpdateManyWithoutUpdated_byNestedInput
-  community_publication_item__reviewed_by?: Prisma.CommunityPublicationItemUpdateManyWithoutLast_reviewed_byNestedInput
-  community_publication_item__contributor?: Prisma.CommunityPublicationItemUpdateManyWithoutContriutorNestedInput
-  community_publication_attachment__created_by?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutCreated_byNestedInput
-  community_publication_attachment__updated_by?: Prisma.CommunityPublicationAttachmentUpdateManyWithoutUpdated_byNestedInput
-  record_action__requested_by?: Prisma.RecordActionUpdateManyWithoutRequested_byNestedInput
-  record_action__consent_by?: Prisma.RecordActionUpdateManyWithoutConsent_byNestedInput
-  record_action__performed_by?: Prisma.RecordActionUpdateManyWithoutPerformed_byNestedInput
-  record_action__updated_by?: Prisma.RecordActionUpdateManyWithoutUpdated_byNestedInput
-  content_review_history__requested_by?: Prisma.ContentReviewHistoryUpdateManyWithoutRequested_byNestedInput
-  content_review_history__reviewed_by?: Prisma.ContentReviewHistoryUpdateManyWithoutReviewed_byNestedInput
-}
-
-export type UserUncheckedUpdateWithoutGear_pack_template__updated_byInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password_hash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  created_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  updated_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  users__created_by?: Prisma.UserUncheckedUpdateManyWithoutCreated_byNestedInput
-  users__updated_by?: Prisma.UserUncheckedUpdateManyWithoutUpdated_byNestedInput
-  roles__created_by?: Prisma.RoleUncheckedUpdateManyWithoutCreated_byNestedInput
-  roles__updated_by?: Prisma.RoleUncheckedUpdateManyWithoutUpdated_byNestedInput
-  permissions__created_by?: Prisma.PermissionUncheckedUpdateManyWithoutCreated_byNestedInput
-  permissions__updated_by?: Prisma.PermissionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_roles_granted_by?: Prisma.UserRoleUncheckedUpdateManyWithoutGranted_byNestedInput
-  user_roles_revoked_by?: Prisma.UserRoleUncheckedUpdateManyWithoutRevoked_byNestedInput
-  user_roles_updated_by?: Prisma.UserRoleUncheckedUpdateManyWithoutUpdated_byNestedInput
-  user_role__user?: Prisma.UserRoleUncheckedUpdateManyWithoutUserNestedInput
-  role_permission_granted_by?: Prisma.RolePermissionUncheckedUpdateManyWithoutGranted_byNestedInput
-  role_permission_revoked_by?: Prisma.RolePermissionUncheckedUpdateManyWithoutRevoked_byNestedInput
-  role_permission_updated_by?: Prisma.RolePermissionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  alias__created_by?: Prisma.AliasUncheckedUpdateManyWithoutCreated_byNestedInput
-  alias__updated_by?: Prisma.AliasUncheckedUpdateManyWithoutUpdated_byNestedInput
-  media_archive__created_by?: Prisma.MediaArchiveUncheckedUpdateManyWithoutCreated_byNestedInput
-  media_archive__updated_by?: Prisma.MediaArchiveUncheckedUpdateManyWithoutUpdated_byNestedInput
-  media_archive__reviewed_by?: Prisma.MediaArchiveUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  media_archive__contributor?: Prisma.MediaArchiveUncheckedUpdateManyWithoutContributorNestedInput
-  attachement__created_by?: Prisma.AttachmentUncheckedUpdateManyWithoutCreated_byNestedInput
-  attachement__updated_by?: Prisma.AttachmentUncheckedUpdateManyWithoutUpdated_byNestedInput
-  attachement__reviewed_by?: Prisma.AttachmentUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  unit__created_by?: Prisma.UnitUncheckedUpdateManyWithoutCreated_byNestedInput
-  unit__updated_by?: Prisma.UnitUncheckedUpdateManyWithoutUpdated_byNestedInput
-  tag__created_by?: Prisma.TagUncheckedUpdateManyWithoutCreated_byNestedInput
-  tag__updated_by?: Prisma.TagUncheckedUpdateManyWithoutUpdated_byNestedInput
-  tag_group__created_by?: Prisma.TagGroupUncheckedUpdateManyWithoutCreated_byNestedInput
-  tag_group__updated_by?: Prisma.TagGroupUncheckedUpdateManyWithoutUpdated_byNestedInput
-  tag_relation__created_by?: Prisma.TagRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  tag_relation__updated_by?: Prisma.TagRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  tag_group_relation__created_by?: Prisma.TagGroupRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  tag_group_relation__updated_by?: Prisma.TagGroupRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_tag_relation__created_by?: Prisma.GearTagRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_tag_relation__updated_by?: Prisma.GearTagRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  trail_tag_relation__created_by?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  trail_tag_relation__updated_by?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  brand__created_by?: Prisma.BrandUncheckedUpdateManyWithoutCreated_byNestedInput
-  brand__updated_by?: Prisma.BrandUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_type__created_by?: Prisma.GearTypeUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_type__updated_by?: Prisma.GearTypeUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_type_relation__created_by?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_type_relation__updated_by?: Prisma.GearTypeRelationUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_specs_def__created_by?: Prisma.GearSpecsDefinitionUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_specs_def__updated_by?: Prisma.GearSpecsDefinitionUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear__created_by?: Prisma.GearUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear__updated_by?: Prisma.GearUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear__verified_by?: Prisma.GearUncheckedUpdateManyWithoutLast_verified_byNestedInput
-  gear__owner?: Prisma.GearUncheckedUpdateManyWithoutOwnerNestedInput
-  descriptive_gear__created_by?: Prisma.DescriptiveGearUncheckedUpdateManyWithoutCreated_byNestedInput
-  descriptive_gear__updated_by?: Prisma.DescriptiveGearUncheckedUpdateManyWithoutUpdated_byNestedInput
-  descriptive_gear__owner?: Prisma.DescriptiveGearUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_specs__created_by?: Prisma.GearSpecsUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_specs__updated_by?: Prisma.GearSpecsUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_feature__created_by?: Prisma.GearFeatureUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_feature__updated_by?: Prisma.GearFeatureUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_variant__created_by?: Prisma.GearVariantUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_variant__updated_by?: Prisma.GearVariantUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_pack__created_by?: Prisma.GearPackUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
-  gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
-  gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -63858,8 +61452,6 @@ export type UserCreateWithoutGear_pack_component__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
   challenge__updated_by?: Prisma.ChallengeCreateNestedManyWithoutUpdated_byInput
@@ -64090,8 +61682,6 @@ export type UserUncheckedCreateWithoutGear_pack_component__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
   challenge__updated_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutUpdated_byInput
@@ -64326,8 +61916,6 @@ export type UserCreateWithoutGear_pack_component__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
   challenge__updated_by?: Prisma.ChallengeCreateNestedManyWithoutUpdated_byInput
@@ -64558,8 +62146,6 @@ export type UserUncheckedCreateWithoutGear_pack_component__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
   challenge__updated_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutUpdated_byInput
@@ -64805,8 +62391,6 @@ export type UserUpdateWithoutGear_pack_component__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
   challenge__updated_by?: Prisma.ChallengeUpdateManyWithoutUpdated_byNestedInput
@@ -65037,8 +62621,6 @@ export type UserUncheckedUpdateWithoutGear_pack_component__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
   challenge__updated_by?: Prisma.ChallengeUncheckedUpdateManyWithoutUpdated_byNestedInput
@@ -65279,8 +62861,6 @@ export type UserUpdateWithoutGear_pack_component__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
   challenge__updated_by?: Prisma.ChallengeUpdateManyWithoutUpdated_byNestedInput
@@ -65511,8 +63091,6 @@ export type UserUncheckedUpdateWithoutGear_pack_component__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
   challenge__updated_by?: Prisma.ChallengeUncheckedUpdateManyWithoutUpdated_byNestedInput
@@ -65742,8 +63320,6 @@ export type UserCreateWithoutChallenge__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__updated_by?: Prisma.ChallengeCreateNestedManyWithoutUpdated_byInput
@@ -65974,8 +63550,6 @@ export type UserUncheckedCreateWithoutChallenge__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__updated_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutUpdated_byInput
@@ -66210,8 +63784,6 @@ export type UserCreateWithoutChallenge__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -66442,8 +64014,6 @@ export type UserUncheckedCreateWithoutChallenge__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -66678,8 +64248,6 @@ export type UserCreateWithoutChallenge__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -66910,8 +64478,6 @@ export type UserUncheckedCreateWithoutChallenge__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -67157,8 +64723,6 @@ export type UserUpdateWithoutChallenge__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__updated_by?: Prisma.ChallengeUpdateManyWithoutUpdated_byNestedInput
@@ -67389,8 +64953,6 @@ export type UserUncheckedUpdateWithoutChallenge__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__updated_by?: Prisma.ChallengeUncheckedUpdateManyWithoutUpdated_byNestedInput
@@ -67631,8 +65193,6 @@ export type UserUpdateWithoutChallenge__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -67863,8 +65423,6 @@ export type UserUncheckedUpdateWithoutChallenge__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -68105,8 +65663,6 @@ export type UserUpdateWithoutChallenge__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -68337,8 +65893,6 @@ export type UserUncheckedUpdateWithoutChallenge__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -68568,8 +66122,6 @@ export type UserCreateWithoutChallenge_gear_requirement__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -68800,8 +66352,6 @@ export type UserUncheckedCreateWithoutChallenge_gear_requirement__created_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -69036,8 +66586,6 @@ export type UserCreateWithoutChallenge_gear_requirement__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -69268,8 +66816,6 @@ export type UserUncheckedCreateWithoutChallenge_gear_requirement__updated_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -69515,8 +67061,6 @@ export type UserUpdateWithoutChallenge_gear_requirement__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -69747,8 +67291,6 @@ export type UserUncheckedUpdateWithoutChallenge_gear_requirement__created_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -69989,8 +67531,6 @@ export type UserUpdateWithoutChallenge_gear_requirement__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -70221,8 +67761,6 @@ export type UserUncheckedUpdateWithoutChallenge_gear_requirement__updated_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -70452,8 +67990,6 @@ export type UserCreateWithoutDifficulty_system__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -70684,8 +68220,6 @@ export type UserUncheckedCreateWithoutDifficulty_system__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -70920,8 +68454,6 @@ export type UserCreateWithoutDifficulty_system__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -71152,8 +68684,6 @@ export type UserUncheckedCreateWithoutDifficulty_system__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -71399,8 +68929,6 @@ export type UserUpdateWithoutDifficulty_system__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -71631,8 +69159,6 @@ export type UserUncheckedUpdateWithoutDifficulty_system__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -71873,8 +69399,6 @@ export type UserUpdateWithoutDifficulty_system__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -72105,8 +69629,6 @@ export type UserUncheckedUpdateWithoutDifficulty_system__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -72336,8 +69858,6 @@ export type UserCreateWithoutDifficulty_mapping__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -72568,8 +70088,6 @@ export type UserUncheckedCreateWithoutDifficulty_mapping__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -72804,8 +70322,6 @@ export type UserCreateWithoutDifficulty_mapping__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -73036,8 +70552,6 @@ export type UserUncheckedCreateWithoutDifficulty_mapping__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -73283,8 +70797,6 @@ export type UserUpdateWithoutDifficulty_mapping__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -73515,8 +71027,6 @@ export type UserUncheckedUpdateWithoutDifficulty_mapping__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -73757,8 +71267,6 @@ export type UserUpdateWithoutDifficulty_mapping__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -73989,8 +71497,6 @@ export type UserUncheckedUpdateWithoutDifficulty_mapping__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -74220,8 +71726,6 @@ export type UserCreateWithoutTrail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -74452,8 +71956,6 @@ export type UserUncheckedCreateWithoutTrail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -74688,8 +72190,6 @@ export type UserCreateWithoutTrail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -74920,8 +72420,6 @@ export type UserUncheckedCreateWithoutTrail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -75156,8 +72654,6 @@ export type UserCreateWithoutTrail__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -75388,8 +72884,6 @@ export type UserUncheckedCreateWithoutTrail__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -75624,8 +73118,6 @@ export type UserCreateWithoutTrail__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -75856,8 +73348,6 @@ export type UserUncheckedCreateWithoutTrail__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -76103,8 +73593,6 @@ export type UserUpdateWithoutTrail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -76335,8 +73823,6 @@ export type UserUncheckedUpdateWithoutTrail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -76577,8 +74063,6 @@ export type UserUpdateWithoutTrail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -76809,8 +74293,6 @@ export type UserUncheckedUpdateWithoutTrail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -77051,8 +74533,6 @@ export type UserUpdateWithoutTrail__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -77283,8 +74763,6 @@ export type UserUncheckedUpdateWithoutTrail__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -77525,8 +75003,6 @@ export type UserUpdateWithoutTrail__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -77757,8 +75233,6 @@ export type UserUncheckedUpdateWithoutTrail__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -77987,8 +75461,6 @@ export type UserCreateWithoutTrail_tag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -78219,8 +75691,6 @@ export type UserUncheckedCreateWithoutTrail_tag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -78455,8 +75925,6 @@ export type UserCreateWithoutTrail_tag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -78687,8 +76155,6 @@ export type UserUncheckedCreateWithoutTrail_tag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -78934,8 +76400,6 @@ export type UserUpdateWithoutTrail_tag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -79166,8 +76630,6 @@ export type UserUncheckedUpdateWithoutTrail_tag_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -79408,8 +76870,6 @@ export type UserUpdateWithoutTrail_tag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -79640,8 +77100,6 @@ export type UserUncheckedUpdateWithoutTrail_tag_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -79872,8 +77330,6 @@ export type UserCreateWithoutTrail_challenge__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -80104,8 +77560,6 @@ export type UserUncheckedCreateWithoutTrail_challenge__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -80340,8 +77794,6 @@ export type UserCreateWithoutTrail_challenge__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -80572,8 +78024,6 @@ export type UserUncheckedCreateWithoutTrail_challenge__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -80819,8 +78269,6 @@ export type UserUpdateWithoutTrail_challenge__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -81051,8 +78499,6 @@ export type UserUncheckedUpdateWithoutTrail_challenge__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -81293,8 +78739,6 @@ export type UserUpdateWithoutTrail_challenge__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -81525,8 +78969,6 @@ export type UserUncheckedUpdateWithoutTrail_challenge__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -81756,8 +79198,6 @@ export type UserCreateWithoutTrail_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -81988,8 +79428,6 @@ export type UserUncheckedCreateWithoutTrail_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -82224,8 +79662,6 @@ export type UserCreateWithoutTrail_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -82456,8 +79892,6 @@ export type UserUncheckedCreateWithoutTrail_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -82703,8 +80137,6 @@ export type UserUpdateWithoutTrail_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -82935,8 +80367,6 @@ export type UserUncheckedUpdateWithoutTrail_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -83177,8 +80607,6 @@ export type UserUpdateWithoutTrail_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -83409,8 +80837,6 @@ export type UserUncheckedUpdateWithoutTrail_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -83640,8 +81066,6 @@ export type UserCreateWithoutTrail_source__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -83872,8 +81296,6 @@ export type UserUncheckedCreateWithoutTrail_source__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -84108,8 +81530,6 @@ export type UserCreateWithoutTrail_source__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -84340,8 +81760,6 @@ export type UserUncheckedCreateWithoutTrail_source__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -84587,8 +82005,6 @@ export type UserUpdateWithoutTrail_source__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -84819,8 +82235,6 @@ export type UserUncheckedUpdateWithoutTrail_source__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -85061,8 +82475,6 @@ export type UserUpdateWithoutTrail_source__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -85293,8 +82705,6 @@ export type UserUncheckedUpdateWithoutTrail_source__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -85524,8 +82934,6 @@ export type UserCreateWithoutTrail_gear_requirement__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -85756,8 +83164,6 @@ export type UserUncheckedCreateWithoutTrail_gear_requirement__created_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -85992,8 +83398,6 @@ export type UserCreateWithoutTrail_gear_requirement__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -86224,8 +83628,6 @@ export type UserUncheckedCreateWithoutTrail_gear_requirement__updated_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -86471,8 +83873,6 @@ export type UserUpdateWithoutTrail_gear_requirement__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -86703,8 +84103,6 @@ export type UserUncheckedUpdateWithoutTrail_gear_requirement__created_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -86945,8 +84343,6 @@ export type UserUpdateWithoutTrail_gear_requirement__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -87177,8 +84573,6 @@ export type UserUncheckedUpdateWithoutTrail_gear_requirement__updated_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -87408,8 +84802,6 @@ export type UserCreateWithoutTrail_difficulty__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -87640,8 +85032,6 @@ export type UserUncheckedCreateWithoutTrail_difficulty__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -87876,8 +85266,6 @@ export type UserCreateWithoutTrail_difficulty__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -88108,8 +85496,6 @@ export type UserUncheckedCreateWithoutTrail_difficulty__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -88344,8 +85730,6 @@ export type UserCreateWithoutTrail_difficulty__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -88576,8 +85960,6 @@ export type UserUncheckedCreateWithoutTrail_difficulty__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -88823,8 +86205,6 @@ export type UserUpdateWithoutTrail_difficulty__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -89055,8 +86435,6 @@ export type UserUncheckedUpdateWithoutTrail_difficulty__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -89297,8 +86675,6 @@ export type UserUpdateWithoutTrail_difficulty__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -89529,8 +86905,6 @@ export type UserUncheckedUpdateWithoutTrail_difficulty__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -89771,8 +87145,6 @@ export type UserUpdateWithoutTrail_difficulty__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -90003,8 +87375,6 @@ export type UserUncheckedUpdateWithoutTrail_difficulty__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -90234,8 +87604,6 @@ export type UserCreateWithoutTrail_facility__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -90466,8 +87834,6 @@ export type UserUncheckedCreateWithoutTrail_facility__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -90702,8 +88068,6 @@ export type UserCreateWithoutTrail_facility__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -90934,8 +88298,6 @@ export type UserUncheckedCreateWithoutTrail_facility__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -91170,8 +88532,6 @@ export type UserCreateWithoutTrail_facility__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -91402,8 +88762,6 @@ export type UserUncheckedCreateWithoutTrail_facility__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -91649,8 +89007,6 @@ export type UserUpdateWithoutTrail_facility__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -91881,8 +89237,6 @@ export type UserUncheckedUpdateWithoutTrail_facility__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -92123,8 +89477,6 @@ export type UserUpdateWithoutTrail_facility__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -92355,8 +89707,6 @@ export type UserUncheckedUpdateWithoutTrail_facility__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -92597,8 +89947,6 @@ export type UserUpdateWithoutTrail_facility__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -92829,8 +90177,6 @@ export type UserUncheckedUpdateWithoutTrail_facility__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -93060,8 +90406,6 @@ export type UserCreateWithoutTrail_use__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -93292,8 +90636,6 @@ export type UserUncheckedCreateWithoutTrail_use__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -93528,8 +90870,6 @@ export type UserCreateWithoutTrail_use__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -93760,8 +91100,6 @@ export type UserUncheckedCreateWithoutTrail_use__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -94007,8 +91345,6 @@ export type UserUpdateWithoutTrail_use__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -94239,8 +91575,6 @@ export type UserUncheckedUpdateWithoutTrail_use__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -94481,8 +91815,6 @@ export type UserUpdateWithoutTrail_use__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -94713,8 +92045,6 @@ export type UserUncheckedUpdateWithoutTrail_use__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -94944,8 +92274,6 @@ export type UserCreateWithoutTrail_profile__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -95176,8 +92504,6 @@ export type UserUncheckedCreateWithoutTrail_profile__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -95412,8 +92738,6 @@ export type UserCreateWithoutTrail_profile__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -95644,8 +92968,6 @@ export type UserUncheckedCreateWithoutTrail_profile__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -95880,8 +93202,6 @@ export type UserCreateWithoutTrail_profile__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -96112,8 +93432,6 @@ export type UserUncheckedCreateWithoutTrail_profile__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -96348,8 +93666,6 @@ export type UserCreateWithoutTrail_profile__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -96580,8 +93896,6 @@ export type UserUncheckedCreateWithoutTrail_profile__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -96827,8 +94141,6 @@ export type UserUpdateWithoutTrail_profile__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -97059,8 +94371,6 @@ export type UserUncheckedUpdateWithoutTrail_profile__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -97301,8 +94611,6 @@ export type UserUpdateWithoutTrail_profile__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -97533,8 +94841,6 @@ export type UserUncheckedUpdateWithoutTrail_profile__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -97775,8 +95081,6 @@ export type UserUpdateWithoutTrail_profile__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -98007,8 +95311,6 @@ export type UserUncheckedUpdateWithoutTrail_profile__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -98249,8 +95551,6 @@ export type UserUpdateWithoutTrail_profile__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -98481,8 +95781,6 @@ export type UserUncheckedUpdateWithoutTrail_profile__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -98712,8 +96010,6 @@ export type UserCreateWithoutTrail_profile_use__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -98944,8 +96240,6 @@ export type UserUncheckedCreateWithoutTrail_profile_use__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -99180,8 +96474,6 @@ export type UserCreateWithoutTrail_profile_use__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -99412,8 +96704,6 @@ export type UserUncheckedCreateWithoutTrail_profile_use__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -99659,8 +96949,6 @@ export type UserUpdateWithoutTrail_profile_use__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -99891,8 +97179,6 @@ export type UserUncheckedUpdateWithoutTrail_profile_use__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -100133,8 +97419,6 @@ export type UserUpdateWithoutTrail_profile_use__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -100365,8 +97649,6 @@ export type UserUncheckedUpdateWithoutTrail_profile_use__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -100596,8 +97878,6 @@ export type UserCreateWithoutAccess_point__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -100828,8 +98108,6 @@ export type UserUncheckedCreateWithoutAccess_point__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -101064,8 +98342,6 @@ export type UserCreateWithoutAccess_point__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -101296,8 +98572,6 @@ export type UserUncheckedCreateWithoutAccess_point__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -101532,8 +98806,6 @@ export type UserCreateWithoutAccess_point__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -101764,8 +99036,6 @@ export type UserUncheckedCreateWithoutAccess_point__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -102000,8 +99270,6 @@ export type UserCreateWithoutAccess_point__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -102232,8 +99500,6 @@ export type UserUncheckedCreateWithoutAccess_point__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -102468,8 +99734,6 @@ export type UserCreateWithoutAccess_point__merged_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -102700,8 +99964,6 @@ export type UserUncheckedCreateWithoutAccess_point__merged_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -102936,8 +100198,6 @@ export type UserCreateWithoutAccess_point__canonical_proposed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -103168,8 +100428,6 @@ export type UserUncheckedCreateWithoutAccess_point__canonical_proposed_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -103404,8 +100662,6 @@ export type UserCreateWithoutAccess_point__canonical_proposal_consent_byInput = 
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -103636,8 +100892,6 @@ export type UserUncheckedCreateWithoutAccess_point__canonical_proposal_consent_b
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -103872,8 +101126,6 @@ export type UserCreateWithoutAccess_point__canonical_proposal_resolved_byInput =
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -104104,8 +101356,6 @@ export type UserUncheckedCreateWithoutAccess_point__canonical_proposal_resolved_
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -104351,8 +101601,6 @@ export type UserUpdateWithoutAccess_point__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -104583,8 +101831,6 @@ export type UserUncheckedUpdateWithoutAccess_point__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -104825,8 +102071,6 @@ export type UserUpdateWithoutAccess_point__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -105057,8 +102301,6 @@ export type UserUncheckedUpdateWithoutAccess_point__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -105299,8 +102541,6 @@ export type UserUpdateWithoutAccess_point__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -105531,8 +102771,6 @@ export type UserUncheckedUpdateWithoutAccess_point__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -105773,8 +103011,6 @@ export type UserUpdateWithoutAccess_point__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -106005,8 +103241,6 @@ export type UserUncheckedUpdateWithoutAccess_point__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -106247,8 +103481,6 @@ export type UserUpdateWithoutAccess_point__merged_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -106479,8 +103711,6 @@ export type UserUncheckedUpdateWithoutAccess_point__merged_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -106721,8 +103951,6 @@ export type UserUpdateWithoutAccess_point__canonical_proposed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -106953,8 +104181,6 @@ export type UserUncheckedUpdateWithoutAccess_point__canonical_proposed_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -107195,8 +104421,6 @@ export type UserUpdateWithoutAccess_point__canonical_proposal_consent_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -107427,8 +104651,6 @@ export type UserUncheckedUpdateWithoutAccess_point__canonical_proposal_consent_b
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -107669,8 +104891,6 @@ export type UserUpdateWithoutAccess_point__canonical_proposal_resolved_byInput =
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -107901,8 +105121,6 @@ export type UserUncheckedUpdateWithoutAccess_point__canonical_proposal_resolved_
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -108132,8 +105350,6 @@ export type UserCreateWithoutAccess_point_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -108364,8 +105580,6 @@ export type UserUncheckedCreateWithoutAccess_point_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -108600,8 +105814,6 @@ export type UserCreateWithoutAccess_point_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -108832,8 +106044,6 @@ export type UserUncheckedCreateWithoutAccess_point_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -109079,8 +106289,6 @@ export type UserUpdateWithoutAccess_point_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -109311,8 +106519,6 @@ export type UserUncheckedUpdateWithoutAccess_point_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -109553,8 +106759,6 @@ export type UserUpdateWithoutAccess_point_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -109785,8 +106989,6 @@ export type UserUncheckedUpdateWithoutAccess_point_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -110016,8 +107218,6 @@ export type UserCreateWithoutTrail_access_point_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -110248,8 +107448,6 @@ export type UserUncheckedCreateWithoutTrail_access_point_relation__created_byInp
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -110484,8 +107682,6 @@ export type UserCreateWithoutTrail_access_point_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -110716,8 +107912,6 @@ export type UserUncheckedCreateWithoutTrail_access_point_relation__updated_byInp
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -110952,8 +108146,6 @@ export type UserCreateWithoutTrail_access_point_relation__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -111184,8 +108376,6 @@ export type UserUncheckedCreateWithoutTrail_access_point_relation__verified_byIn
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -111431,8 +108621,6 @@ export type UserUpdateWithoutTrail_access_point_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -111663,8 +108851,6 @@ export type UserUncheckedUpdateWithoutTrail_access_point_relation__created_byInp
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -111905,8 +109091,6 @@ export type UserUpdateWithoutTrail_access_point_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -112137,8 +109321,6 @@ export type UserUncheckedUpdateWithoutTrail_access_point_relation__updated_byInp
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -112379,8 +109561,6 @@ export type UserUpdateWithoutTrail_access_point_relation__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -112611,8 +109791,6 @@ export type UserUncheckedUpdateWithoutTrail_access_point_relation__verified_byIn
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -112842,8 +110020,6 @@ export type UserCreateWithoutTrail_geometry__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -113074,8 +110250,6 @@ export type UserUncheckedCreateWithoutTrail_geometry__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -113310,8 +110484,6 @@ export type UserCreateWithoutTrail_geometry__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -113542,8 +110714,6 @@ export type UserUncheckedCreateWithoutTrail_geometry__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -113778,8 +110948,6 @@ export type UserCreateWithoutTrail_geometry__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -114010,8 +111178,6 @@ export type UserUncheckedCreateWithoutTrail_geometry__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -114246,8 +111412,6 @@ export type UserCreateWithoutTrail_geometry__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -114478,8 +111642,6 @@ export type UserUncheckedCreateWithoutTrail_geometry__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -114725,8 +111887,6 @@ export type UserUpdateWithoutTrail_geometry__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -114957,8 +112117,6 @@ export type UserUncheckedUpdateWithoutTrail_geometry__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -115199,8 +112357,6 @@ export type UserUpdateWithoutTrail_geometry__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -115431,8 +112587,6 @@ export type UserUncheckedUpdateWithoutTrail_geometry__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -115673,8 +112827,6 @@ export type UserUpdateWithoutTrail_geometry__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -115905,8 +113057,6 @@ export type UserUncheckedUpdateWithoutTrail_geometry__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -116147,8 +113297,6 @@ export type UserUpdateWithoutTrail_geometry__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -116379,8 +113527,6 @@ export type UserUncheckedUpdateWithoutTrail_geometry__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -116610,8 +113756,6 @@ export type UserCreateWithoutTrail_segmentation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -116842,8 +113986,6 @@ export type UserUncheckedCreateWithoutTrail_segmentation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -117078,8 +114220,6 @@ export type UserCreateWithoutTrail_segmentation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -117310,8 +114450,6 @@ export type UserUncheckedCreateWithoutTrail_segmentation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -117546,8 +114684,6 @@ export type UserCreateWithoutTrail_segmentation__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -117778,8 +114914,6 @@ export type UserUncheckedCreateWithoutTrail_segmentation__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -118014,8 +115148,6 @@ export type UserCreateWithoutTrail_segmentation__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -118246,8 +115378,6 @@ export type UserUncheckedCreateWithoutTrail_segmentation__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -118493,8 +115623,6 @@ export type UserUpdateWithoutTrail_segmentation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -118725,8 +115853,6 @@ export type UserUncheckedUpdateWithoutTrail_segmentation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -118967,8 +116093,6 @@ export type UserUpdateWithoutTrail_segmentation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -119199,8 +116323,6 @@ export type UserUncheckedUpdateWithoutTrail_segmentation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -119441,8 +116563,6 @@ export type UserUpdateWithoutTrail_segmentation__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -119673,8 +116793,6 @@ export type UserUncheckedUpdateWithoutTrail_segmentation__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -119915,8 +117033,6 @@ export type UserUpdateWithoutTrail_segmentation__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -120147,8 +117263,6 @@ export type UserUncheckedUpdateWithoutTrail_segmentation__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -120378,8 +117492,6 @@ export type UserCreateWithoutTrail_segment_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -120610,8 +117722,6 @@ export type UserUncheckedCreateWithoutTrail_segment_relation__created_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -120846,8 +117956,6 @@ export type UserCreateWithoutTrail_segment_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -121078,8 +118186,6 @@ export type UserUncheckedCreateWithoutTrail_segment_relation__updated_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -121314,8 +118420,6 @@ export type UserCreateWithoutTrail_segment_relation__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -121546,8 +118650,6 @@ export type UserUncheckedCreateWithoutTrail_segment_relation__reviewed_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -121793,8 +118895,6 @@ export type UserUpdateWithoutTrail_segment_relation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -122025,8 +119125,6 @@ export type UserUncheckedUpdateWithoutTrail_segment_relation__created_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -122267,8 +119365,6 @@ export type UserUpdateWithoutTrail_segment_relation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -122499,8 +119595,6 @@ export type UserUncheckedUpdateWithoutTrail_segment_relation__updated_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -122741,8 +119835,6 @@ export type UserUpdateWithoutTrail_segment_relation__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -122973,8 +120065,6 @@ export type UserUncheckedUpdateWithoutTrail_segment_relation__reviewed_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -123204,8 +120294,6 @@ export type UserCreateWithoutTransport_service__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -123436,8 +120524,6 @@ export type UserUncheckedCreateWithoutTransport_service__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -123672,8 +120758,6 @@ export type UserCreateWithoutTransport_service__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -123904,8 +120988,6 @@ export type UserUncheckedCreateWithoutTransport_service__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -124140,8 +121222,6 @@ export type UserCreateWithoutTransport_service__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -124372,8 +121452,6 @@ export type UserUncheckedCreateWithoutTransport_service__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -124619,8 +121697,6 @@ export type UserUpdateWithoutTransport_service__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -124851,8 +121927,6 @@ export type UserUncheckedUpdateWithoutTransport_service__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -125093,8 +122167,6 @@ export type UserUpdateWithoutTransport_service__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -125325,8 +122397,6 @@ export type UserUncheckedUpdateWithoutTransport_service__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -125567,8 +122637,6 @@ export type UserUpdateWithoutTransport_service__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -125799,8 +122867,6 @@ export type UserUncheckedUpdateWithoutTransport_service__verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -126030,8 +123096,6 @@ export type UserCreateWithoutTransport_service_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -126262,8 +123326,6 @@ export type UserUncheckedCreateWithoutTransport_service_calendar__created_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -126498,8 +123560,6 @@ export type UserCreateWithoutTransport_service_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -126730,8 +123790,6 @@ export type UserUncheckedCreateWithoutTransport_service_calendar__updated_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -126977,8 +124035,6 @@ export type UserUpdateWithoutTransport_service_calendar__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -127209,8 +124265,6 @@ export type UserUncheckedUpdateWithoutTransport_service_calendar__created_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -127451,8 +124505,6 @@ export type UserUpdateWithoutTransport_service_calendar__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -127683,8 +124735,6 @@ export type UserUncheckedUpdateWithoutTransport_service_calendar__updated_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -127914,8 +124964,6 @@ export type UserCreateWithoutTransport_service_stop__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -128146,8 +125194,6 @@ export type UserUncheckedCreateWithoutTransport_service_stop__created_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -128382,8 +125428,6 @@ export type UserCreateWithoutTransport_service_stop__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -128614,8 +125658,6 @@ export type UserUncheckedCreateWithoutTransport_service_stop__updated_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -128861,8 +125903,6 @@ export type UserUpdateWithoutTransport_service_stop__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -129093,8 +126133,6 @@ export type UserUncheckedUpdateWithoutTransport_service_stop__created_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -129335,8 +126373,6 @@ export type UserUpdateWithoutTransport_service_stop__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -129567,8 +126603,6 @@ export type UserUncheckedUpdateWithoutTransport_service_stop__updated_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -129798,8 +126832,6 @@ export type UserCreateWithoutTrail_transport_service_created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -130030,8 +127062,6 @@ export type UserUncheckedCreateWithoutTrail_transport_service_created_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -130266,8 +127296,6 @@ export type UserCreateWithoutTrail_transport_service_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -130498,8 +127526,6 @@ export type UserUncheckedCreateWithoutTrail_transport_service_updated_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -130734,8 +127760,6 @@ export type UserCreateWithoutTrail_transport_service_verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -130966,8 +127990,6 @@ export type UserUncheckedCreateWithoutTrail_transport_service_verified_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -131213,8 +128235,6 @@ export type UserUpdateWithoutTrail_transport_service_created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -131445,8 +128465,6 @@ export type UserUncheckedUpdateWithoutTrail_transport_service_created_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -131687,8 +128705,6 @@ export type UserUpdateWithoutTrail_transport_service_updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -131919,8 +128935,6 @@ export type UserUncheckedUpdateWithoutTrail_transport_service_updated_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -132161,8 +129175,6 @@ export type UserUpdateWithoutTrail_transport_service_verified_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -132393,8 +129405,6 @@ export type UserUncheckedUpdateWithoutTrail_transport_service_verified_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -132624,8 +129634,6 @@ export type UserCreateWithoutMeal_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -132856,8 +129864,6 @@ export type UserUncheckedCreateWithoutMeal_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -133092,8 +130098,6 @@ export type UserCreateWithoutMeal_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -133324,8 +130328,6 @@ export type UserUncheckedCreateWithoutMeal_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -133560,8 +130562,6 @@ export type UserCreateWithoutMeal_pack__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -133792,8 +130792,6 @@ export type UserUncheckedCreateWithoutMeal_pack__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -134028,8 +131026,6 @@ export type UserCreateWithoutMeal_pack__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -134260,8 +131256,6 @@ export type UserUncheckedCreateWithoutMeal_pack__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -134507,8 +131501,6 @@ export type UserUpdateWithoutMeal_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -134739,8 +131731,6 @@ export type UserUncheckedUpdateWithoutMeal_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -134981,8 +131971,6 @@ export type UserUpdateWithoutMeal_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -135213,8 +132201,6 @@ export type UserUncheckedUpdateWithoutMeal_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -135455,8 +132441,6 @@ export type UserUpdateWithoutMeal_pack__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -135687,8 +132671,6 @@ export type UserUncheckedUpdateWithoutMeal_pack__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -135929,8 +132911,6 @@ export type UserUpdateWithoutMeal_pack__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -136161,8 +133141,6 @@ export type UserUncheckedUpdateWithoutMeal_pack__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -136392,8 +133370,6 @@ export type UserCreateWithoutMeal_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -136624,8 +133600,6 @@ export type UserUncheckedCreateWithoutMeal_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -136860,8 +133834,6 @@ export type UserCreateWithoutMeal_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -137092,8 +134064,6 @@ export type UserUncheckedCreateWithoutMeal_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -137328,8 +134298,6 @@ export type UserCreateWithoutMeal_item__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -137560,8 +134528,6 @@ export type UserUncheckedCreateWithoutMeal_item__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -137807,8 +134773,6 @@ export type UserUpdateWithoutMeal_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -138039,8 +135003,6 @@ export type UserUncheckedUpdateWithoutMeal_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -138281,8 +135243,6 @@ export type UserUpdateWithoutMeal_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -138513,8 +135473,6 @@ export type UserUncheckedUpdateWithoutMeal_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -138755,8 +135713,6 @@ export type UserUpdateWithoutMeal_item__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -138987,8 +135943,6 @@ export type UserUncheckedUpdateWithoutMeal_item__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -139218,8 +136172,6 @@ export type UserCreateWithoutMeal_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -139450,8 +136402,6 @@ export type UserUncheckedCreateWithoutMeal_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -139686,8 +136636,6 @@ export type UserCreateWithoutMeal_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -139918,8 +136866,6 @@ export type UserUncheckedCreateWithoutMeal_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -140154,8 +137100,6 @@ export type UserCreateWithoutMeal_pack_item__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -140386,8 +137330,6 @@ export type UserUncheckedCreateWithoutMeal_pack_item__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -140633,8 +137575,6 @@ export type UserUpdateWithoutMeal_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -140865,8 +137805,6 @@ export type UserUncheckedUpdateWithoutMeal_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -141107,8 +138045,6 @@ export type UserUpdateWithoutMeal_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -141339,8 +138275,6 @@ export type UserUncheckedUpdateWithoutMeal_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -141581,8 +138515,6 @@ export type UserUpdateWithoutMeal_pack_item__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -141813,8 +138745,6 @@ export type UserUncheckedUpdateWithoutMeal_pack_item__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -142044,8 +138974,6 @@ export type UserCreateWithoutUser_trail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -142276,8 +139204,6 @@ export type UserUncheckedCreateWithoutUser_trail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -142512,8 +139438,6 @@ export type UserCreateWithoutUser_trail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -142744,8 +139668,6 @@ export type UserUncheckedCreateWithoutUser_trail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -142980,8 +139902,6 @@ export type UserCreateWithoutUser_trail__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -143212,8 +140132,6 @@ export type UserUncheckedCreateWithoutUser_trail__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -143459,8 +140377,6 @@ export type UserUpdateWithoutUser_trail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -143691,8 +140607,6 @@ export type UserUncheckedUpdateWithoutUser_trail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -143933,8 +140847,6 @@ export type UserUpdateWithoutUser_trail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -144165,8 +141077,6 @@ export type UserUncheckedUpdateWithoutUser_trail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -144407,8 +141317,6 @@ export type UserUpdateWithoutUser_trail__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -144639,8 +141547,6 @@ export type UserUncheckedUpdateWithoutUser_trail__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -144870,8 +141776,6 @@ export type UserCreateWithoutUser_trail_completion__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -145102,8 +142006,6 @@ export type UserUncheckedCreateWithoutUser_trail_completion__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -145338,8 +142240,6 @@ export type UserCreateWithoutUser_trail_completion__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -145570,8 +142470,6 @@ export type UserUncheckedCreateWithoutUser_trail_completion__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -145817,8 +142715,6 @@ export type UserUpdateWithoutUser_trail_completion__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -146049,8 +142945,6 @@ export type UserUncheckedUpdateWithoutUser_trail_completion__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -146291,8 +143185,6 @@ export type UserUpdateWithoutUser_trail_completion__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -146523,8 +143415,6 @@ export type UserUncheckedUpdateWithoutUser_trail_completion__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -146754,8 +143644,6 @@ export type UserCreateWithoutUser_gear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -146986,8 +143874,6 @@ export type UserUncheckedCreateWithoutUser_gear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -147222,8 +144108,6 @@ export type UserCreateWithoutUser_gear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -147454,8 +144338,6 @@ export type UserUncheckedCreateWithoutUser_gear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -147690,8 +144572,6 @@ export type UserCreateWithoutUser_gear__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -147922,8 +144802,6 @@ export type UserUncheckedCreateWithoutUser_gear__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -148169,8 +145047,6 @@ export type UserUpdateWithoutUser_gear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -148401,8 +145277,6 @@ export type UserUncheckedUpdateWithoutUser_gear__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -148643,8 +145517,6 @@ export type UserUpdateWithoutUser_gear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -148875,8 +145747,6 @@ export type UserUncheckedUpdateWithoutUser_gear__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -149117,8 +145987,6 @@ export type UserUpdateWithoutUser_gear__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -149349,8 +146217,6 @@ export type UserUncheckedUpdateWithoutUser_gear__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -149580,8 +146446,6 @@ export type UserCreateWithoutUser_gear_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -149812,8 +146676,6 @@ export type UserUncheckedCreateWithoutUser_gear_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -150048,8 +146910,6 @@ export type UserCreateWithoutUser_gear_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -150280,8 +147140,6 @@ export type UserUncheckedCreateWithoutUser_gear_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -150516,8 +147374,6 @@ export type UserCreateWithoutUser_gear_pack__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -150748,8 +147604,6 @@ export type UserUncheckedCreateWithoutUser_gear_pack__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -150995,8 +147849,6 @@ export type UserUpdateWithoutUser_gear_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -151227,8 +148079,6 @@ export type UserUncheckedUpdateWithoutUser_gear_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -151469,8 +148319,6 @@ export type UserUpdateWithoutUser_gear_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -151701,8 +148549,6 @@ export type UserUncheckedUpdateWithoutUser_gear_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -151943,8 +148789,6 @@ export type UserUpdateWithoutUser_gear_pack__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -152175,8 +149019,6 @@ export type UserUncheckedUpdateWithoutUser_gear_pack__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -152406,8 +149248,6 @@ export type UserCreateWithoutUser_gear_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -152638,8 +149478,6 @@ export type UserUncheckedCreateWithoutUser_gear_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -152874,8 +149712,6 @@ export type UserCreateWithoutUser_gear_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -153106,8 +149942,6 @@ export type UserUncheckedCreateWithoutUser_gear_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -153353,8 +150187,6 @@ export type UserUpdateWithoutUser_gear_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -153585,8 +150417,6 @@ export type UserUncheckedUpdateWithoutUser_gear_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -153827,8 +150657,6 @@ export type UserUpdateWithoutUser_gear_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -154059,8 +150887,6 @@ export type UserUncheckedUpdateWithoutUser_gear_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -154290,8 +151116,6 @@ export type UserCreateWithoutUser_personal_archive__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -154522,8 +151346,6 @@ export type UserUncheckedCreateWithoutUser_personal_archive__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -154758,8 +151580,6 @@ export type UserCreateWithoutUser_personal_archive__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -154990,8 +151810,6 @@ export type UserUncheckedCreateWithoutUser_personal_archive__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -155226,8 +152044,6 @@ export type UserCreateWithoutUser_personal_archive__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -155458,8 +152274,6 @@ export type UserUncheckedCreateWithoutUser_personal_archive__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -155705,8 +152519,6 @@ export type UserUpdateWithoutUser_personal_archive__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -155937,8 +152749,6 @@ export type UserUncheckedUpdateWithoutUser_personal_archive__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -156179,8 +152989,6 @@ export type UserUpdateWithoutUser_personal_archive__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -156411,8 +153219,6 @@ export type UserUncheckedUpdateWithoutUser_personal_archive__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -156653,8 +153459,6 @@ export type UserUpdateWithoutUser_personal_archive__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -156885,8 +153689,6 @@ export type UserUncheckedUpdateWithoutUser_personal_archive__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -157116,8 +153918,6 @@ export type UserCreateWithoutUser_feedback__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -157348,8 +154148,6 @@ export type UserUncheckedCreateWithoutUser_feedback__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -157584,8 +154382,6 @@ export type UserCreateWithoutUser_feedback__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -157816,8 +154612,6 @@ export type UserUncheckedCreateWithoutUser_feedback__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -158052,8 +154846,6 @@ export type UserCreateWithoutUser_feedback__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -158284,8 +155076,6 @@ export type UserUncheckedCreateWithoutUser_feedback__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -158520,8 +155310,6 @@ export type UserCreateWithoutUser_feedback__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -158752,8 +155540,6 @@ export type UserUncheckedCreateWithoutUser_feedback__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -158999,8 +155785,6 @@ export type UserUpdateWithoutUser_feedback__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -159231,8 +156015,6 @@ export type UserUncheckedUpdateWithoutUser_feedback__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -159473,8 +156255,6 @@ export type UserUpdateWithoutUser_feedback__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -159705,8 +156485,6 @@ export type UserUncheckedUpdateWithoutUser_feedback__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -159947,8 +156725,6 @@ export type UserUpdateWithoutUser_feedback__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -160179,8 +156955,6 @@ export type UserUncheckedUpdateWithoutUser_feedback__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -160421,8 +157195,6 @@ export type UserUpdateWithoutUser_feedback__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -160653,8 +157425,6 @@ export type UserUncheckedUpdateWithoutUser_feedback__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -160884,8 +157654,6 @@ export type UserCreateWithoutUser_sticky_notes__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -161116,8 +157884,6 @@ export type UserUncheckedCreateWithoutUser_sticky_notes__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -161352,8 +158118,6 @@ export type UserCreateWithoutUser_sticky_notes__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -161584,8 +158348,6 @@ export type UserUncheckedCreateWithoutUser_sticky_notes__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -161820,8 +158582,6 @@ export type UserCreateWithoutUser_sticky_notes__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -162052,8 +158812,6 @@ export type UserUncheckedCreateWithoutUser_sticky_notes__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -162299,8 +159057,6 @@ export type UserUpdateWithoutUser_sticky_notes__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -162531,8 +159287,6 @@ export type UserUncheckedUpdateWithoutUser_sticky_notes__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -162773,8 +159527,6 @@ export type UserUpdateWithoutUser_sticky_notes__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -163005,8 +159757,6 @@ export type UserUncheckedUpdateWithoutUser_sticky_notes__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -163247,8 +159997,6 @@ export type UserUpdateWithoutUser_sticky_notes__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -163479,8 +160227,6 @@ export type UserUncheckedUpdateWithoutUser_sticky_notes__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -163710,8 +160456,6 @@ export type UserCreateWithoutUser_idea_capture__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -163942,8 +160686,6 @@ export type UserUncheckedCreateWithoutUser_idea_capture__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -164178,8 +160920,6 @@ export type UserCreateWithoutUser_idea_capture__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -164410,8 +161150,6 @@ export type UserUncheckedCreateWithoutUser_idea_capture__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -164646,8 +161384,6 @@ export type UserCreateWithoutUser_idea_capture__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -164878,8 +161614,6 @@ export type UserUncheckedCreateWithoutUser_idea_capture__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -165125,8 +161859,6 @@ export type UserUpdateWithoutUser_idea_capture__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -165357,8 +162089,6 @@ export type UserUncheckedUpdateWithoutUser_idea_capture__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -165599,8 +162329,6 @@ export type UserUpdateWithoutUser_idea_capture__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -165831,8 +162559,6 @@ export type UserUncheckedUpdateWithoutUser_idea_capture__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -166073,8 +162799,6 @@ export type UserUpdateWithoutUser_idea_capture__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -166305,8 +163029,6 @@ export type UserUncheckedUpdateWithoutUser_idea_capture__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -166536,8 +163258,6 @@ export type UserCreateWithoutTrip__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -166768,8 +163488,6 @@ export type UserUncheckedCreateWithoutTrip__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -167004,8 +163722,6 @@ export type UserCreateWithoutTrip__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -167236,8 +163952,6 @@ export type UserUncheckedCreateWithoutTrip__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -167472,8 +164186,6 @@ export type UserCreateWithoutTrip__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -167704,8 +164416,6 @@ export type UserUncheckedCreateWithoutTrip__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -167951,8 +164661,6 @@ export type UserUpdateWithoutTrip__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -168183,8 +164891,6 @@ export type UserUncheckedUpdateWithoutTrip__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -168425,8 +165131,6 @@ export type UserUpdateWithoutTrip__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -168657,8 +165361,6 @@ export type UserUncheckedUpdateWithoutTrip__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -168899,8 +165601,6 @@ export type UserUpdateWithoutTrip__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -169131,8 +165831,6 @@ export type UserUncheckedUpdateWithoutTrip__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -169362,8 +166060,6 @@ export type UserCreateWithoutTrip_accommodation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -169594,8 +166290,6 @@ export type UserUncheckedCreateWithoutTrip_accommodation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -169830,8 +166524,6 @@ export type UserCreateWithoutTrip_accommodation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -170062,8 +166754,6 @@ export type UserUncheckedCreateWithoutTrip_accommodation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -170309,8 +166999,6 @@ export type UserUpdateWithoutTrip_accommodation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -170541,8 +167229,6 @@ export type UserUncheckedUpdateWithoutTrip_accommodation__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -170783,8 +167469,6 @@ export type UserUpdateWithoutTrip_accommodation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -171015,8 +167699,6 @@ export type UserUncheckedUpdateWithoutTrip_accommodation__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -171246,8 +167928,6 @@ export type UserCreateWithoutTrip_gear_list__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -171478,8 +168158,6 @@ export type UserUncheckedCreateWithoutTrip_gear_list__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -171714,8 +168392,6 @@ export type UserCreateWithoutTrip_gear_list__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -171946,8 +168622,6 @@ export type UserUncheckedCreateWithoutTrip_gear_list__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -172193,8 +168867,6 @@ export type UserUpdateWithoutTrip_gear_list__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -172425,8 +169097,6 @@ export type UserUncheckedUpdateWithoutTrip_gear_list__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -172667,8 +169337,6 @@ export type UserUpdateWithoutTrip_gear_list__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -172899,8 +169567,6 @@ export type UserUncheckedUpdateWithoutTrip_gear_list__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -173130,8 +169796,6 @@ export type UserCreateWithoutTrip_meal_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -173362,8 +170026,6 @@ export type UserUncheckedCreateWithoutTrip_meal_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -173598,8 +170260,6 @@ export type UserCreateWithoutTrip_meal_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -173830,8 +170490,6 @@ export type UserUncheckedCreateWithoutTrip_meal_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -174077,8 +170735,6 @@ export type UserUpdateWithoutTrip_meal_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -174309,8 +170965,6 @@ export type UserUncheckedUpdateWithoutTrip_meal_pack__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -174551,8 +171205,6 @@ export type UserUpdateWithoutTrip_meal_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -174783,8 +171435,6 @@ export type UserUncheckedUpdateWithoutTrip_meal_pack__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -175014,8 +171664,6 @@ export type UserCreateWithoutTrip_meal_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -175246,8 +171894,6 @@ export type UserUncheckedCreateWithoutTrip_meal_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -175482,8 +172128,6 @@ export type UserCreateWithoutTrip_meal_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -175714,8 +172358,6 @@ export type UserUncheckedCreateWithoutTrip_meal_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -175961,8 +172603,6 @@ export type UserUpdateWithoutTrip_meal_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -176193,8 +172833,6 @@ export type UserUncheckedUpdateWithoutTrip_meal_pack_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -176435,8 +173073,6 @@ export type UserUpdateWithoutTrip_meal_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -176667,8 +173303,6 @@ export type UserUncheckedUpdateWithoutTrip_meal_pack_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -176898,8 +173532,6 @@ export type UserCreateWithoutTrip_trail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -177130,8 +173762,6 @@ export type UserUncheckedCreateWithoutTrip_trail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -177366,8 +173996,6 @@ export type UserCreateWithoutTrip_trail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -177598,8 +174226,6 @@ export type UserUncheckedCreateWithoutTrip_trail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -177845,8 +174471,6 @@ export type UserUpdateWithoutTrip_trail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -178077,8 +174701,6 @@ export type UserUncheckedUpdateWithoutTrip_trail__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -178319,8 +174941,6 @@ export type UserUpdateWithoutTrip_trail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -178551,8 +175171,6 @@ export type UserUncheckedUpdateWithoutTrip_trail__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -178782,8 +175400,6 @@ export type UserCreateWithoutTrip_transport__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -179014,8 +175630,6 @@ export type UserUncheckedCreateWithoutTrip_transport__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -179250,8 +175864,6 @@ export type UserCreateWithoutTrip_transport__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -179482,8 +176094,6 @@ export type UserUncheckedCreateWithoutTrip_transport__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -179729,8 +176339,6 @@ export type UserUpdateWithoutTrip_transport__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -179961,8 +176569,6 @@ export type UserUncheckedUpdateWithoutTrip_transport__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -180203,8 +176809,6 @@ export type UserUpdateWithoutTrip_transport__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -180435,8 +177039,6 @@ export type UserUncheckedUpdateWithoutTrip_transport__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -180666,8 +177268,6 @@ export type UserCreateWithoutCritical_event__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -180898,8 +177498,6 @@ export type UserUncheckedCreateWithoutCritical_event__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -181134,8 +177732,6 @@ export type UserCreateWithoutCritical_event__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -181366,8 +177962,6 @@ export type UserUncheckedCreateWithoutCritical_event__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -181613,8 +178207,6 @@ export type UserUpdateWithoutCritical_event__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -181845,8 +178437,6 @@ export type UserUncheckedUpdateWithoutCritical_event__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -182087,8 +178677,6 @@ export type UserUpdateWithoutCritical_event__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -182319,8 +178907,6 @@ export type UserUncheckedUpdateWithoutCritical_event__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -182550,8 +179136,6 @@ export type UserCreateWithoutTrip_checklist__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -182782,8 +179366,6 @@ export type UserUncheckedCreateWithoutTrip_checklist__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -183018,8 +179600,6 @@ export type UserCreateWithoutTrip_checklist__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -183250,8 +179830,6 @@ export type UserUncheckedCreateWithoutTrip_checklist__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -183497,8 +180075,6 @@ export type UserUpdateWithoutTrip_checklist__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -183729,8 +180305,6 @@ export type UserUncheckedUpdateWithoutTrip_checklist__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -183971,8 +180545,6 @@ export type UserUpdateWithoutTrip_checklist__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -184203,8 +180775,6 @@ export type UserUncheckedUpdateWithoutTrip_checklist__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -184434,8 +181004,6 @@ export type UserCreateWithoutTrip_checklist_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -184666,8 +181234,6 @@ export type UserUncheckedCreateWithoutTrip_checklist_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -184902,8 +181468,6 @@ export type UserCreateWithoutTrip_checklist_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -185134,8 +181698,6 @@ export type UserUncheckedCreateWithoutTrip_checklist_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -185381,8 +181943,6 @@ export type UserUpdateWithoutTrip_checklist_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -185613,8 +182173,6 @@ export type UserUncheckedUpdateWithoutTrip_checklist_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -185855,8 +182413,6 @@ export type UserUpdateWithoutTrip_checklist_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -186087,8 +182643,6 @@ export type UserUncheckedUpdateWithoutTrip_checklist_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -186318,8 +182872,6 @@ export type UserCreateWithoutColleciton__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -186550,8 +183102,6 @@ export type UserUncheckedCreateWithoutColleciton__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -186786,8 +183336,6 @@ export type UserCreateWithoutCollection__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -187018,8 +183566,6 @@ export type UserUncheckedCreateWithoutCollection__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -187254,8 +183800,6 @@ export type UserCreateWithoutCollection__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -187486,8 +184030,6 @@ export type UserUncheckedCreateWithoutCollection__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -187722,8 +184264,6 @@ export type UserCreateWithoutColleciton__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -187954,8 +184494,6 @@ export type UserUncheckedCreateWithoutColleciton__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -188201,8 +184739,6 @@ export type UserUpdateWithoutColleciton__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -188433,8 +184969,6 @@ export type UserUncheckedUpdateWithoutColleciton__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -188675,8 +185209,6 @@ export type UserUpdateWithoutCollection__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -188907,8 +185439,6 @@ export type UserUncheckedUpdateWithoutCollection__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -189149,8 +185679,6 @@ export type UserUpdateWithoutCollection__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -189381,8 +185909,6 @@ export type UserUncheckedUpdateWithoutCollection__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -189623,8 +186149,6 @@ export type UserUpdateWithoutColleciton__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -189855,8 +186379,6 @@ export type UserUncheckedUpdateWithoutColleciton__ownerInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -190086,8 +186608,6 @@ export type UserCreateWithoutCollection_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -190318,8 +186838,6 @@ export type UserUncheckedCreateWithoutCollection_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -190554,8 +187072,6 @@ export type UserCreateWithoutCollection_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -190786,8 +187302,6 @@ export type UserUncheckedCreateWithoutCollection_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -191022,8 +187536,6 @@ export type UserCreateWithoutCollection_item__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -191254,8 +187766,6 @@ export type UserUncheckedCreateWithoutCollection_item__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -191501,8 +188011,6 @@ export type UserUpdateWithoutCollection_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -191733,8 +188241,6 @@ export type UserUncheckedUpdateWithoutCollection_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -191975,8 +188481,6 @@ export type UserUpdateWithoutCollection_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -192207,8 +188711,6 @@ export type UserUncheckedUpdateWithoutCollection_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -192449,8 +188951,6 @@ export type UserUpdateWithoutCollection_item__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -192681,8 +189181,6 @@ export type UserUncheckedUpdateWithoutCollection_item__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -192912,8 +189410,6 @@ export type UserCreateWithoutUser_proposal__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -193144,8 +189640,6 @@ export type UserUncheckedCreateWithoutUser_proposal__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -193380,8 +189874,6 @@ export type UserCreateWithoutUser_proposal__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -193612,8 +190104,6 @@ export type UserUncheckedCreateWithoutUser_proposal__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -193848,8 +190338,6 @@ export type UserCreateWithoutUser_proposal__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -194080,8 +190568,6 @@ export type UserUncheckedCreateWithoutUser_proposal__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -194316,8 +190802,6 @@ export type UserCreateWithoutUser_proposal__userInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -194548,8 +191032,6 @@ export type UserUncheckedCreateWithoutUser_proposal__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -194795,8 +191277,6 @@ export type UserUpdateWithoutUser_proposal__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -195027,8 +191507,6 @@ export type UserUncheckedUpdateWithoutUser_proposal__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -195269,8 +191747,6 @@ export type UserUpdateWithoutUser_proposal__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -195501,8 +191977,6 @@ export type UserUncheckedUpdateWithoutUser_proposal__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -195743,8 +192217,6 @@ export type UserUpdateWithoutUser_proposal__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -195975,8 +192447,6 @@ export type UserUncheckedUpdateWithoutUser_proposal__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -196217,8 +192687,6 @@ export type UserUpdateWithoutUser_proposal__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -196449,8 +192917,6 @@ export type UserUncheckedUpdateWithoutUser_proposal__userInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -196680,8 +193146,6 @@ export type UserCreateWithoutCommunity_publication__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -196912,8 +193376,6 @@ export type UserUncheckedCreateWithoutCommunity_publication__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -197148,8 +193610,6 @@ export type UserCreateWithoutCommunity_publication__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -197380,8 +193840,6 @@ export type UserUncheckedCreateWithoutCommunity_publication__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -197616,8 +194074,6 @@ export type UserCreateWithoutCommunity_publication__submitted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -197848,8 +194304,6 @@ export type UserUncheckedCreateWithoutCommunity_publication__submitted_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -198084,8 +194538,6 @@ export type UserCreateWithoutCommunity_publication__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -198316,8 +194768,6 @@ export type UserUncheckedCreateWithoutCommunity_publication__reviewed_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -198552,8 +195002,6 @@ export type UserCreateWithoutCommunity_publication__contributorInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -198784,8 +195232,6 @@ export type UserUncheckedCreateWithoutCommunity_publication__contributorInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -199031,8 +195477,6 @@ export type UserUpdateWithoutCommunity_publication__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -199263,8 +195707,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -199505,8 +195947,6 @@ export type UserUpdateWithoutCommunity_publication__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -199737,8 +196177,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -199979,8 +196417,6 @@ export type UserUpdateWithoutCommunity_publication__submitted_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -200211,8 +196647,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication__submitted_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -200453,8 +196887,6 @@ export type UserUpdateWithoutCommunity_publication__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -200685,8 +197117,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication__reviewed_byInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -200927,8 +197357,6 @@ export type UserUpdateWithoutCommunity_publication__contributorInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -201159,8 +197587,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication__contributorInput = 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -201390,8 +197816,6 @@ export type UserCreateWithoutCommunity_publication_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -201622,8 +198046,6 @@ export type UserUncheckedCreateWithoutCommunity_publication_item__created_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -201858,8 +198280,6 @@ export type UserCreateWithoutCommunity_publication_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -202090,8 +198510,6 @@ export type UserUncheckedCreateWithoutCommunity_publication_item__updated_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -202326,8 +198744,6 @@ export type UserCreateWithoutCommunity_publication_item__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -202558,8 +198974,6 @@ export type UserUncheckedCreateWithoutCommunity_publication_item__reviewed_byInp
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -202794,8 +199208,6 @@ export type UserCreateWithoutCommunity_publication_item__contributorInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -203026,8 +199438,6 @@ export type UserUncheckedCreateWithoutCommunity_publication_item__contributorInp
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -203273,8 +199683,6 @@ export type UserUpdateWithoutCommunity_publication_item__created_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -203505,8 +199913,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication_item__created_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -203747,8 +200153,6 @@ export type UserUpdateWithoutCommunity_publication_item__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -203979,8 +200383,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication_item__updated_byInpu
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -204221,8 +200623,6 @@ export type UserUpdateWithoutCommunity_publication_item__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -204453,8 +200853,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication_item__reviewed_byInp
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -204695,8 +201093,6 @@ export type UserUpdateWithoutCommunity_publication_item__contributorInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -204927,8 +201323,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication_item__contributorInp
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -205158,8 +201552,6 @@ export type UserCreateWithoutCommunity_publication_attachment__created_byInput =
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -205390,8 +201782,6 @@ export type UserUncheckedCreateWithoutCommunity_publication_attachment__created_
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -205626,8 +202016,6 @@ export type UserCreateWithoutCommunity_publication_attachment__updated_byInput =
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -205858,8 +202246,6 @@ export type UserUncheckedCreateWithoutCommunity_publication_attachment__updated_
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -206105,8 +202491,6 @@ export type UserUpdateWithoutCommunity_publication_attachment__created_byInput =
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -206337,8 +202721,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication_attachment__created_
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -206579,8 +202961,6 @@ export type UserUpdateWithoutCommunity_publication_attachment__updated_byInput =
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -206811,8 +203191,6 @@ export type UserUncheckedUpdateWithoutCommunity_publication_attachment__updated_
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -207042,8 +203420,6 @@ export type UserCreateWithoutRecord_action__requested_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -207274,8 +203650,6 @@ export type UserUncheckedCreateWithoutRecord_action__requested_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -207510,8 +203884,6 @@ export type UserCreateWithoutRecord_action__consent_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -207742,8 +204114,6 @@ export type UserUncheckedCreateWithoutRecord_action__consent_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -207978,8 +204348,6 @@ export type UserCreateWithoutRecord_action__performed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -208210,8 +204578,6 @@ export type UserUncheckedCreateWithoutRecord_action__performed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -208446,8 +204812,6 @@ export type UserCreateWithoutRecord_action__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -208678,8 +205042,6 @@ export type UserUncheckedCreateWithoutRecord_action__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -208925,8 +205287,6 @@ export type UserUpdateWithoutRecord_action__requested_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -209157,8 +205517,6 @@ export type UserUncheckedUpdateWithoutRecord_action__requested_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -209399,8 +205757,6 @@ export type UserUpdateWithoutRecord_action__consent_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -209631,8 +205987,6 @@ export type UserUncheckedUpdateWithoutRecord_action__consent_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -209873,8 +206227,6 @@ export type UserUpdateWithoutRecord_action__performed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -210105,8 +206457,6 @@ export type UserUncheckedUpdateWithoutRecord_action__performed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -210347,8 +206697,6 @@ export type UserUpdateWithoutRecord_action__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -210579,8 +206927,6 @@ export type UserUncheckedUpdateWithoutRecord_action__updated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -210810,8 +207156,6 @@ export type UserCreateWithoutContent_review_history__requested_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -211042,8 +207386,6 @@ export type UserUncheckedCreateWithoutContent_review_history__requested_byInput 
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -211278,8 +207620,6 @@ export type UserCreateWithoutContent_review_history__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeCreateNestedManyWithoutCreated_byInput
@@ -211510,8 +207850,6 @@ export type UserUncheckedCreateWithoutContent_review_history__reviewed_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedCreateNestedManyWithoutLast_reviewed_byInput
   gear_pack__owner?: Prisma.GearPackUncheckedCreateNestedManyWithoutOwnerInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutCreated_byInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedCreateNestedManyWithoutUpdated_byInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutCreated_byInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedCreateNestedManyWithoutUpdated_byInput
   challenge__created_by?: Prisma.ChallengeUncheckedCreateNestedManyWithoutCreated_byInput
@@ -211757,8 +208095,6 @@ export type UserUpdateWithoutContent_review_history__requested_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -211989,8 +208325,6 @@ export type UserUncheckedUpdateWithoutContent_review_history__requested_byInput 
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -212231,8 +208565,6 @@ export type UserUpdateWithoutContent_review_history__reviewed_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -212463,8 +208795,6 @@ export type UserUncheckedUpdateWithoutContent_review_history__reviewed_byInput =
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -212719,8 +209049,6 @@ export type UserUpdateWithoutCreated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -212951,8 +209279,6 @@ export type UserUncheckedUpdateWithoutCreated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -213195,8 +209521,6 @@ export type UserUpdateWithoutUpdated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUpdateManyWithoutCreated_byNestedInput
@@ -213427,8 +209751,6 @@ export type UserUncheckedUpdateWithoutUpdated_byInput = {
   gear_pack__updated_by?: Prisma.GearPackUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack__reviewed_by?: Prisma.GearPackUncheckedUpdateManyWithoutLast_reviewed_byNestedInput
   gear_pack__owner?: Prisma.GearPackUncheckedUpdateManyWithoutOwnerNestedInput
-  gear_pack_template__created_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutCreated_byNestedInput
-  gear_pack_template__updated_by?: Prisma.GearPackTemplateUncheckedUpdateManyWithoutUpdated_byNestedInput
   gear_pack_component__created_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutCreated_byNestedInput
   gear_pack_component__updated_by?: Prisma.GearPackComponentUncheckedUpdateManyWithoutUpdated_byNestedInput
   challenge__created_by?: Prisma.ChallengeUncheckedUpdateManyWithoutCreated_byNestedInput
@@ -213667,8 +209989,6 @@ export type UserCountOutputType = {
   gear_pack__updated_by: number
   gear_pack__reviewed_by: number
   gear_pack__owner: number
-  gear_pack_template__created_by: number
-  gear_pack_template__updated_by: number
   gear_pack_component__created_by: number
   gear_pack_component__updated_by: number
   challenge__created_by: number
@@ -213889,8 +210209,6 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   gear_pack__updated_by?: boolean | UserCountOutputTypeCountGear_pack__updated_byArgs
   gear_pack__reviewed_by?: boolean | UserCountOutputTypeCountGear_pack__reviewed_byArgs
   gear_pack__owner?: boolean | UserCountOutputTypeCountGear_pack__ownerArgs
-  gear_pack_template__created_by?: boolean | UserCountOutputTypeCountGear_pack_template__created_byArgs
-  gear_pack_template__updated_by?: boolean | UserCountOutputTypeCountGear_pack_template__updated_byArgs
   gear_pack_component__created_by?: boolean | UserCountOutputTypeCountGear_pack_component__created_byArgs
   gear_pack_component__updated_by?: boolean | UserCountOutputTypeCountGear_pack_component__updated_byArgs
   challenge__created_by?: boolean | UserCountOutputTypeCountChallenge__created_byArgs
@@ -214484,20 +210802,6 @@ export type UserCountOutputTypeCountGear_pack__reviewed_byArgs<ExtArgs extends r
  */
 export type UserCountOutputTypeCountGear_pack__ownerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.GearPackWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountGear_pack_template__created_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.GearPackTemplateWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountGear_pack_template__updated_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.GearPackTemplateWhereInput
 }
 
 /**
@@ -215668,8 +211972,6 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   gear_pack__updated_by?: boolean | Prisma.User$gear_pack__updated_byArgs<ExtArgs>
   gear_pack__reviewed_by?: boolean | Prisma.User$gear_pack__reviewed_byArgs<ExtArgs>
   gear_pack__owner?: boolean | Prisma.User$gear_pack__ownerArgs<ExtArgs>
-  gear_pack_template__created_by?: boolean | Prisma.User$gear_pack_template__created_byArgs<ExtArgs>
-  gear_pack_template__updated_by?: boolean | Prisma.User$gear_pack_template__updated_byArgs<ExtArgs>
   gear_pack_component__created_by?: boolean | Prisma.User$gear_pack_component__created_byArgs<ExtArgs>
   gear_pack_component__updated_by?: boolean | Prisma.User$gear_pack_component__updated_byArgs<ExtArgs>
   challenge__created_by?: boolean | Prisma.User$challenge__created_byArgs<ExtArgs>
@@ -215940,8 +212242,6 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   gear_pack__updated_by?: boolean | Prisma.User$gear_pack__updated_byArgs<ExtArgs>
   gear_pack__reviewed_by?: boolean | Prisma.User$gear_pack__reviewed_byArgs<ExtArgs>
   gear_pack__owner?: boolean | Prisma.User$gear_pack__ownerArgs<ExtArgs>
-  gear_pack_template__created_by?: boolean | Prisma.User$gear_pack_template__created_byArgs<ExtArgs>
-  gear_pack_template__updated_by?: boolean | Prisma.User$gear_pack_template__updated_byArgs<ExtArgs>
   gear_pack_component__created_by?: boolean | Prisma.User$gear_pack_component__created_byArgs<ExtArgs>
   gear_pack_component__updated_by?: boolean | Prisma.User$gear_pack_component__updated_byArgs<ExtArgs>
   challenge__created_by?: boolean | Prisma.User$challenge__created_byArgs<ExtArgs>
@@ -216183,8 +212483,6 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     gear_pack__updated_by: Prisma.$GearPackPayload<ExtArgs>[]
     gear_pack__reviewed_by: Prisma.$GearPackPayload<ExtArgs>[]
     gear_pack__owner: Prisma.$GearPackPayload<ExtArgs>[]
-    gear_pack_template__created_by: Prisma.$GearPackTemplatePayload<ExtArgs>[]
-    gear_pack_template__updated_by: Prisma.$GearPackTemplatePayload<ExtArgs>[]
     gear_pack_component__created_by: Prisma.$GearPackComponentPayload<ExtArgs>[]
     gear_pack_component__updated_by: Prisma.$GearPackComponentPayload<ExtArgs>[]
     challenge__created_by: Prisma.$ChallengePayload<ExtArgs>[]
@@ -216811,8 +213109,6 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   gear_pack__updated_by<T extends Prisma.User$gear_pack__updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$gear_pack__updated_byArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gear_pack__reviewed_by<T extends Prisma.User$gear_pack__reviewed_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$gear_pack__reviewed_byArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gear_pack__owner<T extends Prisma.User$gear_pack__ownerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$gear_pack__ownerArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  gear_pack_template__created_by<T extends Prisma.User$gear_pack_template__created_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$gear_pack_template__created_byArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  gear_pack_template__updated_by<T extends Prisma.User$gear_pack_template__updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$gear_pack_template__updated_byArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gear_pack_component__created_by<T extends Prisma.User$gear_pack_component__created_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$gear_pack_component__created_byArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackComponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gear_pack_component__updated_by<T extends Prisma.User$gear_pack_component__updated_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$gear_pack_component__updated_byArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GearPackComponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   challenge__created_by<T extends Prisma.User$challenge__created_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$challenge__created_byArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChallengePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -218909,54 +215205,6 @@ export type User$gear_pack__ownerArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.GearPackScalarFieldEnum | Prisma.GearPackScalarFieldEnum[]
-}
-
-/**
- * User.gear_pack_template__created_by
- */
-export type User$gear_pack_template__created_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the GearPackTemplate
-   */
-  select?: Prisma.GearPackTemplateSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the GearPackTemplate
-   */
-  omit?: Prisma.GearPackTemplateOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.GearPackTemplateInclude<ExtArgs> | null
-  where?: Prisma.GearPackTemplateWhereInput
-  orderBy?: Prisma.GearPackTemplateOrderByWithRelationInput | Prisma.GearPackTemplateOrderByWithRelationInput[]
-  cursor?: Prisma.GearPackTemplateWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.GearPackTemplateScalarFieldEnum | Prisma.GearPackTemplateScalarFieldEnum[]
-}
-
-/**
- * User.gear_pack_template__updated_by
- */
-export type User$gear_pack_template__updated_byArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the GearPackTemplate
-   */
-  select?: Prisma.GearPackTemplateSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the GearPackTemplate
-   */
-  omit?: Prisma.GearPackTemplateOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.GearPackTemplateInclude<ExtArgs> | null
-  where?: Prisma.GearPackTemplateWhereInput
-  orderBy?: Prisma.GearPackTemplateOrderByWithRelationInput | Prisma.GearPackTemplateOrderByWithRelationInput[]
-  cursor?: Prisma.GearPackTemplateWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.GearPackTemplateScalarFieldEnum | Prisma.GearPackTemplateScalarFieldEnum[]
 }
 
 /**

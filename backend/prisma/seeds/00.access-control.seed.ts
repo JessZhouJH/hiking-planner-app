@@ -10,7 +10,8 @@ import { upsertUserData } from '../../src/services/access_control/user.service'
 import { upsertRoleData } from '../../src/services/access_control/role.service'
 import { upsertPermissionData } from '../../src/services/access_control/permission.service'
 import { upsertUserRoleData } from '../../src/services/access_control/user_role.sesrvice'
-import { grantRolePermission } from '../../src/services/access_control/role_permission.service'
+import { upsertRolePermission } from '../../src/services/access_control/role_permission.service'
+
 export async function seedAccessControl() {
     // User
     const system = await prisma.user.upsert({
@@ -37,7 +38,8 @@ export async function seedAccessControl() {
         system.id
     )
     const dean = await upsertUserData('Dean', 'dean@sampleuser.com', system.id)
-
+    const jessie = await upsertUserData('Jessie', 'jessie@sampleuser.com', system.id)
+    
     // Role
     const admin = await upsertRoleData('Admin', system.id)
     const moderator = await upsertRoleData('Moderator', system.id)
@@ -59,18 +61,19 @@ export async function seedAccessControl() {
     await upsertUserRoleData(ben.id, moderator.id, system.id)
     await upsertUserRoleData(charlie.id, user.id, system.id)
     await upsertUserRoleData(dean.id, user.id, system.id)
+    await upsertUserRoleData(jessie.id, user.id, system.id)
 
     // RolePermission -- only AccessControl Module is used for seeding
     let AccessControl: module = MODEL_INFO[0]
     for (var m of AccessControl.models) {
         // assign all CRUD permission to Admin
-        let roleId = admin.id
+        let role_id = admin.id
         for (var p of m.permissions) {
-            let permissionItem = await prisma.permission.findFirst({
+            let permission = await prisma.permission.findFirst({
                 where: { name: p, status: Status.ACTIVE },
             })
-            if (permissionItem) {
-                await grantRolePermission(roleId, permissionItem?.id, 1)
+            if (permission) {
+                await upsertRolePermission(role_id, permission?.id, system.id)
             }
         }
     }
@@ -89,10 +92,10 @@ export async function seedAccessControl() {
         },
     })
     if (userRead) {
-        await grantRolePermission(moderator.id, userRead.id, system.id)
-        await grantRolePermission(user.id, userRead.id, system.id)
+        await upsertRolePermission(moderator.id, userRead.id, system.id)
+        await upsertRolePermission(user.id, userRead.id, system.id)
     }
     if (userUpdate) {
-        await grantRolePermission(user.id, userUpdate.id, system.id)
+        await upsertRolePermission(user.id, userUpdate.id, system.id)
     }
 }

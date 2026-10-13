@@ -282,7 +282,7 @@ export type MealPackGroupByOutputType = {
   meal_pack_category: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   is_universal: boolean
   notes: string | null
@@ -325,7 +325,7 @@ export type MealPackWhereInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFilter<"MealPack"> | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFilter<"MealPack"> | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFilter<"MealPack"> | number
-  owner_id?: Prisma.IntNullableFilter<"MealPack"> | number | null
+  owner_id?: Prisma.IntFilter<"MealPack"> | number
   visibility?: Prisma.EnumVisibilityFilter<"MealPack"> | $Enums.Visibility
   is_universal?: Prisma.BoolFilter<"MealPack"> | boolean
   notes?: Prisma.StringNullableFilter<"MealPack"> | string | null
@@ -353,7 +353,7 @@ export type MealPackOrderByWithRelationInput = {
   meal_pack_category?: Prisma.SortOrder
   consumption_frequency?: Prisma.SortOrder
   qty_per_consumption?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   is_universal?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -376,6 +376,7 @@ export type MealPackOrderByWithRelationInput = {
 
 export type MealPackWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name_owner_id?: Prisma.MealPackNameOwner_idCompoundUniqueInput
   AND?: Prisma.MealPackWhereInput | Prisma.MealPackWhereInput[]
   OR?: Prisma.MealPackWhereInput[]
   NOT?: Prisma.MealPackWhereInput | Prisma.MealPackWhereInput[]
@@ -384,7 +385,7 @@ export type MealPackWhereUniqueInput = Prisma.AtLeast<{
   meal_pack_category?: Prisma.EnumMealPackCategoryFilter<"MealPack"> | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFilter<"MealPack"> | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFilter<"MealPack"> | number
-  owner_id?: Prisma.IntNullableFilter<"MealPack"> | number | null
+  owner_id?: Prisma.IntFilter<"MealPack"> | number
   visibility?: Prisma.EnumVisibilityFilter<"MealPack"> | $Enums.Visibility
   is_universal?: Prisma.BoolFilter<"MealPack"> | boolean
   notes?: Prisma.StringNullableFilter<"MealPack"> | string | null
@@ -403,7 +404,7 @@ export type MealPackWhereUniqueInput = Prisma.AtLeast<{
   meal_pack__derived_from?: Prisma.MealPackListRelationFilter
   meal_pack_item__meal_pack?: Prisma.MealPackItemListRelationFilter
   trip_meal_pack__meal_pack?: Prisma.TripMealPackListRelationFilter
-}, "id">
+}, "id" | "name_owner_id">
 
 export type MealPackOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -412,7 +413,7 @@ export type MealPackOrderByWithAggregationInput = {
   meal_pack_category?: Prisma.SortOrder
   consumption_frequency?: Prisma.SortOrder
   qty_per_consumption?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   is_universal?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -440,7 +441,7 @@ export type MealPackScalarWhereWithAggregatesInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryWithAggregatesFilter<"MealPack"> | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyWithAggregatesFilter<"MealPack"> | $Enums.Frequency
   qty_per_consumption?: Prisma.IntWithAggregatesFilter<"MealPack"> | number
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"MealPack"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"MealPack"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"MealPack"> | $Enums.Visibility
   is_universal?: Prisma.BoolWithAggregatesFilter<"MealPack"> | boolean
   notes?: Prisma.StringNullableWithAggregatesFilter<"MealPack"> | string | null
@@ -482,7 +483,7 @@ export type MealPackUncheckedCreateInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -527,7 +528,7 @@ export type MealPackUncheckedUpdateInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -550,7 +551,7 @@ export type MealPackCreateManyInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -584,7 +585,7 @@ export type MealPackUncheckedUpdateManyInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -610,6 +611,11 @@ export type MealPackOrderByRelationAggregateInput = {
 export type MealPackNullableScalarRelationFilter = {
   is?: Prisma.MealPackWhereInput | null
   isNot?: Prisma.MealPackWhereInput | null
+}
+
+export type MealPackNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
 }
 
 export type MealPackCountOrderByAggregateInput = {
@@ -983,7 +989,7 @@ export type MealPackUncheckedCreateWithoutCreated_byInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1036,7 +1042,7 @@ export type MealPackUncheckedCreateWithoutUpdated_byInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1089,7 +1095,7 @@ export type MealPackUncheckedCreateWithoutLast_reviewed_byInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1193,7 +1199,7 @@ export type MealPackScalarWhereInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFilter<"MealPack"> | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFilter<"MealPack"> | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFilter<"MealPack"> | number
-  owner_id?: Prisma.IntNullableFilter<"MealPack"> | number | null
+  owner_id?: Prisma.IntFilter<"MealPack"> | number
   visibility?: Prisma.EnumVisibilityFilter<"MealPack"> | $Enums.Visibility
   is_universal?: Prisma.BoolFilter<"MealPack"> | boolean
   notes?: Prisma.StringNullableFilter<"MealPack"> | string | null
@@ -1282,7 +1288,7 @@ export type MealPackUncheckedCreateWithoutMeal_pack__derived_fromInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1329,7 +1335,7 @@ export type MealPackUncheckedCreateWithoutDerived_fromInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1394,7 +1400,7 @@ export type MealPackUncheckedUpdateWithoutMeal_pack__derived_fromInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1453,7 +1459,7 @@ export type MealPackUncheckedCreateWithoutMeal_pack_item__meal_packInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1512,7 +1518,7 @@ export type MealPackUncheckedUpdateWithoutMeal_pack_item__meal_packInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1555,7 +1561,7 @@ export type MealPackUncheckedCreateWithoutTrip_meal_pack__meal_packInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1614,7 +1620,7 @@ export type MealPackUncheckedUpdateWithoutTrip_meal_pack__meal_packInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1636,7 +1642,7 @@ export type MealPackCreateManyCreated_byInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1655,7 +1661,7 @@ export type MealPackCreateManyUpdated_byInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1674,7 +1680,7 @@ export type MealPackCreateManyLast_reviewed_byInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1733,7 +1739,7 @@ export type MealPackUncheckedUpdateWithoutCreated_byInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1755,7 +1761,7 @@ export type MealPackUncheckedUpdateManyWithoutCreated_byInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1795,7 +1801,7 @@ export type MealPackUncheckedUpdateWithoutUpdated_byInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1817,7 +1823,7 @@ export type MealPackUncheckedUpdateManyWithoutUpdated_byInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1857,7 +1863,7 @@ export type MealPackUncheckedUpdateWithoutLast_reviewed_byInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1879,7 +1885,7 @@ export type MealPackUncheckedUpdateManyWithoutLast_reviewed_byInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1959,7 +1965,7 @@ export type MealPackCreateManyDerived_fromInput = {
   meal_pack_category?: $Enums.MealPackCategory
   consumption_frequency: $Enums.Frequency
   qty_per_consumption: number
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   is_universal?: boolean
   notes?: string | null
@@ -1999,7 +2005,7 @@ export type MealPackUncheckedUpdateWithoutDerived_fromInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2021,7 +2027,7 @@ export type MealPackUncheckedUpdateManyWithoutDerived_fromInput = {
   meal_pack_category?: Prisma.EnumMealPackCategoryFieldUpdateOperationsInput | $Enums.MealPackCategory
   consumption_frequency?: Prisma.EnumFrequencyFieldUpdateOperationsInput | $Enums.Frequency
   qty_per_consumption?: Prisma.IntFieldUpdateOperationsInput | number
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_universal?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2228,7 +2234,7 @@ export type $MealPackPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     meal_pack_category: $Enums.MealPackCategory
     consumption_frequency: $Enums.Frequency
     qty_per_consumption: number
-    owner_id: number | null
+    owner_id: number
     visibility: $Enums.Visibility
     is_universal: boolean
     notes: string | null

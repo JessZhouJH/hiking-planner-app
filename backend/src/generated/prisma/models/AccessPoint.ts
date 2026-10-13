@@ -391,7 +391,7 @@ export type AccessPointGroupByOutputType = {
   seasonality_status: $Enums.SeasonalityStatus
   point_lat: number | null
   point_lng: number | null
-  owner_id: number | null
+  owner_id: number
   visibility: $Enums.Visibility
   merged_at: Date | null
   merged_by_id: number | null
@@ -449,7 +449,7 @@ export type AccessPointWhereInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFilter<"AccessPoint"> | $Enums.SeasonalityStatus
   point_lat?: Prisma.FloatNullableFilter<"AccessPoint"> | number | null
   point_lng?: Prisma.FloatNullableFilter<"AccessPoint"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"AccessPoint"> | number | null
+  owner_id?: Prisma.IntFilter<"AccessPoint"> | number
   visibility?: Prisma.EnumVisibilityFilter<"AccessPoint"> | $Enums.Visibility
   merged_at?: Prisma.DateTimeNullableFilter<"AccessPoint"> | Date | string | null
   merged_by_id?: Prisma.IntNullableFilter<"AccessPoint"> | number | null
@@ -507,7 +507,7 @@ export type AccessPointOrderByWithRelationInput = {
   seasonality_status?: Prisma.SortOrder
   point_lat?: Prisma.SortOrderInput | Prisma.SortOrder
   point_lng?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   merged_at?: Prisma.SortOrderInput | Prisma.SortOrder
   merged_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -561,6 +561,7 @@ export type AccessPointOrderByWithRelationInput = {
 
 export type AccessPointWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  name_owner_id?: Prisma.AccessPointNameOwner_idCompoundUniqueInput
   AND?: Prisma.AccessPointWhereInput | Prisma.AccessPointWhereInput[]
   OR?: Prisma.AccessPointWhereInput[]
   NOT?: Prisma.AccessPointWhereInput | Prisma.AccessPointWhereInput[]
@@ -568,7 +569,7 @@ export type AccessPointWhereUniqueInput = Prisma.AtLeast<{
   seasonality_status?: Prisma.EnumSeasonalityStatusFilter<"AccessPoint"> | $Enums.SeasonalityStatus
   point_lat?: Prisma.FloatNullableFilter<"AccessPoint"> | number | null
   point_lng?: Prisma.FloatNullableFilter<"AccessPoint"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"AccessPoint"> | number | null
+  owner_id?: Prisma.IntFilter<"AccessPoint"> | number
   visibility?: Prisma.EnumVisibilityFilter<"AccessPoint"> | $Enums.Visibility
   merged_at?: Prisma.DateTimeNullableFilter<"AccessPoint"> | Date | string | null
   merged_by_id?: Prisma.IntNullableFilter<"AccessPoint"> | number | null
@@ -618,7 +619,7 @@ export type AccessPointWhereUniqueInput = Prisma.AtLeast<{
   trip_transport__dep_accesss_point?: Prisma.TripTransportListRelationFilter
   trip_transport__arr_access_point?: Prisma.TripTransportListRelationFilter
   cirtical_event__event_loc_access_point?: Prisma.CriticalEventListRelationFilter
-}, "id">
+}, "id" | "name_owner_id">
 
 export type AccessPointOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -626,7 +627,7 @@ export type AccessPointOrderByWithAggregationInput = {
   seasonality_status?: Prisma.SortOrder
   point_lat?: Prisma.SortOrderInput | Prisma.SortOrder
   point_lng?: Prisma.SortOrderInput | Prisma.SortOrder
-  owner_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   merged_at?: Prisma.SortOrderInput | Prisma.SortOrder
   merged_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -669,7 +670,7 @@ export type AccessPointScalarWhereWithAggregatesInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusWithAggregatesFilter<"AccessPoint"> | $Enums.SeasonalityStatus
   point_lat?: Prisma.FloatNullableWithAggregatesFilter<"AccessPoint"> | number | null
   point_lng?: Prisma.FloatNullableWithAggregatesFilter<"AccessPoint"> | number | null
-  owner_id?: Prisma.IntNullableWithAggregatesFilter<"AccessPoint"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"AccessPoint"> | number
   visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"AccessPoint"> | $Enums.Visibility
   merged_at?: Prisma.DateTimeNullableWithAggregatesFilter<"AccessPoint"> | Date | string | null
   merged_by_id?: Prisma.IntNullableWithAggregatesFilter<"AccessPoint"> | number | null
@@ -752,7 +753,7 @@ export type AccessPointUncheckedCreateInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -849,7 +850,7 @@ export type AccessPointUncheckedUpdateInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -898,7 +899,7 @@ export type AccessPointCreateManyInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -958,7 +959,7 @@ export type AccessPointUncheckedUpdateManyInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1000,6 +1001,11 @@ export type AccessPointOrderByRelationAggregateInput = {
 export type AccessPointNullableScalarRelationFilter = {
   is?: Prisma.AccessPointWhereInput | null
   isNot?: Prisma.AccessPointWhereInput | null
+}
+
+export type AccessPointNameOwner_idCompoundUniqueInput = {
+  name: string
+  owner_id: number
 }
 
 export type AccessPointCountOrderByAggregateInput = {
@@ -1801,7 +1807,7 @@ export type AccessPointUncheckedCreateWithoutCreated_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -1906,7 +1912,7 @@ export type AccessPointUncheckedCreateWithoutUpdated_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -2011,7 +2017,7 @@ export type AccessPointUncheckedCreateWithoutLast_verified_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -2221,7 +2227,7 @@ export type AccessPointUncheckedCreateWithoutMerged_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merge_reason?: $Enums.MergeReasons | null
@@ -2326,7 +2332,7 @@ export type AccessPointUncheckedCreateWithoutCanonical_proposed_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -2431,7 +2437,7 @@ export type AccessPointUncheckedCreateWithoutCanonical_proposal_consent_byInput 
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -2536,7 +2542,7 @@ export type AccessPointUncheckedCreateWithoutCanonical_proposal_resolved_byInput
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -2613,7 +2619,7 @@ export type AccessPointScalarWhereInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFilter<"AccessPoint"> | $Enums.SeasonalityStatus
   point_lat?: Prisma.FloatNullableFilter<"AccessPoint"> | number | null
   point_lng?: Prisma.FloatNullableFilter<"AccessPoint"> | number | null
-  owner_id?: Prisma.IntNullableFilter<"AccessPoint"> | number | null
+  owner_id?: Prisma.IntFilter<"AccessPoint"> | number
   visibility?: Prisma.EnumVisibilityFilter<"AccessPoint"> | $Enums.Visibility
   merged_at?: Prisma.DateTimeNullableFilter<"AccessPoint"> | Date | string | null
   merged_by_id?: Prisma.IntNullableFilter<"AccessPoint"> | number | null
@@ -2807,7 +2813,7 @@ export type AccessPointUncheckedCreateWithoutTrail_facility__access_pointInput =
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -2918,7 +2924,7 @@ export type AccessPointUncheckedUpdateWithoutTrail_facility__access_pointInput =
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -3013,7 +3019,7 @@ export type AccessPointUncheckedCreateWithoutAccess_point__merged_intoInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -3113,7 +3119,7 @@ export type AccessPointUncheckedCreateWithoutMerged_intoInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -3229,7 +3235,7 @@ export type AccessPointUncheckedUpdateWithoutAccess_point__merged_intoInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -3340,7 +3346,7 @@ export type AccessPointUncheckedCreateWithoutAccess_point_calendar__access_point
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -3451,7 +3457,7 @@ export type AccessPointUncheckedUpdateWithoutAccess_point_calendar__access_point
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -3546,7 +3552,7 @@ export type AccessPointUncheckedCreateWithoutTrail_access_point_relation__access
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -3657,7 +3663,7 @@ export type AccessPointUncheckedUpdateWithoutTrail_access_point_relation__access
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -3752,7 +3758,7 @@ export type AccessPointUncheckedCreateWithoutTrail_geometry__start_access_pointI
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -3852,7 +3858,7 @@ export type AccessPointUncheckedCreateWithoutTrail_geometry__end_access_pointInp
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -3963,7 +3969,7 @@ export type AccessPointUncheckedUpdateWithoutTrail_geometry__start_access_pointI
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -4069,7 +4075,7 @@ export type AccessPointUncheckedUpdateWithoutTrail_geometry__end_access_pointInp
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -4164,7 +4170,7 @@ export type AccessPointUncheckedCreateWithoutTrail_segment_relation__child_start
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -4275,7 +4281,7 @@ export type AccessPointUncheckedUpdateWithoutTrail_segment_relation__child_start
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -4370,7 +4376,7 @@ export type AccessPointUncheckedCreateWithoutTransport_service__start_access_poi
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -4470,7 +4476,7 @@ export type AccessPointUncheckedCreateWithoutTransport_service__end_access_point
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -4581,7 +4587,7 @@ export type AccessPointUncheckedUpdateWithoutTransport_service__start_access_poi
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -4687,7 +4693,7 @@ export type AccessPointUncheckedUpdateWithoutTransport_service__end_access_point
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -4782,7 +4788,7 @@ export type AccessPointUncheckedCreateWithoutTransport_service_stop__stop_access
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -4893,7 +4899,7 @@ export type AccessPointUncheckedUpdateWithoutTransport_service_stop__stop_access
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -4988,7 +4994,7 @@ export type AccessPointUncheckedCreateWithoutTrip_accommodation__access_pointInp
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -5099,7 +5105,7 @@ export type AccessPointUncheckedUpdateWithoutTrip_accommodation__access_pointInp
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -5194,7 +5200,7 @@ export type AccessPointUncheckedCreateWithoutTrip_transport__dep_accesss_pointIn
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -5294,7 +5300,7 @@ export type AccessPointUncheckedCreateWithoutTrip_transport__arr_access_pointInp
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -5405,7 +5411,7 @@ export type AccessPointUncheckedUpdateWithoutTrip_transport__dep_accesss_pointIn
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -5511,7 +5517,7 @@ export type AccessPointUncheckedUpdateWithoutTrip_transport__arr_access_pointInp
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -5606,7 +5612,7 @@ export type AccessPointUncheckedCreateWithoutCirtical_event__event_loc_access_po
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -5717,7 +5723,7 @@ export type AccessPointUncheckedUpdateWithoutCirtical_event__event_loc_access_po
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -5765,7 +5771,7 @@ export type AccessPointCreateManyCreated_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -5799,7 +5805,7 @@ export type AccessPointCreateManyUpdated_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -5833,7 +5839,7 @@ export type AccessPointCreateManyLast_verified_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -5901,7 +5907,7 @@ export type AccessPointCreateManyMerged_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merge_reason?: $Enums.MergeReasons | null
@@ -5935,7 +5941,7 @@ export type AccessPointCreateManyCanonical_proposed_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -5969,7 +5975,7 @@ export type AccessPointCreateManyCanonical_proposal_consent_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -6003,7 +6009,7 @@ export type AccessPointCreateManyCanonical_proposal_resolved_byInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -6084,7 +6090,7 @@ export type AccessPointUncheckedUpdateWithoutCreated_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6132,7 +6138,7 @@ export type AccessPointUncheckedUpdateManyWithoutCreated_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6213,7 +6219,7 @@ export type AccessPointUncheckedUpdateWithoutUpdated_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6261,7 +6267,7 @@ export type AccessPointUncheckedUpdateManyWithoutUpdated_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6342,7 +6348,7 @@ export type AccessPointUncheckedUpdateWithoutLast_verified_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6390,7 +6396,7 @@ export type AccessPointUncheckedUpdateManyWithoutLast_verified_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6600,7 +6606,7 @@ export type AccessPointUncheckedUpdateWithoutMerged_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merge_reason?: Prisma.NullableEnumMergeReasonsFieldUpdateOperationsInput | $Enums.MergeReasons | null
@@ -6648,7 +6654,7 @@ export type AccessPointUncheckedUpdateManyWithoutMerged_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merge_reason?: Prisma.NullableEnumMergeReasonsFieldUpdateOperationsInput | $Enums.MergeReasons | null
@@ -6729,7 +6735,7 @@ export type AccessPointUncheckedUpdateWithoutCanonical_proposed_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6777,7 +6783,7 @@ export type AccessPointUncheckedUpdateManyWithoutCanonical_proposed_byInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6858,7 +6864,7 @@ export type AccessPointUncheckedUpdateWithoutCanonical_proposal_consent_byInput 
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6906,7 +6912,7 @@ export type AccessPointUncheckedUpdateManyWithoutCanonical_proposal_consent_byIn
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -6987,7 +6993,7 @@ export type AccessPointUncheckedUpdateWithoutCanonical_proposal_resolved_byInput
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -7035,7 +7041,7 @@ export type AccessPointUncheckedUpdateManyWithoutCanonical_proposal_resolved_byI
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -7069,7 +7075,7 @@ export type AccessPointCreateManyMerged_intoInput = {
   seasonality_status?: $Enums.SeasonalityStatus
   point_lat?: number | null
   point_lng?: number | null
-  owner_id?: number | null
+  owner_id: number
   visibility?: $Enums.Visibility
   merged_at?: Date | string | null
   merged_by_id?: number | null
@@ -7150,7 +7156,7 @@ export type AccessPointUncheckedUpdateWithoutMerged_intoInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -7198,7 +7204,7 @@ export type AccessPointUncheckedUpdateManyWithoutMerged_intoInput = {
   seasonality_status?: Prisma.EnumSeasonalityStatusFieldUpdateOperationsInput | $Enums.SeasonalityStatus
   point_lat?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   point_lng?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   merged_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   merged_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -7639,7 +7645,7 @@ export type $AccessPointPayload<ExtArgs extends runtime.Types.Extensions.Interna
     seasonality_status: $Enums.SeasonalityStatus
     point_lat: number | null
     point_lng: number | null
-    owner_id: number | null
+    owner_id: number
     visibility: $Enums.Visibility
     merged_at: Date | null
     merged_by_id: number | null
