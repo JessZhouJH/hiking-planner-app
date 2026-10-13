@@ -1680,10 +1680,10 @@ export const ContentReviewHistoryScalarFieldEnum = {
   requested_by_id: 'requested_by_id',
   requester_notes: 'requester_notes',
   review_type: 'review_type',
-  reivewed_at: 'reivewed_at',
+  reviewed_at: 'reviewed_at',
   reviewed_by_id: 'reviewed_by_id',
   reviewer_notes: 'reviewer_notes',
-  reivew_status: 'reivew_status'
+  review_status: 'review_status'
 } as const
 
 export type ContentReviewHistoryScalarFieldEnum = (typeof ContentReviewHistoryScalarFieldEnum)[keyof typeof ContentReviewHistoryScalarFieldEnum]

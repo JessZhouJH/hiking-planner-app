@@ -1,15 +1,7 @@
-import 'dotenv/config'
-import { Pool } from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../../generated/prisma/client.js'
+import { prisma } from '../../db/prisma.js'
+
 import { Status, UnitCategory } from '../../generated/prisma/enums.js'
 import type { Unit } from '../../generated/prisma/client.js'
-
-const connectionString = `${process.env.DATABASE_URL}`
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
-
 
 export async function findUnitById(
     id: number
@@ -37,13 +29,13 @@ export function isInputIdenticalToDb(
     notes?: string | null
 ) {
     return (
-        (category !== undefined || category === db_unit.category) && 
-        (display_name !== undefined || display_name === db_unit.display_name) &&
-        (status !== undefined || status === db_unit.status) &&
-        (is_base !== undefined || is_base === db_unit.is_base) &&
-        (scale_to_base !== undefined || scale_to_base === db_unit.scale_to_base) &&
-        (offset_to_base !== undefined || offset_to_base === db_unit.offset_to_base) &&
-        (notes !== undefined || notes === db_unit.notes)        
+        (category === undefined || category === db_unit.category) && 
+        (display_name === undefined || display_name === db_unit.display_name) &&
+        (status === undefined || status === db_unit.status) &&
+        (is_base === undefined || is_base === db_unit.is_base) &&
+        (scale_to_base === undefined || scale_to_base === db_unit.scale_to_base) &&
+        (offset_to_base === undefined || offset_to_base === db_unit.offset_to_base) &&
+        (notes === undefined || notes === db_unit.notes)        
     )
 }
 
@@ -104,7 +96,7 @@ export async function upsertUnitData(
             is_base: is_base ?? false,
             created_by_id: actior_user_id,
             updated_by_id: actior_user_id,
-            status: Status && Status.ACTIVE,
+            status: status ?? Status.ACTIVE,
 
             display_name: display_name ?? null,
             scale_to_base: scale_to_base ?? null,

@@ -1,14 +1,7 @@
-import 'dotenv/config'
-import { Pool } from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../../generated/prisma/client.js'
+import { prisma } from '../../db/prisma.js'
+
 import { Status, DescribingTargetType } from '../../generated/prisma/enums.js'
 import type { Tag } from '../../generated/prisma/client.js'
-
-const connectionString = `${process.env.DATABASE_URL}`
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
 
 export async function findTagById( id: number ){
     return await prisma.tag.findUnique({ where: {id: id} })

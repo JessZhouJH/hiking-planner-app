@@ -54,10 +54,10 @@ export type ContentReviewHistoryMinAggregateOutputType = {
   requested_by_id: number | null
   requester_notes: string | null
   review_type: $Enums.ContentReviewType | null
-  reivewed_at: Date | null
+  reviewed_at: Date | null
   reviewed_by_id: number | null
   reviewer_notes: string | null
-  reivew_status: $Enums.RecordActionStatus | null
+  review_status: $Enums.RecordActionStatus | null
 }
 
 export type ContentReviewHistoryMaxAggregateOutputType = {
@@ -70,10 +70,10 @@ export type ContentReviewHistoryMaxAggregateOutputType = {
   requested_by_id: number | null
   requester_notes: string | null
   review_type: $Enums.ContentReviewType | null
-  reivewed_at: Date | null
+  reviewed_at: Date | null
   reviewed_by_id: number | null
   reviewer_notes: string | null
-  reivew_status: $Enums.RecordActionStatus | null
+  review_status: $Enums.RecordActionStatus | null
 }
 
 export type ContentReviewHistoryCountAggregateOutputType = {
@@ -86,10 +86,10 @@ export type ContentReviewHistoryCountAggregateOutputType = {
   requested_by_id: number
   requester_notes: number
   review_type: number
-  reivewed_at: number
+  reviewed_at: number
   reviewed_by_id: number
   reviewer_notes: number
-  reivew_status: number
+  review_status: number
   _all: number
 }
 
@@ -122,10 +122,10 @@ export type ContentReviewHistoryMinAggregateInputType = {
   requested_by_id?: true
   requester_notes?: true
   review_type?: true
-  reivewed_at?: true
+  reviewed_at?: true
   reviewed_by_id?: true
   reviewer_notes?: true
-  reivew_status?: true
+  review_status?: true
 }
 
 export type ContentReviewHistoryMaxAggregateInputType = {
@@ -138,10 +138,10 @@ export type ContentReviewHistoryMaxAggregateInputType = {
   requested_by_id?: true
   requester_notes?: true
   review_type?: true
-  reivewed_at?: true
+  reviewed_at?: true
   reviewed_by_id?: true
   reviewer_notes?: true
-  reivew_status?: true
+  review_status?: true
 }
 
 export type ContentReviewHistoryCountAggregateInputType = {
@@ -154,10 +154,10 @@ export type ContentReviewHistoryCountAggregateInputType = {
   requested_by_id?: true
   requester_notes?: true
   review_type?: true
-  reivewed_at?: true
+  reviewed_at?: true
   reviewed_by_id?: true
   reviewer_notes?: true
-  reivew_status?: true
+  review_status?: true
   _all?: true
 }
 
@@ -257,10 +257,10 @@ export type ContentReviewHistoryGroupByOutputType = {
   requested_by_id: number
   requester_notes: string | null
   review_type: $Enums.ContentReviewType
-  reivewed_at: Date | null
+  reviewed_at: Date | null
   reviewed_by_id: number | null
   reviewer_notes: string | null
-  reivew_status: $Enums.RecordActionStatus
+  review_status: $Enums.RecordActionStatus
   _count: ContentReviewHistoryCountAggregateOutputType | null
   _avg: ContentReviewHistoryAvgAggregateOutputType | null
   _sum: ContentReviewHistorySumAggregateOutputType | null
@@ -296,10 +296,10 @@ export type ContentReviewHistoryWhereInput = {
   requested_by_id?: Prisma.IntFilter<"ContentReviewHistory"> | number
   requester_notes?: Prisma.StringNullableFilter<"ContentReviewHistory"> | string | null
   review_type?: Prisma.EnumContentReviewTypeFilter<"ContentReviewHistory"> | $Enums.ContentReviewType
-  reivewed_at?: Prisma.DateTimeNullableFilter<"ContentReviewHistory"> | Date | string | null
+  reviewed_at?: Prisma.DateTimeNullableFilter<"ContentReviewHistory"> | Date | string | null
   reviewed_by_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
   reviewer_notes?: Prisma.StringNullableFilter<"ContentReviewHistory"> | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFilter<"ContentReviewHistory"> | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFilter<"ContentReviewHistory"> | $Enums.RecordActionStatus
   predecessor_review?: Prisma.XOR<Prisma.ContentReviewHistoryNullableScalarRelationFilter, Prisma.ContentReviewHistoryWhereInput> | null
   linked_record_action?: Prisma.XOR<Prisma.RecordActionNullableScalarRelationFilter, Prisma.RecordActionWhereInput> | null
   requested_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -317,10 +317,10 @@ export type ContentReviewHistoryOrderByWithRelationInput = {
   requested_by_id?: Prisma.SortOrder
   requester_notes?: Prisma.SortOrderInput | Prisma.SortOrder
   review_type?: Prisma.SortOrder
-  reivewed_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  reviewed_at?: Prisma.SortOrderInput | Prisma.SortOrder
   reviewed_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   reviewer_notes?: Prisma.SortOrderInput | Prisma.SortOrder
-  reivew_status?: Prisma.SortOrder
+  review_status?: Prisma.SortOrder
   predecessor_review?: Prisma.ContentReviewHistoryOrderByWithRelationInput
   linked_record_action?: Prisma.RecordActionOrderByWithRelationInput
   requested_by?: Prisma.UserOrderByWithRelationInput
@@ -341,10 +341,10 @@ export type ContentReviewHistoryWhereUniqueInput = Prisma.AtLeast<{
   requested_by_id?: Prisma.IntFilter<"ContentReviewHistory"> | number
   requester_notes?: Prisma.StringNullableFilter<"ContentReviewHistory"> | string | null
   review_type?: Prisma.EnumContentReviewTypeFilter<"ContentReviewHistory"> | $Enums.ContentReviewType
-  reivewed_at?: Prisma.DateTimeNullableFilter<"ContentReviewHistory"> | Date | string | null
+  reviewed_at?: Prisma.DateTimeNullableFilter<"ContentReviewHistory"> | Date | string | null
   reviewed_by_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
   reviewer_notes?: Prisma.StringNullableFilter<"ContentReviewHistory"> | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFilter<"ContentReviewHistory"> | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFilter<"ContentReviewHistory"> | $Enums.RecordActionStatus
   predecessor_review?: Prisma.XOR<Prisma.ContentReviewHistoryNullableScalarRelationFilter, Prisma.ContentReviewHistoryWhereInput> | null
   linked_record_action?: Prisma.XOR<Prisma.RecordActionNullableScalarRelationFilter, Prisma.RecordActionWhereInput> | null
   requested_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -362,10 +362,10 @@ export type ContentReviewHistoryOrderByWithAggregationInput = {
   requested_by_id?: Prisma.SortOrder
   requester_notes?: Prisma.SortOrderInput | Prisma.SortOrder
   review_type?: Prisma.SortOrder
-  reivewed_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  reviewed_at?: Prisma.SortOrderInput | Prisma.SortOrder
   reviewed_by_id?: Prisma.SortOrderInput | Prisma.SortOrder
   reviewer_notes?: Prisma.SortOrderInput | Prisma.SortOrder
-  reivew_status?: Prisma.SortOrder
+  review_status?: Prisma.SortOrder
   _count?: Prisma.ContentReviewHistoryCountOrderByAggregateInput
   _avg?: Prisma.ContentReviewHistoryAvgOrderByAggregateInput
   _max?: Prisma.ContentReviewHistoryMaxOrderByAggregateInput
@@ -386,10 +386,10 @@ export type ContentReviewHistoryScalarWhereWithAggregatesInput = {
   requested_by_id?: Prisma.IntWithAggregatesFilter<"ContentReviewHistory"> | number
   requester_notes?: Prisma.StringNullableWithAggregatesFilter<"ContentReviewHistory"> | string | null
   review_type?: Prisma.EnumContentReviewTypeWithAggregatesFilter<"ContentReviewHistory"> | $Enums.ContentReviewType
-  reivewed_at?: Prisma.DateTimeNullableWithAggregatesFilter<"ContentReviewHistory"> | Date | string | null
+  reviewed_at?: Prisma.DateTimeNullableWithAggregatesFilter<"ContentReviewHistory"> | Date | string | null
   reviewed_by_id?: Prisma.IntNullableWithAggregatesFilter<"ContentReviewHistory"> | number | null
   reviewer_notes?: Prisma.StringNullableWithAggregatesFilter<"ContentReviewHistory"> | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusWithAggregatesFilter<"ContentReviewHistory"> | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusWithAggregatesFilter<"ContentReviewHistory"> | $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryCreateInput = {
@@ -398,9 +398,9 @@ export type ContentReviewHistoryCreateInput = {
   requested_at?: Date | string
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryCreateNestedOneWithoutContent_review_history__predecessor_reviewInput
   linked_record_action?: Prisma.RecordActionCreateNestedOneWithoutContent_review_history__linked_record_actionInput
   requested_by: Prisma.UserCreateNestedOneWithoutContent_review_history__requested_byInput
@@ -418,10 +418,10 @@ export type ContentReviewHistoryUncheckedCreateInput = {
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutPredecessor_reviewInput
 }
 
@@ -431,9 +431,9 @@ export type ContentReviewHistoryUpdateInput = {
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryUpdateOneWithoutContent_review_history__predecessor_reviewNestedInput
   linked_record_action?: Prisma.RecordActionUpdateOneWithoutContent_review_history__linked_record_actionNestedInput
   requested_by?: Prisma.UserUpdateOneRequiredWithoutContent_review_history__requested_byNestedInput
@@ -451,10 +451,10 @@ export type ContentReviewHistoryUncheckedUpdateInput = {
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutPredecessor_reviewNestedInput
 }
 
@@ -468,10 +468,10 @@ export type ContentReviewHistoryCreateManyInput = {
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryUpdateManyMutationInput = {
@@ -480,9 +480,9 @@ export type ContentReviewHistoryUpdateManyMutationInput = {
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryUncheckedUpdateManyInput = {
@@ -495,10 +495,10 @@ export type ContentReviewHistoryUncheckedUpdateManyInput = {
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryListRelationFilter = {
@@ -526,10 +526,10 @@ export type ContentReviewHistoryCountOrderByAggregateInput = {
   requested_by_id?: Prisma.SortOrder
   requester_notes?: Prisma.SortOrder
   review_type?: Prisma.SortOrder
-  reivewed_at?: Prisma.SortOrder
+  reviewed_at?: Prisma.SortOrder
   reviewed_by_id?: Prisma.SortOrder
   reviewer_notes?: Prisma.SortOrder
-  reivew_status?: Prisma.SortOrder
+  review_status?: Prisma.SortOrder
 }
 
 export type ContentReviewHistoryAvgOrderByAggregateInput = {
@@ -551,10 +551,10 @@ export type ContentReviewHistoryMaxOrderByAggregateInput = {
   requested_by_id?: Prisma.SortOrder
   requester_notes?: Prisma.SortOrder
   review_type?: Prisma.SortOrder
-  reivewed_at?: Prisma.SortOrder
+  reviewed_at?: Prisma.SortOrder
   reviewed_by_id?: Prisma.SortOrder
   reviewer_notes?: Prisma.SortOrder
-  reivew_status?: Prisma.SortOrder
+  review_status?: Prisma.SortOrder
 }
 
 export type ContentReviewHistoryMinOrderByAggregateInput = {
@@ -567,10 +567,10 @@ export type ContentReviewHistoryMinOrderByAggregateInput = {
   requested_by_id?: Prisma.SortOrder
   requester_notes?: Prisma.SortOrder
   review_type?: Prisma.SortOrder
-  reivewed_at?: Prisma.SortOrder
+  reviewed_at?: Prisma.SortOrder
   reviewed_by_id?: Prisma.SortOrder
   reviewer_notes?: Prisma.SortOrder
-  reivew_status?: Prisma.SortOrder
+  review_status?: Prisma.SortOrder
 }
 
 export type ContentReviewHistorySumOrderByAggregateInput = {
@@ -776,9 +776,9 @@ export type ContentReviewHistoryCreateWithoutRequested_byInput = {
   requested_at?: Date | string
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryCreateNestedOneWithoutContent_review_history__predecessor_reviewInput
   linked_record_action?: Prisma.RecordActionCreateNestedOneWithoutContent_review_history__linked_record_actionInput
   reviewed_by?: Prisma.UserCreateNestedOneWithoutContent_review_history__reviewed_byInput
@@ -794,10 +794,10 @@ export type ContentReviewHistoryUncheckedCreateWithoutRequested_byInput = {
   requested_at?: Date | string
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutPredecessor_reviewInput
 }
 
@@ -817,9 +817,9 @@ export type ContentReviewHistoryCreateWithoutReviewed_byInput = {
   requested_at?: Date | string
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryCreateNestedOneWithoutContent_review_history__predecessor_reviewInput
   linked_record_action?: Prisma.RecordActionCreateNestedOneWithoutContent_review_history__linked_record_actionInput
   requested_by: Prisma.UserCreateNestedOneWithoutContent_review_history__requested_byInput
@@ -836,9 +836,9 @@ export type ContentReviewHistoryUncheckedCreateWithoutReviewed_byInput = {
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutPredecessor_reviewInput
 }
 
@@ -881,10 +881,10 @@ export type ContentReviewHistoryScalarWhereInput = {
   requested_by_id?: Prisma.IntFilter<"ContentReviewHistory"> | number
   requester_notes?: Prisma.StringNullableFilter<"ContentReviewHistory"> | string | null
   review_type?: Prisma.EnumContentReviewTypeFilter<"ContentReviewHistory"> | $Enums.ContentReviewType
-  reivewed_at?: Prisma.DateTimeNullableFilter<"ContentReviewHistory"> | Date | string | null
+  reviewed_at?: Prisma.DateTimeNullableFilter<"ContentReviewHistory"> | Date | string | null
   reviewed_by_id?: Prisma.IntNullableFilter<"ContentReviewHistory"> | number | null
   reviewer_notes?: Prisma.StringNullableFilter<"ContentReviewHistory"> | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFilter<"ContentReviewHistory"> | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFilter<"ContentReviewHistory"> | $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryUpsertWithWhereUniqueWithoutReviewed_byInput = {
@@ -909,9 +909,9 @@ export type ContentReviewHistoryCreateWithoutLinked_record_actionInput = {
   requested_at?: Date | string
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryCreateNestedOneWithoutContent_review_history__predecessor_reviewInput
   requested_by: Prisma.UserCreateNestedOneWithoutContent_review_history__requested_byInput
   reviewed_by?: Prisma.UserCreateNestedOneWithoutContent_review_history__reviewed_byInput
@@ -927,10 +927,10 @@ export type ContentReviewHistoryUncheckedCreateWithoutLinked_record_actionInput 
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutPredecessor_reviewInput
 }
 
@@ -966,9 +966,9 @@ export type ContentReviewHistoryCreateWithoutContent_review_history__predecessor
   requested_at?: Date | string
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryCreateNestedOneWithoutContent_review_history__predecessor_reviewInput
   linked_record_action?: Prisma.RecordActionCreateNestedOneWithoutContent_review_history__linked_record_actionInput
   requested_by: Prisma.UserCreateNestedOneWithoutContent_review_history__requested_byInput
@@ -985,10 +985,10 @@ export type ContentReviewHistoryUncheckedCreateWithoutContent_review_history__pr
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryCreateOrConnectWithoutContent_review_history__predecessor_reviewInput = {
@@ -1002,9 +1002,9 @@ export type ContentReviewHistoryCreateWithoutPredecessor_reviewInput = {
   requested_at?: Date | string
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   linked_record_action?: Prisma.RecordActionCreateNestedOneWithoutContent_review_history__linked_record_actionInput
   requested_by: Prisma.UserCreateNestedOneWithoutContent_review_history__requested_byInput
   reviewed_by?: Prisma.UserCreateNestedOneWithoutContent_review_history__reviewed_byInput
@@ -1020,10 +1020,10 @@ export type ContentReviewHistoryUncheckedCreateWithoutPredecessor_reviewInput = 
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedCreateNestedManyWithoutPredecessor_reviewInput
 }
 
@@ -1054,9 +1054,9 @@ export type ContentReviewHistoryUpdateWithoutContent_review_history__predecessor
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryUpdateOneWithoutContent_review_history__predecessor_reviewNestedInput
   linked_record_action?: Prisma.RecordActionUpdateOneWithoutContent_review_history__linked_record_actionNestedInput
   requested_by?: Prisma.UserUpdateOneRequiredWithoutContent_review_history__requested_byNestedInput
@@ -1073,10 +1073,10 @@ export type ContentReviewHistoryUncheckedUpdateWithoutContent_review_history__pr
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryUpsertWithWhereUniqueWithoutPredecessor_reviewInput = {
@@ -1104,10 +1104,10 @@ export type ContentReviewHistoryCreateManyRequested_byInput = {
   requested_at?: Date | string
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryCreateManyReviewed_byInput = {
@@ -1120,9 +1120,9 @@ export type ContentReviewHistoryCreateManyReviewed_byInput = {
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryUpdateWithoutRequested_byInput = {
@@ -1131,9 +1131,9 @@ export type ContentReviewHistoryUpdateWithoutRequested_byInput = {
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryUpdateOneWithoutContent_review_history__predecessor_reviewNestedInput
   linked_record_action?: Prisma.RecordActionUpdateOneWithoutContent_review_history__linked_record_actionNestedInput
   reviewed_by?: Prisma.UserUpdateOneWithoutContent_review_history__reviewed_byNestedInput
@@ -1149,10 +1149,10 @@ export type ContentReviewHistoryUncheckedUpdateWithoutRequested_byInput = {
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutPredecessor_reviewNestedInput
 }
 
@@ -1165,10 +1165,10 @@ export type ContentReviewHistoryUncheckedUpdateManyWithoutRequested_byInput = {
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryUpdateWithoutReviewed_byInput = {
@@ -1177,9 +1177,9 @@ export type ContentReviewHistoryUpdateWithoutReviewed_byInput = {
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryUpdateOneWithoutContent_review_history__predecessor_reviewNestedInput
   linked_record_action?: Prisma.RecordActionUpdateOneWithoutContent_review_history__linked_record_actionNestedInput
   requested_by?: Prisma.UserUpdateOneRequiredWithoutContent_review_history__requested_byNestedInput
@@ -1196,9 +1196,9 @@ export type ContentReviewHistoryUncheckedUpdateWithoutReviewed_byInput = {
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutPredecessor_reviewNestedInput
 }
 
@@ -1212,9 +1212,9 @@ export type ContentReviewHistoryUncheckedUpdateManyWithoutReviewed_byInput = {
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryCreateManyLinked_record_actionInput = {
@@ -1226,10 +1226,10 @@ export type ContentReviewHistoryCreateManyLinked_record_actionInput = {
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryUpdateWithoutLinked_record_actionInput = {
@@ -1238,9 +1238,9 @@ export type ContentReviewHistoryUpdateWithoutLinked_record_actionInput = {
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   predecessor_review?: Prisma.ContentReviewHistoryUpdateOneWithoutContent_review_history__predecessor_reviewNestedInput
   requested_by?: Prisma.UserUpdateOneRequiredWithoutContent_review_history__requested_byNestedInput
   reviewed_by?: Prisma.UserUpdateOneWithoutContent_review_history__reviewed_byNestedInput
@@ -1256,10 +1256,10 @@ export type ContentReviewHistoryUncheckedUpdateWithoutLinked_record_actionInput 
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutPredecessor_reviewNestedInput
 }
 
@@ -1272,10 +1272,10 @@ export type ContentReviewHistoryUncheckedUpdateManyWithoutLinked_record_actionIn
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryCreateManyPredecessor_reviewInput = {
@@ -1287,10 +1287,10 @@ export type ContentReviewHistoryCreateManyPredecessor_reviewInput = {
   requested_by_id: number
   requester_notes?: string | null
   review_type?: $Enums.ContentReviewType
-  reivewed_at?: Date | string | null
+  reviewed_at?: Date | string | null
   reviewed_by_id?: number | null
   reviewer_notes?: string | null
-  reivew_status?: $Enums.RecordActionStatus
+  review_status?: $Enums.RecordActionStatus
 }
 
 export type ContentReviewHistoryUpdateWithoutPredecessor_reviewInput = {
@@ -1299,9 +1299,9 @@ export type ContentReviewHistoryUpdateWithoutPredecessor_reviewInput = {
   requested_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   linked_record_action?: Prisma.RecordActionUpdateOneWithoutContent_review_history__linked_record_actionNestedInput
   requested_by?: Prisma.UserUpdateOneRequiredWithoutContent_review_history__requested_byNestedInput
   reviewed_by?: Prisma.UserUpdateOneWithoutContent_review_history__reviewed_byNestedInput
@@ -1317,10 +1317,10 @@ export type ContentReviewHistoryUncheckedUpdateWithoutPredecessor_reviewInput = 
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
   content_review_history__predecessor_review?: Prisma.ContentReviewHistoryUncheckedUpdateManyWithoutPredecessor_reviewNestedInput
 }
 
@@ -1333,10 +1333,10 @@ export type ContentReviewHistoryUncheckedUpdateManyWithoutPredecessor_reviewInpu
   requested_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   requester_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   review_type?: Prisma.EnumContentReviewTypeFieldUpdateOperationsInput | $Enums.ContentReviewType
-  reivewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   reviewer_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  reivew_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
+  review_status?: Prisma.EnumRecordActionStatusFieldUpdateOperationsInput | $Enums.RecordActionStatus
 }
 
 
@@ -1380,10 +1380,10 @@ export type ContentReviewHistorySelect<ExtArgs extends runtime.Types.Extensions.
   requested_by_id?: boolean
   requester_notes?: boolean
   review_type?: boolean
-  reivewed_at?: boolean
+  reviewed_at?: boolean
   reviewed_by_id?: boolean
   reviewer_notes?: boolean
-  reivew_status?: boolean
+  review_status?: boolean
   predecessor_review?: boolean | Prisma.ContentReviewHistory$predecessor_reviewArgs<ExtArgs>
   linked_record_action?: boolean | Prisma.ContentReviewHistory$linked_record_actionArgs<ExtArgs>
   requested_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1402,10 +1402,10 @@ export type ContentReviewHistorySelectCreateManyAndReturn<ExtArgs extends runtim
   requested_by_id?: boolean
   requester_notes?: boolean
   review_type?: boolean
-  reivewed_at?: boolean
+  reviewed_at?: boolean
   reviewed_by_id?: boolean
   reviewer_notes?: boolean
-  reivew_status?: boolean
+  review_status?: boolean
   predecessor_review?: boolean | Prisma.ContentReviewHistory$predecessor_reviewArgs<ExtArgs>
   linked_record_action?: boolean | Prisma.ContentReviewHistory$linked_record_actionArgs<ExtArgs>
   requested_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1422,10 +1422,10 @@ export type ContentReviewHistorySelectUpdateManyAndReturn<ExtArgs extends runtim
   requested_by_id?: boolean
   requester_notes?: boolean
   review_type?: boolean
-  reivewed_at?: boolean
+  reviewed_at?: boolean
   reviewed_by_id?: boolean
   reviewer_notes?: boolean
-  reivew_status?: boolean
+  review_status?: boolean
   predecessor_review?: boolean | Prisma.ContentReviewHistory$predecessor_reviewArgs<ExtArgs>
   linked_record_action?: boolean | Prisma.ContentReviewHistory$linked_record_actionArgs<ExtArgs>
   requested_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1442,13 +1442,13 @@ export type ContentReviewHistorySelectScalar = {
   requested_by_id?: boolean
   requester_notes?: boolean
   review_type?: boolean
-  reivewed_at?: boolean
+  reviewed_at?: boolean
   reviewed_by_id?: boolean
   reviewer_notes?: boolean
-  reivew_status?: boolean
+  review_status?: boolean
 }
 
-export type ContentReviewHistoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "target_type" | "target_id" | "predecessor_review_id" | "linked_record_action_id" | "requested_at" | "requested_by_id" | "requester_notes" | "review_type" | "reivewed_at" | "reviewed_by_id" | "reviewer_notes" | "reivew_status", ExtArgs["result"]["contentReviewHistory"]>
+export type ContentReviewHistoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "target_type" | "target_id" | "predecessor_review_id" | "linked_record_action_id" | "requested_at" | "requested_by_id" | "requester_notes" | "review_type" | "reviewed_at" | "reviewed_by_id" | "reviewer_notes" | "review_status", ExtArgs["result"]["contentReviewHistory"]>
 export type ContentReviewHistoryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   predecessor_review?: boolean | Prisma.ContentReviewHistory$predecessor_reviewArgs<ExtArgs>
   linked_record_action?: boolean | Prisma.ContentReviewHistory$linked_record_actionArgs<ExtArgs>
@@ -1489,10 +1489,10 @@ export type $ContentReviewHistoryPayload<ExtArgs extends runtime.Types.Extension
     requested_by_id: number
     requester_notes: string | null
     review_type: $Enums.ContentReviewType
-    reivewed_at: Date | null
+    reviewed_at: Date | null
     reviewed_by_id: number | null
     reviewer_notes: string | null
-    reivew_status: $Enums.RecordActionStatus
+    review_status: $Enums.RecordActionStatus
   }, ExtArgs["result"]["contentReviewHistory"]>
   composites: {}
 }
@@ -1930,10 +1930,10 @@ export interface ContentReviewHistoryFieldRefs {
   readonly requested_by_id: Prisma.FieldRef<"ContentReviewHistory", 'Int'>
   readonly requester_notes: Prisma.FieldRef<"ContentReviewHistory", 'String'>
   readonly review_type: Prisma.FieldRef<"ContentReviewHistory", 'ContentReviewType'>
-  readonly reivewed_at: Prisma.FieldRef<"ContentReviewHistory", 'DateTime'>
+  readonly reviewed_at: Prisma.FieldRef<"ContentReviewHistory", 'DateTime'>
   readonly reviewed_by_id: Prisma.FieldRef<"ContentReviewHistory", 'Int'>
   readonly reviewer_notes: Prisma.FieldRef<"ContentReviewHistory", 'String'>
-  readonly reivew_status: Prisma.FieldRef<"ContentReviewHistory", 'RecordActionStatus'>
+  readonly review_status: Prisma.FieldRef<"ContentReviewHistory", 'RecordActionStatus'>
 }
     
 

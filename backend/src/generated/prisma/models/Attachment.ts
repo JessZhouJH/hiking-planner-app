@@ -399,9 +399,9 @@ export type AttachmentCreateInput = {
   created_at?: Date | string
   updated_at?: Date | string
   last_reviewed_at?: Date | string | null
-  created_by: Prisma.UserCreateNestedOneWithoutAttachement__created_byInput
-  updated_by: Prisma.UserCreateNestedOneWithoutAttachement__updated_byInput
-  last_reviewed_by?: Prisma.UserCreateNestedOneWithoutAttachement__reviewed_byInput
+  created_by: Prisma.UserCreateNestedOneWithoutAttachment__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutAttachment__updated_byInput
+  last_reviewed_by?: Prisma.UserCreateNestedOneWithoutAttachment__reviewed_byInput
   media_archive: Prisma.MediaArchiveCreateNestedOneWithoutAttachment__media_archiveInput
 }
 
@@ -430,9 +430,9 @@ export type AttachmentUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_by?: Prisma.UserUpdateOneRequiredWithoutAttachement__created_byNestedInput
-  updated_by?: Prisma.UserUpdateOneRequiredWithoutAttachement__updated_byNestedInput
-  last_reviewed_by?: Prisma.UserUpdateOneWithoutAttachement__reviewed_byNestedInput
+  created_by?: Prisma.UserUpdateOneRequiredWithoutAttachment__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutAttachment__updated_byNestedInput
+  last_reviewed_by?: Prisma.UserUpdateOneWithoutAttachment__reviewed_byNestedInput
   media_archive?: Prisma.MediaArchiveUpdateOneRequiredWithoutAttachment__media_archiveNestedInput
 }
 
@@ -763,8 +763,8 @@ export type AttachmentCreateWithoutCreated_byInput = {
   created_at?: Date | string
   updated_at?: Date | string
   last_reviewed_at?: Date | string | null
-  updated_by: Prisma.UserCreateNestedOneWithoutAttachement__updated_byInput
-  last_reviewed_by?: Prisma.UserCreateNestedOneWithoutAttachement__reviewed_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutAttachment__updated_byInput
+  last_reviewed_by?: Prisma.UserCreateNestedOneWithoutAttachment__reviewed_byInput
   media_archive: Prisma.MediaArchiveCreateNestedOneWithoutAttachment__media_archiveInput
 }
 
@@ -802,8 +802,8 @@ export type AttachmentCreateWithoutUpdated_byInput = {
   created_at?: Date | string
   updated_at?: Date | string
   last_reviewed_at?: Date | string | null
-  created_by: Prisma.UserCreateNestedOneWithoutAttachement__created_byInput
-  last_reviewed_by?: Prisma.UserCreateNestedOneWithoutAttachement__reviewed_byInput
+  created_by: Prisma.UserCreateNestedOneWithoutAttachment__created_byInput
+  last_reviewed_by?: Prisma.UserCreateNestedOneWithoutAttachment__reviewed_byInput
   media_archive: Prisma.MediaArchiveCreateNestedOneWithoutAttachment__media_archiveInput
 }
 
@@ -841,8 +841,8 @@ export type AttachmentCreateWithoutLast_reviewed_byInput = {
   created_at?: Date | string
   updated_at?: Date | string
   last_reviewed_at?: Date | string | null
-  created_by: Prisma.UserCreateNestedOneWithoutAttachement__created_byInput
-  updated_by: Prisma.UserCreateNestedOneWithoutAttachement__updated_byInput
+  created_by: Prisma.UserCreateNestedOneWithoutAttachment__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutAttachment__updated_byInput
   media_archive: Prisma.MediaArchiveCreateNestedOneWithoutAttachment__media_archiveInput
 }
 
@@ -947,9 +947,9 @@ export type AttachmentCreateWithoutMedia_archiveInput = {
   created_at?: Date | string
   updated_at?: Date | string
   last_reviewed_at?: Date | string | null
-  created_by: Prisma.UserCreateNestedOneWithoutAttachement__created_byInput
-  updated_by: Prisma.UserCreateNestedOneWithoutAttachement__updated_byInput
-  last_reviewed_by?: Prisma.UserCreateNestedOneWithoutAttachement__reviewed_byInput
+  created_by: Prisma.UserCreateNestedOneWithoutAttachment__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutAttachment__updated_byInput
+  last_reviewed_by?: Prisma.UserCreateNestedOneWithoutAttachment__reviewed_byInput
 }
 
 export type AttachmentUncheckedCreateWithoutMedia_archiveInput = {
@@ -1047,8 +1047,8 @@ export type AttachmentUpdateWithoutCreated_byInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updated_by?: Prisma.UserUpdateOneRequiredWithoutAttachement__updated_byNestedInput
-  last_reviewed_by?: Prisma.UserUpdateOneWithoutAttachement__reviewed_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutAttachment__updated_byNestedInput
+  last_reviewed_by?: Prisma.UserUpdateOneWithoutAttachment__reviewed_byNestedInput
   media_archive?: Prisma.MediaArchiveUpdateOneRequiredWithoutAttachment__media_archiveNestedInput
 }
 
@@ -1091,8 +1091,8 @@ export type AttachmentUpdateWithoutUpdated_byInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_by?: Prisma.UserUpdateOneRequiredWithoutAttachement__created_byNestedInput
-  last_reviewed_by?: Prisma.UserUpdateOneWithoutAttachement__reviewed_byNestedInput
+  created_by?: Prisma.UserUpdateOneRequiredWithoutAttachment__created_byNestedInput
+  last_reviewed_by?: Prisma.UserUpdateOneWithoutAttachment__reviewed_byNestedInput
   media_archive?: Prisma.MediaArchiveUpdateOneRequiredWithoutAttachment__media_archiveNestedInput
 }
 
@@ -1135,8 +1135,8 @@ export type AttachmentUpdateWithoutLast_reviewed_byInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_by?: Prisma.UserUpdateOneRequiredWithoutAttachement__created_byNestedInput
-  updated_by?: Prisma.UserUpdateOneRequiredWithoutAttachement__updated_byNestedInput
+  created_by?: Prisma.UserUpdateOneRequiredWithoutAttachment__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutAttachment__updated_byNestedInput
   media_archive?: Prisma.MediaArchiveUpdateOneRequiredWithoutAttachment__media_archiveNestedInput
 }
 
@@ -1194,9 +1194,9 @@ export type AttachmentUpdateWithoutMedia_archiveInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_by?: Prisma.UserUpdateOneRequiredWithoutAttachement__created_byNestedInput
-  updated_by?: Prisma.UserUpdateOneRequiredWithoutAttachement__updated_byNestedInput
-  last_reviewed_by?: Prisma.UserUpdateOneWithoutAttachement__reviewed_byNestedInput
+  created_by?: Prisma.UserUpdateOneRequiredWithoutAttachment__created_byNestedInput
+  updated_by?: Prisma.UserUpdateOneRequiredWithoutAttachment__updated_byNestedInput
+  last_reviewed_by?: Prisma.UserUpdateOneWithoutAttachment__reviewed_byNestedInput
 }
 
 export type AttachmentUncheckedUpdateWithoutMedia_archiveInput = {

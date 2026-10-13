@@ -1,14 +1,7 @@
-import 'dotenv/config'
-import { Pool } from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../../generated/prisma/client.js'
+import { prisma } from '../../db/prisma.js'
+
 import { Status } from '../../generated/prisma/enums.js'
 import type { Role } from '../../generated/prisma/client.js'
-
-const connectionString = `${process.env.DATABASE_URL}`
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
 
 /**
  * findRoleById()
@@ -156,7 +149,7 @@ export async function deleteRole(
     // TODO: permission check
 
     try {
-        return await prisma.user.update({
+        return await prisma.role.update({
             where: { id: role_id },
             data: {
                 updated_by_id: actor_user_id,

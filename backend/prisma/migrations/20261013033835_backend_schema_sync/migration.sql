@@ -5,4 +5,3 @@
 
 */
 -- AlterTable
-ALTER TABLE "GearSpecs" DROP COLUMN "specs_sequence";

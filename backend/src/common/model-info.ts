@@ -13,7 +13,7 @@ export type module = {
     managedBy: managedBy
 }
 
-export const GENERAL_ACCESS = ['create', 'read', 'update', 'write']
+export const GENERAL_ACCESS = ['create', 'read', 'update', 'delete']
 export const VERIFICATION_ACCESS = 'verify'
 export const EXPORT_ACCESS = 'export'
 

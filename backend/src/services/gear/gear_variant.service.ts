@@ -1,15 +1,7 @@
-import 'dotenv/config'
-import { Pool } from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../../generated/prisma/client.js'
+import { prisma } from '../../db/prisma.js'
 
 import { Status } from '../../generated/prisma/enums.js'
 import type { GearVariant } from '../../generated/prisma/client.js'
-
-const connectionString = `${process.env.DATABASE_URL}`
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg( pool )
-const prisma = new PrismaClient({ adapter })
 
 export async function findGearVariantById ( id: number ){
     return await prisma.gearVariant.findUnique({ where: {id: id} })
@@ -92,7 +84,7 @@ export async function upsertGearVariantData (
             gear_variant_name: gear_variant_name,
             is_technical_variant: is_technical_variant ?? false,
             variant_preview_img_key: variant_preview_img_key ?? null,
-            status: status ?? status,
+            status: status ?? Status.ACTIVE,
             notes: notes ?? null,
             created_by_id: actor_user_id,
             updated_by_id: actor_user_id

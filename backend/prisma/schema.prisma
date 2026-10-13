@@ -620,9 +620,9 @@ model User {
   media_archive__reviewed_by MediaArchive[] @relation("MediaArchiveReviewedBy")
   media_archive__contributor MediaArchive[] @relation("MediaArchiveContributor")
 
-  attachement__created_by Attachment[] @relation("AttachmentCreatedBy")
-  attachement__updated_by Attachment[] @relation("AttachmentUpdatedBy")
-  attachement__reviewed_by Attachment[] @relation("AttachmentReviewedBy")
+  attachment__created_by Attachment[] @relation("AttachmentCreatedBy")
+  attachment__updated_by Attachment[] @relation("AttachmentUpdatedBy")
+  attachment__reviewed_by Attachment[] @relation("AttachmentReviewedBy")
 
   unit__created_by Unit[] @relation("UnitCreatedBy")
   unit__updated_by Unit[] @relation("UnitUpdatedBy")
@@ -1367,7 +1367,6 @@ model GearSpecs {
   source_unit Unit? @relation("GearSpecsSourceUnit", fields: [source_unit_id], references: [id])
   
   
-  @@unique([gear_id, gear_variant_id, gear_specs_definition_id])
 }
 
 model GearFeature {
@@ -2920,7 +2919,7 @@ model Collection {
   last_reviewed_by User? @relation("CollectionReviewedBy", fields: [last_reviewed_by_id], references: [id])
   owner User? @relation("CollectionOwner", fields: [owner_id], references: [id])
 
-  colleciton_item_collection CollectionItem[] @relation("CollectionItemCollection")
+  collection_item_collection CollectionItem[] @relation("CollectionItemCollection")
 
   @@unique([name, owner_id])
 }
@@ -3004,10 +3003,10 @@ model CommunityPublication {
   updated_by User @relation("CommunityPublicationUpdatedBy", fields: [updated_by_id], references: [id])
   submitted_by User @relation("CommunityPublicationSubmittedBy", fields: [submitted_by_id], references: [id])
   last_reviewed_by User? @relation("CommunityPublicationReviewedBy", fields: [last_reviewed_by_id], references: [id])
-  contriutor User? @relation("CommunityPublicationContributor", fields: [contributor_id], references: [id])
+  contributor User? @relation("CommunityPublicationContributor", fields: [contributor_id], references: [id])
 
   community_publication_item__community_publication CommunityPublicationItem[] @relation("CommunityPublicationItemCommunityPublication")
-  community_publication_attachement__community_publication CommunityPublicationAttachment[] @relation("CommunityPublicationAttachmentCommunityPublication")
+  community_publication_attachment__community_publication CommunityPublicationAttachment[] @relation("CommunityPublicationAttachmentCommunityPublication")
 }
 
 model CommunityPublicationItem {
@@ -3036,7 +3035,7 @@ model CommunityPublicationItem {
   created_by User @relation("CommunityPublicationItemCreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("CommunityPublicationItemUpdatedBy", fields: [updated_by_id], references: [id])
   last_reviewed_by User? @relation("CommunityPublicationItemReviewedBy", fields: [last_reviewed_by_id], references: [id])
-  contriutor User? @relation("CommunityPublicationItemContributor", fields: [contributor_id], references: [id])
+  contributor User? @relation("CommunityPublicationItemContributor", fields: [contributor_id], references: [id])
 
   community_publication CommunityPublication @relation("CommunityPublicationItemCommunityPublication", fields: [community_publication_id], references: [id])
 
@@ -3117,11 +3116,11 @@ model ContentReviewHistory {  // TODO: Leave to Post MVP P3
 
   review_type ContentReviewType @default(UNSPECIFIED)
 
-  reivewed_at DateTime?
+  reviewed_at DateTime?
   reviewed_by_id Int?
   reviewer_notes String?
 
-  reivew_status RecordActionStatus @default(UNSPECIFIED)
+  review_status RecordActionStatus @default(UNSPECIFIED)
 
   predecessor_review ContentReviewHistory? @relation("ContentReviewHistoryPredecessorReview", fields: [predecessor_review_id], references: [id])
   linked_record_action RecordAction? @relation("ContentReviewHistoryLinkedRecordAction", fields: [linked_record_action_id], references: [id])

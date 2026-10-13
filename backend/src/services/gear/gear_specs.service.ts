@@ -1,21 +1,14 @@
-import 'dotenv/config'
-import { Pool } from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../../generated/prisma/client.js'
+import { prisma } from '../../db/prisma.js'
 
 import { Status, Operator, ValueType } from '../../generated/prisma/enums.js'
-import type { Gear, GearSpecs } from '../../generated/prisma/client.js'
+import type { GearSpecs } from '../../generated/prisma/client.js'
 
-import { findGearSpecsDefinitionById } from './gear_specs_definition.service.js'
 import { findUnitById } from '../common/unit.service.js'
 import { findGearById } from './gear.service.js'
 import { findGearVariantById } from './gear_variant.service.js'
+import { findGearSpecsDefinitionById } from './gear_specs_definition.service.js'
 import { findGearTypeRelationByFks } from './gear_type_relation.service.js'
 
-const connectionString = `${process.env.DATABASE_URL}`
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
 
 const enum RequiredValueType {
     BOOLEAN,
@@ -402,7 +395,7 @@ export async function upsertGearSpecsData(
             }
         })
     }
-    if (!isImmutableIdentityValid) {
+    if (!isImmutableIdentityValid(gear_id, gear_specs_definition_id, gear_variant_id)) {
         // TODO: error handling
         throw new Error ("Input gear identity error ")
     }
@@ -432,7 +425,6 @@ export async function upsertGearSpecsData(
                 status: status ?? Status.ACTIVE,
                 notes: notes
             }
-    
     // check whether the data is valid and can be stored in the database
     if (await isInputValid(gear_specs_definition_id, mutable_data_to_validate) !== true) {
         // TODO: error handling
@@ -442,21 +434,21 @@ export async function upsertGearSpecsData(
     if (existing_gear_specs) return await updateExistingGearSpecs(existing_gear_specs)
     // create new record
     return await prisma.gearSpecs.create({
-            data: {
-                gear_id: gear_id,
-                gear_specs_definition_id: gear_specs_definition_id,
-                gear_variant_id: gear_variant_id,
-                source_unit_id: source_unit_id,
-                value_boolean: value_boolean,
-                value_text: value_text,
-                value_numeric_1: value_numeric_1,
-                value_numeric_2: value_numeric_2,
-                operator: operator,
-                notes: notes,
-                status: status ?? Status.ACTIVE,
-                created_by_id: actor_user_id,
-                updated_by_id: actor_user_id
-            }
-        })
+        data: {
+            gear_id: gear_id,
+            gear_specs_definition_id: gear_specs_definition_id,
+            gear_variant_id: gear_variant_id,
+            source_unit_id: source_unit_id,
+            value_boolean: value_boolean,
+            value_text: value_text,
+            value_numeric_1: value_numeric_1,
+            value_numeric_2: value_numeric_2,
+            operator: operator,
+            notes: notes,
+            status: status ?? Status.ACTIVE,
+            created_by_id: actor_user_id,
+            updated_by_id: actor_user_id
+        }
+    })
 }
 

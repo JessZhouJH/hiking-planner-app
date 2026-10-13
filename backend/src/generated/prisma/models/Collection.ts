@@ -316,7 +316,7 @@ export type CollectionWhereInput = {
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   last_reviewed_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  colleciton_item_collection?: Prisma.CollectionItemListRelationFilter
+  collection_item_collection?: Prisma.CollectionItemListRelationFilter
 }
 
 export type CollectionOrderByWithRelationInput = {
@@ -339,7 +339,7 @@ export type CollectionOrderByWithRelationInput = {
   updated_by?: Prisma.UserOrderByWithRelationInput
   last_reviewed_by?: Prisma.UserOrderByWithRelationInput
   owner?: Prisma.UserOrderByWithRelationInput
-  colleciton_item_collection?: Prisma.CollectionItemOrderByRelationAggregateInput
+  collection_item_collection?: Prisma.CollectionItemOrderByRelationAggregateInput
 }
 
 export type CollectionWhereUniqueInput = Prisma.AtLeast<{
@@ -366,7 +366,7 @@ export type CollectionWhereUniqueInput = Prisma.AtLeast<{
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   last_reviewed_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  colleciton_item_collection?: Prisma.CollectionItemListRelationFilter
+  collection_item_collection?: Prisma.CollectionItemListRelationFilter
 }, "id" | "name_owner_id">
 
 export type CollectionOrderByWithAggregationInput = {
@@ -428,7 +428,7 @@ export type CollectionCreateInput = {
   updated_by: Prisma.UserCreateNestedOneWithoutCollection__updated_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCollection__reviewed_byInput
   owner?: Prisma.UserCreateNestedOneWithoutColleciton__ownerInput
-  colleciton_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionUncheckedCreateInput = {
@@ -447,7 +447,7 @@ export type CollectionUncheckedCreateInput = {
   review_status?: $Enums.UserProposalStatus
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionUpdateInput = {
@@ -465,7 +465,7 @@ export type CollectionUpdateInput = {
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCollection__updated_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCollection__reviewed_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutColleciton__ownerNestedInput
-  colleciton_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateInput = {
@@ -484,7 +484,7 @@ export type CollectionUncheckedUpdateInput = {
   review_status?: Prisma.EnumUserProposalStatusFieldUpdateOperationsInput | $Enums.UserProposalStatus
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionCreateManyInput = {
@@ -802,18 +802,18 @@ export type EnumUserProposalStatusFieldUpdateOperationsInput = {
   set?: $Enums.UserProposalStatus
 }
 
-export type CollectionCreateNestedOneWithoutColleciton_item_collectionInput = {
-  create?: Prisma.XOR<Prisma.CollectionCreateWithoutColleciton_item_collectionInput, Prisma.CollectionUncheckedCreateWithoutColleciton_item_collectionInput>
-  connectOrCreate?: Prisma.CollectionCreateOrConnectWithoutColleciton_item_collectionInput
+export type CollectionCreateNestedOneWithoutCollection_item_collectionInput = {
+  create?: Prisma.XOR<Prisma.CollectionCreateWithoutCollection_item_collectionInput, Prisma.CollectionUncheckedCreateWithoutCollection_item_collectionInput>
+  connectOrCreate?: Prisma.CollectionCreateOrConnectWithoutCollection_item_collectionInput
   connect?: Prisma.CollectionWhereUniqueInput
 }
 
-export type CollectionUpdateOneRequiredWithoutColleciton_item_collectionNestedInput = {
-  create?: Prisma.XOR<Prisma.CollectionCreateWithoutColleciton_item_collectionInput, Prisma.CollectionUncheckedCreateWithoutColleciton_item_collectionInput>
-  connectOrCreate?: Prisma.CollectionCreateOrConnectWithoutColleciton_item_collectionInput
-  upsert?: Prisma.CollectionUpsertWithoutColleciton_item_collectionInput
+export type CollectionUpdateOneRequiredWithoutCollection_item_collectionNestedInput = {
+  create?: Prisma.XOR<Prisma.CollectionCreateWithoutCollection_item_collectionInput, Prisma.CollectionUncheckedCreateWithoutCollection_item_collectionInput>
+  connectOrCreate?: Prisma.CollectionCreateOrConnectWithoutCollection_item_collectionInput
+  upsert?: Prisma.CollectionUpsertWithoutCollection_item_collectionInput
   connect?: Prisma.CollectionWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.CollectionUpdateToOneWithWhereWithoutColleciton_item_collectionInput, Prisma.CollectionUpdateWithoutColleciton_item_collectionInput>, Prisma.CollectionUncheckedUpdateWithoutColleciton_item_collectionInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CollectionUpdateToOneWithWhereWithoutCollection_item_collectionInput, Prisma.CollectionUpdateWithoutCollection_item_collectionInput>, Prisma.CollectionUncheckedUpdateWithoutCollection_item_collectionInput>
 }
 
 export type CollectionCreateWithoutCreated_byInput = {
@@ -830,7 +830,7 @@ export type CollectionCreateWithoutCreated_byInput = {
   updated_by: Prisma.UserCreateNestedOneWithoutCollection__updated_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCollection__reviewed_byInput
   owner?: Prisma.UserCreateNestedOneWithoutColleciton__ownerInput
-  colleciton_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionUncheckedCreateWithoutCreated_byInput = {
@@ -848,7 +848,7 @@ export type CollectionUncheckedCreateWithoutCreated_byInput = {
   review_status?: $Enums.UserProposalStatus
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionCreateOrConnectWithoutCreated_byInput = {
@@ -875,7 +875,7 @@ export type CollectionCreateWithoutUpdated_byInput = {
   created_by: Prisma.UserCreateNestedOneWithoutColleciton__created_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCollection__reviewed_byInput
   owner?: Prisma.UserCreateNestedOneWithoutColleciton__ownerInput
-  colleciton_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionUncheckedCreateWithoutUpdated_byInput = {
@@ -893,7 +893,7 @@ export type CollectionUncheckedCreateWithoutUpdated_byInput = {
   review_status?: $Enums.UserProposalStatus
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionCreateOrConnectWithoutUpdated_byInput = {
@@ -920,7 +920,7 @@ export type CollectionCreateWithoutLast_reviewed_byInput = {
   created_by: Prisma.UserCreateNestedOneWithoutColleciton__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutCollection__updated_byInput
   owner?: Prisma.UserCreateNestedOneWithoutColleciton__ownerInput
-  colleciton_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionUncheckedCreateWithoutLast_reviewed_byInput = {
@@ -938,7 +938,7 @@ export type CollectionUncheckedCreateWithoutLast_reviewed_byInput = {
   updated_by_id: number
   review_status?: $Enums.UserProposalStatus
   last_reviewed_at?: Date | string | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionCreateOrConnectWithoutLast_reviewed_byInput = {
@@ -965,7 +965,7 @@ export type CollectionCreateWithoutOwnerInput = {
   created_by: Prisma.UserCreateNestedOneWithoutColleciton__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutCollection__updated_byInput
   last_reviewed_by?: Prisma.UserCreateNestedOneWithoutCollection__reviewed_byInput
-  colleciton_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionUncheckedCreateWithoutOwnerInput = {
@@ -983,7 +983,7 @@ export type CollectionUncheckedCreateWithoutOwnerInput = {
   review_status?: $Enums.UserProposalStatus
   last_reviewed_at?: Date | string | null
   last_reviewed_by_id?: number | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedCreateNestedManyWithoutCollectionInput
 }
 
 export type CollectionCreateOrConnectWithoutOwnerInput = {
@@ -1081,7 +1081,7 @@ export type CollectionUpdateManyWithWhereWithoutOwnerInput = {
   data: Prisma.XOR<Prisma.CollectionUpdateManyMutationInput, Prisma.CollectionUncheckedUpdateManyWithoutOwnerInput>
 }
 
-export type CollectionCreateWithoutColleciton_item_collectionInput = {
+export type CollectionCreateWithoutCollection_item_collectionInput = {
   name: string
   collection_type?: $Enums.CollectionType
   collection_summary?: string | null
@@ -1098,7 +1098,7 @@ export type CollectionCreateWithoutColleciton_item_collectionInput = {
   owner?: Prisma.UserCreateNestedOneWithoutColleciton__ownerInput
 }
 
-export type CollectionUncheckedCreateWithoutColleciton_item_collectionInput = {
+export type CollectionUncheckedCreateWithoutCollection_item_collectionInput = {
   id?: number
   name: string
   collection_type?: $Enums.CollectionType
@@ -1116,23 +1116,23 @@ export type CollectionUncheckedCreateWithoutColleciton_item_collectionInput = {
   last_reviewed_by_id?: number | null
 }
 
-export type CollectionCreateOrConnectWithoutColleciton_item_collectionInput = {
+export type CollectionCreateOrConnectWithoutCollection_item_collectionInput = {
   where: Prisma.CollectionWhereUniqueInput
-  create: Prisma.XOR<Prisma.CollectionCreateWithoutColleciton_item_collectionInput, Prisma.CollectionUncheckedCreateWithoutColleciton_item_collectionInput>
+  create: Prisma.XOR<Prisma.CollectionCreateWithoutCollection_item_collectionInput, Prisma.CollectionUncheckedCreateWithoutCollection_item_collectionInput>
 }
 
-export type CollectionUpsertWithoutColleciton_item_collectionInput = {
-  update: Prisma.XOR<Prisma.CollectionUpdateWithoutColleciton_item_collectionInput, Prisma.CollectionUncheckedUpdateWithoutColleciton_item_collectionInput>
-  create: Prisma.XOR<Prisma.CollectionCreateWithoutColleciton_item_collectionInput, Prisma.CollectionUncheckedCreateWithoutColleciton_item_collectionInput>
+export type CollectionUpsertWithoutCollection_item_collectionInput = {
+  update: Prisma.XOR<Prisma.CollectionUpdateWithoutCollection_item_collectionInput, Prisma.CollectionUncheckedUpdateWithoutCollection_item_collectionInput>
+  create: Prisma.XOR<Prisma.CollectionCreateWithoutCollection_item_collectionInput, Prisma.CollectionUncheckedCreateWithoutCollection_item_collectionInput>
   where?: Prisma.CollectionWhereInput
 }
 
-export type CollectionUpdateToOneWithWhereWithoutColleciton_item_collectionInput = {
+export type CollectionUpdateToOneWithWhereWithoutCollection_item_collectionInput = {
   where?: Prisma.CollectionWhereInput
-  data: Prisma.XOR<Prisma.CollectionUpdateWithoutColleciton_item_collectionInput, Prisma.CollectionUncheckedUpdateWithoutColleciton_item_collectionInput>
+  data: Prisma.XOR<Prisma.CollectionUpdateWithoutCollection_item_collectionInput, Prisma.CollectionUncheckedUpdateWithoutCollection_item_collectionInput>
 }
 
-export type CollectionUpdateWithoutColleciton_item_collectionInput = {
+export type CollectionUpdateWithoutCollection_item_collectionInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
   collection_summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1149,7 +1149,7 @@ export type CollectionUpdateWithoutColleciton_item_collectionInput = {
   owner?: Prisma.UserUpdateOneWithoutColleciton__ownerNestedInput
 }
 
-export type CollectionUncheckedUpdateWithoutColleciton_item_collectionInput = {
+export type CollectionUncheckedUpdateWithoutCollection_item_collectionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   collection_type?: Prisma.EnumCollectionTypeFieldUpdateOperationsInput | $Enums.CollectionType
@@ -1249,7 +1249,7 @@ export type CollectionUpdateWithoutCreated_byInput = {
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCollection__updated_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCollection__reviewed_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutColleciton__ownerNestedInput
-  colleciton_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateWithoutCreated_byInput = {
@@ -1267,7 +1267,7 @@ export type CollectionUncheckedUpdateWithoutCreated_byInput = {
   review_status?: Prisma.EnumUserProposalStatusFieldUpdateOperationsInput | $Enums.UserProposalStatus
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateManyWithoutCreated_byInput = {
@@ -1301,7 +1301,7 @@ export type CollectionUpdateWithoutUpdated_byInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutColleciton__created_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCollection__reviewed_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutColleciton__ownerNestedInput
-  colleciton_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateWithoutUpdated_byInput = {
@@ -1319,7 +1319,7 @@ export type CollectionUncheckedUpdateWithoutUpdated_byInput = {
   review_status?: Prisma.EnumUserProposalStatusFieldUpdateOperationsInput | $Enums.UserProposalStatus
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateManyWithoutUpdated_byInput = {
@@ -1353,7 +1353,7 @@ export type CollectionUpdateWithoutLast_reviewed_byInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutColleciton__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCollection__updated_byNestedInput
   owner?: Prisma.UserUpdateOneWithoutColleciton__ownerNestedInput
-  colleciton_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateWithoutLast_reviewed_byInput = {
@@ -1371,7 +1371,7 @@ export type CollectionUncheckedUpdateWithoutLast_reviewed_byInput = {
   updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
   review_status?: Prisma.EnumUserProposalStatusFieldUpdateOperationsInput | $Enums.UserProposalStatus
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateManyWithoutLast_reviewed_byInput = {
@@ -1405,7 +1405,7 @@ export type CollectionUpdateWithoutOwnerInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutColleciton__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutCollection__updated_byNestedInput
   last_reviewed_by?: Prisma.UserUpdateOneWithoutCollection__reviewed_byNestedInput
-  colleciton_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateWithoutOwnerInput = {
@@ -1423,7 +1423,7 @@ export type CollectionUncheckedUpdateWithoutOwnerInput = {
   review_status?: Prisma.EnumUserProposalStatusFieldUpdateOperationsInput | $Enums.UserProposalStatus
   last_reviewed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   last_reviewed_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  colleciton_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
+  collection_item_collection?: Prisma.CollectionItemUncheckedUpdateManyWithoutCollectionNestedInput
 }
 
 export type CollectionUncheckedUpdateManyWithoutOwnerInput = {
@@ -1449,11 +1449,11 @@ export type CollectionUncheckedUpdateManyWithoutOwnerInput = {
  */
 
 export type CollectionCountOutputType = {
-  colleciton_item_collection: number
+  collection_item_collection: number
 }
 
 export type CollectionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  colleciton_item_collection?: boolean | CollectionCountOutputTypeCountColleciton_item_collectionArgs
+  collection_item_collection?: boolean | CollectionCountOutputTypeCountCollection_item_collectionArgs
 }
 
 /**
@@ -1469,7 +1469,7 @@ export type CollectionCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.E
 /**
  * CollectionCountOutputType without action
  */
-export type CollectionCountOutputTypeCountColleciton_item_collectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type CollectionCountOutputTypeCountCollection_item_collectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.CollectionItemWhereInput
 }
 
@@ -1494,7 +1494,7 @@ export type CollectionSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_reviewed_by?: boolean | Prisma.Collection$last_reviewed_byArgs<ExtArgs>
   owner?: boolean | Prisma.Collection$ownerArgs<ExtArgs>
-  colleciton_item_collection?: boolean | Prisma.Collection$colleciton_item_collectionArgs<ExtArgs>
+  collection_item_collection?: boolean | Prisma.Collection$collection_item_collectionArgs<ExtArgs>
   _count?: boolean | Prisma.CollectionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["collection"]>
 
@@ -1566,7 +1566,7 @@ export type CollectionInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_reviewed_by?: boolean | Prisma.Collection$last_reviewed_byArgs<ExtArgs>
   owner?: boolean | Prisma.Collection$ownerArgs<ExtArgs>
-  colleciton_item_collection?: boolean | Prisma.Collection$colleciton_item_collectionArgs<ExtArgs>
+  collection_item_collection?: boolean | Prisma.Collection$collection_item_collectionArgs<ExtArgs>
   _count?: boolean | Prisma.CollectionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CollectionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1589,7 +1589,7 @@ export type $CollectionPayload<ExtArgs extends runtime.Types.Extensions.Internal
     updated_by: Prisma.$UserPayload<ExtArgs>
     last_reviewed_by: Prisma.$UserPayload<ExtArgs> | null
     owner: Prisma.$UserPayload<ExtArgs> | null
-    colleciton_item_collection: Prisma.$CollectionItemPayload<ExtArgs>[]
+    collection_item_collection: Prisma.$CollectionItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2005,7 +2005,7 @@ export interface Prisma__CollectionClient<T, Null = never, ExtArgs extends runti
   updated_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   last_reviewed_by<T extends Prisma.Collection$last_reviewed_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Collection$last_reviewed_byArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   owner<T extends Prisma.Collection$ownerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Collection$ownerArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  colleciton_item_collection<T extends Prisma.Collection$colleciton_item_collectionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Collection$colleciton_item_collectionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CollectionItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  collection_item_collection<T extends Prisma.Collection$collection_item_collectionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Collection$collection_item_collectionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CollectionItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2489,9 +2489,9 @@ export type Collection$ownerArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
- * Collection.colleciton_item_collection
+ * Collection.collection_item_collection
  */
-export type Collection$colleciton_item_collectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Collection$collection_item_collectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the CollectionItem
    */
