@@ -1,0 +1,29 @@
+import "dotenv/config";
+import { Pool } from "pg";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../src/generated/prisma/client"
+
+import { seedAccessControl } from "./seeds/00.access-control.seed";
+import { seedCommon } from "./seeds/10.common.seed";
+import { seedGear } from "./seeds/20.gear.seed";
+
+const connectionString = `${process.env.DATABASE_URL}`;
+const pool = new Pool({ connectionString });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
+async function main() {
+    await seedAccessControl()
+    await seedCommon()
+    await seedGear()
+}
+main()
+  .then(async () => {
+    await prisma.$disconnect();
+    await pool.end();
+  })
+  .catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    await pool.end();
+    process.exit(1);
+  });
