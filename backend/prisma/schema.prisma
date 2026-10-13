@@ -1342,7 +1342,6 @@ model GearSpecs {
   gear_id Int
   gear_variant_id Int?
   gear_specs_definition_id Int
-  specs_sequence Int
 
   source_unit_id Int?
   value_boolean Boolean?

@@ -60,7 +60,7 @@ export async function seedCommon() {
         '℉'
     )
     await upsertUnitData('Kilometer', UnitCategory.LENGTH, SYSTEM_USER_ID, 'km')
-    await upsertUnitData('Meter', UnitCategory.LENGTH, SYSTEM_USER_ID, ',m')
+    await upsertUnitData('Meter', UnitCategory.LENGTH, SYSTEM_USER_ID, 'm')
     await upsertUnitData(
         'Centimeter',
         UnitCategory.LENGTH,
@@ -73,6 +73,7 @@ export async function seedCommon() {
         SYSTEM_USER_ID,
         'mm'
     )
+    await upsertUnitData('Inch', UnitCategory.LENGTH, SYSTEM_USER_ID, 'in')
     await upsertUnitData('Liter', UnitCategory.VOLUME, SYSTEM_USER_ID, 'L')
     await upsertUnitData(
         'Milliliter',
@@ -80,6 +81,8 @@ export async function seedCommon() {
         SYSTEM_USER_ID,
         'ml'
     )
+    await upsertUnitData('Pounds', UnitCategory.WEIGHT, SYSTEM_USER_ID, 'lbs')
+
     await upsertUnitData(
         'Square Meter',
         UnitCategory.AREA,

@@ -31,7 +31,6 @@ export type GearSpecsAvgAggregateOutputType = {
   gear_id: number | null
   gear_variant_id: number | null
   gear_specs_definition_id: number | null
-  specs_sequence: number | null
   source_unit_id: number | null
   value_numeric_1: number | null
   value_numeric_2: number | null
@@ -44,7 +43,6 @@ export type GearSpecsSumAggregateOutputType = {
   gear_id: number | null
   gear_variant_id: number | null
   gear_specs_definition_id: number | null
-  specs_sequence: number | null
   source_unit_id: number | null
   value_numeric_1: number | null
   value_numeric_2: number | null
@@ -57,7 +55,6 @@ export type GearSpecsMinAggregateOutputType = {
   gear_id: number | null
   gear_variant_id: number | null
   gear_specs_definition_id: number | null
-  specs_sequence: number | null
   source_unit_id: number | null
   value_boolean: boolean | null
   value_text: string | null
@@ -77,7 +74,6 @@ export type GearSpecsMaxAggregateOutputType = {
   gear_id: number | null
   gear_variant_id: number | null
   gear_specs_definition_id: number | null
-  specs_sequence: number | null
   source_unit_id: number | null
   value_boolean: boolean | null
   value_text: string | null
@@ -97,7 +93,6 @@ export type GearSpecsCountAggregateOutputType = {
   gear_id: number
   gear_variant_id: number
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id: number
   value_boolean: number
   value_text: number
@@ -119,7 +114,6 @@ export type GearSpecsAvgAggregateInputType = {
   gear_id?: true
   gear_variant_id?: true
   gear_specs_definition_id?: true
-  specs_sequence?: true
   source_unit_id?: true
   value_numeric_1?: true
   value_numeric_2?: true
@@ -132,7 +126,6 @@ export type GearSpecsSumAggregateInputType = {
   gear_id?: true
   gear_variant_id?: true
   gear_specs_definition_id?: true
-  specs_sequence?: true
   source_unit_id?: true
   value_numeric_1?: true
   value_numeric_2?: true
@@ -145,7 +138,6 @@ export type GearSpecsMinAggregateInputType = {
   gear_id?: true
   gear_variant_id?: true
   gear_specs_definition_id?: true
-  specs_sequence?: true
   source_unit_id?: true
   value_boolean?: true
   value_text?: true
@@ -165,7 +157,6 @@ export type GearSpecsMaxAggregateInputType = {
   gear_id?: true
   gear_variant_id?: true
   gear_specs_definition_id?: true
-  specs_sequence?: true
   source_unit_id?: true
   value_boolean?: true
   value_text?: true
@@ -185,7 +176,6 @@ export type GearSpecsCountAggregateInputType = {
   gear_id?: true
   gear_variant_id?: true
   gear_specs_definition_id?: true
-  specs_sequence?: true
   source_unit_id?: true
   value_boolean?: true
   value_text?: true
@@ -292,7 +282,6 @@ export type GearSpecsGroupByOutputType = {
   gear_id: number
   gear_variant_id: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id: number | null
   value_boolean: boolean | null
   value_text: string | null
@@ -335,7 +324,6 @@ export type GearSpecsWhereInput = {
   gear_id?: Prisma.IntFilter<"GearSpecs"> | number
   gear_variant_id?: Prisma.IntNullableFilter<"GearSpecs"> | number | null
   gear_specs_definition_id?: Prisma.IntFilter<"GearSpecs"> | number
-  specs_sequence?: Prisma.IntFilter<"GearSpecs"> | number
   source_unit_id?: Prisma.IntNullableFilter<"GearSpecs"> | number | null
   value_boolean?: Prisma.BoolNullableFilter<"GearSpecs"> | boolean | null
   value_text?: Prisma.StringNullableFilter<"GearSpecs"> | string | null
@@ -361,7 +349,6 @@ export type GearSpecsOrderByWithRelationInput = {
   gear_id?: Prisma.SortOrder
   gear_variant_id?: Prisma.SortOrderInput | Prisma.SortOrder
   gear_specs_definition_id?: Prisma.SortOrder
-  specs_sequence?: Prisma.SortOrder
   source_unit_id?: Prisma.SortOrderInput | Prisma.SortOrder
   value_boolean?: Prisma.SortOrderInput | Prisma.SortOrder
   value_text?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -391,7 +378,6 @@ export type GearSpecsWhereUniqueInput = Prisma.AtLeast<{
   gear_id?: Prisma.IntFilter<"GearSpecs"> | number
   gear_variant_id?: Prisma.IntNullableFilter<"GearSpecs"> | number | null
   gear_specs_definition_id?: Prisma.IntFilter<"GearSpecs"> | number
-  specs_sequence?: Prisma.IntFilter<"GearSpecs"> | number
   source_unit_id?: Prisma.IntNullableFilter<"GearSpecs"> | number | null
   value_boolean?: Prisma.BoolNullableFilter<"GearSpecs"> | boolean | null
   value_text?: Prisma.StringNullableFilter<"GearSpecs"> | string | null
@@ -417,7 +403,6 @@ export type GearSpecsOrderByWithAggregationInput = {
   gear_id?: Prisma.SortOrder
   gear_variant_id?: Prisma.SortOrderInput | Prisma.SortOrder
   gear_specs_definition_id?: Prisma.SortOrder
-  specs_sequence?: Prisma.SortOrder
   source_unit_id?: Prisma.SortOrderInput | Prisma.SortOrder
   value_boolean?: Prisma.SortOrderInput | Prisma.SortOrder
   value_text?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -445,7 +430,6 @@ export type GearSpecsScalarWhereWithAggregatesInput = {
   gear_id?: Prisma.IntWithAggregatesFilter<"GearSpecs"> | number
   gear_variant_id?: Prisma.IntNullableWithAggregatesFilter<"GearSpecs"> | number | null
   gear_specs_definition_id?: Prisma.IntWithAggregatesFilter<"GearSpecs"> | number
-  specs_sequence?: Prisma.IntWithAggregatesFilter<"GearSpecs"> | number
   source_unit_id?: Prisma.IntNullableWithAggregatesFilter<"GearSpecs"> | number | null
   value_boolean?: Prisma.BoolNullableWithAggregatesFilter<"GearSpecs"> | boolean | null
   value_text?: Prisma.StringNullableWithAggregatesFilter<"GearSpecs"> | string | null
@@ -461,7 +445,6 @@ export type GearSpecsScalarWhereWithAggregatesInput = {
 }
 
 export type GearSpecsCreateInput = {
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -484,7 +467,6 @@ export type GearSpecsUncheckedCreateInput = {
   gear_id: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -500,7 +482,6 @@ export type GearSpecsUncheckedCreateInput = {
 }
 
 export type GearSpecsUpdateInput = {
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -523,7 +504,6 @@ export type GearSpecsUncheckedUpdateInput = {
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -543,7 +523,6 @@ export type GearSpecsCreateManyInput = {
   gear_id: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -559,7 +538,6 @@ export type GearSpecsCreateManyInput = {
 }
 
 export type GearSpecsUpdateManyMutationInput = {
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -576,7 +554,6 @@ export type GearSpecsUncheckedUpdateManyInput = {
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -612,7 +589,6 @@ export type GearSpecsCountOrderByAggregateInput = {
   gear_id?: Prisma.SortOrder
   gear_variant_id?: Prisma.SortOrder
   gear_specs_definition_id?: Prisma.SortOrder
-  specs_sequence?: Prisma.SortOrder
   source_unit_id?: Prisma.SortOrder
   value_boolean?: Prisma.SortOrder
   value_text?: Prisma.SortOrder
@@ -632,7 +608,6 @@ export type GearSpecsAvgOrderByAggregateInput = {
   gear_id?: Prisma.SortOrder
   gear_variant_id?: Prisma.SortOrder
   gear_specs_definition_id?: Prisma.SortOrder
-  specs_sequence?: Prisma.SortOrder
   source_unit_id?: Prisma.SortOrder
   value_numeric_1?: Prisma.SortOrder
   value_numeric_2?: Prisma.SortOrder
@@ -645,7 +620,6 @@ export type GearSpecsMaxOrderByAggregateInput = {
   gear_id?: Prisma.SortOrder
   gear_variant_id?: Prisma.SortOrder
   gear_specs_definition_id?: Prisma.SortOrder
-  specs_sequence?: Prisma.SortOrder
   source_unit_id?: Prisma.SortOrder
   value_boolean?: Prisma.SortOrder
   value_text?: Prisma.SortOrder
@@ -665,7 +639,6 @@ export type GearSpecsMinOrderByAggregateInput = {
   gear_id?: Prisma.SortOrder
   gear_variant_id?: Prisma.SortOrder
   gear_specs_definition_id?: Prisma.SortOrder
-  specs_sequence?: Prisma.SortOrder
   source_unit_id?: Prisma.SortOrder
   value_boolean?: Prisma.SortOrder
   value_text?: Prisma.SortOrder
@@ -685,7 +658,6 @@ export type GearSpecsSumOrderByAggregateInput = {
   gear_id?: Prisma.SortOrder
   gear_variant_id?: Prisma.SortOrder
   gear_specs_definition_id?: Prisma.SortOrder
-  specs_sequence?: Prisma.SortOrder
   source_unit_id?: Prisma.SortOrder
   value_numeric_1?: Prisma.SortOrder
   value_numeric_2?: Prisma.SortOrder
@@ -954,7 +926,6 @@ export type GearSpecsUncheckedUpdateManyWithoutGear_variantNestedInput = {
 }
 
 export type GearSpecsCreateWithoutCreated_byInput = {
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -976,7 +947,6 @@ export type GearSpecsUncheckedCreateWithoutCreated_byInput = {
   gear_id: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1001,7 +971,6 @@ export type GearSpecsCreateManyCreated_byInputEnvelope = {
 }
 
 export type GearSpecsCreateWithoutUpdated_byInput = {
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -1023,7 +992,6 @@ export type GearSpecsUncheckedCreateWithoutUpdated_byInput = {
   gear_id: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1071,7 +1039,6 @@ export type GearSpecsScalarWhereInput = {
   gear_id?: Prisma.IntFilter<"GearSpecs"> | number
   gear_variant_id?: Prisma.IntNullableFilter<"GearSpecs"> | number | null
   gear_specs_definition_id?: Prisma.IntFilter<"GearSpecs"> | number
-  specs_sequence?: Prisma.IntFilter<"GearSpecs"> | number
   source_unit_id?: Prisma.IntNullableFilter<"GearSpecs"> | number | null
   value_boolean?: Prisma.BoolNullableFilter<"GearSpecs"> | boolean | null
   value_text?: Prisma.StringNullableFilter<"GearSpecs"> | string | null
@@ -1103,7 +1070,6 @@ export type GearSpecsUpdateManyWithWhereWithoutUpdated_byInput = {
 }
 
 export type GearSpecsCreateWithoutSource_unitInput = {
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -1125,7 +1091,6 @@ export type GearSpecsUncheckedCreateWithoutSource_unitInput = {
   gear_id: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -1166,7 +1131,6 @@ export type GearSpecsUpdateManyWithWhereWithoutSource_unitInput = {
 }
 
 export type GearSpecsCreateWithoutGear_specs_definitionInput = {
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -1187,7 +1151,6 @@ export type GearSpecsUncheckedCreateWithoutGear_specs_definitionInput = {
   id?: number
   gear_id: number
   gear_variant_id?: number | null
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1229,7 +1192,6 @@ export type GearSpecsUpdateManyWithWhereWithoutGear_specs_definitionInput = {
 }
 
 export type GearSpecsCreateWithoutGearInput = {
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -1250,7 +1212,6 @@ export type GearSpecsUncheckedCreateWithoutGearInput = {
   id?: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1292,7 +1253,6 @@ export type GearSpecsUpdateManyWithWhereWithoutGearInput = {
 }
 
 export type GearSpecsCreateWithoutGear_variantInput = {
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -1313,7 +1273,6 @@ export type GearSpecsUncheckedCreateWithoutGear_variantInput = {
   id?: number
   gear_id: number
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1359,7 +1318,6 @@ export type GearSpecsCreateManyCreated_byInput = {
   gear_id: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1378,7 +1336,6 @@ export type GearSpecsCreateManyUpdated_byInput = {
   gear_id: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1393,7 +1350,6 @@ export type GearSpecsCreateManyUpdated_byInput = {
 }
 
 export type GearSpecsUpdateWithoutCreated_byInput = {
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1415,7 +1371,6 @@ export type GearSpecsUncheckedUpdateWithoutCreated_byInput = {
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1434,7 +1389,6 @@ export type GearSpecsUncheckedUpdateManyWithoutCreated_byInput = {
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1449,7 +1403,6 @@ export type GearSpecsUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type GearSpecsUpdateWithoutUpdated_byInput = {
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1471,7 +1424,6 @@ export type GearSpecsUncheckedUpdateWithoutUpdated_byInput = {
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1490,7 +1442,6 @@ export type GearSpecsUncheckedUpdateManyWithoutUpdated_byInput = {
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1509,7 +1460,6 @@ export type GearSpecsCreateManySource_unitInput = {
   gear_id: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   value_boolean?: boolean | null
   value_text?: string | null
   value_numeric_1?: number | null
@@ -1524,7 +1474,6 @@ export type GearSpecsCreateManySource_unitInput = {
 }
 
 export type GearSpecsUpdateWithoutSource_unitInput = {
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1546,7 +1495,6 @@ export type GearSpecsUncheckedUpdateWithoutSource_unitInput = {
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1565,7 +1513,6 @@ export type GearSpecsUncheckedUpdateManyWithoutSource_unitInput = {
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1583,7 +1530,6 @@ export type GearSpecsCreateManyGear_specs_definitionInput = {
   id?: number
   gear_id: number
   gear_variant_id?: number | null
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1599,7 +1545,6 @@ export type GearSpecsCreateManyGear_specs_definitionInput = {
 }
 
 export type GearSpecsUpdateWithoutGear_specs_definitionInput = {
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1620,7 +1565,6 @@ export type GearSpecsUncheckedUpdateWithoutGear_specs_definitionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1639,7 +1583,6 @@ export type GearSpecsUncheckedUpdateManyWithoutGear_specs_definitionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1658,7 +1601,6 @@ export type GearSpecsCreateManyGearInput = {
   id?: number
   gear_variant_id?: number | null
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1674,7 +1616,6 @@ export type GearSpecsCreateManyGearInput = {
 }
 
 export type GearSpecsUpdateWithoutGearInput = {
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1695,7 +1636,6 @@ export type GearSpecsUncheckedUpdateWithoutGearInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1714,7 +1654,6 @@ export type GearSpecsUncheckedUpdateManyWithoutGearInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_variant_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1733,7 +1672,6 @@ export type GearSpecsCreateManyGear_variantInput = {
   id?: number
   gear_id: number
   gear_specs_definition_id: number
-  specs_sequence: number
   source_unit_id?: number | null
   value_boolean?: boolean | null
   value_text?: string | null
@@ -1749,7 +1687,6 @@ export type GearSpecsCreateManyGear_variantInput = {
 }
 
 export type GearSpecsUpdateWithoutGear_variantInput = {
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   value_numeric_1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -1770,7 +1707,6 @@ export type GearSpecsUncheckedUpdateWithoutGear_variantInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1789,7 +1725,6 @@ export type GearSpecsUncheckedUpdateManyWithoutGear_variantInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_id?: Prisma.IntFieldUpdateOperationsInput | number
   gear_specs_definition_id?: Prisma.IntFieldUpdateOperationsInput | number
-  specs_sequence?: Prisma.IntFieldUpdateOperationsInput | number
   source_unit_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   value_boolean?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   value_text?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1811,7 +1746,6 @@ export type GearSpecsSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   gear_id?: boolean
   gear_variant_id?: boolean
   gear_specs_definition_id?: boolean
-  specs_sequence?: boolean
   source_unit_id?: boolean
   value_boolean?: boolean
   value_text?: boolean
@@ -1837,7 +1771,6 @@ export type GearSpecsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   gear_id?: boolean
   gear_variant_id?: boolean
   gear_specs_definition_id?: boolean
-  specs_sequence?: boolean
   source_unit_id?: boolean
   value_boolean?: boolean
   value_text?: boolean
@@ -1863,7 +1796,6 @@ export type GearSpecsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   gear_id?: boolean
   gear_variant_id?: boolean
   gear_specs_definition_id?: boolean
-  specs_sequence?: boolean
   source_unit_id?: boolean
   value_boolean?: boolean
   value_text?: boolean
@@ -1889,7 +1821,6 @@ export type GearSpecsSelectScalar = {
   gear_id?: boolean
   gear_variant_id?: boolean
   gear_specs_definition_id?: boolean
-  specs_sequence?: boolean
   source_unit_id?: boolean
   value_boolean?: boolean
   value_text?: boolean
@@ -1904,7 +1835,7 @@ export type GearSpecsSelectScalar = {
   updated_by_id?: boolean
 }
 
-export type GearSpecsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "gear_id" | "gear_variant_id" | "gear_specs_definition_id" | "specs_sequence" | "source_unit_id" | "value_boolean" | "value_text" | "value_numeric_1" | "value_numeric_2" | "operator" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["gearSpecs"]>
+export type GearSpecsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "gear_id" | "gear_variant_id" | "gear_specs_definition_id" | "source_unit_id" | "value_boolean" | "value_text" | "value_numeric_1" | "value_numeric_2" | "operator" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id", ExtArgs["result"]["gearSpecs"]>
 export type GearSpecsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1945,7 +1876,6 @@ export type $GearSpecsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     gear_id: number
     gear_variant_id: number | null
     gear_specs_definition_id: number
-    specs_sequence: number
     source_unit_id: number | null
     value_boolean: boolean | null
     value_text: string | null
@@ -2391,7 +2321,6 @@ export interface GearSpecsFieldRefs {
   readonly gear_id: Prisma.FieldRef<"GearSpecs", 'Int'>
   readonly gear_variant_id: Prisma.FieldRef<"GearSpecs", 'Int'>
   readonly gear_specs_definition_id: Prisma.FieldRef<"GearSpecs", 'Int'>
-  readonly specs_sequence: Prisma.FieldRef<"GearSpecs", 'Int'>
   readonly source_unit_id: Prisma.FieldRef<"GearSpecs", 'Int'>
   readonly value_boolean: Prisma.FieldRef<"GearSpecs", 'Boolean'>
   readonly value_text: Prisma.FieldRef<"GearSpecs", 'String'>

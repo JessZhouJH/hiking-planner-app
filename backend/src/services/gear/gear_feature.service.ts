@@ -56,8 +56,8 @@ export function isInputIdenticalToDb(
 
 export async function upsertGearFeatureData(
     gear_id: number,
-    gear_variant_id: number,
     actor_user_id: number,
+    gear_variant_id?: number | null,
     name?: string | null,
     description?: string | null,
     notes?: string | null,
