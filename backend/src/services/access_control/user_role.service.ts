@@ -1,28 +1,26 @@
 import { prisma } from '../../db/prisma.js'
 
-
 import { RBACStatus } from '../../generated/prisma/enums.js'
 import type { UserRole } from '../../generated/prisma/client.js'
 
-export async function findUserRoleById(
-    id: number
-) {
+export async function findUserRoleById(id: number) {
     return await prisma.userRole.findUnique({
-        where: { id: id }
+        where: { id: id },
     })
 }
 
-export async function findUserRoleByFks(
-    user_id: number,
-    role_id: number
-) {
+export async function findUserRoleByFks(user_id: number, role_id: number) {
     return await prisma.userRole.findFirst({
         where: {
             user_id: user_id,
             role_id: role_id,
-            status: RBACStatus.ACTIVE
-        }
+            status: RBACStatus.ACTIVE,
+        },
     })
+}
+
+export async function findUserRoleByUserId(user_id: number) {
+    return await prisma.userRole.findFirst({ where: { user_id: user_id } })
 }
 
 /**
@@ -37,9 +35,9 @@ export function isInputIdenticalToDb(
     notes?: string | null
 ) {
     return (
-        (status === undefined || status === db_user_role.status) && 
+        (status === undefined || status === db_user_role.status) &&
         (notes === undefined || notes === db_user_role.notes)
-        )
+    )
 }
 
 export async function upsertUserRoleData(
@@ -52,18 +50,19 @@ export async function upsertUserRoleData(
     // check whether the user has been granted with such role already
     const existing_user_role = await findUserRoleByFks(user_id, role_id)
     if (existing_user_role) {
-        if(isInputIdenticalToDb(existing_user_role, status, notes)) return existing_user_role
+        if (isInputIdenticalToDb(existing_user_role, status, notes))
+            return existing_user_role
         return await prisma.userRole.update({
             where: { id: existing_user_role.id },
             data: {
                 updated_by_id: actor_user_id,
                 ...(status !== undefined && {
-                    status: status
+                    status: status,
                 }),
                 ...(notes !== undefined && {
-                    notes: notes
-                })
-            }
+                    notes: notes,
+                }),
+            },
         })
     }
     return await prisma.userRole.create({
@@ -73,8 +72,8 @@ export async function upsertUserRoleData(
             granted_by_id: actor_user_id,
             updated_by_id: actor_user_id,
             status: RBACStatus.ACTIVE,
-            notes: notes ?? null
-        }
+            notes: notes ?? null,
+        },
     })
 }
 
@@ -94,10 +93,9 @@ export async function grantUserRole(
             granted_by_id: actor_user_id,
             updated_by_id: actor_user_id,
             status: RBACStatus.ACTIVE,
-            notes: notes ?? null
-        }
+            notes: notes ?? null,
+        },
     })
-    
 }
 
 export async function revokeUserRole(
@@ -112,9 +110,10 @@ export async function revokeUserRole(
             data: {
                 status: RBACStatus.ARCHIVED,
                 revoked_by_id: actor_user_id,
-                ...(notes !== undefined && { 
-                    notes: notes })
-            }
+                ...(notes !== undefined && {
+                    notes: notes,
+                }),
+            },
         })
     } catch (error) {
         // TODO: global error handling
@@ -132,9 +131,10 @@ export async function updateUserRole(
             where: { id: id },
             data: {
                 updated_by_id: actor_user_id,
-                ...(notes !== undefined && { 
-                    notes: notes })
-            }
+                ...(notes !== undefined && {
+                    notes: notes,
+                }),
+            },
         })
     } catch (error) {
         // TODO: global error handling

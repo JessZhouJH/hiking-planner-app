@@ -1,13 +1,15 @@
 import { prisma } from '../../db/prisma.js'
+import { BadRequestError } from '../../common/error-handler.js'
 
 import { RBACStatus } from '../../generated/prisma/enums.js'
 import type { RolePermission } from '../../generated/prisma/client.js'
 
-export async function findRolePermissionById(
-    id: number
-) {
+/**
+ * findRolePermissionById()
+ * helper function to locate the target **/
+export async function findRolePermissionById(id: number) {
     return await prisma.rolePermission.findUnique({
-        where: { id: id }
+        where: { id: id },
     })
 }
 
@@ -19,8 +21,8 @@ export async function findRolePermissionByFks(
         where: {
             role_id: role_id,
             permission_id: permission_id,
-            status: RBACStatus.ACTIVE
-        }
+            status: RBACStatus.ACTIVE,
+        },
     })
 }
 
@@ -36,9 +38,9 @@ export function isInputIdenticalToDb(
     notes?: string | null
 ) {
     return (
-        (status === undefined || status === db_role_permission.status) && 
+        (status === undefined || status === db_role_permission.status) &&
         (notes === undefined || notes === db_role_permission.notes)
-        )
+    )
 }
 
 export async function upsertRolePermission(
@@ -49,20 +51,24 @@ export async function upsertRolePermission(
     notes?: string | null
 ) {
     // check whether the user has been granted with such role already
-    const existing_role_permission = await findRolePermissionByFks(role_id, permission_id)
+    const existing_role_permission = await findRolePermissionByFks(
+        role_id,
+        permission_id
+    )
     if (existing_role_permission) {
-        if(isInputIdenticalToDb(existing_role_permission, status, notes)) return existing_role_permission
+        if (isInputIdenticalToDb(existing_role_permission, status, notes))
+            return existing_role_permission
         return await prisma.rolePermission.update({
             where: { id: existing_role_permission.id },
             data: {
                 updated_by_id: actor_user_id,
                 ...(status !== undefined && {
-                    status: status
+                    status: status,
                 }),
                 ...(notes !== undefined && {
-                    notes: notes
-                })
-            }
+                    notes: notes,
+                }),
+            },
         })
     }
     return await prisma.rolePermission.create({
@@ -72,8 +78,8 @@ export async function upsertRolePermission(
             granted_by_id: actor_user_id,
             updated_by_id: actor_user_id,
             status: status ?? RBACStatus.ACTIVE,
-            notes: notes ?? null
-        }
+            notes: notes ?? null,
+        },
     })
 }
 
@@ -84,7 +90,10 @@ export async function grantRolePermission(
     status?: RBACStatus,
     notes?: string | null
 ) {
-    const existing_role_permission = await findRolePermissionByFks(role_id, permission_id)
+    const existing_role_permission = await findRolePermissionByFks(
+        role_id,
+        permission_id
+    )
     if (existing_role_permission) return existing_role_permission
     return await prisma.rolePermission.create({
         data: {
@@ -93,10 +102,9 @@ export async function grantRolePermission(
             granted_by_id: actor_user_id,
             updated_by_id: actor_user_id,
             status: status ?? RBACStatus.ACTIVE,
-            notes: notes ?? null
-        }
+            notes: notes ?? null,
+        },
     })
-    
 }
 
 export async function revokeRolePermission(
@@ -111,9 +119,10 @@ export async function revokeRolePermission(
             data: {
                 status: RBACStatus.ARCHIVED,
                 revoked_by_id: actor_user_id,
-                ...(notes !== undefined && { 
-                    notes: notes })
-            }
+                ...(notes !== undefined && {
+                    notes: notes,
+                }),
+            },
         })
     } catch (error) {
         // TODO: global error handling
@@ -131,9 +140,10 @@ export async function updateRolePermission(
             where: { id: id },
             data: {
                 updated_by_id: actor_user_id,
-                ...(notes !== undefined && { 
-                    notes: notes })
-            }
+                ...(notes !== undefined && {
+                    notes: notes,
+                }),
+            },
         })
     } catch (error) {
         // TODO: global error handling

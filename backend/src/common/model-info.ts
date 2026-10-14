@@ -17,6 +17,47 @@ export const GENERAL_ACCESS = ['create', 'read', 'update', 'delete']
 export const VERIFICATION_ACCESS = 'verify'
 export const EXPORT_ACCESS = 'export'
 
+export enum ACTION_TYPES {
+    CREATE,
+    READ,
+    UPDATE,
+    DELETE,
+    VERIFY,
+    EXPORT,
+}
+
+export type ACTION_ACCESS = {
+    action: ACTION_TYPES
+    access: string
+}
+
+export const ACTION_ACCESS_MAP = {
+    create: {
+        action: ACTION_TYPES.CREATE,
+        access: 'create',
+    },
+    read: {
+        action: ACTION_TYPES.READ,
+        access: 'read',
+    },
+    update: {
+        action: ACTION_TYPES.UPDATE,
+        access: 'update',
+    },
+    delete: {
+        action: ACTION_TYPES.DELETE,
+        access: 'delete',
+    },
+    verify: {
+        action: ACTION_TYPES.VERIFY,
+        access: 'verify',
+    },
+    export: {
+        action: ACTION_TYPES.EXPORT,
+        access: 'export',
+    },
+}
+
 export const VERIFY_MODEL_NAMES: string[] = [
     'MediaArchive',
     'Attachment',
@@ -176,7 +217,7 @@ export function generateModelInfo() {
             if (requiresReview) {
                 currentModel.permissions.push(`${model}.verify`)
             }
-            if (model === "TrailGeometry") {
+            if (model === 'TrailGeometry') {
                 currentModel.permissions.push(`${model}.export`)
             }
             currentModuleModels.push(currentModel)
