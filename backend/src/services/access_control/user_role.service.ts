@@ -19,8 +19,12 @@ export async function findUserRoleByFks(user_id: number, role_id: number) {
     })
 }
 
-export async function findUserRoleByUserId(user_id: number) {
-    return await prisma.userRole.findFirst({ where: { user_id: user_id } })
+export async function findUserRolesByUserId(user_id: number) {
+    return await prisma.userRole.findMany({ where: { user_id: user_id } })
+}
+
+export async function findUserRolesByRoleId(role_id: number) {
+    return await prisma.userRole.findMany({ where: { role_id: role_id } })
 }
 
 /**

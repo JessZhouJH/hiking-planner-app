@@ -1,7 +1,14 @@
 import { prisma } from '../../db/prisma.js'
 
-import { Status } from '../../generated/prisma/enums.js'
 import type { User } from '../../generated/prisma/client.js'
+import { Status } from '../../generated/prisma/enums.js'
+import {
+    BadRequestError,
+    ForbiddenError,
+    NotFoundError,
+    InternalServerError,
+    ConflictError,
+} from '../../common/error-handler.js'
 
 /**
  * findUserById(), findUserByEmail(), findUserByName()
@@ -10,7 +17,7 @@ import type { User } from '../../generated/prisma/client.js'
  * **/
 export async function findUserById(id: number) {
     return await prisma.user.findUnique({
-        where: { id: id },
+        where: { id: id, status: Status.ACTIVE },
     })
 }
 export async function findUserByEmail(email: string) {
@@ -24,12 +31,23 @@ export async function findUserByName(name: string) {
     })
 }
 
+/** 
+ * requireActiveUser()
+ * Helper function to check whether the given user id is associated with an existing user 
+ * **/
+export async function requireActiveUser( id: number) {
+    const user = await findUserById(id)
+    if (!user) throw new NotFoundError(`User with id ${id} does not exist.`)
+    if(user.status === Status.ARCHIVED) throw new ConflictError(`User with id ${id} is archived and not operable.`)
+    return user
+}
+
 /**
  * createUserData()
  * function to create user data without checking whether user exists or not
  * suitable when the caller has already ensured that the user does not exist
  * **/
-export async function createUserData(
+async function createUserData(
     name: string,
     email: string,
     actor_user_id: number,
@@ -59,7 +77,7 @@ export async function createUserData(
  * Undefined input fields are ignored.
  * Used to avoid unnecessary update
  * **/
-export function isInputIdenticalToDb(
+function isInputIdenticalToDb(
     db_user: User,
     name?: string,
     password_hash?: string | null,

@@ -26,6 +26,15 @@ export async function findRolePermissionByFks(
     })
 }
 
+export async function findPermissionsByRoleId(role_id: number) {
+    return await prisma.rolePermission.findMany({ where: {role_id: role_id }})
+}
+
+export async function findRolesWithPermissionId(permission_id: number) {
+    const role_permissions = await prisma.rolePermission.findMany({ where: {permission_id: permission_id, status: RBACStatus.ACTIVE}})
+    return [...new Set(role_permissions.map(role_permission => role_permission.role_id))]
+}
+
 /**
  * isInputIdenticalToDb()
  * Function to check whether the input is identical to database role-permission data,

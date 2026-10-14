@@ -3,20 +3,18 @@ import {
     BadRequestError,
     ForbiddenError,
     NotFoundError,
-    UnprocessableContentError,
     InternalServerError,
     ConflictError,
 } from '../../common/error-handler.js'
 
 import { Status } from '../../generated/prisma/enums.js'
 import type { Role } from '../../generated/prisma/client.js'
-import { ACTION_ACCESS_MAP, ACTION_ACCESS } from '../../common/model-info.js'
 
 import { findUserById } from './user.service.js'
-import { findUnitByName } from '../common/unit.service.js'
-import { findUserRoleByUserId } from './user_role.service.js'
+import { findUserRolesByUserId } from './user_role.service.js'
 import { findRolePermissionByFks } from './role_permission.service.js'
-import { findPermissionByName } from './permission.service.js'
+
+import { stringToTitleCase } from '../../common/string-processing.js'
 
 const ROLE_NAME_REGEX = /^[a-zA-Z0-9_]{2,50}$/
 const MODEL_NAME = 'Role'
@@ -63,24 +61,22 @@ function isInputIdenticalToDb(
  * - action_user_id: user target exists
  * **/
 async function isInputValid(name: string, action_user_id: number) {
+    const processed_string = stringToTitleCase(name)
     // check whether the role name is valid
-    if (name === undefined || name === null) {
-        throw new BadRequestError('Role name cannot be empty.')
-    }
-    if (name.trim().length < 1) {
+    if ( processed_string === null ) {
         throw new BadRequestError('Role name too short.')
     }
-    if (!ROLE_NAME_REGEX.test(name.trim())) {
+    if (!ROLE_NAME_REGEX.test(processed_string)) {
         throw new BadRequestError(
             'Role name can only contain 2 to 50 alphanumeric characters or underscores.'
         )
     }
 
     // check whether the role name has already been taken
-    const existing_role = await findRoleByName(name)
+    const existing_role = await findRoleByName(processed_string)
     if (existing_role) {
         throw new ConflictError(
-            `Role name "${name}" already exists. Please choose another name.`
+            `Role name "${processed_string}" already exists. Please choose another name.`
         )
     }
 
@@ -92,60 +88,6 @@ async function isInputValid(name: string, action_user_id: number) {
         )
     }
 
-    return true
-}
-
-/**
- * isUserAuthorisedForAction()
- * Helper function to check whether the user is allowed to perform the desired action
- * - check which role the user has been granted with
- * - check whether this role has been granted with the permission to perform the action
- * **/
-async function isUserAuthorisedForAction(
-    user_id: number,
-    model_name: string,
-    ACTION_ACCESS: ACTION_ACCESS
-) {
-    // check whether the action user exists
-    const action_user = await findUserById(user_id)
-    if (!action_user) {
-        throw new NotFoundError(`User with id ${user_id} does not exist.`)
-    }
-
-    // find user's role
-    const user_role = await findUserRoleByUserId(user_id)
-    if (!user_role) {
-        throw new ForbiddenError(
-            `User hasn't been assigned with any role to perform ${ACTION_ACCESS.access} action.`
-        )
-    }
-
-    const role = await findRoleById(user_role.role_id)
-    if (!role) {
-        throw new ForbiddenError(
-            "User has been assigned with a role that doesn't exist. Please contact admin."
-        )
-    }
-
-    // find the permission
-    const permission_string = `${model_name}.${ACTION_ACCESS.action}`
-    const permission = await findPermissionByName(permission_string)
-    if (!permission) {
-        throw new NotFoundError(
-            "Permission to perform the action doesn't exist. Please contact admin."
-        )
-    }
-
-    // find whether the role has been granted with permission to perform the action
-    const role_permission = await findRolePermissionByFks(
-        role.id,
-        permission.id
-    )
-    if (!role_permission) {
-        throw new ForbiddenError(
-            `User (${role.name}) does not have the permission to perform ${ACTION_ACCESS.action} action.`
-        )
-    }
     return true
 }
 
@@ -203,33 +145,23 @@ export async function createRole(
     status?: Status,
     notes?: string | null
 ) {
-    // TODO: permission check
-    const is_user_authorised = await isUserAuthorisedForAction(
-        actor_user_id,
-        MODEL_NAME,
-        ACTION_ACCESS_MAP.create
-    )
+    // permission check
     // input validation
-    const is_input_valid = await isInputValid(name, actor_user_id)
+    const normalizedName = name.trim()
+    const is_input_valid = await isInputValid(normalizedName, actor_user_id)
     if (is_input_valid) {
-        try {
-            return await prisma.role.create({
-                data: {
-                    name: name,
-                    created_by_id: actor_user_id,
-                    updated_by_id: actor_user_id,
-                    status: status ?? Status.ACTIVE,
-                    notes: notes ?? null,
-                },
-            })
-        } catch (error) {
-            throw new InternalServerError(
-                `Unable to create role ${name} due to unexpected system error.`
-            )
-        }
+        return await prisma.role.create({
+            data: {
+                name: normalizedName,
+                created_by_id: actor_user_id,
+                updated_by_id: actor_user_id,
+                status: status ?? Status.ACTIVE,
+                notes: notes ?? null,
+            },
+        })
     }
     throw new BadRequestError(
-        "At least one input doesn' meet requirement, please check and try again."
+        "At least one input doesn't meet requirement, please check and try again."
     )
 }
 

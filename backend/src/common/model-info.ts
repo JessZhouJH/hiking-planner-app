@@ -28,7 +28,7 @@ export enum ACTION_TYPES {
 
 export type ACTION_ACCESS = {
     action: ACTION_TYPES
-    access: string
+    access_string: string
 }
 
 export const ACTION_ACCESS_MAP = {
