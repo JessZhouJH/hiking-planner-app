@@ -11,11 +11,11 @@ import {
     NotFoundError,
     InternalServerError,
 } from '../common/error-handler.js'
-import { findActivePermissionByName } from '../services/access_control/permission.query.js'
+import { findActivePermissionByName } from '../services/access-control/permission.query.js'
 
-import { findUserRoleByFks } from '../services/access_control/user-role.service.js'
-import { findRolesWithPermissionId } from '../services/access_control/role-permission.query.js'
-import { requireActiveUser } from '../services/access_control/user.validation.js'
+import { findUserRoleByFks } from '../services/access-control/user-role.service.js'
+import { findRolesWithPermissionId } from '../services/access-control/role-permission.query.js'
+import { requireActiveUser } from '../services/access-control/user.validation.js'
 
 /**
  * requireAuthorisedUser()

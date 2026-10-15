@@ -1,28 +1,28 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+import express from 'express'
+import cors from 'cors'
+import dotenv from 'dotenv'
 
 // Load variables from ,env into process.env
-dotenv.config();
+dotenv.config()
 
 // create express app
-const app = express();
+const app = express()
 
 // allow frontend to call API during local development
-app.use(cors());
+app.use(cors())
 
 // parse json request bodies
-app.use(express.json());
+app.use(express.json())
 
 // basic server health check
-app.get("/api/health", (req, res) => {
+app.get('/api/health', (req, res) => {
     res.json({
-        status:"ok",
-    });
-});
+        status: 'ok',
+    })
+})
 
 // start server
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT ?? 3000
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+    console.log(`Server is running on port ${PORT}`)
+})
