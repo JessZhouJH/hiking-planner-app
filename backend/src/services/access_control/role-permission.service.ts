@@ -4,36 +4,7 @@ import { BadRequestError } from '../../common/error-handler.js'
 import { RBACStatus } from '../../generated/prisma/enums.js'
 import type { RolePermission } from '../../generated/prisma/client.js'
 
-/**
- * findRolePermissionById()
- * helper function to locate the target **/
-export async function findRolePermissionById(id: number) {
-    return await prisma.rolePermission.findUnique({
-        where: { id: id },
-    })
-}
-
-export async function findRolePermissionByFks(
-    role_id: number,
-    permission_id: number
-) {
-    return await prisma.rolePermission.findFirst({
-        where: {
-            role_id: role_id,
-            permission_id: permission_id,
-            status: RBACStatus.ACTIVE,
-        },
-    })
-}
-
-export async function findPermissionsByRoleId(role_id: number) {
-    return await prisma.rolePermission.findMany({ where: {role_id: role_id }})
-}
-
-export async function findRolesWithPermissionId(permission_id: number) {
-    const role_permissions = await prisma.rolePermission.findMany({ where: {permission_id: permission_id, status: RBACStatus.ACTIVE}})
-    return [...new Set(role_permissions.map(role_permission => role_permission.role_id))]
-}
+import { findRolePermissionByFks } from './role-permission.query.js'
 
 /**
  * isInputIdenticalToDb()
@@ -121,21 +92,16 @@ export async function revokeRolePermission(
     actor_user_id: number,
     notes?: string | null
 ) {
-    // TODO: permission check
-    try {
-        return prisma.rolePermission.update({
-            where: { id: id },
-            data: {
-                status: RBACStatus.ARCHIVED,
-                revoked_by_id: actor_user_id,
-                ...(notes !== undefined && {
-                    notes: notes,
-                }),
-            },
-        })
-    } catch (error) {
-        // TODO: global error handling
-    }
+    return prisma.rolePermission.update({
+        where: { id: id },
+        data: {
+            status: RBACStatus.ARCHIVED,
+            revoked_by_id: actor_user_id,
+            ...(notes !== undefined && {
+                notes: notes,
+            }),
+        },
+    })
 }
 
 export async function updateRolePermission(

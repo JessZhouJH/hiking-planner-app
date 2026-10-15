@@ -9,38 +9,7 @@ import {
     InternalServerError,
     ConflictError,
 } from '../../common/error-handler.js'
-
-/**
- * findUserById(), findUserByEmail(), findUserByName()
- * functions to find user in the database by three potential fields:
- * - id, email, name
- * **/
-export async function findUserById(id: number) {
-    return await prisma.user.findUnique({
-        where: { id: id, status: Status.ACTIVE },
-    })
-}
-export async function findUserByEmail(email: string) {
-    return await prisma.user.findUnique({
-        where: { email: email },
-    })
-}
-export async function findUserByName(name: string) {
-    return await prisma.user.findMany({
-        where: { name: name },
-    })
-}
-
-/** 
- * requireActiveUser()
- * Helper function to check whether the given user id is associated with an existing user 
- * **/
-export async function requireActiveUser( id: number) {
-    const user = await findUserById(id)
-    if (!user) throw new NotFoundError(`User with id ${id} does not exist.`)
-    if(user.status === Status.ARCHIVED) throw new ConflictError(`User with id ${id} is archived and not operable.`)
-    return user
-}
+import { findUserById, findUserByEmail } from './user.query.js'
 
 /**
  * createUserData()
@@ -51,7 +20,7 @@ async function createUserData(
     name: string,
     email: string,
     actor_user_id: number,
-    
+
     status?: Status,
     password_hash?: string | null,
     avatar_key?: string | null,
@@ -66,8 +35,8 @@ async function createUserData(
             status: status ?? Status.ACTIVE,
             password_hash: password_hash,
             avatar_key: avatar_key,
-            notes: notes
-        }
+            notes: notes,
+        },
     })
 }
 
@@ -87,11 +56,12 @@ function isInputIdenticalToDb(
 ) {
     return (
         (name === undefined || name === db_user.name) &&
-        (password_hash === undefined || password_hash === db_user.password_hash) &&
+        (password_hash === undefined ||
+            password_hash === db_user.password_hash) &&
         (avatar_key === undefined || avatar_key === db_user.avatar_key) &&
-        (status === undefined || status === db_user.status) && 
+        (status === undefined || status === db_user.status) &&
         (notes === undefined || notes === db_user.notes)
-        )
+    )
 }
 
 /**
@@ -111,7 +81,16 @@ export async function upsertUserData(
     // check whether user with given email exists in the database already
     const existing_user = await findUserByEmail(email)
     if (existing_user) {
-        if (isInputIdenticalToDb(existing_user, name, password_hash, avatar_key, status, notes)) {
+        if (
+            isInputIdenticalToDb(
+                existing_user,
+                name,
+                password_hash,
+                avatar_key,
+                status,
+                notes
+            )
+        ) {
             return existing_user
         }
         return prisma.user.update({
@@ -131,7 +110,7 @@ export async function upsertUserData(
                 ...(notes !== undefined && {
                     notes: notes,
                 }),
-            }
+            },
         })
     }
     // create new user record
@@ -144,10 +123,9 @@ export async function upsertUserData(
             password_hash: password_hash ?? null,
             avatar_key: avatar_key ?? null,
             status: status ?? Status.ACTIVE,
-            notes: notes ?? null
+            notes: notes ?? null,
         },
     })
-    
 }
 
 /**
@@ -158,7 +136,7 @@ export async function createUser(
     name: string,
     email: string,
     actor_user_id: number,
-    
+
     status?: Status,
     password_hash?: string | null,
     avatar_key?: string | null,
@@ -169,16 +147,24 @@ export async function createUser(
     // check whether the user with given email exists
     if (await findUserByEmail(email)) return // TODO: error handling
 
-    return await createUserData(name,email,actor_user_id,status,password_hash,avatar_key,notes)
+    return await createUserData(
+        name,
+        email,
+        actor_user_id,
+        status,
+        password_hash,
+        avatar_key,
+        notes
+    )
 }
 
 /**
- * function to update user data 
+ * function to update user data
  * **/
 export async function updateUser(
     user_id: number,
     actor_user_id: number,
-    name?: string,    
+    name?: string,
     status?: Status,
     password_hash?: string | null,
     avatar_key?: string | null,
@@ -188,25 +174,25 @@ export async function updateUser(
 
     try {
         return await prisma.user.update({
-        where: { id: user_id },
-        data: {
-            updated_by_id: actor_user_id,
-            ...(name !== undefined && {
-                name: name
+            where: { id: user_id },
+            data: {
+                updated_by_id: actor_user_id,
+                ...(name !== undefined && {
+                    name: name,
                 }),
-            ...(status !== undefined && {
-                status: status
+                ...(status !== undefined && {
+                    status: status,
                 }),
-            ...(password_hash !== undefined && {
-                password_hash: password_hash
+                ...(password_hash !== undefined && {
+                    password_hash: password_hash,
                 }),
-            ...(avatar_key !== undefined && {
-                avatar_key: avatar_key
+                ...(avatar_key !== undefined && {
+                    avatar_key: avatar_key,
                 }),
-            ...(notes !== undefined && {
-                notes: notes
-                })
-            }
+                ...(notes !== undefined && {
+                    notes: notes,
+                }),
+            },
         })
     } catch (error) {
         // TODO: global error handling
@@ -218,10 +204,7 @@ export async function updateUser(
  * main function to delete (deactivate) an user account
  * soft deletion will be applied - user's status will be set to ARCHIVED but the record will be retained in the db
  * **/
-export async function deleteUser(
-    user_id: number,
-    actor_user_id: number
-) {
+export async function deleteUser(user_id: number, actor_user_id: number) {
     // TODO: permission check
 
     try {
@@ -229,11 +212,10 @@ export async function deleteUser(
             where: { id: user_id },
             data: {
                 updated_by_id: actor_user_id,
-                status: Status.ARCHIVED
-            }
+                status: Status.ARCHIVED,
+            },
         })
-    } catch(error) {
+    } catch (error) {
         // TODO: global error handling
     }
-    
 }

@@ -2,10 +2,13 @@ import { prisma } from '../../db/prisma.js'
 
 import { Status } from '../../generated/prisma/enums.js'
 import type { Permission } from '../../generated/prisma/client.js'
-import { 
+import {
     findPermissionById,
-    findNonArchivePermissionByName 
+    findNonArchivePermissionByName,
 } from './permission.query.js'
+import { requireAuthorisedUser } from '../../auth/access-validation.js'
+import { findRolePermissionIdsByPermissionId } from './role-permission.query.js'
+import { revokeRolePermission } from './role-permission.service.js'
 
 import { stringProcessing } from '../../common/string-processing.js'
 import {
@@ -15,6 +18,10 @@ import {
     InternalServerError,
     ConflictError,
 } from '../../common/error-handler.js'
+
+import { ACTION_ACCESS_MAP } from '../../common/model-info.js'
+const PERMISSION_NAME_REGEX = /^[a-zA-Z_].[a-zA-Z]{2,50}$/
+const MODEL_NAME = 'Permission'
 
 /**
  * isInputIdenticalToDb()
@@ -28,22 +35,71 @@ function isInputIdenticalToDb(
     notes?: string | null
 ) {
     return (
-        (status === undefined || status === db_permission.status) && 
+        (status === undefined || status === db_permission.status) &&
         (notes === undefined || notes === db_permission.notes)
-        )
+    )
 }
 
 /**
  * requireOperablePermission()
- * Helper function to check whether the target permission exists and is not archived 
+ * Helper function to check whether the target permission exists and is not archived
  * **/
 async function requireOperablePermission(id: number) {
     const permission = await findPermissionById(id)
-    if (!permission) throw new NotFoundError(`Permission with id ${id} does not exist.`)
-    if(permission.status === Status.ARCHIVED) throw new ConflictError(`Permission with id ${id} is archived and not operable.`)
-        return permission
+    if (!permission)
+        throw new NotFoundError(`Permission with id ${id} does not exist.`)
+    if (permission.status === Status.ARCHIVED)
+        throw new ConflictError(
+            `Permission with id ${id} is archived and not operable.`
+        )
+    return permission
 }
 
+/**
+ * isInputValid()
+ * Helper function to check whether the input values are valid
+ * - name: non empty, unique string, alphabetic characters between 2-50 long
+ * - action_user_id: user target exists
+ * **/
+async function requireValidInput(
+    name: string,
+    action_user_id: number,
+    status?: Status | null
+) {
+    // normalized permission name
+    const permission_string = stringProcessing(name)
+    if (permission_string === null)
+        throw new BadRequestError('Permission name too short.')
+
+    // check whether the permission name is valid
+    if (!PERMISSION_NAME_REGEX.test(permission_string)) {
+        throw new BadRequestError(
+            "Permission name should be in the format of 'Model.access' and can only contain 2 to 50 alphanumeric characters or underscores."
+        )
+    }
+
+    // check whether the permission already exists
+    const existing_permission =
+        await findNonArchivePermissionByName(permission_string)
+    if (existing_permission)
+        throw new ConflictError(
+            `Permission ${permission_string} already exists.`
+        )
+
+    // check whether the desired status is not ARCHIVED
+    if (status === Status.ARCHIVED)
+        throw new BadRequestError(
+            'Permission can only be set to ARCHIVED by performing Delete action'
+        )
+
+    return permission_string
+}
+
+/**
+ * upsertPermissionData()
+ * Function to insert data into the table
+ * No user authentication or input validation
+ * Only to be used during seeding stage **/
 export async function upsertPermissionData(
     name: string,
     actor_user_id: number,
@@ -54,19 +110,20 @@ export async function upsertPermissionData(
     const existing_permission = await findNonArchivePermissionByName(name)
     if (existing_permission) {
         // check whether the input is identical to the database record
-        if (isInputIdenticalToDb(existing_permission, status, notes)) return existing_permission
+        if (isInputIdenticalToDb(existing_permission, status, notes))
+            return existing_permission
         // update database record with input data
         return await prisma.permission.update({
             where: { id: existing_permission.id },
             data: {
-                    updated_by_id: actor_user_id,
+                updated_by_id: actor_user_id,
                 ...(status !== undefined && {
-                    status: status
+                    status: status,
                 }),
                 ...(notes !== undefined && {
-                    notes: notes
-                })
-            }
+                    notes: notes,
+                }),
+            },
         })
     }
     // create new permission record
@@ -76,80 +133,146 @@ export async function upsertPermissionData(
             created_by_id: actor_user_id,
             updated_by_id: actor_user_id,
             status: status ?? Status.ACTIVE,
-            notes: notes ?? null
-        }
+            notes: notes ?? null,
+        },
     })
 }
 
+/** updatePermissionData()
+ * Helper function to update a permission item data
+ * No input or accesss validation happen in this function
+ * **/
+async function updatePermissionData(
+    permission_id: number,
+    action_user_id: number,
+    status?: Status,
+    notes?: string | null
+) {
+    return await prisma.permission.update({
+        where: { id: permission_id },
+        data: {
+            updated_by_id: action_user_id,
+            ...(status !== undefined && {
+                status: status,
+            }),
+            ...(notes !== undefined && {
+                notes: notes,
+            }),
+        },
+    })
+}
+
+/**
+ * createPermission()
+ * Main function to create new permission record
+ * **/
 export async function createPermission(
     name: string,
     actor_user_id: number,
     status?: Status,
     notes?: string | null
 ) {
-    // TODO: permission check
+    // permission check
+    await requireAuthorisedUser(
+        actor_user_id,
+        MODEL_NAME,
+        ACTION_ACCESS_MAP.create
+    )
 
-    // normalized permission name
-    const permission_string = stringProcessing(name)
-    if (permission_string === null) throw new BadRequestError('Permission name too short.')
+    // validate input including action user id
+    const permission_string = await requireValidInput(
+        name,
+        actor_user_id,
+        status
+    )
 
-    // check whether the permission already exists
-    const existing_permission = await findNonArchivePermissionByName(permission_string)
-    if (existing_permission) throw new ConflictError(`Permission ${permission_string} already exists.`)
-    
-        // create new record
+    // create new record
     return await prisma.permission.create({
         data: {
-            name: name,
+            name: permission_string,
             created_by_id: actor_user_id,
             updated_by_id: actor_user_id,
             status: status ?? Status.ACTIVE,
-            notes: notes ?? null
-        }
+            notes: notes ?? null,
+        },
     })
-    
 }
 
+/**
+ * updatePermission()
+ * Main function to update an existing permission record
+ * **/
 export async function updatePermission(
     permission_id: number,
     actor_user_id: number,
     status?: Status,
     notes?: string
 ) {
-    // TODO: permission check
-    
+    // permission check
+    await requireAuthorisedUser(
+        actor_user_id,
+        MODEL_NAME,
+        ACTION_ACCESS_MAP.update
+    )
+
     // check whether the permission already exists and is not archived
     await requireOperablePermission(permission_id)
 
-    return await prisma.permission.update({
-        where: { id : permission_id },
-        data: {
-            updated_by_id: actor_user_id,
-            ...(status !== undefined && {
-                status: status
-            }),
-            ...(notes !== undefined && {
-                notes: notes
-            })
-        }
-    })
-    
+    // check whether the desired status is not ARCHIVED
+    if (status === Status.ARCHIVED)
+        throw new BadRequestError(
+            'Permission can only be set to ARCHIVED by performing Delete action'
+        )
+
+    return await updatePermissionData(
+        permission_id,
+        actor_user_id,
+        status,
+        notes
+    )
 }
 
 export async function deletePermission(
     permission_id: number,
-    actor_user_id: number
+    actor_user_id: number,
+    notes?: string | null
 ) {
-    // TODO: permission check
-    try {
-        return await prisma.permission.update({
-            where: { id: permission_id },
-            data: {
-                status: Status.ARCHIVED,
-                updated_by_id: actor_user_id
-            }
-        })
-    } catch (error) {
-        // TODO: global error handling
-    }
+    await requireAuthorisedUser(
+        actor_user_id,
+        MODEL_NAME,
+        ACTION_ACCESS_MAP.delete
+    )
+
+    /** check whether the permission already exists and is not archived **/
+    const deleted_permission = await requireOperablePermission(permission_id)
+
+    /** complete the following steps in the same transaction:
+     * 1) set the permission item status to ARCHIVED
+     * 2) check whether there's any role that has been granted with this permission
+     * 3) If there's any such role, set the corresponding role_permission entry as ARCHIVED **/
+
+    await prisma.$transaction(async (tx) => {
+        await updatePermissionData(
+            permission_id,
+            actor_user_id,
+            Status.ARCHIVED
+        )
+
+        const affected_role_permission_ids =
+            await findRolePermissionIdsByPermissionId(permission_id)
+        for (var rp_id of affected_role_permission_ids) {
+            // revoke the corresponding rolePermission (change the entry status to archived)
+            const revoked_rp = await revokeRolePermission(
+                rp_id,
+                actor_user_id,
+                notes
+            )
+            if (!revoked_rp)
+                throw new InternalServerError(
+                    'Unexpedted error happended while revoking the role-permission'
+                )
+        }
+    })
+
+    return deleted_permission
 }

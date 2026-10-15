@@ -10,9 +10,9 @@ import {
 import { Status } from '../../generated/prisma/enums.js'
 import type { Role } from '../../generated/prisma/client.js'
 
-import { findUserById } from './user.service.js'
-import { findUserRolesByUserId } from './user_role.service.js'
-import { findRolePermissionByFks } from './role_permission.service.js'
+import { findUserById } from './user.query.js'
+import { findUserRolesByUserId } from './user-role.service.js'
+import { findRolePermissionByFks } from './role-permission.query.js'
 
 import { stringToTitleCase } from '../../common/string-processing.js'
 
@@ -63,7 +63,7 @@ function isInputIdenticalToDb(
 async function isInputValid(name: string, action_user_id: number) {
     const processed_string = stringToTitleCase(name)
     // check whether the role name is valid
-    if ( processed_string === null ) {
+    if (processed_string === null) {
         throw new BadRequestError('Role name too short.')
     }
     if (!ROLE_NAME_REGEX.test(processed_string)) {

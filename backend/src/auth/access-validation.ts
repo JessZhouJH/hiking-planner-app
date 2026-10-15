@@ -1,25 +1,29 @@
 import { prisma } from '../db/prisma.js'
 
 import { Status } from '../generated/prisma/enums.js'
-import { ACTION_ACCESS_MAP, ACTION_ACCESS, ACTION_TYPES} from './model-info.js'
+import {
+    ACTION_ACCESS_MAP,
+    ACTION_ACCESS,
+    ACTION_TYPES,
+} from '../common/model-info.js'
 import {
     ForbiddenError,
     NotFoundError,
     InternalServerError,
-} from './error-handler.js'
+} from '../common/error-handler.js'
 import { findActivePermissionByName } from '../services/access_control/permission.query.js'
 
-import { findUserRoleByFks } from '../services/access_control/user_role.service.js'
-import { findRolesWithPermissionId } from '../services/access_control/role_permission.service.js'
-import { requireActiveUser } from '../services/access_control/user.service.js'
+import { findUserRoleByFks } from '../services/access_control/user-role.service.js'
+import { findRolesWithPermissionId } from '../services/access_control/role-permission.query.js'
+import { requireActiveUser } from '../services/access_control/user.validation.js'
 
 /**
- * isUserAuthorisedForAction()
+ * requireAuthorisedUser()
  * Helper function to check whether the user:
  * - has been granted with role where
  * - the role has been granted with the corresponding permission to perform certain action
  * **/
-export async function isUserAuthorisedForAction(
+export async function requireAuthorisedUser(
     user_id: number,
     model_name: string,
     action_access: ACTION_ACCESS
@@ -30,8 +34,11 @@ export async function isUserAuthorisedForAction(
     // build permission string then find its corresponding permission_id
     const permission_string = `${model_name}.${action_access.access_string}`
     const permission = await findActivePermissionByName(permission_string)
-    if (!permission) throw new InternalServerError("Permission to perform requested action doesn't exist. Please contact admin.")
-    
+    if (!permission)
+        throw new InternalServerError(
+            "Permission to perform requested action doesn't exist. Please contact admin."
+        )
+
     // get a list of roles that are granted with this permission
     const allowed_role_ids = await findRolesWithPermissionId(permission.id)
 
@@ -43,6 +50,7 @@ export async function isUserAuthorisedForAction(
         }
     }
 
-    throw new ForbiddenError(`User has not been granted with a role that allowed to perform ${action_access.access_string}`)
+    throw new ForbiddenError(
+        `User has not been granted with a role that allowed to perform ${action_access.access_string}`
+    )
 }
-

@@ -31,31 +31,38 @@ export type ACTION_ACCESS = {
     access_string: string
 }
 
+const CREATE: ACTION_ACCESS = {
+    action: ACTION_TYPES.CREATE,
+    access_string: 'create',
+}
+const READ: ACTION_ACCESS = {
+    action: ACTION_TYPES.READ,
+    access_string: 'read',
+}
+const UPDATE: ACTION_ACCESS = {
+    action: ACTION_TYPES.UPDATE,
+    access_string: 'update',
+}
+const DELETE: ACTION_ACCESS = {
+    action: ACTION_TYPES.DELETE,
+    access_string: 'delete',
+}
+const VERIFY: ACTION_ACCESS = {
+    action: ACTION_TYPES.VERIFY,
+    access_string: 'verify',
+}
+const EXPORT: ACTION_ACCESS = {
+    action: ACTION_TYPES.EXPORT,
+    access_string: 'export',
+}
+
 export const ACTION_ACCESS_MAP = {
-    create: {
-        action: ACTION_TYPES.CREATE,
-        access: 'create',
-    },
-    read: {
-        action: ACTION_TYPES.READ,
-        access: 'read',
-    },
-    update: {
-        action: ACTION_TYPES.UPDATE,
-        access: 'update',
-    },
-    delete: {
-        action: ACTION_TYPES.DELETE,
-        access: 'delete',
-    },
-    verify: {
-        action: ACTION_TYPES.VERIFY,
-        access: 'verify',
-    },
-    export: {
-        action: ACTION_TYPES.EXPORT,
-        access: 'export',
-    },
+    create: CREATE,
+    read: READ,
+    update: UPDATE,
+    delete: DELETE,
+    verify: VERIFY,
+    export: EXPORT,
 }
 
 export const VERIFY_MODEL_NAMES: string[] = [
