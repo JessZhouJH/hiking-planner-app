@@ -1,8 +1,27 @@
-import type {ErrorRequestHandler} from "express";
+import { AppError } from '../common/error-handler.js'
+import { ErrorRequestHandler } from 'express'
+export const globalErrorHandler: ErrorRequestHandler = (
+    err,
+    req,
+    res,
+    next
+) => {
+    if (err instanceof AppError) {
+        res.status(err.statusCode).json({
+            error: {
+                code: err.code,
+                message: err.message,
+            },
+        })
+        return
+    }
 
-const errorHandler: ErrorRequestHandler = (err, req, res) => {
-  console.error(err);
-  res.status(500).json({ error: "Internal Server Error" });
-};
+    console.error(err)
 
-export default errorHandler;
+    res.status(500).json({
+        error: {
+            code: 'INTERNAL_SERVER_ERROR',
+            message: 'An unexpected server error occurred.',
+        },
+    })
+}

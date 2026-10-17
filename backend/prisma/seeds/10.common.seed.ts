@@ -9,9 +9,9 @@ import {
 import { SYSTEM_USER_ID } from '../../src/constants/macros'
 import { upsertUnitData } from '../../src/services/common/unit.service'
 import { upsertTagData } from '../../src/services/common/tag.service'
-import { upsertTagGroupData } from '../../src/services/common/tag_group.service'
-import { upsertTagRelationData } from '../../src/services/common/tag_relation.service'
-import { upsertTagGroupRelationData } from '../../src/services/common/tag_group_relation.service'
+import { upsertTagGroupData } from '../../src/services/common/tag-group.service'
+import { upsertTagRelationData } from '../../src/services/common/tag-relation.service'
+import { upsertTagGroupRelationData } from '../../src/services/common/tag-group-relation.service'
 import { upsertAliasData } from '../../src/services/common/alias.service'
 
 export async function seedCommon() {

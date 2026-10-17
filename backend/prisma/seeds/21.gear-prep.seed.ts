@@ -1,16 +1,18 @@
 import { prisma } from './seed-client'
 
 import { SYSTEM_USER_ID, MEDIA_PATH_PREFIX } from '../../src/constants/macros'
-import { Status, ValueType, AliasTargetType } from '../../src/generated/prisma/enums'
+import {
+    Status,
+    ValueType,
+    AliasTargetType,
+} from '../../src/generated/prisma/enums'
 
 import { findUnitByName } from '../../src/services/common/unit.service'
 import { upsertBrandData } from '../../src/services/gear/brand.service'
-import { upsertGearTypeData } from '../../src/services/gear/gear_type.service'
-import { upsertGearTypeRelationData } from '../../src/services/gear/gear_type_relation.service'
-import { upsertGearSpecsDefinitionData } from '../../src/services/gear/gear_specs_definition.service'
+import { upsertGearTypeData } from '../../src/services/gear/gear-type.service'
+import { upsertGearTypeRelationData } from '../../src/services/gear/gear-type-relation.service'
+import { upsertGearSpecsDefinitionData } from '../../src/services/gear/gear-specs-definition.service'
 import { upsertAliasData } from '../../src/services/common/alias.service'
-
-
 
 export async function seedGearPrep() {
     const kilogram_unit = await findUnitByName('Kilogram')
@@ -257,15 +259,16 @@ export async function seedGearPrep() {
         true,
         gram_unit?.id
     )
-    const backpack_capacity_spec_definition = await upsertGearSpecsDefinitionData(
-        'Capacity',
-        backpack_type.id,
-        ValueType.VOLUME,
-        SYSTEM_USER_ID,
-        true,
-        true,
-        liter_unit?.id
-    )
+    const backpack_capacity_spec_definition =
+        await upsertGearSpecsDefinitionData(
+            'Capacity',
+            backpack_type.id,
+            ValueType.VOLUME,
+            SYSTEM_USER_ID,
+            true,
+            true,
+            liter_unit?.id
+        )
     const backpack_recommended_load_spec_definition =
         await upsertGearSpecsDefinitionData(
             'Recommended Load',
@@ -276,15 +279,16 @@ export async function seedGearPrep() {
             true,
             kilogram_unit?.id
         )
-    const backpack_max_load_spec_definition = await upsertGearSpecsDefinitionData(
-        'Maximum Load',
-        backpack_type.id,
-        ValueType.WEIGHT,
-        SYSTEM_USER_ID,
-        true,
-        true,
-        kilogram_unit?.id
-    )
+    const backpack_max_load_spec_definition =
+        await upsertGearSpecsDefinitionData(
+            'Maximum Load',
+            backpack_type.id,
+            ValueType.WEIGHT,
+            SYSTEM_USER_ID,
+            true,
+            true,
+            kilogram_unit?.id
+        )
 
     const backpack_torso_length_spec_definition =
         await upsertGearSpecsDefinitionData(
@@ -364,14 +368,15 @@ export async function seedGearPrep() {
             true,
             false
         )
-    const footwear_outsole_spec_definition = await upsertGearSpecsDefinitionData(
-        'Outsole',
-        footwear_type.id,
-        ValueType.LENGTH,
-        SYSTEM_USER_ID,
-        true,
-        false
-    )
+    const footwear_outsole_spec_definition =
+        await upsertGearSpecsDefinitionData(
+            'Outsole',
+            footwear_type.id,
+            ValueType.LENGTH,
+            SYSTEM_USER_ID,
+            true,
+            false
+        )
 
     // sleeping bag spcs
     const sleeping_bag_weight_spec_definition =
@@ -627,14 +632,15 @@ export async function seedGearPrep() {
             false,
             false
         )
-    const tent_fly_material_spec_definition = await upsertGearSpecsDefinitionData(
-        'Fly Material',
-        tent_type.id,
-        ValueType.TEXT,
-        SYSTEM_USER_ID,
-        false,
-        false
-    )
+    const tent_fly_material_spec_definition =
+        await upsertGearSpecsDefinitionData(
+            'Fly Material',
+            tent_type.id,
+            ValueType.TEXT,
+            SYSTEM_USER_ID,
+            false,
+            false
+        )
     const tent_pole_material_spec_definition =
         await upsertGearSpecsDefinitionData(
             'Pole Material',
@@ -777,15 +783,16 @@ export async function seedGearPrep() {
         )
 
     // headtorch specs
-    const headtorch_weight_spec_definition = await upsertGearSpecsDefinitionData(
-        'Weight',
-        headtorch_type.id,
-        ValueType.WEIGHT,
-        SYSTEM_USER_ID,
-        false,
-        false,
-        gram_unit?.id
-    )
+    const headtorch_weight_spec_definition =
+        await upsertGearSpecsDefinitionData(
+            'Weight',
+            headtorch_type.id,
+            ValueType.WEIGHT,
+            SYSTEM_USER_ID,
+            false,
+            false,
+            gram_unit?.id
+        )
     const headtorch_max_lumens_spec_definition =
         await upsertGearSpecsDefinitionData(
             'Maximum Lumens',

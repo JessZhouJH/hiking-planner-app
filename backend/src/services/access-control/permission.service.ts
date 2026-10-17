@@ -1,6 +1,6 @@
 import { prisma } from '../../db/prisma.js'
 
-import { Status } from '../../generated/prisma/enums.js'
+import { RBACStatus, Status } from '../../generated/prisma/enums.js'
 import type { Permission } from '../../generated/prisma/client.js'
 import {
     findPermissionById,
@@ -8,7 +8,6 @@ import {
 } from './permission.query.js'
 import { requireAuthorisedUser } from '../../auth/access-validation.js'
 import { findRolePermissionIdsByPermissionId } from './role-permission.query.js'
-import { revokeRolePermission } from './role-permission.service.js'
 
 import { stringProcessing } from '../../common/string-processing.js'
 import {
@@ -19,8 +18,8 @@ import {
     ConflictError,
 } from '../../common/error-handler.js'
 
-import { ACTION_ACCESS_MAP } from '../../common/model-info.js'
-const PERMISSION_NAME_REGEX = /^[a-zA-Z_].[a-zA-Z]{2,50}$/
+import { ACTION_TYPES, ACTION_ACCESS_MAP } from '../../common/model-info.js'
+const PERMISSION_NAME_REGEX = /^[a-zA-Z_]*\.[a-zA-Z]{2,50}$/
 const MODEL_NAME = 'Permission'
 
 /**
@@ -56,16 +55,23 @@ async function requireOperablePermission(id: number) {
 }
 
 /**
- * isInputValid()
+ * requireValidStatus()
+ * Helper function to check whether the input status is valid
+ * **/
+async function requireValidStatus(status?: Status | null) {
+    if (status === Status.ARCHIVED) {
+        throw new BadRequestError(
+            'Permission can only be set to ARCHIVED by performing Delete action'
+        )
+    }
+}
+
+/**
+ * requireValidInput()
  * Helper function to check whether the input values are valid
  * - name: non empty, unique string, alphabetic characters between 2-50 long
- * - action_user_id: user target exists
  * **/
-async function requireValidInput(
-    name: string,
-    action_user_id: number,
-    status?: Status | null
-) {
+async function requireValidInput(name: string, status?: Status | null) {
     // normalized permission name
     const permission_string = stringProcessing(name)
     if (permission_string === null)
@@ -87,10 +93,7 @@ async function requireValidInput(
         )
 
     // check whether the desired status is not ARCHIVED
-    if (status === Status.ARCHIVED)
-        throw new BadRequestError(
-            'Permission can only be set to ARCHIVED by performing Delete action'
-        )
+    await requireValidStatus(status)
 
     return permission_string
 }
@@ -180,11 +183,7 @@ export async function createPermission(
     )
 
     // validate input including action user id
-    const permission_string = await requireValidInput(
-        name,
-        actor_user_id,
-        status
-    )
+    const permission_string = await requireValidInput(name, status)
 
     // create new record
     return await prisma.permission.create({
@@ -198,6 +197,20 @@ export async function createPermission(
     })
 }
 
+export async function getPermission(
+    permission_id: number,
+    actor_user_id: number
+) {
+    // permission check
+    await requireAuthorisedUser(
+        actor_user_id,
+        MODEL_NAME,
+        ACTION_ACCESS_MAP.read
+    )
+
+    return await findPermissionById(permission_id)
+}
+
 /**
  * updatePermission()
  * Main function to update an existing permission record
@@ -206,7 +219,7 @@ export async function updatePermission(
     permission_id: number,
     actor_user_id: number,
     status?: Status,
-    notes?: string
+    notes?: string | null
 ) {
     // permission check
     await requireAuthorisedUser(
@@ -243,36 +256,44 @@ export async function deletePermission(
         ACTION_ACCESS_MAP.delete
     )
 
-    /** check whether the permission already exists and is not archived **/
-    const deleted_permission = await requireOperablePermission(permission_id)
+    // check whether the target permission is currently not archived
+    const permission = await findPermissionById(permission_id)
+    if (!permission || permission.status === Status.ARCHIVED)
+        throw new BadRequestError(
+            'Permission does not exist or has been deleted already.'
+        )
 
     /** complete the following steps in the same transaction:
      * 1) set the permission item status to ARCHIVED
      * 2) check whether there's any role that has been granted with this permission
      * 3) If there's any such role, set the corresponding role_permission entry as ARCHIVED **/
 
-    await prisma.$transaction(async (tx) => {
-        await updatePermissionData(
-            permission_id,
-            actor_user_id,
-            Status.ARCHIVED
-        )
+    return await prisma.$transaction(async (tx) => {
+        const deleted_permission = await tx.permission.update({
+            where: { id: permission_id },
+            data: {
+                updated_by_id: actor_user_id,
+                status: Status.ARCHIVED,
+                notes: notes,
+            },
+        })
 
         const affected_role_permission_ids =
             await findRolePermissionIdsByPermissionId(permission_id)
-        for (var rp_id of affected_role_permission_ids) {
-            // revoke the corresponding rolePermission (change the entry status to archived)
-            const revoked_rp = await revokeRolePermission(
-                rp_id,
-                actor_user_id,
-                notes
-            )
-            if (!revoked_rp)
-                throw new InternalServerError(
-                    'Unexpedted error happended while revoking the role-permission'
-                )
-        }
-    })
 
-    return deleted_permission
+        await tx.rolePermission.updateMany({
+            where: {
+                permission_id: permission_id,
+                status: RBACStatus.ACTIVE,
+            },
+            data: {
+                updated_by_id: actor_user_id,
+                status: RBACStatus.ARCHIVED,
+                revoked_by_id: actor_user_id,
+                revoked_at: new Date(),
+                notes: notes,
+            },
+        })
+        return deleted_permission
+    })
 }
