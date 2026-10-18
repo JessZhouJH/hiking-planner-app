@@ -1,7 +1,7 @@
 import { prisma } from '../../db/prisma.js'
 
 import type { User } from '../../generated/prisma/client.js'
-import { Status } from '../../generated/prisma/enums.js'
+import { RBACStatus, Status } from '../../generated/prisma/enums.js'
 import {
     BadRequestError,
     ForbiddenError,
@@ -10,6 +10,47 @@ import {
     ConflictError,
 } from '../../common/error-handler.js'
 import { findUserById, findUserByEmail } from './user.query.js'
+import { requireAuthorisedUser } from '../../auth/access-validation.js'
+import { ACTION_TYPES } from '../../common/model-info.js'
+import { stringProcessing } from '../../common/string-processing.js'
+import { requireValidStatus } from '../../common/input-validation.js'
+
+const MODEL_NAME = 'User'
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+async function requireOperableUser(user_id: number) {
+    const user = await prisma.user.findFirst({
+        where: {
+            id: user_id,
+            status: {
+                not: Status.ARCHIVED
+            }
+        }
+    })
+    if (!user)
+        throw new ConflictError(`User with id ${user_id} does not exist or is archived.`)
+    return user
+}
+
+async function requireValidInput(
+    name: string,
+    email: string,
+    status?: Status | null
+) {
+    const email_string = stringProcessing(email)
+    const name_string = stringProcessing(name)
+    if (email_string === null) throw new BadRequestError('Email too short')
+    if (name_string === null) throw new BadRequestError('Name too short')
+
+    if (!EMAIL_REGEX.test(email_string)) throw new BadRequestError('Email format error.')
+    
+    // check whether the email has already been taken
+    const existing_user = await findUserByEmail(email_string)
+    if(existing_user) throw new ConflictError(`email ${email_string} has already been occupied. Please choose a different email.`)
+
+    await requireValidStatus(status)
+    return {email_string, name_string}
+    }
 
 /**
  * createUserData()
@@ -142,20 +183,31 @@ export async function createUser(
     avatar_key?: string | null,
     notes?: string | null
 ) {
-    // TODO: permission check
+    // permission check
+    await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.CREATE)
 
     // check whether the user with given email exists
-    if (await findUserByEmail(email)) return // TODO: error handling
+    const {email_string, name_string} = await requireValidInput(name, email, status)
 
+    // create new record
     return await createUserData(
-        name,
-        email,
+        name_string,
+        email_string,
         actor_user_id,
         status,
         password_hash,
         avatar_key,
         notes
     )
+}
+
+export async function getUser(user_id: number, actor_user_id: number) {
+    // permission check 
+    if (user_id !== actor_user_id) {
+        await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.READ)
+    }
+
+    return await findUserById(user_id)
 }
 
 /**
@@ -170,33 +222,38 @@ export async function updateUser(
     avatar_key?: string | null,
     notes?: string | null
 ) {
-    // TODO: permission check
-
-    try {
-        return await prisma.user.update({
-            where: { id: user_id },
-            data: {
-                updated_by_id: actor_user_id,
-                ...(name !== undefined && {
-                    name: name,
-                }),
-                ...(status !== undefined && {
-                    status: status,
-                }),
-                ...(password_hash !== undefined && {
-                    password_hash: password_hash,
-                }),
-                ...(avatar_key !== undefined && {
-                    avatar_key: avatar_key,
-                }),
-                ...(notes !== undefined && {
-                    notes: notes,
-                }),
-            },
-        })
-    } catch (error) {
-        // TODO: global error handling
+    // permission check
+    if(user_id !== actor_user_id) {
+        await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.UPDATE)
     }
+
+    // check whether the user already exists and is not archived
+    await requireOperableUser(user_id)
+
+    // check whether the desired status is not ARCHIVED
+    await requireValidStatus(status)
+
+    return await prisma.user.update({
+        where: { id: user_id },
+        data: {
+            updated_by_id: actor_user_id,
+            ...(name !== undefined && {
+                name: name,
+            }),
+            ...(status !== undefined && {
+                status: status,
+            }),
+            ...(password_hash !== undefined && {
+                password_hash: password_hash,
+            }),
+            ...(avatar_key !== undefined && {
+                avatar_key: avatar_key,
+            }),
+            ...(notes !== undefined && {
+                notes: notes,
+            }),
+        },
+    })
 }
 
 /**
@@ -204,18 +261,42 @@ export async function updateUser(
  * main function to delete (deactivate) an user account
  * soft deletion will be applied - user's status will be set to ARCHIVED but the record will be retained in the db
  * **/
-export async function deleteUser(user_id: number, actor_user_id: number) {
-    // TODO: permission check
+export async function deleteUser(user_id: number, actor_user_id: number, notes?: string | null) {
+    // permission check
+    if (user_id !== actor_user_id) {
+        await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.DELETE)
+    }
 
-    try {
-        return await prisma.user.update({
-            where: { id: user_id },
+    await requireOperableUser(user_id)
+
+    return await prisma.$transaction(async (tx) => {
+        const deleted_user = await tx.user.update({
+            where: {
+                id: user_id,
+                status: {
+                    not: Status.ARCHIVED
+                }
+            },
             data: {
                 updated_by_id: actor_user_id,
                 status: Status.ARCHIVED,
-            },
+                notes: notes
+            }
         })
-    } catch (error) {
-        // TODO: global error handling
-    }
+
+        await tx.userRole.updateMany({
+            where: {
+                user_id: user_id,
+                status: RBACStatus.ACTIVE
+            },
+            data: {
+                updated_by_id: actor_user_id,
+                revoked_by_id: actor_user_id,
+                revoked_at: new Date(),
+                status: RBACStatus.ARCHIVED,
+                notes: notes
+            }
+        })
+        return deleted_user
+    })
 }

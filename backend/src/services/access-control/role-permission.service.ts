@@ -5,6 +5,7 @@ import { RBACStatus } from '../../generated/prisma/enums.js'
 import type { RolePermission } from '../../generated/prisma/client.js'
 
 import { findRolePermissionByFks } from './role-permission.query.js'
+import { requireAuthorisedUser } from '../../auth/access-validation.js'
 
 /**
  * isInputIdenticalToDb()
@@ -103,6 +104,19 @@ export async function revokeRolePermission(
         },
     })
 }
+
+
+export async function createRolePermission(
+    role_id: number,
+    permission_id: number,
+    actor_user_id: number,
+    notes?: string | null
+) {
+    // permission check
+    // create new record
+
+}
+
 
 export async function updateRolePermission(
     id: number,

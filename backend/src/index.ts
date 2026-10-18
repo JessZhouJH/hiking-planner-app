@@ -2,7 +2,11 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { globalErrorHandler } from './middleware/errorHandler.js'
+
+// access control routes
 import permissionRoutes from './routes/access-control/permission.routes.js'
+import roleRoutes from './routes/access-control/role.routes.js'
+import userRoutes from './routes/access-control/user.routes.js'
 
 // Load variables from ,env into process.env
 dotenv.config()
@@ -18,6 +22,8 @@ app.use(express.json())
 
 // register routes
 app.use('/api/permissions', permissionRoutes)
+app.use('/api/roles', roleRoutes)
+app.use('/api/users', userRoutes)
 
 app.use(globalErrorHandler)
 

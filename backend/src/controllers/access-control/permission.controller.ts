@@ -7,7 +7,6 @@ import {
 } from '../../services/access-control/permission.service.js'
 import { STATUS_LIST } from '../../constants/macros.js'
 import { Status } from '../../generated/prisma/enums.js'
-import type { Permission } from '../../generated/prisma/client.js'
 
 import { BadRequestError, NotFoundError } from '../../common/error-handler.js'
 export async function createPermissionController(
@@ -83,7 +82,7 @@ export async function deletePermissionController(
     const permission = await deletePermission(permission_id, user_id, notes)
 
     res.status(STATUS_LIST.OK_STATUS.statusCode).json({
-        message: 'Permission deleted successfully.',
+        message: `Permission ${permission.name} deleted successfully.`,
         data: permission,
     })
 }

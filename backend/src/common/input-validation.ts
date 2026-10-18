@@ -9,7 +9,7 @@ import { BadRequestError } from './error-handler.js'
 export async function requireValidStatus(status?: Status | null) {
     if (status === Status.ARCHIVED) {
         throw new BadRequestError(
-            'Permission can only be set to ARCHIVED by performing Delete action'
+            'Status can only be set to ARCHIVED by performing Delete action'
         )
     }
 }

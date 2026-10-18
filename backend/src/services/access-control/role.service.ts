@@ -58,7 +58,7 @@ async function requireOperableRole(id: number) {
  * requireValidInput()
  * Helper function to check whether the input values are valid
  * - name: non empty, unique string, alphabetic characters between 2-50 long
- * - action_user_id: user target exists
+ * - actor_user_id: user target exists
  * **/
 async function requireValidInput(name: string, status?: Status | null) {
     const role_string = stringToTitleCase(name)
@@ -74,7 +74,7 @@ async function requireValidInput(name: string, status?: Status | null) {
     // check whether the permission already exists
     const existing_role = await findNonArchiveRoleByName(role_string)
     if (existing_role)
-        throw new ConflictError(`Role ${existing_role} already exists.`)
+        throw new ConflictError(`Role ${existing_role.name} already exists.`)
 
     // check whether the desired status is not ARCHIVED
     await requireValidStatus(status)
@@ -210,7 +210,7 @@ export async function deleteRole(
     await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.DELETE)
 
     // check whether the target role exist and is currently not archived
-    const role = requireOperableRole(role_id)
+    await requireOperableRole(role_id)
 
     /** Compelte the following steps in the same transaction
      * 1) set the target role item status to ARCHIVED
@@ -222,7 +222,12 @@ export async function deleteRole(
 
     return await prisma.$transaction(async (tx) => {
         const deleted_role = await tx.role.update({
-            where: { id: role_id },
+            where: { 
+                id: role_id,
+                status: {
+                    not: Status.ARCHIVED
+                }
+            },
             data: {
                 updated_by_id: actor_user_id,
                 status: Status.ARCHIVED,

@@ -135,14 +135,14 @@ export async function upsertPermissionData(
  * **/
 async function updatePermissionData(
     permission_id: number,
-    action_user_id: number,
+    actor_user_id: number,
     status?: Status,
     notes?: string | null
 ) {
     return await prisma.permission.update({
         where: { id: permission_id },
         data: {
-            updated_by_id: action_user_id,
+            updated_by_id: actor_user_id,
             ...(status !== undefined && {
                 status: status,
             }),
