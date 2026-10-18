@@ -1,11 +1,7 @@
 import { prisma } from '../db/prisma.js'
 
 import { Status } from '../generated/prisma/enums.js'
-import {
-    ACTION_ACCESS_MAP,
-    ACTION_ACCESS,
-    ACTION_TYPES,
-} from '../common/model-info.js'
+import { ACTION_TYPES } from '../common/model-info.js'
 import {
     ForbiddenError,
     NotFoundError,
@@ -26,13 +22,13 @@ import { requireActiveUser } from '../services/access-control/user.validation.js
 export async function requireAuthorisedUser(
     user_id: number,
     model_name: string,
-    action_access: ACTION_ACCESS
+    action_access: ACTION_TYPES
 ) {
     // validate user
     await requireActiveUser(user_id)
 
     // build permission string then find its corresponding permission_id
-    const permission_string = `${model_name}.${action_access.access_string}`
+    const permission_string = `${model_name}.${action_access}`
     const permission = await findActivePermissionByName(permission_string)
     if (!permission)
         throw new InternalServerError(
@@ -51,6 +47,6 @@ export async function requireAuthorisedUser(
     }
 
     throw new ForbiddenError(
-        `User has not been granted with a role that allowed to perform ${action_access.access_string}`
+        `User has not been granted with a role that allowed to perform ${action_access}`
     )
 }

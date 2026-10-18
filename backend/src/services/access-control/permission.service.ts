@@ -7,10 +7,10 @@ import {
     findNonArchivePermissionByName,
 } from './permission.query.js'
 import { requireAuthorisedUser } from '../../auth/access-validation.js'
-import { findRolePermissionIdsByPermissionId } from './role-permission.query.js'
-
+import { requireValidStatus } from '../../common/input-validation.js'
 import { stringProcessing } from '../../common/string-processing.js'
 import {
+    UnauthorizedError,
     BadRequestError,
     ForbiddenError,
     NotFoundError,
@@ -18,7 +18,7 @@ import {
     ConflictError,
 } from '../../common/error-handler.js'
 
-import { ACTION_TYPES, ACTION_ACCESS_MAP } from '../../common/model-info.js'
+import { ACTION_TYPES } from '../../common/model-info.js'
 const PERMISSION_NAME_REGEX = /^[a-zA-Z_]*\.[a-zA-Z]{2,50}$/
 const MODEL_NAME = 'Permission'
 
@@ -52,18 +52,6 @@ async function requireOperablePermission(id: number) {
             `Permission with id ${id} is archived and not operable.`
         )
     return permission
-}
-
-/**
- * requireValidStatus()
- * Helper function to check whether the input status is valid
- * **/
-async function requireValidStatus(status?: Status | null) {
-    if (status === Status.ARCHIVED) {
-        throw new BadRequestError(
-            'Permission can only be set to ARCHIVED by performing Delete action'
-        )
-    }
 }
 
 /**
@@ -176,11 +164,7 @@ export async function createPermission(
     notes?: string | null
 ) {
     // permission check
-    await requireAuthorisedUser(
-        actor_user_id,
-        MODEL_NAME,
-        ACTION_ACCESS_MAP.create
-    )
+    await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.CREATE)
 
     // validate input including action user id
     const permission_string = await requireValidInput(name, status)
@@ -202,11 +186,7 @@ export async function getPermission(
     actor_user_id: number
 ) {
     // permission check
-    await requireAuthorisedUser(
-        actor_user_id,
-        MODEL_NAME,
-        ACTION_ACCESS_MAP.read
-    )
+    await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.READ)
 
     return await findPermissionById(permission_id)
 }
@@ -222,11 +202,7 @@ export async function updatePermission(
     notes?: string | null
 ) {
     // permission check
-    await requireAuthorisedUser(
-        actor_user_id,
-        MODEL_NAME,
-        ACTION_ACCESS_MAP.update
-    )
+    await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.UPDATE)
 
     // check whether the permission already exists and is not archived
     await requireOperablePermission(permission_id)
@@ -250,11 +226,7 @@ export async function deletePermission(
     actor_user_id: number,
     notes?: string | null
 ) {
-    await requireAuthorisedUser(
-        actor_user_id,
-        MODEL_NAME,
-        ACTION_ACCESS_MAP.delete
-    )
+    await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.DELETE)
 
     // check whether the target permission is currently not archived
     const permission = await findPermissionById(permission_id)
@@ -277,9 +249,6 @@ export async function deletePermission(
                 notes: notes,
             },
         })
-
-        const affected_role_permission_ids =
-            await findRolePermissionIdsByPermissionId(permission_id)
 
         await tx.rolePermission.updateMany({
             where: {
