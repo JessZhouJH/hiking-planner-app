@@ -10,8 +10,7 @@ import {
 import { STATUS_LIST } from "../../constants/macros.js";
 import { Status } from "../../generated/prisma/enums.js";
 
-import { BadRequestError, NotFoundError } from "../../common/error-handler.js";
-import { create } from "node:domain";
+import { BadRequestError } from "../../common/error-handler.js";
 
 export async function createUserController(
     req: Request,

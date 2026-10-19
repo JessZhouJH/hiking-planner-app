@@ -43,7 +43,7 @@ function isInputIdenticalToDb(
  * requireOperablePermission()
  * Helper function to check whether the target permission exists and is not archived
  * **/
-async function requireOperablePermission(id: number) {
+export async function requireOperablePermission(id: number) {
     const permission = await findPermissionById(id)
     if (!permission)
         throw new NotFoundError(`Permission with id ${id} does not exist.`)

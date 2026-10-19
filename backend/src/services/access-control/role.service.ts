@@ -44,7 +44,7 @@ function isInputIdenticalToDb(
  * requireOperableRole()
  * Helper function to check whether the target role exists and is not archived
  * **/
-async function requireOperableRole(id: number) {
+export async function requireOperableRole(id: number) {
     const role = await findRoleById(id)
     if (!role) throw new NotFoundError(`Role with id ${id} does not exist.`)
     if (role.status === Status.ARCHIVED)
