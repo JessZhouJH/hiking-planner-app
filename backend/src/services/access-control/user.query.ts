@@ -9,7 +9,7 @@ import { Status } from '../../generated/prisma/enums.js'
  * **/
 export async function findUserById(id: number) {
     return await prisma.user.findUnique({
-        where: { id: id, status: Status.ACTIVE },
+        where: { id: id},
     })
 }
 export async function findUserByEmail(email: string) {

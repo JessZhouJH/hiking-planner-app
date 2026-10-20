@@ -1,12 +1,12 @@
 import { prisma } from './seed-client'
 import {
-    Status,
     UnitCategory,
     DescribingTargetType,
     AliasTargetType,
 } from '../../src/generated/prisma/enums'
 
 import { SYSTEM_USER_ID } from '../../src/constants/macros'
+
 import { upsertUnitData } from '../../src/services/common/unit.service'
 import { upsertTagData } from '../../src/services/common/tag.service'
 import { upsertTagGroupData } from '../../src/services/common/tag-group.service'

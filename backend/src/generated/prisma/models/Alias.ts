@@ -289,7 +289,6 @@ export type AliasOrderByWithRelationInput = {
 
 export type AliasWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  target_object_type_target_object_id_alias?: Prisma.AliasTarget_object_typeTarget_object_idAliasCompoundUniqueInput
   AND?: Prisma.AliasWhereInput | Prisma.AliasWhereInput[]
   OR?: Prisma.AliasWhereInput[]
   NOT?: Prisma.AliasWhereInput | Prisma.AliasWhereInput[]
@@ -304,7 +303,7 @@ export type AliasWhereUniqueInput = Prisma.AtLeast<{
   updated_by_id?: Prisma.IntFilter<"Alias"> | number
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id" | "target_object_type_target_object_id_alias">
+}, "id">
 
 export type AliasOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -434,12 +433,6 @@ export type AliasListRelationFilter = {
 
 export type AliasOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
-}
-
-export type AliasTarget_object_typeTarget_object_idAliasCompoundUniqueInput = {
-  target_object_type: $Enums.AliasTargetType
-  target_object_id: number
-  alias: string
 }
 
 export type AliasCountOrderByAggregateInput = {

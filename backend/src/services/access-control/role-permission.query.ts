@@ -10,7 +10,7 @@ export async function findRolePermissionById(id: number) {
     })
 }
 
-export async function findRolePermissionByFks(
+export async function findActiveRolePermissionByFks(
     role_id: number,
     permission_id: number
 ) {

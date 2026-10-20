@@ -9,7 +9,7 @@ import {
 } from '../common/error-handler.js'
 import { findActivePermissionByName } from '../services/access-control/permission.query.js'
 
-import { findUserRoleByFks } from '../services/access-control/user-role.service.js'
+import { findActiveUserRoleByFks } from '../services/access-control/user-role.service.js'
 import { findRolesWithPermissionId } from '../services/access-control/role-permission.query.js'
 import { requireActiveUser } from '../services/access-control/user.validation.js'
 
@@ -40,7 +40,7 @@ export async function requireAuthorisedUser(
 
     // check whether the user as been granted with any of these roles
     for (var role of allowed_role_ids) {
-        const user_role = await findUserRoleByFks(user_id, role)
+        const user_role = await findActiveUserRoleByFks(user_id, role)
         if (user_role) {
             return true
         }

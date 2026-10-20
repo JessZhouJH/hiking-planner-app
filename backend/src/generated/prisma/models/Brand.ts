@@ -278,10 +278,10 @@ export type BrandOrderByWithRelationInput = {
 
 export type BrandWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name?: string
   AND?: Prisma.BrandWhereInput | Prisma.BrandWhereInput[]
   OR?: Prisma.BrandWhereInput[]
   NOT?: Prisma.BrandWhereInput | Prisma.BrandWhereInput[]
+  name?: Prisma.StringFilter<"Brand"> | string
   logo_img_key?: Prisma.StringNullableFilter<"Brand"> | string | null
   status?: Prisma.EnumStatusFilter<"Brand"> | $Enums.Status
   notes?: Prisma.StringNullableFilter<"Brand"> | string | null
@@ -292,7 +292,7 @@ export type BrandWhereUniqueInput = Prisma.AtLeast<{
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   gear__brand?: Prisma.GearListRelationFilter
-}, "id" | "name">
+}, "id">
 
 export type BrandOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

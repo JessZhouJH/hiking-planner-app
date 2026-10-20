@@ -7,7 +7,7 @@ import { findUnitById } from '../common/unit.service.js'
 import { findGearById } from './gear.service.js'
 import { findGearVariantById } from './gear-variant.service.js'
 import { findGearSpecsDefinitionById } from './gear-specs-definition.service.js'
-import { findGearTypeRelationByFks } from './gear-type-relation.service.js'
+import { findNonArchivedGearTypeRelationByFks } from './gear-type-relation.service.js'
 
 const enum RequiredValueType {
     BOOLEAN,
@@ -36,7 +36,7 @@ export async function findGearSpecsById(id: number) {
     return await prisma.gearSpecs.findUnique({ where: { id: id } })
 }
 
-export async function findGearSpecsByGearAndSpecDef(
+export async function findNonArchivedGearSpecsByGearAndSpecDef(
     gear_id: number,
     gear_specs_definition_id: number,
     gear_variant_id?: number | null
@@ -47,6 +47,9 @@ export async function findGearSpecsByGearAndSpecDef(
                 gear_id: gear_id,
                 gear_specs_definition_id: gear_specs_definition_id,
                 gear_variant_id: gear_variant_id,
+                status: {
+                    not: Status.ARCHIVED
+                }
             },
         })
     }
@@ -168,16 +171,16 @@ export async function isInputValid(
     const input_type_string = is_boolean_input
         ? 'Boolean'
         : is_text_input
-          ? 'Textual'
-          : 'Numeric'
+            ? 'Textual'
+            : 'Numeric'
 
     /* Compare the input value type against the required value type from GearSpecsDefinition */
     const required_input_type =
         gear_specs_definition.value_type === ValueType.BOOLEAN
             ? RequiredValueType.BOOLEAN
             : TextualValueType.indexOf(gear_specs_definition.value_type) > -1
-              ? RequiredValueType.TEXTUAL
-              : RequiredValueType.NUMERIC
+                ? RequiredValueType.TEXTUAL
+                : RequiredValueType.NUMERIC
     switch (required_input_type) {
         case RequiredValueType.BOOLEAN:
             if (!is_boolean_input) {
@@ -368,7 +371,7 @@ async function isImmutableIdentityValid(
     const gear_specs_definition_gear_type_id =
         gear_specs_definition.gear_type_id
     const input_gear_gear_type_id = gear.gear_type_id
-    const parent_relation = await findGearTypeRelationByFks(
+    const parent_relation = await findNonArchivedGearTypeRelationByFks(
         gear_specs_definition_gear_type_id,
         input_gear_gear_type_id
     )
@@ -452,7 +455,7 @@ export async function upsertGearSpecsData(
         throw new Error('Input gear identity error ')
     }
     // check whether the gear specs already exist in the database
-    const existing_gear_specs = await findGearSpecsByGearAndSpecDef(
+    const existing_gear_specs = await findNonArchivedGearSpecsByGearAndSpecDef(
         gear_id,
         gear_specs_definition_id,
         gear_variant_id
@@ -479,25 +482,25 @@ export async function upsertGearSpecsData(
     // build up the data that will be validated and stored in the database (if passed validation check)
     const mutable_data_to_validate: DataToValidate = existing_gear_specs
         ? buildDataToValidate(
-              existing_gear_specs,
-              source_unit_id,
-              value_boolean,
-              value_text,
-              value_numeric_1,
-              value_numeric_2,
-              operator,
-              status,
-              notes
+            existing_gear_specs,
+            source_unit_id,
+            value_boolean,
+            value_text,
+            value_numeric_1,
+            value_numeric_2,
+            operator,
+            status,
+            notes
           )
         : {
-              source_unit_id: source_unit_id,
-              value_boolean: value_boolean,
-              value_text: value_text,
-              value_numeric_1: value_numeric_1,
-              value_numeric_2: value_numeric_2,
-              operator: operator,
-              status: status ?? Status.ACTIVE,
-              notes: notes,
+            source_unit_id: source_unit_id,
+            value_boolean: value_boolean,
+            value_text: value_text,
+            value_numeric_1: value_numeric_1,
+            value_numeric_2: value_numeric_2,
+            operator: operator,
+            status: status ?? Status.ACTIVE,
+            notes: notes,
           }
     // check whether the data is valid and can be stored in the database
     if (

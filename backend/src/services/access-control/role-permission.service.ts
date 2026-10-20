@@ -5,7 +5,7 @@ import { RBACStatus } from '../../generated/prisma/enums.js'
 import type { RolePermission } from '../../generated/prisma/client.js'
 import { ACTION_TYPES } from '../../common/model-info.js'
 
-import { findRolePermissionByFks } from './role-permission.query.js'
+import { findActiveRolePermissionByFks } from './role-permission.query.js'
 import { requireAuthorisedUser } from '../../auth/access-validation.js'
 import { requireOperableRole } from './role.service.js'
 import { requireOperablePermission } from './permission.service.js'
@@ -83,7 +83,7 @@ export async function upsertRolePermission(
     notes?: string | null
 ) {
     // check whether the user has been granted with such role already
-    const existing_role_permission = await findRolePermissionByFks(
+    const existing_role_permission = await findActiveRolePermissionByFks(
         role_id,
         permission_id
     )

@@ -9,7 +9,7 @@ export async function findUserRoleById(id: number) {
     })
 }
 
-export async function findUserRoleByFks(user_id: number, role_id: number) {
+export async function findActiveUserRoleByFks(user_id: number, role_id: number) {
     return await prisma.userRole.findFirst({
         where: {
             user_id: user_id,
@@ -52,7 +52,7 @@ export async function upsertUserRoleData(
     notes?: string | null
 ) {
     // check whether the user has been granted with such role already
-    const existing_user_role = await findUserRoleByFks(user_id, role_id)
+    const existing_user_role = await findActiveUserRoleByFks(user_id, role_id)
     if (existing_user_role) {
         if (isInputIdenticalToDb(existing_user_role, status, notes))
             return existing_user_role
@@ -79,49 +79,6 @@ export async function upsertUserRoleData(
             notes: notes ?? null,
         },
     })
-}
-
-export async function grantUserRole(
-    user_id: number,
-    role_id: number,
-    actor_user_id: number,
-    notes?: string | null
-) {
-    // TODO: permission check
-    const existing_user_role = await findUserRoleByFks(user_id, role_id)
-    if (existing_user_role) return existing_user_role
-    return await prisma.userRole.create({
-        data: {
-            user_id: user_id,
-            role_id: role_id,
-            granted_by_id: actor_user_id,
-            updated_by_id: actor_user_id,
-            status: RBACStatus.ACTIVE,
-            notes: notes ?? null,
-        },
-    })
-}
-
-export async function revokeUserRole(
-    id: number,
-    actor_user_id: number,
-    notes?: string | null
-) {
-    // TODO: permission check
-    try {
-        return prisma.userRole.update({
-            where: { id: id },
-            data: {
-                status: RBACStatus.ARCHIVED,
-                revoked_by_id: actor_user_id,
-                ...(notes !== undefined && {
-                    notes: notes,
-                }),
-            },
-        })
-    } catch (error) {
-        // TODO: global error handling
-    }
 }
 
 export async function updateUserRole(

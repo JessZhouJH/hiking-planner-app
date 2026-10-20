@@ -2,10 +2,9 @@ import { prisma } from './seed-client'
 import { Status } from '../../src/generated/prisma/enums'
 import {
     MODEL_INFO,
-    ACCESS_CONTROL_MODULE_MODELS,
-    model,
     module,
 } from '../../src/common/model-info'
+
 import { upsertUserData } from '../../src/services/access-control/user.service'
 import { upsertRoleData } from '../../src/services/access-control/role.service'
 import { upsertPermissionData } from '../../src/services/access-control/permission.service'

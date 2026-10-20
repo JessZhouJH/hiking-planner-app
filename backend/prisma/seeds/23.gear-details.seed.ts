@@ -1,9 +1,9 @@
 import { prisma } from './seed-client'
-import { findUnitByName } from '../../src/services/common/unit.service'
-import { findBrandByName } from '../../src/services/gear/brand.service'
-import { findTagByName } from '../../src/services/common/tag.service'
-import { findGearTypeByName } from '../../src/services/gear/gear-type.service'
-import { findGearSpecsDefinitionByNameAndType } from '../../src/services/gear/gear-specs-definition.service'
+import { findNonArchivedUnitByName } from '../../src/services/common/unit.service'
+import { findNonArchivedBrandByName } from '../../src/services/gear/brand.service'
+import { findNonArchivedTagByName } from '../../src/services/common/tag.service'
+import { findNonArchivedGearTypeByName } from '../../src/services/gear/gear-type.service'
+import { findNonArchivedGearSpecsDefinitionByNameAndType } from '../../src/services/gear/gear-specs-definition.service'
 
 import { upsertGearData } from '../../src/services/gear/gear.service'
 import { upsertDescriptiveGearData } from '../../src/services/gear/descriptive-gear.service'
@@ -16,58 +16,58 @@ import { Operator } from '../../src/generated/prisma/enums'
 import { SYSTEM_USER_ID } from '../../src/constants/macros'
 
 export async function seedGearDetails() {
-    const backpack_type = await findGearTypeByName('Backpack')
+    const backpack_type = await findNonArchivedGearTypeByName('Backpack')
     if (!backpack_type) {
         throw new Error('GearType Backpack Bag not found')
     }
-    const sleeping_bag_type = await findGearTypeByName('Sleeping Bag')
+    const sleeping_bag_type = await findNonArchivedGearTypeByName('Sleeping Bag')
     if (!sleeping_bag_type) {
         throw new Error('GearType Sleeping Bag not found')
     }
     const sleeping_bag_liner_type =
-        await findGearTypeByName('Sleeping Bag Liner')
+        await findNonArchivedGearTypeByName('Sleeping Bag Liner')
     if (!sleeping_bag_liner_type) {
         throw new Error('GearType Sleeping Bag Liner not found')
     }
-    const pillow_type = await findGearTypeByName('Pillow')
+    const pillow_type = await findNonArchivedGearTypeByName('Pillow')
     if (!pillow_type) {
         throw new Error('GearType Pillow not found')
     }
-    const tent_type = await findGearTypeByName('Tent')
+    const tent_type = await findNonArchivedGearTypeByName('Tent')
     if (!tent_type) {
         throw new Error('GearType Tent not found')
     }
-    const sleeping_mat_type = await findGearTypeByName('Sleeping Mat')
+    const sleeping_mat_type = await findNonArchivedGearTypeByName('Sleeping Mat')
     if (!sleeping_mat_type) {
         throw new Error('GearType Sleeping Mat not found')
     }
-    const sleeping_pad_type = await findGearTypeByName('Sleeping Pad')
+    const sleeping_pad_type = await findNonArchivedGearTypeByName('Sleeping Pad')
     if (!sleeping_pad_type) {
         throw new Error('GearType Sleeping Pad not found')
     }
-    const trekking_pack_type = await findGearTypeByName('Trekking Pack')
+    const trekking_pack_type = await findNonArchivedGearTypeByName('Trekking Pack')
     if (!trekking_pack_type) {
         throw new Error('GearType Trekking Pack not found')
     }
-    const foldable_pack_type = await findGearTypeByName('Foldable Pack')
+    const foldable_pack_type = await findNonArchivedGearTypeByName('Foldable Pack')
     if (!foldable_pack_type) {
         throw new Error('GearType Foldable Pack not found')
     }
-    const day_pack_type = await findGearTypeByName('Daypack')
+    const day_pack_type = await findNonArchivedGearTypeByName('Daypack')
     if (!day_pack_type) {
         throw new Error('GearType Daypack not found')
     }
-    const hiking_boots_type = await findGearTypeByName('Hiking Boots')
+    const hiking_boots_type = await findNonArchivedGearTypeByName('Hiking Boots')
     if (!hiking_boots_type) {
         throw new Error('GearType Hiking Boots not found')
     }
 
-    const osprey_brand = await findBrandByName('Osprey')
-    const sea_to_summit_brand = await findBrandByName('Sea To Summit')
-    const gregory_brand = await findBrandByName('Gregory')
-    const deuter_brand = await findBrandByName('Deuter')
-    const naturehike_brand = await findBrandByName('Naturehike')
-    const thermarest_brand = await findBrandByName('Therm-A-Rest')
+    const osprey_brand = await findNonArchivedBrandByName('Osprey')
+    const sea_to_summit_brand = await findNonArchivedBrandByName('Sea To Summit')
+    const gregory_brand = await findNonArchivedBrandByName('Gregory')
+    const deuter_brand = await findNonArchivedBrandByName('Deuter')
+    const naturehike_brand = await findNonArchivedBrandByName('Naturehike')
+    const thermarest_brand = await findNonArchivedBrandByName('Therm-A-Rest')
 
     // gear
     const osprey_hikelite_26 = await upsertGearData(
@@ -241,19 +241,19 @@ export async function seedGearDetails() {
     )
 
     // gear tag relation
-    const waterproof_tag = await findTagByName('Waterproof')
+    const waterproof_tag = await findNonArchivedTagByName('Waterproof')
     if (!waterproof_tag) {
         throw new Error('Tag Waterproof not found')
     }
-    const sleeping_system_tag = await findTagByName('Sleeping System')
+    const sleeping_system_tag = await findNonArchivedTagByName('Sleeping System')
     if (!sleeping_system_tag) {
         throw new Error('Tag Sleeping System not found')
     }
-    const ultralight_tag = await findTagByName('Ultralight')
+    const ultralight_tag = await findNonArchivedTagByName('Ultralight')
     if (!ultralight_tag) {
         throw new Error('Tag Ultralight not found')
     }
-    const multiday_tag = await findTagByName('Multiday')
+    const multiday_tag = await findNonArchivedTagByName('Multiday')
     if (!multiday_tag) {
         throw new Error('Tag Multiday not found')
     }
@@ -338,24 +338,24 @@ export async function seedGearDetails() {
     )
 
     // gear specs
-    const kilogram_unit = await findUnitByName('Kilogram')
-    const pounds_unit = await findUnitByName('Pounds')
-    const centimeter_unit = await findUnitByName('Centimeter')
-    const liter_unit = await findUnitByName('Liter')
-    const inch_unit = await findUnitByName('Inch')
+    const kilogram_unit = await findNonArchivedUnitByName('Kilogram')
+    const pounds_unit = await findNonArchivedUnitByName('Pounds')
+    const centimeter_unit = await findNonArchivedUnitByName('Centimeter')
+    const liter_unit = await findNonArchivedUnitByName('Liter')
+    const inch_unit = await findNonArchivedUnitByName('Inch')
 
     const backpack_weight_spec_definition =
-        await findGearSpecsDefinitionByNameAndType('Weight', backpack_type.id)
+        await findNonArchivedGearSpecsDefinitionByNameAndType('Weight', backpack_type.id)
     if (!backpack_weight_spec_definition) {
         throw new Error('GearSpecsDefinition Weight-backpack_type not found')
     }
     const backpack_capacity_spec_definition =
-        await findGearSpecsDefinitionByNameAndType('Capacity', backpack_type.id)
+        await findNonArchivedGearSpecsDefinitionByNameAndType('Capacity', backpack_type.id)
     if (!backpack_capacity_spec_definition) {
         throw new Error('GearSpecsDefinition Capacity-backpack_type not found')
     }
     const backpack_recommended_load_spec_definition =
-        await findGearSpecsDefinitionByNameAndType(
+        await findNonArchivedGearSpecsDefinitionByNameAndType(
             'Recommended Load',
             backpack_type.id
         )
@@ -365,7 +365,7 @@ export async function seedGearDetails() {
         )
     }
     const backpack_torso_length_spec_definition =
-        await findGearSpecsDefinitionByNameAndType(
+        await findNonArchivedGearSpecsDefinitionByNameAndType(
             'Torso Length',
             backpack_type.id
         )
@@ -375,7 +375,7 @@ export async function seedGearDetails() {
         )
     }
     const backpack_back_panel_technology_spec_definition =
-        await findGearSpecsDefinitionByNameAndType(
+        await findNonArchivedGearSpecsDefinitionByNameAndType(
             'Back Panel Technology',
             backpack_type.id
         )

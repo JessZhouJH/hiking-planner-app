@@ -6,7 +6,7 @@ import { Visibility, Status } from '../../src/generated/prisma/enums'
 import { SYSTEM_USER_ID } from '../../src/constants/macros'
 
 import { findUserByName } from '../../src/services/access-control/user.query'
-import { findGearTypeByName } from '../../src/services/gear/gear-type.service'
+import { findNonArchivedGearTypeByName } from '../../src/services/gear/gear-type.service'
 
 export async function seedGearPack() {
     const adam = await findUserByName('Adam')
@@ -51,26 +51,26 @@ export async function seedGearPack() {
     )
 
     // gear pack component
-    const sleeping_bag_type = await findGearTypeByName('Sleeping Bag')
+    const sleeping_bag_type = await findNonArchivedGearTypeByName('Sleeping Bag')
     const sleeping_bag_liner_type =
-        await findGearTypeByName('Sleeping Bag Liner')
-    const pillow_type = await findGearTypeByName('Pillow')
-    const tent_type = await findGearTypeByName('Tent')
-    const sleeping_mat_type = await findGearTypeByName('Sleeping Mat')
-    const trekking_pack_type = await findGearTypeByName('Trekking Pack')
-    const foldable_pack_type = await findGearTypeByName('Foldable Pack')
-    const cookware_type = await findGearTypeByName('Cookware')
-    const stove_type = await findGearTypeByName('Stove')
-    const headtorch_type = await findGearTypeByName('Headtorch')
-    const hiking_boots_type = await findGearTypeByName("'Hiking Boots")
-    const shell_jacket_type = await findGearTypeByName('Shell Jacket')
-    const down_jacket_type = await findGearTypeByName('Down Jacket')
-    const fleece_type = await findGearTypeByName('Fleece')
-    const pants_type = await findGearTypeByName('Pants')
-    const base_layer_type = await findGearTypeByName('Base Layer')
-    const tops_type = await findGearTypeByName('Tops')
-    const towel_type = await findGearTypeByName('Towel')
-    const trekking_pole_type = await findGearTypeByName('Trekking Pole')
+        await findNonArchivedGearTypeByName('Sleeping Bag Liner')
+    const pillow_type = await findNonArchivedGearTypeByName('Pillow')
+    const tent_type = await findNonArchivedGearTypeByName('Tent')
+    const sleeping_mat_type = await findNonArchivedGearTypeByName('Sleeping Mat')
+    const trekking_pack_type = await findNonArchivedGearTypeByName('Trekking Pack')
+    const foldable_pack_type = await findNonArchivedGearTypeByName('Foldable Pack')
+    const cookware_type = await findNonArchivedGearTypeByName('Cookware')
+    const stove_type = await findNonArchivedGearTypeByName('Stove')
+    const headtorch_type = await findNonArchivedGearTypeByName('Headtorch')
+    const hiking_boots_type = await findNonArchivedGearTypeByName("'Hiking Boots")
+    const shell_jacket_type = await findNonArchivedGearTypeByName('Shell Jacket')
+    const down_jacket_type = await findNonArchivedGearTypeByName('Down Jacket')
+    const fleece_type = await findNonArchivedGearTypeByName('Fleece')
+    const pants_type = await findNonArchivedGearTypeByName('Pants')
+    const base_layer_type = await findNonArchivedGearTypeByName('Base Layer')
+    const tops_type = await findNonArchivedGearTypeByName('Tops')
+    const towel_type = await findNonArchivedGearTypeByName('Towel')
+    const trekking_pole_type = await findNonArchivedGearTypeByName('Trekking Pole')
 
     await upsertGearPackComponentData(
         SYSTEM_USER_ID,

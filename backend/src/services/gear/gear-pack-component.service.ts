@@ -13,40 +13,10 @@ export async function findGearPackComponentById( id: number ){
     return await prisma.gearPackComponent.findUnique( {where: {id: id} } )
 }
 
-export async function findGearPackComponentByGearPackId( gear_pack_id: number ) {
+export async function findAllGearPackComponentsByGearPackId( gear_pack_id: number ) {
     return await prisma.gearPackComponent.findMany({
         where: { gear_type_id: gear_pack_id }
     })
-}
-
-export async function findGearPackComponentByIdentity(
-    gear_pack_id: number,
-    gear_type_id?: number | null,
-    descriptive_gear_id?: number | null,
-    component_nickname?: string | null
-) {
-    const component_identity = findComponentIdentity(gear_type_id, descriptive_gear_id)
-    switch(component_identity) {
-        case IdentityType.FAIL:
-            // TODO: error handling
-            return null
-        case IdentityType.GEAR_TYPE:
-            return await prisma.gearPackComponent.findFirst({
-                where: {
-                    gear_pack_id: gear_pack_id,
-                    gear_type_id: gear_type_id,
-                    component_nickname: component_nickname ?? null
-                }
-            })
-        case IdentityType.DESCRIPTIVE_GEAR:
-            return await prisma.gearPackComponent.findFirst({
-                where: {
-                    gear_pack_id: gear_pack_id,
-                    descriptive_gear_id: descriptive_gear_id,
-                    component_nickname: component_nickname ?? null
-                }
-            })
-    }
 }
 
 export function findComponentIdentity(
@@ -66,6 +36,43 @@ export function findComponentIdentity(
     if (has_gear_type) return IdentityType.GEAR_TYPE
     return IdentityType.DESCRIPTIVE_GEAR
 }
+
+export async function findNonArchivedGearPackComponentByIdentity(
+    gear_pack_id: number,
+    gear_type_id?: number | null,
+    descriptive_gear_id?: number | null,
+    component_nickname?: string | null
+) {
+    const component_identity = findComponentIdentity(gear_type_id, descriptive_gear_id)
+    switch(component_identity) {
+        case IdentityType.FAIL:
+            // TODO: error handling
+            return null
+        case IdentityType.GEAR_TYPE:
+            return await prisma.gearPackComponent.findFirst({
+                where: {
+                    gear_pack_id: gear_pack_id,
+                    gear_type_id: gear_type_id,
+                    component_nickname: component_nickname ?? null,
+                    status: {
+                        not: Status.ARCHIVED
+                    }
+                }
+            })
+        case IdentityType.DESCRIPTIVE_GEAR:
+            return await prisma.gearPackComponent.findFirst({
+                where: {
+                    gear_pack_id: gear_pack_id,
+                    descriptive_gear_id: descriptive_gear_id,
+                    component_nickname: component_nickname ?? null,
+                    status: {
+                        not: Status.ARCHIVED
+                    }
+                }
+            })
+    }
+}
+
 
 export async function checkComponentNicknameUniqueness(
     component_identity: IdentityType,
@@ -146,7 +153,7 @@ export async function upsertGearPackComponentData(
     
     // check whether the record already exists in the database having a combination of:
     // gear_pack_id + gear_type_id/descriptive_gear_id + component_nickname
-    const existing_gear_pack_component = await findGearPackComponentByIdentity(gear_pack_id, gear_type_id, descriptive_gear_id, component_nickname)
+    const existing_gear_pack_component = await findNonArchivedGearPackComponentByIdentity(gear_pack_id, gear_type_id, descriptive_gear_id, component_nickname)
     if (existing_gear_pack_component) {
 
         if (update_component_nickname === true && component_nickname_new === undefined) {

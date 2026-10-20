@@ -1,9 +1,7 @@
 import { prisma } from '../../db/prisma.js'
 import {
     BadRequestError,
-    ForbiddenError,
     NotFoundError,
-    InternalServerError,
     ConflictError,
 } from '../../common/error-handler.js'
 
@@ -12,7 +10,6 @@ import type { Role } from '../../generated/prisma/client.js'
 
 import {
     findRoleById,
-    findRoleByName,
     findNonArchiveRoleByName,
 } from './role.query.js'
 import { stringToTitleCase } from '../../common/string-processing.js'
@@ -94,7 +91,7 @@ export async function upsertRoleData(
     notes?: string | null
 ) {
     // check whether the role with given name already exists in the database
-    const existing_role = await findRoleByName(name)
+    const existing_role = await findNonArchiveRoleByName(name)
     if (existing_role) {
         // check whether the input is identical to database record
         if (isInputIdenticalToDb(existing_role, status, notes))

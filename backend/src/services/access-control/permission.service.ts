@@ -10,11 +10,8 @@ import { requireAuthorisedUser } from '../../auth/access-validation.js'
 import { requireValidStatus } from '../../common/input-validation.js'
 import { stringProcessing } from '../../common/string-processing.js'
 import {
-    UnauthorizedError,
     BadRequestError,
-    ForbiddenError,
     NotFoundError,
-    InternalServerError,
     ConflictError,
 } from '../../common/error-handler.js'
 
@@ -129,30 +126,6 @@ export async function upsertPermissionData(
     })
 }
 
-/** updatePermissionData()
- * Helper function to update a permission item data
- * No input or accesss validation happen in this function
- * **/
-async function updatePermissionData(
-    permission_id: number,
-    actor_user_id: number,
-    status?: Status,
-    notes?: string | null
-) {
-    return await prisma.permission.update({
-        where: { id: permission_id },
-        data: {
-            updated_by_id: actor_user_id,
-            ...(status !== undefined && {
-                status: status,
-            }),
-            ...(notes !== undefined && {
-                notes: notes,
-            }),
-        },
-    })
-}
-
 /**
  * createPermission()
  * Main function to create new permission record
@@ -181,6 +154,10 @@ export async function createPermission(
     })
 }
 
+/**
+ * getPermission()
+ * Main function to retrieve an existing permission record
+ * **/
 export async function getPermission(
     permission_id: number,
     actor_user_id: number
@@ -208,19 +185,28 @@ export async function updatePermission(
     await requireOperablePermission(permission_id)
 
     // check whether the desired status is not ARCHIVED
-    if (status === Status.ARCHIVED)
-        throw new BadRequestError(
-            'Permission can only be set to ARCHIVED by performing Delete action'
-        )
+    await requireValidStatus(status)
 
-    return await updatePermissionData(
-        permission_id,
-        actor_user_id,
-        status,
-        notes
-    )
+    return await prisma.permission.update({
+        where: { id: permission_id },
+        data: {
+            updated_by_id: actor_user_id,
+            ...(status !== undefined && {
+                status: status,
+            }),
+            ...(notes !== undefined && {
+                notes: notes,
+            }),
+        },
+    })
 }
 
+/**
+ * deletePermission()
+ * Main function to delete an existing permission record
+ * - soft deletion: the record will not be deleted from the database permanently, instead
+ * it will be set to archived and immutable afterwards.
+ * **/
 export async function deletePermission(
     permission_id: number,
     actor_user_id: number,
@@ -229,11 +215,7 @@ export async function deletePermission(
     await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.DELETE)
 
     // check whether the target permission is currently not archived
-    const permission = await findPermissionById(permission_id)
-    if (!permission || permission.status === Status.ARCHIVED)
-        throw new BadRequestError(
-            'Permission does not exist or has been deleted already.'
-        )
+    await requireOperablePermission(permission_id)
 
     /** complete the following steps in the same transaction:
      * 1) set the permission item status to ARCHIVED

@@ -7,8 +7,15 @@ export async function findDescriptiveGearById( id: number ){
     return await prisma.descriptiveGear.findUnique({ where: { id: id} })
 }
 
-export async function findDescriptiveGearByName( name: string ){
-    return await prisma.descriptiveGear.findUnique({ where: { name: name } })
+export async function findNonArchivedDescriptiveGearByName( name: string ){
+    return await prisma.descriptiveGear.findFirst({ 
+        where: { 
+            name: name,
+            status: {
+                not: Status.ARCHIVED
+            }
+        } 
+    })
 }
 
 /**
@@ -42,7 +49,7 @@ export async function upsertDescriptiveGearData(
     notes?: string | null
 ){
     // check whether the descriptive gear already exist in the database
-    const existing_descriptive_gear = await findDescriptiveGearByName(name)
+    const existing_descriptive_gear = await findNonArchivedDescriptiveGearByName(name)
 
     if (existing_descriptive_gear) {
         // check whether the input is identical to database

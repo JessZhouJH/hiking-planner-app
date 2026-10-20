@@ -7,7 +7,7 @@ import {
     AliasTargetType,
 } from '../../src/generated/prisma/enums'
 
-import { findUnitByName } from '../../src/services/common/unit.service'
+import { findNonArchivedUnitByName } from '../../src/services/common/unit.service'
 import { upsertBrandData } from '../../src/services/gear/brand.service'
 import { upsertGearTypeData } from '../../src/services/gear/gear-type.service'
 import { upsertGearTypeRelationData } from '../../src/services/gear/gear-type-relation.service'
@@ -15,18 +15,15 @@ import { upsertGearSpecsDefinitionData } from '../../src/services/gear/gear-spec
 import { upsertAliasData } from '../../src/services/common/alias.service'
 
 export async function seedGearPrep() {
-    const kilogram_unit = await findUnitByName('Kilogram')
-    const gram_unit = await findUnitByName('Gram')
-    const celsius_unit = await findUnitByName('Celsius')
-    const kilometer_unit = await findUnitByName('Kilometer')
-    const meter_unit = await findUnitByName('Meter')
-    const centimeter_unit = await findUnitByName('Centimeter')
-    const millimeter_unit = await findUnitByName('Millimeter')
-    const liter_unit = await findUnitByName('Liter')
-    const milliliter_unit = await findUnitByName('Milliliter')
-    const squaremeter_unit = await findUnitByName('Square Meter')
-    const lumen_unit = await findUnitByName('Lumen')
-    const hour_unit = await findUnitByName('Hour')
+    const kilogram_unit = await findNonArchivedUnitByName('Kilogram')
+    const gram_unit = await findNonArchivedUnitByName('Gram')
+    const celsius_unit = await findNonArchivedUnitByName('Celsius')
+    const centimeter_unit = await findNonArchivedUnitByName('Centimeter')
+    const millimeter_unit = await findNonArchivedUnitByName('Millimeter')
+    const liter_unit = await findNonArchivedUnitByName('Liter')
+    const squaremeter_unit = await findNonArchivedUnitByName('Square Meter')
+    const lumen_unit = await findNonArchivedUnitByName('Lumen')
+    const hour_unit = await findNonArchivedUnitByName('Hour')
 
     // Brand
     const osprey_brand = await upsertBrandData(

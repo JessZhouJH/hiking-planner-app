@@ -3,7 +3,7 @@ import { prisma } from '../../db/prisma.js'
 import { Status, AliasTargetType } from '../../generated/prisma/enums.js'
 import type { Alias } from '../../generated/prisma/client.js'
 
-export async function findAliasByTypeAndIdAndName (
+export async function findNonArchivedAliasByTypeAndIdAndName (
     target_object_type: AliasTargetType,
     target_object_id: number,
     alias: string
@@ -12,7 +12,10 @@ export async function findAliasByTypeAndIdAndName (
         where: {
             target_object_type: target_object_type,
             target_object_id: target_object_id,
-            alias: alias
+            alias: alias,
+            status: {
+                not: Status.ARCHIVED
+            }
         }
     })
 }
@@ -47,7 +50,7 @@ export async function upsertAliasData (
     notes?: string | null
 ) {
     // check whether the target object already has an alias that identical to input value
-    const existing_alias = await findAliasByTypeAndIdAndName(
+    const existing_alias = await findNonArchivedAliasByTypeAndIdAndName(
         target_object_type,
         target_object_id,
         alias

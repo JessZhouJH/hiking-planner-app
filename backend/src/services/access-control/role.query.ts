@@ -1,6 +1,5 @@
 import { prisma } from '../../db/prisma.js'
 import { Status } from '../../generated/prisma/enums.js'
-import { findNonArchivePermissionByName } from './permission.query.js'
 
 /**
  * findRoleById()
@@ -9,15 +8,6 @@ import { findNonArchivePermissionByName } from './permission.query.js'
  * **/
 export async function findRoleById(id: number) {
     return await prisma.role.findUnique({ where: { id: id } })
-}
-
-/**
- * findRoleByName()
- * Helper function to access role details by its name
- * no data or user validation involved
- * **/
-export async function findRoleByName(name: string) {
-    return await prisma.role.findUnique({ where: { name: name } })
 }
 
 /**

@@ -302,11 +302,10 @@ export type DescriptiveGearOrderByWithRelationInput = {
 
 export type DescriptiveGearWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name?: string
-  name_owner_id?: Prisma.DescriptiveGearNameOwner_idCompoundUniqueInput
   AND?: Prisma.DescriptiveGearWhereInput | Prisma.DescriptiveGearWhereInput[]
   OR?: Prisma.DescriptiveGearWhereInput[]
   NOT?: Prisma.DescriptiveGearWhereInput | Prisma.DescriptiveGearWhereInput[]
+  name?: Prisma.StringFilter<"DescriptiveGear"> | string
   preview_img_key?: Prisma.StringNullableFilter<"DescriptiveGear"> | string | null
   owner_id?: Prisma.IntFilter<"DescriptiveGear"> | number
   visibility?: Prisma.EnumVisibilityFilter<"DescriptiveGear"> | $Enums.Visibility
@@ -320,7 +319,7 @@ export type DescriptiveGearWhereUniqueInput = Prisma.AtLeast<{
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   owner?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   gear_pack_component__descriptive_gear?: Prisma.GearPackComponentListRelationFilter
-}, "id" | "name" | "name_owner_id">
+}, "id">
 
 export type DescriptiveGearOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -462,11 +461,6 @@ export type DescriptiveGearListRelationFilter = {
 
 export type DescriptiveGearOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
-}
-
-export type DescriptiveGearNameOwner_idCompoundUniqueInput = {
-  name: string
-  owner_id: number
 }
 
 export type DescriptiveGearCountOrderByAggregateInput = {

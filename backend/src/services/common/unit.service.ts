@@ -7,9 +7,16 @@ export async function findUnitById(
     id: number
 ) { return await prisma.unit.findUnique({where: { id: id } })}
 
-export async function findUnitByName(
+export async function findNonArchivedUnitByName(
     name: string
-) { return await prisma.unit.findUnique({where: { name: name } })}
+) { return await prisma.unit.findFirst({
+        where: { 
+            name: name,
+            status: {
+                not: Status.ARCHIVED
+            }
+        } 
+    })}
 
 /**
  * isInputIdenticalToDb()
@@ -52,7 +59,7 @@ export async function upsertUnitData(
     notes?: string | null
 ) {
     // check whether the unit with given name already exists in the database
-    const existing_unit = await findUnitByName(name)
+    const existing_unit = await findNonArchivedUnitByName(name)
     if (existing_unit) {
         if (isInputIdenticalToDb(
             existing_unit, 

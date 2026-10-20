@@ -11,8 +11,15 @@ export async function findGearTypeById ( id: number ){
 
 /**
  * **/
-export async function findGearTypeByName( name: string ){
-    return await prisma.gearType.findUnique({ where: {name: name} })
+export async function findNonArchivedGearTypeByName( name: string ){
+    return await prisma.gearType.findFirst({ 
+        where: {
+            name: name,
+            status: {
+                not: Status.ARCHIVED
+            }
+        } 
+    })
 }
 
 /**
@@ -44,7 +51,7 @@ export async function upsertGearTypeData (
     notes?: string | null
 ) {
     // check whether the gear type with given name already exists in the database
-    const existing_gear_type = await findGearTypeByName(name)
+    const existing_gear_type = await findNonArchivedGearTypeByName(name)
     if(existing_gear_type) {
         // check whether the input is identical to database data
         if (isInputIdenticalToDb(existing_gear_type, is_comparable, status, notes)) return existing_gear_type

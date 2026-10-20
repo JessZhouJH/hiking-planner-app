@@ -328,7 +328,6 @@ export type AttachmentOrderByWithRelationInput = {
 
 export type AttachmentWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  target_object_type_target_object_id_attachment_usage_media_archive_id?: Prisma.AttachmentTarget_object_typeTarget_object_idAttachment_usageMedia_archive_idCompoundUniqueInput
   AND?: Prisma.AttachmentWhereInput | Prisma.AttachmentWhereInput[]
   OR?: Prisma.AttachmentWhereInput[]
   NOT?: Prisma.AttachmentWhereInput | Prisma.AttachmentWhereInput[]
@@ -348,7 +347,7 @@ export type AttachmentWhereUniqueInput = Prisma.AtLeast<{
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   last_reviewed_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   media_archive?: Prisma.XOR<Prisma.MediaArchiveScalarRelationFilter, Prisma.MediaArchiveWhereInput>
-}, "id" | "target_object_type_target_object_id_attachment_usage_media_archive_id">
+}, "id">
 
 export type AttachmentOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -503,13 +502,6 @@ export type AttachmentListRelationFilter = {
 
 export type AttachmentOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
-}
-
-export type AttachmentTarget_object_typeTarget_object_idAttachment_usageMedia_archive_idCompoundUniqueInput = {
-  target_object_type: $Enums.AllTargetType
-  target_object_id: number
-  attachment_usage: $Enums.AttachmentUsage
-  media_archive_id: number
 }
 
 export type AttachmentCountOrderByAggregateInput = {

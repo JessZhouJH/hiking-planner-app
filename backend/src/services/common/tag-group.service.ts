@@ -7,8 +7,13 @@ export async function findTagGroupById( id: number ){
     return await prisma.tagGroup.findUnique({ where: {id:id} })
 }
 
-export async function findTagGroupByName ( name: string ){
-    return await prisma.tagGroup.findUnique({ where: {name:name} })
+export async function findNonArchivedTagGroupByName ( name: string ){
+    return await prisma.tagGroup.findFirst({ where: {
+        name:name,
+        status: {
+            not: Status.ARCHIVED
+        }
+    } })
 }
 
 /**
@@ -38,7 +43,7 @@ export async function upsertTagGroupData(
     merged_into_tag_group_id?: number | null
 ) {
     // check whether the tag group with given name already exists in the database
-    const existing_tag_group = await findTagGroupByName(name)
+    const existing_tag_group = await findNonArchivedTagGroupByName(name)
     if (existing_tag_group) {
         // check whether the input is identical to database value
         if (isInputIdenticalToDb(existing_tag_group, status, notes, merged_into_tag_group_id)) return existing_tag_group
