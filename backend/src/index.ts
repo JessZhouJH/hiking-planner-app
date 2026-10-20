@@ -9,6 +9,9 @@ import roleRoutes from './routes/access-control/role.routes.js'
 import userRoutes from './routes/access-control/user.routes.js'
 import rolePermissionRoutes from './routes/access-control/role-permission.routes.js'
 
+// gear routes
+import brandRoutes from './routes/gear/brand.routes.js'
+
 // Load variables from ,env into process.env
 dotenv.config()
 
@@ -22,10 +25,14 @@ app.use(cors())
 app.use(express.json())
 
 // register routes
+// access control routes
 app.use('/api/permissions', permissionRoutes)
 app.use('/api/roles', roleRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/rolePermissions', rolePermissionRoutes)
+
+// gear routes
+app.use('/api/brand', brandRoutes)
 
 app.use(globalErrorHandler)
 
