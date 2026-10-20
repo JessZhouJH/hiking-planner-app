@@ -13,6 +13,9 @@ import userRoutes from './routes/access-control/user.routes.js'
 import userRoleRoutes from './routes/access-control/user-role.routes.js'
 import rolePermissionRoutes from './routes/access-control/role-permission.routes.js'
 
+// gear routes
+import brandRoutes from './routes/gear/brand.routes.js'
+
 // Load variables from ,env into process.env
 dotenv.config()
 
@@ -50,11 +53,15 @@ app.get("/health", (_req, res) => {
 app.get("/health", )
 
 // register routes
+// access control routes
 app.use('/api/permissions', permissionRoutes)
 app.use('/api/roles', roleRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/userRoles', userRoleRoutes)
 app.use('/api/rolePermissions', rolePermissionRoutes)
+
+// gear routes
+app.use('/api/brand', brandRoutes)
 
 app.use(globalErrorHandler)
 
