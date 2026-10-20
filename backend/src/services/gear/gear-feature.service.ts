@@ -25,6 +25,9 @@ export async function findGearFeatureByFksAndTitleDescription(
             gear_variant_id: gear_variant_id,
             name: name,
             description: description,
+            status:{
+                not: Status.ARCHIVED
+            }
         },
     })
 }

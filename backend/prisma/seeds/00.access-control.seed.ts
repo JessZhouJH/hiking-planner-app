@@ -2,15 +2,14 @@ import { prisma } from './seed-client'
 import { Status } from '../../src/generated/prisma/enums'
 import {
     MODEL_INFO,
-    ACCESS_CONTROL_MODULE_MODELS,
-    model,
     module,
 } from '../../src/common/model-info'
-import { upsertUserData } from '../../src/services/access_control/user.service'
-import { upsertRoleData } from '../../src/services/access_control/role.service'
-import { upsertPermissionData } from '../../src/services/access_control/permission.service'
-import { upsertUserRoleData } from '../../src/services/access_control/user_role.service'
-import { upsertRolePermission } from '../../src/services/access_control/role_permission.service'
+
+import { upsertUserData } from '../../src/services/access-control/user.service'
+import { upsertRoleData } from '../../src/services/access-control/role.service'
+import { upsertPermissionData } from '../../src/services/access-control/permission.service'
+import { upsertUserRoleData } from '../../src/services/access-control/user-role.service'
+import { upsertRolePermission } from '../../src/services/access-control/role-permission.service'
 
 export async function seedAccessControl() {
     // User
@@ -38,8 +37,12 @@ export async function seedAccessControl() {
         system.id
     )
     const dean = await upsertUserData('Dean', 'dean@sampleuser.com', system.id)
-    const jessie = await upsertUserData('Jessie', 'jessie@sampleuser.com', system.id)
-    
+    const jessie = await upsertUserData(
+        'Jessie',
+        'jessie@sampleuser.com',
+        system.id
+    )
+
     // Role
     const admin = await upsertRoleData('Admin', system.id)
     const moderator = await upsertRoleData('Moderator', system.id)

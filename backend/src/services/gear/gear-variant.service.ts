@@ -7,14 +7,17 @@ export async function findGearVariantById ( id: number ){
     return await prisma.gearVariant.findUnique({ where: {id: id} })
 }
 
-export async function findGearVariantByGearAndVariantName (
+export async function findNonArchivedGearVariantByGearAndVariantName (
     gear_id: number,
     gear_variant_name: string
 ) {
     return await prisma.gearVariant.findFirst({
         where: {
             gear_id: gear_id,
-            gear_variant_name: gear_variant_name
+            gear_variant_name: gear_variant_name,
+            status: {
+                not: Status.ARCHIVED
+            }
         }
     })
 }
@@ -50,7 +53,7 @@ export async function upsertGearVariantData (
     notes?: string | null
 ) {
     // check whether the variant with given name for target gear already exists in the database
-    const existing_gear_variant = await findGearVariantByGearAndVariantName(gear_id, gear_variant_name)
+    const existing_gear_variant = await findNonArchivedGearVariantByGearAndVariantName(gear_id, gear_variant_name)
 
     if (existing_gear_variant) {
         // check whether the input is identical to database data

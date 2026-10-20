@@ -6,7 +6,7 @@ import type { TagRelation } from '../../generated/prisma/client.js'
 export async function findTagRelationById(id: number) {
     return await prisma.tagRelation.findUnique({ where: { id: id } })
 }
-export async function findTagRelationByFks(
+export async function findNonArchivedTagRelationByFks(
     parent_tag_id: number,
     child_tag_id: number
 ) {
@@ -43,7 +43,7 @@ export async function upsertTagRelationData(
     status?: Status,
     notes?: string | null
 ) {
-    const exisiting_tag_relation = await findTagRelationByFks(
+    const exisiting_tag_relation = await findNonArchivedTagRelationByFks(
         parent_tag_id,
         child_tag_id
     )

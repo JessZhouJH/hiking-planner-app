@@ -6,14 +6,17 @@ import type { TagGroupRelation } from '../../generated/prisma/client.js'
 export async function findTagGroupRelationById( id: number ){
     return await prisma.tagGroupRelation.findUnique({ where: { id: id }})
 }
-export async function findTagGroupRelationByFks(
+export async function findNonArchivedTagGroupRelationByFks(
     tag_group_id: number,
     tag_id: number
 ) {
     return await prisma.tagGroupRelation.findFirst({
         where: {
             tag_group_id: tag_group_id,
-            tag_id: tag_id
+            tag_id: tag_id,
+            status: {
+                not: Status.ARCHIVED
+            }
         }
     })
 }
@@ -43,7 +46,7 @@ export async function upsertTagGroupRelationData(
     notes?: string | null
 ) {
     // check whether the tag group - ag relation already exists in the database
-    const existing_tag_group_relation = await findTagGroupRelationByFks(tag_group_id, tag_id)
+    const existing_tag_group_relation = await findNonArchivedTagGroupRelationByFks(tag_group_id, tag_id)
     if (existing_tag_group_relation) {
         // check whether the input is identical to database tag group-tag data
         if (isInputIdenticalToDb(existing_tag_group_relation, status, notes)) return existing_tag_group_relation

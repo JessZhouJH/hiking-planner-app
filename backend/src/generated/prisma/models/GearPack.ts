@@ -345,7 +345,6 @@ export type GearPackOrderByWithRelationInput = {
 
 export type GearPackWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name_owner_id?: Prisma.GearPackNameOwner_idCompoundUniqueInput
   AND?: Prisma.GearPackWhereInput | Prisma.GearPackWhereInput[]
   OR?: Prisma.GearPackWhereInput[]
   NOT?: Prisma.GearPackWhereInput | Prisma.GearPackWhereInput[]
@@ -370,7 +369,7 @@ export type GearPackWhereUniqueInput = Prisma.AtLeast<{
   derived_from_gear_pack?: Prisma.XOR<Prisma.GearPackNullableScalarRelationFilter, Prisma.GearPackWhereInput> | null
   gear_pack_component__gear_pack?: Prisma.GearPackComponentListRelationFilter
   user_gear_pack__gear_pack?: Prisma.UserGearPackListRelationFilter
-}, "id" | "name_owner_id">
+}, "id">
 
 export type GearPackOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -550,11 +549,6 @@ export type GearPackOrderByRelationAggregateInput = {
 export type GearPackNullableScalarRelationFilter = {
   is?: Prisma.GearPackWhereInput | null
   isNot?: Prisma.GearPackWhereInput | null
-}
-
-export type GearPackNameOwner_idCompoundUniqueInput = {
-  name: string
-  owner_id: number
 }
 
 export type GearPackCountOrderByAggregateInput = {

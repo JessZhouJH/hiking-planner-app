@@ -11,7 +11,7 @@ export async function findGearTypeRelationById( id: number ){
 
 /**
  * **/
-export async function findGearTypeRelationByFks(
+export async function findNonArchivedGearTypeRelationByFks(
     parent_gear_type_id: number,
     child_gear_type_id: number,
 ) {
@@ -19,7 +19,8 @@ export async function findGearTypeRelationByFks(
         where: {
             parent_gear_type_id: parent_gear_type_id,
             child_gear_type_id: child_gear_type_id,
-                status: Status.ACTIVE
+            status: {
+                not: Status.ARCHIVED}
         }
     })
 }
@@ -49,7 +50,7 @@ export async function upsertGearTypeRelationData(
     notes?: string | null
 ) {
     // check whether the target relation exists in the database already
-    const existing_gear_type_relation = await findGearTypeRelationByFks(parent_gear_type_id, child_gear_type_id)
+    const existing_gear_type_relation = await findNonArchivedGearTypeRelationByFks(parent_gear_type_id, child_gear_type_id)
     if (existing_gear_type_relation) {
         // check whether the input is identical to database parent-child gear type relation data
         if (isInputIdenticalToDb(existing_gear_type_relation, status, notes)) return existing_gear_type_relation

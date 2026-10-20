@@ -292,10 +292,10 @@ export type GearTypeOrderByWithRelationInput = {
 
 export type GearTypeWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name?: string
   AND?: Prisma.GearTypeWhereInput | Prisma.GearTypeWhereInput[]
   OR?: Prisma.GearTypeWhereInput[]
   NOT?: Prisma.GearTypeWhereInput | Prisma.GearTypeWhereInput[]
+  name?: Prisma.StringFilter<"GearType"> | string
   is_comparable?: Prisma.BoolFilter<"GearType"> | boolean
   status?: Prisma.EnumStatusFilter<"GearType"> | $Enums.Status
   notes?: Prisma.StringNullableFilter<"GearType"> | string | null
@@ -313,7 +313,7 @@ export type GearTypeWhereUniqueInput = Prisma.AtLeast<{
   trip_gear_list__gear_type?: Prisma.TripGearListListRelationFilter
   gear_type_relation__parent_gear_type?: Prisma.GearTypeRelationListRelationFilter
   gear_type_relation__child_gear_type?: Prisma.GearTypeRelationListRelationFilter
-}, "id" | "name">
+}, "id">
 
 export type GearTypeOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
