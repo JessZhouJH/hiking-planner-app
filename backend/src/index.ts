@@ -1,6 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import swaggerUi from "swagger-ui-express"
+import { swagger_spec } from "./config/swagger.js"
+
 import { globalErrorHandler } from './middleware/errorHandler.js'
 
 // access control routes
@@ -21,6 +24,30 @@ app.use(cors())
 
 // parse json request bodies
 app.use(express.json())
+
+app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(swagger_spec)
+)
+/**
+ * @openapi
+ * /health:
+ *   get:
+ *     summary: Check API health
+ *     tags:
+ *       - System
+ *     responses:
+ *       200:
+ *         description: API is running
+ */
+app.get("/health", (_req, res) => {
+    res.status(200).json({
+        status: "ok"
+    })
+})
+
+app.get("/health", )
 
 // register routes
 app.use('/api/permissions', permissionRoutes)
