@@ -13,8 +13,8 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 async function main() {
     await seedAccessControl()
-    await seedCommon()
-    await seedGear()
+    // await seedCommon()
+    // await seedGear()
 }
 main()
   .then(async () => {
