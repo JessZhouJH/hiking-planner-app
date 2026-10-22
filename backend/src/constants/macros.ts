@@ -66,3 +66,12 @@ export const STATUS_LIST = {
     UNPROCESSABLE_CONTENT_STATUS: UNPROCESSABLE_CONTENT_STATUS,
     INTERNAL_SERVER_ERROR_STATUS: INTERNAL_SERVER_ERROR_STATUS,
 }
+
+export const BASE_ROLES = [
+    'User'
+]
+
+export const FUNCTIONAL_ROLES = [
+    'Admin',
+    'Moderator'
+]

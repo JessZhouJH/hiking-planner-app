@@ -52,6 +52,21 @@ export async function requireOperableRole(id: number) {
 }
 
 /**
+ * requireAcitveRole()
+ * Helper function to check whether the target role exists and is active
+ * Used as pre-check for granting user role granting role permission
+ * **/
+export async function requireAcitveRole(id: number) {
+    const role = await findRoleById(id)
+    if (!role) throw new NotFoundError(`Role with id ${id} does not exist.`)
+    if (role.status !== Status.ACTIVE)
+        throw new ConflictError(
+            `Role with id ${id} is not active and thus cannot be granted to a user or be granted with a permission.`
+        )
+    return role
+}
+
+/**
  * requireValidInput()
  * Helper function to check whether the input values are valid
  * - name: non empty, unique string, alphabetic characters between 2-50 long

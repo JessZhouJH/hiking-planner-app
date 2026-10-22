@@ -52,6 +52,22 @@ export async function requireOperablePermission(id: number) {
 }
 
 /**
+ * requireActivePermission()
+ * Helper function to check whether the target permission exists and is not archived
+ * Used as a pre-check to grant role permission
+ * **/
+export async function requireActivePermission(id: number) {
+    const permission = await findPermissionById(id)
+    if (!permission)
+        throw new NotFoundError(`Permission with id ${id} does not exist.`)
+    if (permission.status !== Status.ACTIVE)
+        throw new ConflictError(
+            `Permission with id ${id} is not active and thus cannot be granted to a role.`
+        )
+    return permission
+}
+
+/**
  * requireValidInput()
  * Helper function to check whether the input values are valid
  * - name: non empty, unique string, alphabetic characters between 2-50 long
