@@ -7,7 +7,7 @@ export async function findGearSpecsDefinitionById( id: number ){
     return await prisma.gearSpecsDefinition.findUnique({ where: { id: id }})
 }
 
-export async function findGearSpecsDefinitionByNameAndType(
+export async function findNonArchivedGearSpecsDefinitionByNameAndType(
     name: string,
     gear_type_id: number
 ) {
@@ -15,6 +15,9 @@ export async function findGearSpecsDefinitionByNameAndType(
         where: {
             name: name,
             gear_type_id: gear_type_id,
+            status :{
+                not: Status.ARCHIVED
+            }
         }
     })
 }
@@ -58,7 +61,7 @@ export async function upsertGearSpecsDefinitionData(
     notes?: string | null
 ) {
     // check whether there's already an entry with given name and gear_type_id in the database
-    const existing_gear_specs_definition = await findGearSpecsDefinitionByNameAndType(name, gear_type_id)
+    const existing_gear_specs_definition = await findNonArchivedGearSpecsDefinitionByNameAndType(name, gear_type_id)
     if (existing_gear_specs_definition) {
         // check whether the input is identical to database data
         if (isInputIdenticalToDb(existing_gear_specs_definition, value_type, is_key_spec, is_variant_sensitive, default_unit_id, status, notes)) return existing_gear_specs_definition

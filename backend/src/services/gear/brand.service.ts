@@ -3,6 +3,13 @@ import { prisma } from '../../db/prisma.js'
 import { Status } from '../../generated/prisma/enums.js'
 import type { Brand } from '../../generated/prisma/client.js'
 
+import { BadRequestError, NotFoundError, ConflictError } from '../../common/error-handler.js'
+import { requireAuthorisedUser } from '../../auth/access-validation.js'
+import { requireValidStatus } from '../../common/input-validation.js'
+import { ACTION_TYPES } from '../../common/model-info.js'
+
+const MODEL_NAME = 'Brand'
+
 /**
  * **/
 export async function findBrandById( id: number ){
@@ -11,8 +18,15 @@ export async function findBrandById( id: number ){
 
 /**
  * **/
-export async function findBrandByName( name: string ){
-    return await prisma.brand.findUnique({where: { name: name }})
+export async function findNonArchivedBrandByName( name: string ){
+    return await prisma.brand.findFirst({
+        where: { 
+            name: name,
+            status: {
+                not: Status.ARCHIVED
+            }
+        }
+    })
 }
 
 /**
@@ -34,6 +48,19 @@ export function isInputIdenticalToDb(
         )
 }
 
+export async function requireOperableBrand(brand_id: number) {
+    const brand = await prisma.brand.findUnique({
+        where: {id: brand_id}
+    })
+    if (brand === null) 
+        throw new NotFoundError (`Brand with id ${brand_id} does not exist.`)
+
+    if (brand.status === Status.ARCHIVED)
+        throw new BadRequestError(`Brand ${brand.name}(id=${brand_id}) is archived and thus cannot be operated.`)
+
+    return brand
+}
+
 /**
  * **/
 export async function upsertBrandData(
@@ -44,7 +71,7 @@ export async function upsertBrandData(
     notes?: string | null
 ) {
     // check whether the brand with given name already exists in the database
-    const existing_brand = await findBrandByName(name)
+    const existing_brand = await findNonArchivedBrandByName(name)
     if (existing_brand) {
         // check whether the input is identical to database data
         if (isInputIdenticalToDb(existing_brand, logo_img_key, status, notes)) return existing_brand
@@ -88,7 +115,10 @@ export async function createBrand(
     status?: Status,
     notes?: string | null
 ) {
-    // TODO: permission check
+    // permission check
+    await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.CREATE)
+
+    // check whether the brand already exists
 
     return await prisma.brand.create({
         data: {

@@ -7,14 +7,17 @@ export async function findGearTagRelationById( id: number ){
     return await prisma.gearTagRelation.findUnique({ where: { id: id }})
 }
 
-export async function findGearTagRelationByFks(
+export async function findNonArchivedGearTagRelationByFks(
     gear_id: number,
     tag_id: number
 ) {
     return await prisma.gearTagRelation.findFirst({
         where: {
             gear_id: gear_id,
-            tag_id: tag_id
+            tag_id: tag_id,
+            status: {
+                not: Status.ARCHIVED
+            }
         }
     })
 }
@@ -44,7 +47,7 @@ export async function upsertGearTagRelationData(
     notes?: string | null
 ) {
     // check whether the relation already exists in the database
-    const existing_gear_tag_relation = await findGearTagRelationByFks(gear_id, tag_id)
+    const existing_gear_tag_relation = await findNonArchivedGearTagRelationByFks(gear_id, tag_id)
     if(existing_gear_tag_relation) {
         // check whether the input 
         if (isInputIdenticalToDb(existing_gear_tag_relation, status, notes)) return existing_gear_tag_relation

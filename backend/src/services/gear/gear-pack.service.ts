@@ -7,18 +7,17 @@ export async function findGearPackById( id: number ){
     return await prisma.gearPack.findUnique( {where: {id: id} } )
 }
 
-export async function findGearPackByName( name: string ){
-    return await prisma.gearPack.findMany({ where: { name: name }})
-}
-
-export async function findGearPackByNameAndOwner(
+export async function findNonArchivedGearPackByNameAndOwner(
     name: string,
     owner_id: number
 ) {
     return prisma.gearPack.findFirst({
         where: {
             name: name, 
-            owner_id: owner_id
+            owner_id: owner_id,
+            status: {
+                not: Status.ARCHIVED
+            }
         }
     })
 }
@@ -57,7 +56,7 @@ export async function upsertGearPackData(
     notes?: string | null
 ) {
     // check whether the owner with given id already has such named gear pack in the database
-    const existing_gear_pack = await findGearPackByNameAndOwner( name, owner_id)
+    const existing_gear_pack = await findNonArchivedGearPackByNameAndOwner( name, owner_id)
 
     if (existing_gear_pack) {
         // check whether the input is identical to database data

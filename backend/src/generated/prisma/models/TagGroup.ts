@@ -286,10 +286,10 @@ export type TagGroupOrderByWithRelationInput = {
 
 export type TagGroupWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  name?: string
   AND?: Prisma.TagGroupWhereInput | Prisma.TagGroupWhereInput[]
   OR?: Prisma.TagGroupWhereInput[]
   NOT?: Prisma.TagGroupWhereInput | Prisma.TagGroupWhereInput[]
+  name?: Prisma.StringFilter<"TagGroup"> | string
   merged_into_tag_group_id?: Prisma.IntNullableFilter<"TagGroup"> | number | null
   notes?: Prisma.StringNullableFilter<"TagGroup"> | string | null
   status?: Prisma.EnumStatusFilter<"TagGroup"> | $Enums.Status
@@ -302,7 +302,7 @@ export type TagGroupWhereUniqueInput = Prisma.AtLeast<{
   merged_into_tag_group?: Prisma.XOR<Prisma.TagGroupNullableScalarRelationFilter, Prisma.TagGroupWhereInput> | null
   tag_group__merged_into_tag_group?: Prisma.TagGroupListRelationFilter
   tag_group_relation__tag_group?: Prisma.TagGroupRelationListRelationFilter
-}, "id" | "name">
+}, "id">
 
 export type TagGroupOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
