@@ -2,7 +2,6 @@ import { prisma } from './seed-client'
 import { Status } from '../../src/generated/prisma/enums'
 import {
     MODEL_INFO,
-    module,
 } from '../../src/common/model-info'
 
 import { upsertUserData } from '../../src/services/access-control/user.service'
@@ -10,7 +9,6 @@ import { upsertRoleData } from '../../src/services/access-control/role.service'
 import { upsertPermissionData } from '../../src/services/access-control/permission.service'
 import { upsertUserRoleData } from '../../src/services/access-control/user-role.service'
 import { upsertRolePermission } from '../../src/services/access-control/role-permission.service'
-import { permission } from 'node:process'
 import { SYSTEM_USER_ID } from '../../src/constants/macros'
 
 export async function seedAccessControl() {
@@ -74,6 +72,8 @@ export async function seedAccessControl() {
     const user_role_id = user.id
 
     for (var module of MODEL_INFO) {
+        let user_forbidden_models: string[] = []
+        let user_read_only_models: string[] = []
         console.log(`\nModule ${module.name}`)
         switch (module.name) {
             /** 
@@ -172,8 +172,8 @@ export async function seedAccessControl() {
              * ---- Moderator: RUV
              * **/
             case 'Gear':
-                const user_forbidden_models = ['GearTypeRelation', 'GearSpecsDefinition']
-                const user_read_only_models = ['Brand', 'GearType', 'GearTagRelation']
+                user_forbidden_models = ['GearTypeRelation', 'GearSpecsDefinition']
+                user_read_only_models = ['Brand', 'GearType', 'GearTagRelation']
                 for (var model of module.models) {
                     const user_has_read_access = user_forbidden_models.indexOf(model.name) < 0
                     const user_has_crud_access = (user_has_read_access && user_read_only_models.indexOf(model.name) < 0)
@@ -194,8 +194,13 @@ export async function seedAccessControl() {
                             await upsertRolePermission(admin_role_id, existing_permission.id, SYSTEM_USER_ID)
                             console.log(`Permission ${permission} granted to Role Admin`)
 
+                            if (permission === `${model.name}.read`
+                            ) {
+                                await upsertRolePermission(moderator_role_id, existing_permission.id, SYSTEM_USER_ID)
+                                console.log(`Permission ${permission} granted to Role Moderator`)
+                            }
+
                             if (model.requiresReview &&  (
-                                permission === `${model.name}.read` ||
                                 permission === `${model.name}.update` ||
                                 permission === `${model.name}.verify`
                             )) {
@@ -219,6 +224,55 @@ export async function seedAccessControl() {
                 break
             
             case 'Trail':
+                user_forbidden_models = ['DifficultyMapping']
+                user_read_only_models = ['Challenge', 'ChallengeGearRequirement', 'DifficultySystem', 'TrailTagRelation', 'TrailDifficulty']
+                for (var model of module.models) {
+                    const user_has_read_access = user_forbidden_models.indexOf(model.name) < 0
+                    const user_has_crud_access = (user_has_read_access && user_read_only_models.indexOf(model.name) < 0)
+                    const access_msg = user_has_crud_access
+                        ? "full CRUD"
+                        : user_has_read_access
+                            ? "Read only"
+                            : "No"
+                    console.log(`General users has ${access_msg} access to model ${model.name}`)
+                    for (permission of model.permissions) {
+                        let existing_permission = await prisma.permission.findFirst({
+                            where: {
+                                name: permission,
+                                status: Status.ACTIVE
+                            }
+                        })
+                        if (existing_permission) {
+                            await upsertRolePermission(admin_role_id, existing_permission.id, SYSTEM_USER_ID)
+                            console.log(`Permission ${permission} granted to Role Admin`)
+
+                            if (permission === `${model.name}.read`
+                            ) {
+                                await upsertRolePermission(moderator_role_id, existing_permission.id, SYSTEM_USER_ID)
+                                console.log(`Permission ${permission} granted to Role Moderator`)
+                            }
+
+                            if (model.requiresReview &&  (
+                                permission === `${model.name}.update` ||
+                                permission === `${model.name}.verify`
+                            )) {
+                                await upsertRolePermission(moderator_role_id, existing_permission.id, SYSTEM_USER_ID)
+                                console.log(`Permission ${permission} granted to Role Moderator`)
+                            }
+
+                            if (user_has_read_access) {
+                                if (user_has_crud_access && permission !== `${model.name}.verify`) {
+                                    await upsertRolePermission(user_role_id, existing_permission.id, SYSTEM_USER_ID)
+                                    console.log(`Permission ${permission} granted to Role User`)
+                                }
+                                else if (permission === `${model.name}.read`) {
+                                    await upsertRolePermission(user_role_id, existing_permission.id, SYSTEM_USER_ID)
+                                    console.log(`Permission ${permission} granted to Role User`)
+                                }                                
+                            }
+                        }
+                    }
+                }
                 break
             
             /**
@@ -326,12 +380,15 @@ export async function seedAccessControl() {
                                 await upsertRolePermission(user_role_id, existing_permission.id, SYSTEM_USER_ID)
                                 console.log(`Permission ${permission} granted to Role User`)
 
-                                if (is_user_initiate_models) {
-                                    if (permission === `${model.name}.read` || permission === `${model.name}.update`) {
+                                if (permission === `${model.name}.read` || permission === `${model.name}.update`) {
+                                    await upsertRolePermission(admin_role_id, existing_permission.id, SYSTEM_USER_ID)
+                                    console.log(`Permission ${permission} granted to Role Admin`)
+                                    await upsertRolePermission(moderator_role_id, existing_permission.id, SYSTEM_USER_ID)
+                                    console.log(`Permission ${permission} granted to Role Moderator`)
+                                } else {
+                                    if (!user_initiated_models) {
                                         await upsertRolePermission(admin_role_id, existing_permission.id, SYSTEM_USER_ID)
                                         console.log(`Permission ${permission} granted to Role Admin`)
-                                        await upsertRolePermission(moderator_role_id, existing_permission.id, SYSTEM_USER_ID)
-                                        console.log(`Permission ${permission} granted to Role Moderator`)
                                     }
                                 }
                             }
