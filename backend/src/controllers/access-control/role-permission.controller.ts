@@ -5,7 +5,7 @@ import {
     getRolePermission,
     updateRolePermission,
     deleteRolePermission,
-    requireOperableRoleAndPermission
+    requireAcitveRoleAndPermission
 } from '../../services/access-control/role-permission.service.js'
 
 import { STATUS_LIST } from "../../constants/macros.js";
@@ -22,7 +22,7 @@ export async function createRolePermissionController(
 
     const role_permission = await createRolePermission(role_id, permission_id, actor_user_id, notes)
 
-    const {role_name, permission_name} = await requireOperableRoleAndPermission(role_id, permission_id)
+    const {role_name, permission_name} = await requireAcitveRoleAndPermission(role_id, permission_id)
     res.status(STATUS_LIST.CREATED_STATUS.statusCode).json({
         message: `Role ${role_name}(id=${role_id}) has been successfully granted with ${permission_name} pemrission(id=${permission_id}).`,
         data: role_permission

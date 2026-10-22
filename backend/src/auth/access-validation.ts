@@ -39,14 +39,29 @@ export async function requireAuthorisedUser(
     const allowed_role_ids = await findRolesWithPermissionId(permission.id)
 
     // check whether the user as been granted with any of these roles
+    let user_authorised_as_role_ids: number[] = []
     for (var role of allowed_role_ids) {
         const user_role = await findActiveUserRoleByFks(user_id, role)
         if (user_role) {
-            return true
+            user_authorised_as_role_ids.push(user_role.role_id)
         }
     }
 
-    throw new ForbiddenError(
-        `User has not been granted with a role that allowed to perform ${action_access}`
-    )
+    if (user_authorised_as_role_ids.length < 1)
+        throw new ForbiddenError(
+            `User has not been granted with a role that allowed to perform ${action_access}`
+        )
+    return user_authorised_as_role_ids
+}
+
+export async function requireAuthorisedUserAndOwner(
+    actor_user_id: number,
+    owner_id: number,
+    model_name: string,
+    action_access: ACTION_TYPES
+) {
+    /** Check whether the user is authorised for the permission **/
+    const role_ids = await requireAuthorisedUser(actor_user_id, model_name, action_access)
+
+
 }

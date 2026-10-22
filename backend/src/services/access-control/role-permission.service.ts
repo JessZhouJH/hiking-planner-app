@@ -7,8 +7,9 @@ import { ACTION_TYPES } from '../../common/model-info.js'
 
 import { findActiveRolePermissionByFks } from './role-permission.query.js'
 import { requireAuthorisedUser } from '../../auth/access-validation.js'
-import { requireOperableRole } from './role.service.js'
-import { requireOperablePermission } from './permission.service.js'
+
+import { requireAcitveRole } from './role.service.js'
+import { requireActivePermission } from './permission.service.js'
 
 const MODEL_NAME = 'RolePermission'
 
@@ -42,15 +43,15 @@ async function requireNonArchivedRolePermissionById(
     return role_permission
 }
 
-export async function requireOperableRoleAndPermission(
+export async function requireAcitveRoleAndPermission(
     role_id: number,
     permission_id: number
 ) {
-    const role = await requireOperableRole(role_id)
+    const role = await requireAcitveRole(role_id)
     const role_name = (role !== null)
         ? role.name
         : ""
-    const permission = await requireOperablePermission(permission_id)
+    const permission = await requireActivePermission(permission_id)
     const permission_name = (permission !== null)
         ? permission.name
         : ""
@@ -125,10 +126,10 @@ export async function createRolePermission(
     await requireAuthorisedUser(actor_user_id, MODEL_NAME, ACTION_TYPES.CREATE)
 
     // check whether the role and permission exist and are not archived
-    const {role_name, permission_name} = await requireOperableRoleAndPermission(role_id, permission_id)
-    if (role_name === "" && permission_name === "") throw new BadRequestError('Both role(id=${role_id}) and permission(id=${permission_id}) either not exist or have been archived.')
-    if (role_name === "") throw new BadRequestError(`Role(id=${role_id}) does not exist or have been archived.`)
-    if (permission_name === "") throw new BadRequestError('Permission(id=${permission_id}) does not exist or have been archived.')
+    const {role_name, permission_name} = await requireAcitveRoleAndPermission(role_id, permission_id)
+    if (role_name === "" && permission_name === "") throw new BadRequestError('Both role(id=${role_id}) and permission(id=${permission_id}) either not exist or not active.')
+    if (role_name === "") throw new BadRequestError(`Role(id=${role_id}) does not exist or is not active.`)
+    if (permission_name === "") throw new BadRequestError('Permission(id=${permission_id}) does not exist or is not active.')
     
     // check whether the role has been granted with certain permission
     const existing_role_permission = await requireNonArchivedRolePermissionByFks(role_id, permission_id)
