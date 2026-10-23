@@ -666,6 +666,10 @@ export type UserStickyNotesUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.UserStickyNotesScalarWhereInput | Prisma.UserStickyNotesScalarWhereInput[]
 }
 
+export type EnumSelectedTargetTypeFieldUpdateOperationsInput = {
+  set?: $Enums.SelectedTargetType
+}
+
 export type UserStickyNotesCreateWithoutCreated_byInput = {
   target_object_type: $Enums.SelectedTargetType
   target_object_id?: number | null

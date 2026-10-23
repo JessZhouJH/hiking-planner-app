@@ -434,6 +434,7 @@ export const ModelName = {
   TrailGearRequirement: 'TrailGearRequirement',
   TrailDifficulty: 'TrailDifficulty',
   TrailFacility: 'TrailFacility',
+  TrailFacilityRelation: 'TrailFacilityRelation',
   TrailUse: 'TrailUse',
   TrailProfile: 'TrailProfile',
   TrailProfileUse: 'TrailProfileUse',
@@ -456,7 +457,6 @@ export const ModelName = {
   UserGearPack: 'UserGearPack',
   UserGearPackItem: 'UserGearPackItem',
   UserPersonalArchive: 'UserPersonalArchive',
-  UserFeedback: 'UserFeedback',
   UserStickyNotes: 'UserStickyNotes',
   UserIdeaCapture: 'UserIdeaCapture',
   Trip: 'Trip',
@@ -476,7 +476,8 @@ export const ModelName = {
   CommunityPublicationItem: 'CommunityPublicationItem',
   CommunityPublicationAttachment: 'CommunityPublicationAttachment',
   RecordAction: 'RecordAction',
-  ContentReviewHistory: 'ContentReviewHistory'
+  ContentReviewHistory: 'ContentReviewHistory',
+  UserFeedback: 'UserFeedback'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -492,7 +493,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "role" | "permission" | "userRole" | "rolePermission" | "alias" | "mediaArchive" | "attachment" | "unit" | "tag" | "tagGroup" | "tagRelation" | "tagGroupRelation" | "brand" | "gearType" | "gearTypeRelation" | "gearSpecsDefinition" | "gear" | "descriptiveGear" | "gearSpecs" | "gearFeature" | "gearVariant" | "gearTagRelation" | "gearPack" | "gearPackComponent" | "challenge" | "challengeGearRequirement" | "difficultySystem" | "difficultyMapping" | "trail" | "trailTagRelation" | "trailChallenge" | "trailCalendar" | "trailSource" | "trailGearRequirement" | "trailDifficulty" | "trailFacility" | "trailUse" | "trailProfile" | "trailProfileUse" | "accessPoint" | "accessPointCalendar" | "trailAccessPointRelation" | "trailGeometry" | "trailSegmentation" | "trailSegmentRelation" | "transportService" | "transportServiceCalendar" | "transportServiceStop" | "trailTransportService" | "mealPack" | "mealItem" | "mealPackItem" | "userTrail" | "userTrailCompletion" | "userGear" | "userGearPack" | "userGearPackItem" | "userPersonalArchive" | "userFeedback" | "userStickyNotes" | "userIdeaCapture" | "trip" | "tripAccommodation" | "tripGearList" | "tripMealPack" | "tripMealPackItem" | "tripTrail" | "tripTransport" | "criticalEvent" | "tripChecklist" | "tripChecklistItem" | "collection" | "collectionItem" | "userProposal" | "communityPublication" | "communityPublicationItem" | "communityPublicationAttachment" | "recordAction" | "contentReviewHistory"
+    modelProps: "user" | "role" | "permission" | "userRole" | "rolePermission" | "alias" | "mediaArchive" | "attachment" | "unit" | "tag" | "tagGroup" | "tagRelation" | "tagGroupRelation" | "brand" | "gearType" | "gearTypeRelation" | "gearSpecsDefinition" | "gear" | "descriptiveGear" | "gearSpecs" | "gearFeature" | "gearVariant" | "gearTagRelation" | "gearPack" | "gearPackComponent" | "challenge" | "challengeGearRequirement" | "difficultySystem" | "difficultyMapping" | "trail" | "trailTagRelation" | "trailChallenge" | "trailCalendar" | "trailSource" | "trailGearRequirement" | "trailDifficulty" | "trailFacility" | "trailFacilityRelation" | "trailUse" | "trailProfile" | "trailProfileUse" | "accessPoint" | "accessPointCalendar" | "trailAccessPointRelation" | "trailGeometry" | "trailSegmentation" | "trailSegmentRelation" | "transportService" | "transportServiceCalendar" | "transportServiceStop" | "trailTransportService" | "mealPack" | "mealItem" | "mealPackItem" | "userTrail" | "userTrailCompletion" | "userGear" | "userGearPack" | "userGearPackItem" | "userPersonalArchive" | "userStickyNotes" | "userIdeaCapture" | "trip" | "tripAccommodation" | "tripGearList" | "tripMealPack" | "tripMealPackItem" | "tripTrail" | "tripTransport" | "criticalEvent" | "tripChecklist" | "tripChecklistItem" | "collection" | "collectionItem" | "userProposal" | "communityPublication" | "communityPublicationItem" | "communityPublicationAttachment" | "recordAction" | "contentReviewHistory" | "userFeedback"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3234,6 +3235,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    TrailFacilityRelation: {
+      payload: Prisma.$TrailFacilityRelationPayload<ExtArgs>
+      fields: Prisma.TrailFacilityRelationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TrailFacilityRelationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TrailFacilityRelationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>
+        }
+        findFirst: {
+          args: Prisma.TrailFacilityRelationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TrailFacilityRelationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>
+        }
+        findMany: {
+          args: Prisma.TrailFacilityRelationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>[]
+        }
+        create: {
+          args: Prisma.TrailFacilityRelationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>
+        }
+        createMany: {
+          args: Prisma.TrailFacilityRelationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TrailFacilityRelationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>[]
+        }
+        delete: {
+          args: Prisma.TrailFacilityRelationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>
+        }
+        update: {
+          args: Prisma.TrailFacilityRelationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>
+        }
+        deleteMany: {
+          args: Prisma.TrailFacilityRelationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TrailFacilityRelationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TrailFacilityRelationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>[]
+        }
+        upsert: {
+          args: Prisma.TrailFacilityRelationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrailFacilityRelationPayload>
+        }
+        aggregate: {
+          args: Prisma.TrailFacilityRelationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTrailFacilityRelation>
+        }
+        groupBy: {
+          args: Prisma.TrailFacilityRelationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrailFacilityRelationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TrailFacilityRelationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrailFacilityRelationCountAggregateOutputType> | number
+        }
+      }
+    }
     TrailUse: {
       payload: Prisma.$TrailUsePayload<ExtArgs>
       fields: Prisma.TrailUseFieldRefs
@@ -4862,80 +4937,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    UserFeedback: {
-      payload: Prisma.$UserFeedbackPayload<ExtArgs>
-      fields: Prisma.UserFeedbackFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.UserFeedbackFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.UserFeedbackFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
-        }
-        findFirst: {
-          args: Prisma.UserFeedbackFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.UserFeedbackFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
-        }
-        findMany: {
-          args: Prisma.UserFeedbackFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>[]
-        }
-        create: {
-          args: Prisma.UserFeedbackCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
-        }
-        createMany: {
-          args: Prisma.UserFeedbackCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.UserFeedbackCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>[]
-        }
-        delete: {
-          args: Prisma.UserFeedbackDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
-        }
-        update: {
-          args: Prisma.UserFeedbackUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
-        }
-        deleteMany: {
-          args: Prisma.UserFeedbackDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.UserFeedbackUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.UserFeedbackUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>[]
-        }
-        upsert: {
-          args: Prisma.UserFeedbackUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
-        }
-        aggregate: {
-          args: Prisma.UserFeedbackAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateUserFeedback>
-        }
-        groupBy: {
-          args: Prisma.UserFeedbackGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UserFeedbackGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.UserFeedbackCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UserFeedbackCountAggregateOutputType> | number
-        }
-      }
-    }
     UserStickyNotes: {
       payload: Prisma.$UserStickyNotesPayload<ExtArgs>
       fields: Prisma.UserStickyNotesFieldRefs
@@ -6416,6 +6417,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    UserFeedback: {
+      payload: Prisma.$UserFeedbackPayload<ExtArgs>
+      fields: Prisma.UserFeedbackFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UserFeedbackFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UserFeedbackFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
+        }
+        findFirst: {
+          args: Prisma.UserFeedbackFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UserFeedbackFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
+        }
+        findMany: {
+          args: Prisma.UserFeedbackFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>[]
+        }
+        create: {
+          args: Prisma.UserFeedbackCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
+        }
+        createMany: {
+          args: Prisma.UserFeedbackCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UserFeedbackCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>[]
+        }
+        delete: {
+          args: Prisma.UserFeedbackDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
+        }
+        update: {
+          args: Prisma.UserFeedbackUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
+        }
+        deleteMany: {
+          args: Prisma.UserFeedbackDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UserFeedbackUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UserFeedbackUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>[]
+        }
+        upsert: {
+          args: Prisma.UserFeedbackUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserFeedbackPayload>
+        }
+        aggregate: {
+          args: Prisma.UserFeedbackAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserFeedback>
+        }
+        groupBy: {
+          args: Prisma.UserFeedbackGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserFeedbackGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UserFeedbackCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserFeedbackCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -7099,10 +7174,12 @@ export type TrailDifficultyScalarFieldEnum = (typeof TrailDifficultyScalarFieldE
 
 export const TrailFacilityScalarFieldEnum = {
   id: 'id',
-  trail_id: 'trail_id',
+  name: 'name',
   facility_type: 'facility_type',
   trail_source_id: 'trail_source_id',
   access_point_id: 'access_point_id',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
   notes: 'notes',
   status: 'status',
   created_at: 'created_at',
@@ -7114,6 +7191,23 @@ export const TrailFacilityScalarFieldEnum = {
 } as const
 
 export type TrailFacilityScalarFieldEnum = (typeof TrailFacilityScalarFieldEnum)[keyof typeof TrailFacilityScalarFieldEnum]
+
+
+export const TrailFacilityRelationScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  trail_facility_id: 'trail_facility_id',
+  status: 'status',
+  notes: 'notes',
+  created_by_id: 'created_by_id',
+  created_at: 'created_at',
+  updated_by_id: 'updated_by_id',
+  updated_at: 'updated_at',
+  last_verified_by_id: 'last_verified_by_id',
+  last_verified_at: 'last_verified_at'
+} as const
+
+export type TrailFacilityRelationScalarFieldEnum = (typeof TrailFacilityRelationScalarFieldEnum)[keyof typeof TrailFacilityRelationScalarFieldEnum]
 
 
 export const TrailUseScalarFieldEnum = {
@@ -7145,11 +7239,11 @@ export const TrailProfileScalarFieldEnum = {
   trail_difficulty_converted: 'trail_difficulty_converted',
   accessibility: 'accessibility',
   accessibility_notes: 'accessibility_notes',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
   profile_origin: 'profile_origin',
   trail_source_id: 'trail_source_id',
   authenticity_level: 'authenticity_level',
-  owner_id: 'owner_id',
-  visibility: 'visibility',
   is_official: 'is_official',
   edit_policy_override: 'edit_policy_override',
   notes: 'notes',
@@ -7264,11 +7358,11 @@ export const TrailGeometryScalarFieldEnum = {
   gpx_file_key: 'gpx_file_key',
   gpx_file_name: 'gpx_file_name',
   gpx_source_url: 'gpx_source_url',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
   geometry_origin: 'geometry_origin',
   derived_from_id: 'derived_from_id',
   authenticity_level: 'authenticity_level',
-  owner_id: 'owner_id',
-  visibility: 'visibility',
   is_official: 'is_official',
   edit_policy_override: 'edit_policy_override',
   export_policy: 'export_policy',
@@ -7572,25 +7666,6 @@ export const UserPersonalArchiveScalarFieldEnum = {
 } as const
 
 export type UserPersonalArchiveScalarFieldEnum = (typeof UserPersonalArchiveScalarFieldEnum)[keyof typeof UserPersonalArchiveScalarFieldEnum]
-
-
-export const UserFeedbackScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  target_object_type: 'target_object_type',
-  target_object_id: 'target_object_id',
-  title: 'title',
-  content: 'content',
-  feedback_status: 'feedback_status',
-  created_at: 'created_at',
-  created_by_id: 'created_by_id',
-  updated_at: 'updated_at',
-  updated_by_id: 'updated_by_id',
-  last_reviewed_at: 'last_reviewed_at',
-  last_reviewed_by_id: 'last_reviewed_by_id'
-} as const
-
-export type UserFeedbackScalarFieldEnum = (typeof UserFeedbackScalarFieldEnum)[keyof typeof UserFeedbackScalarFieldEnum]
 
 
 export const UserStickyNotesScalarFieldEnum = {
@@ -7993,6 +8068,25 @@ export const ContentReviewHistoryScalarFieldEnum = {
 } as const
 
 export type ContentReviewHistoryScalarFieldEnum = (typeof ContentReviewHistoryScalarFieldEnum)[keyof typeof ContentReviewHistoryScalarFieldEnum]
+
+
+export const UserFeedbackScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  title: 'title',
+  content: 'content',
+  feedback_status: 'feedback_status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type UserFeedbackScalarFieldEnum = (typeof UserFeedbackScalarFieldEnum)[keyof typeof UserFeedbackScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -9073,6 +9167,7 @@ export type GlobalOmitConfig = {
   trailGearRequirement?: Prisma.TrailGearRequirementOmit
   trailDifficulty?: Prisma.TrailDifficultyOmit
   trailFacility?: Prisma.TrailFacilityOmit
+  trailFacilityRelation?: Prisma.TrailFacilityRelationOmit
   trailUse?: Prisma.TrailUseOmit
   trailProfile?: Prisma.TrailProfileOmit
   trailProfileUse?: Prisma.TrailProfileUseOmit
@@ -9095,7 +9190,6 @@ export type GlobalOmitConfig = {
   userGearPack?: Prisma.UserGearPackOmit
   userGearPackItem?: Prisma.UserGearPackItemOmit
   userPersonalArchive?: Prisma.UserPersonalArchiveOmit
-  userFeedback?: Prisma.UserFeedbackOmit
   userStickyNotes?: Prisma.UserStickyNotesOmit
   userIdeaCapture?: Prisma.UserIdeaCaptureOmit
   trip?: Prisma.TripOmit
@@ -9116,6 +9210,7 @@ export type GlobalOmitConfig = {
   communityPublicationAttachment?: Prisma.CommunityPublicationAttachmentOmit
   recordAction?: Prisma.RecordActionOmit
   contentReviewHistory?: Prisma.ContentReviewHistoryOmit
+  userFeedback?: Prisma.UserFeedbackOmit
 }
 
 /* Types for Logging */

@@ -31,8 +31,8 @@ export type TrailGeometryAvgAggregateOutputType = {
   trail_id: number | null
   start_access_point_id: number | null
   end_access_point_id: number | null
-  derived_from_id: number | null
   owner_id: number | null
+  derived_from_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
   last_verified_by_id: number | null
@@ -43,8 +43,8 @@ export type TrailGeometrySumAggregateOutputType = {
   trail_id: number | null
   start_access_point_id: number | null
   end_access_point_id: number | null
-  derived_from_id: number | null
   owner_id: number | null
+  derived_from_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
   last_verified_by_id: number | null
@@ -59,11 +59,11 @@ export type TrailGeometryMinAggregateOutputType = {
   gpx_file_key: string | null
   gpx_file_name: string | null
   gpx_source_url: string | null
+  owner_id: number | null
+  visibility: $Enums.Visibility | null
   geometry_origin: $Enums.DataOrigin | null
   derived_from_id: number | null
   authenticity_level: $Enums.AuthenticityLevel | null
-  owner_id: number | null
-  visibility: $Enums.Visibility | null
   is_official: boolean | null
   edit_policy_override: $Enums.EditPolicyOverride | null
   export_policy: $Enums.GeometryExportPolicy | null
@@ -87,11 +87,11 @@ export type TrailGeometryMaxAggregateOutputType = {
   gpx_file_key: string | null
   gpx_file_name: string | null
   gpx_source_url: string | null
+  owner_id: number | null
+  visibility: $Enums.Visibility | null
   geometry_origin: $Enums.DataOrigin | null
   derived_from_id: number | null
   authenticity_level: $Enums.AuthenticityLevel | null
-  owner_id: number | null
-  visibility: $Enums.Visibility | null
   is_official: boolean | null
   edit_policy_override: $Enums.EditPolicyOverride | null
   export_policy: $Enums.GeometryExportPolicy | null
@@ -115,11 +115,11 @@ export type TrailGeometryCountAggregateOutputType = {
   gpx_file_key: number
   gpx_file_name: number
   gpx_source_url: number
+  owner_id: number
+  visibility: number
   geometry_origin: number
   derived_from_id: number
   authenticity_level: number
-  owner_id: number
-  visibility: number
   is_official: number
   edit_policy_override: number
   export_policy: number
@@ -141,8 +141,8 @@ export type TrailGeometryAvgAggregateInputType = {
   trail_id?: true
   start_access_point_id?: true
   end_access_point_id?: true
-  derived_from_id?: true
   owner_id?: true
+  derived_from_id?: true
   created_by_id?: true
   updated_by_id?: true
   last_verified_by_id?: true
@@ -153,8 +153,8 @@ export type TrailGeometrySumAggregateInputType = {
   trail_id?: true
   start_access_point_id?: true
   end_access_point_id?: true
-  derived_from_id?: true
   owner_id?: true
+  derived_from_id?: true
   created_by_id?: true
   updated_by_id?: true
   last_verified_by_id?: true
@@ -169,11 +169,11 @@ export type TrailGeometryMinAggregateInputType = {
   gpx_file_key?: true
   gpx_file_name?: true
   gpx_source_url?: true
+  owner_id?: true
+  visibility?: true
   geometry_origin?: true
   derived_from_id?: true
   authenticity_level?: true
-  owner_id?: true
-  visibility?: true
   is_official?: true
   edit_policy_override?: true
   export_policy?: true
@@ -197,11 +197,11 @@ export type TrailGeometryMaxAggregateInputType = {
   gpx_file_key?: true
   gpx_file_name?: true
   gpx_source_url?: true
+  owner_id?: true
+  visibility?: true
   geometry_origin?: true
   derived_from_id?: true
   authenticity_level?: true
-  owner_id?: true
-  visibility?: true
   is_official?: true
   edit_policy_override?: true
   export_policy?: true
@@ -225,11 +225,11 @@ export type TrailGeometryCountAggregateInputType = {
   gpx_file_key?: true
   gpx_file_name?: true
   gpx_source_url?: true
+  owner_id?: true
+  visibility?: true
   geometry_origin?: true
   derived_from_id?: true
   authenticity_level?: true
-  owner_id?: true
-  visibility?: true
   is_official?: true
   edit_policy_override?: true
   export_policy?: true
@@ -340,11 +340,11 @@ export type TrailGeometryGroupByOutputType = {
   gpx_file_key: string | null
   gpx_file_name: string | null
   gpx_source_url: string | null
+  owner_id: number
+  visibility: $Enums.Visibility
   geometry_origin: $Enums.DataOrigin
   derived_from_id: number | null
   authenticity_level: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility: $Enums.Visibility
   is_official: boolean
   edit_policy_override: $Enums.EditPolicyOverride
   export_policy: $Enums.GeometryExportPolicy
@@ -391,11 +391,11 @@ export type TrailGeometryWhereInput = {
   gpx_file_key?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   gpx_file_name?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   gpx_source_url?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
+  owner_id?: Prisma.IntFilter<"TrailGeometry"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFilter<"TrailGeometry"> | $Enums.DataOrigin
   derived_from_id?: Prisma.IntNullableFilter<"TrailGeometry"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailGeometry"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFilter<"TrailGeometry"> | number
-  visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailGeometry"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailGeometry"> | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFilter<"TrailGeometry"> | $Enums.GeometryExportPolicy
@@ -431,11 +431,11 @@ export type TrailGeometryOrderByWithRelationInput = {
   gpx_file_key?: Prisma.SortOrderInput | Prisma.SortOrder
   gpx_file_name?: Prisma.SortOrderInput | Prisma.SortOrder
   gpx_source_url?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   geometry_origin?: Prisma.SortOrder
   derived_from_id?: Prisma.SortOrderInput | Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   export_policy?: Prisma.SortOrder
@@ -475,11 +475,11 @@ export type TrailGeometryWhereUniqueInput = Prisma.AtLeast<{
   gpx_file_key?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   gpx_file_name?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   gpx_source_url?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
+  owner_id?: Prisma.IntFilter<"TrailGeometry"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFilter<"TrailGeometry"> | $Enums.DataOrigin
   derived_from_id?: Prisma.IntNullableFilter<"TrailGeometry"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailGeometry"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFilter<"TrailGeometry"> | number
-  visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailGeometry"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailGeometry"> | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFilter<"TrailGeometry"> | $Enums.GeometryExportPolicy
@@ -515,11 +515,11 @@ export type TrailGeometryOrderByWithAggregationInput = {
   gpx_file_key?: Prisma.SortOrderInput | Prisma.SortOrder
   gpx_file_name?: Prisma.SortOrderInput | Prisma.SortOrder
   gpx_source_url?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   geometry_origin?: Prisma.SortOrder
   derived_from_id?: Prisma.SortOrderInput | Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   export_policy?: Prisma.SortOrder
@@ -551,11 +551,11 @@ export type TrailGeometryScalarWhereWithAggregatesInput = {
   gpx_file_key?: Prisma.StringNullableWithAggregatesFilter<"TrailGeometry"> | string | null
   gpx_file_name?: Prisma.StringNullableWithAggregatesFilter<"TrailGeometry"> | string | null
   gpx_source_url?: Prisma.StringNullableWithAggregatesFilter<"TrailGeometry"> | string | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"TrailGeometry"> | number
+  visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"TrailGeometry"> | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginWithAggregatesFilter<"TrailGeometry"> | $Enums.DataOrigin
   derived_from_id?: Prisma.IntNullableWithAggregatesFilter<"TrailGeometry"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelWithAggregatesFilter<"TrailGeometry"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntWithAggregatesFilter<"TrailGeometry"> | number
-  visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"TrailGeometry"> | $Enums.Visibility
   is_official?: Prisma.BoolWithAggregatesFilter<"TrailGeometry"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideWithAggregatesFilter<"TrailGeometry"> | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyWithAggregatesFilter<"TrailGeometry"> | $Enums.GeometryExportPolicy
@@ -575,9 +575,9 @@ export type TrailGeometryCreateInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -610,11 +610,11 @@ export type TrailGeometryUncheckedCreateInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -638,9 +638,9 @@ export type TrailGeometryUpdateInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -673,11 +673,11 @@ export type TrailGeometryUncheckedUpdateInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -705,11 +705,11 @@ export type TrailGeometryCreateManyInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -729,9 +729,9 @@ export type TrailGeometryUpdateManyMutationInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -752,11 +752,11 @@ export type TrailGeometryUncheckedUpdateManyInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -800,11 +800,11 @@ export type TrailGeometryCountOrderByAggregateInput = {
   gpx_file_key?: Prisma.SortOrder
   gpx_file_name?: Prisma.SortOrder
   gpx_source_url?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   geometry_origin?: Prisma.SortOrder
   derived_from_id?: Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   export_policy?: Prisma.SortOrder
@@ -824,8 +824,8 @@ export type TrailGeometryAvgOrderByAggregateInput = {
   trail_id?: Prisma.SortOrder
   start_access_point_id?: Prisma.SortOrder
   end_access_point_id?: Prisma.SortOrder
-  derived_from_id?: Prisma.SortOrder
   owner_id?: Prisma.SortOrder
+  derived_from_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   last_verified_by_id?: Prisma.SortOrder
@@ -840,11 +840,11 @@ export type TrailGeometryMaxOrderByAggregateInput = {
   gpx_file_key?: Prisma.SortOrder
   gpx_file_name?: Prisma.SortOrder
   gpx_source_url?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   geometry_origin?: Prisma.SortOrder
   derived_from_id?: Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   export_policy?: Prisma.SortOrder
@@ -868,11 +868,11 @@ export type TrailGeometryMinOrderByAggregateInput = {
   gpx_file_key?: Prisma.SortOrder
   gpx_file_name?: Prisma.SortOrder
   gpx_source_url?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   geometry_origin?: Prisma.SortOrder
   derived_from_id?: Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   export_policy?: Prisma.SortOrder
@@ -892,8 +892,8 @@ export type TrailGeometrySumOrderByAggregateInput = {
   trail_id?: Prisma.SortOrder
   start_access_point_id?: Prisma.SortOrder
   end_access_point_id?: Prisma.SortOrder
-  derived_from_id?: Prisma.SortOrder
   owner_id?: Prisma.SortOrder
+  derived_from_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   last_verified_by_id?: Prisma.SortOrder
@@ -1308,9 +1308,9 @@ export type TrailGeometryCreateWithoutCreated_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1342,11 +1342,11 @@ export type TrailGeometryUncheckedCreateWithoutCreated_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1379,9 +1379,9 @@ export type TrailGeometryCreateWithoutUpdated_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1413,11 +1413,11 @@ export type TrailGeometryUncheckedCreateWithoutUpdated_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1450,9 +1450,9 @@ export type TrailGeometryCreateWithoutLast_verified_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1484,11 +1484,11 @@ export type TrailGeometryUncheckedCreateWithoutLast_verified_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1521,9 +1521,9 @@ export type TrailGeometryCreateWithoutOwnerInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1555,10 +1555,10 @@ export type TrailGeometryUncheckedCreateWithoutOwnerInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1615,11 +1615,11 @@ export type TrailGeometryScalarWhereInput = {
   gpx_file_key?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   gpx_file_name?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
   gpx_source_url?: Prisma.StringNullableFilter<"TrailGeometry"> | string | null
+  owner_id?: Prisma.IntFilter<"TrailGeometry"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFilter<"TrailGeometry"> | $Enums.DataOrigin
   derived_from_id?: Prisma.IntNullableFilter<"TrailGeometry"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailGeometry"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFilter<"TrailGeometry"> | number
-  visibility?: Prisma.EnumVisibilityFilter<"TrailGeometry"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailGeometry"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailGeometry"> | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFilter<"TrailGeometry"> | $Enums.GeometryExportPolicy
@@ -1687,9 +1687,9 @@ export type TrailGeometryCreateWithoutTrailInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1720,11 +1720,11 @@ export type TrailGeometryUncheckedCreateWithoutTrailInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1774,9 +1774,9 @@ export type TrailGeometryCreateWithoutTrail_profile_primary_geometryInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1808,11 +1808,11 @@ export type TrailGeometryUncheckedCreateWithoutTrail_profile_primary_geometryInp
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1851,9 +1851,9 @@ export type TrailGeometryUpdateWithoutTrail_profile_primary_geometryInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -1885,11 +1885,11 @@ export type TrailGeometryUncheckedUpdateWithoutTrail_profile_primary_geometryInp
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -1912,9 +1912,9 @@ export type TrailGeometryCreateWithoutStart_access_pointInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1945,11 +1945,11 @@ export type TrailGeometryUncheckedCreateWithoutStart_access_pointInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -1983,9 +1983,9 @@ export type TrailGeometryCreateWithoutEnd_access_pointInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2016,11 +2016,11 @@ export type TrailGeometryUncheckedCreateWithoutEnd_access_pointInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2086,9 +2086,9 @@ export type TrailGeometryCreateWithoutTrail_geometry__derived_fromInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2120,11 +2120,11 @@ export type TrailGeometryUncheckedCreateWithoutTrail_geometry__derived_fromInput
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2152,9 +2152,9 @@ export type TrailGeometryCreateWithoutDerived_fromInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2186,10 +2186,10 @@ export type TrailGeometryUncheckedCreateWithoutDerived_fromInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
-  geometry_origin?: $Enums.DataOrigin
-  authenticity_level?: $Enums.AuthenticityLevel
   owner_id: number
   visibility?: $Enums.Visibility
+  geometry_origin?: $Enums.DataOrigin
+  authenticity_level?: $Enums.AuthenticityLevel
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2234,9 +2234,9 @@ export type TrailGeometryUpdateWithoutTrail_geometry__derived_fromInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2268,11 +2268,11 @@ export type TrailGeometryUncheckedUpdateWithoutTrail_geometry__derived_fromInput
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2311,9 +2311,9 @@ export type TrailGeometryCreateWithoutTrail_segmentation__trail_geometryInput = 
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2345,11 +2345,11 @@ export type TrailGeometryUncheckedCreateWithoutTrail_segmentation__trail_geometr
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2388,9 +2388,9 @@ export type TrailGeometryUpdateWithoutTrail_segmentation__trail_geometryInput = 
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2422,11 +2422,11 @@ export type TrailGeometryUncheckedUpdateWithoutTrail_segmentation__trail_geometr
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2449,9 +2449,9 @@ export type TrailGeometryCreateWithoutTrip_trail_trail_geometryInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2483,11 +2483,11 @@ export type TrailGeometryUncheckedCreateWithoutTrip_trail_trail_geometryInput = 
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2526,9 +2526,9 @@ export type TrailGeometryUpdateWithoutTrip_trail_trail_geometryInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2560,11 +2560,11 @@ export type TrailGeometryUncheckedUpdateWithoutTrip_trail_trail_geometryInput = 
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2591,11 +2591,11 @@ export type TrailGeometryCreateManyCreated_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2618,11 +2618,11 @@ export type TrailGeometryCreateManyUpdated_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2645,11 +2645,11 @@ export type TrailGeometryCreateManyLast_verified_byInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2672,10 +2672,10 @@ export type TrailGeometryCreateManyOwnerInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -2695,9 +2695,9 @@ export type TrailGeometryUpdateWithoutCreated_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2729,11 +2729,11 @@ export type TrailGeometryUncheckedUpdateWithoutCreated_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2760,11 +2760,11 @@ export type TrailGeometryUncheckedUpdateManyWithoutCreated_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2783,9 +2783,9 @@ export type TrailGeometryUpdateWithoutUpdated_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2817,11 +2817,11 @@ export type TrailGeometryUncheckedUpdateWithoutUpdated_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2848,11 +2848,11 @@ export type TrailGeometryUncheckedUpdateManyWithoutUpdated_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2871,9 +2871,9 @@ export type TrailGeometryUpdateWithoutLast_verified_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2905,11 +2905,11 @@ export type TrailGeometryUncheckedUpdateWithoutLast_verified_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2936,11 +2936,11 @@ export type TrailGeometryUncheckedUpdateManyWithoutLast_verified_byInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2959,9 +2959,9 @@ export type TrailGeometryUpdateWithoutOwnerInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -2993,10 +2993,10 @@ export type TrailGeometryUncheckedUpdateWithoutOwnerInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3024,10 +3024,10 @@ export type TrailGeometryUncheckedUpdateManyWithoutOwnerInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3050,11 +3050,11 @@ export type TrailGeometryCreateManyTrailInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -3074,9 +3074,9 @@ export type TrailGeometryUpdateWithoutTrailInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3107,11 +3107,11 @@ export type TrailGeometryUncheckedUpdateWithoutTrailInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3138,11 +3138,11 @@ export type TrailGeometryUncheckedUpdateManyWithoutTrailInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3165,11 +3165,11 @@ export type TrailGeometryCreateManyStart_access_pointInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -3192,11 +3192,11 @@ export type TrailGeometryCreateManyEnd_access_pointInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   geometry_origin?: $Enums.DataOrigin
   derived_from_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -3216,9 +3216,9 @@ export type TrailGeometryUpdateWithoutStart_access_pointInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3249,11 +3249,11 @@ export type TrailGeometryUncheckedUpdateWithoutStart_access_pointInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3280,11 +3280,11 @@ export type TrailGeometryUncheckedUpdateManyWithoutStart_access_pointInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3304,9 +3304,9 @@ export type TrailGeometryUpdateWithoutEnd_access_pointInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3337,11 +3337,11 @@ export type TrailGeometryUncheckedUpdateWithoutEnd_access_pointInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3368,11 +3368,11 @@ export type TrailGeometryUncheckedUpdateManyWithoutEnd_access_pointInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   derived_from_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3396,10 +3396,10 @@ export type TrailGeometryCreateManyDerived_fromInput = {
   gpx_file_key?: string | null
   gpx_file_name?: string | null
   gpx_source_url?: string | null
-  geometry_origin?: $Enums.DataOrigin
-  authenticity_level?: $Enums.AuthenticityLevel
   owner_id: number
   visibility?: $Enums.Visibility
+  geometry_origin?: $Enums.DataOrigin
+  authenticity_level?: $Enums.AuthenticityLevel
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   export_policy?: $Enums.GeometryExportPolicy
@@ -3419,9 +3419,9 @@ export type TrailGeometryUpdateWithoutDerived_fromInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3453,10 +3453,10 @@ export type TrailGeometryUncheckedUpdateWithoutDerived_fromInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
-  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
+  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3484,10 +3484,10 @@ export type TrailGeometryUncheckedUpdateManyWithoutDerived_fromInput = {
   gpx_file_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gpx_source_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
-  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  geometry_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
+  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   export_policy?: Prisma.EnumGeometryExportPolicyFieldUpdateOperationsInput | $Enums.GeometryExportPolicy
@@ -3569,11 +3569,11 @@ export type TrailGeometrySelect<ExtArgs extends runtime.Types.Extensions.Interna
   gpx_file_key?: boolean
   gpx_file_name?: boolean
   gpx_source_url?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   geometry_origin?: boolean
   derived_from_id?: boolean
   authenticity_level?: boolean
-  owner_id?: boolean
-  visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
   export_policy?: boolean
@@ -3610,11 +3610,11 @@ export type TrailGeometrySelectCreateManyAndReturn<ExtArgs extends runtime.Types
   gpx_file_key?: boolean
   gpx_file_name?: boolean
   gpx_source_url?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   geometry_origin?: boolean
   derived_from_id?: boolean
   authenticity_level?: boolean
-  owner_id?: boolean
-  visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
   export_policy?: boolean
@@ -3646,11 +3646,11 @@ export type TrailGeometrySelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   gpx_file_key?: boolean
   gpx_file_name?: boolean
   gpx_source_url?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   geometry_origin?: boolean
   derived_from_id?: boolean
   authenticity_level?: boolean
-  owner_id?: boolean
-  visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
   export_policy?: boolean
@@ -3682,11 +3682,11 @@ export type TrailGeometrySelectScalar = {
   gpx_file_key?: boolean
   gpx_file_name?: boolean
   gpx_source_url?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   geometry_origin?: boolean
   derived_from_id?: boolean
   authenticity_level?: boolean
-  owner_id?: boolean
-  visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
   export_policy?: boolean
@@ -3701,7 +3701,7 @@ export type TrailGeometrySelectScalar = {
   last_calculated_at?: boolean
 }
 
-export type TrailGeometryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "trail_id" | "start_access_point_id" | "end_access_point_id" | "gpx_file_key" | "gpx_file_name" | "gpx_source_url" | "geometry_origin" | "derived_from_id" | "authenticity_level" | "owner_id" | "visibility" | "is_official" | "edit_policy_override" | "export_policy" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id" | "last_calculated_at", ExtArgs["result"]["trailGeometry"]>
+export type TrailGeometryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "trail_id" | "start_access_point_id" | "end_access_point_id" | "gpx_file_key" | "gpx_file_name" | "gpx_source_url" | "owner_id" | "visibility" | "geometry_origin" | "derived_from_id" | "authenticity_level" | "is_official" | "edit_policy_override" | "export_policy" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id" | "last_calculated_at", ExtArgs["result"]["trailGeometry"]>
 export type TrailGeometryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -3763,11 +3763,11 @@ export type $TrailGeometryPayload<ExtArgs extends runtime.Types.Extensions.Inter
     gpx_file_key: string | null
     gpx_file_name: string | null
     gpx_source_url: string | null
+    owner_id: number
+    visibility: $Enums.Visibility
     geometry_origin: $Enums.DataOrigin
     derived_from_id: number | null
     authenticity_level: $Enums.AuthenticityLevel
-    owner_id: number
-    visibility: $Enums.Visibility
     is_official: boolean
     edit_policy_override: $Enums.EditPolicyOverride
     export_policy: $Enums.GeometryExportPolicy
@@ -4223,11 +4223,11 @@ export interface TrailGeometryFieldRefs {
   readonly gpx_file_key: Prisma.FieldRef<"TrailGeometry", 'String'>
   readonly gpx_file_name: Prisma.FieldRef<"TrailGeometry", 'String'>
   readonly gpx_source_url: Prisma.FieldRef<"TrailGeometry", 'String'>
+  readonly owner_id: Prisma.FieldRef<"TrailGeometry", 'Int'>
+  readonly visibility: Prisma.FieldRef<"TrailGeometry", 'Visibility'>
   readonly geometry_origin: Prisma.FieldRef<"TrailGeometry", 'DataOrigin'>
   readonly derived_from_id: Prisma.FieldRef<"TrailGeometry", 'Int'>
   readonly authenticity_level: Prisma.FieldRef<"TrailGeometry", 'AuthenticityLevel'>
-  readonly owner_id: Prisma.FieldRef<"TrailGeometry", 'Int'>
-  readonly visibility: Prisma.FieldRef<"TrailGeometry", 'Visibility'>
   readonly is_official: Prisma.FieldRef<"TrailGeometry", 'Boolean'>
   readonly edit_policy_override: Prisma.FieldRef<"TrailGeometry", 'EditPolicyOverride'>
   readonly export_policy: Prisma.FieldRef<"TrailGeometry", 'GeometryExportPolicy'>

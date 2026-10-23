@@ -399,6 +399,20 @@ enum SelectedTargetType { // TODO: complete this enum
   TRIP
 }
 
+enum TargetWithOwnerType {
+  GEAR
+  DESCRIPTIVE_GEAR
+  GEAR_PACK
+  TRAIL
+  TRAIL_PROFILE
+  ACCESS_POINT
+  TRAIL_GEOMETRY
+  TRAIL_SEGMENTATION
+  MEAL_PACK
+  MEAL_ITEM
+  COLLECITON
+}
+
 enum ReminderStatus {
   UNSPECIFIED
   OPEN
@@ -725,6 +739,12 @@ model User {
   trail_facility__created_by TrailFacility[] @relation("TrailFacilityCreatedBy")
   trail_facility__updated_by TrailFacility[] @relation("TrailFacilityUpdatedBy")
   trail_facility__verified_by TrailFacility[] @relation("TrailFacilityVerifiedBy")
+  trail_facility__owner TrailFacility[] @relation("TrailFacilityOwner")
+
+  trail_facility_relation__created_by TrailFacilityRelation[] @relation("TrailFacilityRelationCreatedBy")
+  trail_facility_relation__updated_by TrailFacilityRelation[] @relation("TrailFacilityRelationUpdatedBy")
+  trail_facility_relation__verified_by TrailFacilityRelation[] @relation("TrailFacilityRelationVerifiedBy")
+
 
   trail_profile__created_by TrailProfile[] @relation("TrailProfileCreatedBy")
   trail_profile__updated_by TrailProfile[] @relation("TrailProfileUpdatedBy")
@@ -1678,7 +1698,6 @@ model Trail {
   trail_source__trail TrailSource[] @relation("TrailSourceTrail")
   trail_gear_requirement__trail TrailGearRequirement[] @relation("TrailGearRequirementTrail")
   trail_difficulty__trail TrailDifficulty[] @relation("TrailDifficultyTrail")
-  trail_facility__trail TrailFacility[] @relation("TrailFacilityTrail")
   trail_profile__trail TrailProfile[] @relation("TrailProfileTrail")
   trail_access_point_relation__trail TrailAccessPointRelation[] @relation("TrailAccessPointRelationTrail")
   trail_geometry__trail TrailGeometry[] @relation("TrailGeometryTrail")
@@ -1848,10 +1867,13 @@ model TrailDifficulty {
 
 model TrailFacility {
   id Int @id @default(autoincrement())
-  trail_id Int
+  name String
   facility_type FacilityType?
   trail_source_id Int?
   access_point_id Int?
+
+  owner_id Int
+  visibility Visibility @default(UNSPECIFIED)
 
   notes String?
   status Status @default(ACTIVE)
@@ -1866,11 +1888,33 @@ model TrailFacility {
   created_by User @relation("TrailFacilityCreatedBy", fields: [created_by_id], references: [id])
   updated_by User @relation("TrailFacilityUpdatedBy", fields: [updated_by_id], references: [id])
   last_verified_by User? @relation("TrailFacilityVerifiedBy", fields: [last_verified_by_id], references: [id])
-  trail Trail @relation("TrailFacilityTrail", fields: [trail_id], references: [id])
   trail_source TrailSource? @relation("TrailFacilityTrailSource", fields: [trail_source_id], references: [id])
   access_point AccessPoint? @relation("TrailFacilityAccessPoint", fields: [access_point_id], references: [id])
 
+  owner User @relation("TrailFacilityOwner", fields: [owner_id], references: [id])
+
   trip_accommodation__trail_facility TripAccommodation[] @relation("TripAccommodationTrailFacility")
+}
+
+model TrailFacilityRelation {
+  id Int @id @default(autoincrement())
+  trail_id Int
+  trail_facility_id Int
+
+  status Status @default(ACTIVE)
+  notes String?
+
+  created_by_id Int
+  created_at DateTime @default(now())
+  updated_by_id Int
+  updated_at DateTime @updatedAt
+  last_verified_by_id Int?
+  last_verified_at DateTime?
+
+  created_by User @relation("TrailFacilityRelationCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("TrailFacilityRelationUpdatedBy", fields: [updated_by_id], references: [id])
+  verified_by User? @relation("TrailFacilityRelationVerifiedBy", fields: [last_verified_by_id], references: [id])
+  
 }
 
 model TrailUse {
@@ -1908,12 +1952,14 @@ model TrailProfile {
   
   accessibility Accessibility @default(UNSPECIFIED)
   accessibility_notes String?
+  
+  owner_id Int
+  visibility Visibility @default(UNSPECIFIED)
 
   profile_origin DataOrigin
   trail_source_id Int? 
   authenticity_level AuthenticityLevel @default(UNSPECIFIED)
-  owner_id Int
-  visibility Visibility @default(UNSPECIFIED)
+
   is_official Boolean @default(false)
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
 
@@ -2099,12 +2145,13 @@ model TrailGeometry {
   gpx_file_name String?
   gpx_source_url String?
 
+  owner_id Int
+  visibility Visibility @default(UNSPECIFIED)
+
   geometry_origin DataOrigin @default(UNSPECIFIED)
   derived_from_id Int?
   authenticity_level AuthenticityLevel @default(UNSPECIFIED)
-
-  owner_id Int
-  visibility Visibility @default(UNSPECIFIED)
+  
   is_official Boolean @default(false)
   edit_policy_override EditPolicyOverride @default(UNSPECIFIED)
   export_policy GeometryExportPolicy @default(UNSPECIFIED)
@@ -2563,31 +2610,6 @@ model UserPersonalArchive {
   user User @relation("UserPersonalArchiveUser", fields: [user_id], references: [id])
 
   community_publication_attachment__personal_archive CommunityPublicationAttachment[] @relation("CommunityPublicationAttachmentPersonalArchive")
-}
-
-model UserFeedback {
-  id Int @id @default(autoincrement())
-  user_id Int
-  target_object_type SelectedTargetType
-  target_object_id Int?
-
-  title String?
-  content String
-  feedback_status UserProposalStatus?
-  
-  created_at DateTime @default(now())
-  created_by_id Int
-  updated_at DateTime @updatedAt
-  updated_by_id Int 
-  last_reviewed_at DateTime?
-  last_reviewed_by_id Int?
-
-  created_by User @relation("UserFeedbackCreatedBy", fields: [created_by_id], references: [id])
-  updated_by User @relation("UserFeedbackUpdatedBy", fields: [updated_by_id], references: [id])
-  last_reviewed_by User? @relation("UserFeedbackReviewedBy", fields: [last_reviewed_by_id], references: [id])
-
-  user User @relation("UserFeedbackUser", fields: [user_id], references: [id])
-
 }
 
 model UserStickyNotes {
@@ -3157,3 +3179,27 @@ model ContentReviewHistory {  // TODO: Leave to Post MVP P3
   content_review_history__predecessor_review ContentReviewHistory[] @relation("ContentReviewHistoryPredecessorReview")
 }
 
+model UserFeedback {
+  id Int @id @default(autoincrement())
+  user_id Int
+  target_object_type SelectedTargetType
+  target_object_id Int?
+
+  title String?
+  content String
+  feedback_status UserProposalStatus?
+  
+  created_at DateTime @default(now())
+  created_by_id Int
+  updated_at DateTime @updatedAt
+  updated_by_id Int 
+  last_reviewed_at DateTime?
+  last_reviewed_by_id Int?
+
+  created_by User @relation("UserFeedbackCreatedBy", fields: [created_by_id], references: [id])
+  updated_by User @relation("UserFeedbackUpdatedBy", fields: [updated_by_id], references: [id])
+  last_reviewed_by User? @relation("UserFeedbackReviewedBy", fields: [last_reviewed_by_id], references: [id])
+
+  user User @relation("UserFeedbackUser", fields: [user_id], references: [id])
+
+}

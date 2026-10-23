@@ -36,8 +36,8 @@ export type TrailProfileAvgAggregateOutputType = {
   duration_hr: number | null
   duration_hr_calculated: number | null
   duration_day: number | null
-  trail_source_id: number | null
   owner_id: number | null
+  trail_source_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
   last_verified_by_id: number | null
@@ -53,8 +53,8 @@ export type TrailProfileSumAggregateOutputType = {
   duration_hr: number | null
   duration_hr_calculated: number | null
   duration_day: number | null
-  trail_source_id: number | null
   owner_id: number | null
+  trail_source_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
   last_verified_by_id: number | null
@@ -75,11 +75,11 @@ export type TrailProfileMinAggregateOutputType = {
   trail_difficulty_converted: $Enums.NormalizedDifficulty | null
   accessibility: $Enums.Accessibility | null
   accessibility_notes: string | null
+  owner_id: number | null
+  visibility: $Enums.Visibility | null
   profile_origin: $Enums.DataOrigin | null
   trail_source_id: number | null
   authenticity_level: $Enums.AuthenticityLevel | null
-  owner_id: number | null
-  visibility: $Enums.Visibility | null
   is_official: boolean | null
   edit_policy_override: $Enums.EditPolicyOverride | null
   notes: string | null
@@ -107,11 +107,11 @@ export type TrailProfileMaxAggregateOutputType = {
   trail_difficulty_converted: $Enums.NormalizedDifficulty | null
   accessibility: $Enums.Accessibility | null
   accessibility_notes: string | null
+  owner_id: number | null
+  visibility: $Enums.Visibility | null
   profile_origin: $Enums.DataOrigin | null
   trail_source_id: number | null
   authenticity_level: $Enums.AuthenticityLevel | null
-  owner_id: number | null
-  visibility: $Enums.Visibility | null
   is_official: boolean | null
   edit_policy_override: $Enums.EditPolicyOverride | null
   notes: string | null
@@ -139,11 +139,11 @@ export type TrailProfileCountAggregateOutputType = {
   trail_difficulty_converted: number
   accessibility: number
   accessibility_notes: number
+  owner_id: number
+  visibility: number
   profile_origin: number
   trail_source_id: number
   authenticity_level: number
-  owner_id: number
-  visibility: number
   is_official: number
   edit_policy_override: number
   notes: number
@@ -168,8 +168,8 @@ export type TrailProfileAvgAggregateInputType = {
   duration_hr?: true
   duration_hr_calculated?: true
   duration_day?: true
-  trail_source_id?: true
   owner_id?: true
+  trail_source_id?: true
   created_by_id?: true
   updated_by_id?: true
   last_verified_by_id?: true
@@ -185,8 +185,8 @@ export type TrailProfileSumAggregateInputType = {
   duration_hr?: true
   duration_hr_calculated?: true
   duration_day?: true
-  trail_source_id?: true
   owner_id?: true
+  trail_source_id?: true
   created_by_id?: true
   updated_by_id?: true
   last_verified_by_id?: true
@@ -207,11 +207,11 @@ export type TrailProfileMinAggregateInputType = {
   trail_difficulty_converted?: true
   accessibility?: true
   accessibility_notes?: true
+  owner_id?: true
+  visibility?: true
   profile_origin?: true
   trail_source_id?: true
   authenticity_level?: true
-  owner_id?: true
-  visibility?: true
   is_official?: true
   edit_policy_override?: true
   notes?: true
@@ -239,11 +239,11 @@ export type TrailProfileMaxAggregateInputType = {
   trail_difficulty_converted?: true
   accessibility?: true
   accessibility_notes?: true
+  owner_id?: true
+  visibility?: true
   profile_origin?: true
   trail_source_id?: true
   authenticity_level?: true
-  owner_id?: true
-  visibility?: true
   is_official?: true
   edit_policy_override?: true
   notes?: true
@@ -271,11 +271,11 @@ export type TrailProfileCountAggregateInputType = {
   trail_difficulty_converted?: true
   accessibility?: true
   accessibility_notes?: true
+  owner_id?: true
+  visibility?: true
   profile_origin?: true
   trail_source_id?: true
   authenticity_level?: true
-  owner_id?: true
-  visibility?: true
   is_official?: true
   edit_policy_override?: true
   notes?: true
@@ -390,11 +390,11 @@ export type TrailProfileGroupByOutputType = {
   trail_difficulty_converted: $Enums.NormalizedDifficulty | null
   accessibility: $Enums.Accessibility
   accessibility_notes: string | null
+  owner_id: number
+  visibility: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id: number | null
   authenticity_level: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility: $Enums.Visibility
   is_official: boolean
   edit_policy_override: $Enums.EditPolicyOverride
   notes: string | null
@@ -445,11 +445,11 @@ export type TrailProfileWhereInput = {
   trail_difficulty_converted?: Prisma.EnumNormalizedDifficultyNullableFilter<"TrailProfile"> | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFilter<"TrailProfile"> | $Enums.Accessibility
   accessibility_notes?: Prisma.StringNullableFilter<"TrailProfile"> | string | null
+  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFilter<"TrailProfile"> | $Enums.DataOrigin
   trail_source_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailProfile"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
-  visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailProfile"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailProfile"> | $Enums.EditPolicyOverride
   notes?: Prisma.StringNullableFilter<"TrailProfile"> | string | null
@@ -488,11 +488,11 @@ export type TrailProfileOrderByWithRelationInput = {
   trail_difficulty_converted?: Prisma.SortOrderInput | Prisma.SortOrder
   accessibility?: Prisma.SortOrder
   accessibility_notes?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   profile_origin?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrderInput | Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -535,11 +535,11 @@ export type TrailProfileWhereUniqueInput = Prisma.AtLeast<{
   trail_difficulty_converted?: Prisma.EnumNormalizedDifficultyNullableFilter<"TrailProfile"> | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFilter<"TrailProfile"> | $Enums.Accessibility
   accessibility_notes?: Prisma.StringNullableFilter<"TrailProfile"> | string | null
+  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFilter<"TrailProfile"> | $Enums.DataOrigin
   trail_source_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailProfile"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
-  visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailProfile"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailProfile"> | $Enums.EditPolicyOverride
   notes?: Prisma.StringNullableFilter<"TrailProfile"> | string | null
@@ -578,11 +578,11 @@ export type TrailProfileOrderByWithAggregationInput = {
   trail_difficulty_converted?: Prisma.SortOrderInput | Prisma.SortOrder
   accessibility?: Prisma.SortOrder
   accessibility_notes?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   profile_origin?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrderInput | Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -618,11 +618,11 @@ export type TrailProfileScalarWhereWithAggregatesInput = {
   trail_difficulty_converted?: Prisma.EnumNormalizedDifficultyNullableWithAggregatesFilter<"TrailProfile"> | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityWithAggregatesFilter<"TrailProfile"> | $Enums.Accessibility
   accessibility_notes?: Prisma.StringNullableWithAggregatesFilter<"TrailProfile"> | string | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"TrailProfile"> | number
+  visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"TrailProfile"> | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginWithAggregatesFilter<"TrailProfile"> | $Enums.DataOrigin
   trail_source_id?: Prisma.IntNullableWithAggregatesFilter<"TrailProfile"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelWithAggregatesFilter<"TrailProfile"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntWithAggregatesFilter<"TrailProfile"> | number
-  visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"TrailProfile"> | $Enums.Visibility
   is_official?: Prisma.BoolWithAggregatesFilter<"TrailProfile"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideWithAggregatesFilter<"TrailProfile"> | $Enums.EditPolicyOverride
   notes?: Prisma.StringNullableWithAggregatesFilter<"TrailProfile"> | string | null
@@ -647,9 +647,9 @@ export type TrailProfileCreateInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -685,11 +685,11 @@ export type TrailProfileUncheckedCreateInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -718,9 +718,9 @@ export type TrailProfileUpdateInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -756,11 +756,11 @@ export type TrailProfileUncheckedUpdateInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -792,11 +792,11 @@ export type TrailProfileCreateManyInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -821,9 +821,9 @@ export type TrailProfileUpdateManyMutationInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -848,11 +848,11 @@ export type TrailProfileUncheckedUpdateManyInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -900,11 +900,11 @@ export type TrailProfileCountOrderByAggregateInput = {
   trail_difficulty_converted?: Prisma.SortOrder
   accessibility?: Prisma.SortOrder
   accessibility_notes?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   profile_origin?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   notes?: Prisma.SortOrder
@@ -927,8 +927,8 @@ export type TrailProfileAvgOrderByAggregateInput = {
   duration_hr?: Prisma.SortOrder
   duration_hr_calculated?: Prisma.SortOrder
   duration_day?: Prisma.SortOrder
-  trail_source_id?: Prisma.SortOrder
   owner_id?: Prisma.SortOrder
+  trail_source_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   last_verified_by_id?: Prisma.SortOrder
@@ -949,11 +949,11 @@ export type TrailProfileMaxOrderByAggregateInput = {
   trail_difficulty_converted?: Prisma.SortOrder
   accessibility?: Prisma.SortOrder
   accessibility_notes?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   profile_origin?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   notes?: Prisma.SortOrder
@@ -981,11 +981,11 @@ export type TrailProfileMinOrderByAggregateInput = {
   trail_difficulty_converted?: Prisma.SortOrder
   accessibility?: Prisma.SortOrder
   accessibility_notes?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   profile_origin?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrder
   authenticity_level?: Prisma.SortOrder
-  owner_id?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   is_official?: Prisma.SortOrder
   edit_policy_override?: Prisma.SortOrder
   notes?: Prisma.SortOrder
@@ -1008,8 +1008,8 @@ export type TrailProfileSumOrderByAggregateInput = {
   duration_hr?: Prisma.SortOrder
   duration_hr_calculated?: Prisma.SortOrder
   duration_day?: Prisma.SortOrder
-  trail_source_id?: Prisma.SortOrder
   owner_id?: Prisma.SortOrder
+  trail_source_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   last_verified_by_id?: Prisma.SortOrder
@@ -1400,9 +1400,9 @@ export type TrailProfileCreateWithoutCreated_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1437,11 +1437,11 @@ export type TrailProfileUncheckedCreateWithoutCreated_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1479,9 +1479,9 @@ export type TrailProfileCreateWithoutUpdated_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1516,11 +1516,11 @@ export type TrailProfileUncheckedCreateWithoutUpdated_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1558,9 +1558,9 @@ export type TrailProfileCreateWithoutLast_verified_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1595,11 +1595,11 @@ export type TrailProfileUncheckedCreateWithoutLast_verified_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1637,9 +1637,9 @@ export type TrailProfileCreateWithoutOwnerInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1674,10 +1674,10 @@ export type TrailProfileUncheckedCreateWithoutOwnerInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1738,11 +1738,11 @@ export type TrailProfileScalarWhereInput = {
   trail_difficulty_converted?: Prisma.EnumNormalizedDifficultyNullableFilter<"TrailProfile"> | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFilter<"TrailProfile"> | $Enums.Accessibility
   accessibility_notes?: Prisma.StringNullableFilter<"TrailProfile"> | string | null
+  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFilter<"TrailProfile"> | $Enums.DataOrigin
   trail_source_id?: Prisma.IntNullableFilter<"TrailProfile"> | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFilter<"TrailProfile"> | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFilter<"TrailProfile"> | number
-  visibility?: Prisma.EnumVisibilityFilter<"TrailProfile"> | $Enums.Visibility
   is_official?: Prisma.BoolFilter<"TrailProfile"> | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFilter<"TrailProfile"> | $Enums.EditPolicyOverride
   notes?: Prisma.StringNullableFilter<"TrailProfile"> | string | null
@@ -1815,9 +1815,9 @@ export type TrailProfileCreateWithoutTrail__primary_profileInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1852,11 +1852,11 @@ export type TrailProfileUncheckedCreateWithoutTrail__primary_profileInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1889,9 +1889,9 @@ export type TrailProfileCreateWithoutTrailInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1925,11 +1925,11 @@ export type TrailProfileUncheckedCreateWithoutTrailInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -1979,9 +1979,9 @@ export type TrailProfileUpdateWithoutTrail__primary_profileInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2016,11 +2016,11 @@ export type TrailProfileUncheckedUpdateWithoutTrail__primary_profileInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2064,9 +2064,9 @@ export type TrailProfileCreateWithoutTrail_sourceInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2101,10 +2101,10 @@ export type TrailProfileUncheckedCreateWithoutTrail_sourceInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
-  profile_origin: $Enums.DataOrigin
-  authenticity_level?: $Enums.AuthenticityLevel
   owner_id: number
   visibility?: $Enums.Visibility
+  profile_origin: $Enums.DataOrigin
+  authenticity_level?: $Enums.AuthenticityLevel
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2159,9 +2159,9 @@ export type TrailProfileCreateWithoutTrail_profile_use__trail_profileInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2196,11 +2196,11 @@ export type TrailProfileUncheckedCreateWithoutTrail_profile_use__trail_profileIn
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2244,9 +2244,9 @@ export type TrailProfileUpdateWithoutTrail_profile_use__trail_profileInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2281,11 +2281,11 @@ export type TrailProfileUncheckedUpdateWithoutTrail_profile_use__trail_profileIn
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2313,9 +2313,9 @@ export type TrailProfileCreateWithoutPrimary_geometryInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2349,11 +2349,11 @@ export type TrailProfileUncheckedCreateWithoutPrimary_geometryInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2408,9 +2408,9 @@ export type TrailProfileCreateWithoutTrail_geometry__trail_profileInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2445,11 +2445,11 @@ export type TrailProfileUncheckedCreateWithoutTrail_geometry__trail_profileInput
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2493,9 +2493,9 @@ export type TrailProfileUpdateWithoutTrail_geometry__trail_profileInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2530,11 +2530,11 @@ export type TrailProfileUncheckedUpdateWithoutTrail_geometry__trail_profileInput
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2562,9 +2562,9 @@ export type TrailProfileCreateWithoutTrip_trail__trail_profileInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2599,11 +2599,11 @@ export type TrailProfileUncheckedCreateWithoutTrip_trail__trail_profileInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2647,9 +2647,9 @@ export type TrailProfileUpdateWithoutTrip_trail__trail_profileInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2684,11 +2684,11 @@ export type TrailProfileUncheckedUpdateWithoutTrip_trail__trail_profileInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2719,11 +2719,11 @@ export type TrailProfileCreateManyCreated_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2750,11 +2750,11 @@ export type TrailProfileCreateManyUpdated_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2781,11 +2781,11 @@ export type TrailProfileCreateManyLast_verified_byInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2812,10 +2812,10 @@ export type TrailProfileCreateManyOwnerInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -2840,9 +2840,9 @@ export type TrailProfileUpdateWithoutCreated_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2877,11 +2877,11 @@ export type TrailProfileUncheckedUpdateWithoutCreated_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2912,11 +2912,11 @@ export type TrailProfileUncheckedUpdateManyWithoutCreated_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2940,9 +2940,9 @@ export type TrailProfileUpdateWithoutUpdated_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2977,11 +2977,11 @@ export type TrailProfileUncheckedUpdateWithoutUpdated_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3012,11 +3012,11 @@ export type TrailProfileUncheckedUpdateManyWithoutUpdated_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3040,9 +3040,9 @@ export type TrailProfileUpdateWithoutLast_verified_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3077,11 +3077,11 @@ export type TrailProfileUncheckedUpdateWithoutLast_verified_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3112,11 +3112,11 @@ export type TrailProfileUncheckedUpdateManyWithoutLast_verified_byInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3140,9 +3140,9 @@ export type TrailProfileUpdateWithoutOwnerInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3177,10 +3177,10 @@ export type TrailProfileUncheckedUpdateWithoutOwnerInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3212,10 +3212,10 @@ export type TrailProfileUncheckedUpdateManyWithoutOwnerInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3242,11 +3242,11 @@ export type TrailProfileCreateManyTrailInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -3271,9 +3271,9 @@ export type TrailProfileUpdateWithoutTrailInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3307,11 +3307,11 @@ export type TrailProfileUncheckedUpdateWithoutTrailInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3342,11 +3342,11 @@ export type TrailProfileUncheckedUpdateManyWithoutTrailInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3374,10 +3374,10 @@ export type TrailProfileCreateManyTrail_sourceInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
-  profile_origin: $Enums.DataOrigin
-  authenticity_level?: $Enums.AuthenticityLevel
   owner_id: number
   visibility?: $Enums.Visibility
+  profile_origin: $Enums.DataOrigin
+  authenticity_level?: $Enums.AuthenticityLevel
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -3402,9 +3402,9 @@ export type TrailProfileUpdateWithoutTrail_sourceInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3439,10 +3439,10 @@ export type TrailProfileUncheckedUpdateWithoutTrail_sourceInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
-  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
+  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3474,10 +3474,10 @@ export type TrailProfileUncheckedUpdateManyWithoutTrail_sourceInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
-  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   owner_id?: Prisma.IntFieldUpdateOperationsInput | number
   visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
+  profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
+  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3504,11 +3504,11 @@ export type TrailProfileCreateManyPrimary_geometryInput = {
   trail_difficulty_converted?: $Enums.NormalizedDifficulty | null
   accessibility?: $Enums.Accessibility
   accessibility_notes?: string | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   profile_origin: $Enums.DataOrigin
   trail_source_id?: number | null
   authenticity_level?: $Enums.AuthenticityLevel
-  owner_id: number
-  visibility?: $Enums.Visibility
   is_official?: boolean
   edit_policy_override?: $Enums.EditPolicyOverride
   notes?: string | null
@@ -3533,9 +3533,9 @@ export type TrailProfileUpdateWithoutPrimary_geometryInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3569,11 +3569,11 @@ export type TrailProfileUncheckedUpdateWithoutPrimary_geometryInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3604,11 +3604,11 @@ export type TrailProfileUncheckedUpdateManyWithoutPrimary_geometryInput = {
   trail_difficulty_converted?: Prisma.NullableEnumNormalizedDifficultyFieldUpdateOperationsInput | $Enums.NormalizedDifficulty | null
   accessibility?: Prisma.EnumAccessibilityFieldUpdateOperationsInput | $Enums.Accessibility
   accessibility_notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   profile_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
   edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3694,11 +3694,11 @@ export type TrailProfileSelect<ExtArgs extends runtime.Types.Extensions.Internal
   trail_difficulty_converted?: boolean
   accessibility?: boolean
   accessibility_notes?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   profile_origin?: boolean
   trail_source_id?: boolean
   authenticity_level?: boolean
-  owner_id?: boolean
-  visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
   notes?: boolean
@@ -3738,11 +3738,11 @@ export type TrailProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   trail_difficulty_converted?: boolean
   accessibility?: boolean
   accessibility_notes?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   profile_origin?: boolean
   trail_source_id?: boolean
   authenticity_level?: boolean
-  owner_id?: boolean
-  visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
   notes?: boolean
@@ -3777,11 +3777,11 @@ export type TrailProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   trail_difficulty_converted?: boolean
   accessibility?: boolean
   accessibility_notes?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   profile_origin?: boolean
   trail_source_id?: boolean
   authenticity_level?: boolean
-  owner_id?: boolean
-  visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
   notes?: boolean
@@ -3816,11 +3816,11 @@ export type TrailProfileSelectScalar = {
   trail_difficulty_converted?: boolean
   accessibility?: boolean
   accessibility_notes?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   profile_origin?: boolean
   trail_source_id?: boolean
   authenticity_level?: boolean
-  owner_id?: boolean
-  visibility?: boolean
   is_official?: boolean
   edit_policy_override?: boolean
   notes?: boolean
@@ -3833,7 +3833,7 @@ export type TrailProfileSelectScalar = {
   last_verified_by_id?: boolean
 }
 
-export type TrailProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "trail_type" | "trail_id" | "name" | "primary_geometry_id" | "distance" | "elevation_gain" | "elevation_loss" | "duration_hr" | "duration_hr_calculated" | "duration_day" | "trail_difficulty_converted" | "accessibility" | "accessibility_notes" | "profile_origin" | "trail_source_id" | "authenticity_level" | "owner_id" | "visibility" | "is_official" | "edit_policy_override" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id", ExtArgs["result"]["trailProfile"]>
+export type TrailProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "trail_type" | "trail_id" | "name" | "primary_geometry_id" | "distance" | "elevation_gain" | "elevation_loss" | "duration_hr" | "duration_hr_calculated" | "duration_day" | "trail_difficulty_converted" | "accessibility" | "accessibility_notes" | "owner_id" | "visibility" | "profile_origin" | "trail_source_id" | "authenticity_level" | "is_official" | "edit_policy_override" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id", ExtArgs["result"]["trailProfile"]>
 export type TrailProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   owner?: boolean | Prisma.TrailProfile$ownerArgs<ExtArgs>
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -3897,11 +3897,11 @@ export type $TrailProfilePayload<ExtArgs extends runtime.Types.Extensions.Intern
     trail_difficulty_converted: $Enums.NormalizedDifficulty | null
     accessibility: $Enums.Accessibility
     accessibility_notes: string | null
+    owner_id: number
+    visibility: $Enums.Visibility
     profile_origin: $Enums.DataOrigin
     trail_source_id: number | null
     authenticity_level: $Enums.AuthenticityLevel
-    owner_id: number
-    visibility: $Enums.Visibility
     is_official: boolean
     edit_policy_override: $Enums.EditPolicyOverride
     notes: string | null
@@ -4360,11 +4360,11 @@ export interface TrailProfileFieldRefs {
   readonly trail_difficulty_converted: Prisma.FieldRef<"TrailProfile", 'NormalizedDifficulty'>
   readonly accessibility: Prisma.FieldRef<"TrailProfile", 'Accessibility'>
   readonly accessibility_notes: Prisma.FieldRef<"TrailProfile", 'String'>
+  readonly owner_id: Prisma.FieldRef<"TrailProfile", 'Int'>
+  readonly visibility: Prisma.FieldRef<"TrailProfile", 'Visibility'>
   readonly profile_origin: Prisma.FieldRef<"TrailProfile", 'DataOrigin'>
   readonly trail_source_id: Prisma.FieldRef<"TrailProfile", 'Int'>
   readonly authenticity_level: Prisma.FieldRef<"TrailProfile", 'AuthenticityLevel'>
-  readonly owner_id: Prisma.FieldRef<"TrailProfile", 'Int'>
-  readonly visibility: Prisma.FieldRef<"TrailProfile", 'Visibility'>
   readonly is_official: Prisma.FieldRef<"TrailProfile", 'Boolean'>
   readonly edit_policy_override: Prisma.FieldRef<"TrailProfile", 'EditPolicyOverride'>
   readonly notes: Prisma.FieldRef<"TrailProfile", 'String'>
