@@ -28,9 +28,9 @@ export type AggregateTrailFacility = {
 
 export type TrailFacilityAvgAggregateOutputType = {
   id: number | null
-  trail_id: number | null
   trail_source_id: number | null
   access_point_id: number | null
+  owner_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
   last_verified_by_id: number | null
@@ -38,9 +38,9 @@ export type TrailFacilityAvgAggregateOutputType = {
 
 export type TrailFacilitySumAggregateOutputType = {
   id: number | null
-  trail_id: number | null
   trail_source_id: number | null
   access_point_id: number | null
+  owner_id: number | null
   created_by_id: number | null
   updated_by_id: number | null
   last_verified_by_id: number | null
@@ -48,10 +48,12 @@ export type TrailFacilitySumAggregateOutputType = {
 
 export type TrailFacilityMinAggregateOutputType = {
   id: number | null
-  trail_id: number | null
+  name: string | null
   facility_type: $Enums.FacilityType | null
   trail_source_id: number | null
   access_point_id: number | null
+  owner_id: number | null
+  visibility: $Enums.Visibility | null
   notes: string | null
   status: $Enums.Status | null
   created_at: Date | null
@@ -64,10 +66,12 @@ export type TrailFacilityMinAggregateOutputType = {
 
 export type TrailFacilityMaxAggregateOutputType = {
   id: number | null
-  trail_id: number | null
+  name: string | null
   facility_type: $Enums.FacilityType | null
   trail_source_id: number | null
   access_point_id: number | null
+  owner_id: number | null
+  visibility: $Enums.Visibility | null
   notes: string | null
   status: $Enums.Status | null
   created_at: Date | null
@@ -80,10 +84,12 @@ export type TrailFacilityMaxAggregateOutputType = {
 
 export type TrailFacilityCountAggregateOutputType = {
   id: number
-  trail_id: number
+  name: number
   facility_type: number
   trail_source_id: number
   access_point_id: number
+  owner_id: number
+  visibility: number
   notes: number
   status: number
   created_at: number
@@ -98,9 +104,9 @@ export type TrailFacilityCountAggregateOutputType = {
 
 export type TrailFacilityAvgAggregateInputType = {
   id?: true
-  trail_id?: true
   trail_source_id?: true
   access_point_id?: true
+  owner_id?: true
   created_by_id?: true
   updated_by_id?: true
   last_verified_by_id?: true
@@ -108,9 +114,9 @@ export type TrailFacilityAvgAggregateInputType = {
 
 export type TrailFacilitySumAggregateInputType = {
   id?: true
-  trail_id?: true
   trail_source_id?: true
   access_point_id?: true
+  owner_id?: true
   created_by_id?: true
   updated_by_id?: true
   last_verified_by_id?: true
@@ -118,10 +124,12 @@ export type TrailFacilitySumAggregateInputType = {
 
 export type TrailFacilityMinAggregateInputType = {
   id?: true
-  trail_id?: true
+  name?: true
   facility_type?: true
   trail_source_id?: true
   access_point_id?: true
+  owner_id?: true
+  visibility?: true
   notes?: true
   status?: true
   created_at?: true
@@ -134,10 +142,12 @@ export type TrailFacilityMinAggregateInputType = {
 
 export type TrailFacilityMaxAggregateInputType = {
   id?: true
-  trail_id?: true
+  name?: true
   facility_type?: true
   trail_source_id?: true
   access_point_id?: true
+  owner_id?: true
+  visibility?: true
   notes?: true
   status?: true
   created_at?: true
@@ -150,10 +160,12 @@ export type TrailFacilityMaxAggregateInputType = {
 
 export type TrailFacilityCountAggregateInputType = {
   id?: true
-  trail_id?: true
+  name?: true
   facility_type?: true
   trail_source_id?: true
   access_point_id?: true
+  owner_id?: true
+  visibility?: true
   notes?: true
   status?: true
   created_at?: true
@@ -253,10 +265,12 @@ export type TrailFacilityGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 
 export type TrailFacilityGroupByOutputType = {
   id: number
-  trail_id: number
+  name: string
   facility_type: $Enums.FacilityType | null
   trail_source_id: number | null
   access_point_id: number | null
+  owner_id: number
+  visibility: $Enums.Visibility
   notes: string | null
   status: $Enums.Status
   created_at: Date
@@ -292,10 +306,12 @@ export type TrailFacilityWhereInput = {
   OR?: Prisma.TrailFacilityWhereInput[]
   NOT?: Prisma.TrailFacilityWhereInput | Prisma.TrailFacilityWhereInput[]
   id?: Prisma.IntFilter<"TrailFacility"> | number
-  trail_id?: Prisma.IntFilter<"TrailFacility"> | number
+  name?: Prisma.StringFilter<"TrailFacility"> | string
   facility_type?: Prisma.EnumFacilityTypeNullableFilter<"TrailFacility"> | $Enums.FacilityType | null
   trail_source_id?: Prisma.IntNullableFilter<"TrailFacility"> | number | null
   access_point_id?: Prisma.IntNullableFilter<"TrailFacility"> | number | null
+  owner_id?: Prisma.IntFilter<"TrailFacility"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailFacility"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"TrailFacility"> | string | null
   status?: Prisma.EnumStatusFilter<"TrailFacility"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TrailFacility"> | Date | string
@@ -307,18 +323,20 @@ export type TrailFacilityWhereInput = {
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   last_verified_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  trail?: Prisma.XOR<Prisma.TrailScalarRelationFilter, Prisma.TrailWhereInput>
   trail_source?: Prisma.XOR<Prisma.TrailSourceNullableScalarRelationFilter, Prisma.TrailSourceWhereInput> | null
   access_point?: Prisma.XOR<Prisma.AccessPointNullableScalarRelationFilter, Prisma.AccessPointWhereInput> | null
+  owner?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   trip_accommodation__trail_facility?: Prisma.TripAccommodationListRelationFilter
 }
 
 export type TrailFacilityOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   facility_type?: Prisma.SortOrderInput | Prisma.SortOrder
   trail_source_id?: Prisma.SortOrderInput | Prisma.SortOrder
   access_point_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -330,9 +348,9 @@ export type TrailFacilityOrderByWithRelationInput = {
   created_by?: Prisma.UserOrderByWithRelationInput
   updated_by?: Prisma.UserOrderByWithRelationInput
   last_verified_by?: Prisma.UserOrderByWithRelationInput
-  trail?: Prisma.TrailOrderByWithRelationInput
   trail_source?: Prisma.TrailSourceOrderByWithRelationInput
   access_point?: Prisma.AccessPointOrderByWithRelationInput
+  owner?: Prisma.UserOrderByWithRelationInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationOrderByRelationAggregateInput
 }
 
@@ -341,10 +359,12 @@ export type TrailFacilityWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.TrailFacilityWhereInput | Prisma.TrailFacilityWhereInput[]
   OR?: Prisma.TrailFacilityWhereInput[]
   NOT?: Prisma.TrailFacilityWhereInput | Prisma.TrailFacilityWhereInput[]
-  trail_id?: Prisma.IntFilter<"TrailFacility"> | number
+  name?: Prisma.StringFilter<"TrailFacility"> | string
   facility_type?: Prisma.EnumFacilityTypeNullableFilter<"TrailFacility"> | $Enums.FacilityType | null
   trail_source_id?: Prisma.IntNullableFilter<"TrailFacility"> | number | null
   access_point_id?: Prisma.IntNullableFilter<"TrailFacility"> | number | null
+  owner_id?: Prisma.IntFilter<"TrailFacility"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailFacility"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"TrailFacility"> | string | null
   status?: Prisma.EnumStatusFilter<"TrailFacility"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TrailFacility"> | Date | string
@@ -356,18 +376,20 @@ export type TrailFacilityWhereUniqueInput = Prisma.AtLeast<{
   created_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   updated_by?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   last_verified_by?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  trail?: Prisma.XOR<Prisma.TrailScalarRelationFilter, Prisma.TrailWhereInput>
   trail_source?: Prisma.XOR<Prisma.TrailSourceNullableScalarRelationFilter, Prisma.TrailSourceWhereInput> | null
   access_point?: Prisma.XOR<Prisma.AccessPointNullableScalarRelationFilter, Prisma.AccessPointWhereInput> | null
+  owner?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   trip_accommodation__trail_facility?: Prisma.TripAccommodationListRelationFilter
 }, "id">
 
 export type TrailFacilityOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   facility_type?: Prisma.SortOrderInput | Prisma.SortOrder
   trail_source_id?: Prisma.SortOrderInput | Prisma.SortOrder
   access_point_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -388,10 +410,12 @@ export type TrailFacilityScalarWhereWithAggregatesInput = {
   OR?: Prisma.TrailFacilityScalarWhereWithAggregatesInput[]
   NOT?: Prisma.TrailFacilityScalarWhereWithAggregatesInput | Prisma.TrailFacilityScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"TrailFacility"> | number
-  trail_id?: Prisma.IntWithAggregatesFilter<"TrailFacility"> | number
+  name?: Prisma.StringWithAggregatesFilter<"TrailFacility"> | string
   facility_type?: Prisma.EnumFacilityTypeNullableWithAggregatesFilter<"TrailFacility"> | $Enums.FacilityType | null
   trail_source_id?: Prisma.IntNullableWithAggregatesFilter<"TrailFacility"> | number | null
   access_point_id?: Prisma.IntNullableWithAggregatesFilter<"TrailFacility"> | number | null
+  owner_id?: Prisma.IntWithAggregatesFilter<"TrailFacility"> | number
+  visibility?: Prisma.EnumVisibilityWithAggregatesFilter<"TrailFacility"> | $Enums.Visibility
   notes?: Prisma.StringNullableWithAggregatesFilter<"TrailFacility"> | string | null
   status?: Prisma.EnumStatusWithAggregatesFilter<"TrailFacility"> | $Enums.Status
   created_at?: Prisma.DateTimeWithAggregatesFilter<"TrailFacility"> | Date | string
@@ -403,7 +427,9 @@ export type TrailFacilityScalarWhereWithAggregatesInput = {
 }
 
 export type TrailFacilityCreateInput = {
+  name: string
   facility_type?: $Enums.FacilityType | null
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -412,18 +438,20 @@ export type TrailFacilityCreateInput = {
   created_by: Prisma.UserCreateNestedOneWithoutTrail_facility__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutTrail_facility__updated_byInput
   last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail_facility__verified_byInput
-  trail: Prisma.TrailCreateNestedOneWithoutTrail_facility__trailInput
   trail_source?: Prisma.TrailSourceCreateNestedOneWithoutTrail_facility__trail_sourceInput
   access_point?: Prisma.AccessPointCreateNestedOneWithoutTrail_facility__access_pointInput
+  owner: Prisma.UserCreateNestedOneWithoutTrail_facility__ownerInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationCreateNestedManyWithoutTrail_facilityInput
 }
 
 export type TrailFacilityUncheckedCreateInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -436,7 +464,9 @@ export type TrailFacilityUncheckedCreateInput = {
 }
 
 export type TrailFacilityUpdateInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -445,18 +475,20 @@ export type TrailFacilityUpdateInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__updated_byNestedInput
   last_verified_by?: Prisma.UserUpdateOneWithoutTrail_facility__verified_byNestedInput
-  trail?: Prisma.TrailUpdateOneRequiredWithoutTrail_facility__trailNestedInput
   trail_source?: Prisma.TrailSourceUpdateOneWithoutTrail_facility__trail_sourceNestedInput
   access_point?: Prisma.AccessPointUpdateOneWithoutTrail_facility__access_pointNestedInput
+  owner?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__ownerNestedInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationUpdateManyWithoutTrail_facilityNestedInput
 }
 
 export type TrailFacilityUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -470,10 +502,12 @@ export type TrailFacilityUncheckedUpdateInput = {
 
 export type TrailFacilityCreateManyInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -485,7 +519,9 @@ export type TrailFacilityCreateManyInput = {
 }
 
 export type TrailFacilityUpdateManyMutationInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -495,10 +531,12 @@ export type TrailFacilityUpdateManyMutationInput = {
 
 export type TrailFacilityUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -521,10 +559,12 @@ export type TrailFacilityOrderByRelationAggregateInput = {
 
 export type TrailFacilityCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   facility_type?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrder
   access_point_id?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -537,9 +577,9 @@ export type TrailFacilityCountOrderByAggregateInput = {
 
 export type TrailFacilityAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  trail_id?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrder
   access_point_id?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   last_verified_by_id?: Prisma.SortOrder
@@ -547,10 +587,12 @@ export type TrailFacilityAvgOrderByAggregateInput = {
 
 export type TrailFacilityMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   facility_type?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrder
   access_point_id?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -563,10 +605,12 @@ export type TrailFacilityMaxOrderByAggregateInput = {
 
 export type TrailFacilityMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  trail_id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   facility_type?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrder
   access_point_id?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
+  visibility?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   status?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -579,9 +623,9 @@ export type TrailFacilityMinOrderByAggregateInput = {
 
 export type TrailFacilitySumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  trail_id?: Prisma.SortOrder
   trail_source_id?: Prisma.SortOrder
   access_point_id?: Prisma.SortOrder
+  owner_id?: Prisma.SortOrder
   created_by_id?: Prisma.SortOrder
   updated_by_id?: Prisma.SortOrder
   last_verified_by_id?: Prisma.SortOrder
@@ -613,6 +657,13 @@ export type TrailFacilityCreateNestedManyWithoutLast_verified_byInput = {
   connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
 }
 
+export type TrailFacilityCreateNestedManyWithoutOwnerInput = {
+  create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutOwnerInput, Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput> | Prisma.TrailFacilityCreateWithoutOwnerInput[] | Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput[]
+  connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutOwnerInput | Prisma.TrailFacilityCreateOrConnectWithoutOwnerInput[]
+  createMany?: Prisma.TrailFacilityCreateManyOwnerInputEnvelope
+  connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
+}
+
 export type TrailFacilityUncheckedCreateNestedManyWithoutCreated_byInput = {
   create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutCreated_byInput, Prisma.TrailFacilityUncheckedCreateWithoutCreated_byInput> | Prisma.TrailFacilityCreateWithoutCreated_byInput[] | Prisma.TrailFacilityUncheckedCreateWithoutCreated_byInput[]
   connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutCreated_byInput | Prisma.TrailFacilityCreateOrConnectWithoutCreated_byInput[]
@@ -631,6 +682,13 @@ export type TrailFacilityUncheckedCreateNestedManyWithoutLast_verified_byInput =
   create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutLast_verified_byInput, Prisma.TrailFacilityUncheckedCreateWithoutLast_verified_byInput> | Prisma.TrailFacilityCreateWithoutLast_verified_byInput[] | Prisma.TrailFacilityUncheckedCreateWithoutLast_verified_byInput[]
   connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutLast_verified_byInput | Prisma.TrailFacilityCreateOrConnectWithoutLast_verified_byInput[]
   createMany?: Prisma.TrailFacilityCreateManyLast_verified_byInputEnvelope
+  connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
+}
+
+export type TrailFacilityUncheckedCreateNestedManyWithoutOwnerInput = {
+  create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutOwnerInput, Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput> | Prisma.TrailFacilityCreateWithoutOwnerInput[] | Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput[]
+  connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutOwnerInput | Prisma.TrailFacilityCreateOrConnectWithoutOwnerInput[]
+  createMany?: Prisma.TrailFacilityCreateManyOwnerInputEnvelope
   connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
 }
 
@@ -676,6 +734,20 @@ export type TrailFacilityUpdateManyWithoutLast_verified_byNestedInput = {
   deleteMany?: Prisma.TrailFacilityScalarWhereInput | Prisma.TrailFacilityScalarWhereInput[]
 }
 
+export type TrailFacilityUpdateManyWithoutOwnerNestedInput = {
+  create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutOwnerInput, Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput> | Prisma.TrailFacilityCreateWithoutOwnerInput[] | Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput[]
+  connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutOwnerInput | Prisma.TrailFacilityCreateOrConnectWithoutOwnerInput[]
+  upsert?: Prisma.TrailFacilityUpsertWithWhereUniqueWithoutOwnerInput | Prisma.TrailFacilityUpsertWithWhereUniqueWithoutOwnerInput[]
+  createMany?: Prisma.TrailFacilityCreateManyOwnerInputEnvelope
+  set?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
+  disconnect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
+  delete?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
+  connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
+  update?: Prisma.TrailFacilityUpdateWithWhereUniqueWithoutOwnerInput | Prisma.TrailFacilityUpdateWithWhereUniqueWithoutOwnerInput[]
+  updateMany?: Prisma.TrailFacilityUpdateManyWithWhereWithoutOwnerInput | Prisma.TrailFacilityUpdateManyWithWhereWithoutOwnerInput[]
+  deleteMany?: Prisma.TrailFacilityScalarWhereInput | Prisma.TrailFacilityScalarWhereInput[]
+}
+
 export type TrailFacilityUncheckedUpdateManyWithoutCreated_byNestedInput = {
   create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutCreated_byInput, Prisma.TrailFacilityUncheckedCreateWithoutCreated_byInput> | Prisma.TrailFacilityCreateWithoutCreated_byInput[] | Prisma.TrailFacilityUncheckedCreateWithoutCreated_byInput[]
   connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutCreated_byInput | Prisma.TrailFacilityCreateOrConnectWithoutCreated_byInput[]
@@ -718,45 +790,17 @@ export type TrailFacilityUncheckedUpdateManyWithoutLast_verified_byNestedInput =
   deleteMany?: Prisma.TrailFacilityScalarWhereInput | Prisma.TrailFacilityScalarWhereInput[]
 }
 
-export type TrailFacilityCreateNestedManyWithoutTrailInput = {
-  create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutTrailInput, Prisma.TrailFacilityUncheckedCreateWithoutTrailInput> | Prisma.TrailFacilityCreateWithoutTrailInput[] | Prisma.TrailFacilityUncheckedCreateWithoutTrailInput[]
-  connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutTrailInput | Prisma.TrailFacilityCreateOrConnectWithoutTrailInput[]
-  createMany?: Prisma.TrailFacilityCreateManyTrailInputEnvelope
-  connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
-}
-
-export type TrailFacilityUncheckedCreateNestedManyWithoutTrailInput = {
-  create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutTrailInput, Prisma.TrailFacilityUncheckedCreateWithoutTrailInput> | Prisma.TrailFacilityCreateWithoutTrailInput[] | Prisma.TrailFacilityUncheckedCreateWithoutTrailInput[]
-  connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutTrailInput | Prisma.TrailFacilityCreateOrConnectWithoutTrailInput[]
-  createMany?: Prisma.TrailFacilityCreateManyTrailInputEnvelope
-  connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
-}
-
-export type TrailFacilityUpdateManyWithoutTrailNestedInput = {
-  create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutTrailInput, Prisma.TrailFacilityUncheckedCreateWithoutTrailInput> | Prisma.TrailFacilityCreateWithoutTrailInput[] | Prisma.TrailFacilityUncheckedCreateWithoutTrailInput[]
-  connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutTrailInput | Prisma.TrailFacilityCreateOrConnectWithoutTrailInput[]
-  upsert?: Prisma.TrailFacilityUpsertWithWhereUniqueWithoutTrailInput | Prisma.TrailFacilityUpsertWithWhereUniqueWithoutTrailInput[]
-  createMany?: Prisma.TrailFacilityCreateManyTrailInputEnvelope
+export type TrailFacilityUncheckedUpdateManyWithoutOwnerNestedInput = {
+  create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutOwnerInput, Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput> | Prisma.TrailFacilityCreateWithoutOwnerInput[] | Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput[]
+  connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutOwnerInput | Prisma.TrailFacilityCreateOrConnectWithoutOwnerInput[]
+  upsert?: Prisma.TrailFacilityUpsertWithWhereUniqueWithoutOwnerInput | Prisma.TrailFacilityUpsertWithWhereUniqueWithoutOwnerInput[]
+  createMany?: Prisma.TrailFacilityCreateManyOwnerInputEnvelope
   set?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
   disconnect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
   delete?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
   connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
-  update?: Prisma.TrailFacilityUpdateWithWhereUniqueWithoutTrailInput | Prisma.TrailFacilityUpdateWithWhereUniqueWithoutTrailInput[]
-  updateMany?: Prisma.TrailFacilityUpdateManyWithWhereWithoutTrailInput | Prisma.TrailFacilityUpdateManyWithWhereWithoutTrailInput[]
-  deleteMany?: Prisma.TrailFacilityScalarWhereInput | Prisma.TrailFacilityScalarWhereInput[]
-}
-
-export type TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput = {
-  create?: Prisma.XOR<Prisma.TrailFacilityCreateWithoutTrailInput, Prisma.TrailFacilityUncheckedCreateWithoutTrailInput> | Prisma.TrailFacilityCreateWithoutTrailInput[] | Prisma.TrailFacilityUncheckedCreateWithoutTrailInput[]
-  connectOrCreate?: Prisma.TrailFacilityCreateOrConnectWithoutTrailInput | Prisma.TrailFacilityCreateOrConnectWithoutTrailInput[]
-  upsert?: Prisma.TrailFacilityUpsertWithWhereUniqueWithoutTrailInput | Prisma.TrailFacilityUpsertWithWhereUniqueWithoutTrailInput[]
-  createMany?: Prisma.TrailFacilityCreateManyTrailInputEnvelope
-  set?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
-  disconnect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
-  delete?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
-  connect?: Prisma.TrailFacilityWhereUniqueInput | Prisma.TrailFacilityWhereUniqueInput[]
-  update?: Prisma.TrailFacilityUpdateWithWhereUniqueWithoutTrailInput | Prisma.TrailFacilityUpdateWithWhereUniqueWithoutTrailInput[]
-  updateMany?: Prisma.TrailFacilityUpdateManyWithWhereWithoutTrailInput | Prisma.TrailFacilityUpdateManyWithWhereWithoutTrailInput[]
+  update?: Prisma.TrailFacilityUpdateWithWhereUniqueWithoutOwnerInput | Prisma.TrailFacilityUpdateWithWhereUniqueWithoutOwnerInput[]
+  updateMany?: Prisma.TrailFacilityUpdateManyWithWhereWithoutOwnerInput | Prisma.TrailFacilityUpdateManyWithWhereWithoutOwnerInput[]
   deleteMany?: Prisma.TrailFacilityScalarWhereInput | Prisma.TrailFacilityScalarWhereInput[]
 }
 
@@ -865,7 +909,9 @@ export type TrailFacilityUpdateOneWithoutTrip_accommodation__trail_facilityNeste
 }
 
 export type TrailFacilityCreateWithoutCreated_byInput = {
+  name: string
   facility_type?: $Enums.FacilityType | null
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -873,18 +919,20 @@ export type TrailFacilityCreateWithoutCreated_byInput = {
   last_verified_at?: Date | string | null
   updated_by: Prisma.UserCreateNestedOneWithoutTrail_facility__updated_byInput
   last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail_facility__verified_byInput
-  trail: Prisma.TrailCreateNestedOneWithoutTrail_facility__trailInput
   trail_source?: Prisma.TrailSourceCreateNestedOneWithoutTrail_facility__trail_sourceInput
   access_point?: Prisma.AccessPointCreateNestedOneWithoutTrail_facility__access_pointInput
+  owner: Prisma.UserCreateNestedOneWithoutTrail_facility__ownerInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationCreateNestedManyWithoutTrail_facilityInput
 }
 
 export type TrailFacilityUncheckedCreateWithoutCreated_byInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -906,7 +954,9 @@ export type TrailFacilityCreateManyCreated_byInputEnvelope = {
 }
 
 export type TrailFacilityCreateWithoutUpdated_byInput = {
+  name: string
   facility_type?: $Enums.FacilityType | null
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -914,18 +964,20 @@ export type TrailFacilityCreateWithoutUpdated_byInput = {
   last_verified_at?: Date | string | null
   created_by: Prisma.UserCreateNestedOneWithoutTrail_facility__created_byInput
   last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail_facility__verified_byInput
-  trail: Prisma.TrailCreateNestedOneWithoutTrail_facility__trailInput
   trail_source?: Prisma.TrailSourceCreateNestedOneWithoutTrail_facility__trail_sourceInput
   access_point?: Prisma.AccessPointCreateNestedOneWithoutTrail_facility__access_pointInput
+  owner: Prisma.UserCreateNestedOneWithoutTrail_facility__ownerInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationCreateNestedManyWithoutTrail_facilityInput
 }
 
 export type TrailFacilityUncheckedCreateWithoutUpdated_byInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -947,7 +999,9 @@ export type TrailFacilityCreateManyUpdated_byInputEnvelope = {
 }
 
 export type TrailFacilityCreateWithoutLast_verified_byInput = {
+  name: string
   facility_type?: $Enums.FacilityType | null
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -955,18 +1009,20 @@ export type TrailFacilityCreateWithoutLast_verified_byInput = {
   last_verified_at?: Date | string | null
   created_by: Prisma.UserCreateNestedOneWithoutTrail_facility__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutTrail_facility__updated_byInput
-  trail: Prisma.TrailCreateNestedOneWithoutTrail_facility__trailInput
   trail_source?: Prisma.TrailSourceCreateNestedOneWithoutTrail_facility__trail_sourceInput
   access_point?: Prisma.AccessPointCreateNestedOneWithoutTrail_facility__access_pointInput
+  owner: Prisma.UserCreateNestedOneWithoutTrail_facility__ownerInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationCreateNestedManyWithoutTrail_facilityInput
 }
 
 export type TrailFacilityUncheckedCreateWithoutLast_verified_byInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -984,6 +1040,51 @@ export type TrailFacilityCreateOrConnectWithoutLast_verified_byInput = {
 
 export type TrailFacilityCreateManyLast_verified_byInputEnvelope = {
   data: Prisma.TrailFacilityCreateManyLast_verified_byInput | Prisma.TrailFacilityCreateManyLast_verified_byInput[]
+  skipDuplicates?: boolean
+}
+
+export type TrailFacilityCreateWithoutOwnerInput = {
+  name: string
+  facility_type?: $Enums.FacilityType | null
+  visibility?: $Enums.Visibility
+  notes?: string | null
+  status?: $Enums.Status
+  created_at?: Date | string
+  updated_at?: Date | string
+  last_verified_at?: Date | string | null
+  created_by: Prisma.UserCreateNestedOneWithoutTrail_facility__created_byInput
+  updated_by: Prisma.UserCreateNestedOneWithoutTrail_facility__updated_byInput
+  last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail_facility__verified_byInput
+  trail_source?: Prisma.TrailSourceCreateNestedOneWithoutTrail_facility__trail_sourceInput
+  access_point?: Prisma.AccessPointCreateNestedOneWithoutTrail_facility__access_pointInput
+  trip_accommodation__trail_facility?: Prisma.TripAccommodationCreateNestedManyWithoutTrail_facilityInput
+}
+
+export type TrailFacilityUncheckedCreateWithoutOwnerInput = {
+  id?: number
+  name: string
+  facility_type?: $Enums.FacilityType | null
+  trail_source_id?: number | null
+  access_point_id?: number | null
+  visibility?: $Enums.Visibility
+  notes?: string | null
+  status?: $Enums.Status
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+  last_verified_at?: Date | string | null
+  last_verified_by_id?: number | null
+  trip_accommodation__trail_facility?: Prisma.TripAccommodationUncheckedCreateNestedManyWithoutTrail_facilityInput
+}
+
+export type TrailFacilityCreateOrConnectWithoutOwnerInput = {
+  where: Prisma.TrailFacilityWhereUniqueInput
+  create: Prisma.XOR<Prisma.TrailFacilityCreateWithoutOwnerInput, Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput>
+}
+
+export type TrailFacilityCreateManyOwnerInputEnvelope = {
+  data: Prisma.TrailFacilityCreateManyOwnerInput | Prisma.TrailFacilityCreateManyOwnerInput[]
   skipDuplicates?: boolean
 }
 
@@ -1008,10 +1109,12 @@ export type TrailFacilityScalarWhereInput = {
   OR?: Prisma.TrailFacilityScalarWhereInput[]
   NOT?: Prisma.TrailFacilityScalarWhereInput | Prisma.TrailFacilityScalarWhereInput[]
   id?: Prisma.IntFilter<"TrailFacility"> | number
-  trail_id?: Prisma.IntFilter<"TrailFacility"> | number
+  name?: Prisma.StringFilter<"TrailFacility"> | string
   facility_type?: Prisma.EnumFacilityTypeNullableFilter<"TrailFacility"> | $Enums.FacilityType | null
   trail_source_id?: Prisma.IntNullableFilter<"TrailFacility"> | number | null
   access_point_id?: Prisma.IntNullableFilter<"TrailFacility"> | number | null
+  owner_id?: Prisma.IntFilter<"TrailFacility"> | number
+  visibility?: Prisma.EnumVisibilityFilter<"TrailFacility"> | $Enums.Visibility
   notes?: Prisma.StringNullableFilter<"TrailFacility"> | string | null
   status?: Prisma.EnumStatusFilter<"TrailFacility"> | $Enums.Status
   created_at?: Prisma.DateTimeFilter<"TrailFacility"> | Date | string
@@ -1054,65 +1157,26 @@ export type TrailFacilityUpdateManyWithWhereWithoutLast_verified_byInput = {
   data: Prisma.XOR<Prisma.TrailFacilityUpdateManyMutationInput, Prisma.TrailFacilityUncheckedUpdateManyWithoutLast_verified_byInput>
 }
 
-export type TrailFacilityCreateWithoutTrailInput = {
-  facility_type?: $Enums.FacilityType | null
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  updated_at?: Date | string
-  last_verified_at?: Date | string | null
-  created_by: Prisma.UserCreateNestedOneWithoutTrail_facility__created_byInput
-  updated_by: Prisma.UserCreateNestedOneWithoutTrail_facility__updated_byInput
-  last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail_facility__verified_byInput
-  trail_source?: Prisma.TrailSourceCreateNestedOneWithoutTrail_facility__trail_sourceInput
-  access_point?: Prisma.AccessPointCreateNestedOneWithoutTrail_facility__access_pointInput
-  trip_accommodation__trail_facility?: Prisma.TripAccommodationCreateNestedManyWithoutTrail_facilityInput
-}
-
-export type TrailFacilityUncheckedCreateWithoutTrailInput = {
-  id?: number
-  facility_type?: $Enums.FacilityType | null
-  trail_source_id?: number | null
-  access_point_id?: number | null
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  created_by_id: number
-  updated_at?: Date | string
-  updated_by_id: number
-  last_verified_at?: Date | string | null
-  last_verified_by_id?: number | null
-  trip_accommodation__trail_facility?: Prisma.TripAccommodationUncheckedCreateNestedManyWithoutTrail_facilityInput
-}
-
-export type TrailFacilityCreateOrConnectWithoutTrailInput = {
+export type TrailFacilityUpsertWithWhereUniqueWithoutOwnerInput = {
   where: Prisma.TrailFacilityWhereUniqueInput
-  create: Prisma.XOR<Prisma.TrailFacilityCreateWithoutTrailInput, Prisma.TrailFacilityUncheckedCreateWithoutTrailInput>
+  update: Prisma.XOR<Prisma.TrailFacilityUpdateWithoutOwnerInput, Prisma.TrailFacilityUncheckedUpdateWithoutOwnerInput>
+  create: Prisma.XOR<Prisma.TrailFacilityCreateWithoutOwnerInput, Prisma.TrailFacilityUncheckedCreateWithoutOwnerInput>
 }
 
-export type TrailFacilityCreateManyTrailInputEnvelope = {
-  data: Prisma.TrailFacilityCreateManyTrailInput | Prisma.TrailFacilityCreateManyTrailInput[]
-  skipDuplicates?: boolean
-}
-
-export type TrailFacilityUpsertWithWhereUniqueWithoutTrailInput = {
+export type TrailFacilityUpdateWithWhereUniqueWithoutOwnerInput = {
   where: Prisma.TrailFacilityWhereUniqueInput
-  update: Prisma.XOR<Prisma.TrailFacilityUpdateWithoutTrailInput, Prisma.TrailFacilityUncheckedUpdateWithoutTrailInput>
-  create: Prisma.XOR<Prisma.TrailFacilityCreateWithoutTrailInput, Prisma.TrailFacilityUncheckedCreateWithoutTrailInput>
+  data: Prisma.XOR<Prisma.TrailFacilityUpdateWithoutOwnerInput, Prisma.TrailFacilityUncheckedUpdateWithoutOwnerInput>
 }
 
-export type TrailFacilityUpdateWithWhereUniqueWithoutTrailInput = {
-  where: Prisma.TrailFacilityWhereUniqueInput
-  data: Prisma.XOR<Prisma.TrailFacilityUpdateWithoutTrailInput, Prisma.TrailFacilityUncheckedUpdateWithoutTrailInput>
-}
-
-export type TrailFacilityUpdateManyWithWhereWithoutTrailInput = {
+export type TrailFacilityUpdateManyWithWhereWithoutOwnerInput = {
   where: Prisma.TrailFacilityScalarWhereInput
-  data: Prisma.XOR<Prisma.TrailFacilityUpdateManyMutationInput, Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailInput>
+  data: Prisma.XOR<Prisma.TrailFacilityUpdateManyMutationInput, Prisma.TrailFacilityUncheckedUpdateManyWithoutOwnerInput>
 }
 
 export type TrailFacilityCreateWithoutTrail_sourceInput = {
+  name: string
   facility_type?: $Enums.FacilityType | null
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1121,16 +1185,18 @@ export type TrailFacilityCreateWithoutTrail_sourceInput = {
   created_by: Prisma.UserCreateNestedOneWithoutTrail_facility__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutTrail_facility__updated_byInput
   last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail_facility__verified_byInput
-  trail: Prisma.TrailCreateNestedOneWithoutTrail_facility__trailInput
   access_point?: Prisma.AccessPointCreateNestedOneWithoutTrail_facility__access_pointInput
+  owner: Prisma.UserCreateNestedOneWithoutTrail_facility__ownerInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationCreateNestedManyWithoutTrail_facilityInput
 }
 
 export type TrailFacilityUncheckedCreateWithoutTrail_sourceInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1169,7 +1235,9 @@ export type TrailFacilityUpdateManyWithWhereWithoutTrail_sourceInput = {
 }
 
 export type TrailFacilityCreateWithoutAccess_pointInput = {
+  name: string
   facility_type?: $Enums.FacilityType | null
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1178,16 +1246,18 @@ export type TrailFacilityCreateWithoutAccess_pointInput = {
   created_by: Prisma.UserCreateNestedOneWithoutTrail_facility__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutTrail_facility__updated_byInput
   last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail_facility__verified_byInput
-  trail: Prisma.TrailCreateNestedOneWithoutTrail_facility__trailInput
   trail_source?: Prisma.TrailSourceCreateNestedOneWithoutTrail_facility__trail_sourceInput
+  owner: Prisma.UserCreateNestedOneWithoutTrail_facility__ownerInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationCreateNestedManyWithoutTrail_facilityInput
 }
 
 export type TrailFacilityUncheckedCreateWithoutAccess_pointInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1226,7 +1296,9 @@ export type TrailFacilityUpdateManyWithWhereWithoutAccess_pointInput = {
 }
 
 export type TrailFacilityCreateWithoutTrip_accommodation__trail_facilityInput = {
+  name: string
   facility_type?: $Enums.FacilityType | null
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1235,17 +1307,19 @@ export type TrailFacilityCreateWithoutTrip_accommodation__trail_facilityInput = 
   created_by: Prisma.UserCreateNestedOneWithoutTrail_facility__created_byInput
   updated_by: Prisma.UserCreateNestedOneWithoutTrail_facility__updated_byInput
   last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail_facility__verified_byInput
-  trail: Prisma.TrailCreateNestedOneWithoutTrail_facility__trailInput
   trail_source?: Prisma.TrailSourceCreateNestedOneWithoutTrail_facility__trail_sourceInput
   access_point?: Prisma.AccessPointCreateNestedOneWithoutTrail_facility__access_pointInput
+  owner: Prisma.UserCreateNestedOneWithoutTrail_facility__ownerInput
 }
 
 export type TrailFacilityUncheckedCreateWithoutTrip_accommodation__trail_facilityInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1273,7 +1347,9 @@ export type TrailFacilityUpdateToOneWithWhereWithoutTrip_accommodation__trail_fa
 }
 
 export type TrailFacilityUpdateWithoutTrip_accommodation__trail_facilityInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1282,17 +1358,19 @@ export type TrailFacilityUpdateWithoutTrip_accommodation__trail_facilityInput = 
   created_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__updated_byNestedInput
   last_verified_by?: Prisma.UserUpdateOneWithoutTrail_facility__verified_byNestedInput
-  trail?: Prisma.TrailUpdateOneRequiredWithoutTrail_facility__trailNestedInput
   trail_source?: Prisma.TrailSourceUpdateOneWithoutTrail_facility__trail_sourceNestedInput
   access_point?: Prisma.AccessPointUpdateOneWithoutTrail_facility__access_pointNestedInput
+  owner?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__ownerNestedInput
 }
 
 export type TrailFacilityUncheckedUpdateWithoutTrip_accommodation__trail_facilityInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1305,10 +1383,12 @@ export type TrailFacilityUncheckedUpdateWithoutTrip_accommodation__trail_facilit
 
 export type TrailFacilityCreateManyCreated_byInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1320,10 +1400,12 @@ export type TrailFacilityCreateManyCreated_byInput = {
 
 export type TrailFacilityCreateManyUpdated_byInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1335,10 +1417,12 @@ export type TrailFacilityCreateManyUpdated_byInput = {
 
 export type TrailFacilityCreateManyLast_verified_byInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1348,8 +1432,27 @@ export type TrailFacilityCreateManyLast_verified_byInput = {
   last_verified_at?: Date | string | null
 }
 
+export type TrailFacilityCreateManyOwnerInput = {
+  id?: number
+  name: string
+  facility_type?: $Enums.FacilityType | null
+  trail_source_id?: number | null
+  access_point_id?: number | null
+  visibility?: $Enums.Visibility
+  notes?: string | null
+  status?: $Enums.Status
+  created_at?: Date | string
+  created_by_id: number
+  updated_at?: Date | string
+  updated_by_id: number
+  last_verified_at?: Date | string | null
+  last_verified_by_id?: number | null
+}
+
 export type TrailFacilityUpdateWithoutCreated_byInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1357,18 +1460,20 @@ export type TrailFacilityUpdateWithoutCreated_byInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__updated_byNestedInput
   last_verified_by?: Prisma.UserUpdateOneWithoutTrail_facility__verified_byNestedInput
-  trail?: Prisma.TrailUpdateOneRequiredWithoutTrail_facility__trailNestedInput
   trail_source?: Prisma.TrailSourceUpdateOneWithoutTrail_facility__trail_sourceNestedInput
   access_point?: Prisma.AccessPointUpdateOneWithoutTrail_facility__access_pointNestedInput
+  owner?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__ownerNestedInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationUpdateManyWithoutTrail_facilityNestedInput
 }
 
 export type TrailFacilityUncheckedUpdateWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1381,10 +1486,12 @@ export type TrailFacilityUncheckedUpdateWithoutCreated_byInput = {
 
 export type TrailFacilityUncheckedUpdateManyWithoutCreated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1395,7 +1502,9 @@ export type TrailFacilityUncheckedUpdateManyWithoutCreated_byInput = {
 }
 
 export type TrailFacilityUpdateWithoutUpdated_byInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1403,18 +1512,20 @@ export type TrailFacilityUpdateWithoutUpdated_byInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__created_byNestedInput
   last_verified_by?: Prisma.UserUpdateOneWithoutTrail_facility__verified_byNestedInput
-  trail?: Prisma.TrailUpdateOneRequiredWithoutTrail_facility__trailNestedInput
   trail_source?: Prisma.TrailSourceUpdateOneWithoutTrail_facility__trail_sourceNestedInput
   access_point?: Prisma.AccessPointUpdateOneWithoutTrail_facility__access_pointNestedInput
+  owner?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__ownerNestedInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationUpdateManyWithoutTrail_facilityNestedInput
 }
 
 export type TrailFacilityUncheckedUpdateWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1427,10 +1538,12 @@ export type TrailFacilityUncheckedUpdateWithoutUpdated_byInput = {
 
 export type TrailFacilityUncheckedUpdateManyWithoutUpdated_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1441,7 +1554,9 @@ export type TrailFacilityUncheckedUpdateManyWithoutUpdated_byInput = {
 }
 
 export type TrailFacilityUpdateWithoutLast_verified_byInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1449,18 +1564,20 @@ export type TrailFacilityUpdateWithoutLast_verified_byInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__updated_byNestedInput
-  trail?: Prisma.TrailUpdateOneRequiredWithoutTrail_facility__trailNestedInput
   trail_source?: Prisma.TrailSourceUpdateOneWithoutTrail_facility__trail_sourceNestedInput
   access_point?: Prisma.AccessPointUpdateOneWithoutTrail_facility__access_pointNestedInput
+  owner?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__ownerNestedInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationUpdateManyWithoutTrail_facilityNestedInput
 }
 
 export type TrailFacilityUncheckedUpdateWithoutLast_verified_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1473,10 +1590,12 @@ export type TrailFacilityUncheckedUpdateWithoutLast_verified_byInput = {
 
 export type TrailFacilityUncheckedUpdateManyWithoutLast_verified_byInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1486,23 +1605,10 @@ export type TrailFacilityUncheckedUpdateManyWithoutLast_verified_byInput = {
   last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type TrailFacilityCreateManyTrailInput = {
-  id?: number
-  facility_type?: $Enums.FacilityType | null
-  trail_source_id?: number | null
-  access_point_id?: number | null
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  created_by_id: number
-  updated_at?: Date | string
-  updated_by_id: number
-  last_verified_at?: Date | string | null
-  last_verified_by_id?: number | null
-}
-
-export type TrailFacilityUpdateWithoutTrailInput = {
+export type TrailFacilityUpdateWithoutOwnerInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1516,11 +1622,13 @@ export type TrailFacilityUpdateWithoutTrailInput = {
   trip_accommodation__trail_facility?: Prisma.TripAccommodationUpdateManyWithoutTrail_facilityNestedInput
 }
 
-export type TrailFacilityUncheckedUpdateWithoutTrailInput = {
+export type TrailFacilityUncheckedUpdateWithoutOwnerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1532,11 +1640,13 @@ export type TrailFacilityUncheckedUpdateWithoutTrailInput = {
   trip_accommodation__trail_facility?: Prisma.TripAccommodationUncheckedUpdateManyWithoutTrail_facilityNestedInput
 }
 
-export type TrailFacilityUncheckedUpdateManyWithoutTrailInput = {
+export type TrailFacilityUncheckedUpdateManyWithoutOwnerInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1549,9 +1659,11 @@ export type TrailFacilityUncheckedUpdateManyWithoutTrailInput = {
 
 export type TrailFacilityCreateManyTrail_sourceInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   access_point_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1563,7 +1675,9 @@ export type TrailFacilityCreateManyTrail_sourceInput = {
 }
 
 export type TrailFacilityUpdateWithoutTrail_sourceInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1572,16 +1686,18 @@ export type TrailFacilityUpdateWithoutTrail_sourceInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__updated_byNestedInput
   last_verified_by?: Prisma.UserUpdateOneWithoutTrail_facility__verified_byNestedInput
-  trail?: Prisma.TrailUpdateOneRequiredWithoutTrail_facility__trailNestedInput
   access_point?: Prisma.AccessPointUpdateOneWithoutTrail_facility__access_pointNestedInput
+  owner?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__ownerNestedInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationUpdateManyWithoutTrail_facilityNestedInput
 }
 
 export type TrailFacilityUncheckedUpdateWithoutTrail_sourceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1595,9 +1711,11 @@ export type TrailFacilityUncheckedUpdateWithoutTrail_sourceInput = {
 
 export type TrailFacilityUncheckedUpdateManyWithoutTrail_sourceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   access_point_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1610,9 +1728,11 @@ export type TrailFacilityUncheckedUpdateManyWithoutTrail_sourceInput = {
 
 export type TrailFacilityCreateManyAccess_pointInput = {
   id?: number
-  trail_id: number
+  name: string
   facility_type?: $Enums.FacilityType | null
   trail_source_id?: number | null
+  owner_id: number
+  visibility?: $Enums.Visibility
   notes?: string | null
   status?: $Enums.Status
   created_at?: Date | string
@@ -1624,7 +1744,9 @@ export type TrailFacilityCreateManyAccess_pointInput = {
 }
 
 export type TrailFacilityUpdateWithoutAccess_pointInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1633,16 +1755,18 @@ export type TrailFacilityUpdateWithoutAccess_pointInput = {
   created_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__created_byNestedInput
   updated_by?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__updated_byNestedInput
   last_verified_by?: Prisma.UserUpdateOneWithoutTrail_facility__verified_byNestedInput
-  trail?: Prisma.TrailUpdateOneRequiredWithoutTrail_facility__trailNestedInput
   trail_source?: Prisma.TrailSourceUpdateOneWithoutTrail_facility__trail_sourceNestedInput
+  owner?: Prisma.UserUpdateOneRequiredWithoutTrail_facility__ownerNestedInput
   trip_accommodation__trail_facility?: Prisma.TripAccommodationUpdateManyWithoutTrail_facilityNestedInput
 }
 
 export type TrailFacilityUncheckedUpdateWithoutAccess_pointInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1656,9 +1780,11 @@ export type TrailFacilityUncheckedUpdateWithoutAccess_pointInput = {
 
 export type TrailFacilityUncheckedUpdateManyWithoutAccess_pointInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  trail_id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   facility_type?: Prisma.NullableEnumFacilityTypeFieldUpdateOperationsInput | $Enums.FacilityType | null
   trail_source_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
+  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1702,10 +1828,12 @@ export type TrailFacilityCountOutputTypeCountTrip_accommodation__trail_facilityA
 
 export type TrailFacilitySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  trail_id?: boolean
+  name?: boolean
   facility_type?: boolean
   trail_source_id?: boolean
   access_point_id?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1717,19 +1845,21 @@ export type TrailFacilitySelect<ExtArgs extends runtime.Types.Extensions.Interna
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_verified_by?: boolean | Prisma.TrailFacility$last_verified_byArgs<ExtArgs>
-  trail?: boolean | Prisma.TrailDefaultArgs<ExtArgs>
   trail_source?: boolean | Prisma.TrailFacility$trail_sourceArgs<ExtArgs>
   access_point?: boolean | Prisma.TrailFacility$access_pointArgs<ExtArgs>
+  owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   trip_accommodation__trail_facility?: boolean | Prisma.TrailFacility$trip_accommodation__trail_facilityArgs<ExtArgs>
   _count?: boolean | Prisma.TrailFacilityCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trailFacility"]>
 
 export type TrailFacilitySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  trail_id?: boolean
+  name?: boolean
   facility_type?: boolean
   trail_source_id?: boolean
   access_point_id?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1741,17 +1871,19 @@ export type TrailFacilitySelectCreateManyAndReturn<ExtArgs extends runtime.Types
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_verified_by?: boolean | Prisma.TrailFacility$last_verified_byArgs<ExtArgs>
-  trail?: boolean | Prisma.TrailDefaultArgs<ExtArgs>
   trail_source?: boolean | Prisma.TrailFacility$trail_sourceArgs<ExtArgs>
   access_point?: boolean | Prisma.TrailFacility$access_pointArgs<ExtArgs>
+  owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trailFacility"]>
 
 export type TrailFacilitySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  trail_id?: boolean
+  name?: boolean
   facility_type?: boolean
   trail_source_id?: boolean
   access_point_id?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1763,17 +1895,19 @@ export type TrailFacilitySelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_verified_by?: boolean | Prisma.TrailFacility$last_verified_byArgs<ExtArgs>
-  trail?: boolean | Prisma.TrailDefaultArgs<ExtArgs>
   trail_source?: boolean | Prisma.TrailFacility$trail_sourceArgs<ExtArgs>
   access_point?: boolean | Prisma.TrailFacility$access_pointArgs<ExtArgs>
+  owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trailFacility"]>
 
 export type TrailFacilitySelectScalar = {
   id?: boolean
-  trail_id?: boolean
+  name?: boolean
   facility_type?: boolean
   trail_source_id?: boolean
   access_point_id?: boolean
+  owner_id?: boolean
+  visibility?: boolean
   notes?: boolean
   status?: boolean
   created_at?: boolean
@@ -1784,14 +1918,14 @@ export type TrailFacilitySelectScalar = {
   last_verified_by_id?: boolean
 }
 
-export type TrailFacilityOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "trail_id" | "facility_type" | "trail_source_id" | "access_point_id" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id", ExtArgs["result"]["trailFacility"]>
+export type TrailFacilityOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "facility_type" | "trail_source_id" | "access_point_id" | "owner_id" | "visibility" | "notes" | "status" | "created_at" | "created_by_id" | "updated_at" | "updated_by_id" | "last_verified_at" | "last_verified_by_id", ExtArgs["result"]["trailFacility"]>
 export type TrailFacilityInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_verified_by?: boolean | Prisma.TrailFacility$last_verified_byArgs<ExtArgs>
-  trail?: boolean | Prisma.TrailDefaultArgs<ExtArgs>
   trail_source?: boolean | Prisma.TrailFacility$trail_sourceArgs<ExtArgs>
   access_point?: boolean | Prisma.TrailFacility$access_pointArgs<ExtArgs>
+  owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   trip_accommodation__trail_facility?: boolean | Prisma.TrailFacility$trip_accommodation__trail_facilityArgs<ExtArgs>
   _count?: boolean | Prisma.TrailFacilityCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -1799,17 +1933,17 @@ export type TrailFacilityIncludeCreateManyAndReturn<ExtArgs extends runtime.Type
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_verified_by?: boolean | Prisma.TrailFacility$last_verified_byArgs<ExtArgs>
-  trail?: boolean | Prisma.TrailDefaultArgs<ExtArgs>
   trail_source?: boolean | Prisma.TrailFacility$trail_sourceArgs<ExtArgs>
   access_point?: boolean | Prisma.TrailFacility$access_pointArgs<ExtArgs>
+  owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type TrailFacilityIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   created_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   updated_by?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   last_verified_by?: boolean | Prisma.TrailFacility$last_verified_byArgs<ExtArgs>
-  trail?: boolean | Prisma.TrailDefaultArgs<ExtArgs>
   trail_source?: boolean | Prisma.TrailFacility$trail_sourceArgs<ExtArgs>
   access_point?: boolean | Prisma.TrailFacility$access_pointArgs<ExtArgs>
+  owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $TrailFacilityPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1818,17 +1952,19 @@ export type $TrailFacilityPayload<ExtArgs extends runtime.Types.Extensions.Inter
     created_by: Prisma.$UserPayload<ExtArgs>
     updated_by: Prisma.$UserPayload<ExtArgs>
     last_verified_by: Prisma.$UserPayload<ExtArgs> | null
-    trail: Prisma.$TrailPayload<ExtArgs>
     trail_source: Prisma.$TrailSourcePayload<ExtArgs> | null
     access_point: Prisma.$AccessPointPayload<ExtArgs> | null
+    owner: Prisma.$UserPayload<ExtArgs>
     trip_accommodation__trail_facility: Prisma.$TripAccommodationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    trail_id: number
+    name: string
     facility_type: $Enums.FacilityType | null
     trail_source_id: number | null
     access_point_id: number | null
+    owner_id: number
+    visibility: $Enums.Visibility
     notes: string | null
     status: $Enums.Status
     created_at: Date
@@ -2234,9 +2370,9 @@ export interface Prisma__TrailFacilityClient<T, Null = never, ExtArgs extends ru
   created_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   updated_by<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   last_verified_by<T extends Prisma.TrailFacility$last_verified_byArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrailFacility$last_verified_byArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  trail<T extends Prisma.TrailDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrailDefaultArgs<ExtArgs>>): Prisma.Prisma__TrailClient<runtime.Types.Result.GetResult<Prisma.$TrailPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   trail_source<T extends Prisma.TrailFacility$trail_sourceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrailFacility$trail_sourceArgs<ExtArgs>>): Prisma.Prisma__TrailSourceClient<runtime.Types.Result.GetResult<Prisma.$TrailSourcePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   access_point<T extends Prisma.TrailFacility$access_pointArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrailFacility$access_pointArgs<ExtArgs>>): Prisma.Prisma__AccessPointClient<runtime.Types.Result.GetResult<Prisma.$AccessPointPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  owner<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   trip_accommodation__trail_facility<T extends Prisma.TrailFacility$trip_accommodation__trail_facilityArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrailFacility$trip_accommodation__trail_facilityArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TripAccommodationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2268,10 +2404,12 @@ export interface Prisma__TrailFacilityClient<T, Null = never, ExtArgs extends ru
  */
 export interface TrailFacilityFieldRefs {
   readonly id: Prisma.FieldRef<"TrailFacility", 'Int'>
-  readonly trail_id: Prisma.FieldRef<"TrailFacility", 'Int'>
+  readonly name: Prisma.FieldRef<"TrailFacility", 'String'>
   readonly facility_type: Prisma.FieldRef<"TrailFacility", 'FacilityType'>
   readonly trail_source_id: Prisma.FieldRef<"TrailFacility", 'Int'>
   readonly access_point_id: Prisma.FieldRef<"TrailFacility", 'Int'>
+  readonly owner_id: Prisma.FieldRef<"TrailFacility", 'Int'>
+  readonly visibility: Prisma.FieldRef<"TrailFacility", 'Visibility'>
   readonly notes: Prisma.FieldRef<"TrailFacility", 'String'>
   readonly status: Prisma.FieldRef<"TrailFacility", 'Status'>
   readonly created_at: Prisma.FieldRef<"TrailFacility", 'DateTime'>

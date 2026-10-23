@@ -88,6 +88,7 @@ export const ModelName = {
   TrailGearRequirement: 'TrailGearRequirement',
   TrailDifficulty: 'TrailDifficulty',
   TrailFacility: 'TrailFacility',
+  TrailFacilityRelation: 'TrailFacilityRelation',
   TrailUse: 'TrailUse',
   TrailProfile: 'TrailProfile',
   TrailProfileUse: 'TrailProfileUse',
@@ -110,7 +111,6 @@ export const ModelName = {
   UserGearPack: 'UserGearPack',
   UserGearPackItem: 'UserGearPackItem',
   UserPersonalArchive: 'UserPersonalArchive',
-  UserFeedback: 'UserFeedback',
   UserStickyNotes: 'UserStickyNotes',
   UserIdeaCapture: 'UserIdeaCapture',
   Trip: 'Trip',
@@ -130,7 +130,8 @@ export const ModelName = {
   CommunityPublicationItem: 'CommunityPublicationItem',
   CommunityPublicationAttachment: 'CommunityPublicationAttachment',
   RecordAction: 'RecordAction',
-  ContentReviewHistory: 'ContentReviewHistory'
+  ContentReviewHistory: 'ContentReviewHistory',
+  UserFeedback: 'UserFeedback'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -793,10 +794,12 @@ export type TrailDifficultyScalarFieldEnum = (typeof TrailDifficultyScalarFieldE
 
 export const TrailFacilityScalarFieldEnum = {
   id: 'id',
-  trail_id: 'trail_id',
+  name: 'name',
   facility_type: 'facility_type',
   trail_source_id: 'trail_source_id',
   access_point_id: 'access_point_id',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
   notes: 'notes',
   status: 'status',
   created_at: 'created_at',
@@ -808,6 +811,23 @@ export const TrailFacilityScalarFieldEnum = {
 } as const
 
 export type TrailFacilityScalarFieldEnum = (typeof TrailFacilityScalarFieldEnum)[keyof typeof TrailFacilityScalarFieldEnum]
+
+
+export const TrailFacilityRelationScalarFieldEnum = {
+  id: 'id',
+  trail_id: 'trail_id',
+  trail_facility_id: 'trail_facility_id',
+  status: 'status',
+  notes: 'notes',
+  created_by_id: 'created_by_id',
+  created_at: 'created_at',
+  updated_by_id: 'updated_by_id',
+  updated_at: 'updated_at',
+  last_verified_by_id: 'last_verified_by_id',
+  last_verified_at: 'last_verified_at'
+} as const
+
+export type TrailFacilityRelationScalarFieldEnum = (typeof TrailFacilityRelationScalarFieldEnum)[keyof typeof TrailFacilityRelationScalarFieldEnum]
 
 
 export const TrailUseScalarFieldEnum = {
@@ -839,11 +859,11 @@ export const TrailProfileScalarFieldEnum = {
   trail_difficulty_converted: 'trail_difficulty_converted',
   accessibility: 'accessibility',
   accessibility_notes: 'accessibility_notes',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
   profile_origin: 'profile_origin',
   trail_source_id: 'trail_source_id',
   authenticity_level: 'authenticity_level',
-  owner_id: 'owner_id',
-  visibility: 'visibility',
   is_official: 'is_official',
   edit_policy_override: 'edit_policy_override',
   notes: 'notes',
@@ -958,11 +978,11 @@ export const TrailGeometryScalarFieldEnum = {
   gpx_file_key: 'gpx_file_key',
   gpx_file_name: 'gpx_file_name',
   gpx_source_url: 'gpx_source_url',
+  owner_id: 'owner_id',
+  visibility: 'visibility',
   geometry_origin: 'geometry_origin',
   derived_from_id: 'derived_from_id',
   authenticity_level: 'authenticity_level',
-  owner_id: 'owner_id',
-  visibility: 'visibility',
   is_official: 'is_official',
   edit_policy_override: 'edit_policy_override',
   export_policy: 'export_policy',
@@ -1266,25 +1286,6 @@ export const UserPersonalArchiveScalarFieldEnum = {
 } as const
 
 export type UserPersonalArchiveScalarFieldEnum = (typeof UserPersonalArchiveScalarFieldEnum)[keyof typeof UserPersonalArchiveScalarFieldEnum]
-
-
-export const UserFeedbackScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  target_object_type: 'target_object_type',
-  target_object_id: 'target_object_id',
-  title: 'title',
-  content: 'content',
-  feedback_status: 'feedback_status',
-  created_at: 'created_at',
-  created_by_id: 'created_by_id',
-  updated_at: 'updated_at',
-  updated_by_id: 'updated_by_id',
-  last_reviewed_at: 'last_reviewed_at',
-  last_reviewed_by_id: 'last_reviewed_by_id'
-} as const
-
-export type UserFeedbackScalarFieldEnum = (typeof UserFeedbackScalarFieldEnum)[keyof typeof UserFeedbackScalarFieldEnum]
 
 
 export const UserStickyNotesScalarFieldEnum = {
@@ -1687,6 +1688,25 @@ export const ContentReviewHistoryScalarFieldEnum = {
 } as const
 
 export type ContentReviewHistoryScalarFieldEnum = (typeof ContentReviewHistoryScalarFieldEnum)[keyof typeof ContentReviewHistoryScalarFieldEnum]
+
+
+export const UserFeedbackScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  target_object_type: 'target_object_type',
+  target_object_id: 'target_object_id',
+  title: 'title',
+  content: 'content',
+  feedback_status: 'feedback_status',
+  created_at: 'created_at',
+  created_by_id: 'created_by_id',
+  updated_at: 'updated_at',
+  updated_by_id: 'updated_by_id',
+  last_reviewed_at: 'last_reviewed_at',
+  last_reviewed_by_id: 'last_reviewed_by_id'
+} as const
+
+export type UserFeedbackScalarFieldEnum = (typeof UserFeedbackScalarFieldEnum)[keyof typeof UserFeedbackScalarFieldEnum]
 
 
 export const SortOrder = {

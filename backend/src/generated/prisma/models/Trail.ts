@@ -410,7 +410,6 @@ export type TrailWhereInput = {
   trail_source__trail?: Prisma.TrailSourceListRelationFilter
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementListRelationFilter
   trail_difficulty__trail?: Prisma.TrailDifficultyListRelationFilter
-  trail_facility__trail?: Prisma.TrailFacilityListRelationFilter
   trail_profile__trail?: Prisma.TrailProfileListRelationFilter
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationListRelationFilter
   trail_geometry__trail?: Prisma.TrailGeometryListRelationFilter
@@ -460,7 +459,6 @@ export type TrailOrderByWithRelationInput = {
   trail_source__trail?: Prisma.TrailSourceOrderByRelationAggregateInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementOrderByRelationAggregateInput
   trail_difficulty__trail?: Prisma.TrailDifficultyOrderByRelationAggregateInput
-  trail_facility__trail?: Prisma.TrailFacilityOrderByRelationAggregateInput
   trail_profile__trail?: Prisma.TrailProfileOrderByRelationAggregateInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationOrderByRelationAggregateInput
   trail_geometry__trail?: Prisma.TrailGeometryOrderByRelationAggregateInput
@@ -514,7 +512,6 @@ export type TrailWhereUniqueInput = Prisma.AtLeast<{
   trail_source__trail?: Prisma.TrailSourceListRelationFilter
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementListRelationFilter
   trail_difficulty__trail?: Prisma.TrailDifficultyListRelationFilter
-  trail_facility__trail?: Prisma.TrailFacilityListRelationFilter
   trail_profile__trail?: Prisma.TrailProfileListRelationFilter
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationListRelationFilter
   trail_geometry__trail?: Prisma.TrailGeometryListRelationFilter
@@ -618,7 +615,6 @@ export type TrailCreateInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -661,7 +657,6 @@ export type TrailUncheckedCreateInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -703,7 +698,6 @@ export type TrailUpdateInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -746,7 +740,6 @@ export type TrailUncheckedUpdateInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -1318,20 +1311,6 @@ export type TrailUpdateOneRequiredWithoutTrail_difficulty__trailNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TrailUpdateToOneWithWhereWithoutTrail_difficulty__trailInput, Prisma.TrailUpdateWithoutTrail_difficulty__trailInput>, Prisma.TrailUncheckedUpdateWithoutTrail_difficulty__trailInput>
 }
 
-export type TrailCreateNestedOneWithoutTrail_facility__trailInput = {
-  create?: Prisma.XOR<Prisma.TrailCreateWithoutTrail_facility__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_facility__trailInput>
-  connectOrCreate?: Prisma.TrailCreateOrConnectWithoutTrail_facility__trailInput
-  connect?: Prisma.TrailWhereUniqueInput
-}
-
-export type TrailUpdateOneRequiredWithoutTrail_facility__trailNestedInput = {
-  create?: Prisma.XOR<Prisma.TrailCreateWithoutTrail_facility__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_facility__trailInput>
-  connectOrCreate?: Prisma.TrailCreateOrConnectWithoutTrail_facility__trailInput
-  upsert?: Prisma.TrailUpsertWithoutTrail_facility__trailInput
-  connect?: Prisma.TrailWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.TrailUpdateToOneWithWhereWithoutTrail_facility__trailInput, Prisma.TrailUpdateWithoutTrail_facility__trailInput>, Prisma.TrailUncheckedUpdateWithoutTrail_facility__trailInput>
-}
-
 export type TrailCreateNestedOneWithoutTrail_profile__trailInput = {
   create?: Prisma.XOR<Prisma.TrailCreateWithoutTrail_profile__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_profile__trailInput>
   connectOrCreate?: Prisma.TrailCreateOrConnectWithoutTrail_profile__trailInput
@@ -1516,7 +1495,6 @@ export type TrailCreateWithoutCreated_byInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -1558,7 +1536,6 @@ export type TrailUncheckedCreateWithoutCreated_byInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -1609,7 +1586,6 @@ export type TrailCreateWithoutUpdated_byInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -1651,7 +1627,6 @@ export type TrailUncheckedCreateWithoutUpdated_byInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -1702,7 +1677,6 @@ export type TrailCreateWithoutLast_verified_byInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -1744,7 +1718,6 @@ export type TrailUncheckedCreateWithoutLast_verified_byInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -1795,7 +1768,6 @@ export type TrailCreateWithoutOwnerInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -1837,7 +1809,6 @@ export type TrailUncheckedCreateWithoutOwnerInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -1982,7 +1953,6 @@ export type TrailCreateWithoutPreview_img_mediaInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -2024,7 +1994,6 @@ export type TrailUncheckedCreateWithoutPreview_img_mediaInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -2091,7 +2060,6 @@ export type TrailCreateWithoutTrail__derived_from_trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -2133,7 +2101,6 @@ export type TrailUncheckedCreateWithoutTrail__derived_from_trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -2179,7 +2146,6 @@ export type TrailCreateWithoutDerived_from_trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -2221,7 +2187,6 @@ export type TrailUncheckedCreateWithoutDerived_from_trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -2283,7 +2248,6 @@ export type TrailUpdateWithoutTrail__derived_from_trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -2325,7 +2289,6 @@ export type TrailUncheckedUpdateWithoutTrail__derived_from_trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -2382,7 +2345,6 @@ export type TrailCreateWithoutTrail_tag_relation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -2424,7 +2386,6 @@ export type TrailUncheckedCreateWithoutTrail_tag_relation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -2481,7 +2442,6 @@ export type TrailUpdateWithoutTrail_tag_relation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -2523,7 +2483,6 @@ export type TrailUncheckedUpdateWithoutTrail_tag_relation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -2564,7 +2523,6 @@ export type TrailCreateWithoutTrail_challenge__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -2606,7 +2564,6 @@ export type TrailUncheckedCreateWithoutTrail_challenge__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -2663,7 +2620,6 @@ export type TrailUpdateWithoutTrail_challenge__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -2705,7 +2661,6 @@ export type TrailUncheckedUpdateWithoutTrail_challenge__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -2746,7 +2701,6 @@ export type TrailCreateWithoutTrail_calendar__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -2788,7 +2742,6 @@ export type TrailUncheckedCreateWithoutTrail_calendar__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -2845,7 +2798,6 @@ export type TrailUpdateWithoutTrail_calendar__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -2887,7 +2839,6 @@ export type TrailUncheckedUpdateWithoutTrail_calendar__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -2928,7 +2879,6 @@ export type TrailCreateWithoutTrail_source__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -2970,7 +2920,6 @@ export type TrailUncheckedCreateWithoutTrail_source__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -3027,7 +2976,6 @@ export type TrailUpdateWithoutTrail_source__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -3069,7 +3017,6 @@ export type TrailUncheckedUpdateWithoutTrail_source__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -3110,7 +3057,6 @@ export type TrailCreateWithoutTrail_gear_requirement__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -3152,7 +3098,6 @@ export type TrailUncheckedCreateWithoutTrail_gear_requirement__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -3209,7 +3154,6 @@ export type TrailUpdateWithoutTrail_gear_requirement__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -3251,7 +3195,6 @@ export type TrailUncheckedUpdateWithoutTrail_gear_requirement__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -3292,7 +3235,6 @@ export type TrailCreateWithoutTrail_difficulty__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -3334,7 +3276,6 @@ export type TrailUncheckedCreateWithoutTrail_difficulty__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -3391,7 +3332,6 @@ export type TrailUpdateWithoutTrail_difficulty__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -3433,189 +3373,6 @@ export type TrailUncheckedUpdateWithoutTrail_difficulty__trailInput = {
   trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
-  trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
-  trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
-  trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
-  trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutTrailNestedInput
-  trail_segment_relation__child_trail?: Prisma.TrailSegmentRelationUncheckedUpdateManyWithoutChild_trailNestedInput
-  trail_transport_service__trail?: Prisma.TrailTransportServiceUncheckedUpdateManyWithoutTrailNestedInput
-  user_trail__trail?: Prisma.UserTrailUncheckedUpdateManyWithoutTrailNestedInput
-  trip_trail__trail?: Prisma.TripTrailUncheckedUpdateManyWithoutTrailNestedInput
-}
-
-export type TrailCreateWithoutTrail_facility__trailInput = {
-  name: string
-  region?: string | null
-  country?: string | null
-  start_point_name?: string | null
-  end_point_name?: string | null
-  is_trail_root?: boolean
-  trail_origin?: $Enums.DataOrigin
-  authenticity_level?: $Enums.AuthenticityLevel
-  visibility?: $Enums.Visibility
-  is_official?: boolean
-  edit_policy_override?: $Enums.EditPolicyOverride
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  updated_at?: Date | string
-  last_verified_at?: Date | string | null
-  created_by: Prisma.UserCreateNestedOneWithoutTrail__created_byInput
-  updated_by: Prisma.UserCreateNestedOneWithoutTrail__updated_byInput
-  last_verified_by?: Prisma.UserCreateNestedOneWithoutTrail__verified_byInput
-  owner?: Prisma.UserCreateNestedOneWithoutTrail__ownerInput
-  primary_profile?: Prisma.TrailProfileCreateNestedOneWithoutTrail__primary_profileInput
-  preview_img_media?: Prisma.MediaArchiveCreateNestedOneWithoutTrail__preview_img_mediaInput
-  derived_from_trail?: Prisma.TrailCreateNestedOneWithoutTrail__derived_from_trailInput
-  trail__derived_from_trail?: Prisma.TrailCreateNestedManyWithoutDerived_from_trailInput
-  trail_tag_relation__trail?: Prisma.TrailTagRelationCreateNestedManyWithoutTrailInput
-  trail_challenge__trail?: Prisma.TrailChallengeCreateNestedManyWithoutTrailInput
-  trail_calendar__trail?: Prisma.TrailCalendarCreateNestedManyWithoutTrailInput
-  trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
-  trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
-  trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
-  trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
-  trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
-  trail_segmentation__trail?: Prisma.TrailSegmentationCreateNestedManyWithoutTrailInput
-  trail_segment_relation__child_trail?: Prisma.TrailSegmentRelationCreateNestedManyWithoutChild_trailInput
-  trail_transport_service__trail?: Prisma.TrailTransportServiceCreateNestedManyWithoutTrailInput
-  user_trail__trail?: Prisma.UserTrailCreateNestedManyWithoutTrailInput
-  trip_trail__trail?: Prisma.TripTrailCreateNestedManyWithoutTrailInput
-}
-
-export type TrailUncheckedCreateWithoutTrail_facility__trailInput = {
-  id?: number
-  name: string
-  primary_profile_id?: number | null
-  region?: string | null
-  country?: string | null
-  start_point_name?: string | null
-  end_point_name?: string | null
-  preview_img_media_id?: number | null
-  is_trail_root?: boolean
-  trail_origin?: $Enums.DataOrigin
-  authenticity_level?: $Enums.AuthenticityLevel
-  derived_from_trail_id?: number | null
-  owner_id: number
-  visibility?: $Enums.Visibility
-  is_official?: boolean
-  edit_policy_override?: $Enums.EditPolicyOverride
-  notes?: string | null
-  status?: $Enums.Status
-  created_at?: Date | string
-  created_by_id: number
-  updated_at?: Date | string
-  updated_by_id: number
-  last_verified_at?: Date | string | null
-  last_verified_by_id?: number | null
-  trail__derived_from_trail?: Prisma.TrailUncheckedCreateNestedManyWithoutDerived_from_trailInput
-  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedCreateNestedManyWithoutTrailInput
-  trail_challenge__trail?: Prisma.TrailChallengeUncheckedCreateNestedManyWithoutTrailInput
-  trail_calendar__trail?: Prisma.TrailCalendarUncheckedCreateNestedManyWithoutTrailInput
-  trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
-  trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
-  trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
-  trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
-  trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
-  trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutTrailInput
-  trail_segment_relation__child_trail?: Prisma.TrailSegmentRelationUncheckedCreateNestedManyWithoutChild_trailInput
-  trail_transport_service__trail?: Prisma.TrailTransportServiceUncheckedCreateNestedManyWithoutTrailInput
-  user_trail__trail?: Prisma.UserTrailUncheckedCreateNestedManyWithoutTrailInput
-  trip_trail__trail?: Prisma.TripTrailUncheckedCreateNestedManyWithoutTrailInput
-}
-
-export type TrailCreateOrConnectWithoutTrail_facility__trailInput = {
-  where: Prisma.TrailWhereUniqueInput
-  create: Prisma.XOR<Prisma.TrailCreateWithoutTrail_facility__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_facility__trailInput>
-}
-
-export type TrailUpsertWithoutTrail_facility__trailInput = {
-  update: Prisma.XOR<Prisma.TrailUpdateWithoutTrail_facility__trailInput, Prisma.TrailUncheckedUpdateWithoutTrail_facility__trailInput>
-  create: Prisma.XOR<Prisma.TrailCreateWithoutTrail_facility__trailInput, Prisma.TrailUncheckedCreateWithoutTrail_facility__trailInput>
-  where?: Prisma.TrailWhereInput
-}
-
-export type TrailUpdateToOneWithWhereWithoutTrail_facility__trailInput = {
-  where?: Prisma.TrailWhereInput
-  data: Prisma.XOR<Prisma.TrailUpdateWithoutTrail_facility__trailInput, Prisma.TrailUncheckedUpdateWithoutTrail_facility__trailInput>
-}
-
-export type TrailUpdateWithoutTrail_facility__trailInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  start_point_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  end_point_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  is_trail_root?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
-  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
-  is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
-  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  created_by?: Prisma.UserUpdateOneRequiredWithoutTrail__created_byNestedInput
-  updated_by?: Prisma.UserUpdateOneRequiredWithoutTrail__updated_byNestedInput
-  last_verified_by?: Prisma.UserUpdateOneWithoutTrail__verified_byNestedInput
-  owner?: Prisma.UserUpdateOneWithoutTrail__ownerNestedInput
-  primary_profile?: Prisma.TrailProfileUpdateOneWithoutTrail__primary_profileNestedInput
-  preview_img_media?: Prisma.MediaArchiveUpdateOneWithoutTrail__preview_img_mediaNestedInput
-  derived_from_trail?: Prisma.TrailUpdateOneWithoutTrail__derived_from_trailNestedInput
-  trail__derived_from_trail?: Prisma.TrailUpdateManyWithoutDerived_from_trailNestedInput
-  trail_tag_relation__trail?: Prisma.TrailTagRelationUpdateManyWithoutTrailNestedInput
-  trail_challenge__trail?: Prisma.TrailChallengeUpdateManyWithoutTrailNestedInput
-  trail_calendar__trail?: Prisma.TrailCalendarUpdateManyWithoutTrailNestedInput
-  trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
-  trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
-  trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
-  trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
-  trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
-  trail_segmentation__trail?: Prisma.TrailSegmentationUpdateManyWithoutTrailNestedInput
-  trail_segment_relation__child_trail?: Prisma.TrailSegmentRelationUpdateManyWithoutChild_trailNestedInput
-  trail_transport_service__trail?: Prisma.TrailTransportServiceUpdateManyWithoutTrailNestedInput
-  user_trail__trail?: Prisma.UserTrailUpdateManyWithoutTrailNestedInput
-  trip_trail__trail?: Prisma.TripTrailUpdateManyWithoutTrailNestedInput
-}
-
-export type TrailUncheckedUpdateWithoutTrail_facility__trailInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  primary_profile_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  start_point_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  end_point_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  preview_img_media_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  is_trail_root?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  trail_origin?: Prisma.EnumDataOriginFieldUpdateOperationsInput | $Enums.DataOrigin
-  authenticity_level?: Prisma.EnumAuthenticityLevelFieldUpdateOperationsInput | $Enums.AuthenticityLevel
-  derived_from_trail_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  owner_id?: Prisma.IntFieldUpdateOperationsInput | number
-  visibility?: Prisma.EnumVisibilityFieldUpdateOperationsInput | $Enums.Visibility
-  is_official?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  edit_policy_override?: Prisma.EnumEditPolicyOverrideFieldUpdateOperationsInput | $Enums.EditPolicyOverride
-  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  created_by_id?: Prisma.IntFieldUpdateOperationsInput | number
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_by_id?: Prisma.IntFieldUpdateOperationsInput | number
-  last_verified_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  last_verified_by_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  trail__derived_from_trail?: Prisma.TrailUncheckedUpdateManyWithoutDerived_from_trailNestedInput
-  trail_tag_relation__trail?: Prisma.TrailTagRelationUncheckedUpdateManyWithoutTrailNestedInput
-  trail_challenge__trail?: Prisma.TrailChallengeUncheckedUpdateManyWithoutTrailNestedInput
-  trail_calendar__trail?: Prisma.TrailCalendarUncheckedUpdateManyWithoutTrailNestedInput
-  trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
-  trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
-  trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -3657,7 +3414,6 @@ export type TrailCreateWithoutTrail_profile__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
   trail_segmentation__trail?: Prisma.TrailSegmentationCreateNestedManyWithoutTrailInput
@@ -3699,7 +3455,6 @@ export type TrailUncheckedCreateWithoutTrail_profile__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutTrailInput
@@ -3744,7 +3499,6 @@ export type TrailCreateWithoutPrimary_profileInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -3786,7 +3540,6 @@ export type TrailUncheckedCreateWithoutPrimary_profileInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -3849,7 +3602,6 @@ export type TrailUpdateWithoutTrail_profile__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUpdateManyWithoutTrailNestedInput
@@ -3891,7 +3643,6 @@ export type TrailUncheckedUpdateWithoutTrail_profile__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutTrailNestedInput
@@ -3948,7 +3699,6 @@ export type TrailCreateWithoutTrail_access_point_relation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
   trail_segmentation__trail?: Prisma.TrailSegmentationCreateNestedManyWithoutTrailInput
@@ -3990,7 +3740,6 @@ export type TrailUncheckedCreateWithoutTrail_access_point_relation__trailInput =
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutTrailInput
@@ -4047,7 +3796,6 @@ export type TrailUpdateWithoutTrail_access_point_relation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUpdateManyWithoutTrailNestedInput
@@ -4089,7 +3837,6 @@ export type TrailUncheckedUpdateWithoutTrail_access_point_relation__trailInput =
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutTrailNestedInput
@@ -4130,7 +3877,6 @@ export type TrailCreateWithoutTrail_geometry__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_segmentation__trail?: Prisma.TrailSegmentationCreateNestedManyWithoutTrailInput
@@ -4172,7 +3918,6 @@ export type TrailUncheckedCreateWithoutTrail_geometry__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedCreateNestedManyWithoutTrailInput
@@ -4229,7 +3974,6 @@ export type TrailUpdateWithoutTrail_geometry__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUpdateManyWithoutTrailNestedInput
@@ -4271,7 +4015,6 @@ export type TrailUncheckedUpdateWithoutTrail_geometry__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_segmentation__trail?: Prisma.TrailSegmentationUncheckedUpdateManyWithoutTrailNestedInput
@@ -4312,7 +4055,6 @@ export type TrailCreateWithoutTrail_segmentation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -4354,7 +4096,6 @@ export type TrailUncheckedCreateWithoutTrail_segmentation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -4411,7 +4152,6 @@ export type TrailUpdateWithoutTrail_segmentation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -4453,7 +4193,6 @@ export type TrailUncheckedUpdateWithoutTrail_segmentation__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -4494,7 +4233,6 @@ export type TrailCreateWithoutTrail_segment_relation__child_trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -4536,7 +4274,6 @@ export type TrailUncheckedCreateWithoutTrail_segment_relation__child_trailInput 
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -4593,7 +4330,6 @@ export type TrailUpdateWithoutTrail_segment_relation__child_trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -4635,7 +4371,6 @@ export type TrailUncheckedUpdateWithoutTrail_segment_relation__child_trailInput 
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -4676,7 +4411,6 @@ export type TrailCreateWithoutTrail_transport_service__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -4718,7 +4452,6 @@ export type TrailUncheckedCreateWithoutTrail_transport_service__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -4775,7 +4508,6 @@ export type TrailUpdateWithoutTrail_transport_service__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -4817,7 +4549,6 @@ export type TrailUncheckedUpdateWithoutTrail_transport_service__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -4858,7 +4589,6 @@ export type TrailCreateWithoutUser_trail__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -4900,7 +4630,6 @@ export type TrailUncheckedCreateWithoutUser_trail__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -4957,7 +4686,6 @@ export type TrailUpdateWithoutUser_trail__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -4999,7 +4727,6 @@ export type TrailUncheckedUpdateWithoutUser_trail__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -5040,7 +4767,6 @@ export type TrailCreateWithoutTrip_trail__trailInput = {
   trail_source__trail?: Prisma.TrailSourceCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryCreateNestedManyWithoutTrailInput
@@ -5082,7 +4808,6 @@ export type TrailUncheckedCreateWithoutTrip_trail__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedCreateNestedManyWithoutTrailInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedCreateNestedManyWithoutTrailInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedCreateNestedManyWithoutTrailInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedCreateNestedManyWithoutTrailInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedCreateNestedManyWithoutTrailInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedCreateNestedManyWithoutTrailInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedCreateNestedManyWithoutTrailInput
@@ -5139,7 +4864,6 @@ export type TrailUpdateWithoutTrip_trail__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -5181,7 +4905,6 @@ export type TrailUncheckedUpdateWithoutTrip_trail__trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -5325,7 +5048,6 @@ export type TrailUpdateWithoutCreated_byInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -5367,7 +5089,6 @@ export type TrailUncheckedUpdateWithoutCreated_byInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -5434,7 +5155,6 @@ export type TrailUpdateWithoutUpdated_byInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -5476,7 +5196,6 @@ export type TrailUncheckedUpdateWithoutUpdated_byInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -5543,7 +5262,6 @@ export type TrailUpdateWithoutLast_verified_byInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -5585,7 +5303,6 @@ export type TrailUncheckedUpdateWithoutLast_verified_byInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -5652,7 +5369,6 @@ export type TrailUpdateWithoutOwnerInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -5694,7 +5410,6 @@ export type TrailUncheckedUpdateWithoutOwnerInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -5787,7 +5502,6 @@ export type TrailUpdateWithoutPreview_img_mediaInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -5829,7 +5543,6 @@ export type TrailUncheckedUpdateWithoutPreview_img_mediaInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -5922,7 +5635,6 @@ export type TrailUpdateWithoutDerived_from_trailInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -5964,7 +5676,6 @@ export type TrailUncheckedUpdateWithoutDerived_from_trailInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -6057,7 +5768,6 @@ export type TrailUpdateWithoutPrimary_profileInput = {
   trail_source__trail?: Prisma.TrailSourceUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUpdateManyWithoutTrailNestedInput
@@ -6099,7 +5809,6 @@ export type TrailUncheckedUpdateWithoutPrimary_profileInput = {
   trail_source__trail?: Prisma.TrailSourceUncheckedUpdateManyWithoutTrailNestedInput
   trail_gear_requirement__trail?: Prisma.TrailGearRequirementUncheckedUpdateManyWithoutTrailNestedInput
   trail_difficulty__trail?: Prisma.TrailDifficultyUncheckedUpdateManyWithoutTrailNestedInput
-  trail_facility__trail?: Prisma.TrailFacilityUncheckedUpdateManyWithoutTrailNestedInput
   trail_profile__trail?: Prisma.TrailProfileUncheckedUpdateManyWithoutTrailNestedInput
   trail_access_point_relation__trail?: Prisma.TrailAccessPointRelationUncheckedUpdateManyWithoutTrailNestedInput
   trail_geometry__trail?: Prisma.TrailGeometryUncheckedUpdateManyWithoutTrailNestedInput
@@ -6149,7 +5858,6 @@ export type TrailCountOutputType = {
   trail_source__trail: number
   trail_gear_requirement__trail: number
   trail_difficulty__trail: number
-  trail_facility__trail: number
   trail_profile__trail: number
   trail_access_point_relation__trail: number
   trail_geometry__trail: number
@@ -6168,7 +5876,6 @@ export type TrailCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.
   trail_source__trail?: boolean | TrailCountOutputTypeCountTrail_source__trailArgs
   trail_gear_requirement__trail?: boolean | TrailCountOutputTypeCountTrail_gear_requirement__trailArgs
   trail_difficulty__trail?: boolean | TrailCountOutputTypeCountTrail_difficulty__trailArgs
-  trail_facility__trail?: boolean | TrailCountOutputTypeCountTrail_facility__trailArgs
   trail_profile__trail?: boolean | TrailCountOutputTypeCountTrail_profile__trailArgs
   trail_access_point_relation__trail?: boolean | TrailCountOutputTypeCountTrail_access_point_relation__trailArgs
   trail_geometry__trail?: boolean | TrailCountOutputTypeCountTrail_geometry__trailArgs
@@ -6236,13 +5943,6 @@ export type TrailCountOutputTypeCountTrail_gear_requirement__trailArgs<ExtArgs e
  */
 export type TrailCountOutputTypeCountTrail_difficulty__trailArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.TrailDifficultyWhereInput
-}
-
-/**
- * TrailCountOutputType without action
- */
-export type TrailCountOutputTypeCountTrail_facility__trailArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.TrailFacilityWhereInput
 }
 
 /**
@@ -6341,7 +6041,6 @@ export type TrailSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   trail_source__trail?: boolean | Prisma.Trail$trail_source__trailArgs<ExtArgs>
   trail_gear_requirement__trail?: boolean | Prisma.Trail$trail_gear_requirement__trailArgs<ExtArgs>
   trail_difficulty__trail?: boolean | Prisma.Trail$trail_difficulty__trailArgs<ExtArgs>
-  trail_facility__trail?: boolean | Prisma.Trail$trail_facility__trailArgs<ExtArgs>
   trail_profile__trail?: boolean | Prisma.Trail$trail_profile__trailArgs<ExtArgs>
   trail_access_point_relation__trail?: boolean | Prisma.Trail$trail_access_point_relation__trailArgs<ExtArgs>
   trail_geometry__trail?: boolean | Prisma.Trail$trail_geometry__trailArgs<ExtArgs>
@@ -6464,7 +6163,6 @@ export type TrailInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   trail_source__trail?: boolean | Prisma.Trail$trail_source__trailArgs<ExtArgs>
   trail_gear_requirement__trail?: boolean | Prisma.Trail$trail_gear_requirement__trailArgs<ExtArgs>
   trail_difficulty__trail?: boolean | Prisma.Trail$trail_difficulty__trailArgs<ExtArgs>
-  trail_facility__trail?: boolean | Prisma.Trail$trail_facility__trailArgs<ExtArgs>
   trail_profile__trail?: boolean | Prisma.Trail$trail_profile__trailArgs<ExtArgs>
   trail_access_point_relation__trail?: boolean | Prisma.Trail$trail_access_point_relation__trailArgs<ExtArgs>
   trail_geometry__trail?: boolean | Prisma.Trail$trail_geometry__trailArgs<ExtArgs>
@@ -6511,7 +6209,6 @@ export type $TrailPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     trail_source__trail: Prisma.$TrailSourcePayload<ExtArgs>[]
     trail_gear_requirement__trail: Prisma.$TrailGearRequirementPayload<ExtArgs>[]
     trail_difficulty__trail: Prisma.$TrailDifficultyPayload<ExtArgs>[]
-    trail_facility__trail: Prisma.$TrailFacilityPayload<ExtArgs>[]
     trail_profile__trail: Prisma.$TrailProfilePayload<ExtArgs>[]
     trail_access_point_relation__trail: Prisma.$TrailAccessPointRelationPayload<ExtArgs>[]
     trail_geometry__trail: Prisma.$TrailGeometryPayload<ExtArgs>[]
@@ -6954,7 +6651,6 @@ export interface Prisma__TrailClient<T, Null = never, ExtArgs extends runtime.Ty
   trail_source__trail<T extends Prisma.Trail$trail_source__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_source__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailSourcePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trail_gear_requirement__trail<T extends Prisma.Trail$trail_gear_requirement__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_gear_requirement__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailGearRequirementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trail_difficulty__trail<T extends Prisma.Trail$trail_difficulty__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_difficulty__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailDifficultyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  trail_facility__trail<T extends Prisma.Trail$trail_facility__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_facility__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailFacilityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trail_profile__trail<T extends Prisma.Trail$trail_profile__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_profile__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trail_access_point_relation__trail<T extends Prisma.Trail$trail_access_point_relation__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_access_point_relation__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailAccessPointRelationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trail_geometry__trail<T extends Prisma.Trail$trail_geometry__trailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trail$trail_geometry__trailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrailGeometryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -7677,30 +7373,6 @@ export type Trail$trail_difficulty__trailArgs<ExtArgs extends runtime.Types.Exte
   take?: number
   skip?: number
   distinct?: Prisma.TrailDifficultyScalarFieldEnum | Prisma.TrailDifficultyScalarFieldEnum[]
-}
-
-/**
- * Trail.trail_facility__trail
- */
-export type Trail$trail_facility__trailArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the TrailFacility
-   */
-  select?: Prisma.TrailFacilitySelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TrailFacility
-   */
-  omit?: Prisma.TrailFacilityOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TrailFacilityInclude<ExtArgs> | null
-  where?: Prisma.TrailFacilityWhereInput
-  orderBy?: Prisma.TrailFacilityOrderByWithRelationInput | Prisma.TrailFacilityOrderByWithRelationInput[]
-  cursor?: Prisma.TrailFacilityWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.TrailFacilityScalarFieldEnum | Prisma.TrailFacilityScalarFieldEnum[]
 }
 
 /**

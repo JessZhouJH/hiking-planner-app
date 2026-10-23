@@ -6,6 +6,7 @@ export type model = {
     name: string
     requiresReview: boolean
     permissions: string[]
+    requiresOwner: boolean
 }
 export type module = {
     name: string
@@ -38,6 +39,7 @@ export const VERIFY_MODEL_NAMES: string[] = [
     'Trail',
     'TrailDifficulty',
     'TrailFacility',
+    'TrailFacilityRelation',
     'TrailProfile',
     'AccessPoint',
     'TrailAccessPointRelation',
@@ -60,6 +62,21 @@ export const VERIFY_MODEL_NAMES: string[] = [
     'ContentReviewHistory',
 ]
 export const USER_MANAGED_MODULES: string[] = ['Trip', 'Personal']
+
+export const OWNER_REQUIRED_MODELS: string[] = [
+    'Gear',
+    'DescriptiveGear',
+    'GearPack',
+    'Trail',
+    'TrailProfile',
+    'AccessPoint',
+    'TrailGeometry',
+    'TrailSegmentation',
+    'MealPack',
+    'MealItem',
+    'Colleciton',
+
+]
 
 export const ACCESS_CONTROL_MODULE_MODELS = [
     'User',
@@ -106,6 +123,7 @@ export const TRAIL_MODULE_MODELS = [
     'TrailGearRequirement',
     'TrailDifficulty',
     'TrailFacility',
+    'TrailFacilityRelation',
     'TrailUse',
     'TrailProfile',
     'TrailProfileUse',
@@ -177,10 +195,12 @@ export function generateModelInfo() {
                 modelPermissions.push(currentPermission)
             }
             let requiresReview: boolean = VERIFY_MODEL_NAMES.indexOf(model) > -1
+            let requiresOwner: boolean = OWNER_REQUIRED_MODELS.indexOf(model) > -1
             let currentModel: model = {
                 name: model,
                 requiresReview: requiresReview,
                 permissions: modelPermissions,
+                requiresOwner: requiresOwner
             }
             if (requiresReview) {
                 currentModel.permissions.push(`${model}.verify`)

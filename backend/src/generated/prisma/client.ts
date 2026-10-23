@@ -227,6 +227,11 @@ export type TrailDifficulty = Prisma.TrailDifficultyModel
  */
 export type TrailFacility = Prisma.TrailFacilityModel
 /**
+ * Model TrailFacilityRelation
+ * 
+ */
+export type TrailFacilityRelation = Prisma.TrailFacilityRelationModel
+/**
  * Model TrailUse
  * 
  */
@@ -337,11 +342,6 @@ export type UserGearPackItem = Prisma.UserGearPackItemModel
  */
 export type UserPersonalArchive = Prisma.UserPersonalArchiveModel
 /**
- * Model UserFeedback
- * 
- */
-export type UserFeedback = Prisma.UserFeedbackModel
-/**
  * Model UserStickyNotes
  * 
  */
@@ -441,3 +441,8 @@ export type RecordAction = Prisma.RecordActionModel
  * 
  */
 export type ContentReviewHistory = Prisma.ContentReviewHistoryModel
+/**
+ * Model UserFeedback
+ * 
+ */
+export type UserFeedback = Prisma.UserFeedbackModel

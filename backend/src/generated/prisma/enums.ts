@@ -518,6 +518,23 @@ export const SelectedTargetType = {
 export type SelectedTargetType = (typeof SelectedTargetType)[keyof typeof SelectedTargetType]
 
 
+export const TargetWithOwnerType = {
+  GEAR: 'GEAR',
+  DESCRIPTIVE_GEAR: 'DESCRIPTIVE_GEAR',
+  GEAR_PACK: 'GEAR_PACK',
+  TRAIL: 'TRAIL',
+  TRAIL_PROFILE: 'TRAIL_PROFILE',
+  ACCESS_POINT: 'ACCESS_POINT',
+  TRAIL_GEOMETRY: 'TRAIL_GEOMETRY',
+  TRAIL_SEGMENTATION: 'TRAIL_SEGMENTATION',
+  MEAL_PACK: 'MEAL_PACK',
+  MEAL_ITEM: 'MEAL_ITEM',
+  COLLECITON: 'COLLECITON'
+} as const
+
+export type TargetWithOwnerType = (typeof TargetWithOwnerType)[keyof typeof TargetWithOwnerType]
+
+
 export const ReminderStatus = {
   UNSPECIFIED: 'UNSPECIFIED',
   OPEN: 'OPEN',
