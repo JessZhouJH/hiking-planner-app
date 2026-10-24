@@ -1,13 +1,14 @@
 import { prisma } from '../db/prisma.js'
 
 import { SelectedTargetType, Status, Visibility } from '../generated/prisma/enums.js'
-import { ACTION_TYPES, model, OWNER_REQUIRED_MODELS } from '../common/model-info.js'
+import { ACTION_TYPES, model, OWNER_REQUIRED_MODELS, ROLE_TYPES } from '../common/model-info.js'
 import { SYSTEM_USER_ID } from '../constants/macros.js'
 
 import {
     ForbiddenError,
     NotFoundError,
-    InternalServerError
+    InternalServerError,
+    BadRequestError
 } from '../common/error-handler.js'
 
 import { findNonArchiveRoleByName } from '../services/access-control/role.query.js'
@@ -23,6 +24,165 @@ if (!admin_role || !moderator_role) {
 }
 const admin_role_id = admin_role.id
 const moderator_role_id = moderator_role.id
+
+/**
+ * multifactorAccessCheck()
+ * Helper function to check whether the system generally allow the user to perform desired action on certain object by considering:
+ * - object's ownership
+ * - object's status
+ * - object's visibility
+ * - actor identity
+ * **/
+export function multifactorAccessCheck(
+    actor_user_id: number,
+    owner_id: number,
+    is_user_admin: boolean,
+    is_user_moderator: boolean,
+    status: Status,
+    visibility: Visibility
+) {
+    const is_owner = actor_user_id === owner_id
+    const is_system_owned = owner_id === SYSTEM_USER_ID
+
+    let user_role_type: ROLE_TYPES = is_user_admin
+        ? ROLE_TYPES.ADMIN
+        : is_user_moderator
+            ? ROLE_TYPES.MODERATOR
+            : ROLE_TYPES.USER
+
+    // CREATE is always allowed as long as user has the permission as long as user is not moderator
+    let allowed_action_list: ACTION_TYPES[] = []
+    if (user_role_type !== ROLE_TYPES.MODERATOR){
+        allowed_action_list.push(ACTION_TYPES.CREATE)
+    }
+
+    /** 
+     * Case ground rules
+     * 1) owners can always read, update, and delete but not verify their owned records 
+     * 2) moderators only have read-only access unless the record is ready to verify (Public/Restricted + ACTIVE/PENDING)
+     * 3) archived records are immutable and thue read-only
+     * 4) general users have and only have read access to non self-owned records that are publically visible
+     * **/
+    switch(status) {
+        case Status.ACTIVE:
+            // owners can always read, update, and delete their owned records
+            if (is_owner) {
+                allowed_action_list.push(ACTION_TYPES.READ)
+                allowed_action_list.push(ACTION_TYPES.UPDATE)
+                allowed_action_list.push(ACTION_TYPES.DELETE)
+                break
+            }
+            // general users have read-only access to active public records
+            else if (user_role_type === ROLE_TYPES.USER) {
+                if (visibility === Visibility.PUBLIC) {
+                    allowed_action_list.push(ACTION_TYPES.READ)
+                }
+            } else {
+                // admin/moderator have read, update, delete(admin-only), verify access to system-owned records
+                if (is_system_owned) {
+                    allowed_action_list.push(ACTION_TYPES.READ)
+                    allowed_action_list.push(ACTION_TYPES.UPDATE)
+                    allowed_action_list.push(ACTION_TYPES.VERIFY)
+                    if (user_role_type === ROLE_TYPES.ADMIN) {
+                        allowed_action_list.push(ACTION_TYPES.DELETE)
+                    }
+                } 
+                // admin/moderator have read, update, verify access to user-owned records with public/restrcited visibility
+                else if (visibility === Visibility.PUBLIC || visibility === Visibility.RESTRICTED) {
+                    allowed_action_list.push(ACTION_TYPES.READ)
+                    allowed_action_list.push(ACTION_TYPES.UPDATE)
+                    allowed_action_list.push(ACTION_TYPES.VERIFY)
+                }
+            }
+            // general users are not allowed to access not self-owned active record that is not publically visible
+            // admin/moderator are not allowed to access user-owned records with private/unspecified visibility
+            break
+        
+        case Status.INACTIVE:
+            // no verification allowed for inactive record
+            // owners can always read, update, and delete their owned records
+            if (is_owner) {
+                allowed_action_list.push(ACTION_TYPES.READ)
+                allowed_action_list.push(ACTION_TYPES.UPDATE)
+                allowed_action_list.push(ACTION_TYPES.DELETE)
+                break
+            }
+
+            else if (user_role_type !== ROLE_TYPES.USER) {
+                // admin/moderator have read, update(admin-only), delete(admin-only) access to system-owned records
+                if (is_system_owned) {
+                    allowed_action_list.push(ACTION_TYPES.READ)
+                    if (user_role_type === ROLE_TYPES.ADMIN) {
+                        allowed_action_list.push(ACTION_TYPES.UPDATE)
+                        allowed_action_list.push(ACTION_TYPES.DELETE)
+                    }
+                } else {
+                    // admin/moderator have read-only access to user-owned records with public/restricted visibility
+                    if (visibility === Visibility.PUBLIC ||  visibility === Visibility.RESTRICTED) {
+                        allowed_action_list.push(ACTION_TYPES.READ)
+                    }
+                }
+            }
+
+            // general users are not allowed to access not self-owned inactive record
+            // admin/moderator are not allowed to access user-owned records with private/unspecified visibility
+            break
+        
+        case Status.PENDING:
+            // owners can always read, update, and delete their owned records
+            if (is_owner) {
+                allowed_action_list.push(ACTION_TYPES.READ)
+                allowed_action_list.push(ACTION_TYPES.UPDATE)
+                allowed_action_list.push(ACTION_TYPES.DELETE)
+                break
+            }
+            
+            else if (user_role_type !== ROLE_TYPES.USER) {
+                // admin/moderator have read, update, delete(admin-only), verify access to system-owned records
+                if (is_system_owned) {
+                    allowed_action_list.push(ACTION_TYPES.READ)
+                    allowed_action_list.push(ACTION_TYPES.UPDATE)
+                    allowed_action_list.push(ACTION_TYPES.VERIFY)
+                    if (user_role_type === ROLE_TYPES.ADMIN) {
+                        allowed_action_list.push(ACTION_TYPES.DELETE)
+                    }
+                } else {
+                    // admin/moderator have read, update, verify access to user-owned records with public/restricted visibility
+                    if (visibility === Visibility.PUBLIC ||  visibility === Visibility.RESTRICTED) {
+                        allowed_action_list.push(ACTION_TYPES.READ)
+                        allowed_action_list.push(ACTION_TYPES.UPDATE)
+                        allowed_action_list.push(ACTION_TYPES.VERIFY)
+                    }
+                }
+            }
+            
+            // general users are not allowed to access not self-owned pending record
+            // admin/moderator are not allowed to access user-owned records with private/unspecified visibility
+            break
+        
+        case Status.ARCHIVED:
+            // owners can always read their owned records but cannot action on it once archived
+            if (is_owner) {
+                allowed_action_list.push(ACTION_TYPES.READ)
+                break
+            }
+            // admin/moderator have Read-only access to public and restricted records, as well as system-owned private/unspecified record
+            else if (user_role_type !== ROLE_TYPES.USER) {
+                    if (visibility === Visibility.PUBLIC || 
+                        visibility === Visibility.RESTRICTED || 
+                        is_system_owned
+                ) {
+                    allowed_action_list.push(ACTION_TYPES.READ)
+                }
+            }
+            // general users are not allowed to access not self-owned archived record
+            // admin/moderator are not allowed to access user-owned records with private/unspecified visibility
+            break
+        
+    }
+    
+    return allowed_action_list
+}
 
 /**
  * requireAuthorisedUser()
@@ -65,95 +225,36 @@ export async function requireAuthorisedUser(
     return user_authorised_as_role_ids
 }
 
-export async function requireAuthorisedUserOrUser(
+/**
+ * authenticateUserPermission()
+ * Helper function to check whether the user is allowed to perform the desired action on the target object by considering:
+ * - whether the user has been granted with a role that has been granted with the corresponding permission to perform certain action
+ * - whether the system generally allow perform certain action of the object by considering its ownership, status, visibility, and actor identity
+ * **/
+export async function authenticateUserPermission(
     object_model: model,
     actor_user_id: number,
     owner_id: number,
     action_access: ACTION_TYPES,
+    object_status: Status,
     object_visibility: Visibility
 ) {
-    const is_owner = actor_user_id === owner_id
     /** Check whether the user has the required permission **/
     const user_allowed_role_ids = await requireAuthorisedUser(actor_user_id, object_model.name, action_access)
     const is_user_admin = user_allowed_role_ids.indexOf(admin_role_id) > -1
     const is_user_moderator = user_allowed_role_ids.indexOf(moderator_role_id) > -1
-    const is_user_admin_or_moderator = is_user_admin || is_user_moderator
 
-    switch (action_access) {
-        case ACTION_TYPES.VERIFY:
-            // Owner cannot verify their own object regarless of role
-            if (is_owner)
-                throw new ForbiddenError('User cannot verify their owned objects.')
-            // Admin and moderator can verify system owned object regarless of visibility
-            if (owner_id === SYSTEM_USER_ID) 
-                return true
-            // General content can only be verified if they're set to be publically visible or restricted (accessible by admin/moderator and owner)
-            if (object_visibility === Visibility.PUBLIC || object_visibility === Visibility.RESTRICTED) 
-                return true
-
-            throw new ForbiddenError('The object is currently unable to view and verify due to owner\'s visibility restriction.')
-            
-        case ACTION_TYPES.CREATE:
-            return true
-        
-        case ACTION_TYPES.READ:
-            if (is_owner)
-                return true
-            if (is_user_admin_or_moderator) {
-                // Admin and moderator can read system owned object regarless of visibility
-                if (owner_id === SYSTEM_USER_ID) 
-                    return true
-                // Admin and moderator can read general content if its set to publically visible or restricted (accessible by admin/moderator and owner)
-                if (object_visibility === Visibility.PUBLIC || object_visibility === Visibility.RESTRICTED)
-                    return true
-            } else {
-                // General content can only be read if they're set to be publically visible
-                if (object_visibility === Visibility.PUBLIC) 
-                    return true
-            }
-            throw new ForbiddenError('The owner has not authorised you to view the object.')
-        
-        case ACTION_TYPES.UPDATE:
-            if (is_owner)
-                return true
-            if (is_user_admin_or_moderator) {
-                // Admin and moderator can update system owned object regarless of visibility
-                if (owner_id === SYSTEM_USER_ID) 
-                    return true
-                // Admin and moderator can read general content if its visibility has been set to restricted--under review process (accessible by admin/moderator and owner)
-                if (object_visibility === Visibility.RESTRICTED)
-                    return true
-            }
-            throw new ForbiddenError('The owner has not authorised you to update the object.')
-        
-        case ACTION_TYPES.DELETE:
-            if (is_owner)
-                return true
-            // Admin can delete system owned object regarless of visibility
-            if (is_user_admin && owner_id === SYSTEM_USER_ID)
-                return true
-
-            throw new ForbiddenError('Only the owner can delete the object.')
-        
-        case ACTION_TYPES.EXPORT:
-            if (is_owner)
-                return true
-            if (is_user_admin_or_moderator) {
-                // Admin and moderator can read system owned object regarless of visibility
-                if (owner_id === SYSTEM_USER_ID) 
-                    return true
-                // Admin and moderator can read general content if its set to publically visible or restricted (accessible by admin/moderator and owner)
-                if (object_visibility === Visibility.PUBLIC || object_visibility === Visibility.RESTRICTED)
-                    return true
-            } else {
-                // General content can only be read if they're set to be publically visible
-                if (object_visibility === Visibility.PUBLIC) 
-                    return true
-            }
-            throw new ForbiddenError('The owner has not authorised you to view the object.')
-
-        default:
-            throw new ForbiddenError('Action denied following general procedure.')
-
+    /** Check what actions are generally allowed for this object **/
+    const allowed_action_list = multifactorAccessCheck(
+        actor_user_id,
+        owner_id,
+        is_user_admin,
+        is_user_moderator,
+        object_status,
+        object_visibility
+    )
+    if (allowed_action_list.indexOf(action_access) < 0) {
+        throw new ForbiddenError('The object does not allow performing desired action.')
     }
+    return true
 }

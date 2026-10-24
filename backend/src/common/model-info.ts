@@ -14,6 +14,12 @@ export type module = {
     managedBy: managedBy
 }
 
+export enum ROLE_TYPES {
+    ADMIN,
+    MODERATOR,
+    USER
+}
+
 export const GENERAL_ACCESS = ['create', 'read', 'update', 'delete']
 export const VERIFICATION_ACCESS = 'verify'
 export const EXPORT_ACCESS = 'export'

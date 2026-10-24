@@ -1,12 +1,22 @@
 import { prisma } from '../../db/prisma.js'
 
 import { Status, Visibility, ProductionStatus } from '../../generated/prisma/enums.js'
+import { SYSTEM_USER_ID } from '../../constants/macros.js'
 import type { Gear } from '../../generated/prisma/client.js'
+
+import { requireAuthorisedUser } from '../../auth/access-validation.js'
+import { BadRequestError, NotFoundError, ConflictError } from '../../common/error-handler.js'
+
+import { stringProcessing, stringToTitleCase } from '../../common/string-processing.js'
 
 export async function findGearById( id: number ){
     return await prisma.gear.findUnique( {where: { id: id} })
 }
 
+/**
+ * findNonArchivedGearByNameAndOwner()
+ * Helper function to check whether the user has already owned another gear pack with same name
+ * **/
 export async function findNonArchivedGearByNameAndOwner (
     name: string,
     owner_id: number
@@ -21,6 +31,7 @@ export async function findNonArchivedGearByNameAndOwner (
         }
     })
 }
+
 
 /**
  * isInputIdenticalToDb()
@@ -112,4 +123,24 @@ export async function upsertGearData(
             updated_by_id: actor_user_id
         }
     })
+}
+
+export async function createGear() {
+
+}
+
+export async function getGear(
+    id: number,
+    actor_user_id: number
+) {
+    // check whether the target gear 
+
+}
+
+export async function updateGear() {
+    
+}
+
+export async function deleteGear() {
+    
 }
